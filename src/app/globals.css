@@ -1,0 +1,132 @@
+/* 1. Add Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Add Base Layer Customizations */
+@layer base {
+  /* Apply base font via layout.tsx body className */
+  body {
+    @apply text-base antialiased bg-gray-50 text-gray-800; /* Removed font-sans as it's applied via body className */
+  }
+
+  /* Apply heading font via tailwind.config.ts and utilities */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight font-bold;
+    /* Removed explicit font-family and letter-spacing */
+  }
+
+  /* Keep specific heading size/weight styles */
+  h1 {
+    font-size: clamp(2.5rem, 1.5rem + 5vw, 4.5rem);
+    font-weight: 800; /* Cannot be fully replicated with Tailwind utilities easily */
+  }
+  h2 {
+    font-size: clamp(2.25rem, 1.4rem + 4vw, 3.75rem);
+  }
+  h3 {
+    font-size: clamp(1.75rem, 1.2rem + 2.5vw, 2.5rem);
+  }
+
+  p {
+    @apply leading-relaxed text-base text-gray-600;
+  }
+
+  /* Keep custom utility classes if needed */
+  .text-lg {
+    font-size: 1.125rem;
+  }
+  .text-xl {
+    font-size: 1.25rem;
+  }
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+}
+
+/* 3. REMOVED @font-face rules - Handled by next/font */
+
+/* 4. Add Custom Component Styles & Animations */
+@layer components {
+  /* Animated Button - Converted to use Tailwind theme colors where possible */
+  .animated-btn {
+    background: theme('colors.gray.700');
+    border: 2px solid theme('colors.teal.700'); /* Adjusted color slightly */
+    border-radius: 0;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    overflow: hidden;
+    transition: background-color .3s ease,transform .2s ease;
+    padding: 0.6rem 1.75rem; /* Equivalent px-7 py-2.5? Adjust as needed */
+  }
+  .animated-btn:hover {
+    background: theme('colors.gray.600'); /* Adjusted color */
+    transform: translateY(-2px);
+  }
+  .animated-btn:focus-visible {
+    outline: 3px solid theme('colors.teal.300'); /* Adjusted color */
+    outline-offset: 2px;
+  }
+  .animated-btn span:first-child {
+    color: #fff;
+    z-index: 10;
+    position: relative;
+    font-weight: 700;
+  }
+  .animated-btn span:nth-child(n+2) {
+    position: absolute;
+    display: block;
+    background: linear-gradient(transparent, theme('colors.teal.500')); /* Adjusted color */
+  }
+  .animated-btn span:nth-child(2) { top:0;left:-100%;width:100%;height:2px;background:linear-gradient(to right,transparent,theme('colors.teal.500'));animation:animate1 2s linear infinite;animation-delay:0s }
+  .animated-btn span:nth-child(3) { top:-100%;right:0;width:2px;height:100%;background:linear-gradient(to bottom,transparent,theme('colors.teal.500'));animation:animate2 2s linear infinite;animation-delay:.5s }
+  .animated-btn span:nth-child(4) { bottom:0;right:-100%;width:100%;height:2px;background:linear-gradient(to left,transparent,theme('colors.teal.500'));animation:animate3 2s linear infinite;animation-delay:1s }
+  .animated-btn span:nth-child(5) { bottom:-100%;left:0;width:2px;height:100%;background:linear-gradient(to top,transparent,theme('colors.teal.500'));animation:animate4 2s linear infinite;animation-delay:1.5s }
+
+  /* Skip Link */
+  .skip-link{
+    position:absolute;top:-40px;left:0;background:theme('colors.teal.500');color:#fff;padding:8px 12px;z-index:1000;transition:top .3s ease;font-weight:600
+  }
+  .skip-link:focus{top:10px;left:10px}
+
+  /* Hero Texture */
+  .hero-texture::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    /* Consider moving SVG to a file or keeping as data URI */
+    background-image:url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+    z-index:0;
+    opacity:.5;
+  }
+}
+
+/* 5. Add Custom Utilities & Keyframes */
+@layer utilities {
+  /* Fade-in Animation */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Scroll Observer Base Styles (JS will toggle 'is-visible') */
+  .scroll-observed{
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .7s ease-out,transform .7s ease-out
+  }
+  .scroll-observed.is-visible{
+    opacity:1;
+    transform:translateY(0)
+  }
+}
+
+/* Keyframes */
+@keyframes fade-in-up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes animate1{0%{left:-100%}100%{left:100%}}
+@keyframes animate2{0%{top:-100%}100%{top:100%}}
+@keyframes animate3{0%{right:-100%}100%{right:100%}}
+@keyframes animate4{0%{bottom:-100%}100%{bottom:100%}}
