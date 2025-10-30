@@ -1,7 +1,7 @@
 // src/components/sections/Audit.tsx
 "use client";
 import React, { useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button'; // <--- Button is imported here
+import { Button } from '@/components/ui/button'; // <--- Button is correctly imported and MUST be used
 
 const Audit = () => {
   // --- Start Intersection Observer Logic ---
@@ -134,8 +134,8 @@ const Audit = () => {
                 <input type="text" id="honeypot" name="honeypot" tabIndex={-1} autoComplete="off" />
               </div>
 
-              {/* Submit Button - FIX: Changed native <button> to imported <Button> component */}
-              <Button // <--- FIXED HERE
+              {/* Submit Button - FIXED: Using imported <Button> component */}
+              <Button 
                 type="submit"
                 className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500 uppercase tracking-wider"
               >
