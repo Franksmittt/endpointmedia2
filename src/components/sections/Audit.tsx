@@ -1,7 +1,7 @@
 // src/components/sections/Audit.tsx
 "use client";
 import React, { useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'; // <--- Button is imported here
 
 const Audit = () => {
   // --- Start Intersection Observer Logic ---
@@ -134,13 +134,13 @@ const Audit = () => {
                 <input type="text" id="honeypot" name="honeypot" tabIndex={-1} autoComplete="off" />
               </div>
 
-              {/* Submit Button */}
-              <button
+              {/* Submit Button - FIX: Changed native <button> to imported <Button> component */}
+              <Button // <--- FIXED HERE
                 type="submit"
                 className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500 uppercase tracking-wider"
               >
                 Claim My Free Audit Now
-              </button>
+              </Button>
             </form>
           </div>
 
