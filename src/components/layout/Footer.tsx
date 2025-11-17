@@ -14,12 +14,12 @@ const Footer = () => {
               Endpoint<span className="text-teal-500">.</span><span className="font-normal text-2xl ml-1 text-white opacity-80">Media</span>
             </Link>
             <p className="mt-4 max-w-md text-gray-300 text-sm leading-relaxed"> {/* Changed from gray-400 */}
-              Building high-performance digital engines for **Johannesburg&apos;s** service industry backbone.
+              Building high-performance digital engines for Johannesburg&apos;s service industry backbone.
               {/* */}
               We transform websites into predictable lead pipelines. Your market dominance starts here.
             </p>
             <p className="mt-6 text-xs text-teal-500 font-semibold uppercase tracking-wider">
-              Proudly Based in **Johannesburg**, South Africa.
+              Proudly Based in  Johannesburg , South Africa.
             </p>
             <div className="mt-6 flex space-x-4 items-center">
               <p className="text-xs text-gray-300 font-semibold uppercase tracking-wider mr-2">Trusted &amp; Secure:</p> {/* Changed from gray-500, fixed & */}
@@ -72,7 +72,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-300"> {/* Changed from gray-500 */}
-          <p>&copy; {currentYear} Endpoint Media. All rights reserved. Engineering Leads for **Joburg&apos;s** Best.</p> {/* Fixed Joburg's */}
+          <p>&copy; {currentYear} Endpoint Media. All rights reserved. Engineering Leads for  Joburg&apos;s  Best.</p> {/* Fixed Joburg's */}
           <div className="mt-4 md:mt-0 space-x-4">
             <Link href="/privacy-policy" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded">Privacy Policy</Link>
             <span aria-hidden="true">|</span>

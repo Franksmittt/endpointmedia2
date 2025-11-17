@@ -3,15 +3,86 @@ import React from 'react';
 import Link from 'next/link';
 
 // METADATA: Highly optimized for commercial and hyper-local intent
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Website Design Pricing Johannesburg | Endpoint Media Packages",
   description: "Transparent website design and SEO package pricing for Johannesburg service businesses. Explore our Foundation, Growth Engine, and Market Leader options for clear ROI.",
-  keywords: "website design pricing johannesburg, web design packages south africa, local seo pricing joburg, small business website cost, affordable web design johannesburg",
+  keywords: [
+    "website design pricing johannesburg",
+    "web design packages south africa",
+    "local seo pricing joburg",
+    "small business website cost",
+    "affordable web design johannesburg",
+  ],
+  alternates: {
+    canonical: "/pricing",
+  },
 };
 
 const PricingPage = () => {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://endpointmedia.co.za/pricing#faq",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is included in the website design packages?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "All packages include custom website design, mobile-responsive layout, local SEO setup, hosting for 1 year, domain registration, and contact form integration. Higher packages include more pages, advanced SEO features, and additional functionality.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Are there any hidden costs or monthly fees?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No hidden costs. The package price is a once-off fee. After the first year, hosting and domain renewal costs approximately R200-R500 per month. Optional maintenance packages are available starting at R500/month.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I upgrade from Foundation to Growth Engine later?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. We offer upgrade paths. You'll pay the difference between packages plus a small migration fee. However, choosing the right package upfront saves time and money.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long does it take to build my website?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Foundation packages typically take 2-3 weeks, Growth Engine takes 4-6 weeks, and Market Leader takes 6-8 weeks. Timelines depend on content readiness and feedback speed.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do you provide hosting and domain registration?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. All packages include 1 year of free essential hosting and domain name registration. After the first year, you'll pay approximately R200-R500/month for continued hosting and domain renewal.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What if I need changes after my website is built?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Minor changes are included during the build phase. After launch, we offer maintenance packages starting at R500/month for updates, security patches, and minor content changes. Major updates are quoted separately.",
+        },
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero Section for Pricing Page */}
       <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6 text-center">
@@ -98,6 +169,77 @@ const PricingPage = () => {
           <div className="text-center mt-16 text-gray-600">
             <p className="text-lg">Not sure which package is right? Your <Link href="/contact" className="text-teal-600 font-bold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded px-1">Free Growth Audit</Link> will provide clarity.</p>
             <p className="mt-2 text-sm">All packages include 1 year of free essential hosting &amp; domain name registration if required.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section with Schema */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-gray-900 font-heading text-center">
+              Frequently Asked Questions About Pricing
+            </h2>
+            <div className="space-y-6">
+              <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+                  What is included in the website design packages?
+                </h3>
+                <p className="text-gray-700">
+                  All packages include custom website design, mobile-responsive layout, local SEO setup, 
+                  hosting for 1 year, domain registration, and contact form integration. Higher packages 
+                  include more pages, advanced SEO features, and additional functionality.
+                </p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+                  Are there any hidden costs or monthly fees?
+                </h3>
+                <p className="text-gray-700">
+                  No hidden costs. The package price is a once-off fee. After the first year, hosting 
+                  and domain renewal costs approximately R200-R500 per month. Optional maintenance 
+                  packages are available starting at R500/month.
+                </p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+                  Can I upgrade from Foundation to Growth Engine later?
+                </h3>
+                <p className="text-gray-700">
+                  Yes. We offer upgrade paths. You&apos;ll pay the difference between packages plus a 
+                  small migration fee. However, choosing the right package upfront saves time and money.
+                </p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+                  How long does it take to build my website?
+                </h3>
+                <p className="text-gray-700">
+                  Foundation packages typically take 2-3 weeks, Growth Engine takes 4-6 weeks, and 
+                  Market Leader takes 6-8 weeks. Timelines depend on content readiness and feedback speed.
+                </p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+                  Do you provide hosting and domain registration?
+                </h3>
+                <p className="text-gray-700">
+                  Yes. All packages include 1 year of free essential hosting and domain name registration. 
+                  After the first year, you&apos;ll pay approximately R200-R500/month for continued hosting 
+                  and domain renewal.
+                </p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+                  What if I need changes after my website is built?
+                </h3>
+                <p className="text-gray-700">
+                  Minor changes are included during the build phase. After launch, we offer maintenance 
+                  packages starting at R500/month for updates, security patches, and minor content changes. 
+                  Major updates are quoted separately.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

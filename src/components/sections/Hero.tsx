@@ -5,6 +5,10 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image'; 
 
+// FIX: Corrected the import to a proper public path string. 
+// You must ensure this file is created under the project's /public/images/ directory.
+const HERO_BG_SRC = "/images/hero-bg-optimized.jpg";
+
 const Hero = () => {
   return (
     <section
@@ -13,8 +17,8 @@ const Hero = () => {
     >
       {/* Background Image: Optimized for LCP */}
       <Image
-        src="https://source.unsplash.com/1600x900/?johannesburg,cityscape,dynamic"
-        alt="Dynamic Johannesburg cityscape representing a modern digital agency" 
+        src={HERO_BG_SRC} 
+        alt="A high-performance digital marketing and web design service for Johannesburg." 
         layout="fill"
         objectFit="cover"
         quality={70}
@@ -28,27 +32,31 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900/80 to-teal-900/30 z-0"></div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 z-10 relative text-center">
+      <div className="container mx-auto px-6 z-10 relative 
+text-center">
+        {/* H1 - Streamlined for Clarity Over Cleverness [cite: 2016] */}
         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-up">
-          Your Website Should Generate Revenue.<br /> Not Excuses.
+          Stop Buying Brochures.<br /> Start Generating Revenue.
         </h1>
 
+        {/* P - Focus on Audience Pain (Lead Generation) [cite: 538] */}
         <p className="text-lg md:text-2xl max-w-4xl mx-auto text-gray-300 mb-12 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-          Tired of digital art projects that cost a fortune and deliver nothing?
-          Endpoint Media builds high-performance websites for **Johannesburg&apos;s service industry** – <strong className="text-teal-400 font-semibold">engineered for one purpose: to generate qualified leads that convert into paying customers.</strong>
+          We don&apos;t build websites. We engineer high-performance **lead-generation assets** for 
+          <strong className="text-teal-400 font-semibold">Johannesburg service businesses.</strong> Guaranteed ROI, no excuses.
         </p>
 
-        {/* CTA Button */}
+        {/* CTA Button - Primary conversion point [cite: 539] */}
         <Link
           href="#audit"
           className="inline-block bg-teal-500 hover:bg-teal-600 text-white font-extrabold py-4 px-12 rounded shadow-xl transform hover:scale-105 transition duration-300 ease-in-out uppercase text-base tracking-wider animate-fade-in-up focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 focus-visible:ring-teal-300"
           style={{ animationDelay: '0.4s' }}
         >
-          Get Your Free Growth Audit
+          Claim Your Free Growth Audit
         </Link>
 
+        {/* Subtext - Low-commitment reassurance [cite: 540] */}
         <p className="mt-4 text-sm text-gray-400 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-          See your untapped potential &amp; get a custom website mockup. Zero cost, zero obligation.
+          See your custom website mockup and growth strategy. Zero cost, zero risk.
         </p>
       </div>
     </section>

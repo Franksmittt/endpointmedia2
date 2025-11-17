@@ -2,15 +2,90 @@
 import React from 'react';
 import Link from 'next/link';
 
-// METADATA: Core service page with clear local intent
-export const metadata = {
+// METADATA: Core service page with clear local intent - Enhanced for SEO dominance
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Web Design & SEO Services Johannesburg | Endpoint Media",
   description: "Endpoint Media offers expert web design, local SEO, Google Ads, and website maintenance services tailored for Johannesburg service businesses seeking measurable growth.",
+  keywords: [
+    "web design johannesburg",
+    "local SEO services johannesburg",
+    "google ads johannesburg",
+    "website maintenance johannesburg",
+    "web development johannesburg",
+    "hyper-local SEO johannesburg",
+    "lead generation website johannesburg",
+    "website redesign johannesburg",
+    "shopify expert johannesburg",
+    "custom web development johannesburg",
+  ],
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Web Design & SEO Services Johannesburg | Endpoint Media",
+    description: "Endpoint Media offers expert web design, local SEO, Google Ads, and website maintenance services tailored for Johannesburg service businesses seeking measurable growth.",
+    url: "https://endpointmedia.co.za/services",
+    type: "website",
+  },
 };
 
 const ServicesPage = () => {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://endpointmedia.co.za/services#faq",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What services does Endpoint Media offer for Johannesburg businesses?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We offer website design and redesign, e-commerce development (Shopify), custom web development, hyper-local SEO, Google Business Profile optimization, and website maintenance services specifically for Johannesburg service businesses.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do you work with businesses in all Johannesburg suburbs?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. We serve businesses across Johannesburg including Sandton, Rosebank, Bryanston, Randburg, Rivonia, Midrand, Roodepoort, Fourways, Waterfall, Benoni, and all surrounding areas.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What makes Endpoint Media different from other web design agencies?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We combine technical excellence (Next.js, performance optimization) with deep local SEO expertise. We're not an agency with overhead—we're a dedicated expert focused on your ROI. Every website we build includes advanced schema markup, hyper-local SEO, and conversion optimization.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long does it take to see results from local SEO?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Local SEO typically shows initial results within 2-3 months, with significant improvements in 4-6 months. Results depend on competition, current rankings, and consistency of optimization efforts.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can you redesign my existing website without losing SEO rankings?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. We maintain all URLs, redirects, and SEO elements during redesigns. In fact, most clients see improved rankings due to better performance, technical SEO, and mobile optimization.",
+        },
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero Section for Services */}
       <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white py-20 md:py-32">
         <div className="container mx-auto px-6 text-center">
@@ -38,19 +113,20 @@ const ServicesPage = () => {
           {/* Grid of Services (Example Structure) */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-            {/* Service 1: Web Design */}
-            <div className="group p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition duration-300 text-center">
+            {/* Service 1: Website Redesign */}
+            <Link href="/services/website-redesign" className="group p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition duration-300 text-center block">
                {/* Placeholder Icon */}
                <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center">
-                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8"><path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>
                </div>
                <h3 className="text-xl font-bold font-heading mb-2 text-gray-800 group-hover:text-teal-700 transition">
-                 Performance Web Design
+                 Website Redesign Services
                </h3>
                <p className="text-gray-600 text-sm mb-4">
-                 Blazing-fast, mobile-first websites engineered to convert Johannesburg visitors into leads.
+                 Transform outdated, underperforming websites into high-converting, modern assets that generate ROI.
                </p>
-            </div>
+               <span className="text-teal-600 font-semibold text-sm group-hover:underline">Learn More →</span>
+            </Link>
 
             {/* Service 2: Local SEO */}
             <div className="group p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition duration-300 text-center">
@@ -66,33 +142,35 @@ const ServicesPage = () => {
                </p>
             </div>
 
-             {/* Service 3: Google Ads */}
-            <div className="group p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition duration-300 text-center">
+             {/* Service 3: Shopify Expert */}
+            <Link href="/services/shopify-expert" className="group p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition duration-300 text-center block">
                {/* Placeholder Icon */}
                <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center">
-                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8"><path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.63 2.13A14.98 14.98 0 003.47 14.37m12.12 0v4.8m-3.48-4.8a14.98 14.98 0 00-6.16-12.12A14.98 14.98 0 009.63 2.13A14.98 14.98 0 003.47 14.37m12.12 0h-4.8" /></svg>
+                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>
                </div>
                <h3 className="text-xl font-bold font-heading mb-2 text-gray-800 group-hover:text-teal-700 transition">
-                 Google Ads (PPC)
+                 Shopify Expert
                </h3>
                <p className="text-gray-600 text-sm mb-4">
-                 Drive immediate, high-intent leads from Johannesburg customers actively searching for your services.
+                 Speed-to-market e-commerce solutions. Professional Shopify stores that generate revenue from day one.
                </p>
-            </div>
+               <span className="text-teal-600 font-semibold text-sm group-hover:underline">Learn More →</span>
+            </Link>
 
-             {/* Service 4: Maintenance */}
-            <div className="group p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition duration-300 text-center">
+             {/* Service 4: Custom Development */}
+            <Link href="/services/custom-development" className="group p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition duration-300 text-center block">
                {/* Placeholder Icon */}
                <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
                </div>
                <h3 className="text-xl font-bold font-heading mb-2 text-gray-800 group-hover:text-teal-700 transition">
-                 Website Maintenance
+                 Custom Development
                </h3>
                <p className="text-gray-600 text-sm mb-4">
-                 Keep your digital asset secure, updated, and performing optimally with our proactive care plans.
+                 Premium enterprise solutions with CRM/ERP integration and scalable architecture for unique needs.
                </p>
-            </div>
+               <span className="text-teal-600 font-semibold text-sm group-hover:underline">Learn More →</span>
+            </Link>
 
           </div>
 
@@ -108,6 +186,70 @@ const ServicesPage = () => {
             </Link>
           </div>
 
+        </div>
+      </section>
+
+      {/* FAQ Section with Schema */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-gray-900 font-heading text-center">
+              Frequently Asked Questions About Our Services
+            </h2>
+            <div className="space-y-6">
+              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+                  What services does Endpoint Media offer for Johannesburg businesses?
+                </h3>
+                <p className="text-gray-700">
+                  We offer website design and redesign, e-commerce development (Shopify), custom web 
+                  development, hyper-local SEO, Google Business Profile optimization, and website 
+                  maintenance services specifically for Johannesburg service businesses.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+                  Do you work with businesses in all Johannesburg suburbs?
+                </h3>
+                <p className="text-gray-700">
+                  Yes. We serve businesses across Johannesburg including Sandton, Rosebank, Bryanston, 
+                  Randburg, Rivonia, Midrand, Roodepoort, Fourways, Waterfall, Benoni, and all 
+                  surrounding areas.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+                  What makes Endpoint Media different from other web design agencies?
+                </h3>
+                <p className="text-gray-700">
+                  We combine technical excellence (Next.js, performance optimization) with deep local 
+                  SEO expertise. We&apos;re not an agency with overhead—we&apos;re a dedicated expert 
+                  focused on your ROI. Every website we build includes advanced schema markup, 
+                  hyper-local SEO, and conversion optimization.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+                  How long does it take to see results from local SEO?
+                </h3>
+                <p className="text-gray-700">
+                  Local SEO typically shows initial results within 2-3 months, with significant 
+                  improvements in 4-6 months. Results depend on competition, current rankings, and 
+                  consistency of optimization efforts.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+                  Can you redesign my existing website without losing SEO rankings?
+                </h3>
+                <p className="text-gray-700">
+                  Yes. We maintain all URLs, redirects, and SEO elements during redesigns. In fact, 
+                  most clients see improved rankings due to better performance, technical SEO, and 
+                  mobile optimization.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

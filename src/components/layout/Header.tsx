@@ -1,9 +1,10 @@
 // src/components/layout/Header.tsx
-"use client"; // Keep this for useState and event handlers
+"use client";
+// Keep this for useState and event handlers
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon"; // <-- NEW IMPORT
 // Define the new navigation links
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -13,12 +14,10 @@ const navLinks = [
   { name: 'Pricing', href: '/pricing' }, // Link to pricing page
   { name: 'Blog', href: '/blog' }, // Link to blog page
 ];
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
-  // Handle scroll effect for header background
+// Handle scroll effect for header background
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -28,16 +27,14 @@ const Header = () => {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Toggle mobile menu
+// Toggle mobile menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  // Close mobile menu when a link is clicked
+// Close mobile menu when a link is clicked
   const closeMenu = () => {
     setIsMenuOpen(false);
-  };
+};
 
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-gray-900/95 shadow-lg backdrop-blur-sm' : 'bg-transparent'}`}>
@@ -54,7 +51,8 @@ const Header = () => {
 
         {/* Desktop Navigation - CENTERED LINKS */}
         {/* The use of flex-grow and mx-auto pushes the centered element in between the two fixed elements (logo and button) */}
-        <nav className="hidden lg:flex items-center space-x-6 flex-grow justify-center lg:mx-auto">
+        <nav className="hidden lg:flex items-center 
+space-x-6 flex-grow justify-center lg:mx-auto">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -69,10 +67,10 @@ const Header = () => {
         {/* CTA Button (Now "Contact Us") - Floats Right on desktop */}
         <div className="hidden lg:block ml-auto">
           <Link
-            href="/contact" // Link changed to new Contact Us page
+            href="/contact" // Link changed to new 
             className="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-6 rounded shadow transform hover:scale-105 transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 focus-visible:ring-teal-300"
           >
-            Contact Us {/* Text changed */}
+            Contact Us {/* FIX: Consolidated the text inside the Link component */}
           </Link>
         </div>
 
@@ -85,7 +83,8 @@ const Header = () => {
           aria-expanded={isMenuOpen}
         >
           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isMenuOpen ? (
+            {isMenuOpen ?
+(
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             ) : (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -94,27 +93,32 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Menu Panel */}
+     
+{/* Mobile Menu Panel */}
       <div
-        className={`lg:hidden fixed inset-x-0 top-0 origin-top transition-transform transform ${isMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-95 opacity-0 pointer-events-none'} duration-300 ease-out z-40`}
+        className={`lg:hidden fixed inset-x-0 top-0 origin-top transition-transform transform ${isMenuOpen ?
+'scale-y-100 opacity-100' : 'scale-y-95 opacity-0 pointer-events-none'} duration-300 ease-out z-40`}
         style={{ paddingTop: '72px' }} // Adjust based on header height
       >
         <div className="bg-gray-800 shadow-xl rounded-b-lg p-6">
           <nav className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <Link
-                key={link.name}
+                
+key={link.name}
                 href={link.href}
                 className="text-gray-200 hover:text-teal-400 transition duration-300 text-lg font-medium py-2 px-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded"
                 onClick={closeMenu} // Close menu on link click
               >
                 {link.name}
-              </Link>
+     
+          </Link>
             ))}
              {/* Mobile CTA Button */}
             <Link
               href="/contact" // Link changed
               className="mt-4 w-full text-center inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded shadow transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 focus-visible:ring-teal-300"
+ 
               onClick={closeMenu} // Close menu on link click
             >
               Contact Us {/* Text changed */}
