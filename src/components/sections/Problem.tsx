@@ -108,15 +108,15 @@ const Problem = () => {
         </div>
 
         {/* Footer CTA Section: High-Contrast and Action-Oriented */}
-        <div ref={addToRefs} className="mt-20 text-center scroll-observed">
-          <p className="text-2xl max-w-4xl mx-auto text-gray-800 mb-8 font-semibold">
+        <div ref={addToRefs} className="mt-20 text-center scroll-observed px-4 sm:px-0">
+          <p className="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto text-gray-800 mb-8 font-semibold">
             Stop accepting an ineffective online presence. Your expertise deserves a website that works as hard as you do.
           </p>
           {/* Primary CTA Button - Using full Button component */}
           <Button asChild 
-            className="bg-red-600 hover:bg-red-700 text-white font-extrabold py-4 px-12 rounded-lg shadow-neubrutal-accent border-4 border-gray-900 transition duration-300 transform hover:scale-105 uppercase text-lg tracking-wider focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:ring-red-500"
+            className="bg-red-600 hover:bg-red-700 text-white font-extrabold py-3 px-6 md:py-4 md:px-12 rounded-lg shadow-neubrutal-accent border-2 md:border-4 border-gray-900 transition duration-300 transform hover:scale-105 uppercase text-sm sm:text-base md:text-lg tracking-wide md:tracking-wider focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:ring-red-500 w-full sm:w-auto max-w-full sm:max-w-none break-words sm:break-normal"
           >
-            <Link href="#audit">
+            <Link href="#audit" className="text-center">
               Diagnose My Website Problem
             </Link>
           </Button>

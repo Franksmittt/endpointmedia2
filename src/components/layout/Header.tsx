@@ -4,7 +4,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon"; // <-- NEW IMPORT
 // Define the new navigation links
 const navLinks = [
   { name: 'Home', href: '/' },
