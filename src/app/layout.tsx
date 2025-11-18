@@ -232,7 +232,7 @@ export default function RootLayout({
   return (
     <html lang="en-ZA" className={`${roboto.variable} ${poppins.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
-        {/* Google Analytics Gtag Implementation */}
+        {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2DSKMY6NC"></script>
         <script
           dangerouslySetInnerHTML={{
