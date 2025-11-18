@@ -68,7 +68,7 @@ const Audit = () => {
               Stop Guessing.<br /> Start Dominating Your Market.
             </h2>
             <p className="text-lg text-teal-100 mb-8 max-w-xl mx-auto lg:mx-0">
-              Claim your <strong className="text-white font-semibold">100% Free, No-Obligation Digital Growth Audit</strong>. We&apos;ll dissect your online presence, pinpoint your biggest lead leaks, and show you a custom mockup of a website *actually* engineered to capture more clients in **Johannesburg**.
+              Claim your <strong className="text-white font-semibold">100% Free, No-Obligation Digital Growth Audit</strong>. We&apos;ll dissect your online presence, pinpoint your biggest lead leaks, and show you a custom mockup of a website *actually* engineered to capture more clients in Johannesburg.
             </p>
             <p className="text-teal-200 text-sm">Secure your spot. Limited audit spots available each month. That&apos;s the Endpoint guarantee.</p>
           </div>

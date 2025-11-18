@@ -27,7 +27,7 @@ const ContactPage = () => {
             Contact Endpoint Media
           </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-300">
-            [cite_start]Ready to stop building brochures and start building a **lead-generating asset**? [cite: 12364]
+            [cite_start]Ready to stop building brochures and start building a lead-generating asset? [cite: 12364]
             Connect with Frank Smit directly for a focused consultation. We specialize in transforming 
             [cite_start]Johannesburg service businesses into market leaders through hyper-optimized web architecture. [cite: 12365]
           </p>
@@ -86,7 +86,7 @@ const ContactPage = () => {
               {/* Footer text - Now at the bottom of the stretched column */}
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  [cite_start]As a dedicated freelancer focused on high-performance projects, I operate a remote-first model. [cite: 12377] [cite_start]This means **zero agency overhead** and a direct, transparent working relationship with the expert (Frank Smit) handling your project from strategy to launch. [cite: 12377] [cite_start]We look forward to partnering with your Johannesburg service business to achieve market dominance. [cite: 12378]
+                  [cite_start]As a dedicated freelancer focused on high-performance projects, I operate a remote-first model. [cite: 12377] [cite_start]This means zero agency overhead and a direct, transparent working relationship with the expert (Frank Smit) handling your project from strategy to launch. [cite: 12377] [cite_start]We look forward to partnering with your Johannesburg service business to achieve market dominance. [cite: 12378]
                 </p>
               </div>
             </div>

@@ -53,7 +53,7 @@ const Toolkit = () => {
             More Than a Website: A Conversion Toolkit.
           </h2>
           <p className="text-xl text-teal-100">
-            A beautiful website is useless if it doesn&apos;t convert. We integrate the essential tools that turn **Johannesburg** visitors into actual, paying customers for *your* specific service business.
+            A beautiful website is useless if it doesn&apos;t convert. We integrate the essential tools that turn Johannesburg visitors into actual, paying customers for *your* specific service business.
           </p>
         </header>
 
@@ -83,7 +83,7 @@ const Toolkit = () => {
             </div>
             <h3 className="text-2xl font-bold mb-4 font-heading group-hover:text-teal-700 transition">Instant-Response Conversion Tools</h3>
             <p className="text-gray-600">
-              Critical for <strong className="font-semibold">plumbers, electricians, and trades</strong>. We integrate frictionless &quot;Tap-to-Call&quot; buttons and smart quote forms, making it effortless for mobile users in **Johannesburg** to contact you instantly.
+              Critical for <strong className="font-semibold">plumbers, electricians, and trades</strong>. We integrate frictionless &quot;Tap-to-Call&quot; buttons and smart quote forms, making it effortless for mobile users in Johannesburg to contact you instantly.
             </p>
           </div>
 
@@ -98,7 +98,7 @@ const Toolkit = () => {
             </div>
             <h3 className="text-2xl font-bold mb-4 font-heading group-hover:text-teal-700 transition">Authoritative Visual Proof</h3>
             <p className="text-gray-600">
-              Showcase your expert work with stunning photo &amp; video galleries. Your completed **Johannesburg projects** become your most powerful sales tool, <strong className="font-semibold">building instant trust and proving your quality</strong> visually.
+              Showcase your expert work with stunning photo &amp; video galleries. Your completed Johannesburg projects become your most powerful sales tool, <strong className="font-semibold">building instant trust and proving your quality</strong> visually.
             </p>
           </div>
         </div>

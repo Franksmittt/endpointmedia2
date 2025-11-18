@@ -58,7 +58,7 @@ const Vetting = () => {
               Built for Market Leaders. Is That You?
             </h2>
             <p className="text-xl max-w-3xl mx-auto text-gray-300">
-             We are selective. We partner with ambitious **Johannesburg** service businesses ready to invest in dominating their local market. See if you fit the Endpoint standard:
+             We are selective. We partner with ambitious Johannesburg service businesses ready to invest in dominating their local market. See if you fit the Endpoint standard:
             </p>
           </header>
 

@@ -1,24 +1,27 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import { Roboto, Poppins } from 'next/font/google'; // Import next/font functions
+import { Roboto, Poppins } from 'next/font/google'; 
 import "./globals.css";
 // Import global styles (including Tailwind directives)
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+
 // Configure Roboto font (for body/sans-serif)
 const roboto = Roboto({
-  weight: ['400', '500'], // Specify only the weights you use
+  weight: ['400', '500'], 
   subsets: ['latin'],
-  display: 'swap', // Recommended for performance
-  variable: '--font-roboto', // Define CSS variable name
+  display: 'swap', 
+  variable: '--font-roboto', 
 });
+
 // Configure Poppins font (for headings)
 const poppins = Poppins({
-  weight: ['600', '700', '800'], // Specify only the weights you use
+  weight: ['600', '700', '800'], 
   subsets: ['latin'],
-  display: 'swap', // Recommended for performance
-  variable: '--font-poppins', // Define CSS variable name
+  display: 'swap', 
+  variable: '--font-poppins', 
 });
+
 // Define comprehensive metadata for SEO dominance
 export const metadata: Metadata = {
   title: {
@@ -69,7 +72,7 @@ export const metadata: Metadata = {
     description: "Stop buying online brochures. Endpoint Media builds high-performance, lead-generating websites for Johannesburg service businesses. We deliver ROI, not excuses.",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/images/EPM.jpg", 
         width: 1200,
         height: 630,
         alt: "Endpoint Media - Web Design Johannesburg",
@@ -80,7 +83,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Web Design Johannesburg | Endpoint Media",
     description: "High-performance, lead-generating websites for Johannesburg service businesses. We deliver ROI, not excuses.",
-    images: ["/images/twitter-image.jpg"],
+    images: ["/images/EPM.jpg"], 
   },
   robots: {
     index: true,
@@ -99,6 +102,7 @@ export const metadata: Metadata = {
     // yandex: "your-yandex-verification-code",
   },
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -226,10 +230,8 @@ export default function RootLayout({
   };
 
   return (
-    // CRITICAL FIX 1: Apply both font variable classes to the <html> tag.
     <html lang="en-ZA" className={`${roboto.variable} ${poppins.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
-        {/* Font links are handled automatically by next/font */}
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -244,14 +246,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      {/* CRITICAL FIX 2: Apply the base font class directly to the <body> tag. 
-          This should link the CSS variables to the font files and force the content to display. */}
       <body className={`bg-gray-50 text-gray-800 antialiased font-sans`}>
         <a href="#main-content" className="skip-link">Skip to main content</a>
     
-        <Header /> {/* Header component */}
-        <main id="main-content">{children}</main> {/* Wrap children in main for semantics */}
-        <Footer /> {/* Footer component */}
+        <Header /> 
+        <main id="main-content">{children}</main> 
+        <Footer /> 
       </body>
     </html>
   );

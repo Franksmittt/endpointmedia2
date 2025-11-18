@@ -52,7 +52,7 @@ const Solution = () => {
             We Engineer Lead-Generating Engines for Johannesburg.
           </h2>
           <p className="text-xl text-gray-600">
-           Endpoint Media focuses exclusively on **Johannesburg&apos;s** hardest-working service businesses. We are your local digital growth partner – direct, transparent, and relentlessly focused on your ROI.
+           Endpoint Media focuses exclusively on Johannesburg&apos;s hardest-working service businesses. We are your local digital growth partner – direct, transparent, and relentlessly focused on your ROI.
           </p>
         </header>
 
@@ -74,7 +74,7 @@ const Solution = () => {
             <h3 className="text-3xl font-bold font-heading text-gray-800">Your Dedicated Johannesburg Growth Partner</h3>
             <p className="text-lg text-gray-700">
               Forget impersonal agencies.
-              You get direct access and accountability. We understand the nuances of the **Johannesburg market**—from Sandton to Soweto—because we operate within it. Your success is our focus.
+              You get direct access and accountability. We understand the nuances of the Johannesburg market—from Sandton to Soweto—because we operate within it. Your success is our focus.
             </p> 
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start">
@@ -83,7 +83,7 @@ const Solution = () => {
               </li>
               <li className="flex items-start">
                 <svg className="w-6 h-6 text-teal-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span><strong className="font-semibold text-gray-800">Performance Engineered:</strong> Blazing-fast, mobile-first websites optimized to dominate **local Johannesburg Google searches** and convert visitors effectively.</span>
+                <span><strong className="font-semibold text-gray-800">Performance Engineered:</strong> Blazing-fast, mobile-first websites optimized to dominate local Johannesburg Google searches and convert visitors effectively.</span>
               </li>
               <li className="flex items-start">
                 <svg className="w-6 h-6 text-teal-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>

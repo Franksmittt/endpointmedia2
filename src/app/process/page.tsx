@@ -81,7 +81,7 @@ const ProcessPage = () => {
                 <div className="p-8 bg-white rounded-xl shadow-lg border-l-4 border-teal-500 mb-8 md:mb-0">
                   <h3 className="text-2xl font-bold mb-3 font-heading text-gray-900">3. Map Pack Dominance &amp; Authority Building</h3>
                   <p className="text-gray-700">
-                    Ranking high isn&apos;t enough; converting searchers requires trust. We establish your business&apos;s authority through comprehensive **Google Business Profile (GBP) optimization**, ensuring every detail positions you as the local expert. Simultaneously, we implement a system to help you generate a consistent stream of high-quality customer reviews. This combined strategy is designed to secure prominent placement in the lucrative **Google Map Pack** – the primary source of ready-to-buy local leads – and build the credibility needed to turn visibility into revenue.
+                    Ranking high isn&apos;t enough; converting searchers requires trust. We establish your business&apos;s authority through comprehensive Google Business Profile (GBP) optimization, ensuring every detail positions you as the local expert. Simultaneously, we implement a system to help you generate a consistent stream of high-quality customer reviews. This combined strategy is designed to secure prominent placement in the lucrative Google Map Pack – the primary source of ready-to-buy local leads – and build the credibility needed to turn visibility into revenue.
                   </p>
                 </div>
               </div>

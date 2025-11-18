@@ -52,7 +52,7 @@ const Blueprint = () => {
             The Johannesburg Dominance Blueprint
           </h2>
           <p className="text-xl text-gray-600">
-            Our disciplined, 3-step process engineers **Johannesburg search intent** into paying customers. We build digital assets that own the local map.
+            Our disciplined, 3-step process engineers Johannesburg search intent into paying customers. We build digital assets that own the local map.
           </p>
         </header>
 
@@ -110,7 +110,7 @@ const Blueprint = () => {
               <div className="p-8 bg-white rounded-xl shadow-lg border-l-4 border-teal-500 mb-8 md:mb-0 transition duration-300 hover:shadow-xl hover:border-teal-600 transform hover:-translate-y-1">
                 <h3 className="text-3xl font-bold mb-3 font-heading text-gray-900">3. Map Pack Dominance &amp; Authority Building</h3>
                 <p className="text-gray-700">
-                  Visibility isn&apos;t enough; trust converts. We establish your authority through expert **Google Business Profile (GBP) optimization** and a system for generating consistent, high-quality reviews. This strategy secures placement in the lucrative <strong className="text-teal-700 font-semibold">Google Map Pack</strong> – the primary source of high-intent local leads.
+                  Visibility isn&apos;t enough; trust converts. We establish your authority through expert Google Business Profile (GBP) optimization and a system for generating consistent, high-quality reviews. This strategy secures placement in the lucrative <strong className="text-teal-700 font-semibold">Google Map Pack</strong> – the primary source of high-intent local leads.
                 </p>
               </div>
             </div>

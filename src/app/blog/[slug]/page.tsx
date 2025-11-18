@@ -62,7 +62,7 @@ const placeholderPosts = [
       <ul class="list-disc list-inside mb-6 pl-4 space-y-2">
         <li><strong>Cost:</strong> Medium (R5,000 - R20,000+).</li>
         <li><strong>Pros:</strong> Personal, direct communication with the expert. Highly cost-effective for focused projects.</li>
-        <li><strong>Cons:</strong> **Key-Person Risk** (single point of failure) and limited capacity to handle complex issues.</li>
+        <li><strong>Cons:</strong> Key-Person Risk (single point of failure) and limited capacity to handle complex issues.</li>
       </ul>
       
       <h2 class="text-2xl font-bold font-heading mt-8 mb-4 text-teal-700">The Low-Risk Solution for Johannesburg SMEs</h2>
@@ -86,7 +86,7 @@ const placeholderPosts = [
       <p class="mb-4">The opportunity is to enter a competition your rivals haven't shown up for. This is achieved by implementing the three essential schema types for local market dominance:</p>
       <ul class="list-disc list-inside mb-6 pl-4 space-y-2">
         <li><strong>LocalBusiness Schema:</strong> The most critical type for 'near me' queries. It cements your local identity by providing Google with your verifiable Johannesburg address and contact information (NAP).</li>
-        <li><strong>FAQPage Schema:</strong> Renders an interactive FAQ accordion directly on the SERP. This helps you capture **People Also Ask (PAA)** box questions and dominate vertical space.</li>
+        <li><strong>FAQPage Schema:</strong> Renders an interactive FAQ accordion directly on the SERP. This helps you capture People Also Ask (PAA) box questions and dominate vertical space.</li>
         <li><strong>Service Schema:</strong> Explicitly marks up your offerings (e.g., "Web Design," "Local SEO") and price ranges, making your page eligible for enhanced listings.</li>
       </ul>
       

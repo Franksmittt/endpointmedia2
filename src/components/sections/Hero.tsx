@@ -41,7 +41,7 @@ text-center">
 
         {/* P - Focus on Audience Pain (Lead Generation) [cite: 538] */}
         <p className="text-lg md:text-2xl max-w-4xl mx-auto text-gray-300 mb-12 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-          We don&apos;t build websites. We engineer high-performance **lead-generation assets** for 
+          We don&apos;t build websites. We engineer high-performance lead-generation assets for 
           <strong className="text-teal-400 font-semibold">Johannesburg service businesses.</strong> Guaranteed ROI, no excuses.
         </p>
 

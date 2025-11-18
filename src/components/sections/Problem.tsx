@@ -71,7 +71,7 @@ const Problem = () => {
           >
             <h3 className="text-3xl font-extrabold mb-3 font-heading text-gray-900">The &quot;Looks Good, Does Nothing&quot; Trap</h3>
             <p className="text-gray-700 text-lg mb-4">
-              You invested in a visually appealing website... that delivers **zero ROI**. No calls, no form submissions, just silence. It&apos;s an expensive digital brochure collecting virtual dust.
+              You invested in a visually appealing website... that delivers zero ROI. No calls, no form submissions, just silence. It&apos;s an expensive digital brochure collecting virtual dust.
             </p>
             <Link href="/services" className="text-teal-600 font-semibold hover:text-teal-800 transition duration-300 flex items-center mt-4">
               See How We Engineer ROI &rarr;
@@ -85,7 +85,7 @@ const Problem = () => {
           >
             <h3 className="text-3xl font-extrabold mb-3 font-heading text-teal-500">Invisible in Johannesburg</h3>
             <p className="text-gray-300 text-lg mb-4">
-              Your potential customers in **Sandton, Randburg, and Midrand** are searching online *right now*. If your site isn&apos;t on Google&apos;s first page, especially in the **Map Pack**, you are invisible. They are finding—and paying—your competitors.
+              Your potential customers in Sandton, Randburg, and Midrand are searching online *right now*. If your site isn&apos;t on Google&apos;s first page, especially in the Map Pack, you are invisible. They are finding—and paying—your competitors.
             </p>
             <Link href="/process" className="text-white font-semibold hover:text-teal-400 transition duration-300 flex items-center mt-4">
               View Our Dominance Blueprint &rarr;
@@ -99,7 +99,7 @@ const Problem = () => {
           >
             <h3 className="text-3xl font-extrabold mb-3 font-heading text-gray-900">The Agency Disappointment</h3>
             <p className="text-gray-700 text-lg mb-4">
-              You&apos;ve been burned by faceless agencies and broken promises. **It&apos;s not your fault** you have an underperforming website. You needed a dedicated partner truly invested in *your* business results.
+              You&apos;ve been burned by faceless agencies and broken promises. It&apos;s not your fault you have an underperforming website. You needed a dedicated partner truly invested in *your* business results.
             </p>
             <Link href="/case-studies" className="text-teal-600 font-semibold hover:text-teal-800 transition duration-300 flex items-center mt-4">
               Meet Your Partner (Case Studies) &rarr;
