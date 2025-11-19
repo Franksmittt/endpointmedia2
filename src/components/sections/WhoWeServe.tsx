@@ -1,70 +1,73 @@
-// src/components/sections/WhoWeServe.tsx
-"use client";
-import React, { useEffect, useRef } from 'react';
-
-const targetServices = [
-  "Plumbers", "Electricians", "HVAC Technicians", "Builders & Contractors",
-  "Roofers", "Landscapers", "Painters", "Salons & Spas",
-  "Consultants", "Therapists", "Mechanics", "Other Local Experts",
-];
+import React from 'react';
+import Link from 'next/link';
 
 const WhoWeServe = () => {
-  // --- Start Intersection Observer Logic ---
-  const observerRef = useRef<HTMLDivElement | null>(null); 
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRef = observerRef.current; 
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
-  // --- End Intersection Observer Logic ---
+  const industries = [
+    {
+      title: 'Home & Automotive Services',
+      description:
+        'Panel beaters, mobile mechanics, battery services, and premium detailing studios that need phone calls and quote requests today.',
+      highlights: ['Instant quote funnels', 'Sticky click-to-call', 'Local SEO domination'],
+    },
+    {
+      title: 'Professional Practices',
+      description:
+        'Law firms, medical practices, and financial advisors that require authority, trust signals, and airtight conversion paths.',
+      highlights: ['E-E-A-T content architecture', 'Schema + reviews', 'High intent landing pages'],
+    },
+    {
+      title: 'B2B & Industrial Suppliers',
+      description:
+        'Painting contractors, coating specialists, and technical distributors that compete on expertise and predictable lead flow.',
+      highlights: ['Technical resource hubs', 'ABM-ready lead magnets', 'CRM-integrated forms'],
+    },
+  ];
 
   return (
-    <section id="who-we-serve" className="py-20 bg-white"> 
-      <div
-        ref={observerRef} 
-        className="container mx-auto px-6 scroll-observed" 
-      >
-        <header className="text-center mb-12 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 font-heading">
-            Exclusively Serving Johannesburg&apos;s Service Industry Champions
-          </h2>
-          <p className="text-lg text-gray-600 mt-4">
-            We partner with ambitious local experts who understand that a high-performance website is a critical investment, not an expense. If you provide essential services in the greater Johannesburg area, we speak your language.
+    <section className="py-24 bg-gray-50" id="who-we-serve">
+      <div className="container mx-auto px-6">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <p className="text-sm font-semibold text-teal-600 uppercase tracking-wider">
+            Who We Serve
           </p>
-        </header>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 font-heading mb-4">
+            Built for High-Stakes Service Businesses
+          </h2>
+          <p className="text-gray-600 text-lg">
+            If your business relies on qualified inbound leads, controlled positioning, and
+            measurable ROI, our playbooks are built for you.
+          </p>
+        </div>
 
-        {/* List/Grid of Services */}
-        <div className="max-w-4xl mx-auto">
-          <ul className="flex flex-wrap justify-center gap-3 md:gap-4 text-center">
-            {targetServices.map((service) => (
-              <li
-                key={service}
-                className="bg-teal-50 border border-teal-200 text-teal-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm"
-              >
-                {service}
-              </li>
-            ))}
-          </ul>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {industries.map((industry) => (
+            <div
+              key={industry.title}
+              className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 flex flex-col"
+            >
+              <h3 className="text-2xl font-bold font-heading text-gray-900 mb-3">
+                {industry.title}
+              </h3>
+              <p className="text-gray-600 flex-1">{industry.description}</p>
+              <ul className="mt-6 space-y-2 text-sm text-gray-700">
+                {industry.highlights.map((highlight) => (
+                  <li key={highlight} className="flex items-start gap-2">
+                    <span className="text-teal-500 mt-1">●</span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-16">
+          <Link
+            href="/case-studies"
+            className="inline-block bg-gray-900 text-white font-semibold tracking-wide px-10 py-4 rounded-full hover:bg-gray-800 transition"
+          >
+            See Who We&apos;ve Helped
+          </Link>
         </div>
       </div>
     </section>
@@ -72,3 +75,4 @@ const WhoWeServe = () => {
 };
 
 export default WhoWeServe;
+
