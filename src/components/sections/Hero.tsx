@@ -15,17 +15,16 @@ const Hero = () => {
       id="hero"
       className="relative bg-gray-900 text-white min-h-[90vh] md:min-h-screen flex items-center overflow-hidden py-24 md:py-32 hero-texture"
     >
-      {/* Background Image: Optimized for LCP */}
+      {/* Background Image: Optimized for LCP with priority prop */}
       <Image
         src={HERO_BG_SRC} 
         alt="A high-performance digital marketing and web design service for Johannesburg." 
-        layout="fill"
-        objectFit="cover"
-        quality={70}
-        priority 
-        className="absolute inset-0 z-0 opacity-15"
+        fill
+        quality={85}
+        priority={true}
+        className="object-cover absolute inset-0 z-0 opacity-15"
         aria-hidden="true"
-        unoptimized={false}
+        sizes="100vw"
       />
       
       {/* Gradient Overlay for contrast */}

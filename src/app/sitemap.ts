@@ -1,239 +1,105 @@
 // src/app/sitemap.ts
 import { MetadataRoute } from 'next';
 
+const baseUrl = 'https://endpointmedia.co.za';
+const currentDate = new Date();
+
+type ChangeFrequency = NonNullable<
+  MetadataRoute.Sitemap[number]['changeFrequency']
+>;
+
+const createEntry = (
+  path: string,
+  changeFrequency: ChangeFrequency,
+  priority: number,
+): MetadataRoute.Sitemap[number] => ({
+  url: path === '/' ? baseUrl : `${baseUrl}${path}`,
+  lastModified: currentDate,
+  changeFrequency,
+  priority,
+});
+
+const mapPaths = (
+  paths: string[],
+  changeFrequency: ChangeFrequency,
+  priority: number,
+) => paths.map((path) => createEntry(path, changeFrequency, priority));
+
+const corePaths = ['/services', '/case-studies', '/blog'];
+
+const secondaryCoreConfigs = [
+  { path: '/pricing', changeFrequency: 'monthly' as ChangeFrequency, priority: 0.9 },
+  { path: '/contact', changeFrequency: 'monthly' as ChangeFrequency, priority: 0.8 },
+  { path: '/process', changeFrequency: 'monthly' as ChangeFrequency, priority: 0.7 },
+];
+
+const serviceDetailPaths = [
+  '/services/website-redesign',
+  '/services/shopify-expert',
+  '/services/custom-development',
+];
+
+const locationPaths = [
+  '/locations',
+  '/locations/sandton',
+  '/locations/roodepoort',
+  '/locations/bryanston',
+  '/locations/rivonia',
+  '/locations/midrand',
+  '/locations/rosebank',
+  '/locations/randburg',
+  '/locations/fourways',
+  '/locations/waterfall',
+  '/locations/benoni',
+];
+
+const industryPaths = [
+  '/industries',
+  '/industries/law-firms',
+  '/industries/real-estate',
+  '/industries/finance',
+  '/industries/medical',
+];
+
+const caseStudySlugs = [
+  'alberton-battery-mart',
+  'alberton-tyre-clinic',
+  'maverick-painting-contractors',
+  'qj-paint-world',
+  'rhino-panel-beaters',
+  'sakana-no-ichi',
+];
+
+const blogSlugs = [
+  'the-true-cost-of-a-website-in-johannesburg',
+  'freelancer-vs-agency-the-low-risk-choice-for-johannesburg',
+  'the-schema-vacuum-technical-seo-advantage',
+  'wix-vs-wordpress-guide-johannesburg-small-businesses',
+  'how-much-does-website-cost-south-africa-2025',
+];
+
+const mapConfigs = (
+  configs: { path: string; changeFrequency: ChangeFrequency; priority: number }[],
+) =>
+  configs.map(({ path, changeFrequency, priority }) =>
+    createEntry(path, changeFrequency, priority),
+  );
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://endpointmedia.co.za';
-  const currentDate = new Date();
-
-  // Core pages - High priority
-  const corePages = [
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/pricing`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/process`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/case-studies`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-  ];
-
-  // Money pages - Very high priority
-  const moneyPages = [
-    {
-      url: `${baseUrl}/services/website-redesign`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/services/shopify-expert`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/services/custom-development`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.95,
-    },
-  ];
-
-  // Hyper-local location pages - High priority for local SEO
-  const locationPages = [
-    {
-      url: `${baseUrl}/locations`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/locations/sandton`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/locations/roodepoort`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/locations/bryanston`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/locations/rivonia`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/locations/midrand`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/locations/rosebank`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/locations/randburg`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/locations/fourways`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/locations/waterfall`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/locations/benoni`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-  ];
-
-  // Industry vertical pages - High priority for B2B SEO
-  const industryPages = [
-    {
-      url: `${baseUrl}/industries`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/industries/law-firms`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/industries/real-estate`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/industries/finance`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/industries/medical`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    },
-  ];
-
-  // Case study pages - Medium-high priority
-  const caseStudyPages = [
-    {
-      url: `${baseUrl}/case-studies/alberton-battery-mart`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/case-studies/alberton-tyre-clinic`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/case-studies/maverick-painting-contractors`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/case-studies/qj-paint-world`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/case-studies/rhino-panel-beaters`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/case-studies/sakana-no-ichi`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-  ];
-
-  // Author page - E-E-A-T signal
-  const authorPages = [
-    {
-      url: `${baseUrl}/about/author/frank-smit`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-  ];
-
   return [
-    ...corePages,
-    ...moneyPages,
-    ...locationPages,
-    ...industryPages,
-    ...authorPages,
-    ...caseStudyPages,
+    createEntry('/', 'weekly', 1),
+    ...mapPaths(corePaths, 'weekly', 0.9),
+    ...mapConfigs(secondaryCoreConfigs),
+    ...mapPaths(serviceDetailPaths, 'weekly', 0.95),
+    ...mapPaths(locationPaths, 'weekly', 0.9),
+    ...mapPaths(industryPaths, 'weekly', 0.9),
+    ...mapPaths(
+      caseStudySlugs.map((slug) => `/case-studies/${slug}`),
+      'monthly',
+      0.7,
+    ),
+    ...mapPaths(blogSlugs.map((slug) => `/blog/${slug}`), 'weekly', 0.75),
+    createEntry('/about/author/frank-smit', 'monthly', 0.8),
   ];
 }
 

@@ -2,30 +2,24 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from '@/lib/seo';
 
-// METADATA: Industry Vertical Page - Law Firms
-export const metadata: Metadata = {
-  title: "Web Design for Law Firms Johannesburg | Legal Website Design | Endpoint Media",
-  description: "Professional web design for Johannesburg law firms. Trust, professionalism, and user navigation are non-negotiable. We build high-performance websites that reflect your expertise and generate qualified leads.",
-  keywords: [
-    "web design for law firms johannesburg",
-    "law firm website design",
-    "legal website design johannesburg",
-    "lawyer website design",
-    "attorney website design johannesburg",
-    "legal marketing website",
-    "law firm SEO johannesburg",
-  ],
-  alternates: {
-    canonical: "/industries/law-firms",
-  },
-  openGraph: {
-    title: "Web Design for Law Firms Johannesburg | Endpoint Media",
-    description: "Professional web design for Johannesburg law firms. Trust, professionalism, and user navigation are non-negotiable.",
-    url: "https://endpointmedia.co.za/industries/law-firms",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Web Design for Law Firms Johannesburg | Legal Website Design | Endpoint Media",
+    description: "Professional web design for Johannesburg law firms. Trust, professionalism, and user navigation are non-negotiable. We build high-performance websites that reflect your expertise and generate qualified leads.",
+    path: "/industries/law-firms",
+    keywords: [
+      "web design for law firms johannesburg",
+      "law firm website design",
+      "legal website design johannesburg",
+      "lawyer website design",
+      "attorney website design johannesburg",
+      "legal marketing website",
+      "law firm SEO johannesburg",
+    ],
+  });
+}
 
 const LawFirmsPage = () => {
   const serviceSchema = {
@@ -96,11 +90,11 @@ const LawFirmsPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }}
       />
 
       {/* Hero Section */}

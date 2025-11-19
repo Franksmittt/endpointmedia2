@@ -2,32 +2,27 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Web Design Roodepoort | Website Design Services Roodepoort | Endpoint Media",
-  description: "Professional web design and local SEO services for Roodepoort businesses. Build a high-performance, lead-generating website that dominates local search. Free audit available.",
-  keywords: [
-    "web design roodepoort",
-    "website design roodepoort",
-    "local SEO roodepoort",
-    "web developer roodepoort",
-    "website redesign roodepoort",
-    "hyper-local SEO roodepoort",
-    "lead generation website roodepoort",
-    "roodepoort mall web design",
-    "website design roodepoort CBD",
-    "local SEO services roodepoort",
-  ],
-  alternates: {
-    canonical: "/locations/roodepoort",
-  },
-  openGraph: {
-    title: "Web Design Roodepoort | Endpoint Media",
-    description: "Professional web design and local SEO services for Roodepoort businesses.",
-    url: "https://endpointmedia.co.za/locations/roodepoort",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Web Design Roodepoort | Website Design Services Roodepoort | Endpoint Media",
+    description: "Professional web design and local SEO services for Roodepoort businesses. Build a high-performance, lead-generating website that dominates local search. Free audit available.",
+    path: "/locations/roodepoort",
+    keywords: [
+      "web design roodepoort",
+      "website design roodepoort",
+      "local SEO roodepoort",
+      "web developer roodepoort",
+      "website redesign roodepoort",
+      "hyper-local SEO roodepoort",
+      "lead generation website roodepoort",
+      "roodepoort mall web design",
+      "website design roodepoort CBD",
+      "local SEO services roodepoort",
+    ],
+  });
+}
 
 const RoodepoortPage = () => {
   const locationSchema = {
@@ -81,11 +76,11 @@ const RoodepoortPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(locationSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(breadcrumbSchema) }}
       />
 
       {/* Breadcrumb Navigation */}

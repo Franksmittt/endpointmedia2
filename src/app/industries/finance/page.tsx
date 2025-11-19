@@ -2,21 +2,22 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Web Design for Financial Services Johannesburg | Finance Website Design | Endpoint Media",
-  description: "Professional web design for Johannesburg financial advisors, accountants, and finance firms. Trust, security, and compliance-focused websites that generate qualified leads.",
-  keywords: [
-    "web design for financial services johannesburg",
-    "financial advisor website design",
-    "accountant website design johannesburg",
-    "finance firm website",
-    "financial services SEO",
-  ],
-  alternates: {
-    canonical: "/industries/finance",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Web Design for Financial Services Johannesburg | Finance Website Design | Endpoint Media",
+    description: "Professional web design for Johannesburg financial advisors, accountants, and finance firms. Trust, security, and compliance-focused websites that generate qualified leads.",
+    path: "/industries/finance",
+    keywords: [
+      "web design for financial services johannesburg",
+      "financial advisor website design",
+      "accountant website design johannesburg",
+      "finance firm website",
+      "financial services SEO",
+    ],
+  });
+}
 
 const FinancePage = () => {
   const serviceSchema = {
@@ -87,11 +88,11 @@ const FinancePage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }}
       />
 
       <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white py-20 md:py-32">

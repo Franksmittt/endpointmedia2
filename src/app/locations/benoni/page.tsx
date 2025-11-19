@@ -2,30 +2,25 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Web Design Benoni | Website Design Services Benoni | Endpoint Media",
-  description: "Professional web design and local SEO services for Benoni businesses. Build a high-performance, lead-generating website. Free audit available.",
-  keywords: [
-    "web design benoni",
-    "website design benoni",
-    "local SEO benoni",
-    "web developer benoni",
-    "hyper-local SEO benoni",
-    "benoni CBD web design",
-    "website design benoni mall",
-    "local SEO services benoni",
-  ],
-  alternates: {
-    canonical: "/locations/benoni",
-  },
-  openGraph: {
-    title: "Web Design Benoni | Endpoint Media",
-    description: "Professional web design and local SEO services for Benoni businesses.",
-    url: "https://endpointmedia.co.za/locations/benoni",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Web Design Benoni | Website Design Services Benoni | Endpoint Media",
+    description: "Professional web design and local SEO services for Benoni businesses. Build a high-performance, lead-generating website. Free audit available.",
+    path: "/locations/benoni",
+    keywords: [
+      "web design benoni",
+      "website design benoni",
+      "local SEO benoni",
+      "web developer benoni",
+      "hyper-local SEO benoni",
+      "benoni CBD web design",
+      "website design benoni mall",
+      "local SEO services benoni",
+    ],
+  });
+}
 
 const BenoniPage = () => {
   const locationSchema = {
@@ -79,11 +74,11 @@ const BenoniPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(locationSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(breadcrumbSchema) }}
       />
 
       {/* Breadcrumb Navigation */}

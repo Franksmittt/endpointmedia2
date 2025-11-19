@@ -2,23 +2,24 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Web Design Locations Johannesburg | Sandton, Bryanston, Rivonia, Midrand, Roodepoort | Endpoint Media",
-  description: "Professional web design and local SEO services across Johannesburg. We serve Sandton, Bryanston, Rivonia, Midrand, Roodepoort, and surrounding areas.",
-  keywords: [
-    "web design johannesburg locations",
-    "web design sandton",
-    "web design bryanston",
-    "web design rivonia",
-    "web design midrand",
-    "web design roodepoort",
-    "local SEO johannesburg",
-  ],
-  alternates: {
-    canonical: "/locations",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Web Design Locations Johannesburg | Sandton, Bryanston, Rivonia, Midrand, Roodepoort | Endpoint Media",
+    description: "Professional web design and local SEO services across Johannesburg. We serve Sandton, Bryanston, Rivonia, Midrand, Roodepoort, and surrounding areas.",
+    path: "/locations",
+    keywords: [
+      "web design johannesburg locations",
+      "web design sandton",
+      "web design bryanston",
+      "web design rivonia",
+      "web design midrand",
+      "web design roodepoort",
+      "local SEO johannesburg",
+    ],
+  });
+}
 
 const LocationsPage = () => {
   const locations = [

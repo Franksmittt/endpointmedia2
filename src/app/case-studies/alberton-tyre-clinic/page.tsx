@@ -1,12 +1,25 @@
 // src/app/case-studies/alberton-tyre-clinic/page.tsx
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 
-// METADATA: SEO-optimized case study page
-export const metadata = {
-  title: "Alberton Tyre Clinic Case Study | Safety-Driven Vehicle Maintenance & Local Trust | Endpoint Media",
-  description: "Discover how Endpoint Media transformed Alberton Tyre Clinic from a traditional tyre shop into a modern Safety-Driven Vehicle Maintenance Center, leveraging local trust, family heritage, and guaranteed safety protocols.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Alberton Tyre Clinic Case Study | Safety-Driven Vehicle Maintenance & Local Trust | Endpoint Media",
+    description: "Discover how Endpoint Media transformed Alberton Tyre Clinic from a traditional tyre shop into a modern Safety-Driven Vehicle Maintenance Center, leveraging local trust, family heritage, and guaranteed safety protocols.",
+    path: "/case-studies/alberton-tyre-clinic",
+    keywords: [
+      "tyre clinic case study",
+      "vehicle safety web design",
+      "alberton tyre website",
+      "local trust marketing south africa",
+    ],
+    openGraph: {
+      type: "article",
+    },
+  });
+}
 
 const AlbertonTyreClinicCaseStudy = () => {
   return (

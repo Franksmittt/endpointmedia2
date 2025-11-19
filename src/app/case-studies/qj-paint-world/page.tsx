@@ -1,12 +1,25 @@
 // src/app/case-studies/qj-paint-world/page.tsx
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 
-// METADATA: SEO-optimized case study page
-export const metadata = {
-  title: "QJ Paint World Case Study | Expert Technical Supplier & B2B Paint Specialist | Endpoint Media",
-  description: "Discover how Endpoint Media positioned QJ Paint World as the Expert Technical Supplier for professional Decorative, Automotive, and Industrial coatings in Johannesburg South, with B2B-focused conversion strategy.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "QJ Paint World Case Study | Expert Technical Supplier & B2B Paint Specialist | Endpoint Media",
+    description: "Discover how Endpoint Media positioned QJ Paint World as the Expert Technical Supplier for professional Decorative, Automotive, and Industrial coatings in Johannesburg South, with B2B-focused conversion strategy.",
+    path: "/case-studies/qj-paint-world",
+    keywords: [
+      "b2b paint supplier website",
+      "technical coatings case study",
+      "qj paint world web design",
+      "endpoint media b2b case study",
+    ],
+    openGraph: {
+      type: "article",
+    },
+  });
+}
 
 const QJPaintWorldCaseStudy = () => {
   return (

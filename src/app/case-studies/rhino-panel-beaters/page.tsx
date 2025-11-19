@@ -1,12 +1,25 @@
 // src/app/case-studies/rhino-panel-beaters/page.tsx
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 
-// METADATA: SEO-optimized case study page
-export const metadata = {
-  title: "Rhino Panel Beaters Case Study | High-Performance Web Design | Endpoint Media",
-  description: "Discover how Endpoint Media engineered a conversion-focused, high-performance website for Rhino Panel Beaters using Next.js, featuring a multi-step quote engine and local SEO optimization for Zululand market dominance.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Rhino Panel Beaters Case Study | High-Performance Web Design | Endpoint Media",
+    description: "Discover how Endpoint Media engineered a conversion-focused, high-performance website for Rhino Panel Beaters using Next.js, featuring a multi-step quote engine and local SEO optimization for Zululand market dominance.",
+    path: "/case-studies/rhino-panel-beaters",
+    keywords: [
+      "panel beater website design",
+      "next.js case study south africa",
+      "local seo zululand",
+      "rhino panel beaters web design",
+    ],
+    openGraph: {
+      type: "article",
+    },
+  });
+}
 
 const RhinoPanelBeatersCaseStudy = () => {
   return (

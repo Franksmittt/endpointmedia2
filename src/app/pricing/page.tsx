@@ -2,23 +2,23 @@
 import React from 'react';
 import Link from 'next/link';
 
-// METADATA: Highly optimized for commercial and hyper-local intent
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Website Design Pricing Johannesburg | Endpoint Media Packages",
-  description: "Transparent website design and SEO package pricing for Johannesburg service businesses. Explore our Foundation, Growth Engine, and Market Leader options for clear ROI.",
-  keywords: [
-    "website design pricing johannesburg",
-    "web design packages south africa",
-    "local seo pricing joburg",
-    "small business website cost",
-    "affordable web design johannesburg",
-  ],
-  alternates: {
-    canonical: "/pricing",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Website Design Pricing Johannesburg | Endpoint Media Packages",
+    description: "Transparent website design and SEO package pricing for Johannesburg service businesses. Explore our Foundation, Growth Engine, and Market Leader options for clear ROI.",
+    path: "/pricing",
+    keywords: [
+      "website design pricing johannesburg",
+      "web design packages south africa",
+      "local seo pricing joburg",
+      "small business website cost",
+      "affordable web design johannesburg",
+    ],
+  });
+}
 
 const PricingPage = () => {
   const faqSchema = {
@@ -81,7 +81,7 @@ const PricingPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }}
       />
       {/* Hero Section for Pricing Page */}
       <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">

@@ -1,12 +1,25 @@
 // src/app/case-studies/alberton-battery-mart/page.tsx
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 
-// METADATA: SEO-optimized case study page
-export const metadata = {
-  title: "Alberton Battery Mart Case Study | Mobile Battery Service & E-commerce | Endpoint Media",
-  description: "Discover how Endpoint Media created a ground-up strategic overhaul for Alberton Battery Mart, positioning them as the fastest mobile battery service with advanced product search, local SEO dominance, and Google Merchant Center integration.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Alberton Battery Mart Case Study | Mobile Battery Service & E-commerce | Endpoint Media",
+    description: "Discover how Endpoint Media created a ground-up strategic overhaul for Alberton Battery Mart, positioning them as the fastest mobile battery service with advanced product search, local SEO dominance, and Google Merchant Center integration.",
+    path: "/case-studies/alberton-battery-mart",
+    keywords: [
+      "battery ecommerce case study",
+      "mobile battery service website",
+      "alberton web design",
+      "google merchant center integration",
+    ],
+    openGraph: {
+      type: "article",
+    },
+  });
+}
 
 const AlbertonBatteryMartCaseStudy = () => {
   return (

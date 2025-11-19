@@ -2,30 +2,25 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Web Design Bryanston | Website Design Services Bryanston | Endpoint Media",
-  description: "Professional web design and local SEO services for Bryanston businesses. Premium area with medical practices, professional services, and retail. Build a high-performance website. Free audit available.",
-  keywords: [
-    "web design bryanston",
-    "website design bryanston",
-    "local SEO bryanston",
-    "web developer bryanston",
-    "hyper-local SEO bryanston",
-    "bryanston medical website",
-    "website design bryanston drive",
-    "local SEO services bryanston",
-  ],
-  alternates: {
-    canonical: "/locations/bryanston",
-  },
-  openGraph: {
-    title: "Web Design Bryanston | Endpoint Media",
-    description: "Professional web design and local SEO services for Bryanston businesses.",
-    url: "https://endpointmedia.co.za/locations/bryanston",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Web Design Bryanston | Website Design Services Bryanston | Endpoint Media",
+    description: "Professional web design and local SEO services for Bryanston businesses. Premium area with medical practices, professional services, and retail. Build a high-performance website. Free audit available.",
+    path: "/locations/bryanston",
+    keywords: [
+        "web design bryanston",
+        "website design bryanston",
+        "local SEO bryanston",
+        "web developer bryanston",
+        "hyper-local SEO bryanston",
+        "bryanston medical website",
+        "website design bryanston drive",
+        "local SEO services bryanston",
+    ],
+  });
+}
 
 const BryanstonPage = () => {
   const locationSchema = {
@@ -79,11 +74,11 @@ const BryanstonPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(locationSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(breadcrumbSchema) }}
       />
 
       {/* Breadcrumb Navigation */}

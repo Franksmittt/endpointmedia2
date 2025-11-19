@@ -2,30 +2,25 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Web Design Fourways | Website Design Services Fourways | Endpoint Media",
-  description: "Professional web design and local SEO services for Fourways businesses. Build a high-performance, lead-generating website. Free audit available.",
-  keywords: [
-    "web design fourways",
-    "website design fourways",
-    "local SEO fourways",
-    "web developer fourways",
-    "hyper-local SEO fourways",
-    "fourways mall web design",
-    "website design fourways crossing",
-    "local SEO services fourways",
-  ],
-  alternates: {
-    canonical: "/locations/fourways",
-  },
-  openGraph: {
-    title: "Web Design Fourways | Endpoint Media",
-    description: "Professional web design and local SEO services for Fourways businesses.",
-    url: "https://endpointmedia.co.za/locations/fourways",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Web Design Fourways | Website Design Services Fourways | Endpoint Media",
+    description: "Professional web design and local SEO services for Fourways businesses. Build a high-performance, lead-generating website. Free audit available.",
+    path: "/locations/fourways",
+    keywords: [
+      "web design fourways",
+      "website design fourways",
+      "local SEO fourways",
+      "web developer fourways",
+      "hyper-local SEO fourways",
+      "fourways mall web design",
+      "website design fourways crossing",
+      "local SEO services fourways",
+    ],
+  });
+}
 
 const FourwaysPage = () => {
   const locationSchema = {
@@ -79,11 +74,11 @@ const FourwaysPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(locationSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(breadcrumbSchema) }}
       />
 
       {/* Breadcrumb Navigation */}

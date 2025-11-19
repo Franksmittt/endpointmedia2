@@ -1,35 +1,28 @@
 // src/app/services/page.tsx
 import React from 'react';
 import Link from 'next/link';
-
-// METADATA: Core service page with clear local intent - Enhanced for SEO dominance
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Web Design & SEO Services Johannesburg | Endpoint Media",
-  description: "Endpoint Media offers expert web design, local SEO, Google Ads, and website maintenance services tailored for Johannesburg service businesses seeking measurable growth.",
-  keywords: [
-    "web design johannesburg",
-    "local SEO services johannesburg",
-    "google ads johannesburg",
-    "website maintenance johannesburg",
-    "web development johannesburg",
-    "hyper-local SEO johannesburg",
-    "lead generation website johannesburg",
-    "website redesign johannesburg",
-    "shopify expert johannesburg",
-    "custom web development johannesburg",
-  ],
-  alternates: {
-    canonical: "/services",
-  },
-  openGraph: {
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
     title: "Web Design & SEO Services Johannesburg | Endpoint Media",
     description: "Endpoint Media offers expert web design, local SEO, Google Ads, and website maintenance services tailored for Johannesburg service businesses seeking measurable growth.",
-    url: "https://endpointmedia.co.za/services",
-    type: "website",
-  },
-};
+    path: "/services",
+    keywords: [
+      "web design johannesburg",
+      "local SEO services johannesburg",
+      "google ads johannesburg",
+      "website maintenance johannesburg",
+      "web development johannesburg",
+      "hyper-local SEO johannesburg",
+      "lead generation website johannesburg",
+      "website redesign johannesburg",
+      "shopify expert johannesburg",
+      "custom web development johannesburg",
+    ],
+  });
+}
 
 const ServicesPage = () => {
   const faqSchema = {
@@ -84,7 +77,7 @@ const ServicesPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }}
       />
       {/* Hero Section for Services */}
       <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white py-20 md:py-32">

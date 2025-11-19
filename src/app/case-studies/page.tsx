@@ -2,16 +2,92 @@
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD, BASE_URL } from "@/lib/seo";
 
-// METADATA: Trust-building page targeting local businesses
-export const metadata = {
-  title: "Client Success Stories | Web Design & SEO Results | Endpoint Media Johannesburg",
-  description: "See real-world examples of how Endpoint Media's web design and local SEO strategies have driven measurable growth for service businesses across Johannesburg.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Client Success Stories | Web Design & SEO Results | Endpoint Media Johannesburg",
+    description: "See real-world examples of how Endpoint Media's web design and local SEO strategies have driven measurable growth for service businesses across Johannesburg.",
+    path: "/case-studies",
+    keywords: [
+      "web design case studies johannesburg",
+      "local seo success stories",
+      "endpoint media results",
+      "service business growth johannesburg",
+    ],
+  });
+}
 
 const CaseStudiesPage = () => {
+  const caseStudies = [
+    {
+      name: "Rhino Panel Beaters",
+      url: `${BASE_URL}/case-studies/rhino-panel-beaters`,
+      description:
+        "High-performance Next.js site with multi-step quote engine and local SEO for Zululand dominance.",
+    },
+    {
+      name: "Alberton Battery Mart",
+      url: `${BASE_URL}/case-studies/alberton-battery-mart`,
+      description:
+        "Mobile battery service experience with advanced product discovery and Google Merchant Center integration.",
+    },
+    {
+      name: "Alberton Tyre Clinic",
+      url: `${BASE_URL}/case-studies/alberton-tyre-clinic`,
+      description:
+        "Safety-driven positioning and hyper-local landing pages for vehicle maintenance leadership.",
+    },
+    {
+      name: "Maverick Painting Contractors",
+      url: `${BASE_URL}/case-studies/maverick-painting-contractors`,
+      description:
+        "Premium commercial painting repositioning with risk-averse messaging and QA guarantees.",
+    },
+    {
+      name: "QJ Paint World",
+      url: `${BASE_URL}/case-studies/qj-paint-world`,
+      description:
+        "Expert technical supplier experience for B2B paint specialists with conversion-first UX.",
+    },
+    {
+      name: "Sakana no Ichi",
+      url: `${BASE_URL}/case-studies/sakana-no-ichi`,
+      description:
+        "Luxury koi brand identity with Japanese aesthetic principles and premium lifestyle positioning.",
+    },
+  ];
+
+  const caseStudyListSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${BASE_URL}/case-studies#collection`,
+    name: "Endpoint Media Case Studies",
+    description:
+      "Real-world examples of Endpoint Media's high-performance web design and local SEO results across Johannesburg.",
+    url: `${BASE_URL}/case-studies`,
+    isPartOf: {
+      "@id": `${BASE_URL}#webpage`,
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: caseStudies.map((study, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: study.name,
+        url: study.url,
+        description: study.description,
+      })),
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(caseStudyListSchema) }}
+      />
       {/* Hero Section for Case Studies Page */}
       <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6 text-center">

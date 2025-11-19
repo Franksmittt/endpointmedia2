@@ -2,37 +2,35 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD, FRANK_SMIT_ID, ORG_ID } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Frank Smit - Web Design Expert Johannesburg | Endpoint Media Founder",
-  description: "Frank Smit is the founder of Endpoint Media, specializing in high-performance web design and local SEO for Johannesburg businesses. Expert in Next.js, technical SEO, and lead generation.",
-  keywords: [
-    "frank smit web designer",
-    "johannesburg web developer",
-    "endpoint media founder",
-    "web design expert johannesburg",
-  ],
-  alternates: {
-    canonical: "/about/author/frank-smit",
-  },
-  openGraph: {
-    title: "Frank Smit - Web Design Expert Johannesburg",
-    description: "Founder of Endpoint Media, specializing in high-performance web design and local SEO for Johannesburg businesses.",
-    url: "https://endpointmedia.co.za/about/author/frank-smit",
-    type: "profile",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Frank Smit - Web Design Expert Johannesburg | Endpoint Media Founder",
+    description: "Frank Smit is the founder of Endpoint Media, specializing in high-performance web design and local SEO for Johannesburg businesses. Expert in Next.js, technical SEO, and lead generation.",
+    path: "/about/author/frank-smit",
+    keywords: [
+      "frank smit web designer",
+      "johannesburg web developer",
+      "endpoint media founder",
+      "web design expert johannesburg",
+    ],
+    openGraph: {
+      type: "profile",
+    },
+  });
+}
 
 const FrankSmitPage = () => {
   // Person Schema for E-E-A-T
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": "https://endpointmedia.co.za/about/author/frank-smit#person",
+    "@id": FRANK_SMIT_ID,
     name: "Frank Smit",
     jobTitle: "Web Design Expert & Founder",
     worksFor: {
-      "@id": "https://endpointmedia.co.za/#organization",
+      "@id": ORG_ID,
     },
     url: "https://endpointmedia.co.za/about/author/frank-smit",
     sameAs: [
@@ -53,7 +51,7 @@ const FrankSmitPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(personSchema) }}
       />
 
       {/* Hero Section */}

@@ -2,22 +2,23 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Web Design for Medical Practices Johannesburg | Healthcare Website Design | Endpoint Media",
-  description: "Professional web design for Johannesburg medical practices, clinics, and healthcare providers. HIPAA-compliant, patient-focused websites with online booking and secure portals.",
-  keywords: [
-    "web design for medical practices johannesburg",
-    "healthcare website design",
-    "medical clinic website",
-    "doctor website design johannesburg",
-    "HIPAA compliant website",
-    "medical practice SEO",
-  ],
-  alternates: {
-    canonical: "/industries/medical",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Web Design for Medical Practices Johannesburg | Healthcare Website Design | Endpoint Media",
+    description: "Professional web design for Johannesburg medical practices, clinics, and healthcare providers. HIPAA-compliant, patient-focused websites with online booking and secure portals.",
+    path: "/industries/medical",
+    keywords: [
+      "web design for medical practices johannesburg",
+      "healthcare website design",
+      "medical clinic website",
+      "doctor website design johannesburg",
+      "HIPAA compliant website",
+      "medical practice SEO",
+    ],
+  });
+}
 
 const MedicalPage = () => {
   const serviceSchema = {
@@ -88,11 +89,11 @@ const MedicalPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }}
       />
 
       <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white py-20 md:py-32">

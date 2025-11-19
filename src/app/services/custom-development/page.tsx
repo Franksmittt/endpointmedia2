@@ -2,31 +2,25 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from '@/lib/seo';
 
-// METADATA: Core Money Page - Custom Development Services
-export const metadata: Metadata = {
-  title: "Custom Web Development Johannesburg | Enterprise Solutions | Endpoint Media",
-  description: "Premium enterprise web development services for Johannesburg businesses. Custom solutions with CRM/ERP integration, advanced functionality, and scalable architecture. Positioned as the premium enterprise solution.",
-  keywords: [
-    "custom web development johannesburg",
-    "enterprise web development",
-    "CRM integration johannesburg",
-    "ERP integration johannesburg",
-    "custom web application development",
-    "enterprise website development",
-    "bespoke web development",
-    "scalable web development",
-  ],
-  alternates: {
-    canonical: "/services/custom-development",
-  },
-  openGraph: {
-    title: "Custom Web Development Johannesburg | Endpoint Media",
-    description: "Premium enterprise web development services with CRM/ERP integration and advanced functionality.",
-    url: "https://endpointmedia.co.za/services/custom-development",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Custom Web Development Johannesburg | Enterprise Solutions | Endpoint Media",
+    description: "Premium enterprise web development services for Johannesburg businesses. Custom solutions with CRM/ERP integration, advanced functionality, and scalable architecture. Positioned as the premium enterprise solution.",
+    path: "/services/custom-development",
+    keywords: [
+      "custom web development johannesburg",
+      "enterprise web development",
+      "CRM integration johannesburg",
+      "ERP integration johannesburg",
+      "custom web application development",
+      "enterprise website development",
+      "bespoke web development",
+      "scalable web development",
+    ],
+  });
+}
 
 const CustomDevelopmentPage = () => {
   const serviceSchema = {
@@ -97,11 +91,11 @@ const CustomDevelopmentPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }}
       />
 
       {/* Hero Section */}

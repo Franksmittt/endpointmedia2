@@ -1,12 +1,25 @@
 // src/app/case-studies/sakana-no-ichi/page.tsx
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 
-// METADATA: SEO-optimized case study page
-export const metadata = {
-  title: "Sakana no Ichi Case Study | Luxury Brand Development & Premium Koi Food | Endpoint Media",
-  description: "Discover how Endpoint Media transformed Sakana no Ichi from a simple product concept into a premium, luxury lifestyle brand through complete brand development, Japanese aesthetic principles, and mindful ritual positioning.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Sakana no Ichi Case Study | Luxury Brand Development & Premium Koi Food | Endpoint Media",
+    description: "Discover how Endpoint Media transformed Sakana no Ichi from a simple product concept into a premium, luxury lifestyle brand through complete brand development, Japanese aesthetic principles, and mindful ritual positioning.",
+    path: "/case-studies/sakana-no-ichi",
+    keywords: [
+      "luxury brand case study",
+      "koi food premium branding",
+      "sakana no ichi web design",
+      "endpoint media luxury project",
+    ],
+    openGraph: {
+      type: "article",
+    },
+  });
+}
 
 const SakanaNoIchiCaseStudy = () => {
   return (

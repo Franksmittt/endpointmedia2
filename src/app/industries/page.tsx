@@ -2,21 +2,22 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Industry-Specific Web Design Johannesburg | Law Firms, Real Estate, Finance, Medical | Endpoint Media",
-  description: "Specialized web design services for Johannesburg businesses. We serve law firms, real estate agents, financial advisors, medical practices, and more with industry-specific solutions.",
-  keywords: [
-    "industry-specific web design johannesburg",
-    "web design for law firms",
-    "web design for real estate",
-    "web design for financial services",
-    "web design for medical practices",
-  ],
-  alternates: {
-    canonical: "/industries",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Industry-Specific Web Design Johannesburg | Law Firms, Real Estate, Finance, Medical | Endpoint Media",
+    description: "Specialized web design services for Johannesburg businesses. We serve law firms, real estate agents, financial advisors, medical practices, and more with industry-specific solutions.",
+    path: "/industries",
+    keywords: [
+      "industry-specific web design johannesburg",
+      "web design for law firms",
+      "web design for real estate",
+      "web design for financial services",
+      "web design for medical practices",
+    ],
+  });
+}
 
 const IndustriesPage = () => {
   const industries = [

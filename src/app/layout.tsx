@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import { Roboto, Poppins } from 'next/font/google'; 
+import { Roboto, Poppins } from 'next/font/google';
+import Script from 'next/script';
 import "./globals.css";
 // Import global styles (including Tailwind directives)
 import Header from "@/components/layout/Header";
@@ -62,6 +63,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://endpointmedia.co.za"),
   alternates: {
     canonical: "/",
+    languages: {
+      "en-ZA": "https://endpointmedia.co.za",
+      en: "https://endpointmedia.co.za",
+    },
   },
   openGraph: {
     type: "website",
@@ -229,34 +234,56 @@ export default function RootLayout({
     },
   };
 
+  // Secure JSON-LD sanitization function (prevents XSS)
+  function secureJsonLD(data: object) {
+    return JSON.stringify(data).replace(/</g, '\\u003c');
+  }
+
+  // Person schema for Frank Smit (E-E-A-T signal)
+  const frankSmitSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://endpointmedia.co.za/about/author/frank-smit#person",
+    name: "Frank Smit",
+    jobTitle: "Web Design Expert & Founder",
+    url: "https://endpointmedia.co.za/about/author/frank-smit",
+    image: "https://endpointmedia.co.za/images/frank-smit.jpg",
+    sameAs: [
+      // Add social profiles when available (Brand Fortress)
+      // "https://www.linkedin.com/in/frank-smit",
+      // "https://twitter.com/franksmit",
+    ],
+    worksFor: {
+      "@id": "https://endpointmedia.co.za/#organization",
+    },
+    knowsAbout: [
+      "Web Design",
+      "Local SEO",
+      "Next.js Development",
+      "E-commerce Development",
+      "Technical SEO",
+    ],
+  };
+
   return (
     <html lang="en-ZA" className={`${roboto.variable} ${poppins.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGFD6DFTRV"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-SGFD6DFTRV');
-            `,
-          }}
-        />
-
-        {/* JSON-LD Structured Data */}
+        {/* JSON-LD Structured Data - Secured with XSS protection */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{ __html: secureJsonLD(organizationSchema) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{ __html: secureJsonLD(localBusinessSchema) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          dangerouslySetInnerHTML={{ __html: secureJsonLD(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: secureJsonLD(frankSmitSchema) }}
         />
       </head>
       <body className={`bg-gray-50 text-gray-800 antialiased font-sans`}>
@@ -264,7 +291,21 @@ export default function RootLayout({
     
         <Header /> 
         <main id="main-content">{children}</main> 
-        <Footer /> 
+        <Footer />
+        
+        {/* Google Analytics - Optimized with next/script for INP (Interaction to Next Paint) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SGFD6DFTRV"
+          strategy="lazyOnload"
+        />
+        <Script id="gtag-init" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SGFD6DFTRV');
+          `}
+        </Script>
       </body>
     </html>
   );

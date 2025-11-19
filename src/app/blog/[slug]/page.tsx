@@ -1,8 +1,10 @@
 // src/app/blog/[slug]/page.tsx
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from "next";
 import { notFound } from 'next/navigation';
 import InternalLinks from '@/components/seo/InternalLinks';
+import { buildMetadata, secureJsonLD, BASE_URL, FRANK_SMIT_ID, ORG_ID } from '@/lib/seo';
 // --- Placeholder Blog Post Data (UPDATED FOR FINAL OUTPUT) ---
 const placeholderPosts = [
   {
@@ -369,27 +371,49 @@ async function getPostData(slug: string) {
 }
 
 // --- Dynamic Metadata Generation ---
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const post = await getPostData(params.slug);
   if (!post) {
-    return {
-      title: 'Post Not Found',
-    };
+    return buildMetadata({
+      title: "Post Not Found | Endpoint Media Blog",
+      description: "The article you are looking for could not be found.",
+      path: `/blog/${params.slug}`,
+    });
   }
-  return {
-    // Title is highly optimized for the target keyword
+
+  const keywords = [
+    "web design johannesburg",
+    "website design prices",
+    "local seo joburg",
+    "web design packages south africa",
+    "schema markup tutorial",
+    post.category,
+  ];
+
+  return buildMetadata({
     title: `${post.title} | Endpoint Media Blog`,
-    description: post.excerpt, 
-    // Keywords section ensures the page is thematically relevant for LSI terms
-    keywords: [
-      "web design johannesburg", 
-      "website design prices", 
-      "local seo joburg", 
-      "web design packages south africa", 
-      "schema markup tutorial",
-      post.category
-    ].join(', '),
-  };
+    description: post.excerpt,
+    path: `/blog/${post.slug}`,
+    keywords,
+    openGraph: {
+      type: "article",
+      images: [
+        {
+          url: `${BASE_URL}/images/blog/${post.slug}.jpg`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      images: [`${BASE_URL}/images/blog/${post.slug}.jpg`],
+    },
+  });
 }
 
 // --- Generate Static Paths (Recommended for SSG) ---
@@ -408,27 +432,27 @@ const BlogPostPage = async ({ params }: { params: { slug: string } }) => {
     notFound(); 
   }
 
-  // Article Schema for Blog Posts
+  // Article Schema for Blog Posts - Enhanced with E-E-A-T linking
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "@id": `https://endpointmedia.co.za/blog/${post.slug}#article`,
+    "@id": `${BASE_URL}/blog/${post.slug}#article`,
     headline: post.title,
     description: post.excerpt,
-    image: `https://endpointmedia.co.za/images/blog/${post.slug}.jpg`,
+    image: `${BASE_URL}/images/blog/${post.slug}.jpg`,
     datePublished: new Date(post.date).toISOString(),
     dateModified: new Date(post.date).toISOString(),
     author: {
       "@type": "Person",
+      "@id": FRANK_SMIT_ID, // Reference to global Person entity
       name: "Frank Smit",
-      url: "https://endpointmedia.co.za",
     },
     publisher: {
-      "@id": "https://endpointmedia.co.za/#organization",
+      "@id": ORG_ID, // Reference to global Organization entity
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://endpointmedia.co.za/blog/${post.slug}`,
+      "@id": `${BASE_URL}/blog/${post.slug}`,
     },
     articleSection: post.category,
     keywords: [
@@ -441,10 +465,10 @@ const BlogPostPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      {/* Article Schema Markup */}
+      {/* Article Schema Markup - Secured with XSS protection */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(articleSchema) }}
       />
       {/* Simple Header for Post */}
       <section className="bg-gray-100 py-16 md:py-24 border-b border-gray-200">

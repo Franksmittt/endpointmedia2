@@ -2,30 +2,25 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Web Design Midrand | Website Design Services Midrand | Endpoint Media",
-  description: "Professional web design and local SEO services for Midrand businesses. Growing commercial hub between Joburg and Pretoria. Build a high-performance, lead-generating website. Free audit available.",
-  keywords: [
-    "web design midrand",
-    "website design midrand",
-    "local SEO midrand",
-    "web developer midrand",
-    "hyper-local SEO midrand",
-    "midrand mall web design",
-    "website design midrand CBD",
-    "local SEO services midrand",
-  ],
-  alternates: {
-    canonical: "/locations/midrand",
-  },
-  openGraph: {
-    title: "Web Design Midrand | Endpoint Media",
-    description: "Professional web design and local SEO services for Midrand businesses.",
-    url: "https://endpointmedia.co.za/locations/midrand",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Web Design Midrand | Website Design Services Midrand | Endpoint Media",
+    description: "Professional web design and local SEO services for Midrand businesses. Growing commercial hub between Joburg and Pretoria. Build a high-performance, lead-generating website. Free audit available.",
+    path: "/locations/midrand",
+    keywords: [
+      "web design midrand",
+      "website design midrand",
+      "local SEO midrand",
+      "web developer midrand",
+      "hyper-local SEO midrand",
+      "midrand mall web design",
+      "website design midrand CBD",
+      "local SEO services midrand",
+    ],
+  });
+}
 
 const MidrandPage = () => {
   const locationSchema = {
@@ -79,11 +74,11 @@ const MidrandPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(locationSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(breadcrumbSchema) }}
       />
 
       {/* Breadcrumb Navigation */}

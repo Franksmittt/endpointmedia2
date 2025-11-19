@@ -3,31 +3,25 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import InternalLinks from '@/components/seo/InternalLinks';
+import { buildMetadata, secureJsonLD } from '@/lib/seo';
 
-// METADATA: Core Money Page - Website Redesign Services
-export const metadata: Metadata = {
-  title: "Website Redesign Services Johannesburg | Outdated Website Transformation | Endpoint Media",
-  description: "Stop losing clients to competitors with outdated websites. Endpoint Media transforms underperforming, mobile-incompatible websites into high-converting, modern assets that generate measurable ROI.",
-  keywords: [
-    "website redesign services johannesburg",
-    "outdated website redesign",
-    "underperforming website redesign",
-    "mobile-incompatible website fix",
-    "website transformation johannesburg",
-    "modern website redesign",
-    "conversion rate optimization",
-    "website performance audit",
-  ],
-  alternates: {
-    canonical: "/services/website-redesign",
-  },
-  openGraph: {
-    title: "Website Redesign Services Johannesburg | Endpoint Media",
-    description: "Transform your outdated website into a high-converting, modern asset that generates measurable ROI.",
-    url: "https://endpointmedia.co.za/services/website-redesign",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Website Redesign Services Johannesburg | Outdated Website Transformation | Endpoint Media",
+    description: "Stop losing clients to competitors with outdated websites. Endpoint Media transforms underperforming, mobile-incompatible websites into high-converting, modern assets that generate measurable ROI.",
+    path: "/services/website-redesign",
+    keywords: [
+      "website redesign services johannesburg",
+      "outdated website redesign",
+      "underperforming website redesign",
+      "mobile-incompatible website fix",
+      "website transformation johannesburg",
+      "modern website redesign",
+      "conversion rate optimization",
+      "website performance audit",
+    ],
+  });
+}
 
 const WebsiteRedesignPage = () => {
   const serviceSchema = {
@@ -98,11 +92,11 @@ const WebsiteRedesignPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }}
       />
 
       {/* Hero Section */}

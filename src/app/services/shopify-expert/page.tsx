@@ -2,30 +2,24 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from '@/lib/seo';
 
-// METADATA: Core Money Page - Shopify Expert Services
-export const metadata: Metadata = {
-  title: "Shopify Expert Johannesburg | E-commerce Website Development | Endpoint Media",
-  description: "Need an e-commerce store fast? Our Shopify expert services deliver speed-to-market e-commerce solutions for Johannesburg businesses. Professional, conversion-optimized stores that generate revenue.",
-  keywords: [
-    "shopify expert johannesburg",
-    "shopify developer johannesburg",
-    "e-commerce website johannesburg",
-    "shopify store setup johannesburg",
-    "online store development johannesburg",
-    "e-commerce website design",
-    "shopify customization johannesburg",
-  ],
-  alternates: {
-    canonical: "/services/shopify-expert",
-  },
-  openGraph: {
-    title: "Shopify Expert Johannesburg | Endpoint Media",
-    description: "Professional Shopify development services for Johannesburg e-commerce businesses seeking speed-to-market.",
-    url: "https://endpointmedia.co.za/services/shopify-expert",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Shopify Expert Johannesburg | E-commerce Website Development | Endpoint Media",
+    description: "Need an e-commerce store fast? Our Shopify expert services deliver speed-to-market e-commerce solutions for Johannesburg businesses. Professional, conversion-optimized stores that generate revenue.",
+    path: "/services/shopify-expert",
+    keywords: [
+      "shopify expert johannesburg",
+      "shopify developer johannesburg",
+      "e-commerce website johannesburg",
+      "shopify store setup johannesburg",
+      "online store development johannesburg",
+      "e-commerce website design",
+      "shopify customization johannesburg",
+    ],
+  });
+}
 
 const ShopifyExpertPage = () => {
   const serviceSchema = {
@@ -96,11 +90,11 @@ const ShopifyExpertPage = () => {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }}
       />
 
       {/* Hero Section */}

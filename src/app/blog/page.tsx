@@ -1,12 +1,26 @@
 // src/app/blog/page.tsx
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD, BASE_URL, ORG_ID } from '@/lib/seo';
 
 // METADATA: Highly optimized for informational intent and local relevance
-export const metadata = {
-  title: "Johannesburg Web Design & Local SEO Blog | Endpoint Media Insights",
-  description: "Expert insights on web design, local SEO, and lead generation strategies specifically for Johannesburg service businesses. Grow your business with Endpoint Media.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Johannesburg Web Design & Local SEO Blog | Endpoint Media Insights",
+    description: "Expert insights on web design, local SEO, and lead generation strategies specifically for Johannesburg service businesses. Grow your business with Endpoint Media.",
+    path: "/blog",
+    keywords: [
+      "web design blog johannesburg",
+      "local seo tips johannesburg",
+      "endpoint media insights",
+      "frank smit blog",
+    ],
+    openGraph: {
+      type: "article",
+    },
+  });
+}
 
 // --- Placeholder Blog Post Data (UPDATED FOR STRATEGY) ---
 const placeholderPosts = [
@@ -54,8 +68,25 @@ const placeholderPosts = [
 // --- End Placeholder Data ---
 
 const BlogIndexPage = () => {
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${BASE_URL}/blog#blog`,
+    name: "Endpoint Media Insights",
+    description: "Expert web design and local SEO strategies for Johannesburg service businesses.",
+    url: `${BASE_URL}/blog`,
+    publisher: {
+      "@id": ORG_ID,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(blogSchema) }}
+      />
+
       {/* Hero Section for Blog Page */}
       <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6 text-center">

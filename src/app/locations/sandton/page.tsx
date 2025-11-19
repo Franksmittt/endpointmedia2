@@ -2,35 +2,29 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
+import { buildMetadata, secureJsonLD } from '@/lib/seo';
 
-// METADATA: Hyper-local page for Sandton - Africa's Richest Square Mile
-export const metadata: Metadata = {
-  title: "Web Design Sandton | Website Design Services Sandton | Endpoint Media",
-  description: "Professional web design and local SEO services for Sandton businesses. Dominate Africa's richest square mile with a high-performance, lead-generating website. Free audit available.",
-  keywords: [
-    "web design sandton",
-    "website design sandton",
-    "local SEO sandton",
-    "web developer sandton",
-    "website redesign sandton",
-    "shopify expert sandton",
-    "web design sandton CBD",
-    "website design sandton city",
-    "local SEO services sandton",
-    "lead generation website sandton",
-    "google business profile sandton",
-    "hyper-local SEO sandton",
-  ],
-  alternates: {
-    canonical: "/locations/sandton",
-  },
-  openGraph: {
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
     title: "Web Design Sandton | Website Design Services Sandton | Endpoint Media",
-    description: "Professional web design and local SEO services for Sandton businesses. Dominate Africa's richest square mile with a high-performance, lead-generating website.",
-    url: "https://endpointmedia.co.za/locations/sandton",
-    type: "website",
-  },
-};
+    description: "Professional web design and local SEO services for Sandton businesses. Dominate Africa's richest square mile with a high-performance, lead-generating website. Free audit available.",
+    path: "/locations/sandton",
+    keywords: [
+      "web design sandton",
+      "website design sandton",
+      "local SEO sandton",
+      "web developer sandton",
+      "website redesign sandton",
+      "shopify expert sandton",
+      "web design sandton CBD",
+      "website design sandton city",
+      "local SEO services sandton",
+      "lead generation website sandton",
+      "google business profile sandton",
+      "hyper-local SEO sandton",
+    ],
+  });
+}
 
 const SandtonPage = () => {
   // JSON-LD Schema for Sandton location page
@@ -106,11 +100,11 @@ const SandtonPage = () => {
       {/* JSON-LD Schema Markup */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(locationSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(breadcrumbSchema) }}
       />
 
       {/* Breadcrumb Navigation */}

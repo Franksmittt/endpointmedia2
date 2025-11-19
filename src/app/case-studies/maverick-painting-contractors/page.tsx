@@ -1,12 +1,25 @@
 // src/app/case-studies/maverick-painting-contractors/page.tsx
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 
-// METADATA: SEO-optimized case study page
-export const metadata = {
-  title: "Maverick Painting Contractors Case Study | Premium Commercial Painting & Structural Maintenance | Endpoint Media",
-  description: "Discover how Endpoint Media repositioned Maverick Painting Contractors as a premium, risk-averse partner for commercial and body corporate assets, with Independent QA guarantees and technical authority building.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: "Maverick Painting Contractors Case Study | Premium Commercial Painting & Structural Maintenance | Endpoint Media",
+    description: "Discover how Endpoint Media repositioned Maverick Painting Contractors as a premium, risk-averse partner for commercial and body corporate assets, with Independent QA guarantees and technical authority building.",
+    path: "/case-studies/maverick-painting-contractors",
+    keywords: [
+      "commercial painting website",
+      "body corporate maintenance marketing",
+      "premium painting contractor case study",
+      "endpoint media results",
+    ],
+    openGraph: {
+      type: "article",
+    },
+  });
+}
 
 const MaverickPaintingContractorsCaseStudy = () => {
   return (
