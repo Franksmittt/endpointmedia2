@@ -2,6 +2,51 @@
 import React from 'react';
 import Link from 'next/link';
 
+const socialLinks = [
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/people/Endpoint-Media/61583029051159/',
+    icon: (
+      <svg
+        className="w-5 h-5"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M13.5 9.5V7.5c0-.8.5-1.3 1.4-1.3h1.6V3h-2.1c-2.7 0-4 1.4-4 4.1v2.4H8v3h2.4V21h3.1v-8.5h2.4l.4-3h-2.8z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/frank-smittt',
+    icon: (
+      <svg
+        className="w-5 h-5"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M6.5 9H3.5V21H6.5V9ZM5 7.5C6 7.5 6.8 6.7 6.8 5.8 6.8 5 6 4.2 5 4.2s-1.7.8-1.7 1.6c0 .9.8 1.7 1.7 1.7ZM20.5 21H17.5V14.5c0-1.6-.7-2.5-1.9-2.5s-1.9.9-1.9 2.5V21h-3v-12h3v1.5c.6-1 1.6-1.8 3.2-1.8 2.2 0 3.6 1.5 3.6 4.3V21Z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Google Business Profile',
+    href: 'https://www.google.com/maps?cid=06180556288562610524',
+    icon: (
+      <svg
+        className="w-5 h-5"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M12 2a10 10 0 1 0 0 20c2.7 0 5-1 6.6-2.6l-2.2-2.1c-.9.8-2.1 1.3-3.4 1.3-3 0-5.5-2.4-5.5-5.5S9 7.6 12 7.6c1.3 0 2.3.4 3.1 1.1l-1.9 1.9h6.7v-6.5l-2.1 2.1C16.5 4.3 14.5 2 12 2Z" />
+      </svg>
+    ),
+  },
+];
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
@@ -27,8 +72,26 @@ const Footer = () => {
               <span className="inline-block bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">SSL Secured</span> {/* Changed from gray-400 */}
               <span className="inline-block bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Local Expert</span> {/* Changed from gray-400 */}
             </div>
+            <div className="mt-6">
+              <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">
+                Connect with us
+              </p>
+              <div className="flex space-x-3">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-10 h-10 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-teal-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-300 focus-visible:ring-offset-gray-900 transition"
+                    aria-label={`Visit our ${link.name} page`}
+                  >
+                    {link.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
-
           {/* Column 3: Navigation */}
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white uppercase tracking-wider font-heading">Navigate</h4>

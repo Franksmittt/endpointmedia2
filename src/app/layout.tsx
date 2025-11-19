@@ -127,9 +127,7 @@ export default function RootLayout({
       availableLanguage: ["en-ZA"],
     },
     sameAs: [
-      // Add social media profiles when available
-      // "https://www.facebook.com/endpointmedia",
-      // "https://www.linkedin.com/company/endpoint-media",
+      "https://www.facebook.com/people/Endpoint-Media/61583029051159/",
     ],
   };
 
@@ -167,6 +165,7 @@ export default function RootLayout({
       opens: "09:00",
       closes: "17:00",
     },
+    branchCode: "06180556288562610524",
     areaServed: [
       {
         "@type": "City",
@@ -234,9 +233,7 @@ export default function RootLayout({
     url: "https://endpointmedia.co.za/about/author/frank-smit",
     image: "https://endpointmedia.co.za/images/frank-smit.jpg",
     sameAs: [
-      // Add social profiles when available (Brand Fortress)
-      // "https://www.linkedin.com/in/frank-smit",
-      // "https://twitter.com/franksmit",
+      "https://www.linkedin.com/in/frank-smittt",
     ],
     worksFor: {
       "@id": "https://endpointmedia.co.za/#organization",
