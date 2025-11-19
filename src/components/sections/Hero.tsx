@@ -14,19 +14,22 @@ const Hero = () => {
       className="relative bg-gray-900 text-white min-h-[90vh] md:min-h-screen flex items-center overflow-hidden py-24 md:py-32 hero-texture"
     >
       {/* Background Image: Optimized for LCP with priority prop */}
-      <Image
-        src={HERO_BG_SRC} 
-        alt="A high-performance digital marketing and web design service for Johannesburg." 
-        fill
-        quality={85}
-        priority={true}
-        className="object-cover absolute inset-0 z-0 opacity-15"
-        aria-hidden="true"
-        sizes="100vw"
-      />
-      
-      {/* Gradient Overlay for contrast */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900/80 to-teal-900/30 z-0"></div>
+      <div className="absolute inset-0 z-0">
+        {/* Lightweight gradient for mobile */}
+        <div className="md:hidden h-full w-full bg-gradient-to-br from-gray-900 via-gray-900/80 to-teal-900/40" />
+        {/* High-res background only for md+ to avoid mobile bandwidth hit */}
+        <Image
+          src={HERO_BG_SRC}
+          alt="A high-performance digital marketing and web design service for Johannesburg."
+          fill
+          quality={80}
+          priority={false}
+          className="hidden md:block object-cover opacity-15"
+          aria-hidden="true"
+          sizes="(max-width: 1023px) 0px, 100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900/80 to-teal-900/40" />
+      </div>
 
       {/* Content */}
       <div className="container mx-auto px-6 z-10 relative 

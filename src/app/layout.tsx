@@ -1,27 +1,12 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import { Roboto, Poppins } from 'next/font/google';
 import Script from 'next/script';
 import "./globals.css";
 // Import global styles (including Tailwind directives)
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-// Configure Roboto font (for body/sans-serif)
-const roboto = Roboto({
-  weight: ['400', '500'], 
-  subsets: ['latin'],
-  display: 'swap', 
-  variable: '--font-roboto', 
-});
-
-// Configure Poppins font (for headings)
-const poppins = Poppins({
-  weight: ['600', '700', '800'], 
-  subsets: ['latin'],
-  display: 'swap', 
-  variable: '--font-poppins', 
-});
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 // Define comprehensive metadata for SEO dominance
 export const metadata: Metadata = {
@@ -266,8 +251,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en-ZA" className={`${roboto.variable} ${poppins.variable} scroll-smooth`} suppressHydrationWarning>
+    <html lang="en-ZA" className="scroll-smooth font-sans" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         {/* JSON-LD Structured Data - Secured with XSS protection */}
         <script
           type="application/ld+json"
@@ -293,19 +281,22 @@ export default function RootLayout({
         <main id="main-content">{children}</main> 
         <Footer />
         
-        {/* Google Analytics - Optimized with next/script for INP (Interaction to Next Paint) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-SGFD6DFTRV"
-          strategy="lazyOnload"
-        />
-        <Script id="gtag-init" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-SGFD6DFTRV');
-          `}
-        </Script>
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="lazyOnload"
+            />
+            <Script id="gtag-init" strategy="lazyOnload">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );

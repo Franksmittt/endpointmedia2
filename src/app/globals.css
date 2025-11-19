@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define font CSS variables for Tailwind theme */
+:root {
+  --font-roboto: "Segoe UI", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-poppins: "Segoe UI", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
 /* 2. Add Base Layer Customizations */
 @layer base {
   /* Apply base font via layout.tsx body className */
@@ -44,7 +50,7 @@
   }
 }
 
-/* 3. REMOVED @font-face rules - Handled by next/font */
+/* 3. Removed @font-face rules - using system stacks for maximum performance */
 
 /* 4. Add Custom Component Styles & Animations */
 @layer components {
