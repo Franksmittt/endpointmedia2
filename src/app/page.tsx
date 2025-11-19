@@ -13,6 +13,7 @@ import Vetting from '@/components/sections/Vetting';
 import Pricing from '@/components/sections/Pricing';
 import Toolkit from '@/components/sections/Toolkit'; 
 import Audit from '@/components/sections/Audit';
+import SocialProof from '@/components/sections/SocialProof';
 import { secureJsonLD, BASE_URL, buildMetadata } from '@/lib/seo';
 
 // Homepage-specific metadata (extends root layout metadata)
@@ -72,6 +73,7 @@ export default function HomePage() {
       <Proof />
       <Vetting />
       <Pricing />
+      <SocialProof />
         <Toolkit />
         <Audit />
       </main>
