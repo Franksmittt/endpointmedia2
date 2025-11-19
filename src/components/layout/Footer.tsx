@@ -100,6 +100,12 @@ const Footer = () => {
               <li><Link href="/contact" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Contact Us</Link></li>
               <li><Link href="#problem" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">The Problem We Solve</Link></li>
               <li><Link href="#blueprint" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Our Blueprint (Process)</Link></li>
+              <li><Link href="/services/local-seo" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Local SEO &amp; GBP</Link></li>
+              <li><Link href="/services/review-management" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Review Management</Link></li>
+              <li><Link href="/services/google-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Google Ads Sprints</Link></li>
+              <li><Link href="/services/facebook-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Facebook &amp; IG Ads</Link></li>
+              <li><Link href="/services/conversion-rate-optimization" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">CRO Sprints</Link></li>
+              <li><Link href="/services/website-maintenance" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Website Maintenance</Link></li>
               <li><Link href="#pricing" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Investment Packages</Link></li>
               <li><Link href="#proof" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Client Results</Link></li>
               <li><Link href="#audit" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Free Growth Audit</Link></li>

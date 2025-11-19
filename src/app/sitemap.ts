@@ -37,6 +37,15 @@ const serviceDetailPaths = [
   '/services/website-redesign',
   '/services/shopify-expert',
   '/services/custom-development',
+  '/services/law-firm-websites',
+  '/services/medical-websites',
+  '/services/growth-rescue',
+  '/services/local-seo',
+  '/services/google-ads',
+  '/services/facebook-ads',
+  '/services/conversion-rate-optimization',
+  '/services/website-maintenance',
+  '/services/review-management',
 ];
 
 const locationPaths = [

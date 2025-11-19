@@ -66,14 +66,14 @@ export default function HomePage() {
       <main id="main-content">
         {/* Assemble the sections in order */}
         <Hero />
-      <Problem />
-      <Solution />
-      <WhoWeServe />
-      <Blueprint />
-      <Proof />
-      <Vetting />
-      <Pricing />
-      <SocialProof />
+        <Problem />
+        <Solution />
+        <WhoWeServe />
+        <Blueprint />
+        <Proof />
+        <Vetting />
+        <Pricing />
+        <SocialProof />
         <Toolkit />
         <Audit />
       </main>

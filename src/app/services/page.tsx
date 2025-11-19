@@ -6,23 +6,182 @@ import { buildMetadata, secureJsonLD } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design & SEO Services Johannesburg | Endpoint Media",
-    description: "Endpoint Media offers expert web design, local SEO, Google Ads, and website maintenance services tailored for Johannesburg service businesses seeking measurable growth.",
+  title: "Web Design & SEO Services Johannesburg | Endpoint Media",
+  description: "Endpoint Media offers expert web design, local SEO, Google Ads, and website maintenance services tailored for Johannesburg service businesses seeking measurable growth.",
     path: "/services",
-    keywords: [
-      "web design johannesburg",
-      "local SEO services johannesburg",
-      "google ads johannesburg",
-      "website maintenance johannesburg",
-      "web development johannesburg",
-      "hyper-local SEO johannesburg",
-      "lead generation website johannesburg",
-      "website redesign johannesburg",
-      "shopify expert johannesburg",
-      "custom web development johannesburg",
-    ],
+  keywords: [
+    "web design johannesburg",
+    "local SEO services johannesburg",
+    "google ads johannesburg",
+    "website maintenance johannesburg",
+    "web development johannesburg",
+    "hyper-local SEO johannesburg",
+    "lead generation website johannesburg",
+    "website redesign johannesburg",
+    "shopify expert johannesburg",
+    "custom web development johannesburg",
+  ],
   });
 }
+
+const serviceCards = [
+  {
+    title: "Website Redesign Services",
+    description:
+      "Transform outdated, brochure-style sites into conversion-optimized, Core Web Vitals-beating revenue assets.",
+    href: "/services/website-redesign",
+    badge: "Conversion uplift",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6.75A2.75 2.75 0 016.75 4h10.5A2.75 2.75 0 0120 6.75v10.5A2.75 2.75 0 0117.25 20H6.75A2.75 2.75 0 014 17.25V6.75z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 8h8M8 12h3" />
+      </svg>
+    ),
+  },
+  {
+    title: "Hyper-Local SEO Sprints",
+    description:
+      "Dominate Sandton to Roodepoort map packs with suburb silos, GBP automation, and review accelerators.",
+    href: "/services/local-seo",
+    badge: "Local dominance",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a3.75 3.75 0 013.75 3.75c0 2.25-3.75 7.5-3.75 7.5s-3.75-5.25-3.75-7.5A3.75 3.75 0 0112 6.75z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 10a.5.5 0 11-.001 1.001A.5.5 0 0112 10z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Shopify Expert Builds",
+    description:
+      "Speed-to-market Shopify builds with CRO-ready layouts, Klaviyo flows, and onsite SEO baked in.",
+    href: "/services/shopify-expert",
+    badge: "E-commerce",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 7l-1 9.5A2.5 2.5 0 007.5 19h9a2.5 2.5 0 002.49-2.75L18 7H6z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 7h12l-1-3H7L6 7z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Custom Development & Integrations",
+    description:
+      "Next.js and headless builds with CRM/ERP integrations, multi-step quoting, and bespoke dashboards.",
+    href: "/services/custom-development",
+    badge: "Enterprise",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M7 8l5-5 5 5M7 16l5 5 5-5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 12h16" />
+      </svg>
+    ),
+  },
+  {
+    title: "Google Ads & Paid Search",
+    description:
+      "Campaign rebuilds, landing pages, and GA4 tracking to turn Google Ads into accountable, scale-ready lead flow.",
+    href: "/services/google-ads",
+    badge: "New",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11 4h2v7h-2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 9h2v7H6zM16 9h2v7h-2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 18h16" />
+      </svg>
+    ),
+  },
+  {
+    title: "Facebook & Instagram Ads",
+    description:
+      "Offer engineering, creative, Meta CAPI tracking, and automation to turn paid social into predictable demand.",
+    href: "/services/facebook-ads",
+    badge: "New",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 8h1.5V6H13c-2.2 0-3.5 1.2-3.5 3.3V11H8v2h1.5v5h2.1v-5h1.7l.3-2h-2v-.6c0-.6.2-1 .9-1z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Conversion Rate Optimization",
+    description:
+      "Funnel forensics, UX fixes, and experimentation to turn existing traffic into booked calls without extra ad spend.",
+    href: "/services/conversion-rate-optimization",
+    badge: "New",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h4l2 6 2-12 2 6h4" />
+        <circle cx="12" cy="12" r="9" />
+      </svg>
+    ),
+  },
+  {
+    title: "Law Firm Websites",
+    description:
+      "LPC/POPIA-compliant intake engines with attorney bios, practice area clusters, and automated review funnels.",
+    href: "/services/law-firm-websites",
+    badge: "New",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l7 4v10l-7 4-7-4V7l7-4z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 9.5h6M9 13h6" />
+      </svg>
+    ),
+  },
+  {
+    title: "Medical & Aesthetic Websites",
+    description:
+      "HPCSA-ready patient journeys with booking automations, service hubs, and secure intake workflows.",
+    href: "/services/medical-websites",
+    badge: "New",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16M4 12h16" />
+        <circle cx="12" cy="12" r="9" />
+      </svg>
+    ),
+  },
+  {
+    title: "Growth Rescue: CRO & Tracking",
+    description:
+      "Emergency sprints to fix broken funnels, analytics, and paid media—stabilise lead flow in 30 days.",
+    href: "/services/growth-rescue",
+    badge: "New",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Website Maintenance & Support",
+    description:
+      "Keep your site fast, secure, and updated. Ongoing maintenance packages with security updates, backups, and priority support.",
+    href: "/services/website-maintenance",
+    badge: "Recurring",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+      </svg>
+    ),
+  },
+  {
+    title: "Review Management & Reputation",
+    description:
+      "Automated review generation, professional responses, and reputation repair. Turn satisfied customers into 5-star reviews that drive bookings.",
+    href: "/services/review-management",
+    badge: "New",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+      </svg>
+    ),
+  },
+];
 
 const ServicesPage = () => {
   const faqSchema = {
@@ -103,68 +262,35 @@ const ServicesPage = () => {
             </p>
           </header>
 
-          {/* Grid of Services (Example Structure) */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-            {/* Service 1: Website Redesign */}
-            <Link href="/services/website-redesign" className="group p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition duration-300 text-center block">
-               {/* Placeholder Icon */}
-               <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center">
-                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8"><path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {serviceCards.map((service) => (
+              <Link
+                key={service.title}
+                href={service.href}
+                className="group p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-xl transition duration-300 block text-left"
+              >
+                <div className="w-16 h-16 mb-4 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center">
+                  {service.icon}
                </div>
-               <h3 className="text-xl font-bold font-heading mb-2 text-gray-800 group-hover:text-teal-700 transition">
-                 Website Redesign Services
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-xl font-bold font-heading text-gray-900 group-hover:text-teal-700 transition">
+                    {service.title}
                </h3>
-               <p className="text-gray-600 text-sm mb-4">
-                 Transform outdated, underperforming websites into high-converting, modern assets that generate ROI.
-               </p>
-               <span className="text-teal-600 font-semibold text-sm group-hover:underline">Learn More →</span>
+                  {service.badge && (
+                    <span className="text-xs font-semibold uppercase tracking-wider text-teal-600 bg-teal-50 px-2 py-1 rounded-full">
+                      {service.badge}
+                    </span>
+                  )}
+               </div>
+                <p className="text-gray-600 text-sm mb-4">{service.description}</p>
+                <span className="text-teal-600 font-semibold text-sm group-hover:underline inline-flex items-center">
+                  Learn more
+                  <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
             </Link>
-
-            {/* Service 2: Local SEO */}
-            <div className="group p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition duration-300 text-center">
-               {/* Placeholder Icon */}
-               <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center">
-                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
-               </div>
-               <h3 className="text-xl font-bold font-heading mb-2 text-gray-800 group-hover:text-teal-700 transition">
-                 Hyper-Local SEO
-               </h3>
-               <p className="text-gray-600 text-sm mb-4">
-                 Dominate Google Maps and local search results across Johannesburg for your specific services.
-               </p>
-            </div>
-
-             {/* Service 3: Shopify Expert */}
-            <Link href="/services/shopify-expert" className="group p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition duration-300 text-center block">
-               {/* Placeholder Icon */}
-               <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center">
-                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>
-               </div>
-               <h3 className="text-xl font-bold font-heading mb-2 text-gray-800 group-hover:text-teal-700 transition">
-                 Shopify Expert
-               </h3>
-               <p className="text-gray-600 text-sm mb-4">
-                 Speed-to-market e-commerce solutions. Professional Shopify stores that generate revenue from day one.
-               </p>
-               <span className="text-teal-600 font-semibold text-sm group-hover:underline">Learn More →</span>
-            </Link>
-
-             {/* Service 4: Custom Development */}
-            <Link href="/services/custom-development" className="group p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition duration-300 text-center block">
-               {/* Placeholder Icon */}
-               <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
-               </div>
-               <h3 className="text-xl font-bold font-heading mb-2 text-gray-800 group-hover:text-teal-700 transition">
-                 Custom Development
-               </h3>
-               <p className="text-gray-600 text-sm mb-4">
-                 Premium enterprise solutions with CRM/ERP integration and scalable architecture for unique needs.
-               </p>
-               <span className="text-teal-600 font-semibold text-sm group-hover:underline">Learn More →</span>
-            </Link>
-
+            ))}
           </div>
 
            {/* Call to Action */}

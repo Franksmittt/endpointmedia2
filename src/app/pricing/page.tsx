@@ -1,9 +1,9 @@
 // src/app/pricing/page.tsx
 import React from 'react';
-import Link from 'next/link';
-
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from "@/lib/seo";
+import Link from 'next/link';
+import { buildMetadata, secureJsonLD, BASE_URL } from "@/lib/seo";
+import SocialProof from "@/components/sections/SocialProof";
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -19,6 +19,51 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
   });
 }
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${BASE_URL}/pricing#service`,
+  name: "Endpoint Media Website & Local SEO Packages",
+  description: "Once-off website design and local SEO implementation packages engineered for Johannesburg service businesses.",
+  provider: {
+    "@id": `${BASE_URL}#organization`,
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Johannesburg",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Website & Local SEO Packages",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "Foundation",
+        price: "5500",
+        priceCurrency: "ZAR",
+        availability: "https://schema.org/InStock",
+        url: `${BASE_URL}/pricing#foundation`,
+      },
+      {
+        "@type": "Offer",
+        name: "Growth Engine",
+        price: "10000",
+        priceCurrency: "ZAR",
+        availability: "https://schema.org/InStock",
+        url: `${BASE_URL}/pricing#growth-engine`,
+      },
+      {
+        "@type": "Offer",
+        name: "Market Leader",
+        price: "15000",
+        priceCurrency: "ZAR",
+        availability: "https://schema.org/InStock",
+        url: `${BASE_URL}/pricing#market-leader`,
+      },
+    ],
+  },
+};
 
 const PricingPage = () => {
   const faqSchema = {
@@ -81,6 +126,10 @@ const PricingPage = () => {
     <>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }}
       />
       {/* Hero Section for Pricing Page */}
@@ -111,7 +160,7 @@ const PricingPage = () => {
           <div className="grid lg:grid-cols-3 gap-8 items-stretch max-w-7xl mx-auto">
 
             {/* Card 1: Foundation */}
-            <div className="flex flex-col p-8 bg-white rounded-xl shadow-lg border border-gray-200 transition duration-300 hover:shadow-xl hover:border-teal-300">
+            <div id="foundation" className="flex flex-col p-8 bg-white rounded-xl shadow-lg border border-gray-200 transition duration-300 hover:shadow-xl hover:border-teal-300">
               <div className="flex-grow">
                 <h3 className="text-3xl font-bold font-heading mb-2 text-gray-800">Foundation</h3>
                 <p className="text-gray-500 mb-6">Establish your essential, professional online footprint.</p>
@@ -129,7 +178,7 @@ const PricingPage = () => {
             </div>
 
             {/* Card 2: Growth Engine (Most Popular) */}
-            <div className="flex flex-col p-10 bg-gray-900 text-white rounded-xl shadow-2xl transform lg:scale-105 relative border-4 border-teal-500">
+            <div id="growth-engine" className="flex flex-col p-10 bg-gray-900 text-white rounded-xl shadow-2xl transform lg:scale-105 relative border-4 border-teal-500">
               <span className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
               <div className="flex-grow">
                 <h3 className="text-3xl font-bold font-heading mb-2 text-white">Growth Engine</h3>
@@ -148,7 +197,7 @@ const PricingPage = () => {
             </div>
 
             {/* Card 3: Market Leader */}
-            <div className="flex flex-col p-8 bg-white rounded-xl shadow-lg border border-gray-200 transition duration-300 hover:shadow-xl hover:border-teal-300">
+            <div id="market-leader" className="flex flex-col p-8 bg-white rounded-xl shadow-lg border border-gray-200 transition duration-300 hover:shadow-xl hover:border-teal-300">
               <div className="flex-grow">
                 <h3 className="text-3xl font-bold font-heading mb-2 text-gray-800">Market Leader</h3>
                 <p className="text-gray-500 mb-6">For established pros aiming for total Johannesburg market saturation.</p>
@@ -171,6 +220,60 @@ const PricingPage = () => {
             <p className="mt-2 text-sm">All packages include 1 year of free essential hosting &amp; domain name registration if required.</p>
           </div>
         </div>
+      </section>
+
+      {/* Trust & proof section */}
+      <SocialProof />
+
+      {/* Dual CTA */}
+      <section className="py-16 bg-gray-900 text-white">
+        <div className="container mx-auto px-6 grid gap-8 lg:grid-cols-2">
+          <div className="bg-gray-800 rounded-2xl p-8 border border-white/10">
+            <p className="text-teal-300 text-sm font-semibold uppercase tracking-[0.2em] mb-3">Need to see it</p>
+            <h3 className="text-2xl font-heading font-bold mb-4">View live case studies + pricing breakdowns.</h3>
+            <p className="text-gray-300 mb-6">See the assets, metrics, and ROI clients unlocked on the exact packages above.</p>
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center justify-center px-6 py-3 font-semibold rounded-full border border-white/40 hover:bg-white/10 transition"
+            >
+              Explore client wins
+            </Link>
+          </div>
+          <div className="bg-gray-50 text-gray-900 rounded-2xl p-8 border border-gray-200">
+            <p className="text-teal-600 text-sm font-semibold uppercase tracking-[0.2em] mb-3">Ready to move fast</p>
+            <h3 className="text-2xl font-heading font-bold mb-4">Book a 20‑minute call with Frank Smit.</h3>
+            <p className="text-gray-700 mb-6">Walk through your current site, pick a package, and lock an install date within the week.</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-6 py-3 font-semibold rounded-full bg-teal-600 text-white hover:bg-teal-500 transition"
+              >
+                Book your audit
+              </Link>
+              <Link
+                href="tel:+27769724559"
+                className="inline-flex items-center justify-center px-6 py-3 font-semibold rounded-full border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition"
+              >
+                Call 076 972 4559
+              </Link>
+            </div>
+          </div>
+        </div>
+        <p className="text-center text-sm text-gray-400 mt-8">
+          Need paid traffic or funnel fixes too? Explore our{' '}
+          <Link href="/services/google-ads" className="text-teal-400 font-semibold hover:underline">
+            Google Ads
+          </Link>{' '}
+          and{' '}
+          <Link href="/services/facebook-ads" className="text-teal-400 font-semibold hover:underline">
+            Facebook &amp; Instagram Ads
+          </Link>{' '}
+          sprints for turnkey acquisition, or{' '}
+          <Link href="/services/conversion-rate-optimization" className="text-teal-400 font-semibold hover:underline">
+            CRO Sprints
+          </Link>{' '}
+          to convert more of your current traffic.
+        </p>
       </section>
 
       {/* FAQ Section with Schema */}
