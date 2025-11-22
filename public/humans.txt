@@ -1,0 +1,11 @@
+/* TEAM */
+Founder: Frank Smit
+Role: Lead Developer & Strategist
+Location: Alberton, South Africa
+Contact: hello@endpointmedia.co.za
+
+/* SITE */
+Standards: HTML5, CSS3, Next.js 14
+Components: Shadcn/UI, Tailwind
+Philosophy: Performance First. No Bloat.
+

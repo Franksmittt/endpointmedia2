@@ -153,6 +153,7 @@ export default function RootLayout({
     telephone: "+27-76-972-4559",
     email: "hello@endpointmedia.co.za",
     priceRange: "R5,500 - R15,000",
+    hasMap: "https://www.google.com/maps?cid=06180556288562610524",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [

@@ -47933,6 +47933,11 @@ const serviceDetailPaths = [
   '/services/medical-websites',
   '/services/growth-rescue',
   '/services/local-seo',
+  '/services/google-ads',
+  '/services/facebook-ads',
+  '/services/conversion-rate-optimization',
+  '/services/website-maintenance',
+  '/services/review-management',
 ];
 
 const locationPaths = [
@@ -56697,10 +56702,9 @@ export default WaterfallPage;
 
 // src/app/pricing/page.tsx
 import React from 'react';
-import Link from 'next/link';
-
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from "@/lib/seo";
+import Link from 'next/link';
+import { buildMetadata, secureJsonLD, BASE_URL } from "@/lib/seo";
 import SocialProof from "@/components/sections/SocialProof";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -56717,6 +56721,51 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
   });
 }
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${BASE_URL}/pricing#service`,
+  name: "Endpoint Media Website & Local SEO Packages",
+  description: "Once-off website design and local SEO implementation packages engineered for Johannesburg service businesses.",
+  provider: {
+    "@id": `${BASE_URL}#organization`,
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Johannesburg",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Website & Local SEO Packages",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "Foundation",
+        price: "5500",
+        priceCurrency: "ZAR",
+        availability: "https://schema.org/InStock",
+        url: `${BASE_URL}/pricing#foundation`,
+      },
+      {
+        "@type": "Offer",
+        name: "Growth Engine",
+        price: "10000",
+        priceCurrency: "ZAR",
+        availability: "https://schema.org/InStock",
+        url: `${BASE_URL}/pricing#growth-engine`,
+      },
+      {
+        "@type": "Offer",
+        name: "Market Leader",
+        price: "15000",
+        priceCurrency: "ZAR",
+        availability: "https://schema.org/InStock",
+        url: `${BASE_URL}/pricing#market-leader`,
+      },
+    ],
+  },
+};
 
 const PricingPage = () => {
   const faqSchema = {
@@ -56779,6 +56828,10 @@ const PricingPage = () => {
     <>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }}
       />
       {/* Hero Section for Pricing Page */}
@@ -56809,7 +56862,7 @@ const PricingPage = () => {
           <div className="grid lg:grid-cols-3 gap-8 items-stretch max-w-7xl mx-auto">
 
             {/* Card 1: Foundation */}
-            <div className="flex flex-col p-8 bg-white rounded-xl shadow-lg border border-gray-200 transition duration-300 hover:shadow-xl hover:border-teal-300">
+            <div id="foundation" className="flex flex-col p-8 bg-white rounded-xl shadow-lg border border-gray-200 transition duration-300 hover:shadow-xl hover:border-teal-300">
               <div className="flex-grow">
                 <h3 className="text-3xl font-bold font-heading mb-2 text-gray-800">Foundation</h3>
                 <p className="text-gray-500 mb-6">Establish your essential, professional online footprint.</p>
@@ -56827,7 +56880,7 @@ const PricingPage = () => {
             </div>
 
             {/* Card 2: Growth Engine (Most Popular) */}
-            <div className="flex flex-col p-10 bg-gray-900 text-white rounded-xl shadow-2xl transform lg:scale-105 relative border-4 border-teal-500">
+            <div id="growth-engine" className="flex flex-col p-10 bg-gray-900 text-white rounded-xl shadow-2xl transform lg:scale-105 relative border-4 border-teal-500">
               <span className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
               <div className="flex-grow">
                 <h3 className="text-3xl font-bold font-heading mb-2 text-white">Growth Engine</h3>
@@ -56846,7 +56899,7 @@ const PricingPage = () => {
             </div>
 
             {/* Card 3: Market Leader */}
-            <div className="flex flex-col p-8 bg-white rounded-xl shadow-lg border border-gray-200 transition duration-300 hover:shadow-xl hover:border-teal-300">
+            <div id="market-leader" className="flex flex-col p-8 bg-white rounded-xl shadow-lg border border-gray-200 transition duration-300 hover:shadow-xl hover:border-teal-300">
               <div className="flex-grow">
                 <h3 className="text-3xl font-bold font-heading mb-2 text-gray-800">Market Leader</h3>
                 <p className="text-gray-500 mb-6">For established pros aiming for total Johannesburg market saturation.</p>
@@ -56873,6 +56926,57 @@ const PricingPage = () => {
 
       {/* Trust & proof section */}
       <SocialProof />
+
+      {/* Dual CTA */}
+      <section className="py-16 bg-gray-900 text-white">
+        <div className="container mx-auto px-6 grid gap-8 lg:grid-cols-2">
+          <div className="bg-gray-800 rounded-2xl p-8 border border-white/10">
+            <p className="text-teal-300 text-sm font-semibold uppercase tracking-[0.2em] mb-3">Need to see it</p>
+            <h3 className="text-2xl font-heading font-bold mb-4">View live case studies + pricing breakdowns.</h3>
+            <p className="text-gray-300 mb-6">See the assets, metrics, and ROI clients unlocked on the exact packages above.</p>
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center justify-center px-6 py-3 font-semibold rounded-full border border-white/40 hover:bg-white/10 transition"
+            >
+              Explore client wins
+            </Link>
+          </div>
+          <div className="bg-gray-50 text-gray-900 rounded-2xl p-8 border border-gray-200">
+            <p className="text-teal-600 text-sm font-semibold uppercase tracking-[0.2em] mb-3">Ready to move fast</p>
+            <h3 className="text-2xl font-heading font-bold mb-4">Book a 20‑minute call with Frank Smit.</h3>
+            <p className="text-gray-700 mb-6">Walk through your current site, pick a package, and lock an install date within the week.</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-6 py-3 font-semibold rounded-full bg-teal-600 text-white hover:bg-teal-500 transition"
+              >
+                Book your audit
+              </Link>
+              <Link
+                href="tel:+27769724559"
+                className="inline-flex items-center justify-center px-6 py-3 font-semibold rounded-full border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition"
+              >
+                Call 076 972 4559
+              </Link>
+            </div>
+          </div>
+        </div>
+        <p className="text-center text-sm text-gray-400 mt-8">
+          Need paid traffic or funnel fixes too? Explore our{' '}
+          <Link href="/services/google-ads" className="text-teal-400 font-semibold hover:underline">
+            Google Ads
+          </Link>{' '}
+          and{' '}
+          <Link href="/services/facebook-ads" className="text-teal-400 font-semibold hover:underline">
+            Facebook &amp; Instagram Ads
+          </Link>{' '}
+          sprints for turnkey acquisition, or{' '}
+          <Link href="/services/conversion-rate-optimization" className="text-teal-400 font-semibold hover:underline">
+            CRO Sprints
+          </Link>{' '}
+          to convert more of your current traffic.
+        </p>
+      </section>
 
       {/* FAQ Section with Schema */}
       <section className="py-24 bg-white">
@@ -57186,21 +57290,21 @@ import { buildMetadata, secureJsonLD } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design & SEO Services Johannesburg | Endpoint Media",
-    description: "Endpoint Media offers expert web design, local SEO, Google Ads, and website maintenance services tailored for Johannesburg service businesses seeking measurable growth.",
+  title: "Web Design & SEO Services Johannesburg | Endpoint Media",
+  description: "Endpoint Media offers expert web design, local SEO, Google Ads, and website maintenance services tailored for Johannesburg service businesses seeking measurable growth.",
     path: "/services",
-    keywords: [
-      "web design johannesburg",
-      "local SEO services johannesburg",
-      "google ads johannesburg",
-      "website maintenance johannesburg",
-      "web development johannesburg",
-      "hyper-local SEO johannesburg",
-      "lead generation website johannesburg",
-      "website redesign johannesburg",
-      "shopify expert johannesburg",
-      "custom web development johannesburg",
-    ],
+  keywords: [
+    "web design johannesburg",
+    "local SEO services johannesburg",
+    "google ads johannesburg",
+    "website maintenance johannesburg",
+    "web development johannesburg",
+    "hyper-local SEO johannesburg",
+    "lead generation website johannesburg",
+    "website redesign johannesburg",
+    "shopify expert johannesburg",
+    "custom web development johannesburg",
+  ],
   });
 }
 
@@ -57258,6 +57362,46 @@ const serviceCards = [
     ),
   },
   {
+    title: "Google Ads & Paid Search",
+    description:
+      "Campaign rebuilds, landing pages, and GA4 tracking to turn Google Ads into accountable, scale-ready lead flow.",
+    href: "/services/google-ads",
+    badge: "New",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11 4h2v7h-2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 9h2v7H6zM16 9h2v7h-2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 18h16" />
+      </svg>
+    ),
+  },
+  {
+    title: "Facebook & Instagram Ads",
+    description:
+      "Offer engineering, creative, Meta CAPI tracking, and automation to turn paid social into predictable demand.",
+    href: "/services/facebook-ads",
+    badge: "New",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 8h1.5V6H13c-2.2 0-3.5 1.2-3.5 3.3V11H8v2h1.5v5h2.1v-5h1.7l.3-2h-2v-.6c0-.6.2-1 .9-1z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Conversion Rate Optimization",
+    description:
+      "Funnel forensics, UX fixes, and experimentation to turn existing traffic into booked calls without extra ad spend.",
+    href: "/services/conversion-rate-optimization",
+    badge: "New",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h4l2 6 2-12 2 6h4" />
+        <circle cx="12" cy="12" r="9" />
+      </svg>
+    ),
+  },
+  {
     title: "Law Firm Websites",
     description:
       "LPC/POPIA-compliant intake engines with attorney bios, practice area clusters, and automated review funnels.",
@@ -57293,6 +57437,31 @@ const serviceCards = [
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Website Maintenance & Support",
+    description:
+      "Keep your site fast, secure, and updated. Ongoing maintenance packages with security updates, backups, and priority support.",
+    href: "/services/website-maintenance",
+    badge: "Recurring",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+      </svg>
+    ),
+  },
+  {
+    title: "Review Management & Reputation",
+    description:
+      "Automated review generation, professional responses, and reputation repair. Turn satisfied customers into 5-star reviews that drive bookings.",
+    href: "/services/review-management",
+    badge: "New",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
       </svg>
     ),
   },
@@ -57386,17 +57555,17 @@ const ServicesPage = () => {
               >
                 <div className="w-16 h-16 mb-4 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center">
                   {service.icon}
-                </div>
+               </div>
                 <div className="flex items-center gap-2 mb-2">
                   <h3 className="text-xl font-bold font-heading text-gray-900 group-hover:text-teal-700 transition">
                     {service.title}
-                  </h3>
+               </h3>
                   {service.badge && (
                     <span className="text-xs font-semibold uppercase tracking-wider text-teal-600 bg-teal-50 px-2 py-1 rounded-full">
                       {service.badge}
                     </span>
                   )}
-                </div>
+               </div>
                 <p className="text-gray-600 text-sm mb-4">{service.description}</p>
                 <span className="text-teal-600 font-semibold text-sm group-hover:underline inline-flex items-center">
                   Learn more
@@ -57404,7 +57573,7 @@ const ServicesPage = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
                 </span>
-              </Link>
+            </Link>
             ))}
           </div>
 
@@ -57491,6 +57660,299 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
+
+---
+
+--- Path: C:\Users\User1\endpointmedia\src\app\services\conversion-rate-optimization\page.tsx ---
+
+// src/app/services/conversion-rate-optimization/page.tsx
+import React from 'react';
+import Link from 'next/link';
+import type { Metadata } from 'next';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+
+const PAGE_PATH = '/services/conversion-rate-optimization';
+
+const faqs = [
+  {
+    question: 'How long before CRO tests show results?',
+    answer:
+      'Our sprints run in 30-day cycles. We deploy prioritized tests in week one, monitor for statistical significance, and either lock in winners or iterate quickly so you see measurable gains inside the same month.',
+  },
+  {
+    question: 'Do you need a lot of traffic for CRO to work?',
+    answer:
+      'Not necessarily. We blend qualitative audits, heuristic analysis, and micro-conversion tracking so even lower-traffic service sites can benefit from funnel fixes.',
+  },
+  {
+    question: 'What tools do you use for testing?',
+    answer:
+      'We lean on Splitbee/Google Optimize alternatives, server-side experiments, heatmaps, and GA4 exploration. No bloated MarTech stack required.',
+  },
+  {
+    question: 'Can you implement the winning changes for us?',
+    answer:
+      'Yes. As a Next.js team we ship the UI/dev updates, hook up analytics, and ensure every improvement is tracked back to leads and booked work.',
+  },
+];
+
+const proofStats = [
+  { stat: '+46%', label: 'Average lift in form submissions after first sprint' },
+  { stat: '31%', label: 'Decrease in cost per qualified lead' },
+  { stat: '12', label: 'Experiments launched per quarter on average' },
+  { stat: '<2s', label: 'Average mobile LCP after performance fixes' },
+];
+
+const leveragePoints = [
+  {
+    title: 'Funnel forensics',
+    body: 'Deep-dive into analytics, session recordings, forms, and heatmaps to map drop-offs and blockers.',
+  },
+  {
+    title: 'Offer & messaging upgrades',
+    body: 'Reposition CTAs, risk reversals, proof, and urgency so visitors know exactly why to act now.',
+  },
+  {
+    title: 'UX & performance fixes',
+    body: 'Kill friction with faster pages, simplified layouts, and mobile-first interactions tuned for Thumb Zone behaviour.',
+  },
+  {
+    title: 'Test & learn rhythm',
+    body: 'Prioritized testing roadmap with confidence scoring, so engineering time goes to the highest impact experiments.',
+  },
+];
+
+const processSteps = [
+  {
+    step: '01',
+    title: 'Audit & roadmap',
+    body: 'We audit analytics, forms, CTAs, copy, and performance to identify conversion leaks, then deliver a prioritized testing roadmap.',
+  },
+  {
+    step: '02',
+    title: 'Deploy & measure',
+    body: 'We implement UI/UX tweaks, copy updates, and technical fixes, then run experiments with proper tracking to measure lift.',
+  },
+  {
+    step: '03',
+    title: 'Scale winners',
+    body: 'Promote winning variants across the site, roll insights into paid landing pages, and line up the next batch of ideas.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${BASE_URL}${PAGE_PATH}#service`,
+  name: 'Conversion Rate Optimization & Funnel Diagnostics',
+  description:
+    'CRO sprints for Johannesburg service businesses: audits, testing, UX fixes, and tracking to turn existing traffic into booked calls.',
+  provider: {
+    '@id': `${BASE_URL}#organization`,
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Johannesburg',
+  },
+  serviceType: 'Conversion Rate Optimization',
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'ZAR',
+    availability: 'https://schema.org/InStock',
+    url: `${BASE_URL}${PAGE_PATH}`,
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${BASE_URL}${PAGE_PATH}#faq`,
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: 'Conversion Rate Optimization Johannesburg | Endpoint Media CRO Sprints',
+    description:
+      'Stop leaking leads. Endpoint Media runs CRO sprints for Johannesburg service businesses: funnel audits, UX fixes, testing, and analytics to turn visits into booked calls.',
+    path: PAGE_PATH,
+    keywords: [
+      'conversion rate optimization johannesburg',
+      'cro agency south africa',
+      'website conversion audit',
+      'landing page optimization joburg',
+      'funnel diagnostics',
+    ],
+  });
+}
+
+const ConversionRateOptimizationPage = () => {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
+
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-20 md:py-28">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-emerald-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">CRO • Analytics • UX</p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+            Turn existing traffic into booked calls and signed retainers.
+          </h1>
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
+            Our CRO sprints uncover friction inside your funnel—from slow hero sections to weak CTAs—and replace them with
+            high-performing experiences backed by data. No new ad spend required.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-400 transition"
+            >
+              Request a CRO audit
+            </Link>
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition"
+            >
+              See before & afters
+            </Link>
+          </div>
+          <p className="text-sm text-gray-400 mt-6">
+            Ideal for established service businesses in Sandton, Rosebank, Midrand, Bryanston, and the broader Gauteng region.
+          </p>
+        </div>
+      </section>
+
+      {/* Proof */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="grid gap-6 md:grid-cols-4">
+            {proofStats.map((stat) => (
+              <div key={stat.label} className="text-center border border-gray-200 rounded-2xl p-6 shadow-sm">
+                <p className="text-3xl font-bold text-gray-900">{stat.stat}</p>
+                <p className="text-sm text-gray-600 mt-2">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Leverage points */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <p className="text-emerald-500 font-semibold uppercase tracking-wide">Where we attack first</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              Four leverage points that compound into higher conversion rates.
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {leveragePoints.map((point) => (
+              <div key={point.title} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{point.title}</h3>
+                <p className="text-gray-600">{point.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mb-12">
+            <p className="text-emerald-500 font-semibold uppercase tracking-wide">CRO sprint flow</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">Audit. Deploy. Scale.</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {processSteps.map((step) => (
+              <div key={step.step} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+                <p className="text-emerald-500 text-sm font-semibold">Step {step.step}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mt-3 mb-2">{step.title}</h3>
+                <p className="text-gray-600">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Deliverables */}
+      <section className="py-20 bg-gray-900 text-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="text-emerald-300 font-semibold uppercase tracking-wide">Included in every sprint</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold">Everything required to fix conversion leaks.</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              'GA4 + funnel tracking cleanup',
+              'Heuristic + UX audit with annotated Loom walkthrough',
+              'Form, CTA, and copy rewrites',
+              'Design + dev implementation of test variants',
+              'A/B or server-side experiments',
+              'Weekly reporting with insights + next actions',
+            ].map((item) => (
+              <div key={item} className="bg-gray-800 rounded-2xl p-6 border border-white/10">
+                <p className="text-lg">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-br from-emerald-600 to-teal-600 text-white text-center">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to squeeze more revenue from your current traffic?</h2>
+          <p className="text-lg text-emerald-50 max-w-3xl mx-auto mb-8">
+            Book a free CRO audit. We will map the exact pages, forms, and CTAs costing you leads—and the fixes we would deploy in
+            the next sprint.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-emerald-700 hover:bg-emerald-50 transition"
+          >
+            Claim your CRO audit
+          </Link>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-20 bg-white" id="faq">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <p className="text-emerald-500 font-semibold uppercase tracking-wide">FAQs</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              Common conversion questions from Johannesburg teams.
+            </h2>
+          </div>
+          <div className="space-y-6">
+            {faqs.map((faq) => (
+              <details key={faq.question} className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group">
+                <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                  {faq.question}
+                  <span className="text-emerald-500 group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p className="text-gray-600 mt-4">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default ConversionRateOptimizationPage;
+
+
 
 ---
 
@@ -57843,6 +58305,605 @@ const CustomDevelopmentPage = () => {
 };
 
 export default CustomDevelopmentPage;
+
+
+
+---
+
+--- Path: C:\Users\User1\endpointmedia\src\app\services\facebook-ads\page.tsx ---
+
+// src/app/services/facebook-ads/page.tsx
+import React from 'react';
+import Link from 'next/link';
+import type { Metadata } from 'next';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+
+const PAGE_PATH = '/services/facebook-ads';
+
+const faqs = [
+  {
+    question: 'Do you handle both Facebook and Instagram placements?',
+    answer:
+      'Yes. We build Meta campaign structures that leverage Facebook, Instagram, Messenger, and Audience Network placements, optimizing creative per placement for best CPM and conversion rates.',
+  },
+  {
+    question: 'Can you work with my existing creative assets?',
+    answer:
+      'Absolutely. We audit your current library, rebuild hooks, copy, and offers, and create new statics/videos where needed so every ad feels native to the feed.',
+  },
+  {
+    question: 'How do you track leads from Facebook Ads?',
+    answer:
+      'We wire Meta CAPI, GA4, and CRM events so each lead is linked to campaign, ad set, and ad creative. Call tracking and WhatsApp flows are included when needed.',
+  },
+  {
+    question: 'What budgets do you recommend to start?',
+    answer:
+      'Most Johannesburg service businesses see traction with R8k–R25k/month. We tailor budgets by offer, seasonality, and the number of locations you serve.',
+  },
+];
+
+const levers = [
+  {
+    title: 'Offer engineering',
+    body: 'We craft irresistible offers, lead magnets, and follow-up flows so cold audiences convert without aggressive discounting.',
+  },
+  {
+    title: 'Creative systems',
+    body: 'Hook-first creative and copy variations tailored to Meta placements, refreshed every sprint to prevent fatigue.',
+  },
+  {
+    title: 'Audience layering',
+    body: 'Geo, interest, lookalike, and remarketing stacks tuned to Johannesburg service territories.',
+  },
+  {
+    title: 'Full-funnel tracking',
+    body: 'Meta CAPI, GA4, and CRM event mapping to connect ad spend to actual revenue.',
+  },
+];
+
+const proofStats = [
+  { stat: '3.7x', label: 'Average return on ad spend after 8 weeks' },
+  { stat: '64%', label: 'Average CPL reduction vs. previous agencies' },
+  { stat: '42', label: 'Qualified enquiries captured per week via lead forms' },
+  { stat: '18 hrs', label: 'Turnaround for new creative deployment' },
+];
+
+const processSteps = [
+  {
+    step: '01',
+    title: 'Audit & reset',
+    body: 'Review offers, targeting, creative, and tracking. Install Meta CAPI, refactor pixels, and rebuild campaign architecture by funnel stage.',
+  },
+  {
+    step: '02',
+    title: 'Creative & launch',
+    body: 'Ship a batch of scroll-stopping ads (statics/video), landing pages or instant forms, and automated follow-up sequences.',
+  },
+  {
+    step: '03',
+    title: 'Optimization & scale',
+    body: 'Weekly tests across hooks, audiences, and bids. Reinvest into top-performing ad sets and expand to new suburbs or service lines.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${BASE_URL}${PAGE_PATH}#service`,
+  name: 'Facebook & Instagram Ads Sprints',
+  description:
+    'Meta (Facebook & Instagram) advertising campaigns for Johannesburg service businesses: offers, creative, tracking, and optimization.',
+  provider: {
+    '@id': `${BASE_URL}#organization`,
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Johannesburg',
+  },
+  serviceType: 'Facebook Ads Management',
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'ZAR',
+    availability: 'https://schema.org/InStock',
+    url: `${BASE_URL}${PAGE_PATH}`,
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${BASE_URL}${PAGE_PATH}#faq`,
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: 'Facebook & Instagram Ads Management Johannesburg | Endpoint Media',
+    description:
+      'Launch Meta ads that actually convert. Endpoint Media runs Facebook & Instagram campaigns with irresistible offers, fresh creative, and full-funnel tracking for Johannesburg service businesses.',
+    path: PAGE_PATH,
+    keywords: [
+      'facebook ads johannesburg',
+      'instagram ads agency joburg',
+      'meta ads management',
+      'social media ads johannesburg',
+      'facebook lead generation south africa',
+    ],
+  });
+}
+
+const FacebookAdsPage = () => {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
+
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-[#111827] via-[#0f172a] to-[#1e293b] text-white py-20 md:py-28">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-pink-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">
+            Facebook • Instagram • WhatsApp
+          </p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+            Scroll-stopping Meta ads built for Johannesburg operators.
+          </h1>
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
+            We run Facebook & Instagram ads for trades, clinics, and pro services that turn cold audiences into booked calls.
+            Offers, creative, landing pages, and automation handled in one sprint.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-pink-500 text-white shadow-lg shadow-pink-500/30 hover:bg-pink-400 transition"
+            >
+              Request a Meta ads audit
+            </Link>
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition"
+            >
+              View campaign wins
+            </Link>
+          </div>
+          <p className="text-sm text-gray-400 mt-6">
+            Built for law firms, medical practices, home services, and e-commerce operators across Sandton, Rosebank, Midrand, and
+            beyond.
+          </p>
+        </div>
+      </section>
+
+      {/* Proof */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="grid gap-6 md:grid-cols-4">
+            {proofStats.map((stat) => (
+              <div key={stat.label} className="text-center border border-gray-200 rounded-2xl p-6 shadow-sm">
+                <p className="text-3xl font-bold text-gray-900">{stat.stat}</p>
+                <p className="text-sm text-gray-600 mt-2">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Levers */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <p className="text-pink-500 font-semibold uppercase tracking-wide">Growth levers</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              The four moves that make Meta ads work for local services.
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {levers.map((lever) => (
+              <div key={lever.title} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{lever.title}</h3>
+                <p className="text-gray-600">{lever.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mb-12">
+            <p className="text-pink-500 font-semibold uppercase tracking-wide">Execution process</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">Launch. Optimize. Scale.</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {processSteps.map((step) => (
+              <div key={step.step} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+                <p className="text-pink-500 text-sm font-semibold">Step {step.step}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mt-3 mb-2">{step.title}</h3>
+                <p className="text-gray-600">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Deliverables */}
+      <section className="py-20 bg-gray-900 text-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="text-pink-300 font-semibold uppercase tracking-wide">Included in every sprint</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold">Everything required to make Meta ads profitable.</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              'Campaign rebuild (lead gen, traffic, conversion, remarketing)',
+              'Creative batch: hooks, headlines, primary text, statics, motion',
+              'Landing pages or instant forms with automation follow-ups',
+              'Meta CAPI + GA4 tracking & CRM integrations',
+              'Audience strategy (cold, warm, lookalike, remarketing)',
+              'Weekly reporting with CPL, booked jobs, and ROAS insights',
+            ].map((item) => (
+              <div key={item} className="bg-gray-800 rounded-2xl p-6 border border-white/10">
+                <p className="text-lg">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-br from-pink-500 to-rose-600 text-white text-center">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+            Ready to turn Facebook & Instagram into your best-performing pipeline?
+          </h2>
+          <p className="text-lg text-pink-50 max-w-3xl mx-auto mb-8">
+            Book a free Meta ads audit. We will show you the creative angles, audience stacks, and automation flows that can
+            generate predictable leads within 30 days.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-pink-600 hover:bg-pink-50 transition"
+          >
+            Claim your Meta ads audit
+          </Link>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-20 bg-white" id="faq">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <p className="text-pink-500 font-semibold uppercase tracking-wide">FAQs</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              Answers before you hand over your Meta ad spend.
+            </h2>
+          </div>
+          <div className="space-y-6">
+            {faqs.map((faq) => (
+              <details key={faq.question} className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group">
+                <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                  {faq.question}
+                  <span className="text-pink-500 group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p className="text-gray-600 mt-4">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default FacebookAdsPage;
+
+
+
+---
+
+--- Path: C:\Users\User1\endpointmedia\src\app\services\google-ads\page.tsx ---
+
+// src/app/services/google-ads/page.tsx
+import React from 'react';
+import Link from 'next/link';
+import type { Metadata } from 'next';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+
+const PAGE_PATH = '/services/google-ads';
+
+const faqs = [
+  {
+    question: 'How quickly can we relaunch profitable Google Ads campaigns?',
+    answer:
+      'Most accounts see stabilized CPAs within the first 2 weeks. We audit historical data, rebuild conversion tracking, deploy new campaign structures, and go live with at least three tested offers in 10 business days.',
+  },
+  {
+    question: 'Do you handle landing pages and conversion tracking too?',
+    answer:
+      'Yes. Every sprint includes Next.js landing pages (or CRO fixes), GA4 + server-side tracking, call tracking, and CRM hand-offs so every lead is attributed correctly.',
+  },
+  {
+    question: 'Can you integrate with our CRM or internal sales team?',
+    answer:
+      'We wire leads into Pipedrive, HubSpot, Monday, or even WhatsApp/email workflows so your team gets instant alerts with the exact keyword and ad they came from.',
+  },
+  {
+    question: 'What budgets do you work with?',
+    answer:
+      'Most Johannesburg service businesses spend between R8k–R60k per month on Google Ads. We build plays for both emergency-response services and high-ticket B2B leads.',
+  },
+];
+
+const differentiators = [
+  {
+    title: 'Intent-first campaign architecture',
+    body: 'We structure campaigns by service, suburb, and urgency so high-value keywords get priority bids and landing pages.',
+  },
+  {
+    title: 'Full tracking & attribution',
+    body: 'GA4, server-side events, call tracking, and CRM fields to show which suburb, keyword, and ad copy generated each deal.',
+  },
+  {
+    title: 'Creative + CRO baked in',
+    body: 'Ad copy, assets, and landing pages are part of the sprint so ads and pages evolve in sync.',
+  },
+  {
+    title: 'Weekly operator-level reporting',
+    body: 'Dashboards focused on cost per booked job, pipeline value, and margin—not vanity metrics.',
+  },
+];
+
+const processSteps = [
+  {
+    step: '01',
+    title: 'Forensics & rebuild',
+    body: 'Audit keywords, search terms, negatives, assets, and tracking. Rebuild account structure with SKAG/SKAG-lite campaigns, add suburb modifiers, and fix conversion tracking.',
+  },
+  {
+    step: '02',
+    title: 'Creative & landing systems',
+    body: 'Ship ad copy, responsive asset stacks, extensions, and dedicated landing pages with city-specific proof.',
+  },
+  {
+    step: '03',
+    title: 'Optimization & scale',
+    body: 'Weekly bid adjustments, audience layering, budget reallocation, and CRO tests tied to actual lead quality feedback.',
+  },
+];
+
+const metrics = [
+  { stat: '38%', label: 'Average CPA reduction within 45 days' },
+  { stat: '4.3x', label: 'Return on ad spend across service verticals' },
+  { stat: '28', label: 'Leads captured per week after tracking fixes' },
+  { stat: '12 hrs', label: 'Response time for campaign change requests' },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${BASE_URL}${PAGE_PATH}#service`,
+  name: 'Google Ads & Paid Search Sprints',
+  description:
+    'High-intent Google Ads management for Johannesburg service businesses: campaign rebuilds, landing pages, tracking, and optimization.',
+  provider: {
+    '@id': `${BASE_URL}#organization`,
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Johannesburg',
+  },
+  serviceType: 'Google Ads Management',
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'ZAR',
+    availability: 'https://schema.org/InStock',
+    url: `${BASE_URL}${PAGE_PATH}`,
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${BASE_URL}${PAGE_PATH}#faq`,
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: 'Google Ads Management Johannesburg | Paid Search Sprints | Endpoint Media',
+    description:
+      'Slash wasted ad spend and turn Google Ads into predictable lead flow. Endpoint Media rebuilds paid search for Johannesburg service businesses: campaigns, landing pages, tracking, and reporting.',
+    path: PAGE_PATH,
+    keywords: [
+      'google ads johannesburg',
+      'paid search agency joburg',
+      'google ads management south africa',
+      'ppc services johannesburg',
+      'google ads for service businesses',
+      'paid media sprint',
+    ],
+  });
+}
+
+const GoogleAdsPage = () => {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
+
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-white py-20 md:py-28">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-teal-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">Paid Search • CRO • Tracking</p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+            Turn wasted Google Ads spend into predictable booked work.
+          </h1>
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
+            We rebuild Google Ads for Johannesburg operators in one sprint: campaign architecture, landing pages, GA4 + call
+            tracking, and relentless optimization tied to actual lead quality. No retainers—just measurable ROI.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-teal-500 text-white shadow-lg shadow-teal-500/30 hover:bg-teal-400 transition"
+            >
+              Request a paid search audit
+            </Link>
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition"
+            >
+              See campaign results
+            </Link>
+          </div>
+          <p className="text-sm text-gray-400 mt-6">
+            Built for emergency services, legal, medical, home improvement, and B2B operators across Sandton, Midrand, and
+            greater Johannesburg.
+          </p>
+        </div>
+      </section>
+
+      {/* Metrics */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="grid gap-6 md:grid-cols-4">
+            {metrics.map((metric) => (
+              <div key={metric.label} className="text-center border border-gray-200 rounded-2xl p-6 shadow-sm">
+                <p className="text-3xl font-bold text-gray-900">{metric.stat}</p>
+                <p className="text-sm text-gray-600 mt-2">{metric.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Differentiators */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <p className="text-teal-600 font-semibold uppercase tracking-wide">Why Endpoint Media</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              Paid search built for operators, not vanity dashboards.
+            </h2>
+            <p className="text-lg text-gray-600 mt-4">
+              We obsess over booked jobs and pipeline value. That means fixing tracking, aligning landing pages, and iterating on
+              real sales feedback—not just tweaking bids.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {differentiators.map((item) => (
+              <div key={item.title} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mb-12">
+            <p className="text-teal-600 font-semibold uppercase tracking-wide">Execution playbook</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">One sprint. Three stages.</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {processSteps.map((step) => (
+              <div key={step.step} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+                <p className="text-teal-500 text-sm font-semibold">Step {step.step}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mt-3 mb-2">{step.title}</h3>
+                <p className="text-gray-600">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Deliverables */}
+      <section className="py-20 bg-gray-900 text-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="text-teal-300 font-semibold uppercase tracking-wide">Every sprint includes</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold">All the pieces required for profitable Google Ads.</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              'Campaign/AdGroup rebuild with suburb + intent targeting',
+              'Ad copy + asset stacks for search and Performance Max',
+              'Dedicated landing pages with CRO best practices',
+              'GA4, server-side tracking, and call tracking numbers',
+              'Negative keyword governance & search term mining',
+              'Weekly reports focused on CPA, ROAS, and pipeline value',
+            ].map((item) => (
+              <div key={item} className="bg-gray-800 rounded-2xl p-6 border border-white/10">
+                <p className="text-lg">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-br from-teal-600 to-emerald-600 text-white text-center">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+            Ready to see every Rand in your Google Ads account produce qualified leads?
+          </h2>
+          <p className="text-lg text-teal-50 max-w-3xl mx-auto mb-8">
+            Book a free audit and we will map the keywords, budgets, landing pages, and tracking fixes required to hit your
+            targets this quarter.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-teal-700 hover:bg-teal-50 transition"
+          >
+            Claim your Google Ads audit
+          </Link>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-20 bg-white" id="faq">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <p className="text-teal-600 font-semibold uppercase tracking-wide">FAQs</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              Questions Johannesburg teams ask before trusting us with their ad spend.
+            </h2>
+          </div>
+          <div className="space-y-6">
+            {faqs.map((faq) => (
+              <details key={faq.question} className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group">
+                <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                  {faq.question}
+                  <span className="text-teal-500 group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p className="text-gray-600 mt-4">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default GoogleAdsPage;
 
 
 
@@ -58822,10 +59883,33 @@ const LocalSEOPage = () => {
         </div>
       </section>
 
+      {/* Related service */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+            <p className="text-teal-600 font-semibold uppercase tracking-wide text-sm mb-3">Complementary service</p>
+            <h3 className="text-2xl font-bold text-gray-900 mb-3">Boost your local rankings with review management</h3>
+            <p className="text-gray-600 mb-6">
+              Reviews are a critical local ranking factor. Our review management service automates review generation, handles
+              professional responses, and protects your reputation—complementing your Local SEO strategy perfectly.
+            </p>
+            <Link
+              href="/services/review-management"
+              className="inline-flex items-center text-teal-600 font-semibold hover:text-teal-700 transition"
+            >
+              Learn about review management
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-gradient-to-br from-teal-600 to-emerald-600 text-white text-center">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to turn “near me” searches into booked jobs?</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to turn &quot;near me&quot; searches into booked jobs?</h2>
           <p className="text-lg text-teal-50 max-w-3xl mx-auto mb-8">
             Request your free Local SEO growth audit. We will show you the exact suburbs, keywords, and review plays to tackle
             first—and the projected call volume you can expect.
@@ -59270,6 +60354,332 @@ export default function MedicalWebsitesPage() {
 
 ---
 
+--- Path: C:\Users\User1\endpointmedia\src\app\services\review-management\page.tsx ---
+
+// src/app/services/review-management/page.tsx
+import React from 'react';
+import Link from 'next/link';
+import type { Metadata } from 'next';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+
+const PAGE_PATH = '/services/review-management';
+
+const faqs = [
+  {
+    question: 'How do you get more Google reviews without being pushy?',
+    answer:
+      'We set up automated, tasteful review request workflows triggered after service completion. SMS, email, and WhatsApp templates that feel personal—not robotic. We also train your team on the right moments to ask.',
+  },
+  {
+    question: 'Can you respond to reviews on our behalf?',
+    answer:
+      'Yes. We craft professional, brand-aligned responses to all reviews (positive and negative) that show you care about customer feedback. Responses go live within 24 hours and help improve your local ranking.',
+  },
+  {
+    question: 'What happens if we get a negative review?',
+    answer:
+      'We respond professionally within 24 hours, offer to resolve the issue offline, and work with you to address the root cause. We also help you build a review recovery strategy to offset negative sentiment with new positive reviews.',
+  },
+  {
+    question: 'Do you manage reviews on platforms other than Google?',
+    answer:
+      'Yes. We monitor and respond to reviews on Google Business Profile, Facebook, HelloPeter, and industry-specific platforms. We centralize everything in one dashboard so you see all feedback in one place.',
+  },
+  {
+    question: 'How long before we see results?',
+    answer:
+      'Review velocity typically increases within 2-3 weeks after automation workflows launch. Most clients see a 3-5 star rating improvement and 20-40% more reviews within 60 days.',
+  },
+];
+
+const proofStats = [
+  { stat: '+340%', label: 'Average increase in review volume within 90 days' },
+  { stat: '4.8★', label: 'Average rating after review management implementation' },
+  { stat: '<24h', label: 'Average response time to all reviews' },
+  { stat: '92%', label: 'Review response rate across managed profiles' },
+];
+
+const serviceFeatures = [
+  {
+    title: 'Automated review requests',
+    body: 'Smart workflows that trigger review requests at the perfect moment—after service completion, via SMS, email, or WhatsApp. Templates that feel personal, not pushy.',
+  },
+  {
+    title: 'Professional review responses',
+    body: 'We craft and publish responses to every review (positive and negative) that protect your reputation, show you care, and improve your local ranking signals.',
+  },
+  {
+    title: 'Multi-platform management',
+    body: 'Monitor and respond to reviews across Google Business Profile, Facebook, HelloPeter, and industry-specific platforms from one central dashboard.',
+  },
+  {
+    title: 'Review recovery & reputation repair',
+    body: 'When negative reviews hit, we respond professionally, work with you to resolve issues, and build a recovery strategy to offset negative sentiment.',
+  },
+  {
+    title: 'Review analytics & insights',
+    body: 'Track review trends, sentiment analysis, competitor benchmarking, and identify patterns that help you improve service delivery and customer satisfaction.',
+  },
+  {
+    title: 'Schema markup for stars',
+    body: 'We implement AggregateRating schema so your review scores display as rich snippets in Google search results, increasing click-through rates.',
+  },
+];
+
+const processSteps = [
+  {
+    step: '01',
+    title: 'Audit & strategy',
+    body: 'We review your current review profile, competitor benchmarks, and customer touchpoints to design a review generation and management strategy tailored to your business.',
+  },
+  {
+    step: '02',
+    title: 'Automation setup',
+    body: 'We implement automated review request workflows, set up monitoring dashboards, and train your team on best practices for asking for reviews at the right moments.',
+  },
+  {
+    step: '03',
+    title: 'Ongoing management',
+    body: 'We respond to all reviews professionally, monitor sentiment, flag issues early, and continuously optimize your review generation to maintain a strong reputation.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${BASE_URL}${PAGE_PATH}#service`,
+  name: 'Review Management & Reputation Building',
+  description:
+    'Automated review generation, professional response management, and reputation repair for Johannesburg service businesses. Turn satisfied customers into 5-star reviews.',
+  provider: {
+    '@id': `${BASE_URL}#organization`,
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Johannesburg',
+  },
+  serviceType: 'Review Management',
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Service businesses, medical practices, law firms, trades, retail operators',
+  },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'ZAR',
+    availability: 'https://schema.org/InStock',
+    url: `${BASE_URL}${PAGE_PATH}`,
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${BASE_URL}${PAGE_PATH}#faq`,
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: 'Review Management Johannesburg | Google Reviews & Reputation Service | Endpoint Media',
+    description:
+      'Turn satisfied customers into 5-star reviews. Endpoint Media offers automated review generation, professional response management, and reputation repair for Johannesburg businesses.',
+    path: PAGE_PATH,
+    keywords: [
+      'review management johannesburg',
+      'google reviews service',
+      'reputation management south africa',
+      'review generation automation',
+      'google business profile reviews',
+      'online reputation repair',
+    ],
+  });
+}
+
+const ReviewManagementPage = () => {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
+
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900 text-white py-20 md:py-28">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-purple-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">Reviews • Reputation • Rankings</p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+            Turn satisfied customers into 5-star reviews that drive bookings.
+          </h1>
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
+            Your Google Business Profile reviews are a ranking signal and a conversion driver. We automate review generation, respond
+            professionally to every review, and protect your reputation so you rank higher and book more work.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-purple-500 text-white shadow-lg shadow-purple-500/30 hover:bg-purple-400 transition"
+            >
+              Get a review audit
+            </Link>
+            <Link
+              href="/services/local-seo"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition"
+            >
+              See Local SEO services
+            </Link>
+          </div>
+          <p className="text-sm text-gray-400 mt-6">
+            Trusted by service businesses across Sandton, Rosebank, Midrand, Bryanston, and the broader Gauteng region.
+          </p>
+        </div>
+      </section>
+
+      {/* Proof */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="grid gap-6 md:grid-cols-4">
+            {proofStats.map((stat) => (
+              <div key={stat.label} className="text-center border border-gray-200 rounded-2xl p-6 shadow-sm">
+                <p className="text-3xl font-bold text-gray-900">{stat.stat}</p>
+                <p className="text-sm text-gray-600 mt-2">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service features */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <p className="text-purple-600 font-semibold uppercase tracking-wide">What we deliver</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              Everything required to build and protect your online reputation.
+            </h2>
+            <p className="text-lg text-gray-600 mt-4">
+              From automated review requests to professional responses and reputation repair, we handle every aspect of review
+              management so you can focus on delivering great service.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {serviceFeatures.map((feature) => (
+              <div key={feature.title} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
+                <p className="text-gray-600">{feature.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mb-12">
+            <p className="text-purple-600 font-semibold uppercase tracking-wide">How it works</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              A systematic approach to review generation and management.
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {processSteps.map((step) => (
+              <div key={step.step} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+                <p className="text-purple-500 text-sm font-semibold">Step {step.step}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mt-3 mb-2">{step.title}</h3>
+                <p className="text-gray-600">{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why reviews matter */}
+      <section className="py-20 bg-gray-900 text-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="text-purple-300 font-semibold uppercase tracking-wide">Why reviews matter</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold mt-3">
+              Reviews are a ranking signal, a trust signal, and a conversion driver.
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: 'Local ranking factor',
+                body: 'Google uses review quantity, recency, and rating as ranking signals. More 5-star reviews = better map pack visibility.',
+              },
+              {
+                title: 'Trust & conversion',
+                body: '92% of consumers read reviews before booking. Higher ratings and more reviews directly increase conversion rates.',
+              },
+              {
+                title: 'Competitive advantage',
+                body: 'Businesses with 4.5+ stars and 50+ reviews outrank competitors with fewer or lower-rated reviews in local search.',
+              },
+            ].map((item) => (
+              <div key={item.title} className="bg-gray-800 rounded-2xl p-6 border border-white/10">
+                <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
+                <p className="text-gray-300">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-br from-purple-600 to-indigo-600 text-white text-center">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to turn satisfied customers into 5-star reviews?</h2>
+          <p className="text-lg text-purple-50 max-w-3xl mx-auto mb-8">
+            Get a free review audit. We will analyze your current review profile, benchmark against competitors, and show you the
+            exact strategy we would deploy to increase review volume and improve ratings.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-purple-700 hover:bg-purple-50 transition"
+          >
+            Request a review audit
+          </Link>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-20 bg-white" id="faq">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <p className="text-purple-600 font-semibold uppercase tracking-wide">FAQs</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              Common review management questions from Johannesburg businesses.
+            </h2>
+          </div>
+          <div className="space-y-6">
+            {faqs.map((faq) => (
+              <details key={faq.question} className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group">
+                <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                  {faq.question}
+                  <span className="text-purple-500 group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p className="text-gray-600 mt-4">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default ReviewManagementPage;
+
+
+
+---
+
 --- Path: C:\Users\User1\endpointmedia\src\app\services\shopify-expert\page.tsx ---
 
 // src/app/services/shopify-expert/page.tsx
@@ -59576,6 +60986,357 @@ const ShopifyExpertPage = () => {
 };
 
 export default ShopifyExpertPage;
+
+
+
+---
+
+--- Path: C:\Users\User1\endpointmedia\src\app\services\website-maintenance\page.tsx ---
+
+// src/app/services/website-maintenance/page.tsx
+import React from 'react';
+import Link from 'next/link';
+import type { Metadata } from 'next';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+
+const PAGE_PATH = '/services/website-maintenance';
+
+const faqs = [
+  {
+    question: 'What is included in your maintenance packages?',
+    answer:
+      'All packages include security updates, daily backups, uptime monitoring, SSL certificate management, and performance optimization. Higher tiers add content updates, SEO monitoring, and priority support.',
+  },
+  {
+    question: 'Do you work with websites built by other agencies?',
+    answer:
+      'Yes. We maintain Next.js, WordPress, Shopify, and custom-built sites. We audit your current setup, document dependencies, and ensure smooth ongoing support regardless of who built it.',
+  },
+  {
+    question: 'How quickly do you respond to urgent issues?',
+    answer:
+      'Priority support clients get same-day responses. Standard packages receive responses within 24-48 business hours. Critical security issues are addressed immediately for all clients.',
+  },
+  {
+    question: 'Can I cancel or change my maintenance plan anytime?',
+    answer:
+      'Yes. All plans are month-to-month with no long-term contracts. You can upgrade, downgrade, or cancel with 30 days notice. We make it easy to scale support as your business grows.',
+  },
+];
+
+const proofStats = [
+  { stat: '99.9%', label: 'Average uptime across maintained sites' },
+  { stat: '<24h', label: 'Average response time for support requests' },
+  { stat: '0', label: 'Security breaches on sites under our care' },
+  { stat: '150+', label: 'Sites maintained across Johannesburg' },
+];
+
+const maintenanceTiers = [
+  {
+    name: 'Essential',
+    price: 'R500',
+    period: 'month',
+    description: 'Core security and performance for small service businesses.',
+    features: [
+      'Daily automated backups',
+      'Security updates & patches',
+      'Uptime monitoring & alerts',
+      'SSL certificate management',
+      'Performance optimization',
+      'Email support (24-48h response)',
+    ],
+  },
+  {
+    name: 'Growth',
+    price: 'R1,200',
+    period: 'month',
+    description: 'For businesses actively growing their online presence.',
+    features: [
+      'Everything in Essential, plus:',
+      'Content updates (up to 5 pages/month)',
+      'SEO monitoring & basic fixes',
+      'Google Analytics health checks',
+      'Priority email support (same-day)',
+      'Quarterly performance reports',
+    ],
+    highlight: true,
+  },
+  {
+    name: 'Enterprise',
+    price: 'R2,500',
+    period: 'month',
+    description: 'White-glove support for mission-critical websites.',
+    features: [
+      'Everything in Growth, plus:',
+      'Unlimited content updates',
+      'Advanced SEO audits & fixes',
+      'Dedicated account manager',
+      'Phone & WhatsApp support',
+      'Monthly strategy calls',
+      'Custom integrations & automations',
+    ],
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${BASE_URL}${PAGE_PATH}#service`,
+  name: 'Website Maintenance & Ongoing Support',
+  description:
+    'Comprehensive website maintenance, security updates, backups, and support for Johannesburg service businesses. Keep your site fast, secure, and updated.',
+  provider: {
+    '@id': `${BASE_URL}#organization`,
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Johannesburg',
+  },
+  serviceType: 'Website Maintenance',
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'ZAR',
+    lowPrice: '500',
+    highPrice: '2500',
+    availability: 'https://schema.org/InStock',
+    url: `${BASE_URL}${PAGE_PATH}`,
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${BASE_URL}${PAGE_PATH}#faq`,
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  return buildMetadata({
+    title: 'Website Maintenance Johannesburg | Ongoing Support & Updates | Endpoint Media',
+    description:
+      'Keep your website fast, secure, and updated. Endpoint Media offers comprehensive maintenance packages for Johannesburg businesses: security updates, backups, content changes, and priority support.',
+    path: PAGE_PATH,
+    keywords: [
+      'website maintenance johannesburg',
+      'ongoing website support',
+      'website updates south africa',
+      'website security maintenance',
+      'website backup service joburg',
+    ],
+  });
+}
+
+const WebsiteMaintenancePage = () => {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
+
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-white py-20 md:py-28">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-teal-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">Maintenance • Security • Support</p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+            Keep your website fast, secure, and updated—without the headaches.
+          </h1>
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
+            Your website is a revenue engine. We handle security updates, backups, performance tuning, and content changes so you
+            can focus on running your Johannesburg business, not managing technical debt.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-teal-500 text-white shadow-lg shadow-teal-500/30 hover:bg-teal-400 transition"
+            >
+              Get a maintenance quote
+            </Link>
+            <Link
+              href="/pricing"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition"
+            >
+              View package options
+            </Link>
+          </div>
+          <p className="text-sm text-gray-400 mt-6">
+            Trusted by service businesses across Sandton, Rosebank, Midrand, Bryanston, and the broader Gauteng region.
+          </p>
+        </div>
+      </section>
+
+      {/* Proof */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="grid gap-6 md:grid-cols-4">
+            {proofStats.map((stat) => (
+              <div key={stat.label} className="text-center border border-gray-200 rounded-2xl p-6 shadow-sm">
+                <p className="text-3xl font-bold text-gray-900">{stat.stat}</p>
+                <p className="text-sm text-gray-600 mt-2">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What we handle */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <p className="text-teal-600 font-semibold uppercase tracking-wide">What we handle</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              Everything required to keep your website running smoothly.
+            </h2>
+            <p className="text-lg text-gray-600 mt-4">
+              From security patches to content updates, we take care of the technical details so your site stays fast, secure, and
+              up-to-date.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: 'Security & updates',
+                body: 'Regular security patches, plugin updates, and vulnerability scans to protect your site from threats.',
+              },
+              {
+                title: 'Backups & recovery',
+                body: 'Daily automated backups with off-site storage. Quick restore if anything goes wrong.',
+              },
+              {
+                title: 'Performance monitoring',
+                body: 'Uptime monitoring, speed checks, and Core Web Vitals tracking to catch issues before they impact users.',
+              },
+              {
+                title: 'Content updates',
+                body: 'Text changes, image swaps, new pages, and blog posts—handled quickly without breaking your workflow.',
+              },
+              {
+                title: 'SEO maintenance',
+                body: 'Monitor rankings, fix broken links, update schema markup, and ensure technical SEO stays healthy.',
+              },
+              {
+                title: 'Support & troubleshooting',
+                body: 'Fast response times for bugs, errors, and questions. Priority support available for urgent issues.',
+              },
+            ].map((item) => (
+              <div key={item.title} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing tiers */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mb-12 text-center mx-auto">
+            <p className="text-teal-600 font-semibold uppercase tracking-wide">Flexible plans</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              Choose the support level that fits your business.
+            </h2>
+            <p className="text-lg text-gray-600 mt-4">
+              All plans are month-to-month with no long-term contracts. Upgrade, downgrade, or cancel anytime.
+            </p>
+          </div>
+          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {maintenanceTiers.map((tier) => (
+              <div
+                key={tier.name}
+                className={`flex flex-col p-8 rounded-2xl border ${
+                  tier.highlight
+                    ? 'bg-gray-900 text-white border-teal-500 shadow-2xl lg:scale-105'
+                    : 'bg-white text-gray-900 border-gray-200 shadow-lg'
+                }`}
+              >
+                {tier.highlight && (
+                  <span className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
+                    Most Popular
+                  </span>
+                )}
+                <div className="flex-grow">
+                  <h3 className="text-3xl font-bold font-heading mb-2">{tier.name}</h3>
+                  <p className={tier.highlight ? 'text-gray-300 mb-6' : 'text-gray-500 mb-6'}>{tier.description}</p>
+                  <p className="text-5xl font-extrabold mb-6">
+                    {tier.price} <span className="text-lg font-normal">{tier.period}</span>
+                  </p>
+                  <ul className="space-y-4 text-sm mb-8">
+                    {tier.features.map((feature) => (
+                      <li key={feature} className="flex items-start">
+                        <span className={tier.highlight ? 'text-teal-400 mr-3 mt-1 font-bold' : 'text-teal-500 mr-3 mt-1'}>
+                          &#10003;
+                        </span>
+                        <span className={tier.highlight ? 'text-gray-100' : 'text-gray-700'}>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <Link
+                  href="/contact"
+                  className={`w-full mt-auto text-center block font-bold py-3 px-6 rounded-lg transition duration-300 ${
+                    tier.highlight
+                      ? 'bg-teal-500 hover:bg-teal-400 text-white focus-visible:ring-offset-gray-900'
+                      : 'bg-white border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white'
+                  } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500`}
+                >
+                  Start {tier.name}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-br from-teal-600 to-emerald-600 text-white text-center">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Stop worrying about website maintenance.</h2>
+          <p className="text-lg text-teal-50 max-w-3xl mx-auto mb-8">
+            Get a free maintenance audit. We will review your current setup, identify risks, and recommend the right support level
+            for your business.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-teal-700 hover:bg-teal-50 transition"
+          >
+            Request a maintenance audit
+          </Link>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-20 bg-white" id="faq">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <p className="text-teal-600 font-semibold uppercase tracking-wide">FAQs</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              Common maintenance questions from Johannesburg businesses.
+            </h2>
+          </div>
+          <div className="space-y-6">
+            {faqs.map((faq) => (
+              <details key={faq.question} className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group">
+                <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                  {faq.question}
+                  <span className="text-teal-500 group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p className="text-gray-600 mt-4">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default WebsiteMaintenancePage;
 
 
 
@@ -60071,6 +61832,11 @@ const Footer = () => {
               <li><Link href="#problem" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">The Problem We Solve</Link></li>
               <li><Link href="#blueprint" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Our Blueprint (Process)</Link></li>
               <li><Link href="/services/local-seo" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Local SEO &amp; GBP</Link></li>
+              <li><Link href="/services/review-management" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Review Management</Link></li>
+              <li><Link href="/services/google-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Google Ads Sprints</Link></li>
+              <li><Link href="/services/facebook-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Facebook &amp; IG Ads</Link></li>
+              <li><Link href="/services/conversion-rate-optimization" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">CRO Sprints</Link></li>
+              <li><Link href="/services/website-maintenance" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Website Maintenance</Link></li>
               <li><Link href="#pricing" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Investment Packages</Link></li>
               <li><Link href="#proof" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Client Results</Link></li>
               <li><Link href="#audit" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Free Growth Audit</Link></li>

@@ -68,6 +68,7 @@ const industryPaths = [
   '/industries/real-estate',
   '/industries/finance',
   '/industries/medical',
+  '/industries/manufacturing-logistics', // The Alrode Cash Cow - HIGH PRIORITY
 ];
 
 const caseStudySlugs = [
@@ -96,7 +97,17 @@ const mapConfigs = (
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    createEntry('/', 'weekly', 1),
+    // 1. High Priority: The "Money" Pages
+    createEntry('/', 'weekly', 1.0),
+    createEntry('/industries/manufacturing-logistics', 'weekly', 1.0), // The Alrode Cash Cow
+    createEntry('/locations/sandton', 'weekly', 0.9),
+    
+    // 2. Medium Priority: The "Trust" Assets
+    createEntry('/alberton-business-heritage', 'weekly', 0.8), // The Link Magnet
+    createEntry('/about/author/frank-smit', 'monthly', 0.8), // The E-E-A-T Anchor
+    createEntry('/case-studies', 'weekly', 0.8),
+    
+    // 3. Core Service Pages
     ...mapPaths(corePaths, 'weekly', 0.9),
     ...mapConfigs(secondaryCoreConfigs),
     ...mapPaths(serviceDetailPaths, 'weekly', 0.95),
@@ -108,7 +119,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       0.7,
     ),
     ...mapPaths(blogSlugs.map((slug) => `/blog/${slug}`), 'weekly', 0.75),
-    createEntry('/about/author/frank-smit', 'monthly', 0.8),
   ];
 }
 

@@ -48,7 +48,11 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    // 3. The Double-Sitemap Declaration
+    sitemap: [
+      `${baseUrl}/sitemap.xml`,
+      `${baseUrl}/alberton-service-area.kml` // The Geo-Map
+    ],
   };
 }
 

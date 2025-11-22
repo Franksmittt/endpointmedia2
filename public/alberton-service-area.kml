@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Placemark>
+    <name>Endpoint Media Service Area</name>
+    <description>Web Design & Industrial SEO for Alberton, Alrode, and Meyersdal.</description>
+    <Polygon>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+            28.1000,-26.2500
+            28.1500,-26.2500
+            28.1500,-26.3000
+            28.1000,-26.3000
+            28.1000,-26.2500
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+  </Placemark>
+</kml>
+

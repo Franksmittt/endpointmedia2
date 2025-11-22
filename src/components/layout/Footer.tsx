@@ -52,9 +52,9 @@ const Footer = () => {
   return (
     <footer className="pt-16 pb-8 bg-gray-900 text-gray-300 border-t-4 border-teal-700"> {/* Default text color changed to gray-300 */}
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-1 lg:grid-cols-4 gap-12 border-b border-gray-700 pb-10 mb-8">
-          {/* Column 1 & 2: Logo and Description */}
-          <div className="lg:col-span-2">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 border-b border-gray-700 pb-10 mb-8">
+          {/* Column 1: Logo and Description */}
+          <div className="lg:col-span-1">
             <Link href="/" aria-label="Endpoint Media Homepage" className="inline-block text-3xl font-extrabold text-white transition duration-300 hover:text-teal-400 font-heading focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 rounded">
               Endpoint<span className="text-teal-500">.</span><span className="font-normal text-2xl ml-1 text-white opacity-80">Media</span>
             </Link>
@@ -92,29 +92,34 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          {/* Column 3: Navigation */}
+          {/* Column 2: Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-white uppercase tracking-wider font-heading">Navigate</h4>
-            <ul className="space-y-3 text-sm">
-              {/* Added Contact link to match header */}
-              <li><Link href="/contact" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Contact Us</Link></li>
-              <li><Link href="#problem" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">The Problem We Solve</Link></li>
-              <li><Link href="#blueprint" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Our Blueprint (Process)</Link></li>
-              <li><Link href="/services/local-seo" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Local SEO &amp; GBP</Link></li>
-              <li><Link href="/services/review-management" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Review Management</Link></li>
-              <li><Link href="/services/google-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Google Ads Sprints</Link></li>
-              <li><Link href="/services/facebook-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Facebook &amp; IG Ads</Link></li>
-              <li><Link href="/services/conversion-rate-optimization" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">CRO Sprints</Link></li>
-              <li><Link href="/services/website-maintenance" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Website Maintenance</Link></li>
-              <li><Link href="#pricing" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Investment Packages</Link></li>
-              <li><Link href="#proof" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Client Results</Link></li>
-              <li><Link href="#audit" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Free Growth Audit</Link></li>
+            <h4 className="text-base font-semibold mb-4 text-white uppercase tracking-wider font-heading">Navigate</h4>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link href="/services" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Services</Link></li>
+              <li><Link href="/process" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Our Process</Link></li>
+              <li><Link href="/case-studies" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Case Studies</Link></li>
+              <li><Link href="/pricing" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Pricing</Link></li>
+              <li><Link href="/blog" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Blog</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: Contact Info - UPDATED */}
+          {/* Column 3: Services Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-white uppercase tracking-wider font-heading">Get In Touch</h4>
+            <h4 className="text-base font-semibold mb-4 text-white uppercase tracking-wider font-heading">Services</h4>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link href="/services/local-seo" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Local SEO &amp; GBP</Link></li>
+              <li><Link href="/services/google-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Google Ads</Link></li>
+              <li><Link href="/services/facebook-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Facebook Ads</Link></li>
+              <li><Link href="/services/conversion-rate-optimization" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">CRO</Link></li>
+              <li><Link href="/services/website-maintenance" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Maintenance</Link></li>
+              <li className="pt-2"><Link href="/services" className="text-teal-400 hover:text-teal-300 transition font-medium text-xs uppercase tracking-wider focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">View All Services →</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Contact Info & CTA */}
+          <div>
+            <h4 className="text-base font-semibold mb-4 text-white uppercase tracking-wider font-heading">Get In Touch</h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <a href="tel:+27769724559" className="hover:text-teal-400 transition flex items-center focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded">
@@ -136,6 +141,12 @@ const Footer = () => {
                 <span>Johannesburg, Gauteng, SA<br />(Online/Remote Operations)</span>
               </li>
             </ul>
+            <div className="mt-6 pt-6 border-t border-gray-700">
+              <Link href="#audit" className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm py-2 px-4 rounded transition focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 uppercase tracking-wider">
+                Free Growth Audit
+              </Link>
+              <p className="text-xs text-gray-400 mt-2">Zero cost. Zero risk.</p>
+            </div>
           </div>
         </div>
 
