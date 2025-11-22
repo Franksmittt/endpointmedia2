@@ -136,7 +136,7 @@ export default function ManufacturingPage() {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed max-w-2xl">
-              Alrode's supply chain runs on data, not aesthetics. We build <strong>high-performance B2B portals</strong> that streamline tenders, host compliance docs, and integrate with your logistics network.
+              Alrode&apos;s supply chain runs on data, not aesthetics. We build <strong>high-performance B2B portals</strong> that streamline tenders, host compliance docs, and integrate with your logistics network.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wider text-sm md:text-base">
@@ -159,7 +159,7 @@ export default function ManufacturingPage() {
                 Stop Emailing BEE Certificates.
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Major clients like SAB and Henkel don't have time to chase you for paperwork. 
+                Major clients like SAB and Henkel don&apos;t have time to chase you for paperwork. 
                 We build a <strong>Secure Client Portal</strong> directly into your Next.js site.
               </p>
               
@@ -220,7 +220,7 @@ export default function ManufacturingPage() {
               Built for the R59 Corridor
             </h2>
             <p className="text-lg text-gray-600">
-              We don't just build websites; we understand the industrial geography of Alberton. 
+              We don&apos;t just build websites; we understand the industrial geography of Alberton. 
               From the heavy manufacturing of Alrode to the logistics hubs of Alrode South.
             </p>
           </div>
@@ -255,7 +255,7 @@ export default function ManufacturingPage() {
               The Alrode Guarantee
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              We don't just build the site. We stay until your first ISO Audit is passed. If your site fails a procurement compliance check, we fix it for free.
+              We don&apos;t just build the site. We stay until your first ISO Audit is passed. If your site fails a procurement compliance check, we fix it for free.
             </p>
           </div>
         </div>
@@ -303,7 +303,7 @@ export default function ManufacturingPage() {
             Is Your Website Costing You Tenders?
           </h2>
           <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-            Get a free "Procurement Readiness Audit" of your current site. We will check your speed, security, and compliance visibility.
+            Get a free &quot;Procurement Readiness Audit&quot; of your current site. We will check your speed, security, and compliance visibility.
           </p>
           <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700 text-white text-lg px-10 py-6 h-auto">
             <Link href="/contact">Secure My Digital Supply Chain</Link>

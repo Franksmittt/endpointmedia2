@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { buildMetadata, secureJsonLD, BASE_URL, ORG_ID } from '@/lib/seo';
 import { Button } from '@/components/ui/button';
-import { Landmark, ScrollText, Flag, Building2 } from 'lucide-react';
+import { ScrollText, Flag, Building2 } from 'lucide-react';
 
 // 1. METADATA: Targeting "History" to capture local intent
 export async function generateMetadata(): Promise<Metadata> {
@@ -101,10 +101,10 @@ export default function HeritagePage() {
             {/* 1904: The Origin */}
             <div className="relative pl-8 md:pl-12">
               <div className="absolute -left-[14px] top-0 w-6 h-6 bg-amber-500 rounded-full border-4 border-white shadow-lg" />
-              <h2 className="text-3xl font-bold text-gray-900 mb-2 font-heading">1904: The General's Vision</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-2 font-heading">1904: The General&apos;s Vision</h2>
               <p className="text-gray-600 mb-4">
                 General Hendrik Abraham Alberts purchases a portion of the farm <em>Elandsfontein</em>. 
-                He didn't just buy land; he bought a future for his community. This agrarian root is why Alberton businesses still value 
+                He didn&apos;t just buy land; he bought a future for his community. This agrarian root is why Alberton businesses still value 
                 <span className="font-semibold text-teal-700"> honor and handshake deals</span> today.
               </p>
               <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 text-sm text-gray-500 flex gap-2 items-start">
@@ -174,7 +174,7 @@ export default function HeritagePage() {
           </h2>
           <p className="text-lg text-gray-400 mb-10">
             Endpoint Media helps established Alberton businesses modernize without losing their heritage. 
-            Let's ensure your digital presence honors your legacy.
+            Let&apos;s ensure your digital presence honors your legacy.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
              <Button asChild size="lg" className="bg-amber-600 hover:bg-amber-700 text-white font-bold">

@@ -51,6 +51,7 @@ const serviceDetailPaths = [
 const locationPaths = [
   '/locations',
   '/locations/sandton',
+  '/locations/meyersdal', // The Executive Fortress - HIGH PRIORITY
   '/locations/roodepoort',
   '/locations/bryanston',
   '/locations/rivonia',
@@ -100,6 +101,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // 1. High Priority: The "Money" Pages
     createEntry('/', 'weekly', 1.0),
     createEntry('/industries/manufacturing-logistics', 'weekly', 1.0), // The Alrode Cash Cow
+    createEntry('/locations/meyersdal', 'weekly', 0.9), // The Executive Fortress
     createEntry('/locations/sandton', 'weekly', 0.9),
     
     // 2. Medium Priority: The "Trust" Assets

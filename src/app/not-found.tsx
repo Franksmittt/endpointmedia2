@@ -11,8 +11,8 @@ export default function NotFound() {
       <p className="text-xl text-gray-400 max-w-2xl mb-8 leading-relaxed">
         You found a dead end. If this was your customer looking for your services, 
         you just lost a sale. <br/><br/>
-        I am Frank Smit. I build websites that don't have dead ends.
-        Let's fix your digital pipeline.
+        I am Frank Smit. I build websites that don&apos;t have dead ends.
+        Let&apos;s fix your digital pipeline.
       </p>
       
       <div className="flex flex-col sm:flex-row gap-4">

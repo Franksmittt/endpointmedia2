@@ -31,6 +31,13 @@ const LocationsPage = () => {
       priority: "high",
     },
     {
+      name: "Meyersdal",
+      slug: "meyersdal",
+      description: "The Sandton of the South. Exclusive enclave for executives and estate owners.",
+      highlights: ["Eco Estate", "Private Client Services", "Executive Level"],
+      priority: "high",
+    },
+    {
       name: "Rosebank",
       slug: "rosebank",
       description: "Premium commercial hub with retail, offices, and professional services.",
