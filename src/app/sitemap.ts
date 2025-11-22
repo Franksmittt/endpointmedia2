@@ -52,6 +52,7 @@ const locationPaths = [
   '/locations',
   '/locations/sandton',
   '/locations/meyersdal', // The Executive Fortress - HIGH PRIORITY
+  '/locations/new-redruth', // The Professional Hub - HIGH PRIORITY
   '/locations/roodepoort',
   '/locations/bryanston',
   '/locations/rivonia',
@@ -102,6 +103,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     createEntry('/', 'weekly', 1.0),
     createEntry('/industries/manufacturing-logistics', 'weekly', 1.0), // The Alrode Cash Cow
     createEntry('/locations/meyersdal', 'weekly', 0.9), // The Executive Fortress
+    createEntry('/locations/new-redruth', 'weekly', 0.9), // The Professional Hub
     createEntry('/locations/sandton', 'weekly', 0.9),
     
     // 2. Medium Priority: The "Trust" Assets

@@ -38,6 +38,13 @@ const LocationsPage = () => {
       priority: "high",
     },
     {
+      name: "New Redruth",
+      slug: "new-redruth",
+      description: "The de facto CBD of Alberton. Legal and financial professional hub.",
+      highlights: ["Van Rensburg Street", "Union Hospital", "Professional Services"],
+      priority: "high",
+    },
+    {
       name: "Rosebank",
       slug: "rosebank",
       description: "Premium commercial hub with retail, offices, and professional services.",

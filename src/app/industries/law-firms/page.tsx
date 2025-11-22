@@ -253,9 +253,16 @@ const LawFirmsPage = () => {
                 <li>&quot;personal injury lawyer near me&quot;</li>
                 <li>&quot;estate planning attorney Bryanston&quot;</li>
               </ul>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed mb-4">
                 We optimize your Google Business Profile, build local citations, create location-specific 
                 content, and implement schema markup for legal services to dominate local search results.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                <strong>Specializing in New Redruth:</strong> Serving firms in the New Redruth legal hub, 
+                we understand the specific needs of the &quot;Van Rensburg Street&quot; elite. 
+                <Link href="/locations/new-redruth" className="text-teal-600 hover:text-teal-700 font-semibold ml-1">
+                  Learn more about our New Redruth services →
+                </Link>
               </p>
             </div>
           </div>
