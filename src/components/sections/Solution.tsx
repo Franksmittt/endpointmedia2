@@ -18,7 +18,7 @@ const Solution = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <Image
-              src="https://source.unsplash.com/600x400/?architectural,blueprint,strategy"
+              src="/images/solution-growth-partner.jpg"
               alt="A custom-generated architectural blueprint showing a cohesive digital strategy for web design and local SEO."
               width={600}
               height={400}

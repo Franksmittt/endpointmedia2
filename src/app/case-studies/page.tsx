@@ -24,36 +24,42 @@ const CaseStudiesPage = () => {
     {
       name: "Rhino Panel Beaters",
       url: `${BASE_URL}/case-studies/rhino-panel-beaters`,
+      websiteUrl: "https://rhinopanel.vercel.app/",
       description:
         "High-performance Next.js site with multi-step quote engine and local SEO for Zululand dominance.",
     },
     {
       name: "Alberton Battery Mart",
       url: `${BASE_URL}/case-studies/alberton-battery-mart`,
+      websiteUrl: "https://www.albertonbatterymart.co.za/",
       description:
         "Mobile battery service experience with advanced product discovery and Google Merchant Center integration.",
     },
     {
       name: "Alberton Tyre Clinic",
       url: `${BASE_URL}/case-studies/alberton-tyre-clinic`,
+      websiteUrl: "https://www.albertontyreclinic.co.za/",
       description:
         "Safety-driven positioning and hyper-local landing pages for vehicle maintenance leadership.",
     },
     {
       name: "Maverick Painting Contractors",
       url: `${BASE_URL}/case-studies/maverick-painting-contractors`,
+      websiteUrl: "https://www.maverickpainting.co.za/",
       description:
         "Premium commercial painting repositioning with risk-averse messaging and QA guarantees.",
     },
     {
       name: "QJ Paint World",
       url: `${BASE_URL}/case-studies/qj-paint-world`,
+      websiteUrl: "https://www.qjpaintworld.co.za/",
       description:
         "Expert technical supplier experience for B2B paint specialists with conversion-first UX.",
     },
     {
       name: "Sakana no Ichi",
       url: `${BASE_URL}/case-studies/sakana-no-ichi`,
+      websiteUrl: "https://sakana-six.vercel.app/",
       description:
         "Luxury koi brand identity with Japanese aesthetic principles and premium lifestyle positioning.",
     },
@@ -116,10 +122,7 @@ const CaseStudiesPage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20">
             
             {/* Case Study Card: Rhino Panel Beaters */}
-            <Link 
-              href="/case-studies/rhino-panel-beaters"
-              className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-teal-300 transform hover:-translate-y-2"
-            >
+            <div className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-teal-300 transform hover:-translate-y-2">
               <div className="h-48 bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center">
                 <span className="text-white text-4xl font-extrabold font-heading">Rhino</span>
               </div>
@@ -134,20 +137,33 @@ const CaseStudiesPage = () => {
                 <p className="text-gray-600 mb-4 line-clamp-3">
                   High-performance conversion-focused website built with Next.js, featuring a multi-step quote engine, local SEO optimization, and trust-building authority elements.
                 </p>
-                <div className="flex items-center text-teal-600 font-semibold group-hover:text-teal-700 transition">
-                  View Case Study
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                <div className="flex gap-3">
+                  <Link 
+                    href="/case-studies/rhino-panel-beaters"
+                    className="flex items-center text-teal-600 font-semibold hover:text-teal-700 transition"
+                  >
+                    View Case Study
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                  <Link 
+                    href="https://rhinopanel.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-600 font-semibold hover:text-gray-700 transition"
+                  >
+                    View Website
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
 
             {/* Case Study Card: Alberton Battery Mart */}
-            <Link 
-              href="/case-studies/alberton-battery-mart"
-              className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-orange-300 transform hover:-translate-y-2"
-            >
+            <div className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-orange-300 transform hover:-translate-y-2">
               <div className="h-48 bg-gradient-to-br from-orange-900 to-orange-700 flex items-center justify-center">
                 <span className="text-white text-3xl font-extrabold font-heading text-center px-4">Alberton<br />Battery Mart</span>
               </div>
@@ -162,20 +178,33 @@ const CaseStudiesPage = () => {
                 <p className="text-gray-600 mb-4 line-clamp-3">
                   Ground-up strategic overhaul with advanced product search, local SEO dominance, Google Merchant Center integration, and over 30 targeted blog posts.
                 </p>
-                <div className="flex items-center text-orange-600 font-semibold group-hover:text-orange-700 transition">
-                  View Case Study
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                <div className="flex gap-3">
+                  <Link 
+                    href="/case-studies/alberton-battery-mart"
+                    className="flex items-center text-orange-600 font-semibold hover:text-orange-700 transition"
+                  >
+                    View Case Study
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                  <Link 
+                    href="https://www.albertonbatterymart.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-600 font-semibold hover:text-gray-700 transition"
+                  >
+                    View Website
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
 
             {/* Case Study Card: Maverick Painting Contractors */}
-            <Link 
-              href="/case-studies/maverick-painting-contractors"
-              className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-purple-300 transform hover:-translate-y-2"
-            >
+            <div className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-purple-300 transform hover:-translate-y-2">
               <div className="h-48 bg-gradient-to-br from-purple-900 to-purple-700 flex items-center justify-center">
                 <span className="text-white text-3xl font-extrabold font-heading text-center px-4">Maverick<br />Painting</span>
               </div>
@@ -190,20 +219,33 @@ const CaseStudiesPage = () => {
                 <p className="text-gray-600 mb-4 line-clamp-3">
                   Premium repositioning as a risk-averse partner for commercial and body corporate assets, featuring Independent QA guarantees and technical authority content.
                 </p>
-                <div className="flex items-center text-purple-600 font-semibold group-hover:text-purple-700 transition">
-                  View Case Study
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                <div className="flex gap-3">
+                  <Link 
+                    href="/case-studies/maverick-painting-contractors"
+                    className="flex items-center text-purple-600 font-semibold hover:text-purple-700 transition"
+                  >
+                    View Case Study
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                  <Link 
+                    href="https://www.maverickpainting.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-600 font-semibold hover:text-gray-700 transition"
+                  >
+                    View Website
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
 
             {/* Case Study Card: QJ Paint World */}
-            <Link 
-              href="/case-studies/qj-paint-world"
-              className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-red-300 transform hover:-translate-y-2"
-            >
+            <div className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-red-300 transform hover:-translate-y-2">
               <div className="h-48 bg-gradient-to-br from-red-900 to-slate-700 flex items-center justify-center">
                 <span className="text-white text-3xl font-extrabold font-heading text-center px-4">QJ Paint<br />World</span>
               </div>
@@ -218,20 +260,33 @@ const CaseStudiesPage = () => {
                 <p className="text-gray-600 mb-4 line-clamp-3">
                   Expert Technical Supplier positioning across Decorative, Automotive, and Industrial coatings with Trade Partner Program and advanced B2B navigation.
                 </p>
-                <div className="flex items-center text-red-600 font-semibold group-hover:text-red-700 transition">
-                  View Case Study
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                <div className="flex gap-3">
+                  <Link 
+                    href="/case-studies/qj-paint-world"
+                    className="flex items-center text-red-600 font-semibold hover:text-red-700 transition"
+                  >
+                    View Case Study
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                  <Link 
+                    href="https://www.qjpaintworld.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-600 font-semibold hover:text-gray-700 transition"
+                  >
+                    View Website
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
 
             {/* Case Study Card: Alberton Tyre Clinic */}
-            <Link 
-              href="/case-studies/alberton-tyre-clinic"
-              className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-emerald-300 transform hover:-translate-y-2"
-            >
+            <div className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-emerald-300 transform hover:-translate-y-2">
               <div className="h-48 bg-gradient-to-br from-emerald-900 to-teal-700 flex items-center justify-center">
                 <span className="text-white text-3xl font-extrabold font-heading text-center px-4">Alberton<br />Tyre Clinic</span>
               </div>
@@ -246,20 +301,33 @@ const CaseStudiesPage = () => {
                 <p className="text-gray-600 mb-4 line-clamp-3">
                   Strategic pivot to a Safety-Driven Vehicle Maintenance Center, leveraging 36-year family heritage, FREE safety assessments, and trust-based positioning against national chains.
                 </p>
-                <div className="flex items-center text-emerald-600 font-semibold group-hover:text-emerald-700 transition">
-                  View Case Study
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                <div className="flex gap-3">
+                  <Link 
+                    href="/case-studies/alberton-tyre-clinic"
+                    className="flex items-center text-emerald-600 font-semibold hover:text-emerald-700 transition"
+                  >
+                    View Case Study
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                  <Link 
+                    href="https://www.albertontyreclinic.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-600 font-semibold hover:text-gray-700 transition"
+                  >
+                    View Website
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
 
             {/* Case Study Card: Sakana no Ichi */}
-            <Link 
-              href="/case-studies/sakana-no-ichi"
-              className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-amber-300 transform hover:-translate-y-2"
-            >
+            <div className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-amber-300 transform hover:-translate-y-2">
               <div className="h-48 bg-gradient-to-br from-gray-900 to-amber-900 flex items-center justify-center">
                 <span className="text-white text-2xl font-extrabold font-heading text-center px-4">Sakana<br />no Ichi<br /><span className="text-sm font-normal">魚の市</span></span>
               </div>
@@ -274,14 +342,30 @@ const CaseStudiesPage = () => {
                 <p className="text-gray-600 mb-4 line-clamp-3">
                   Complete brand development transforming Koi fish food into a premium luxury lifestyle experience, featuring Japanese aesthetic principles, mindful ritual positioning, and sophisticated design system.
                 </p>
-                <div className="flex items-center text-amber-600 font-semibold group-hover:text-amber-700 transition">
-                  View Case Study
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                <div className="flex gap-3">
+                  <Link 
+                    href="/case-studies/sakana-no-ichi"
+                    className="flex items-center text-amber-600 font-semibold hover:text-amber-700 transition"
+                  >
+                    View Case Study
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                  <Link 
+                    href="https://sakana-six.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-600 font-semibold hover:text-gray-700 transition"
+                  >
+                    View Website
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
 
             {/* Placeholder for future case studies */}
             <div className="bg-gray-100 rounded-xl border-2 border-dashed border-gray-300 p-12 flex flex-col items-center justify-center text-center">
