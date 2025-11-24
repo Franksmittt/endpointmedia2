@@ -49,10 +49,23 @@ const packages = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-24 bg-gray-50">
-      <div className="container mx-auto px-6">
+    <section id="pricing" className="py-24 bg-white relative overflow-hidden">
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: `
+          linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
+        `,
+        backgroundSize: '40px 40px'
+      }}></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <header className="text-center mb-16 max-w-3xl mx-auto">
-          <p className="text-teal-600 font-semibold uppercase tracking-wide">Pricing</p>
+          <div className="inline-block mb-6">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-600 bg-cyan-50 px-4 py-2 rounded-full border border-cyan-200">
+              Transparent Pricing
+            </span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-900 font-heading">
             Pricing engineered for local ROI.
           </h2>
@@ -65,44 +78,68 @@ const Pricing = () => {
           {packages.map((pkg) => (
             <div
               key={pkg.name}
-              className={`flex flex-col p-8 rounded-2xl border ${
+              className={`group relative flex flex-col p-8 rounded-2xl border-2 transition-all duration-300 hover:-translate-y-2 ${
                 pkg.highlight
-                  ? 'bg-gray-900 text-white border-teal-500 shadow-2xl lg:scale-105'
-                  : 'bg-white text-gray-900 border-gray-200 shadow-lg'
+                  ? 'bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white border-cyan-500/50 shadow-2xl shadow-cyan-500/20 lg:scale-105'
+                  : 'bg-white text-gray-900 border-cyan-100 shadow-lg hover:shadow-xl hover:border-cyan-200'
               }`}
             >
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-3xl font-bold font-heading">{pkg.name}</h3>
-                <span
-                  className={`text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full ${
-                    pkg.highlight ? 'bg-teal-600 text-white' : 'bg-teal-50 text-teal-600'
-                  }`}
-                >
-                  {pkg.tag}
-                </span>
+              {/* Glowing Effect for Highlighted */}
+              {pkg.highlight && (
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+              )}
+
+              {/* Wireframe Decoration */}
+              <div className={`absolute top-4 right-4 w-12 h-12 border rounded opacity-20 group-hover:opacity-40 transition-opacity ${
+                pkg.highlight ? 'border-cyan-500/30' : 'border-cyan-200'
+              }`}>
+                <div className={`absolute inset-0 border-t border-l ${
+                  pkg.highlight ? 'border-cyan-500/40' : 'border-cyan-200'
+                }`}></div>
               </div>
-              <p className={pkg.highlight ? 'text-gray-200 mb-6' : 'text-gray-500 mb-6'}>{pkg.description}</p>
-              <p className="text-5xl font-extrabold mb-6">
-                {pkg.price} <span className="text-lg font-normal">once-off</span>
-              </p>
-              <ul className="space-y-4 text-sm flex-grow">
-                {pkg.features.map((feature) => (
-                  <li key={feature} className="flex items-start">
-                    <span className={`mr-3 mt-1 ${pkg.highlight ? 'text-teal-300' : 'text-teal-500'}`}>&#10003;</span>
-                    <span className={pkg.highlight ? 'text-gray-100' : 'text-gray-700'}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="#audit"
-                className={`w-full mt-8 text-center block font-bold py-3 px-6 rounded-lg transition duration-300 ${
-                  pkg.highlight
-                    ? 'bg-teal-500 hover:bg-teal-400 text-white focus-visible:ring-offset-gray-900'
-                    : 'bg-white border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white'
-                } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500`}
-              >
-                Start {pkg.name}
-              </Link>
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-3xl font-bold font-heading">{pkg.name}</h3>
+                  <span
+                    className={`text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full ${
+                      pkg.highlight ? 'bg-cyan-600 text-white' : 'bg-cyan-50 text-cyan-600'
+                    }`}
+                  >
+                    {pkg.tag}
+                  </span>
+                </div>
+                <p className={pkg.highlight ? 'text-gray-200 mb-6' : 'text-gray-500 mb-6'}>{pkg.description}</p>
+                <p className="text-5xl font-extrabold mb-6">
+                  {pkg.price} <span className="text-lg font-normal">once-off</span>
+                </p>
+                <ul className="space-y-4 text-sm flex-grow">
+                  {pkg.features.map((feature) => (
+                    <li key={feature} className="flex items-start">
+                      <div className={`flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 ${
+                        pkg.highlight 
+                          ? 'bg-cyan-500/20 border-cyan-400' 
+                          : 'bg-cyan-50 border-cyan-200'
+                      }`}>
+                        <svg className={`w-3 h-3 ${pkg.highlight ? 'text-cyan-300' : 'text-cyan-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                      <span className={pkg.highlight ? 'text-gray-100' : 'text-gray-700'}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="#audit"
+                  className={`w-full mt-8 text-center block font-bold py-3 px-6 rounded-lg transition duration-300 ${
+                    pkg.highlight
+                      ? 'bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white shadow-lg shadow-cyan-500/30'
+                      : 'bg-white border-2 border-cyan-600 text-cyan-600 hover:bg-cyan-600 hover:text-white'
+                  } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500`}
+                >
+                  Start {pkg.name}
+                </Link>
+              </div>
             </div>
           ))}
         </div>
@@ -112,7 +149,7 @@ const Pricing = () => {
             Unsure which sprint fits? Your{' '}
             <Link
               href="#audit"
-              className="text-teal-600 font-bold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded px-1"
+              className="text-cyan-600 font-bold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded px-1"
             >
               Free Growth Audit
             </Link>{' '}
