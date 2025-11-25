@@ -2,7 +2,8 @@
 import { MetadataRoute } from 'next';
 
 // Use environment variable if available, fallback to hardcoded value
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://endpointmedia.co.za';
+// CRITICAL: Always use www version (www.endpointmedia.co.za) as canonical
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za';
 const currentDate = new Date();
 
 type ChangeFrequency = NonNullable<

@@ -25,6 +25,23 @@ const nextConfig = {
   // Setting to false means /about (not /about/)
   trailingSlash: false,
   
+  // WWW redirect configuration - redirect non-www to www for canonical consistency
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'endpointmedia.co.za',
+          },
+        ],
+        destination: 'https://www.endpointmedia.co.za/:path*',
+        permanent: true, // 308 redirect
+      },
+    ];
+  },
+  
   // Production optimizations
   productionBrowserSourceMaps: false,
   

@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "web design for real estate johannesburg",
     "web design for medical practices johannesburg",
   ],
-  authors: [{ name: "Frank Smit", url: "https://endpointmedia.co.za" }],
+  authors: [{ name: "Frank Smit", url: "https://www.endpointmedia.co.za" }],
   creator: "Endpoint Media",
   publisher: "Endpoint Media",
   formatDetection: {
@@ -47,18 +47,19 @@ export const metadata: Metadata = {
   },
   // Use environment variable for base URL, fallback to hardcoded value
   // IMPORTANT: Set NEXT_PUBLIC_BASE_URL in production for canonical consistency
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://endpointmedia.co.za"),
+  // CRITICAL: Always use www version (www.endpointmedia.co.za) as canonical
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://www.endpointmedia.co.za"),
   alternates: {
     canonical: "/",
     languages: {
-      "en-ZA": "https://endpointmedia.co.za",
-      en: "https://endpointmedia.co.za",
+      "en-ZA": "https://www.endpointmedia.co.za",
+      en: "https://www.endpointmedia.co.za",
     },
   },
   openGraph: {
     type: "website",
     locale: "en_ZA",
-    url: "https://endpointmedia.co.za",
+    url: "https://www.endpointmedia.co.za",
     siteName: "Endpoint Media",
     title: "Web Design Johannesburg | Endpoint Media | Websites That Generate Revenue",
     description: "Stop buying online brochures. Endpoint Media builds high-performance, lead-generating websites for Johannesburg service businesses. We deliver ROI, not excuses.",
@@ -113,11 +114,11 @@ export default function RootLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://endpointmedia.co.za/#organization",
+    "@id": "https://www.endpointmedia.co.za/#organization",
     name: "Endpoint Media",
     alternateName: "Endpoint Media Web Design",
-    url: "https://endpointmedia.co.za",
-    logo: "https://endpointmedia.co.za/images/logo.png",
+    url: "https://www.endpointmedia.co.za",
+    logo: "https://www.endpointmedia.co.za/images/logo.png",
     description: "Endpoint Media builds high-performance, lead-generating websites for Johannesburg service businesses.",
     founder: {
       "@type": "Person",
@@ -145,9 +146,9 @@ export default function RootLayout({
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://endpointmedia.co.za/#localbusiness",
+    "@id": "https://www.endpointmedia.co.za/#localbusiness",
     name: "Endpoint Media",
-    image: "https://endpointmedia.co.za/images/logo.png",
+    image: "https://www.endpointmedia.co.za/images/logo.png",
     description: "Professional web design and local SEO services for Johannesburg businesses",
     address: {
       "@type": "PostalAddress",
@@ -160,7 +161,7 @@ export default function RootLayout({
       latitude: -26.2041,
       longitude: 28.0473,
     },
-    url: "https://endpointmedia.co.za",
+    url: "https://www.endpointmedia.co.za",
     telephone: "+27-76-972-4559",
     email: "hello@endpointmedia.co.za",
     priceRange: "R5,500 - R15,000",
@@ -213,18 +214,18 @@ export default function RootLayout({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://endpointmedia.co.za/#website",
-    url: "https://endpointmedia.co.za",
+    "@id": "https://www.endpointmedia.co.za/#website",
+    url: "https://www.endpointmedia.co.za",
     name: "Endpoint Media",
     description: "Web Design Johannesburg | High-Performance Websites That Generate Revenue",
     publisher: {
-      "@id": "https://endpointmedia.co.za/#organization",
+      "@id": "https://www.endpointmedia.co.za/#organization",
     },
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://endpointmedia.co.za/search?q={search_term_string}",
+        urlTemplate: "https://www.endpointmedia.co.za/search?q={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },
@@ -239,16 +240,16 @@ export default function RootLayout({
   const frankSmitSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": "https://endpointmedia.co.za/about/author/frank-smit#person",
+    "@id": "https://www.endpointmedia.co.za/about/author/frank-smit#person",
     name: "Frank Smit",
     jobTitle: "Web Design Expert & Founder",
-    url: "https://endpointmedia.co.za/about/author/frank-smit",
-    image: "https://endpointmedia.co.za/images/frank-smit.jpg",
+    url: "https://www.endpointmedia.co.za/about/author/frank-smit",
+    image: "https://www.endpointmedia.co.za/images/frank-smit.jpg",
     sameAs: [
       "https://www.linkedin.com/in/frank-smittt",
     ],
     worksFor: {
-      "@id": "https://endpointmedia.co.za/#organization",
+      "@id": "https://www.endpointmedia.co.za/#organization",
     },
     knowsAbout: [
       "Web Design",
