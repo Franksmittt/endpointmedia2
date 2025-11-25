@@ -30,8 +30,10 @@ export const FRANK_SMIT_ID = 'https://endpointmedia.co.za/about/author/frank-smi
 
 /**
  * Base URL for the site
+ * Uses environment variable if available, falls back to hardcoded value
+ * IMPORTANT: Set NEXT_PUBLIC_BASE_URL in production for canonical consistency
  */
-export const BASE_URL = 'https://endpointmedia.co.za';
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://endpointmedia.co.za';
 
 type OpenGraphType =
   | 'website'
@@ -86,7 +88,9 @@ export function buildMetadata({
   openGraph,
   twitter,
 }: BuildMetadataOptions): Metadata {
-  const url = `${BASE_URL}${path === '/' ? '' : path}`;
+  // Ensure path doesn't have trailing slash (matching next.config.mjs trailingSlash: false)
+  const cleanPath = path === '/' ? '' : path.replace(/\/$/, '');
+  const url = `${BASE_URL}${cleanPath}`;
   const languageAlternates =
     hreflang ??
     {

@@ -1,7 +1,8 @@
 // src/app/sitemap.ts
 import { MetadataRoute } from 'next';
 
-const baseUrl = 'https://endpointmedia.co.za';
+// Use environment variable if available, fallback to hardcoded value
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://endpointmedia.co.za';
 const currentDate = new Date();
 
 type ChangeFrequency = NonNullable<
@@ -12,12 +13,16 @@ const createEntry = (
   path: string,
   changeFrequency: ChangeFrequency,
   priority: number,
-): MetadataRoute.Sitemap[number] => ({
-  url: path === '/' ? baseUrl : `${baseUrl}${path}`,
-  lastModified: currentDate,
-  changeFrequency,
-  priority,
-});
+): MetadataRoute.Sitemap[number] => {
+  // Ensure path doesn't have trailing slash (matching next.config.mjs trailingSlash: false)
+  const cleanPath = path === '/' ? '' : path.replace(/\/$/, '');
+  return {
+    url: cleanPath === '' ? baseUrl : `${baseUrl}${cleanPath}`,
+    lastModified: currentDate,
+    changeFrequency,
+    priority,
+  };
+};
 
 const mapPaths = (
   paths: string[],

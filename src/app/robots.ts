@@ -2,7 +2,8 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://endpointmedia.co.za';
+  // Use environment variable if available, fallback to hardcoded value
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://endpointmedia.co.za';
 
   // Dynamic environment detection - prevents staging/dev from being indexed
   if (process.env.NODE_ENV !== 'production') {
@@ -15,6 +16,8 @@ export default function robots(): MetadataRoute.Robots {
   }
 
   // Production robots.txt
+  // CRITICAL: Do NOT block /_next/ - Googlebot needs JS/CSS for rendering
+  // Blocking /_next/ will cause render failures and poor rankings
   return {
     rules: [
       {
@@ -22,7 +25,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: [
           '/api/',
-          '/_next/',
           '/admin/',
           '/private/',
         ],
@@ -32,7 +34,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: [
           '/api/',
-          '/_next/',
           '/admin/',
           '/private/',
         ],
@@ -42,7 +43,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: [
           '/api/',
-          '/_next/',
           '/admin/',
           '/private/',
         ],

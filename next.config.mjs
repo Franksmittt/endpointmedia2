@@ -20,6 +20,11 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   
+  // Trailing slash configuration for canonical consistency
+  // IMPORTANT: Choose one strategy and ensure all canonicals match
+  // Setting to false means /about (not /about/)
+  trailingSlash: false,
+  
   // Production optimizations
   productionBrowserSourceMaps: false,
   

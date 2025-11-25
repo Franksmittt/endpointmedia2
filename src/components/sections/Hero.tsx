@@ -28,7 +28,7 @@ const Hero = () => {
           alt="A high-performance digital marketing and web design service for Johannesburg."
           fill
           quality={80}
-          priority={false}
+          priority={true}
           className="hidden md:block object-cover opacity-15"
           aria-hidden="true"
           sizes="(max-width: 1023px) 0px, 100vw"

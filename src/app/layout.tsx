@@ -45,7 +45,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://endpointmedia.co.za"),
+  // Use environment variable for base URL, fallback to hardcoded value
+  // IMPORTANT: Set NEXT_PUBLIC_BASE_URL in production for canonical consistency
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://endpointmedia.co.za"),
   alternates: {
     canonical: "/",
     languages: {
@@ -87,9 +89,18 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Add verification codes when available
-    // google: "your-google-verification-code",
-    // yandex: "your-yandex-verification-code",
+    // Google Search Console Verification
+    // INSTRUCTIONS:
+    // 1. Go to Google Search Console: https://search.google.com/search-console
+    // 2. Add your property (endpointmedia.co.za)
+    // 3. Choose "HTML tag" verification method
+    // 4. Copy the content value from the meta tag (e.g., "abc123xyz")
+    // 5. Add it here: google: "abc123xyz"
+    // 
+    // ALTERNATIVE: Use DNS TXT record verification (more reliable, independent of app state)
+    // Add TXT record: google-site-verification=YOUR_CODE
+    // google: process.env.GOOGLE_SITE_VERIFICATION || "",
+    // yandex: process.env.YANDEX_VERIFICATION || "",
   },
 };
 
