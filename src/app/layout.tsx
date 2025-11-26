@@ -7,6 +7,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GOOGLE_ADS_ID = "AW-17744075656";
 
 // Define comprehensive metadata for SEO dominance
 export const metadata: Metadata = {
@@ -110,6 +111,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const trackingIds = [GOOGLE_ADS_ID, GA_ID].filter(
+    (id): id is string => typeof id === "string" && id.length > 0,
+  );
+  const gtagConfig = trackingIds.map((id) => `gtag('config', '${id}');`).join("\n");
   // JSON-LD Structured Data for Organization & LocalBusiness
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -290,19 +295,18 @@ export default function RootLayout({
         <Header /> 
         <main id="main-content">{children}</main> 
         <Footer />
-        
-        {GA_ID && (
+        {trackingIds.length > 0 && (
           <>
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="lazyOnload"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+              strategy="afterInteractive"
             />
-            <Script id="gtag-init" strategy="lazyOnload">
+            <Script id="google-tags-init" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${GA_ID}');
+                ${gtagConfig}
               `}
             </Script>
           </>
