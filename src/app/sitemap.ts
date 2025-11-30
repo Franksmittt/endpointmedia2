@@ -37,6 +37,7 @@ const secondaryCoreConfigs = [
   { path: '/pricing', changeFrequency: 'monthly' as ChangeFrequency, priority: 0.9 },
   { path: '/contact', changeFrequency: 'monthly' as ChangeFrequency, priority: 0.8 },
   { path: '/process', changeFrequency: 'monthly' as ChangeFrequency, priority: 0.7 },
+  { path: '/december-special', changeFrequency: 'daily' as ChangeFrequency, priority: 0.95 }, // Limited-time offer - high priority
 ];
 
 const serviceDetailPaths = [

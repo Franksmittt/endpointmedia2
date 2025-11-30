@@ -36,7 +36,7 @@ const Header = () => {
 };
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-gray-900/95 shadow-lg backdrop-blur-sm' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-gray-900/95 shadow-lg backdrop-blur-sm' : 'bg-gray-900/80 backdrop-blur-sm'}`}>
       {/* Container: Changed layout strategy to center navigation on desktop */}
       <div className="container mx-auto px-6 py-4 flex justify-start lg:justify-between items-center">
         {/* Logo */}

@@ -44,6 +44,16 @@ const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-6 z-10 relative text-center">
+        {/* December Special Alert Banner */}
+        <Link 
+          href="/december-special"
+          className="inline-flex items-center gap-2 mb-6 animate-fade-in-up group"
+        >
+          <span className="text-xs font-bold uppercase tracking-wider text-cyan-300 bg-gradient-to-r from-cyan-600/30 to-cyan-500/30 px-4 py-2 rounded-full border border-cyan-400/50 hover:border-cyan-400 hover:bg-cyan-600/40 transition-all duration-300">
+            ✨ December Flash Offer: Professional Websites for R1,500 →
+          </span>
+        </Link>
+
         {/* Status Indicator */}
         <div className="inline-flex items-center gap-2 mb-6 animate-fade-in-up">
           <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
@@ -63,14 +73,21 @@ const Hero = () => {
           <strong className="text-cyan-400 font-semibold"> Johannesburg service businesses.</strong> Guaranteed ROI, no excuses.
         </p>
 
-        {/* CTA Button */}
-        <Link
-          href="#audit"
-          className="inline-block bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-extrabold py-4 px-12 rounded-lg shadow-2xl shadow-cyan-500/30 border-2 border-cyan-400/50 transform hover:scale-105 transition-all duration-300 ease-in-out uppercase text-base tracking-wider animate-fade-in-up focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 focus-visible:ring-cyan-300"
-          style={{ animationDelay: '0.4s' }}
-        >
-          Claim Your Free Growth Audit
-        </Link>
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <Link
+            href="#audit"
+            className="inline-block bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-extrabold py-4 px-12 rounded-lg shadow-2xl shadow-cyan-500/30 border-2 border-cyan-400/50 transform hover:scale-105 transition-all duration-300 ease-in-out uppercase text-base tracking-wider focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 focus-visible:ring-cyan-300"
+          >
+            Claim Your Free Growth Audit
+          </Link>
+          <Link
+            href="/december-special"
+            className="inline-block bg-transparent hover:bg-white text-white hover:text-gray-900 font-extrabold py-4 px-12 rounded-lg border-2 border-white/80 hover:border-white transform hover:scale-105 transition-all duration-300 ease-in-out uppercase text-base tracking-wider focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 focus-visible:ring-white"
+          >
+            View December Special
+          </Link>
+        </div>
 
         {/* Subtext */}
         <p className="mt-4 text-sm text-gray-400 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
