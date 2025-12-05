@@ -37,10 +37,12 @@ const secondaryCoreConfigs = [
   { path: '/pricing', changeFrequency: 'monthly' as ChangeFrequency, priority: 0.9 },
   { path: '/contact', changeFrequency: 'monthly' as ChangeFrequency, priority: 0.8 },
   { path: '/process', changeFrequency: 'monthly' as ChangeFrequency, priority: 0.7 },
-  { path: '/december-special', changeFrequency: 'daily' as ChangeFrequency, priority: 0.95 }, // Limited-time offer - high priority
 ];
 
 const serviceDetailPaths = [
+  '/services/web-design-firms', // High priority: Target keyword page
+  '/services/website-development', // High priority: Target keyword page
+  '/services/website-design-prices', // High priority: Target keyword page
   '/services/website-redesign',
   '/services/shopify-expert',
   '/services/custom-development',

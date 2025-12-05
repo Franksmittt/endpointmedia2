@@ -20,13 +20,15 @@ export function secureJsonLD(data: object): string {
 
 /**
  * Canonical organization ID for knowledge graph linking
+ * CRITICAL: Must match BASE_URL (use www for consistency)
  */
-export const ORG_ID = 'https://endpointmedia.co.za/#organization';
+export const ORG_ID = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za'}/#organization`;
 
 /**
  * Canonical person ID for Frank Smit (E-E-A-T)
+ * CRITICAL: Must match BASE_URL (use www for consistency)
  */
-export const FRANK_SMIT_ID = 'https://endpointmedia.co.za/about/author/frank-smit#person';
+export const FRANK_SMIT_ID = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za'}/about/author/frank-smit#person`;
 
 /**
  * Base URL for the site

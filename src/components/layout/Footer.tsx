@@ -101,11 +101,6 @@ const Footer = () => {
               <li><Link href="/case-studies" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Case Studies</Link></li>
               <li><Link href="/pricing" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Pricing</Link></li>
               <li><Link href="/blog" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Blog</Link></li>
-              <li className="pt-2">
-                <Link href="/december-special" className="text-cyan-400 hover:text-cyan-300 transition font-medium text-xs uppercase tracking-wider focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">
-                  ✨ December Special →
-                </Link>
-              </li>
             </ul>
           </div>
 

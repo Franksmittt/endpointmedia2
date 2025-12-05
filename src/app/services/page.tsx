@@ -26,6 +26,30 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const serviceCards = [
   {
+    title: "Web Design Firm Services",
+    description:
+      "Professional digital architecture firm engineering Next.js enterprise solutions. Beyond templates—we build scalable digital assets.",
+    href: "/services/web-design-firms",
+    badge: "Enterprise",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+    ),
+  },
+  {
+    title: "Website Development Services",
+    description:
+      "Modern Next.js 15 development with entity-based SEO and architectural supremacy that outranks legacy CMS sites.",
+    href: "/services/website-development",
+    badge: "SEO dominance",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      </svg>
+    ),
+  },
+  {
     title: "Website Redesign Services",
     description:
       "Transform outdated, brochure-style sites into conversion-optimized, Core Web Vitals-beating revenue assets.",

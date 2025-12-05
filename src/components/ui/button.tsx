@@ -24,7 +24,7 @@ const buttonVariants = cva(
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
-        icon: "h-12 w-12", // <-- CRITICAL FIX: Changed from h-9 w-9 (36px) to h-12 w-12 (48px) for WCAG compliance [cite: 3986, 4006]
+        icon: "h-12 w-12", // WCAG compliant: Minimum 48px touch target
       },
     },
     defaultVariants: {

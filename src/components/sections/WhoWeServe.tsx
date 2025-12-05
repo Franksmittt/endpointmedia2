@@ -62,11 +62,10 @@ const WhoWeServe = () => {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white font-heading mb-4 bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
-            Built for High-Stakes Service Businesses
+            For Serious Businesses Ready to Dominate
           </h2>
-          <p className="text-gray-300 text-lg">
-            If your business relies on qualified inbound leads, controlled positioning, and
-            measurable ROI, our playbooks are built for you.
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            We work exclusively with businesses that understand the difference between a cheap website and a strategic investment. If you&apos;re serious about outranking competitors, generating measurable growth, and establishing market leadership, our intensive research-driven approach is built for you.
           </p>
         </div>
 

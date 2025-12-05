@@ -66,10 +66,10 @@ const Vetting = () => {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 font-heading text-cyan-400 bg-gradient-to-r from-cyan-400 via-white to-cyan-400 bg-clip-text text-transparent">
-              Built for Market Leaders. Is That You?
+              We&apos;re Extremely Selective. Are You Serious About Growth?
             </h2>
             <p className="text-xl max-w-3xl mx-auto text-gray-300">
-             We are selective. We partner with ambitious Johannesburg service businesses ready to invest in dominating their local market. See if you fit the Endpoint standard:
+              We don&apos;t work with everyone. We partner exclusively with ambitious Johannesburg businesses that understand the difference between a cheap website and a strategic investment. We take your success extremely seriously—because if you don&apos;t win, we don&apos;t win. See if you meet the Endpoint standard:
             </p>
           </header>
 

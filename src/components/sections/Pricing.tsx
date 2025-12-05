@@ -4,45 +4,50 @@ import Link from 'next/link';
 
 const packages = [
   {
-    name: 'Foundation',
-    description: 'Launch a credible, professional presence engineered for Johannesburg buyers.',
-    price: 'R5,500',
-    tag: 'Entry',
+    name: 'Strategic Foundation',
+    description: 'For businesses ready to outrank local competitors and establish market authority.',
+    price: 'R25,000',
+    tag: 'Entry Tier',
     highlight: false,
     features: [
-      '3-page build (Home, About, Services/Contact)',
-      'Essential Local SEO + Google Business Profile setup',
-      'Mobile-first responsive layout',
-      '48-hour strategy + mockup preview',
-      'Performance tuned for Core Web Vitals',
+      'Deep competitor & market analysis',
+      'Custom 5-7 page architecture with Next.js 15',
+      'Entity-based SEO with Knowledge Graph integration',
+      'Comprehensive suburb targeting strategy',
+      'Performance engineered (LCP <1s, 100/100 Core Web Vitals)',
+      '60-day intensive research & build process',
     ],
   },
   {
-    name: 'Growth Engine',
-    description: 'Full-stack demand engine for operators who want measurable lead flow.',
-    price: 'R10,000',
-    tag: 'Most popular',
+    name: 'Market Dominance',
+    description: 'For serious operators who want to completely outrank every competitor in their market.',
+    price: 'R45,000',
+    tag: 'Most Popular',
     highlight: true,
     features: [
-      '5–7 page architecture incl. service silos & blog',
-      'Advanced schema + suburb targeting',
-      'Analytics, call tracking & CRM hand-off',
-      'Conversion-focused copywriting & UX polish',
-      'Priority performance + QA pass',
+      'Everything in Strategic Foundation, plus:',
+      'Complete competitor teardown & positioning strategy',
+      '10-15 page architecture with service clusters',
+      'Advanced semantic SEO & entity injection',
+      'Custom conversion funnels & lead generation systems',
+      '90-day intensive research, build & optimization',
+      'Post-launch growth acceleration program',
     ],
   },
   {
-    name: 'Market Leader',
-    description: 'For teams hell-bent on suburb domination, automation, and authority.',
-    price: 'R15,000',
-    tag: 'All-in',
+    name: 'Category Authority',
+    description: 'For businesses determined to become the undisputed leader in their category.',
+    price: 'R75,000+',
+    tag: 'Enterprise',
     highlight: false,
     features: [
-      '8+ pages with calculators, booking or quote flows',
-      'Competitor teardown & bespoke copy system',
-      'Review acceleration + trust badge deployment',
-      'Automation & CRM/API integrations',
-      'Launch training + priority post-launch support',
+      'Everything in Market Dominance, plus:',
+      'Full market mapping & competitive intelligence',
+      'Custom integrations & automation systems',
+      'Multi-location/suburb expansion architecture',
+      'Advanced analytics & conversion optimization',
+      '120-day comprehensive strategy, build & scale',
+      'Ongoing strategic partnership & optimization',
     ],
   },
 ];
@@ -67,10 +72,10 @@ const Pricing = () => {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-900 font-heading">
-            Pricing engineered for local ROI.
+            Premium Investment. Maximum Return.
           </h2>
-          <p className="text-xl text-gray-600">
-            No retainers or vague estimates. Every package is a defined sprint built to produce leads in the suburbs that matter most.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We don&apos;t compete on price. We compete on results. Every package is an intensive, research-driven investment engineered to put you <strong className="text-gray-900">completely above your competitors</strong> and generate measurable growth. We&apos;d rather work with fewer clients who excel than hundreds who just become statistics.
           </p>
         </header>
 
@@ -145,19 +150,21 @@ const Pricing = () => {
         </div>
 
         <div className="text-center mt-16 text-gray-600">
-          <p className="text-lg">
-            Unsure which sprint fits? Your{' '}
+          <p className="text-lg max-w-3xl mx-auto">
+            Not sure which investment level is right? Our{' '}
             <Link
               href="#audit"
               className="text-cyan-600 font-bold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded px-1"
             >
-              Free Growth Audit
+              Free Architecture Audit
             </Link>{' '}
-            breaks down deliverables, timelines, and projected lead volume.
+            analyzes your market, competitors, and opportunities to determine the optimal strategy for dominating your category.
           </p>
-          <p className="mt-2 text-sm">
-            All packages include 1 year of essential hosting, domain registration, SSL, and launch support. Maintenance retainers
-            start at R500/month if needed.
+          <p className="mt-4 text-sm max-w-2xl mx-auto">
+            <strong className="text-gray-900">What&apos;s Included:</strong> All packages include premium hosting, domain registration, SSL, comprehensive research, competitor analysis, and strategic consultation. We don&apos;t charge monthly maintenance fees—our Next.js architecture is self-sustaining and requires minimal ongoing support.
+          </p>
+          <p className="mt-4 text-xs text-gray-500 italic max-w-2xl mx-auto">
+            *Pricing reflects intensive research, custom engineering, and strategic consultation. We work exclusively with businesses committed to market leadership.
           </p>
         </div>
       </div>

@@ -2,6 +2,7 @@
 "use client";
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
+import { trackFreeAudit } from '@/lib/analytics';
 
 const Audit = () => {
   const observerRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -46,6 +47,10 @@ const Audit = () => {
     const formData = new FormData(event.currentTarget);
     const data = Object.fromEntries(formData.entries());
     console.log(data);
+    
+    // Track conversion
+    trackFreeAudit();
+    
     alert("Thank you! Your audit is secured. We will be in touch shortly.");
     event.currentTarget.reset();
   };

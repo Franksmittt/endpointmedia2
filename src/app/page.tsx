@@ -19,13 +19,15 @@ import { secureJsonLD, BASE_URL, buildMetadata } from '@/lib/seo';
 // Homepage-specific metadata (extends root layout metadata)
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design Johannesburg | Endpoint Media | Websites That Generate Revenue",
-    description: "Stop buying online brochures. Endpoint Media builds high-performance, lead-generating websites for Johannesburg service businesses. We deliver ROI, not excuses. Get your free audit.",
+    title: "Premium Web Architecture Firm Johannesburg | Endpoint Media | Market Domination Specialists",
+    description: "We don't sell cheap websites. We engineer market domination through extreme focus, deep research, and uncompromising attention to detail. Selective partnership with serious businesses committed to outranking competitors and generating massive growth.",
     keywords: [
-      "web design johannesburg",
-      "local seo johannesburg",
-      "website redesign johannesburg",
-      "lead generation websites south africa",
+      "premium web design johannesburg",
+      "high-end website development",
+      "market domination strategy",
+      "competitive advantage web design",
+      "premium digital agency johannesburg",
+      "enterprise web architecture",
     ],
   });
 }
