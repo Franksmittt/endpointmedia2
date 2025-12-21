@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -31,9 +31,9 @@ const SandtonPage = () => {
   const locationSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://endpointmedia.co.za/locations/sandton#localbusiness",
+    "@id": `${BASE_URL}/locations/sandton#localbusiness`,
     name: "Endpoint Media - Web Design Sandton",
-    image: "https://endpointmedia.co.za/images/logo.png",
+    image: `${BASE_URL}/images/logo.png`,
     description: "Professional web design and local SEO services for Sandton businesses",
     address: {
       "@type": "PostalAddress",
@@ -47,7 +47,7 @@ const SandtonPage = () => {
       latitude: -26.1076,
       longitude: 28.0567,
     },
-    url: "https://endpointmedia.co.za/locations/sandton",
+    url: `${BASE_URL}/locations/sandton`,
     telephone: "+27-76-972-4559",
     email: "hello@endpointmedia.co.za",
     priceRange: "R5,500 - R15,000",
@@ -78,19 +78,19 @@ const SandtonPage = () => {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://endpointmedia.co.za",
+        item: BASE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Locations",
-        item: "https://endpointmedia.co.za/locations",
+        item: `${BASE_URL}/locations`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Sandton",
-        item: "https://endpointmedia.co.za/locations/sandton",
+        item: `${BASE_URL}/locations/sandton`,
       },
     ],
   };

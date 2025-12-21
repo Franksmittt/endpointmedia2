@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD, FRANK_SMIT_ID, ORG_ID } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, FRANK_SMIT_ID, ORG_ID, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -32,7 +32,7 @@ const FrankSmitPage = () => {
     worksFor: {
       "@id": ORG_ID,
     },
-    url: "https://endpointmedia.co.za/about/author/frank-smit",
+    url: `${BASE_URL}/about/author/frank-smit`,
     sameAs: [
       // Add social media profiles when available
     ],

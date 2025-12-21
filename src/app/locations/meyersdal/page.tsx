@@ -59,19 +59,19 @@ export default function MeyersdalPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://endpointmedia.co.za"
+        "item": BASE_URL
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Locations",
-        "item": "https://endpointmedia.co.za/locations"
+        "item": `${BASE_URL}/locations`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Meyersdal",
-        "item": "https://endpointmedia.co.za/locations/meyersdal"
+        "item": `${BASE_URL}/locations/meyersdal`
       }
     ]
   };

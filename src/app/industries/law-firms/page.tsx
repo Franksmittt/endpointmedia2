@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -25,11 +25,11 @@ const LawFirmsPage = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": "https://endpointmedia.co.za/industries/law-firms#service",
+    "@id": `${BASE_URL}/industries/law-firms#service`,
     name: "Web Design for Law Firms",
     description: "Professional web design services specifically for law firms",
     provider: {
-      "@id": "https://endpointmedia.co.za/#organization",
+      "@id": `${BASE_URL}/#organization`,
     },
     serviceType: "Legal Website Design",
     areaServed: {
@@ -41,7 +41,7 @@ const LawFirmsPage = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://endpointmedia.co.za/industries/law-firms#faq",
+    "@id": `${BASE_URL}/industries/law-firms#faq`,
     mainEntity: [
       {
         "@type": "Question",

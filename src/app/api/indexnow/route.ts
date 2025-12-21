@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { BASE_URL } from '@/lib/seo';
 
 export async function POST(req: NextRequest) {
   // 1. Security: Authenticate the request
@@ -11,9 +12,9 @@ export async function POST(req: NextRequest) {
   
   // 2. The IndexNow Protocol
   const payload = {
-    host: 'endpointmedia.co.za',
+    host: 'www.endpointmedia.co.za', // Use www for consistency with canonical
     key: process.env.INDEXNOW_KEY, // Get from Bing Webmaster Tools
-    keyLocation: `https://endpointmedia.co.za/${process.env.INDEXNOW_KEY}.txt`,
+    keyLocation: `${BASE_URL}/${process.env.INDEXNOW_KEY}.txt`,
     urlList: urls,
   };
 

@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -26,7 +26,7 @@ const RivoniaPage = () => {
   const locationSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://endpointmedia.co.za/locations/rivonia#localbusiness",
+    "@id": `${BASE_URL}/locations/rivonia#localbusiness`,
     name: "Endpoint Media - Web Design Rivonia",
     address: {
       "@type": "PostalAddress",
@@ -39,7 +39,7 @@ const RivoniaPage = () => {
       latitude: -26.0500,
       longitude: 28.0667,
     },
-    url: "https://endpointmedia.co.za/locations/rivonia",
+    url: `${BASE_URL}/locations/rivonia`,
     telephone: "+27-76-972-4559",
     email: "hello@endpointmedia.co.za",
     priceRange: "R5,500 - R15,000",
@@ -53,19 +53,19 @@ const RivoniaPage = () => {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://endpointmedia.co.za",
+        item: BASE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Locations",
-        item: "https://endpointmedia.co.za/locations",
+        item: `${BASE_URL}/locations`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Rivonia",
-        item: "https://endpointmedia.co.za/locations/rivonia",
+        item: `${BASE_URL}/locations/rivonia`,
       },
     ],
   };

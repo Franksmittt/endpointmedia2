@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from "@/lib/seo";
+import { buildMetadata, secureJsonLD, BASE_URL } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -24,11 +24,11 @@ const MedicalPage = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": "https://endpointmedia.co.za/industries/medical#service",
+    "@id": `${BASE_URL}/industries/medical#service`,
     name: "Web Design for Medical Practices",
     description: "Professional web design services specifically for medical practices and healthcare providers",
     provider: {
-      "@id": "https://endpointmedia.co.za/#organization",
+      "@id": `${BASE_URL}/#organization`,
     },
     serviceType: "Healthcare Website Design",
     areaServed: {
@@ -40,7 +40,7 @@ const MedicalPage = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://endpointmedia.co.za/industries/medical#faq",
+    "@id": `${BASE_URL}/industries/medical#faq`,
     mainEntity: [
       {
         "@type": "Question",

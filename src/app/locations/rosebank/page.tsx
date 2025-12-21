@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -26,7 +26,7 @@ const RosebankPage = () => {
   const locationSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://endpointmedia.co.za/locations/rosebank#localbusiness",
+    "@id": `${BASE_URL}/locations/rosebank#localbusiness`,
     name: "Endpoint Media - Web Design Rosebank",
     address: {
       "@type": "PostalAddress",
@@ -39,7 +39,7 @@ const RosebankPage = () => {
       latitude: -26.1467,
       longitude: 28.0431,
     },
-    url: "https://endpointmedia.co.za/locations/rosebank",
+    url: `${BASE_URL}/locations/rosebank`,
     telephone: "+27-76-972-4559",
     email: "hello@endpointmedia.co.za",
     priceRange: "R5,500 - R15,000",
@@ -53,19 +53,19 @@ const RosebankPage = () => {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://endpointmedia.co.za",
+        item: BASE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Locations",
-        item: "https://endpointmedia.co.za/locations",
+        item: `${BASE_URL}/locations`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Rosebank",
-        item: "https://endpointmedia.co.za/locations/rosebank",
+        item: `${BASE_URL}/locations/rosebank`,
       },
     ],
   };

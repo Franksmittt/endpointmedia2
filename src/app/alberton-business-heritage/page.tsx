@@ -53,13 +53,13 @@ export default function HeritagePage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://endpointmedia.co.za"
+        "item": BASE_URL
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Alberton Business Heritage",
-        "item": "https://endpointmedia.co.za/alberton-business-heritage"
+        "item": `${BASE_URL}/alberton-business-heritage`
       }
     ]
   };

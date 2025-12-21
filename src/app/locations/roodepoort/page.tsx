@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -28,7 +28,7 @@ const RoodepoortPage = () => {
   const locationSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://endpointmedia.co.za/locations/roodepoort#localbusiness",
+    "@id": `${BASE_URL}/locations/roodepoort#localbusiness`,
     name: "Endpoint Media - Web Design Roodepoort",
     address: {
       "@type": "PostalAddress",
@@ -41,7 +41,7 @@ const RoodepoortPage = () => {
       latitude: -26.1625,
       longitude: 27.8725,
     },
-    url: "https://endpointmedia.co.za/locations/roodepoort",
+    url: `${BASE_URL}/locations/roodepoort`,
     telephone: "+27-76-972-4559",
     email: "hello@endpointmedia.co.za",
     priceRange: "R5,500 - R15,000",
@@ -55,19 +55,19 @@ const RoodepoortPage = () => {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://endpointmedia.co.za",
+        item: BASE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Locations",
-        item: "https://endpointmedia.co.za/locations",
+        item: `${BASE_URL}/locations`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Roodepoort",
-        item: "https://endpointmedia.co.za/locations/roodepoort",
+        item: `${BASE_URL}/locations/roodepoort`,
       },
     ],
   };

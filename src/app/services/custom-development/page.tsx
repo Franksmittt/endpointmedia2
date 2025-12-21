@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -26,11 +26,11 @@ const CustomDevelopmentPage = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://endpointmedia.co.za/services/custom-development#service",
+    "@id": `${BASE_URL}/services/custom-development#service`,
     name: "Custom Web Development Services",
     description: "Premium enterprise web development with CRM/ERP integration",
     provider: {
-      "@id": "https://endpointmedia.co.za/#organization",
+      "@id": `${BASE_URL}/#organization`,
     },
     areaServed: {
       "@type": "City",
@@ -42,7 +42,7 @@ const CustomDevelopmentPage = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://endpointmedia.co.za/services/custom-development#faq",
+    "@id": `${BASE_URL}/services/custom-development#faq`,
     mainEntity: [
       {
         "@type": "Question",

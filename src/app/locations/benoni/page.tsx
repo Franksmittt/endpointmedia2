@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -26,7 +26,7 @@ const BenoniPage = () => {
   const locationSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://endpointmedia.co.za/locations/benoni#localbusiness",
+    "@id": `${BASE_URL}/locations/benoni#localbusiness`,
     name: "Endpoint Media - Web Design Benoni",
     address: {
       "@type": "PostalAddress",
@@ -39,7 +39,7 @@ const BenoniPage = () => {
       latitude: -26.1889,
       longitude: 28.3206,
     },
-    url: "https://endpointmedia.co.za/locations/benoni",
+    url: `${BASE_URL}/locations/benoni`,
     telephone: "+27-76-972-4559",
     email: "hello@endpointmedia.co.za",
     priceRange: "R5,500 - R15,000",
@@ -53,19 +53,19 @@ const BenoniPage = () => {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://endpointmedia.co.za",
+        item: BASE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Locations",
-        item: "https://endpointmedia.co.za/locations",
+        item: `${BASE_URL}/locations`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Benoni",
-        item: "https://endpointmedia.co.za/locations/benoni",
+        item: `${BASE_URL}/locations/benoni`,
       },
     ],
   };

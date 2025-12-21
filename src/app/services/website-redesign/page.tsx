@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import InternalLinks from '@/components/seo/InternalLinks';
-import { buildMetadata, secureJsonLD } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -27,11 +27,11 @@ const WebsiteRedesignPage = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://endpointmedia.co.za/services/website-redesign#service",
+    "@id": `${BASE_URL}/services/website-redesign#service`,
     name: "Website Redesign Services",
     description: "Transform outdated, underperforming websites into high-converting, modern assets",
     provider: {
-      "@id": "https://endpointmedia.co.za/#organization",
+      "@id": `${BASE_URL}/#organization`,
     },
     areaServed: {
       "@type": "City",
@@ -43,7 +43,7 @@ const WebsiteRedesignPage = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://endpointmedia.co.za/services/website-redesign#faq",
+    "@id": `${BASE_URL}/services/website-redesign#faq`,
     mainEntity: [
       {
         "@type": "Question",

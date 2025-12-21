@@ -69,7 +69,7 @@ const PricingPage = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://endpointmedia.co.za/pricing#faq",
+    "@id": `${BASE_URL}/pricing#faq`,
     mainEntity: [
       {
         "@type": "Question",

@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -25,11 +25,11 @@ const ShopifyExpertPage = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://endpointmedia.co.za/services/shopify-expert#service",
+    "@id": `${BASE_URL}/services/shopify-expert#service`,
     name: "Shopify Expert Services",
     description: "Professional e-commerce website development using Shopify",
     provider: {
-      "@id": "https://endpointmedia.co.za/#organization",
+      "@id": `${BASE_URL}/#organization`,
     },
     areaServed: {
       "@type": "City",
@@ -41,7 +41,7 @@ const ShopifyExpertPage = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://endpointmedia.co.za/services/shopify-expert#faq",
+    "@id": `${BASE_URL}/services/shopify-expert#faq`,
     mainEntity: [
       {
         "@type": "Question",

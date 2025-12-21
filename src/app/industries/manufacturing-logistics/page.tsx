@@ -53,19 +53,19 @@ export default function ManufacturingPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://endpointmedia.co.za"
+        "item": BASE_URL
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Industries",
-        "item": "https://endpointmedia.co.za/industries"
+        "item": `${BASE_URL}/industries`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Alrode Manufacturing",
-        "item": "https://endpointmedia.co.za/industries/manufacturing-logistics"
+        "item": `${BASE_URL}/industries/manufacturing-logistics`
       }
     ]
   };

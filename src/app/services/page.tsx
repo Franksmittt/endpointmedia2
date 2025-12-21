@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from "@/lib/seo";
+import { buildMetadata, secureJsonLD, BASE_URL } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -211,7 +211,7 @@ const ServicesPage = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://endpointmedia.co.za/services#faq",
+    "@id": `${BASE_URL}/services#faq`,
     mainEntity: [
       {
         "@type": "Question",

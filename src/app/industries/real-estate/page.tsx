@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -24,11 +24,11 @@ const RealEstatePage = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": "https://endpointmedia.co.za/industries/real-estate#service",
+    "@id": `${BASE_URL}/industries/real-estate#service`,
     name: "Web Design for Real Estate",
     description: "Professional web design services specifically for real estate agents and agencies",
     provider: {
-      "@id": "https://endpointmedia.co.za/#organization",
+      "@id": `${BASE_URL}/#organization`,
     },
     serviceType: "Real Estate Website Design",
     areaServed: {
@@ -40,7 +40,7 @@ const RealEstatePage = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://endpointmedia.co.za/industries/real-estate#faq",
+    "@id": `${BASE_URL}/industries/real-estate#faq`,
     mainEntity: [
       {
         "@type": "Question",

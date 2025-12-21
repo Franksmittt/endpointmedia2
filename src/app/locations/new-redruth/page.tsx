@@ -53,19 +53,19 @@ export default function NewRedruthPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://endpointmedia.co.za"
+        "item": BASE_URL
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Locations",
-        "item": "https://endpointmedia.co.za/locations"
+        "item": `${BASE_URL}/locations`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "New Redruth",
-        "item": "https://endpointmedia.co.za/locations/new-redruth"
+        "item": `${BASE_URL}/locations/new-redruth`
       }
     ]
   };
