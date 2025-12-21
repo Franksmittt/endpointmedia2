@@ -4,50 +4,47 @@ import Link from 'next/link';
 
 const packages = [
   {
-    name: 'Strategic Foundation',
-    description: 'For businesses ready to outrank local competitors and establish market authority.',
-    price: 'R25,000',
-    tag: 'Entry Tier',
+    name: 'Foundation',
+    description: 'Establish your essential, professional online footprint.',
+    price: 'R5,500',
+    tag: '',
     highlight: false,
     features: [
-      'Deep competitor & market analysis',
-      'Custom 5-7 page architecture with Next.js 15',
-      'Entity-based SEO with Knowledge Graph integration',
-      'Comprehensive suburb targeting strategy',
-      'Performance engineered (LCP <1s, 100/100 Core Web Vitals)',
-      '60-day intensive research & build process',
+      '<strong>3-Page Custom Website</strong> (Home, About, Services/Contact)',
+      'Essential <strong>Local SEO Setup</strong> & Google Business Profile Optimization',
+      'Mobile-First Responsive Design',
+      '<strong>Rapid 48-Hour</strong> Initial Mockup',
+      'Built for Speed & Performance',
+      'Contact Form Integration',
     ],
   },
   {
-    name: 'Market Dominance',
-    description: 'For serious operators who want to completely outrank every competitor in their market.',
-    price: 'R45,000',
+    name: 'Growth Engine',
+    description: 'The complete toolkit for serious lead generation and local dominance.',
+    price: 'R10,000',
     tag: 'Most Popular',
     highlight: true,
     features: [
-      'Everything in Strategic Foundation, plus:',
-      'Complete competitor teardown & positioning strategy',
-      '10-15 page architecture with service clusters',
-      'Advanced semantic SEO & entity injection',
-      'Custom conversion funnels & lead generation systems',
-      '90-day intensive research, build & optimization',
-      'Post-launch growth acceleration program',
+      'Everything in Foundation, plus:',
+      '<strong>5-7 Page Website</strong> (Incl. dedicated service pages, blog setup)',
+      '<strong>Advanced Local SEO</strong> (Johannesburg suburb targeting, schema markup)',
+      'Google Analytics Setup & Reporting Intro',
+      'Enhanced Contact Forms & Social Media Links',
+      'Priority Performance Tuning',
     ],
   },
   {
-    name: 'Category Authority',
-    description: 'For businesses determined to become the undisputed leader in their category.',
-    price: 'R75,000+',
-    tag: 'Enterprise',
+    name: 'Market Leader',
+    description: 'For established pros aiming for total Johannesburg market saturation.',
+    price: 'R15,000',
+    tag: '',
     highlight: false,
     features: [
-      'Everything in Market Dominance, plus:',
-      'Full market mapping & competitive intelligence',
-      'Custom integrations & automation systems',
-      'Multi-location/suburb expansion architecture',
-      'Advanced analytics & conversion optimization',
-      '120-day comprehensive strategy, build & scale',
-      'Ongoing strategic partnership & optimization',
+      'Everything in Growth Engine, plus:',
+      '<strong>8+ Pages</strong> & Advanced Features (e.g., booking/quote system integration)',
+      '<strong>Comprehensive SEO Strategy</strong> & Competitor Analysis',
+      'Advanced Google Analytics Goal Tracking',
+      'Priority Support & Launch Training Session',
     ],
   },
 ];
@@ -67,15 +64,15 @@ const Pricing = () => {
       <div className="container mx-auto px-6 relative z-10">
         <header className="text-center mb-16 max-w-3xl mx-auto">
           <div className="inline-block mb-6">
-            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-600 bg-cyan-50 px-4 py-2 rounded-full border border-cyan-200">
+            <span className="text-xs font-semibold uppercase tracking-wider text-teal-600 bg-teal-50 px-4 py-2 rounded-full border border-teal-200">
               Transparent Pricing
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-900 font-heading">
-            Premium Investment. Maximum Return.
+            Website Packages Engineered for Local ROI
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We don&apos;t compete on price. We compete on results. Every package is an intensive, research-driven investment engineered to put you <strong className="text-gray-900">completely above your competitors</strong> and generate measurable growth. We&apos;d rather work with fewer clients who excel than hundreds who just become statistics.
+            Choose the investment level designed to make your Johannesburg business the obvious choice for local customers searching online right now.
           </p>
         </header>
 
@@ -83,89 +80,53 @@ const Pricing = () => {
           {packages.map((pkg) => (
             <div
               key={pkg.name}
-              className={`group relative flex flex-col p-8 rounded-2xl border-2 transition-all duration-300 hover:-translate-y-2 ${
+              className={`group relative flex flex-col p-8 rounded-xl border transition-all duration-300 ${
                 pkg.highlight
-                  ? 'bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white border-cyan-500/50 shadow-2xl shadow-cyan-500/20 lg:scale-105'
-                  : 'bg-white text-gray-900 border-cyan-100 shadow-lg hover:shadow-xl hover:border-cyan-200'
+                  ? 'bg-gray-900 text-white border-4 border-teal-500 shadow-2xl lg:scale-105'
+                  : 'bg-white text-gray-900 border-gray-200 shadow-lg hover:shadow-xl hover:border-teal-300'
               }`}
             >
-              {/* Glowing Effect for Highlighted */}
-              {pkg.highlight && (
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+              {pkg.tag && (
+                <span className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
+                  {pkg.tag}
+                </span>
               )}
-
-              {/* Wireframe Decoration */}
-              <div className={`absolute top-4 right-4 w-12 h-12 border rounded opacity-20 group-hover:opacity-40 transition-opacity ${
-                pkg.highlight ? 'border-cyan-500/30' : 'border-cyan-200'
-              }`}>
-                <div className={`absolute inset-0 border-t border-l ${
-                  pkg.highlight ? 'border-cyan-500/40' : 'border-cyan-200'
-                }`}></div>
-              </div>
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-3xl font-bold font-heading">{pkg.name}</h3>
-                  <span
-                    className={`text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full ${
-                      pkg.highlight ? 'bg-cyan-600 text-white' : 'bg-cyan-50 text-cyan-600'
-                    }`}
-                  >
-                    {pkg.tag}
-                  </span>
-                </div>
-                <p className={pkg.highlight ? 'text-gray-200 mb-6' : 'text-gray-500 mb-6'}>{pkg.description}</p>
-                <p className="text-5xl font-extrabold mb-6">
-                  {pkg.price} <span className="text-lg font-normal">once-off</span>
+              <div className="flex-grow">
+                <h3 className="text-3xl font-bold font-heading mb-2">{pkg.name}</h3>
+                <p className={pkg.highlight ? 'text-gray-300 mb-6' : 'text-gray-500 mb-6'}>{pkg.description}</p>
+                <p className={`text-5xl font-extrabold mb-6 ${pkg.highlight ? 'text-white' : 'text-gray-900'}`}>
+                  {pkg.price} <span className={`text-lg font-normal ${pkg.highlight ? 'text-gray-400' : 'text-gray-500'}`}>once-off</span>
                 </p>
-                <ul className="space-y-4 text-sm flex-grow">
+                <ul className={`space-y-4 text-sm mb-8 ${pkg.highlight ? 'text-gray-200' : 'text-gray-700'}`}>
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex items-start">
-                      <div className={`flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 ${
-                        pkg.highlight 
-                          ? 'bg-cyan-500/20 border-cyan-400' 
-                          : 'bg-cyan-50 border-cyan-200'
-                      }`}>
-                        <svg className={`w-3 h-3 ${pkg.highlight ? 'text-cyan-300' : 'text-cyan-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                      <span className={pkg.highlight ? 'text-gray-100' : 'text-gray-700'}>{feature}</span>
+                      <span className={pkg.highlight ? 'text-teal-400 mr-3 mt-1 font-bold' : 'text-teal-500 mr-3 mt-1'}>&#10003;</span>
+                      <span dangerouslySetInnerHTML={{ __html: feature.replace(/<strong>/g, '<strong className="font-semibold">') }} />
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="#audit"
+              </div>
+              <Link
+                  href="/contact"
                   className={`w-full mt-8 text-center block font-bold py-3 px-6 rounded-lg transition duration-300 ${
                     pkg.highlight
-                      ? 'bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white shadow-lg shadow-cyan-500/30'
-                      : 'bg-white border-2 border-cyan-600 text-cyan-600 hover:bg-cyan-600 hover:text-white'
-                  } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500`}
+                      ? 'bg-teal-500 hover:bg-teal-600 text-white'
+                      : 'bg-white border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white'
+                  } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500`}
                 >
-                  Start {pkg.name}
+                  {pkg.name === 'Foundation' && 'Get Foundation'}
+                  {pkg.name === 'Growth Engine' && 'Choose Growth Engine'}
+                  {pkg.name === 'Market Leader' && 'Go Market Leader'}
                 </Link>
-              </div>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-16 text-gray-600">
-          <p className="text-lg max-w-3xl mx-auto">
-            Not sure which investment level is right? Our{' '}
-            <Link
-              href="#audit"
-              className="text-cyan-600 font-bold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded px-1"
-            >
-              Free Architecture Audit
-            </Link>{' '}
-            analyzes your market, competitors, and opportunities to determine the optimal strategy for dominating your category.
+          <p className="text-lg">
+            Not sure which package is right? Your <Link href="/contact" className="text-teal-600 font-bold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded px-1">Free Growth Audit</Link> will provide clarity.
           </p>
-          <p className="mt-4 text-sm max-w-2xl mx-auto">
-            <strong className="text-gray-900">What&apos;s Included:</strong> All packages include premium hosting, domain registration, SSL, comprehensive research, competitor analysis, and strategic consultation. We don&apos;t charge monthly maintenance fees—our Next.js architecture is self-sustaining and requires minimal ongoing support.
-          </p>
-          <p className="mt-4 text-xs text-gray-500 italic max-w-2xl mx-auto">
-            *Pricing reflects intensive research, custom engineering, and strategic consultation. We work exclusively with businesses committed to market leadership.
-          </p>
+          <p className="mt-2 text-sm">All packages include 1 year of free essential hosting & domain name registration if required.</p>
         </div>
       </div>
     </section>

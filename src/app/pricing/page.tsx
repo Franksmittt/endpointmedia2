@@ -39,27 +39,27 @@ const serviceSchema = {
     itemListElement: [
       {
         "@type": "Offer",
-        name: "Foundation",
-        price: "5500",
+        name: "Strategic Foundation",
+        price: "25000",
         priceCurrency: "ZAR",
         availability: "https://schema.org/InStock",
-        url: `${BASE_URL}/pricing#foundation`,
+        url: `${BASE_URL}/pricing#strategic-foundation`,
       },
       {
         "@type": "Offer",
-        name: "Growth Engine",
-        price: "10000",
+        name: "Market Dominance",
+        price: "45000",
         priceCurrency: "ZAR",
         availability: "https://schema.org/InStock",
-        url: `${BASE_URL}/pricing#growth-engine`,
+        url: `${BASE_URL}/pricing#market-dominance`,
       },
       {
         "@type": "Offer",
-        name: "Market Leader",
-        price: "15000",
+        name: "Category Authority",
+        price: "75000",
         priceCurrency: "ZAR",
         availability: "https://schema.org/InStock",
-        url: `${BASE_URL}/pricing#market-leader`,
+        url: `${BASE_URL}/pricing#category-authority`,
       },
     ],
   },
@@ -136,10 +136,10 @@ const PricingPage = () => {
       <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 font-heading">
-            Clear Pricing for Measurable Results
+            Premium Investment. Maximum Return.
           </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-300">
-            No retainers, no hidden fees. Just transparent, powerful investments designed to make your Joburg business the obvious choice.
+            We don&apos;t compete on price. We compete on results. Every package is an intensive, research-driven investment engineered to put you <strong className="text-white">completely above your competitors</strong> and generate measurable growth. We&apos;d rather work with fewer clients who excel than hundreds who just become statistics.
           </p>
         </div>
       </section>
@@ -149,75 +149,241 @@ const PricingPage = () => {
         <div className="container mx-auto px-6">
           <header className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-gray-900 font-heading">
-              Website Packages Engineered for Local ROI
+              Premium Investment. Maximum Return.
             </h2>
             <p className="text-lg text-gray-600">
-              Choose the investment level designed to make your Johannesburg business the obvious choice for local customers searching online right now.
+              We don&apos;t compete on price. We compete on results. Every package is an intensive, research-driven investment engineered to put you <strong className="text-gray-900">completely above your competitors</strong> and generate measurable growth. We&apos;d rather work with fewer clients who excel than hundreds who just become statistics.
             </p>
           </header>
 
           {/* Pricing Grid */}
           <div className="grid lg:grid-cols-3 gap-8 items-stretch max-w-7xl mx-auto">
 
-            {/* Card 1: Foundation */}
-            <div id="foundation" className="flex flex-col p-8 bg-white rounded-xl shadow-lg border border-gray-200 transition duration-300 hover:shadow-xl hover:border-teal-300">
+            {/* Card 1: Strategic Foundation */}
+            <div id="strategic-foundation" className="flex flex-col p-8 bg-white rounded-2xl border-2 border-cyan-100 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-cyan-200">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-3xl font-bold font-heading text-gray-900">Strategic Foundation</h3>
+                <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-50 text-cyan-600">Entry Tier</span>
+              </div>
               <div className="flex-grow">
-                <h3 className="text-3xl font-bold font-heading mb-2 text-gray-800">Foundation</h3>
-                <p className="text-gray-500 mb-6">Establish your essential, professional online footprint.</p>
-                <p className="text-5xl font-extrabold mb-6 text-gray-900">R5,500 <span className="text-lg font-normal text-gray-500">once-off</span></p>
-                <ul className="space-y-4 text-gray-700 mb-8 text-sm"> 
-                  <li className="flex items-start"><span className="text-teal-500 mr-3 mt-1">&#10003;</span><span><strong className="font-semibold">3-Page Custom Website</strong> (Home, About, Services/Contact)</span></li>
-                  <li className="flex items-start"><span className="text-teal-500 mr-3 mt-1">&#10003;</span><span>Essential <strong className="font-semibold">Local SEO Setup</strong> &amp; Google Business Profile Optimization</span></li> 
-                  <li className="flex items-start"><span className="text-teal-500 mr-3 mt-1">&#10003;</span><span>Mobile-First Responsive Design</span></li>
-                  <li className="flex items-start"><span className="text-teal-500 mr-3 mt-1">&#10003;</span><span><strong className="font-semibold">Rapid 48-Hour</strong> Initial Mockup</span></li>
-                  <li className="flex items-start"><span className="text-teal-500 mr-3 mt-1">&#10003;</span><span>Built for Speed &amp; Performance</span></li> 
-                  <li className="flex items-start"><span className="text-teal-500 mr-3 mt-1">&#10003;</span><span>Contact Form Integration</span></li>
+                <p className="text-gray-500 mb-6">For businesses ready to outrank local competitors and establish market authority.</p>
+                <p className="text-5xl font-extrabold mb-6 text-gray-900">R25,000 <span className="text-lg font-normal text-gray-500">once-off</span></p>
+                <ul className="space-y-4 text-sm flex-grow text-gray-700 mb-8">
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Deep competitor &amp; market analysis</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Custom 5-7 page architecture with Next.js 15</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Entity-based SEO with Knowledge Graph integration</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Comprehensive suburb targeting strategy</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Performance engineered (LCP &lt;1s, 100/100 Core Web Vitals)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>60-day intensive research &amp; build process</span>
+                  </li>
                 </ul>
               </div>
-              <Link href="/contact" className="w-full mt-auto text-center block bg-white border-2 border-teal-600 text-teal-600 font-bold py-3 px-6 rounded-lg hover:bg-teal-600 hover:text-white transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500">Get Foundation</Link>
+              <Link href="/contact" className="w-full mt-auto text-center block bg-white border-2 border-cyan-600 text-cyan-600 font-bold py-3 px-6 rounded-lg hover:bg-cyan-600 hover:text-white transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500">Start Strategic Foundation</Link>
             </div>
 
-            {/* Card 2: Growth Engine (Most Popular) */}
-            <div id="growth-engine" className="flex flex-col p-10 bg-gray-900 text-white rounded-xl shadow-2xl transform lg:scale-105 relative border-4 border-teal-500">
-              <span className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
+            {/* Card 2: Market Dominance (Most Popular) */}
+            <div id="market-dominance" className="flex flex-col p-8 rounded-2xl border-2 transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white border-cyan-500/50 shadow-2xl shadow-cyan-500/20 lg:scale-105 relative">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-3xl font-bold font-heading text-white">Market Dominance</h3>
+                <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-600 text-white">Most Popular</span>
+              </div>
               <div className="flex-grow">
-                <h3 className="text-3xl font-bold font-heading mb-2 text-white">Growth Engine</h3>
-                <p className="text-gray-300 mb-6">The complete toolkit for serious lead generation and local dominance.</p>
-                <p className="text-5xl font-extrabold mb-6 text-white">R10,000 <span className="text-lg font-normal text-gray-400">once-off</span></p>
-                <ul className="space-y-4 text-gray-200 mb-8 text-sm"> 
-                  <li className="flex items-start"><span className="text-teal-400 mr-3 mt-1 font-bold">&#10003;</span><span>Everything in Foundation, plus:</span></li>
-                  <li className="flex items-start"><span className="text-teal-400 mr-3 mt-1 font-bold">&#10003;</span><span><strong className="font-semibold">5-7 Page Website</strong> (Incl. dedicated service pages, blog setup)</span></li>
-                  <li className="flex items-start"><span className="text-teal-400 mr-3 mt-1 font-bold">&#10003;</span><span><strong className="font-semibold">Advanced Local SEO</strong> (Johannesburg suburb targeting, schema markup)</span></li>
-                  <li className="flex items-start"><span className="text-teal-400 mr-3 mt-1 font-bold">&#10003;</span><span>Google Analytics Setup &amp; Reporting Intro</span></li>
-                  <li className="flex items-start"><span className="text-teal-400 mr-3 mt-1 font-bold">&#10003;</span><span>Enhanced Contact Forms &amp; Social Media Links</span></li>
-                  <li className="flex items-start"><span className="text-teal-400 mr-3 mt-1 font-bold">&#10003;</span><span>Priority Performance Tuning</span></li>
+                <p className="text-gray-200 mb-6">For serious operators who want to completely outrank every competitor in their market.</p>
+                <p className="text-5xl font-extrabold mb-6 text-white">R45,000 <span className="text-lg font-normal text-gray-400">once-off</span></p>
+                <ul className="space-y-4 text-sm flex-grow text-gray-100 mb-8">
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-500/20 border-cyan-400">
+                      <svg className="w-3 h-3 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Everything in Strategic Foundation, plus:</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-500/20 border-cyan-400">
+                      <svg className="w-3 h-3 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Complete competitor teardown &amp; positioning strategy</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-500/20 border-cyan-400">
+                      <svg className="w-3 h-3 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>10-15 page architecture with service clusters</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-500/20 border-cyan-400">
+                      <svg className="w-3 h-3 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Advanced semantic SEO &amp; entity injection</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-500/20 border-cyan-400">
+                      <svg className="w-3 h-3 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Custom conversion funnels &amp; lead generation systems</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-500/20 border-cyan-400">
+                      <svg className="w-3 h-3 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>90-day intensive research, build &amp; optimization</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-500/20 border-cyan-400">
+                      <svg className="w-3 h-3 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Post-launch growth acceleration program</span>
+                  </li>
                 </ul>
               </div>
-              <Link href="/contact" className="w-full mt-auto text-center block bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 focus-visible:ring-white">Choose Growth Engine</Link>
+              <Link href="/contact" className="w-full mt-8 text-center block font-bold py-3 px-6 rounded-lg transition duration-300 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white shadow-lg shadow-cyan-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500">Start Market Dominance</Link>
             </div>
 
-            {/* Card 3: Market Leader */}
-            <div id="market-leader" className="flex flex-col p-8 bg-white rounded-xl shadow-lg border border-gray-200 transition duration-300 hover:shadow-xl hover:border-teal-300">
+            {/* Card 3: Category Authority */}
+            <div id="category-authority" className="flex flex-col p-8 bg-white rounded-2xl border-2 border-cyan-100 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-cyan-200">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-3xl font-bold font-heading text-gray-900">Category Authority</h3>
+                <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-50 text-cyan-600">Enterprise</span>
+              </div>
               <div className="flex-grow">
-                <h3 className="text-3xl font-bold font-heading mb-2 text-gray-800">Market Leader</h3>
-                <p className="text-gray-500 mb-6">For established pros aiming for total Johannesburg market saturation.</p>
-                <p className="text-5xl font-extrabold mb-6 text-gray-900">R15,000 <span className="text-lg font-normal text-gray-500">once-off</span></p>
-                <ul className="space-y-4 text-gray-700 mb-8 text-sm"> 
-                  <li className="flex items-start"><span className="text-teal-500 mr-3 mt-1">&#10003;</span><span>Everything in Growth Engine, plus:</span></li>
-                  <li className="flex items-start"><span className="text-teal-500 mr-3 mt-1">&#10003;</span><span><strong className="font-semibold">8+ Pages</strong> &amp; Advanced Features (e.g., booking/quote system integration)</span></li>
-                  <li className="flex items-start"><span className="text-teal-500 mr-3 mt-1">&#10003;</span><span><strong className="font-semibold">Comprehensive SEO Strategy</strong> &amp; Competitor Analysis</span></li>
-                  <li className="flex items-start"><span className="text-teal-500 mr-3 mt-1">&#10003;</span><span>Advanced Google Analytics Goal Tracking</span></li>
-                  <li className="flex items-start"><span className="text-teal-500 mr-3 mt-1">&#10003;</span><span>Priority Support &amp; Launch Training Session</span></li>
+                <p className="text-gray-500 mb-6">For businesses determined to become the undisputed leader in their category.</p>
+                <p className="text-5xl font-extrabold mb-6 text-gray-900">R75,000+ <span className="text-lg font-normal text-gray-500">once-off</span></p>
+                <ul className="space-y-4 text-sm flex-grow text-gray-700 mb-8">
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Everything in Market Dominance, plus:</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Full market mapping &amp; competitive intelligence</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Custom integrations &amp; automation systems</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Multi-location/suburb expansion architecture</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Advanced analytics &amp; conversion optimization</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>120-day comprehensive strategy, build &amp; scale</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
+                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span>Ongoing strategic partnership &amp; optimization</span>
+                  </li>
                 </ul>
               </div>
-              <Link href="/contact" className="w-full mt-auto text-center block bg-white border-2 border-teal-600 text-teal-600 font-bold py-3 px-6 rounded-lg hover:bg-teal-600 hover:text-white transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500">Go Market Leader</Link>
+              <Link href="/contact" className="w-full mt-auto text-center block bg-white border-2 border-cyan-600 text-cyan-600 font-bold py-3 px-6 rounded-lg hover:bg-cyan-600 hover:text-white transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500">Start Category Authority</Link>
             </div>
           </div>
 
           {/* Footer Text */}
           <div className="text-center mt-16 text-gray-600">
-            <p className="text-lg">Not sure which package is right? Your <Link href="/contact" className="text-teal-600 font-bold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded px-1">Free Growth Audit</Link> will provide clarity.</p>
-            <p className="mt-2 text-sm">All packages include 1 year of free essential hosting &amp; domain name registration if required.</p>
+            <p className="text-lg max-w-3xl mx-auto">
+              Not sure which investment level is right? Our{' '}
+              <Link
+                href="/contact"
+                className="text-cyan-600 font-bold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded px-1"
+              >
+                Free Architecture Audit
+              </Link>{' '}
+              analyzes your market, competitors, and opportunities to determine the optimal strategy for dominating your category.
+            </p>
+            <p className="mt-4 text-sm max-w-2xl mx-auto">
+              <strong className="text-gray-900">What&apos;s Included:</strong> All packages include premium hosting, domain registration, SSL, comprehensive research, competitor analysis, and strategic consultation. We don&apos;t charge monthly maintenance fees—our Next.js architecture is self-sustaining and requires minimal ongoing support.
+            </p>
+            <p className="mt-4 text-xs text-gray-500 italic max-w-2xl mx-auto">
+              *Pricing reflects intensive research, custom engineering, and strategic consultation. We work exclusively with businesses committed to market leadership.
+            </p>
           </div>
         </div>
       </section>

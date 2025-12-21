@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   // Use environment variable for base URL, fallback to hardcoded value
   // IMPORTANT: Set NEXT_PUBLIC_BASE_URL in production for canonical consistency
   // CRITICAL: Always use www version (www.endpointmedia.co.za) as canonical
+  // NOTE: Canonical tags are set per-page via buildMetadata() - do not set here to avoid conflicts
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://www.endpointmedia.co.za"),
   alternates: {
-    canonical: "/",
     languages: {
       "en-ZA": "https://www.endpointmedia.co.za",
       en: "https://www.endpointmedia.co.za",
