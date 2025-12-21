@@ -4,47 +4,50 @@ import Link from 'next/link';
 
 const packages = [
   {
-    name: 'Foundation',
-    description: 'Establish your essential, professional online footprint.',
-    price: 'R5,500',
-    tag: '',
+    name: 'Strategic Foundation',
+    description: 'For businesses ready to outrank local competitors and establish market authority.',
+    price: 'R25,000',
+    tag: 'Entry Tier',
     highlight: false,
     features: [
-      '<strong>3-Page Custom Website</strong> (Home, About, Services/Contact)',
-      'Essential <strong>Local SEO Setup</strong> & Google Business Profile Optimization',
-      'Mobile-First Responsive Design',
-      '<strong>Rapid 48-Hour</strong> Initial Mockup',
-      'Built for Speed & Performance',
-      'Contact Form Integration',
+      'Deep competitor & market analysis',
+      'Custom 5-7 page architecture with Next.js 15',
+      'Entity-based SEO with Knowledge Graph integration',
+      'Comprehensive suburb targeting strategy',
+      'Performance engineered (LCP <1s, 100/100 Core Web Vitals)',
+      '60-day intensive research & build process',
     ],
   },
   {
-    name: 'Growth Engine',
-    description: 'The complete toolkit for serious lead generation and local dominance.',
-    price: 'R10,000',
+    name: 'Market Dominance',
+    description: 'For serious operators who want to completely outrank every competitor in their market.',
+    price: 'R45,000',
     tag: 'Most Popular',
     highlight: true,
     features: [
-      'Everything in Foundation, plus:',
-      '<strong>5-7 Page Website</strong> (Incl. dedicated service pages, blog setup)',
-      '<strong>Advanced Local SEO</strong> (Johannesburg suburb targeting, schema markup)',
-      'Google Analytics Setup & Reporting Intro',
-      'Enhanced Contact Forms & Social Media Links',
-      'Priority Performance Tuning',
+      'Everything in Strategic Foundation, plus:',
+      'Complete competitor teardown & positioning strategy',
+      '10-15 page architecture with service clusters',
+      'Advanced semantic SEO & entity injection',
+      'Custom conversion funnels & lead generation systems',
+      '90-day intensive research, build & optimization',
+      'Post-launch growth acceleration program',
     ],
   },
   {
-    name: 'Market Leader',
-    description: 'For established pros aiming for total Johannesburg market saturation.',
-    price: 'R15,000',
-    tag: '',
+    name: 'Category Authority',
+    description: 'For businesses determined to become the undisputed leader in their category.',
+    price: 'R75,000+',
+    tag: 'Enterprise',
     highlight: false,
     features: [
-      'Everything in Growth Engine, plus:',
-      '<strong>8+ Pages</strong> & Advanced Features (e.g., booking/quote system integration)',
-      '<strong>Comprehensive SEO Strategy</strong> & Competitor Analysis',
-      'Advanced Google Analytics Goal Tracking',
-      'Priority Support & Launch Training Session',
+      'Everything in Market Dominance, plus:',
+      'Full market mapping & competitive intelligence',
+      'Custom integrations & automation systems',
+      'Multi-location/suburb expansion architecture',
+      'Advanced analytics & conversion optimization',
+      '120-day comprehensive strategy, build & scale',
+      'Ongoing strategic partnership & optimization',
     ],
   },
 ];
@@ -69,10 +72,10 @@ const Pricing = () => {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-900 font-heading">
-            Website Packages Engineered for Local ROI
+            Premium Investment. Maximum Return.
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose the investment level designed to make your Johannesburg business the obvious choice for local customers searching online right now.
+            We don&apos;t compete on price. We compete on results. Every package is an intensive, research-driven investment engineered to put you <strong className="text-gray-900">completely above your competitors</strong> and generate measurable growth. We&apos;d rather work with fewer clients who excel than hundreds who just become statistics.
           </p>
         </header>
 
@@ -114,9 +117,9 @@ const Pricing = () => {
                       : 'bg-white border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white'
                   } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500`}
                 >
-                  {pkg.name === 'Foundation' && 'Get Foundation'}
-                  {pkg.name === 'Growth Engine' && 'Choose Growth Engine'}
-                  {pkg.name === 'Market Leader' && 'Go Market Leader'}
+                  {pkg.name === 'Strategic Foundation' && 'Start Strategic Foundation'}
+                  {pkg.name === 'Market Dominance' && 'Start Market Dominance'}
+                  {pkg.name === 'Category Authority' && 'Start Category Authority'}
                 </Link>
             </div>
           ))}
@@ -124,9 +127,10 @@ const Pricing = () => {
 
         <div className="text-center mt-16 text-gray-600">
           <p className="text-lg">
-            Not sure which package is right? Your <Link href="/contact" className="text-teal-600 font-bold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded px-1">Free Growth Audit</Link> will provide clarity.
+            Not sure which investment level is right? Our <Link href="/contact" className="text-teal-600 font-bold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded px-1">Free Architecture Audit</Link> analyzes your market, competitors, and opportunities to determine the optimal strategy for dominating your category.
           </p>
-          <p className="mt-2 text-sm">All packages include 1 year of free essential hosting & domain name registration if required.</p>
+          <p className="mt-2 text-sm"><strong>What&apos;s Included:</strong> All packages include premium hosting, domain registration, SSL, comprehensive research, competitor analysis, and strategic consultation. We don&apos;t charge monthly maintenance fees—our Next.js architecture is self-sustaining and requires minimal ongoing support.</p>
+          <p className="mt-2 text-xs italic">*Pricing reflects intensive research, custom engineering, and strategic consultation. We work exclusively with businesses committed to market leadership.</p>
         </div>
       </div>
     </section>
