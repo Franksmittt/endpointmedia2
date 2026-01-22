@@ -441,7 +441,11 @@ const BlogPostPage = async ({ params }: { params: { slug: string } }) => {
     description: post.excerpt,
     image: `${BASE_URL}/images/blog/${post.slug}.jpg`,
     datePublished: new Date(post.date).toISOString(),
-    dateModified: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(), // Update this when content is refreshed
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/blog/${post.slug}`,
+    },
     author: {
       "@type": "Person",
       "@id": FRANK_SMIT_ID, // Reference to global Person entity
@@ -449,10 +453,6 @@ const BlogPostPage = async ({ params }: { params: { slug: string } }) => {
     },
     publisher: {
       "@id": ORG_ID, // Reference to global Organization entity
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${BASE_URL}/blog/${post.slug}`,
     },
     articleSection: post.category,
     keywords: [
@@ -483,7 +483,7 @@ const BlogPostPage = async ({ params }: { params: { slug: string } }) => {
             {post.title}
           </h1>
           <p className="text-sm text-gray-500">
-            Published on <time dateTime={new Date(post.date).toISOString()}>{post.date}</time>
+            Published on <time dateTime={new Date(post.date).toISOString()} itemProp="datePublished">{post.date}</time>
           </p>
         </div>
       </section>

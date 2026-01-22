@@ -17,7 +17,7 @@ const Solution = () => {
       <div className="container mx-auto px-6 relative z-10">
         <header className="text-center mb-16 max-w-3xl mx-auto">
           <div className="inline-block mb-6">
-            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-600 bg-cyan-50 px-4 py-2 rounded-full border border-cyan-200">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-700 bg-cyan-50 px-4 py-2 rounded-full border border-cyan-300">
               Your Growth Partner
             </span>
           </div>

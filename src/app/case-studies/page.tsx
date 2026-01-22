@@ -88,11 +88,88 @@ const CaseStudiesPage = () => {
     },
   };
 
+  // Review Schema for testimonials
+  const reviewSchema1 = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "@id": `${BASE_URL}/case-studies#review-1`,
+    itemReviewed: {
+      "@type": "Service",
+      name: "Endpoint Media Web Design Services",
+      provider: {
+        "@id": `${BASE_URL}#organization`,
+      },
+    },
+    author: {
+      "@type": "Person",
+      name: "David M.",
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+      bestRating: "5",
+    },
+    reviewBody: "We went from being buried on page three to the top of the Google Map Pack for 'emergency electrician Sandton'. The phone rings consistently now. This isn't just a website; it's a reliable lead generation engine.",
+  };
+
+  const reviewSchema2 = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "@id": `${BASE_URL}/case-studies#review-2`,
+    itemReviewed: {
+      "@type": "Service",
+      name: "Endpoint Media Web Design Services",
+      provider: {
+        "@id": `${BASE_URL}#organization`,
+      },
+    },
+    author: {
+      "@type": "Person",
+      name: "Sipho N.",
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+      bestRating: "5",
+    },
+    reviewBody: "I needed a professional online presence for my plumbing business but felt overwhelmed. Endpoint handled everything, explaining the process clearly. Now I receive quote requests daily through the site. It's been a total game changer for projecting professionalism and attracting clients.",
+  };
+
+  // Aggregate Rating Schema for overall service rating
+  const aggregateRatingSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${BASE_URL}/case-studies#service`,
+    name: "Endpoint Media Web Design Services",
+    provider: {
+      "@id": `${BASE_URL}#organization`,
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      reviewCount: "2",
+      bestRating: "5",
+      worstRating: "5",
+    },
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: secureJsonLD(caseStudyListSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(reviewSchema1) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(reviewSchema2) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(aggregateRatingSchema) }}
       />
       {/* Hero Section for Case Studies Page */}
       <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">

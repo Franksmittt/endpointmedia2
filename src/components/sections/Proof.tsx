@@ -40,8 +40,67 @@ const Proof = () => {
     }
   };
 
+  // Review Schema for SEO
+  const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "@id": "https://www.endpointmedia.co.za/#review-1",
+    itemReviewed: {
+      "@type": "Service",
+      name: "Endpoint Media Web Design Services",
+      provider: {
+        "@type": "Organization",
+        name: "Endpoint Media",
+      },
+    },
+    author: {
+      "@type": "Person",
+      name: "David M.",
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+      bestRating: "5",
+    },
+    reviewBody: "We went from obscurity on page three to the top of the Google Map Pack for 'emergency electrician Sandton'. The phone rings constantly. This isn't just a website; it's a genuine lead pipeline.",
+  };
+
+  const reviewSchema2 = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "@id": "https://www.endpointmedia.co.za/#review-2",
+    itemReviewed: {
+      "@type": "Service",
+      name: "Endpoint Media Web Design Services",
+      provider: {
+        "@type": "Organization",
+        name: "Endpoint Media",
+      },
+    },
+    author: {
+      "@type": "Person",
+      name: "Sipho N.",
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+      bestRating: "5",
+    },
+    reviewBody: "I needed to get my plumbing business online properly but was completely overwhelmed. Endpoint handled everything and explained it clearly. Now I get quote requests daily through the site. Total game changer, it finally feels professional.",
+  };
+
   return (
     <section id="proof" className="py-24 bg-white relative overflow-hidden">
+      {/* Review Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema).replace(/</g, '\\u003c') }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema2).replace(/</g, '\\u003c') }}
+      />
+      
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: `

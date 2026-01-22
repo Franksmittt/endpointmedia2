@@ -91,7 +91,7 @@ const WhoWeServe = () => {
                   {industry.title}
                 </h3>
                 <p className="text-gray-300 flex-1 mb-6">{industry.description}</p>
-                <ul className="space-y-2 text-sm text-gray-400">
+                <ul className="space-y-2 text-sm text-gray-300">
                   {industry.highlights.map((highlight) => (
                     <li key={highlight} className="flex items-start gap-2">
                       <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>

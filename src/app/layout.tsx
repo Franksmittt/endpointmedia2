@@ -92,17 +92,9 @@ export const metadata: Metadata = {
   },
   verification: {
     // Google Search Console Verification
-    // INSTRUCTIONS:
-    // 1. Go to Google Search Console: https://search.google.com/search-console
-    // 2. Add your property (endpointmedia.co.za)
-    // 3. Choose "HTML tag" verification method
-    // 4. Copy the content value from the meta tag (e.g., "abc123xyz")
-    // 5. Add it here: google: "abc123xyz"
-    // 
-    // ALTERNATIVE: Use DNS TXT record verification (more reliable, independent of app state)
-    // Add TXT record: google-site-verification=YOUR_CODE
-    // google: process.env.GOOGLE_SITE_VERIFICATION || "",
-    // yandex: process.env.YANDEX_VERIFICATION || "",
+    // Set GOOGLE_SITE_VERIFICATION environment variable in production
+    // For DNS verification (recommended): Add TXT record: google-site-verification=YOUR_CODE
+    google: process.env.GOOGLE_SITE_VERIFICATION || "",
   },
 };
 
@@ -268,9 +260,8 @@ export default function RootLayout({
   return (
     <html lang="en-ZA" className="scroll-smooth font-sans" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         {/* JSON-LD Structured Data - Secured with XSS protection */}
         <script
           type="application/ld+json"

@@ -107,31 +107,49 @@ const mapConfigs = (
   );
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Ensure all pages are included and properly prioritized
   return [
-    // 1. High Priority: The "Money" Pages
+    // 1. Highest Priority: Homepage
     createEntry('/', 'weekly', 1.0),
+    
+    // 2. High Priority: The "Money" Pages - High-intent conversion pages
     createEntry('/industries/manufacturing-logistics', 'weekly', 1.0), // The Alrode Cash Cow
-    createEntry('/locations/meyersdal', 'weekly', 0.9), // The Executive Fortress
-    createEntry('/locations/new-redruth', 'weekly', 0.9), // The Professional Hub
-    createEntry('/locations/sandton', 'weekly', 0.9),
+    createEntry('/locations/meyersdal', 'weekly', 0.95), // The Executive Fortress
+    createEntry('/locations/new-redruth', 'weekly', 0.95), // The Professional Hub
+    createEntry('/locations/sandton', 'weekly', 0.95),
+    createEntry('/pricing', 'weekly', 0.95),
     
-    // 2. Medium Priority: The "Trust" Assets
-    createEntry('/alberton-business-heritage', 'weekly', 0.8), // The Link Magnet
-    createEntry('/about/author/frank-smit', 'monthly', 0.8), // The E-E-A-T Anchor
-    createEntry('/case-studies', 'weekly', 0.8),
+    // 3. High Priority: Core Service Pages - Primary revenue drivers
+    ...mapPaths(serviceDetailPaths, 'weekly', 0.9),
     
-    // 3. Core Service Pages
+    // 4. High Priority: Core Navigation Pages
     ...mapPaths(corePaths, 'weekly', 0.9),
-    ...mapConfigs(secondaryCoreConfigs),
-    ...mapPaths(serviceDetailPaths, 'weekly', 0.95),
-    ...mapPaths(locationPaths, 'weekly', 0.9),
-    ...mapPaths(industryPaths, 'weekly', 0.9),
+    createEntry('/contact', 'monthly', 0.9),
+    createEntry('/process', 'monthly', 0.85),
+    
+    // 5. High Priority: Location Pages - Local SEO goldmines
+    ...mapPaths(locationPaths.filter(path => path !== '/locations'), 'weekly', 0.9),
+    
+    // 6. High Priority: Industry Pages - Vertical targeting
+    ...mapPaths(industryPaths.filter(path => path !== '/industries'), 'weekly', 0.9),
+    
+    // 7. Medium Priority: Trust & Authority Pages
+    createEntry('/alberton-business-heritage', 'monthly', 0.8), // The Link Magnet
+    createEntry('/about/author/frank-smit', 'monthly', 0.8), // The E-E-A-T Anchor
+    createEntry('/case-studies', 'weekly', 0.85),
+    
+    // 8. Medium Priority: Case Study Detail Pages
     ...mapPaths(
       caseStudySlugs.map((slug) => `/case-studies/${slug}`),
       'monthly',
-      0.7,
+      0.75,
     ),
-    ...mapPaths(blogSlugs.map((slug) => `/blog/${slug}`), 'weekly', 0.75),
+    
+    // 9. Medium Priority: Blog Posts - Content marketing
+    ...mapPaths(blogSlugs.map((slug) => `/blog/${slug}`), 'weekly', 0.7),
+    
+    // 10. Lower Priority: Index Pages (already covered in corePaths)
+    // Note: /locations and /industries are already included in locationPaths and industryPaths
   ];
 }
 

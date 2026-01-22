@@ -68,7 +68,7 @@ const Vetting = () => {
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 font-heading text-cyan-400 bg-gradient-to-r from-cyan-400 via-white to-cyan-400 bg-clip-text text-transparent">
               We&apos;re Extremely Selective. Are You Serious About Growth?
             </h2>
-            <p className="text-xl max-w-3xl mx-auto text-gray-300">
+            <p className="text-xl max-w-3xl mx-auto text-gray-200">
               We don&apos;t work with everyone. We partner exclusively with ambitious Johannesburg businesses that understand the difference between a cheap website and a strategic investment. We take your success extremely seriously—because if you don&apos;t win, we don&apos;t win. See if you meet the Endpoint standard:
             </p>
           </header>
@@ -82,7 +82,7 @@ const Vetting = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-16 h-16 relative z-10"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
               </div>
               <h3 className="text-xl font-bold font-heading mb-1 text-white group-hover:text-cyan-300 transition-colors">Hyper-Local Focus</h3>
-              <p className="text-gray-400">
+              <p className="text-gray-300">
                 You&apos;re a service business operating within the greater <strong className="text-cyan-400 font-semibold">Johannesburg</strong> region and are serious about capturing your local market.
               </p>
             </div>
@@ -94,7 +94,7 @@ const Vetting = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-16 h-16 relative z-10"><path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.31h5.518a.563.563 0 01.32.956l-4.218 3.135a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-3.356a.563.563 0 00-.586 0L6.982 21.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.218-3.135a.563.563 0 01.32-.956H5.88a.563.563 0 00.475-.31l2.125-5.11z" /></svg>
               </div>
               <h3 className="text-xl font-bold font-heading mb-1 text-white group-hover:text-cyan-300 transition-colors">Mastery Driven</h3>
-              <p className="text-gray-400">
+              <p className="text-gray-300">
              You&apos;re already <strong className="text-cyan-400 font-semibold">excellent at your trade</strong> and need a digital presence that proves it.
               </p>
             </div>
@@ -106,7 +106,7 @@ const Vetting = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-16 h-16 relative z-10"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>
               </div>
               <h3 className="text-xl font-bold font-heading mb-1 text-white group-hover:text-cyan-300 transition-colors">Growth Mindset</h3>
-              <p className="text-gray-400">
+              <p className="text-gray-300">
                 You see a website as a crucial <strong className="text-cyan-400 font-semibold">lead-generation investment</strong>, not just an online brochure or a cost.
               </p>
             </div>

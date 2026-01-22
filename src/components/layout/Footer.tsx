@@ -50,7 +50,7 @@ const socialLinks = [
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="pt-16 pb-8 bg-gray-900 text-gray-300 border-t-4 border-teal-700"> {/* Default text color changed to gray-300 */}
+    <footer className="pt-16 pb-8 bg-gray-900 text-gray-200 border-t-4 border-teal-700">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 border-b border-gray-700 pb-10 mb-8">
           {/* Column 1: Logo and Description */}
@@ -58,7 +58,7 @@ const Footer = () => {
             <Link href="/" aria-label="Endpoint Media Homepage" className="inline-block text-3xl font-extrabold text-white transition duration-300 hover:text-teal-400 font-heading focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 rounded">
               Endpoint<span className="text-teal-500">.</span><span className="font-normal text-2xl ml-1 text-white opacity-80">Media</span>
             </Link>
-            <p className="mt-4 max-w-md text-gray-300 text-sm leading-relaxed"> {/* Changed from gray-400 */}
+            <p className="mt-4 max-w-md text-gray-200 text-sm leading-relaxed">
               Building high-performance digital engines for Johannesburg&apos;s service industry backbone.
               {/* */}
               We transform websites into predictable lead pipelines. Your market dominance starts here.

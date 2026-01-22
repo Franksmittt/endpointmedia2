@@ -55,7 +55,7 @@ const Toolkit = () => {
         {/* Header Section */}
         <header ref={addToRefs} className="text-center mb-16 max-w-3xl mx-auto scroll-observed">
           <div className="inline-block mb-6">
-            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-600 bg-cyan-50 px-4 py-2 rounded-full border border-cyan-200">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-700 bg-cyan-50 px-4 py-2 rounded-full border border-cyan-300">
               Conversion Tools
             </span>
           </div>

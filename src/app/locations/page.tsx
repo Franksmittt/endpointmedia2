@@ -159,6 +159,43 @@ const LocationsPage = () => {
         </div>
       </section>
 
+      {/* Why Choose Endpoint Media for Your Location */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-gray-900 font-heading text-center">
+              Why Location-Specific SEO Matters for Johannesburg Businesses
+            </h2>
+            <div className="prose prose-lg max-w-none text-gray-700">
+              <p className="text-lg mb-6">
+                Johannesburg is a sprawling metropolis with distinct business districts, each with unique characteristics, 
+                customer behaviors, and competitive landscapes. A generic "web design Johannesburg" approach won't cut it 
+                when your competitors are targeting specific suburbs like Sandton, Randburg, or Bryanston.
+              </p>
+              <p className="text-lg mb-6">
+                <strong className="text-gray-900">Hyper-local SEO strategy</strong> means creating location-specific 
+                landing pages that target "service + suburb" keyword combinations. When a potential customer in Sandton 
+                searches for "web design Sandton," they see your Sandton-specific page—not a generic homepage. This 
+                precision targeting dramatically increases conversion rates and local search visibility.
+              </p>
+              <h3 className="text-2xl font-bold font-heading text-gray-900 mt-8 mb-4">
+                Our Location-Specific Approach
+              </h3>
+              <ul className="list-disc list-inside space-y-3 mb-6">
+                <li><strong className="text-gray-900">Suburb-Specific Landing Pages:</strong> Each location page is 
+                optimized for local keywords, landmarks, and business districts unique to that area.</li>
+                <li><strong className="text-gray-900">LocalBusiness Schema:</strong> Every location page includes 
+                comprehensive LocalBusiness schema markup with geo coordinates, service areas, and NAP data.</li>
+                <li><strong className="text-gray-900">Local Citations:</strong> We ensure consistent Name, Address, 
+                Phone (NAP) data across all major directories for each service area.</li>
+                <li><strong className="text-gray-900">Content Depth:</strong> Each page includes 1000+ words of 
+                location-specific content, local landmarks, business districts, and service area coverage.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-6 text-center">

@@ -163,55 +163,55 @@ const PricingPage = () => {
             <div id="strategic-foundation" className="flex flex-col p-8 bg-white rounded-2xl border-2 border-cyan-100 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-cyan-200">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-3xl font-bold font-heading text-gray-900">Strategic Foundation</h3>
-                <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-50 text-cyan-600">Entry Tier</span>
+                <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-300">Entry Tier</span>
               </div>
               <div className="flex-grow">
                 <p className="text-gray-500 mb-6">For businesses ready to outrank local competitors and establish market authority.</p>
                 <p className="text-5xl font-extrabold mb-6 text-gray-900">R25,000 <span className="text-lg font-normal text-gray-500">once-off</span></p>
                 <ul className="space-y-4 text-sm flex-grow text-gray-700 mb-8">
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
                     <span>Deep competitor &amp; market analysis</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
                     <span>Custom 5-7 page architecture with Next.js 15</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
                     <span>Entity-based SEO with Knowledge Graph integration</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
                     <span>Comprehensive suburb targeting strategy</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
                     <span>Performance engineered (LCP &lt;1s, 100/100 Core Web Vitals)</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
@@ -298,63 +298,63 @@ const PricingPage = () => {
             <div id="category-authority" className="flex flex-col p-8 bg-white rounded-2xl border-2 border-cyan-100 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-cyan-200">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-3xl font-bold font-heading text-gray-900">Category Authority</h3>
-                <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-50 text-cyan-600">Enterprise</span>
+                <span className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-300">Enterprise</span>
               </div>
               <div className="flex-grow">
                 <p className="text-gray-500 mb-6">For businesses determined to become the undisputed leader in their category.</p>
                 <p className="text-5xl font-extrabold mb-6 text-gray-900">R75,000+ <span className="text-lg font-normal text-gray-500">once-off</span></p>
                 <ul className="space-y-4 text-sm flex-grow text-gray-700 mb-8">
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
                     <span>Everything in Market Dominance, plus:</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
                     <span>Full market mapping &amp; competitive intelligence</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
                     <span>Custom integrations &amp; automation systems</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
                     <span>Multi-location/suburb expansion architecture</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
                     <span>Advanced analytics &amp; conversion optimization</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
                     <span>120-day comprehensive strategy, build &amp; scale</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-200">
-                      <svg className="w-3 h-3 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-5 h-5 mr-3 mt-0.5 rounded-full flex items-center justify-center border-2 bg-cyan-50 border-cyan-300">
+                      <svg className="w-3 h-3 text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                     </div>
@@ -362,7 +362,7 @@ const PricingPage = () => {
                   </li>
                 </ul>
               </div>
-              <Link href="/contact" className="w-full mt-auto text-center block bg-white border-2 border-cyan-600 text-cyan-600 font-bold py-3 px-6 rounded-lg hover:bg-cyan-600 hover:text-white transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500">Start Category Authority</Link>
+              <Link href="/contact" className="w-full mt-auto text-center block bg-white border-2 border-cyan-700 text-cyan-700 font-bold py-3 px-6 rounded-lg hover:bg-cyan-700 hover:text-white transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500">Start Category Authority</Link>
             </div>
           </div>
 

@@ -67,7 +67,7 @@ const Pricing = () => {
       <div className="container mx-auto px-6 relative z-10">
         <header className="text-center mb-16 max-w-3xl mx-auto">
           <div className="inline-block mb-6">
-            <span className="text-xs font-semibold uppercase tracking-wider text-teal-600 bg-teal-50 px-4 py-2 rounded-full border border-teal-200">
+            <span className="text-xs font-semibold uppercase tracking-wider text-teal-700 bg-teal-50 px-4 py-2 rounded-full border border-teal-300">
               Transparent Pricing
             </span>
           </div>
@@ -114,7 +114,7 @@ const Pricing = () => {
                   className={`w-full mt-8 text-center block font-bold py-3 px-6 rounded-lg transition duration-300 ${
                     pkg.highlight
                       ? 'bg-teal-500 hover:bg-teal-600 text-white'
-                      : 'bg-white border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white'
+                      : 'bg-white border-2 border-teal-700 text-teal-700 hover:bg-teal-700 hover:text-white'
                   } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500`}
                 >
                   {pkg.name === 'Strategic Foundation' && 'Start Strategic Foundation'}
