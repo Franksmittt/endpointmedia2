@@ -8,10 +8,12 @@ import { buildMetadata, secureJsonLD, BASE_URL, ORG_ID } from '@/lib/seo';
 // CANONICAL SLUG - Single source of truth for self-healing URLs
 const CANONICAL_SLUG = 'web-design-firms';
 
+export const revalidate = 86400;
+
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Top Rated Web Design Firm Johannesburg | Enterprise Digital Architecture",
-    description: "Beyond web design. We are a digital architecture firm engineering high-performance Next.js assets for market leaders. Server-side rendering, semantic SEO, and enterprise scalability—not WordPress templates.",
+    description: "Beyond web design. We are a digital architecture firm engineering high-performance Next.js assets for market leaders. Server-side rendering, semantic SEO, and enterprise scalability. Not WordPress templates.",
     path: `/services/${CANONICAL_SLUG}`,
     keywords: [
       "web design firms",
@@ -112,7 +114,7 @@ const WebDesignFirmsPage = () => {
         name: "What distinguishes a web design firm from a web design agency?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "A web design firm is a specialized consultancy focusing on engineering, architecture, and strategic implementation of digital products using advanced technologies like Next.js 15. Agencies often prioritize marketing services and rely on WordPress templates. Firms deliver server-side rendering, semantic SEO, and enterprise scalability—not plugin-dependent solutions.",
+          text: "A web design firm is a specialized consultancy focusing on engineering, architecture, and strategic implementation of digital products using advanced technologies like Next.js 15. Agencies often prioritize marketing services and rely on WordPress templates. Firms deliver server-side rendering, semantic SEO, and enterprise scalability. Not plugin-dependent solutions.",
         },
       },
       {
@@ -217,7 +219,7 @@ const WebDesignFirmsPage = () => {
             <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
               Most &ldquo;web design firms&rdquo; sell you WordPress templates. We engineer 
               <strong className="text-white"> commercial-grade digital architecture</strong> using Next.js 15. 
-              Speed, security, and semantic authority—not plugin dependency.
+              Speed, security, and semantic authority. Not plugin dependency.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -371,7 +373,7 @@ const WebDesignFirmsPage = () => {
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Verify Entity-Based SEO Implementation</h3>
                   <p className="text-gray-700">
-                    Check that they use JSON-LD structured data with Knowledge Graph ID (KGMID) linking. This establishes entity authority beyond keyword optimization. Review their schema markup—professional firms link services to Google&apos;s Knowledge Graph, not just local business listings.
+                    Check that they use JSON-LD structured data with Knowledge Graph ID (KGMID) linking. This establishes entity authority beyond keyword optimization. Review their schema markup. Professional firms link services to Google&apos;s Knowledge Graph, not just local business listings.
                   </p>
                 </div>
               </li>
@@ -389,7 +391,7 @@ const WebDesignFirmsPage = () => {
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Require Scalable Hosting Architecture</h3>
                   <p className="text-gray-700">
-                    Look for Vercel, AWS, or similar enterprise hosting, not shared cPanel hosting. Professional firms use edge networks, CDN distribution, and auto-scaling infrastructure. This ensures your site performs globally and handles traffic spikes without crashing—critical for enterprise clients.
+                    Look for Vercel, AWS, or similar enterprise hosting, not shared cPanel hosting. Professional firms use edge networks, CDN distribution, and auto-scaling infrastructure. This ensures your site performs globally and handles traffic spikes without crashing. Critical for enterprise clients.
                   </p>
                 </div>
               </li>
@@ -417,13 +419,13 @@ const WebDesignFirmsPage = () => {
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-xl border-l-4 border-purple-600 shadow-lg">
+              <div className="bg-white p-8 rounded-xl border-l-4 border-accent shadow-lg">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Entity-First SEO Engineering</h3>
                 <p className="text-gray-700 mb-4">
                   Leading firms implement semantic SEO by linking services to Google&apos;s Knowledge Graph using entity IDs (KGMID). This tells Google <strong>exactly</strong> what entities you represent, creating defensible competitive advantages.
                 </p>
                 <p className="text-gray-700">
-                  Agencies rely on SEO plugins that generate basic schema markup without entity linking. They compete on keyword density—an outdated strategy that Google&apos;s algorithm increasingly ignores in favor of entity understanding.
+                  Agencies rely on SEO plugins that generate basic schema markup without entity linking. They compete on keyword density. An outdated strategy that Google&apos;s algorithm increasingly ignores in favor of entity understanding.
                 </p>
               </div>
 
@@ -453,11 +455,11 @@ const WebDesignFirmsPage = () => {
               <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-xl border-2 border-cyan-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Next.js 15 Architecture</h3>
                 <p className="text-gray-700">
-                  We build exclusively on Next.js 15 with React Server Components. This eliminates client-side JavaScript bloat, delivering HTML to search engines instantly. Our sites achieve Core Web Vitals scores of 100/100—something WordPress agencies cannot match.
+                  We build exclusively on Next.js 15 with React Server Components. This eliminates client-side JavaScript bloat, delivering HTML to search engines instantly. Our sites achieve Core Web Vitals scores of 100/100. Something WordPress agencies cannot match.
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border-2 border-purple-200">
+              <div className="bg-gradient-to-br from-accent/5 to-charcoal/5 p-6 rounded-xl border-2 border-accent/20">
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Knowledge Graph Integration</h3>
                 <p className="text-gray-700">
                   Every site includes deep JSON-LD schema with Knowledge Graph ID (KGMID) linking. We connect your services to Google&apos;s entity database, establishing topical authority that competitors using basic schema cannot replicate.

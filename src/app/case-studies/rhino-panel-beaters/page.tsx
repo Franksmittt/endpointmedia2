@@ -27,6 +27,7 @@ const RhinoPanelBeatersCaseStudy = () => {
   return (
     <>
       <CaseStudyArticleSchema slug="rhino-panel-beaters" />
+      <article itemScope itemType="https://schema.org/Article">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
@@ -40,7 +41,7 @@ const RhinoPanelBeatersCaseStudy = () => {
             Back to Case Studies
           </Link>
           
-          <div className="max-w-4xl">
+          <figure className="max-w-4xl">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-400/20 px-4 py-2 rounded-full border border-cyan-400/30">Panel Beaters</span>
               <span className="text-xs font-semibold uppercase tracking-wider text-blue-200 bg-blue-800/50 px-4 py-2 rounded-full border border-blue-700">Zululand Market</span>
@@ -48,10 +49,8 @@ const RhinoPanelBeatersCaseStudy = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 font-heading">
               Rhino Panel Beaters: Engineering Trust & Conversion in Zululand
             </h1>
-            <p className="text-lg md:text-xl text-blue-100 max-w-3xl">
-              A modern, high-performance marketing website built on Next.js that transforms digital visitors into qualified quote requests and emergency calls through strategic trust-building and authority positioning.
-            </p>
-          </div>
+            <figcaption className="text-lg md:text-xl text-blue-100 max-w-3xl">A modern, high-performance marketing website built on Next.js that transforms digital visitors into qualified quote requests and emergency calls through strategic trust-building and authority positioning.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -306,7 +305,9 @@ const RhinoPanelBeatersCaseStudy = () => {
               This high-performance website delivers on its core promise: converting digital visitors into qualified leads through strategic trust-building, authority positioning, and seamless user experience.
             </p>
             
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <figure>
+              <figcaption className="sr-only">Key project outcomes</figcaption>
+              <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <div className="text-4xl font-extrabold mb-2">100%</div>
                 <p className="text-teal-100">Client-Side Validated Forms</p>
@@ -320,6 +321,7 @@ const RhinoPanelBeatersCaseStudy = () => {
                 <p className="text-teal-100">Zululand SEO Optimized</p>
               </div>
             </div>
+            </figure>
           </div>
         </div>
       </section>
@@ -352,6 +354,7 @@ const RhinoPanelBeatersCaseStudy = () => {
         </div>
       </section>
       <HubSpokeLinks variant="case-study" slug="rhino-panel-beaters" />
+      </article>
     </>
   );
 };

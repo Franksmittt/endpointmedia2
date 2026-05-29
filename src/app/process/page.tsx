@@ -4,6 +4,8 @@ import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL, buildHowToSchema } from "@/lib/seo";
 
+export const revalidate = 86400;
+
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Our Web Design & SEO Process",
@@ -36,7 +38,7 @@ const processFaqSchema = {
       name: "What do I need to provide during the process?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We guide you through a simple intake. You'll provide brand assets, service details, and proof elements (testimonials, case studies). Everything else—from layout to copy structure and local SEO—is handled by our team.",
+        text: "We guide you through a simple intake. You'll provide brand assets, service details, and proof elements (testimonials, case studies). Everything else. From layout to copy structure and local SEO. Is handled by our team.",
       },
     },
     {
@@ -74,7 +76,7 @@ const processHowToSchema = buildHowToSchema({
     },
     {
       name: "Map Pack Dominance & Authority Building",
-      text: "Optimize Google Business Profile, generate consistent reviews, and secure Map Pack visibility—the primary source of ready-to-buy local leads.",
+      text: "Optimize Google Business Profile, generate consistent reviews, and secure Map Pack visibility. The primary source of ready-to-buy local leads.",
     },
   ],
 });
@@ -210,7 +212,7 @@ const ProcessPage = () => {
                   What do I need to provide during the process?
                 </h3>
                 <p className="text-gray-700">
-                  We run a focused intake so you only share what matters—brand assets, service details, proof
+                  We run a focused intake so you only share what matters. Brand assets, service details, proof
                   (reviews, photos), and compliance requirements. Our team handles copy structure, layouts, and local SEO
                   architecture.
                 </p>

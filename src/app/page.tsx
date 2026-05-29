@@ -1,6 +1,9 @@
 // src/app/page.tsx
 import React from 'react';
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+
+export const revalidate = 86400;
 
 // Import all sections for the main landing page
 import Hero from '@/components/sections/Hero';
@@ -11,10 +14,13 @@ import Blueprint from '@/components/sections/Blueprint';
 import Proof from '@/components/sections/Proof';
 import Vetting from '@/components/sections/Vetting';
 import Pricing from '@/components/sections/Pricing';
-import Toolkit from '@/components/sections/Toolkit'; 
-import Audit from '@/components/sections/Audit';
+import Toolkit from '@/components/sections/Toolkit';
 import SocialProof from '@/components/sections/SocialProof';
 import { secureJsonLD, BASE_URL, buildMetadata, buildSpeakableWebPageSchema } from '@/lib/seo';
+
+const Audit = dynamic(() => import('@/components/sections/Audit'), {
+  loading: () => <div className="min-h-[480px] animate-pulse bg-charcoal/5" />,
+});
 
 // Homepage-specific metadata (extends root layout metadata)
 export async function generateMetadata(): Promise<Metadata> {
@@ -66,7 +72,7 @@ const homepageFaqSchema = {
       name: "What makes Endpoint Media different from other Johannesburg web design agencies?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Endpoint Media engineers high-performance Next.js websites with entity-based SEO, structured data, and conversion-focused architecture—not generic template sites. Every build prioritizes Core Web Vitals, local search dominance, and measurable lead generation for Johannesburg service businesses.",
+        text: "Endpoint Media engineers high-performance Next.js websites with entity-based SEO, structured data, and conversion-focused architecture. Not generic template sites. Every build prioritizes Core Web Vitals, local search dominance, and measurable lead generation for Johannesburg service businesses.",
       },
     },
     {
@@ -82,7 +88,7 @@ const homepageFaqSchema = {
       name: "Do you offer local SEO for Johannesburg suburbs?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Endpoint Media builds hyper-local SEO architecture targeting suburbs including Sandton, Randburg, Bryanston, Meyersdal, Midrand, and Roodepoort—with location pages, LocalBusiness schema, and Google Business Profile optimization.",
+        text: "Yes. Endpoint Media builds hyper-local SEO architecture targeting suburbs including Sandton, Randburg, Bryanston, Meyersdal, Midrand, and Roodepoort. With location pages, LocalBusiness schema, and Google Business Profile optimization.",
       },
     },
   ],
@@ -90,7 +96,7 @@ const homepageFaqSchema = {
 
 const homepageSpeakableSchema = buildSpeakableWebPageSchema({
   url: BASE_URL,
-  name: "Endpoint Media — Web Design Johannesburg",
+  name: "Endpoint Media , Web Design Johannesburg",
   description:
     "Premium web architecture and local SEO for Johannesburg service businesses that need measurable lead generation.",
   cssSelectors: ["#hero-headline", "#hero-summary"],

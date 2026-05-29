@@ -5,6 +5,8 @@ import type { Metadata } from 'next';
 import { buildMetadata, secureJsonLD, BASE_URL, ORG_ID } from '@/lib/seo';
 import { getAllPosts } from '@/lib/blog/posts';
 
+export const revalidate = 86400;
+
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: 'B2B Web Architecture, Google Ads & Local SEO Blog',
@@ -63,7 +65,7 @@ const BlogIndexPage = () => {
           </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-300">
             High-intent technical content for B2B operators: web architecture, Google Ads engineering,
-            and regional SEO dominance — zero fluff, deployment-ready intelligence.
+            and regional SEO dominance . Zero fluff, deployment-ready intelligence.
           </p>
         </div>
       </section>

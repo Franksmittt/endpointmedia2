@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from "@/lib/seo";
 
+export const revalidate = 86400;
+
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Client Success Stories | Web Design & SEO Results",

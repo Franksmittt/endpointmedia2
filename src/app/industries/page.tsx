@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { buildMetadata } from '@/lib/seo';
 import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
+export const revalidate = 86400;
+
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Industry-Specific Web Design Johannesburg | Law Firms, Real Estate, Finance, Medical",
@@ -62,7 +64,7 @@ const IndustriesPage = () => {
           </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 mb-8">
             Every industry has unique needs. We build specialized websites for law firms, real estate 
-            agents, financial advisors, medical practices, and more—each optimized for your industry&apos;s 
+            agents, financial advisors, medical practices, and more. Each optimized for your industry&apos;s 
             specific requirements.
           </p>
         </div>

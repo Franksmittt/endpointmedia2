@@ -343,6 +343,8 @@ export default function NewRedruthPage() {
           </Button>
         </div>
       </section>
+
+      <HubSpokeLinks variant="location" slug="new-redruth" />
     </>
   );
 }

@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL, buildLocationLocalBusinessSchema, WIKIDATA } from '@/lib/seo';
 import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -24,27 +24,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const BenoniPage = () => {
-  const locationSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${BASE_URL}/locations/benoni#localbusiness`,
-    name: "Endpoint Media - Web Design Benoni",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Benoni",
-      addressRegion: "Gauteng",
-      addressCountry: "ZA",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: -26.1889,
-      longitude: 28.3206,
-    },
-    url: `${BASE_URL}/locations/benoni`,
-    telephone: "+27-76-972-4559",
-    email: "hello@endpointmedia.co.za",
-    priceRange: "R5,500 - R15,000",
-  };
+  const locationSchema = buildLocationLocalBusinessSchema({
+    slug: 'benoni',
+    label: 'Benoni',
+    latitude: -26.1889,
+    longitude: 28.3206,
+    wikidataUrl: WIKIDATA.benoni,
+  });
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",

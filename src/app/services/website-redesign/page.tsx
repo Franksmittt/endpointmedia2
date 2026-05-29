@@ -130,7 +130,7 @@ const WebsiteRedesignPage = () => {
               <div className="bg-white rounded-xl p-8 border-l-4 border-red-500">
                 <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">❌ Outdated Design</h3>
                 <p className="text-gray-700">
-                  Your website looks like it was built in 2010. First impressions matter—an outdated 
+                  Your website looks like it was built in 2010. First impressions matter. An outdated 
                   site tells clients you don&apos;t invest in your business.
                 </p>
               </div>
@@ -145,7 +145,7 @@ const WebsiteRedesignPage = () => {
                 <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">🐌 Slow & Underperforming</h3>
                 <p className="text-gray-700">
                   Slow websites kill conversions. If your site takes more than 3 seconds to load, 
-                  visitors are gone—and so are your leads.
+                  visitors are gone. And so are your leads.
                 </p>
               </div>
             </div>

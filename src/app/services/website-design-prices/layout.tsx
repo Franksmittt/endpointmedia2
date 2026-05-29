@@ -7,7 +7,7 @@ const CANONICAL_SLUG = 'website-design-prices';
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Website Design Prices South Africa 2025 | Transparent Pricing & ROI Calculator",
-    description: "Website design prices in South Africa: R15,000-R150,000. Don't compare page counts—calculate ROI. Interactive calculator shows how Next.js architecture delivers superior value vs WordPress templates. Transparent pricing, zero hidden costs.",
+    description: "Website design prices in South Africa: R15,000-R150,000. Don't compare page counts. Calculate ROI. Interactive calculator shows how Next.js architecture delivers superior value vs WordPress templates. Transparent pricing, zero hidden costs.",
     path: `/services/${CANONICAL_SLUG}`,
     keywords: [
       "website design prices",

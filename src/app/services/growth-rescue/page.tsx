@@ -15,7 +15,7 @@ const faqs = [
   {
     question: 'Will you work with our existing agency or replace them?',
     answer:
-      'We can do both. Many partners keep their media buyers or dev teams and plug us in as the Growth Lead. Others hand us the keys completely. The only rule: we implement what the data shows—no politics.',
+      'We can do both. Many partners keep their media buyers or dev teams and plug us in as the Growth Lead. Others hand us the keys completely. The only rule: we implement what the data shows. No politics.',
   },
   {
     question: 'Do you handle both paid media and organic fixes?',
@@ -166,7 +166,7 @@ export default function GrowthRescuePage() {
           </h1>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
             When lead flow stalls or ad spend burns cash, Endpoint’s Growth Rescue team steps in: rebuild landing
-            pages, repair tracking, relaunch ads, and get you back in the black—fast.
+            pages, repair tracking, relaunch ads, and get you back in the black. Fast.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
             <Link
@@ -212,7 +212,7 @@ export default function GrowthRescuePage() {
             </h2>
             <p className="text-lg text-gray-600 mt-4">
               We deploy CROs, media buyers, copywriters, and engineers as a single strike team so fixes happen
-              simultaneously—not in slow silos.
+              simultaneously. Not in slow silos.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">

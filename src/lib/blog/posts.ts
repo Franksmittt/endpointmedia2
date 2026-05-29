@@ -1,4 +1,5 @@
 import type { BlogPostMeta } from './types';
+import { unstable_cache } from 'next/cache';
 
 /** All blog posts — 15 cornerstone silo articles + 5 legacy Johannesburg posts */
 export const BLOG_POSTS: BlogPostMeta[] = [
@@ -316,13 +317,21 @@ export function getAllPosts(): BlogPostMeta[] {
   return [...BLOG_POSTS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-export function getPostBySlug(slug: string): BlogPostMeta | undefined {
-  return BLOG_POSTS.find((p) => p.slug === slug);
-}
+export const getPostBySlug = unstable_cache(
+  async (slug: string): Promise<BlogPostMeta | undefined> => {
+    return BLOG_POSTS.find((p) => p.slug === slug);
+  },
+  ['blog-post-by-slug'],
+  { revalidate: 86400, tags: ['blog'] }
+);
 
-export function getAllSlugs(): string[] {
-  return BLOG_POSTS.map((p) => p.slug);
-}
+export const getAllSlugs = unstable_cache(
+  async (): Promise<string[]> => {
+    return BLOG_POSTS.map((p) => p.slug);
+  },
+  ['blog-all-slugs'],
+  { revalidate: 86400, tags: ['blog'] }
+);
 
 export function getPostsBySilo(silo: BlogPostMeta['silo']): BlogPostMeta[] {
   return BLOG_POSTS.filter((p) => p.silo === silo);

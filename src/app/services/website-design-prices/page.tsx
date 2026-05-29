@@ -74,7 +74,7 @@ export default function WebsiteDesignPricesPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="#calculator"
-                className="inline-flex items-center justify-center gap-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-4 px-8 rounded-lg shadow-xl transition-all transform hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-600 text-white font-bold py-4 px-8 rounded-lg shadow-xl transition-all transform hover:scale-105"
               >
                 Calculate Your ROI
               </a>
@@ -105,7 +105,7 @@ export default function WebsiteDesignPricesPage() {
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 font-heading">
               What is the Average Cost of a Website in South Africa?
             </h2>
-            <div className="bg-gradient-to-r from-cyan-50 to-blue-50 border-l-4 border-cyan-600 p-6 rounded-r-lg mb-8">
+            <div className="bg-gradient-to-r from-accent/10 to-gray-50 border-l-4 border-accent p-6 rounded-r-lg mb-8">
               <p className="text-lg leading-relaxed text-gray-800">
                 Website costs in South Africa range from <strong>R2,500 for basic template sites</strong> to <strong>R150,000+ for enterprise Next.js solutions</strong>. The average small business website costs R15,000-R45,000. However, the true cost includes ongoing maintenance (R500-R2,000/month for WordPress), hosting fees, and lost revenue from poor performance. A Next.js site at R35,000 with zero maintenance often delivers superior 3-year ROI compared to a R15,000 WordPress template that requires monthly plugin subscriptions and loses conversions due to slow load times.
               </p>
@@ -158,12 +158,12 @@ export default function WebsiteDesignPricesPage() {
                     <td className="p-4 text-gray-700">R 33,000 - R 117,000</td>
                     <td className="p-4 text-gray-700">Small Business (Budget-Conscious)</td>
                   </tr>
-                  <tr className="border-b-2 border-cyan-600 bg-cyan-50 hover:bg-cyan-100 transition-colors">
+                  <tr className="border-b-2 border-accent bg-accent/10 hover:bg-accent/20 transition-colors">
                     <td className="p-4 font-bold text-gray-900">Next.js Entity Asset</td>
-                    <td className="p-4 font-bold text-cyan-900">R 25,000 - R 75,000</td>
+                    <td className="p-4 font-bold text-charcoal">R 25,000 - R 75,000</td>
                     <td className="p-4 text-green-600 font-bold">None (Zero Maintenance)</td>
-                    <td className="p-4 font-bold text-cyan-900">R 27,000 - R 79,000</td>
-                    <td className="p-4 font-bold text-cyan-900">Market Leaders / Growth-Focused</td>
+                    <td className="p-4 font-bold text-charcoal">R 27,000 - R 79,000</td>
+                    <td className="p-4 font-bold text-charcoal">Market Leaders / Growth-Focused</td>
                   </tr>
                   <tr className="hover:bg-gray-50 transition-colors">
                     <td className="p-4 font-semibold text-gray-900">Enterprise Custom</td>
@@ -194,9 +194,9 @@ export default function WebsiteDesignPricesPage() {
             </p>
             
             <div className="space-y-6">
-              <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-cyan-600">
+              <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-accent">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="text-cyan-600 text-2xl mr-3">1.</span>
+                  <span className="text-accent text-2xl mr-3">1.</span>
                   Rendering Engine & Performance Architecture
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
@@ -209,9 +209,9 @@ export default function WebsiteDesignPricesPage() {
                 </div>
               </div>
 
-              <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-purple-600">
+              <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-accent">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="text-purple-600 text-2xl mr-3">2.</span>
+                  <span className="text-accent text-2xl mr-3">2.</span>
                   Entity Density & Knowledge Graph Integration
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
@@ -315,7 +315,7 @@ export default function WebsiteDesignPricesPage() {
               <div className="border-2 border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-2xl font-bold text-gray-900">Business Landing Page</h3>
-                  <span className="bg-cyan-100 text-cyan-800 px-4 py-2 rounded-full font-bold text-lg">R 15,000 - R 25,000</span>
+                  <span className="bg-accent/10 text-accent-600 px-4 py-2 rounded-full font-bold text-lg">R 15,000 - R 25,000</span>
                 </div>
                 <p className="text-gray-700 mb-4">
                   Single-page, conversion-focused site for service businesses. Includes Next.js architecture, semantic SEO, Core Web Vitals optimization, and self-healing URL structure.
@@ -329,23 +329,23 @@ export default function WebsiteDesignPricesPage() {
                 </ul>
               </div>
 
-              <div className="border-2 border-cyan-200 bg-cyan-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+              <div className="border-2 border-accent/30 bg-accent/5 rounded-xl p-8 hover:shadow-lg transition-shadow">
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900">Small Business Website</h3>
                     <span className="inline-block mt-2 text-sm text-gray-600">5-10 pages, full service showcase</span>
                   </div>
-                  <span className="bg-cyan-600 text-white px-4 py-2 rounded-full font-bold text-lg">R 25,000 - R 45,000</span>
+                  <span className="bg-accent text-white px-4 py-2 rounded-full font-bold text-lg">R 25,000 - R 45,000</span>
                 </div>
                 <p className="text-gray-700 mb-4">
                   Multi-page site with service pages, about page, blog functionality, and lead generation forms. Includes everything in Business Landing Page plus internal linking optimization and topic cluster architecture.
                 </p>
                 <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-center"><span className="text-cyan-600 mr-2">✓</span> Everything in Business Landing Page</li>
-                  <li className="flex items-center"><span className="text-cyan-600 mr-2">✓</span> Dynamic blog with SEO optimization</li>
-                  <li className="flex items-center"><span className="text-cyan-600 mr-2">✓</span> Service page cluster architecture</li>
-                  <li className="flex items-center"><span className="text-cyan-600 mr-2">✓</span> Internal linking with TF-IDF optimization</li>
-                  <li className="flex items-center"><span className="text-cyan-600 mr-2">✓</span> Google Analytics & conversion tracking</li>
+                  <li className="flex items-center"><span className="text-accent mr-2">✓</span> Everything in Business Landing Page</li>
+                  <li className="flex items-center"><span className="text-accent mr-2">✓</span> Dynamic blog with SEO optimization</li>
+                  <li className="flex items-center"><span className="text-accent mr-2">✓</span> Service page cluster architecture</li>
+                  <li className="flex items-center"><span className="text-accent mr-2">✓</span> Internal linking with TF-IDF optimization</li>
+                  <li className="flex items-center"><span className="text-accent mr-2">✓</span> Google Analytics & conversion tracking</li>
                 </ul>
               </div>
 
@@ -355,7 +355,7 @@ export default function WebsiteDesignPricesPage() {
                     <h3 className="text-2xl font-bold text-gray-900">E-Commerce Store</h3>
                     <span className="inline-block mt-2 text-sm text-gray-600">Product catalog, cart, checkout, payment integration</span>
                   </div>
-                  <span className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-bold text-lg">R 45,000 - R 75,000</span>
+                  <span className="bg-accent/10 text-accent-600 px-4 py-2 rounded-full font-bold text-lg">R 45,000 - R 75,000</span>
                 </div>
                 <p className="text-gray-700 mb-4">
                   Full online store with product management, shopping cart, payment gateway integration, inventory management, and order tracking. Built on Next.js for superior performance and SEO.
@@ -450,16 +450,16 @@ export default function WebsiteDesignPricesPage() {
 
             <div className="space-y-6">
               <details className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-accent transition-colors">
                   Why do Next.js websites cost more than WordPress sites?
                 </summary>
                 <p className="mt-4 text-gray-700 leading-relaxed">
-                  Next.js websites require custom engineering, server-side rendering optimization, and semantic SEO architecture—specialized skills that command higher rates. WordPress sites use templates and plugins, reducing initial build time. However, the total cost of ownership over 3 years often favors Next.js: WordPress requires R500-R2,000/month maintenance, while Next.js requires minimal ongoing costs. Additionally, Next.js sites convert better due to faster load times, offsetting the initial investment through increased revenue.
+                  Next.js websites require custom engineering, server-side rendering optimization, and semantic SEO architecture. Specialized skills that command higher rates. WordPress sites use templates and plugins, reducing initial build time. However, the total cost of ownership over 3 years often favors Next.js: WordPress requires R500-R2,000/month maintenance, while Next.js requires minimal ongoing costs. Additionally, Next.js sites convert better due to faster load times, offsetting the initial investment through increased revenue.
                 </p>
               </details>
 
               <details className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-accent transition-colors">
                   Can I get a website for under R10,000?
                 </summary>
                 <p className="mt-4 text-gray-700 leading-relaxed">
@@ -468,7 +468,7 @@ export default function WebsiteDesignPricesPage() {
               </details>
 
               <details className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-accent transition-colors">
                   What payment options do you offer?
                 </summary>
                 <p className="mt-4 text-gray-700 leading-relaxed">
@@ -477,7 +477,7 @@ export default function WebsiteDesignPricesPage() {
               </details>
 
               <details className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-accent transition-colors">
                   How long does it take to build a website?
                 </summary>
                 <p className="mt-4 text-gray-700 leading-relaxed">
@@ -486,11 +486,11 @@ export default function WebsiteDesignPricesPage() {
               </details>
 
               <details className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-accent transition-colors">
                   Do you offer maintenance packages?
                 </summary>
                 <p className="mt-4 text-gray-700 leading-relaxed">
-                  Next.js sites require minimal maintenance due to static architecture and built-in optimization. We offer optional maintenance packages starting at R500/month for security updates, content changes, and performance monitoring. However, most Next.js clients don&apos;t need ongoing maintenance—the architecture is designed to be self-sustaining. This is a key differentiator from WordPress sites that require constant plugin updates and security patches.
+                  Next.js sites require minimal maintenance due to static architecture and built-in optimization. We offer optional maintenance packages starting at R500/month for security updates, content changes, and performance monitoring. However, most Next.js clients don&apos;t need ongoing maintenance. The architecture is designed to be self-sustaining. This is a key differentiator from WordPress sites that require constant plugin updates and security patches.
                 </p>
               </details>
             </div>

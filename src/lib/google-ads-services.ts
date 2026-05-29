@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/lib/seo';
+import { BASE_URL, ORG_ID, cityAreaServed, WIKIDATA } from '@/lib/seo';
 
 export type GoogleAdsPageConfig = {
   slug: string;
@@ -519,15 +519,27 @@ export function getGoogleAdsPage(slug: string): GoogleAdsPageConfig | undefined 
   return googleAdsPages[slug];
 }
 
+const GOOGLE_ADS_AREA: Record<string, { name: string; wikidataUrl: string }> = {
+  'google-ads-sandton': { name: 'Sandton', wikidataUrl: WIKIDATA.sandton },
+  'google-ads-midrand': { name: 'Midrand', wikidataUrl: WIKIDATA.midrand },
+  'google-ads-alberton': { name: 'Alberton', wikidataUrl: WIKIDATA.alberton },
+  'google-ads-alrode': { name: 'Alrode', wikidataUrl: WIKIDATA.alberton },
+  'google-ads-wadeville': { name: 'Wadeville', wikidataUrl: WIKIDATA.alberton },
+  'google-ads-bedfordview': { name: 'Bedfordview', wikidataUrl: WIKIDATA.bedfordview },
+};
+
 export function buildGoogleAdsServiceSchema(config: GoogleAdsPageConfig) {
+  const area =
+    GOOGLE_ADS_AREA[config.slug] ?? { name: 'Johannesburg', wikidataUrl: WIKIDATA.johannesburg };
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${BASE_URL}${config.path}#service`,
     name: config.serviceName,
     description: config.metadata.description,
-    provider: { '@id': `${BASE_URL}#organization` },
-    areaServed: { '@type': 'City', name: 'Johannesburg' },
+    provider: { '@id': ORG_ID },
+    areaServed: cityAreaServed(area.name, area.wikidataUrl),
     serviceType: config.serviceType,
     offers: {
       '@type': 'Offer',

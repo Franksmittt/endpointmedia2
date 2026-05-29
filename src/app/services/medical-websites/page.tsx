@@ -76,7 +76,7 @@ const differentiators = [
   {
     icon: '⚡',
     title: 'Real-time lead intelligence',
-    body: 'Every CTA (call, WhatsApp, form, booking) hits one dashboard with alerts, so reception can respond within minutes—critical for cash-pay treatments.',
+    body: 'Every CTA (call, WhatsApp, form, booking) hits one dashboard with alerts, so reception can respond within minutes. Critical for cash-pay treatments.',
   },
   {
     icon: '🔐',
@@ -123,7 +123,7 @@ const verticals = [
 const proofPoints = [
   { stat: '54%', label: 'Average increase in online bookings within 60 days of launch.' },
   { stat: '38%', label: 'Decrease in no-shows after automated reminders & confirmations.' },
-  { stat: '<2s', label: 'Average mobile load time—critical for impatient patients on 4G.' },
+  { stat: '<2s', label: 'Average mobile load time. Critical for impatient patients on 4G.' },
   { stat: '92%', label: 'Patients who chose our client after reading FAQs + testimonials.' },
 ];
 
@@ -268,7 +268,7 @@ export default function MedicalWebsitesPage() {
                 Built for every discipline in your group.
               </h2>
               <p className="text-lg text-gray-600 mt-4">
-                Dental, derm, GP, allied health, or wellness—each department gets a conversion playbook tailored
+                Dental, derm, GP, allied health, or wellness. Each department gets a conversion playbook tailored
                 to its patient journey.
               </p>
             </div>
@@ -370,7 +370,7 @@ export default function MedicalWebsitesPage() {
           <div className="max-w-3xl mb-12">
             <p className="text-emerald-600 font-semibold uppercase tracking-wide">FAQs</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
-              Your most important questions—answered.
+              Your most important questions. Answered.
             </h2>
           </div>
           <div className="space-y-6">

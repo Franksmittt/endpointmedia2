@@ -149,7 +149,7 @@ const WebsiteMaintenancePage = () => {
         <div className="container mx-auto px-6 text-center">
           <p className="text-teal-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">Maintenance • Security • Support</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-            Keep your website fast, secure, and updated—without the headaches.
+            Keep your website fast, secure, and updated. Without the headaches.
           </h1>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
             Your website is a revenue engine. We handle security updates, backups, performance tuning, and content changes so you
@@ -218,7 +218,7 @@ const WebsiteMaintenancePage = () => {
               },
               {
                 title: 'Content updates',
-                body: 'Text changes, image swaps, new pages, and blog posts—handled quickly without breaking your workflow.',
+                body: 'Text changes, image swaps, new pages, and blog posts. Handled quickly without breaking your workflow.',
               },
               {
                 title: 'SEO maintenance',

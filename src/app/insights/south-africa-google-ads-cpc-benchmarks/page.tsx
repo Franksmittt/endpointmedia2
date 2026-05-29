@@ -55,7 +55,7 @@ export default function CpcBenchmarksPage() {
           </h1>
           <p className="text-xl text-gray-300">
             Use these ZAR ranges to model budgets, forecast CPA, and spot when your agency should be
-            lowering CPC via Quality Score—not asking you to spend more.
+            lowering CPC via Quality Score. Not asking you to spend more.
           </p>
         </div>
       </section>
@@ -92,7 +92,7 @@ export default function CpcBenchmarksPage() {
           <h2 className="text-2xl font-bold font-heading">The Quality Score tax</h2>
           <p>
             Poor landing page experience can inflate CPC by up to 400% and crush impression share. Moving
-            Quality Score from 4→8 often cuts CPC ~35% without increasing budget—this is why Endpoint Media
+            Quality Score from 4→8 often cuts CPC ~35% without increasing budget. This is why Endpoint Media
             pairs Google Ads with{' '}
             <Link href="/services/google-ads-landing-pages" className="text-teal-600 font-semibold">
               Next.js landing pages

@@ -27,6 +27,7 @@ const AsBrokersCaseStudy = () => {
   return (
     <>
       <CaseStudyArticleSchema slug="as-brokers" />
+      <article itemScope itemType="https://schema.org/Article">
       <section className="bg-gradient-to-br from-cyan-900 via-slate-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
           <Link
@@ -39,7 +40,7 @@ const AsBrokersCaseStudy = () => {
             Back to Case Studies
           </Link>
 
-          <div className="max-w-4xl">
+          <figure className="max-w-4xl">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-semibold uppercase tracking-wider text-cyan-300 bg-cyan-400/20 px-4 py-2 rounded-full border border-cyan-400/30">Financial Services</span>
               <span className="text-xs font-semibold uppercase tracking-wider text-cyan-200 bg-cyan-800/50 px-4 py-2 rounded-full border border-cyan-700">Code 1.8 Strategy</span>
@@ -47,10 +48,8 @@ const AsBrokersCaseStudy = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 font-heading">
               AS Brokers: Engineering a High-Trust Wealth Conversion Platform
             </h1>
-            <p className="text-lg md:text-xl text-cyan-100 max-w-3xl">
-              A complete digital transformation for AS Brokers CC, repositioning the brand around private wealth engineering with premium design, institutional messaging, and calculator-led lead generation.
-            </p>
-          </div>
+            <figcaption className="text-lg md:text-xl text-cyan-100 max-w-3xl">A complete digital transformation for AS Brokers CC, repositioning the brand around private wealth engineering with premium design, institutional messaging, and calculator-led lead generation.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -147,7 +146,9 @@ const AsBrokersCaseStudy = () => {
             <p className="text-xl text-cyan-100 mb-12 max-w-2xl mx-auto">
               AS Brokers now operates with a digital front-end that aligns brand trust, technical depth, and conversion mechanics into one coherent wealth acquisition engine.
             </p>
-            <div className="grid md:grid-cols-4 gap-6">
+            <figure>
+              <figcaption className="sr-only">Key project outcomes</figcaption>
+              <div className="grid md:grid-cols-4 gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <div className="text-3xl font-extrabold mb-2">FSP</div>
                 <p className="text-cyan-100 text-sm">Credibility Framed</p>
@@ -165,6 +166,7 @@ const AsBrokersCaseStudy = () => {
                 <p className="text-cyan-100 text-sm">Lead Routing Ready</p>
               </div>
             </div>
+            </figure>
           </div>
         </div>
       </section>
@@ -196,6 +198,7 @@ const AsBrokersCaseStudy = () => {
         </div>
       </section>
       <HubSpokeLinks variant="case-study" slug="as-brokers" />
+      </article>
     </>
   );
 };

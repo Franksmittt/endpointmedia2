@@ -9,7 +9,7 @@ const PAGE_PATH = '/compare/google-ads-flat-fee-vs-percentage-spend';
 export const metadata: Metadata = buildMetadata({
   title: 'Flat-Fee vs % of Ad Spend Google Ads Pricing',
   description:
-    'Why percentage-of-spend PPC pricing misaligns incentives—and how flat-fee Google Ads management plus fast landing pages lowers CPA for Johannesburg businesses.',
+    'Why percentage-of-spend PPC pricing misaligns incentives. And how flat-fee Google Ads management plus fast landing pages lowers CPA for Johannesburg businesses.',
   path: PAGE_PATH,
   keywords: [
     'google ads agency pricing model',
@@ -50,7 +50,7 @@ export default function ComparePricingPage() {
           <div className="border border-red-200 bg-red-50 rounded-2xl p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 font-heading">% of spend model</h2>
             <ul className="space-y-3 text-gray-700">
-              <li>Fee rises when you scale budget—even if CPA worsens</li>
+              <li>Fee rises when you scale budget. Even if CPA worsens</li>
               <li>Agency rewarded for recommending higher spend</li>
               <li>Often paired with slow WordPress landing pages</li>
               <li>Typical in legacy Randburg / Sandton agencies</li>
@@ -62,7 +62,7 @@ export default function ComparePricingPage() {
               <li>Flat monthly tiers from R6,500 (ad spend separate)</li>
               <li>One-time infrastructure build R14,500–R20,000</li>
               <li>Next.js landing pages improve Quality Score</li>
-              <li>Month-to-month after setup—no lock-in</li>
+              <li>Month-to-month after setup. No lock-in</li>
             </ul>
           </div>
         </div>

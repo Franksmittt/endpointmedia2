@@ -27,6 +27,7 @@ const MaverickPaintingContractorsCaseStudy = () => {
   return (
     <>
       <CaseStudyArticleSchema slug="maverick-painting-contractors" />
+      <article itemScope itemType="https://schema.org/Article">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-purple-900 via-purple-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
@@ -40,7 +41,7 @@ const MaverickPaintingContractorsCaseStudy = () => {
             Back to Case Studies
           </Link>
           
-          <div className="max-w-4xl">
+          <figure className="max-w-4xl">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-semibold uppercase tracking-wider text-purple-300 bg-purple-400/20 px-4 py-2 rounded-full border border-purple-400/30">Commercial Painting</span>
               <span className="text-xs font-semibold uppercase tracking-wider text-purple-200 bg-purple-800/50 px-4 py-2 rounded-full border border-purple-700">Premium Service</span>
@@ -48,10 +49,8 @@ const MaverickPaintingContractorsCaseStudy = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 font-heading">
               Maverick Painting Contractors: Premium Risk-Averse Partner for High-Value Assets
             </h1>
-            <p className="text-lg md:text-xl text-purple-100 max-w-3xl">
-              A strategic repositioning that pivots the conversation from &quot;painting&quot; to <strong className="text-purple-300 font-semibold">structural asset maintenance</strong>, emphasizing verifiability and engineering-backed processes for Trustees, Developers, and Engineers.
-            </p>
-          </div>
+            <figcaption className="text-lg md:text-xl text-purple-100 max-w-3xl">A strategic repositioning that pivots the conversation from &quot;painting&quot; to <strong className="text-purple-300 font-semibold">structural asset maintenance</strong>, emphasizing verifiability and engineering-backed processes for Trustees, Developers, and Engineers.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -354,10 +353,9 @@ const MaverickPaintingContractorsCaseStudy = () => {
               A strategic repositioning that establishes Maverick Painting as the premium, risk-averse choice for high-value commercial and body corporate projects.
             </p>
             
-            <div className="grid md:grid-cols-4 gap-6 mb-12">
+            <figure><figcaption className="sr-only">Key project outcomes</figcaption><div className="grid md:grid-cols-4 gap-6 mb-12">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-extrabold mb-2">100%</div>
-                <p className="text-purple-100 text-sm">Independent QA</p>
+                <div className="text-3xl font-extrabold mb-2">100%</div><p className="text-purple-100 text-sm">Independent QA</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <div className="text-3xl font-extrabold mb-2">4+</div>
@@ -371,7 +369,7 @@ const MaverickPaintingContractorsCaseStudy = () => {
                 <div className="text-3xl font-extrabold mb-2">Perfect</div>
                 <p className="text-purple-100 text-sm">Lighthouse Scores</p>
               </div>
-            </div>
+            </div></figure>
           </div>
         </div>
       </section>
@@ -404,6 +402,7 @@ const MaverickPaintingContractorsCaseStudy = () => {
         </div>
       </section>
       <HubSpokeLinks variant="case-study" slug="maverick-painting-contractors" />
+      </article>
     </>
   );
 };

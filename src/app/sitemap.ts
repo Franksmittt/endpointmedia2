@@ -108,9 +108,6 @@ const caseStudySlugs = [
   'sakana-no-ichi',
 ];
 
-/** Programmatic blog slugs from central registry */
-const blogSlugs = getAllSlugs();
-
 function dedupeSitemap(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {
   const seen = new Set<string>();
   return entries.filter((entry) => {
@@ -120,7 +117,9 @@ function dedupeSitemap(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {
   });
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const blogSlugs = await getAllSlugs();
+
   const entries: MetadataRoute.Sitemap = [
     createEntry('/', 'weekly', 1.0),
     createEntry('/blog', 'weekly', 0.95),

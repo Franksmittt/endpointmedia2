@@ -64,7 +64,7 @@ const Proof = () => {
           </div>
 
           <div className="inline-block mb-6">
-            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-600 bg-cyan-50 px-4 py-2 rounded-full border border-cyan-200">
+            <span className="text-xs font-semibold uppercase tracking-wider text-accent-600 bg-accent/10 px-4 py-2 rounded-full border border-accent/20">
               Real Results
             </span>
           </div>
@@ -79,34 +79,34 @@ const Proof = () => {
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
           {/* Testimonial 1 */}
-          <blockquote className="p-10 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-xl border-2 border-cyan-100 transition duration-300 hover:shadow-2xl hover:border-cyan-200 transform hover:-translate-y-2 relative">
-            <div className="absolute top-4 right-4 w-12 h-12 border border-cyan-200 rounded opacity-20"></div>
-            <p className="text-6xl font-extrabold text-cyan-100 absolute top-2 left-4 select-none" aria-hidden="true">&ldquo;</p>
+          <blockquote className="p-10 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-xl border-2 border-accent/20 transition duration-300 hover:shadow-2xl hover:border-accent/20 transform hover:-translate-y-2 relative">
+            <div className="absolute top-4 right-4 w-12 h-12 border border-accent/20 rounded opacity-20"></div>
+            <p className="text-6xl font-extrabold text-accent/20 absolute top-2 left-4 select-none" aria-hidden="true">&ldquo;</p>
             <p className="text-lg md:text-xl italic text-gray-700 mb-8 relative z-10">
-              &quot;We went from obscurity on page three to the <strong className='text-cyan-600 font-semibold'>top of the Google Map Pack</strong> for &apos;emergency electrician Sandton&apos;. The phone rings constantly. This isn&apos;t just a website; it&apos;s a genuine <strong className='text-cyan-600 font-semibold'>lead pipeline</strong>.&quot;
+              &quot;We went from obscurity on page three to the <strong className='text-accent-600 font-semibold'>top of the Google Map Pack</strong> for &apos;emergency electrician Sandton&apos;. The phone rings constantly. This isn&apos;t just a website; it&apos;s a genuine <strong className='text-accent-600 font-semibold'>lead pipeline</strong>.&quot;
             </p>
             <footer className="flex items-center">
-              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center font-bold text-lg mr-4 uppercase text-white shadow-lg">D</div>
+              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent to-accent-600 rounded-full flex items-center justify-center font-bold text-lg mr-4 uppercase text-white shadow-lg">D</div>
               <div>
                 <p className="font-bold text-xl font-heading text-gray-900">David M.</p>
-                <p className="text-cyan-600 text-sm font-semibold">Owner, Ampere Electrical Solutions (Sandton)</p>
+                <p className="text-accent-600 text-sm font-semibold">Owner, Ampere Electrical Solutions (Sandton)</p>
             </div>
             </footer>
           </blockquote>
 
           {/* Testimonial 2 */}
           <blockquote
-            className="p-10 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-xl border-2 border-cyan-100 transition duration-300 hover:shadow-2xl hover:border-cyan-200 transform hover:-translate-y-2 relative"
+            className="p-10 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-xl border-2 border-accent/20 transition duration-300 hover:shadow-2xl hover:border-accent/20 transform hover:-translate-y-2 relative"
            >
-            <div className="absolute top-4 right-4 w-12 h-12 border border-cyan-200 rounded opacity-20"></div>
-            <p className="text-6xl font-extrabold text-cyan-100 absolute top-2 left-4 select-none" aria-hidden="true">&ldquo;</p>
+            <div className="absolute top-4 right-4 w-12 h-12 border border-accent/20 rounded opacity-20"></div>
+            <p className="text-6xl font-extrabold text-accent/20 absolute top-2 left-4 select-none" aria-hidden="true">&ldquo;</p>
             <p className="text-lg md:text-xl italic text-gray-700 mb-8 relative z-10">
-              &quot;I needed to get my plumbing business online properly but was completely overwhelmed. Endpoint handled everything and explained it clearly. Now I get <strong className='text-cyan-600 font-semibold'>quote requests daily through the site</strong>. Total game changer, it finally feels professional.&quot;</p>
+              &quot;I needed to get my plumbing business online properly but was completely overwhelmed. Endpoint handled everything and explained it clearly. Now I get <strong className='text-accent-600 font-semibold'>quote requests daily through the site</strong>. Total game changer, it finally feels professional.&quot;</p>
             <footer className="flex items-center">
-              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center font-bold text-lg mr-4 uppercase text-white shadow-lg">S</div>
+              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent to-accent-600 rounded-full flex items-center justify-center font-bold text-lg mr-4 uppercase text-white shadow-lg">S</div>
               <div>
                 <p className="font-bold text-xl font-heading text-gray-900">Sipho N.</p>
-                <p className="text-cyan-600 text-sm font-semibold">Lead Plumber, Randburg Flow Plumbing (Randburg)</p>
+                <p className="text-accent-600 text-sm font-semibold">Lead Plumber, Randburg Flow Plumbing (Randburg)</p>
             </div>
             </footer>
           </blockquote>

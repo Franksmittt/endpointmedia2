@@ -3,6 +3,9 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
+
+export const revalidate = 86400;
 
 const PAGE_PATH = '/services/local-seo';
 
@@ -149,7 +152,7 @@ const LocalSEOPage = () => {
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
             We build Local SEO systems for Johannesburg’s hardest-working service businesses. From Sandton electricians to
             Rosebank dentists, you get suburb-specific landing pages, Google Business Profile engineering, review automation,
-            and airtight tracking—shipped in one sprint.
+            and airtight tracking. Shipped in one sprint.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
             <Link
@@ -260,7 +263,7 @@ const LocalSEOPage = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-3">Boost your local rankings with review management</h3>
             <p className="text-gray-600 mb-6">
               Reviews are a critical local ranking factor. Our review management service automates review generation, handles
-              professional responses, and protects your reputation—complementing your Local SEO strategy perfectly.
+              professional responses, and protects your reputation. Complementing your Local SEO strategy perfectly.
             </p>
             <Link
               href="/services/review-management"
@@ -281,7 +284,7 @@ const LocalSEOPage = () => {
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to turn &quot;near me&quot; searches into booked jobs?</h2>
           <p className="text-lg text-teal-50 max-w-3xl mx-auto mb-8">
             Request your free Local SEO growth audit. We will show you the exact suburbs, keywords, and review plays to tackle
-            first—and the projected call volume you can expect.
+            first. And the projected call volume you can expect.
           </p>
           <Link
             href="/contact"
@@ -310,6 +313,23 @@ const LocalSEOPage = () => {
               </details>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50 border-t border-gray-200">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 font-heading mb-4">
+            Hyper-local pages, not keyword overlap
+          </h2>
+          <p className="text-gray-600 text-lg leading-relaxed mb-8">
+            This page covers our Local SEO methodology for Johannesburg. Suburb-specific rankings live on
+            dedicated location spokes, for example{' '}
+            <Link href="/locations/sandton" className="text-teal-600 font-semibold hover:underline">
+              Web Design Sandton
+            </Link>
+            , so we do not cannibalize &quot;service + suburb&quot; queries with duplicate service URLs.
+          </p>
+          <HubSpokeLinks variant="location" slug="index" />
         </div>
       </section>
     </>

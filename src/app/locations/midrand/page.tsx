@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL, buildLocationLocalBusinessSchema, WIKIDATA } from '@/lib/seo';
 import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -24,27 +24,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const MidrandPage = () => {
-  const locationSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${BASE_URL}/locations/midrand#localbusiness`,
-    name: "Endpoint Media - Web Design Midrand",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Midrand",
-      addressRegion: "Gauteng",
-      addressCountry: "ZA",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: -25.9964,
-      longitude: 28.1372,
-    },
-    url: `${BASE_URL}/locations/midrand`,
-    telephone: "+27-76-972-4559",
-    email: "hello@endpointmedia.co.za",
-    priceRange: "R5,500 - R15,000",
-  };
+  const locationSchema = buildLocationLocalBusinessSchema({
+    slug: 'midrand',
+    label: 'Midrand',
+    latitude: -25.9964,
+    longitude: 28.1372,
+    wikidataUrl: WIKIDATA.midrand,
+  });
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",

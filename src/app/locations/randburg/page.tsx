@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL, buildLocationLocalBusinessSchema, WIKIDATA } from '@/lib/seo';
 import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -24,27 +24,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const RandburgPage = () => {
-  const locationSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${BASE_URL}/locations/randburg#localbusiness`,
-    name: "Endpoint Media - Web Design Randburg",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Randburg",
-      addressRegion: "Gauteng",
-      addressCountry: "ZA",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: -26.0936,
-      longitude: 28.0064,
-    },
-    url: `${BASE_URL}/locations/randburg`,
-    telephone: "+27-76-972-4559",
-    email: "hello@endpointmedia.co.za",
-    priceRange: "R5,500 - R15,000",
-  };
+  const locationSchema = buildLocationLocalBusinessSchema({
+    slug: 'randburg',
+    label: 'Randburg',
+    latitude: -26.0936,
+    longitude: 28.0064,
+    wikidataUrl: WIKIDATA.randburg,
+  });
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",

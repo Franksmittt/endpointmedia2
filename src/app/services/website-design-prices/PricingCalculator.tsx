@@ -45,11 +45,11 @@ export default function PricingCalculator() {
             step="100"
             value={traffic}
             onChange={(e) => setTraffic(Number(e.target.value))}
-            className="w-full accent-cyan-600 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            className="w-full accent-accent h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
           />
           <div className="flex justify-between text-sm text-gray-600 mt-1">
             <span>100</span>
-            <span className="font-bold text-cyan-600">{traffic.toLocaleString()} visitors/month</span>
+            <span className="font-bold text-accent">{traffic.toLocaleString()} visitors/month</span>
             <span>10,000</span>
           </div>
         </div>
@@ -63,11 +63,11 @@ export default function PricingCalculator() {
             step="0.1"
             value={conversion}
             onChange={(e) => setConversion(Number(e.target.value))}
-            className="w-full accent-cyan-600 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            className="w-full accent-accent h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
           />
           <div className="flex justify-between text-sm text-gray-600 mt-1">
             <span>0.5%</span>
-            <span className="font-bold text-cyan-600">{conversion}%</span>
+            <span className="font-bold text-accent">{conversion}%</span>
             <span>5%</span>
           </div>
         </div>
@@ -81,11 +81,11 @@ export default function PricingCalculator() {
             step="50"
             value={avgOrderValue}
             onChange={(e) => setAvgOrderValue(Number(e.target.value))}
-            className="w-full accent-cyan-600 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            className="w-full accent-accent h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
           />
           <div className="flex justify-between text-sm text-gray-600 mt-1">
             <span>R100</span>
-            <span className="font-bold text-cyan-600">R{avgOrderValue}</span>
+            <span className="font-bold text-accent">R{avgOrderValue}</span>
             <span>R5,000</span>
           </div>
         </div>
@@ -99,11 +99,11 @@ export default function PricingCalculator() {
             step="1"
             value={pages}
             onChange={(e) => setPages(Number(e.target.value))}
-            className="w-full accent-cyan-600 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            className="w-full accent-accent h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
           />
           <div className="flex justify-between text-sm text-gray-600 mt-1">
             <span>3</span>
-            <span className="font-bold text-cyan-600">{pages} pages</span>
+            <span className="font-bold text-accent">{pages} pages</span>
             <span>20</span>
           </div>
         </div>
@@ -126,13 +126,13 @@ export default function PricingCalculator() {
           </div>
         </div>
 
-        <div className="p-6 bg-gradient-to-br from-cyan-600 to-blue-600 text-white rounded-xl shadow-2xl transform scale-105 relative">
+        <div className="p-6 bg-gradient-to-br from-charcoal to-accent-600 text-white rounded-xl shadow-2xl transform scale-105 relative">
           <div className="absolute -top-3 -right-3 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold">
             RECOMMENDED
           </div>
           <h4 className="font-bold text-white mb-2 text-lg">Next.js Performance Asset</h4>
           <p className="text-4xl font-black text-white mb-2">R{formatCurrency(nextjsCost)}</p>
-          <p className="text-sm text-cyan-100 mb-3">Load Time: &lt;1 second</p>
+          <p className="text-sm text-white/80 mb-3">Load Time: &lt;1 second</p>
           <div className="space-y-1 text-sm">
             <p className="text-white">
               <strong>Monthly Revenue:</strong> R{formatCurrency(monthlyRevenueNextjs)}
@@ -147,7 +147,7 @@ export default function PricingCalculator() {
         </div>
       </div>
 
-      <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg">
+      <div className="bg-accent/5 border-l-4 border-accent p-4 rounded-r-lg">
         <p className="text-sm text-gray-700">
           <strong>Research Note:</strong> Google&apos;s Core Web Vitals research shows that a 1-second delay in
           page load time can reduce conversions by up to 7%. Next.js Server Components deliver HTML in under 200ms,

@@ -95,7 +95,7 @@ export default function MeyersdalPage() {
         "name": "What is included in your Private Client service package?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our Private Client division includes digital reputation defense (SEO to push down negative results), privacy-first architecture with dedicated encrypted hosting, and concierge support with direct access to the founder—no tickets, no waiting."
+          "text": "Our Private Client division includes digital reputation defense (SEO to push down negative results), privacy-first architecture with dedicated encrypted hosting, and concierge support with direct access to the founder. No tickets, no waiting."
         }
       },
       {
@@ -265,12 +265,12 @@ export default function MeyersdalPage() {
                 We Know the Landscape
               </h3>
               <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-                <strong className="text-white">Meyersdal Eco Estate</strong> isn&apos;t just a suburb—it&apos;s a statement. 
+                <strong className="text-white">Meyersdal Eco Estate</strong> isn&apos;t just a suburb. It&apos;s a statement. 
                 Situated on the far side of Meyers Kop hill, physically separated from the rest of Alberton, 
                 it represents the pinnacle of exclusivity in Johannesburg South.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed">
-                The residents of Meyersdal don&apos;t need another service provider. They need a <em className="text-amber-500">Consigliere</em>—someone 
+                The residents of Meyersdal don&apos;t need another service provider. They need a <em className="text-amber-500">Consigliere</em>. Someone 
                 who understands that discretion, security, and status aren&apos;t features. They&apos;re requirements.
               </p>
               <div className="mt-8 pt-8 border-t border-slate-800">
@@ -307,7 +307,7 @@ export default function MeyersdalPage() {
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Our Private Client division includes digital reputation defense (SEO to push down negative results), 
-                privacy-first architecture with dedicated encrypted hosting, and concierge support with direct access to the founder—no tickets, no waiting.
+                privacy-first architecture with dedicated encrypted hosting, and concierge support with direct access to the founder. No tickets, no waiting.
               </p>
             </div>
             <div className="bg-slate-900/50 rounded-xl p-6 border-l-4 border-amber-500">
@@ -346,6 +346,8 @@ export default function MeyersdalPage() {
           </div>
         </div>
       </section>
+
+      <HubSpokeLinks variant="location" slug="meyersdal" />
     </>
   );
 }

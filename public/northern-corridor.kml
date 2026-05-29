@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Placemark>
+    <name>Endpoint Media Northern Corridor</name>
+    <description>Web design and Google Ads service area for Sandton, Bryanston, and Rivonia.</description>
+    <Polygon>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+            28.0100,-26.0800
+            28.1000,-26.0800
+            28.1000,-26.1500
+            28.0100,-26.1500
+            28.0100,-26.0800
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+  </Placemark>
+</kml>

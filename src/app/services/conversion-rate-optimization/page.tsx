@@ -140,7 +140,7 @@ const ConversionRateOptimizationPage = () => {
             Turn existing traffic into booked calls and signed retainers.
           </h1>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
-            Our CRO sprints uncover friction inside your funnel—from slow hero sections to weak CTAs—and replace them with
+            Our CRO sprints uncover friction inside your funnel. From slow hero sections to weak CTAs. And replace them with
             high-performing experiences backed by data. No new ad spend required.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
@@ -245,7 +245,7 @@ const ConversionRateOptimizationPage = () => {
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to squeeze more revenue from your current traffic?</h2>
           <p className="text-lg text-emerald-50 max-w-3xl mx-auto mb-8">
-            Book a free CRO audit. We will map the exact pages, forms, and CTAs costing you leads—and the fixes we would deploy in
+            Book a free CRO audit. We will map the exact pages, forms, and CTAs costing you leads. And the fixes we would deploy in
             the next sprint.
           </p>
           <Link

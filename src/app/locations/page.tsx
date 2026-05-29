@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { buildMetadata } from '@/lib/seo';
 import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
+export const revalidate = 86400;
+
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Web Design Locations Johannesburg | Sandton, Bryanston, Rivonia, Midrand, Roodepoort",
@@ -176,7 +178,7 @@ const LocationsPage = () => {
               <p className="text-lg mb-6">
                 <strong className="text-gray-900">Hyper-local SEO strategy</strong> means creating location-specific 
                 landing pages that target "service + suburb" keyword combinations. When a potential customer in Sandton 
-                searches for "web design Sandton," they see your Sandton-specific page—not a generic homepage. This 
+                searches for "web design Sandton," they see your Sandton-specific page. Not a generic homepage. This 
                 precision targeting dramatically increases conversion rates and local search visibility.
               </p>
               <h3 className="text-2xl font-bold font-heading text-gray-900 mt-8 mb-4">

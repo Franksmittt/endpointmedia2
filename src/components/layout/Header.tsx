@@ -7,11 +7,12 @@ import Link from 'next/link';
 // Define the new navigation links
 const navLinks = [
   { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' }, // Link to a main services page
-  { name: 'Our Process', href: '/process' }, // Link to a dedicated process page
-  { name: 'Case Studies', href: '/case-studies' }, // Link to case studies page
-  { name: 'Pricing', href: '/pricing' }, // Link to pricing page
-  { name: 'Blog', href: '/blog' }, // Link to blog page
+  { name: 'Services', href: '/services' },
+  { name: 'Locations', href: '/locations' },
+  { name: 'Our Process', href: '/process' },
+  { name: 'Case Studies', href: '/case-studies' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'Blog', href: '/blog' },
 ];
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = buildMetadata({
   title: 'Terms of Service',
   description:

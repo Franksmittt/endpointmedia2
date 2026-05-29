@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL, buildLocationLocalBusinessSchema, WIKIDATA } from '@/lib/seo';
 import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -29,47 +29,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const SandtonPage = () => {
   // JSON-LD Schema for Sandton location page
-  const locationSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${BASE_URL}/locations/sandton#localbusiness`,
-    name: "Endpoint Media - Web Design Sandton",
-    image: `${BASE_URL}/images/logo.png`,
-    description: "Professional web design and local SEO services for Sandton businesses",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Sandton",
-      addressRegion: "Gauteng",
-      addressCountry: "ZA",
-      streetAddress: "Sandton Central",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: -26.1076,
-      longitude: 28.0567,
-    },
-    url: `${BASE_URL}/locations/sandton`,
-    telephone: "+27-76-972-4559",
-    email: "hello@endpointmedia.co.za",
-    priceRange: "R5,500 - R15,000",
-    areaServed: {
-      "@type": "City",
-      name: "Sandton",
-    },
-    serviceArea: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: -26.1076,
-        longitude: 28.0567,
-      },
-      geoRadius: {
-        "@type": "Distance",
-        value: "10",
-        unitCode: "KM",
-      },
-    },
-  };
+  const locationSchema = buildLocationLocalBusinessSchema({
+    slug: 'sandton',
+    label: 'Sandton',
+    latitude: -26.1076,
+    longitude: 28.0567,
+    wikidataUrl: WIKIDATA.sandton,
+    serviceRadiusKm: 10,
+  });
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -171,7 +138,7 @@ const SandtonPage = () => {
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
                   Sandton is Africa&apos;s financial capital, home to the JSE and major corporate headquarters. 
-                  We understand the sophisticated needs of Sandton businesses—trust, professionalism, and 
+                  We understand the sophisticated needs of Sandton businesses. Trust, professionalism, and 
                   measurable ROI are non-negotiable.
                 </p>
               </div>
@@ -237,10 +204,12 @@ const SandtonPage = () => {
                 </p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-md">
-                <h3 className="text-xl font-bold mb-2 font-heading text-gray-900">Rivonia Road</h3>
-                <p className="text-gray-600 text-sm">
-                  Office parks, professional services, tech companies
-                </p>
+                <Link href="/locations/rivonia" className="block group">
+                  <h3 className="text-xl font-bold mb-2 font-heading text-gray-900 group-hover:text-accent transition-colors">Rivonia Road</h3>
+                  <p className="text-gray-600 text-sm">
+                    Office parks, professional services, tech companies
+                  </p>
+                </Link>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-md">
                 <h3 className="text-xl font-bold mb-2 font-heading text-gray-900">Grayson Drive</h3>

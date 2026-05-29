@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL, buildLocationLocalBusinessSchema, WIKIDATA } from '@/lib/seo';
 import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -26,27 +26,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const RoodepoortPage = () => {
-  const locationSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${BASE_URL}/locations/roodepoort#localbusiness`,
-    name: "Endpoint Media - Web Design Roodepoort",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Roodepoort",
-      addressRegion: "Gauteng",
-      addressCountry: "ZA",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: -26.1625,
-      longitude: 27.8725,
-    },
-    url: `${BASE_URL}/locations/roodepoort`,
-    telephone: "+27-76-972-4559",
-    email: "hello@endpointmedia.co.za",
-    priceRange: "R5,500 - R15,000",
-  };
+  const locationSchema = buildLocationLocalBusinessSchema({
+    slug: 'roodepoort',
+    label: 'Roodepoort',
+    latitude: -26.1625,
+    longitude: 27.8725,
+    wikidataUrl: WIKIDATA.roodepoort,
+  });
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",

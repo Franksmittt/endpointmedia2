@@ -38,6 +38,79 @@ export const FRANK_SMIT_ID = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www
  */
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za';
 
+/** Google Business Profile Maps CID */
+export const GBP_MAPS_URL = 'https://www.google.com/maps?cid=06180556288562610524';
+
+export const WIKIDATA = {
+  johannesburg: 'https://www.wikidata.org/wiki/Q1754',
+  sandton: 'https://www.wikidata.org/wiki/Q1025682',
+  midrand: 'https://www.wikidata.org/wiki/Q1025681',
+  randburg: 'https://www.wikidata.org/wiki/Q2719072',
+  bryanston: 'https://www.wikidata.org/wiki/Q4927445',
+  rivonia: 'https://www.wikidata.org/wiki/Q7338859',
+  fourways: 'https://www.wikidata.org/wiki/Q5454389',
+  rosebank: 'https://www.wikidata.org/wiki/Q7371732',
+  waterfall: 'https://www.wikidata.org/wiki/Q7969776',
+  benoni: 'https://www.wikidata.org/wiki/Q816873',
+  roodepoort: 'https://www.wikidata.org/wiki/Q943397',
+  alberton: 'https://www.wikidata.org/wiki/Q3593815',
+  bedfordview: 'https://www.wikidata.org/wiki/Q813076',
+  southAfrica: 'https://www.wikidata.org/wiki/Q258',
+} as const;
+
+export function cityAreaServed(name: string, wikidataUrl: string) {
+  return { '@type': 'City' as const, name, sameAs: wikidataUrl };
+}
+
+export function buildLocationLocalBusinessSchema(config: {
+  slug: string;
+  label: string;
+  latitude: number;
+  longitude: number;
+  wikidataUrl: string;
+  serviceRadiusKm?: number;
+}) {
+  const url = `${BASE_URL}/locations/${config.slug}`;
+
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${url}#localbusiness`,
+    name: `Endpoint Media - Web Design ${config.label}`,
+    image: `${BASE_URL}/images/logo.png`,
+    description: `Professional web design and local SEO services for ${config.label} businesses`,
+    parentOrganization: { '@id': ORG_ID },
+    areaServed: cityAreaServed(config.label, config.wikidataUrl),
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: config.latitude,
+      longitude: config.longitude,
+    },
+    url,
+    telephone: '+27-76-972-4559',
+    email: 'hello@endpointmedia.co.za',
+    priceRange: 'R5,500 - R15,000',
+  };
+
+  if (config.serviceRadiusKm) {
+    schema.serviceArea = {
+      '@type': 'GeoCircle',
+      geoMidpoint: {
+        '@type': 'GeoCoordinates',
+        latitude: config.latitude,
+        longitude: config.longitude,
+      },
+      geoRadius: {
+        '@type': 'Distance',
+        value: String(config.serviceRadiusKm),
+        unitCode: 'KM',
+      },
+    };
+  }
+
+  return schema;
+}
+
 type OpenGraphType =
   | 'website'
   | 'article'

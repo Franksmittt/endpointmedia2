@@ -45,7 +45,7 @@ const differentiators = [
   },
   {
     title: 'Weekly operator-level reporting',
-    body: 'Dashboards focused on cost per booked job, pipeline value, and margin—not vanity metrics.',
+    body: 'Dashboards focused on cost per booked job, pipeline value, and margin. Not vanity metrics.',
   },
 ];
 
@@ -143,7 +143,7 @@ const GoogleAdsPage = () => {
           </h1>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
             We rebuild Google Ads for Johannesburg operators in one sprint: campaign architecture, landing pages, GA4 + call
-            tracking, and relentless optimization tied to actual lead quality. No retainers—just measurable ROI.
+            tracking, and relentless optimization tied to actual lead quality. No retainers. Just measurable ROI.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
             <Link
@@ -190,7 +190,7 @@ const GoogleAdsPage = () => {
             </h2>
             <p className="text-lg text-gray-600 mt-4">
               We obsess over booked jobs and pipeline value. That means fixing tracking, aligning landing pages, and iterating on
-              real sales feedback—not just tweaking bids.
+              real sales feedback. Not just tweaking bids.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -257,7 +257,7 @@ const GoogleAdsPage = () => {
             </h2>
             <p className="text-lg text-gray-600 mt-4">
               Endpoint Media combines campaign management, Performance Max, dedicated landing pages, and
-              transparent ZAR pricing—built for manufacturers, automotive, finance, and local service operators.
+              transparent ZAR pricing. Built for manufacturers, automotive, finance, and local service operators.
             </p>
           </div>
           <InternalLinks

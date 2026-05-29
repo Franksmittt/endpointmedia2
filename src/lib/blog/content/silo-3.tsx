@@ -12,12 +12,12 @@ export function LocalSeoBlueprint() {
   return (
     <>
       <Lead>
-        Advanced Local SEO strategy in 2026 is hub-and-spoke semantic architecture — not Google Business Profile spam and keyword-stuffed footer lists. For Gauteng industrial operators in Alrode, Wadeville, and Germiston, regional dominance requires programmatic landing pages, KML geo data, and internal link equity flowing through dedicated silos.
+        Advanced Local SEO strategy in 2026 is hub-and-spoke semantic architecture . Not Google Business Profile spam and keyword-stuffed footer lists. For Gauteng industrial operators in Alrode, Wadeville, and Germiston, regional dominance requires programmatic landing pages, KML geo data, and internal link equity flowing through dedicated silos.
       </Lead>
 
       <H2>Hub-and-Spoke Regional Model</H2>
       <P>
-        A hub page (/locations/new-redruth) establishes regional authority. Spoke pages target specific industrial nodes and service intents (/services/google-ads-alrode, /services/google-ads-wadeville). Each spoke links back to the hub and cross-links to related services — creating a crawlable semantic graph Google resolves as topical authority.
+        A hub page (/locations/new-redruth) establishes regional authority. Spoke pages target specific industrial nodes and service intents (/services/google-ads-alrode, /services/google-ads-wadeville). Each spoke links back to the hub and cross-links to related services . Creating a crawlable semantic graph Google resolves as topical authority.
       </P>
       <SemanticSiloDiagram />
 
@@ -27,12 +27,12 @@ export function LocalSeoBlueprint() {
         <>Embedded LocalBusiness JSON-LD with GeoCoordinates per node</>,
         <>NAP consistency across page, schema, and KML file</>,
         <>Internal links to case studies and service pages in same region</>,
-        <>No duplicate content — each page addresses distinct search intent</>,
+        <>No duplicate content . Each page addresses distinct search intent</>,
       ]} />
 
       <H2>KML Integration</H2>
       <P>
-        Keyhole Markup Language files define service area polygons for search engines. Our alberton-service-area.kml is declared in robots.ts alongside sitemap.xml — dual signals for geographic relevance that single-location competitors cannot replicate at scale.
+        Keyhole Markup Language files define service area polygons for search engines. Our alberton-service-area.kml is declared in robots.ts alongside sitemap.xml . Dual signals for geographic relevance that single-location competitors cannot replicate at scale.
       </P>
 
       <P>
@@ -46,12 +46,12 @@ export function B2bDigitalMarketingIndustries() {
   return (
     <>
       <Lead>
-        Manufacturing and commercial services companies still relying on word-of-mouth are invisible to the 70% of procurement officers who complete independent digital research before initiating vendor contact. Industrial marketing strategies must capture this research phase — or competitors will.
+        Manufacturing and commercial services companies still relying on word-of-mouth are invisible to the 70% of procurement officers who complete independent digital research before initiating vendor contact. Industrial marketing strategies must capture this research phase . Or competitors will.
       </Lead>
 
       <H2>The 70% Independent Research Phase</H2>
       <P>
-        B2B buyers in South Africa run 60–90 day (up to 180 day for enterprise) evaluation cycles. They search technical long-tail queries: &quot;Google Ads manufacturing Alrode,&quot; &quot;B2B website development Germiston,&quot; &quot;local SEO industrial Wadeville.&quot; If you do not rank for these queries with authoritative content, you are not in the consideration set — regardless of your offline reputation.
+        B2B buyers in South Africa run 60–90 day (up to 180 day for enterprise) evaluation cycles. They search technical long-tail queries: &quot;Google Ads manufacturing Alrode,&quot; &quot;B2B website development Germiston,&quot; &quot;local SEO industrial Wadeville.&quot; If you do not rank for these queries with authoritative content, you are not in the consideration set . Regardless of your offline reputation.
       </P>
       <IndustrialBuyerJourney />
 
@@ -64,7 +64,7 @@ export function B2bDigitalMarketingIndustries() {
       ]} />
 
       <Callout title="Commercial Services Digital Client Acquisition" variant="teal">
-        <p>Endpoint Media&apos;s AS Brokers case study demonstrates B2B topical authority converting research-phase traffic into qualified pipeline — before a single cold call.</p>
+        <p>Endpoint Media&apos;s AS Brokers case study demonstrates B2B topical authority converting research-phase traffic into qualified pipeline . Before a single cold call.</p>
       </Callout>
 
       <P>
@@ -83,20 +83,20 @@ export function MinimalistDesignB2b() {
 
       <H2>Cognitive Load Reduction</H2>
       <P>
-        Every visual element competes for attention. Stock hero sliders, three font families, gradient backgrounds, and floating chat widgets increase cognitive load — delaying the trust decision. High-contrast layouts with one accent color, consistent spacing scale, and clear information hierarchy reduce decision friction.
+        Every visual element competes for attention. Stock hero sliders, three font families, gradient backgrounds, and floating chat widgets increase cognitive load . Delaying the trust decision. High-contrast layouts with one accent color, consistent spacing scale, and clear information hierarchy reduce decision friction.
       </P>
       <DesignTrustMetric />
 
       <H2>Next.js + Tailwind for Premium Execution</H2>
       <P>
-        Tailwind CSS enforces design system consistency via utility classes — no orphaned CSS rules, no theme bloat. Next.js Server Components deliver this aesthetic at 12KB CSS payload. The result: fast, trustworthy, premium-feeling B2B experiences that justify R25,000–R75,000+ project pricing in the buyer&apos;s mind before the first sales call.
+        Tailwind CSS enforces design system consistency via utility classes . No orphaned CSS rules, no theme bloat. Next.js Server Components deliver this aesthetic at 12KB CSS payload. The result: fast, trustworthy, premium-feeling B2B experiences that justify R25,000–R75,000+ project pricing in the buyer&apos;s mind before the first sales call.
       </P>
 
       <UL items={[
         <>Maximum 2 font families (heading + body)</>,
         <>Single primary CTA color with high contrast ratio (WCAG AA minimum)</>,
         <>8px spacing grid for visual rhythm</>,
-        <>Photography: real team/client imagery only — no stock handshakes</>,
+        <>Photography: real team/client imagery only . No stock handshakes</>,
       ]} />
 
       <P>
@@ -110,7 +110,7 @@ export function StructuredDataLocalSchema() {
   return (
     <>
       <Lead>
-        Local Business JSON-LD is the machine-readable bridge between your physical service area and map pack results. Without GeoCoordinates, areaServed arrays, and consistent @id entity linking, you are relying on Google to guess your relevance — and Google guesses wrong in densely populated industrial corridors.
+        Local Business JSON-LD is the machine-readable bridge between your physical service area and map pack results. Without GeoCoordinates, areaServed arrays, and consistent @id entity linking, you are relying on Google to guess your relevance . And Google guesses wrong in densely populated industrial corridors.
       </Lead>
 
       <H2>LocalBusiness Schema Components</H2>
@@ -129,7 +129,7 @@ export function StructuredDataLocalSchema() {
 
       <H3>Implementation in Next.js</H3>
       <P>
-        Use secureJsonLD() with HTML tag sanitization (substituting &lt; with \u003c) in Server Components. Type schema objects with TypeScript for compile-time validation. Never inject schema client-side — it must be in initial HTML for crawler visibility.
+        Use secureJsonLD() with HTML tag sanitization (substituting &lt; with \u003c) in Server Components. Type schema objects with TypeScript for compile-time validation. Never inject schema client-side . It must be in initial HTML for crawler visibility.
       </P>
 
       <P>
@@ -143,7 +143,7 @@ export function MaximizingRegionalMapVisibility() {
   return (
     <>
       <Lead>
-        Regional map pack dominance is a systemic engineering outcome — citation synchronicity, KML overlays, programmatic sitemaps, and JSON-LD working in concert. It is not a marketing accident from listing your business on 50 directories with inconsistent phone numbers.
+        Regional map pack dominance is a systemic engineering outcome . Citation synchronicity, KML overlays, programmatic sitemaps, and JSON-LD working in concert. It is not a marketing accident from listing your business on 50 directories with inconsistent phone numbers.
       </Lead>
 
       <H2>Citation Audit Sequence</H2>

@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL, buildLocationLocalBusinessSchema, WIKIDATA } from '@/lib/seo';
 import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -23,27 +23,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const WaterfallPage = () => {
-  const locationSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${BASE_URL}/locations/waterfall#localbusiness`,
-    name: "Endpoint Media - Web Design Waterfall",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Waterfall",
-      addressRegion: "Gauteng",
-      addressCountry: "ZA",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: -26.0967,
-      longitude: 28.0867,
-    },
-    url: `${BASE_URL}/locations/waterfall`,
-    telephone: "+27-76-972-4559",
-    email: "hello@endpointmedia.co.za",
-    priceRange: "R5,500 - R15,000",
-  };
+  const locationSchema = buildLocationLocalBusinessSchema({
+    slug: 'waterfall',
+    label: 'Waterfall',
+    latitude: -26.0967,
+    longitude: 28.0867,
+    wikidataUrl: WIKIDATA.waterfall,
+  });
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",

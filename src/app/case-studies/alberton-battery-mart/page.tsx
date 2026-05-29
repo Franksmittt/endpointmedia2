@@ -27,6 +27,7 @@ const AlbertonBatteryMartCaseStudy = () => {
   return (
     <>
       <CaseStudyArticleSchema slug="alberton-battery-mart" />
+      <article itemScope itemType="https://schema.org/Article">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-orange-900 via-orange-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
@@ -40,7 +41,7 @@ const AlbertonBatteryMartCaseStudy = () => {
             Back to Case Studies
           </Link>
           
-          <div className="max-w-4xl">
+          <figure className="max-w-4xl">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-semibold uppercase tracking-wider text-orange-300 bg-orange-400/20 px-4 py-2 rounded-full border border-orange-400/30">Battery Retail & Mobile Service</span>
               <span className="text-xs font-semibold uppercase tracking-wider text-orange-200 bg-orange-800/50 px-4 py-2 rounded-full border border-orange-700">Alberton Region</span>
@@ -48,10 +49,8 @@ const AlbertonBatteryMartCaseStudy = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 font-heading">
               Alberton Battery Mart: Authority & Speed in Mobile Battery Service
             </h1>
-            <p className="text-lg md:text-xl text-orange-100 max-w-3xl">
-              A ground-up strategic and technical overhaul positioning Alberton Battery Mart as the fastest, most reliable mobile battery service with advanced product discovery and Google integration.
-            </p>
-          </div>
+            <figcaption className="text-lg md:text-xl text-orange-100 max-w-3xl">A ground-up strategic and technical overhaul positioning Alberton Battery Mart as the fastest, most reliable mobile battery service with advanced product discovery and Google integration.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -67,7 +66,7 @@ const AlbertonBatteryMartCaseStudy = () => {
                 This project was a <strong className="font-semibold text-gray-900">ground-up strategic and technical overhaul</strong> to position Alberton Battery Mart as the undeniable authority and fastest, most reliable mobile service in the region.
               </p>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Every decision—from technical architecture to content strategy—was designed with one goal: <strong className="text-orange-700 font-semibold">generating qualified leads that convert</strong>.
+                Every decision. From technical architecture to content strategy. Was designed with one goal: <strong className="text-orange-700 font-semibold">generating qualified leads that convert</strong>.
               </p>
             </div>
           </div>
@@ -99,7 +98,7 @@ const AlbertonBatteryMartCaseStudy = () => {
                   </div>
                 </div>
                 <p className="text-gray-700 ml-16">
-                  The Next.js App Router framework ensured <strong className="font-semibold">lightning-fast load times</strong> and seamless navigation, achieving <strong className="text-orange-700 font-semibold">perfect Lighthouse scores right out of the box</strong>. Speed isn&apos;t just a nice-to-have—it&apos;s essential for converting stranded customers.
+                  The Next.js App Router framework ensured <strong className="font-semibold">lightning-fast load times</strong> and seamless navigation, achieving <strong className="text-orange-700 font-semibold">perfect Lighthouse scores right out of the box</strong>. Speed isn&apos;t just a nice-to-have. It&apos;s essential for converting stranded customers.
                 </p>
               </div>
 
@@ -116,7 +115,7 @@ const AlbertonBatteryMartCaseStudy = () => {
                   </div>
                 </div>
                 <p className="text-gray-700 ml-16">
-                  We maximized lead flow by integrating <strong className="font-semibold">WhatsApp messaging and direct Call buttons</strong> into the sticky header, hero section, and final footer CTA. Customers can contact the business <strong className="text-teal-700 font-semibold">within seconds from any page</strong>—critical for emergency battery replacement scenarios.
+                  We maximized lead flow by integrating <strong className="font-semibold">WhatsApp messaging and direct Call buttons</strong> into the sticky header, hero section, and final footer CTA. Customers can contact the business <strong className="text-teal-700 font-semibold">within seconds from any page</strong>. Critical for emergency battery replacement scenarios.
                 </p>
               </div>
 
@@ -402,10 +401,9 @@ const AlbertonBatteryMartCaseStudy = () => {
               A strategic website transformation that positions Alberton Battery Mart as the fastest, most authoritative mobile battery service in the region.
             </p>
             
-            <div className="grid md:grid-cols-4 gap-6 mb-12">
+            <figure><figcaption className="sr-only">Key project outcomes</figcaption><div className="grid md:grid-cols-4 gap-6 mb-12">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-extrabold mb-2">30+</div>
-                <p className="text-orange-100 text-sm">Targeted Blog Posts</p>
+                <div className="text-3xl font-extrabold mb-2">30+</div><p className="text-orange-100 text-sm">Targeted Blog Posts</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <div className="text-3xl font-extrabold mb-2">100%</div>
@@ -419,7 +417,7 @@ const AlbertonBatteryMartCaseStudy = () => {
                 <div className="text-3xl font-extrabold mb-2">Instant</div>
                 <p className="text-orange-100 text-sm">Contact Options</p>
               </div>
-            </div>
+            </div></figure>
           </div>
         </div>
       </section>
@@ -452,6 +450,7 @@ const AlbertonBatteryMartCaseStudy = () => {
         </div>
       </section>
       <HubSpokeLinks variant="case-study" slug="alberton-battery-mart" />
+      </article>
     </>
   );
 };

@@ -4,6 +4,8 @@ import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from "@/lib/seo";
 
+export const revalidate = 86400;
+
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
   title: "Web Design & SEO Services Johannesburg",
@@ -28,7 +30,7 @@ const serviceCards = [
   {
     title: "Web Design Firm Services",
     description:
-      "Professional digital architecture firm engineering Next.js enterprise solutions. Beyond templates—we build scalable digital assets.",
+      "Professional digital architecture firm engineering Next.js enterprise solutions. Beyond templates. We build scalable digital assets.",
     href: "/services/web-design-firms",
     badge: "Enterprise",
     icon: (
@@ -118,7 +120,7 @@ const serviceCards = [
   {
     title: "B2B Google Ads Management",
     description:
-      "Flat-fee PPC for manufacturing, finance, and corporate Gauteng—paired with Next.js pages that cut CPC via Quality Score.",
+      "Flat-fee PPC for manufacturing, finance, and corporate Gauteng. Paired with Next.js pages that cut CPC via Quality Score.",
     href: "/services/b2b-google-ads-management",
     badge: "B2B",
     icon: (
@@ -182,7 +184,7 @@ const serviceCards = [
   {
     title: "Growth Rescue: CRO & Tracking",
     description:
-      "Emergency sprints to fix broken funnels, analytics, and paid media—stabilise lead flow in 30 days.",
+      "Emergency sprints to fix broken funnels, analytics, and paid media. Stabilise lead flow in 30 days.",
     href: "/services/growth-rescue",
     badge: "New",
     icon: (
@@ -246,7 +248,7 @@ const ServicesPage = () => {
         name: "What makes Endpoint Media different from other web design agencies?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We combine technical excellence (Next.js, performance optimization) with deep local SEO expertise. We're not an agency with overhead—we're a dedicated expert focused on your ROI. Every website we build includes advanced schema markup, hyper-local SEO, and conversion optimization.",
+          text: "We combine technical excellence (Next.js, performance optimization) with deep local SEO expertise. We're not an agency with overhead. We're a dedicated expert focused on your ROI. Every website we build includes advanced schema markup, hyper-local SEO, and conversion optimization.",
         },
       },
       {
@@ -378,7 +380,7 @@ const ServicesPage = () => {
                 </h3>
                 <p className="text-gray-700">
                   We combine technical excellence (Next.js, performance optimization) with deep local 
-                  SEO expertise. We&apos;re not an agency with overhead—we&apos;re a dedicated expert 
+                  SEO expertise. We&apos;re not an agency with overhead. We&apos;re a dedicated expert 
                   focused on your ROI. Every website we build includes advanced schema markup, 
                   hyper-local SEO, and conversion optimization.
                 </p>

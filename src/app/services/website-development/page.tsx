@@ -8,6 +8,8 @@ import { buildMetadata, secureJsonLD, BASE_URL, ORG_ID } from '@/lib/seo';
 // CANONICAL SLUG - Single source of truth for self-healing URLs
 const CANONICAL_SLUG = 'website-development';
 
+export const revalidate = 86400;
+
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Website Development Services Johannesburg | Next.js 15 & Modern Architecture",
@@ -435,7 +437,7 @@ const WebsiteDevelopmentPage = () => {
               </div>
 
               <div className="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent-600 rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
@@ -504,22 +506,22 @@ const WebsiteDevelopmentPage = () => {
                 </ul>
               </div>
 
-              <div className="border-l-4 border-purple-600 pl-6">
+              <div className="border-l-4 border-accent pl-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Metadata API: Programmatic SEO</h3>
                 <p className="text-gray-700 mb-4">
                   Next.js 15&apos;s Metadata API runs on the server and dynamically generates meta tags, eliminating title duplication and ensuring every page has proper canonical tags. Unlike WordPress plugins, this is built into the framework.
                 </p>
                 <ul className="space-y-2 text-gray-700 ml-4">
                   <li className="flex items-start">
-                    <span className="text-purple-600 mr-2">•</span>
+                    <span className="text-accent mr-2">•</span>
                     <span>Automatic canonical tag generation (self-referencing)</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-purple-600 mr-2">•</span>
+                    <span className="text-accent mr-2">•</span>
                     <span>Open Graph and Twitter Card optimization</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-purple-600 mr-2">•</span>
+                    <span className="text-accent mr-2">•</span>
                     <span>Dynamic metadata based on content (no manual management)</span>
                   </li>
                 </ul>

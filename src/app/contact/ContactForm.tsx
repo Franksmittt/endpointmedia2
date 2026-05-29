@@ -22,6 +22,8 @@ export default function ContactForm() {
       email: formData.get('email'),
       phone: formData.get('phone'),
       message: formData.get('message'),
+      honeypot: formData.get('honeypot'),
+      source: 'contact-form',
     };
 
     try {
@@ -67,7 +69,7 @@ export default function ContactForm() {
   return (
     <div className="p-8 bg-white rounded-xl shadow-2xl text-left max-w-2xl mx-auto border-t-4 border-gray-900 h-full">
       <h3 className="text-3xl font-bold font-heading mb-6 text-gray-900">Send Us an Inquiry</h3>
-      <form onSubmit={handleSubmit} method="POST" className="space-y-6">
+      <form onSubmit={handleSubmit} method="POST" className="space-y-6 relative">
         <div>
           <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-1">
             Your Full Name <span className="text-red-500">*</span>
@@ -133,6 +135,8 @@ export default function ContactForm() {
 
         {submitMessage && (
           <div
+            role={submitMessage.type === 'error' ? 'alert' : 'status'}
+            aria-live="polite"
             className={`p-4 rounded-lg ${
               submitMessage.type === 'success'
                 ? 'bg-green-50 text-green-800 border border-green-200'

@@ -27,6 +27,7 @@ const SakanaNoIchiCaseStudy = () => {
   return (
     <>
       <CaseStudyArticleSchema slug="sakana-no-ichi" />
+      <article itemScope itemType="https://schema.org/Article">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
@@ -40,7 +41,7 @@ const SakanaNoIchiCaseStudy = () => {
             Back to Case Studies
           </Link>
           
-          <div className="max-w-4xl">
+          <figure className="max-w-4xl">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-semibold uppercase tracking-wider text-amber-300 bg-amber-400/20 px-4 py-2 rounded-full border border-amber-400/30">Luxury Brand Development</span>
               <span className="text-xs font-semibold uppercase tracking-wider text-amber-200 bg-amber-800/50 px-4 py-2 rounded-full border border-amber-700">Premium Lifestyle</span>
@@ -48,10 +49,8 @@ const SakanaNoIchiCaseStudy = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 font-heading">
               Sakana no Ichi (魚の市): Complete Brand Development & Luxury Positioning
             </h1>
-            <p className="text-lg md:text-xl text-amber-100 max-w-3xl">
-              A showcase of complete <strong className="text-amber-300 font-semibold">Brand Development</strong>, transforming a simple product concept (Koi fish food) into a premium, luxury lifestyle and philosophical experience. The focus shifts from product sales to <strong className="text-amber-300 font-semibold">mindful ritual and aesthetic excellence</strong>.
-            </p>
-          </div>
+            <figcaption className="text-lg md:text-xl text-amber-100 max-w-3xl">A showcase of complete <strong className="text-amber-300 font-semibold">Brand Development</strong>, transforming a simple product concept (Koi fish food) into a premium, luxury lifestyle and philosophical experience. The focus shifts from product sales to <strong className="text-amber-300 font-semibold">mindful ritual and aesthetic excellence</strong>.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -382,7 +381,7 @@ const SakanaNoIchiCaseStudy = () => {
                 </div>
                 <div className="bg-white rounded-lg p-4 border border-amber-200">
                   <p className="font-semibold text-gray-900 mb-2"><code className="bg-gray-100 px-2 py-1 rounded text-sm">#gallery</code> (Colors)</p>
-                  <p className="text-gray-700 text-sm">Focuses on the core aesthetic benefit—vibrant color expression in Koi, demonstrating the visual impact of the product.</p>
+                  <p className="text-gray-700 text-sm">Focuses on the core aesthetic benefit. Vibrant color expression in Koi, demonstrating the visual impact of the product.</p>
                 </div>
                 <div className="bg-white rounded-lg p-4 border border-amber-200">
                   <p className="font-semibold text-gray-900 mb-2"><code className="bg-gray-100 px-2 py-1 rounded text-sm">#offering</code> (The Package)</p>
@@ -471,10 +470,9 @@ const SakanaNoIchiCaseStudy = () => {
               A complete brand transformation that elevates Sakana no Ichi from product to premium lifestyle philosophy.
             </p>
             
-            <div className="grid md:grid-cols-4 gap-6 mb-12">
+            <figure><figcaption className="sr-only">Key project outcomes</figcaption><div className="grid md:grid-cols-4 gap-6 mb-12">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-extrabold mb-2">Complete</div>
-                <p className="text-amber-100 text-sm">Brand Development</p>
+                <div className="text-3xl font-extrabold mb-2">Complete</div><p className="text-amber-100 text-sm">Brand Development</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <div className="text-3xl font-extrabold mb-2">Premium</div>
@@ -488,7 +486,7 @@ const SakanaNoIchiCaseStudy = () => {
                 <div className="text-3xl font-extrabold mb-2">Mindful</div>
                 <p className="text-amber-100 text-sm">Ritual Focus</p>
               </div>
-            </div>
+            </div></figure>
           </div>
         </div>
       </section>
@@ -521,6 +519,7 @@ const SakanaNoIchiCaseStudy = () => {
         </div>
       </section>
       <HubSpokeLinks variant="case-study" slug="sakana-no-ichi" />
+      </article>
     </>
   );
 };

@@ -6,11 +6,13 @@ import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 const PAGE_PATH = '/services/review-management';
 
+export const revalidate = 86400;
+
 const faqs = [
   {
     question: 'How do you get more Google reviews without being pushy?',
     answer:
-      'We set up automated, tasteful review request workflows triggered after service completion. SMS, email, and WhatsApp templates that feel personal—not robotic. We also train your team on the right moments to ask.',
+      'We set up automated, tasteful review request workflows triggered after service completion. SMS, email, and WhatsApp templates that feel personal. Not robotic. We also train your team on the right moments to ask.',
   },
   {
     question: 'Can you respond to reviews on our behalf?',
@@ -44,7 +46,7 @@ const proofStats = [
 const serviceFeatures = [
   {
     title: 'Automated review requests',
-    body: 'Smart workflows that trigger review requests at the perfect moment—after service completion, via SMS, email, or WhatsApp. Templates that feel personal, not pushy.',
+    body: 'Smart workflows that trigger review requests at the perfect moment. After service completion, via SMS, email, or WhatsApp. Templates that feel personal, not pushy.',
   },
   {
     title: 'Professional review responses',
@@ -151,9 +153,9 @@ const ReviewManagementPage = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900 text-white py-20 md:py-28">
+      <section className="bg-gradient-to-br from-charcoal via-gray-800 to-charcoal-dark text-white py-20 md:py-28">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-purple-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">Reviews • Reputation • Rankings</p>
+          <p className="text-accent/80 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">Reviews • Reputation • Rankings</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
             Turn satisfied customers into 5-star reviews that drive bookings.
           </h1>
@@ -164,7 +166,7 @@ const ReviewManagementPage = () => {
           <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-purple-500 text-white shadow-lg shadow-purple-500/30 hover:bg-purple-400 transition"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-accent text-white shadow-lg shadow-accent/30 hover:bg-accent-600 transition"
             >
               Get a review audit
             </Link>
@@ -199,7 +201,7 @@ const ReviewManagementPage = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <p className="text-purple-600 font-semibold uppercase tracking-wide">What we deliver</p>
+            <p className="text-accent-600 font-semibold uppercase tracking-wide">What we deliver</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
               Everything required to build and protect your online reputation.
             </h2>
@@ -223,7 +225,7 @@ const ReviewManagementPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mb-12">
-            <p className="text-purple-600 font-semibold uppercase tracking-wide">How it works</p>
+            <p className="text-accent-600 font-semibold uppercase tracking-wide">How it works</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
               A systematic approach to review generation and management.
             </h2>
@@ -231,7 +233,7 @@ const ReviewManagementPage = () => {
           <div className="grid gap-6 md:grid-cols-3">
             {processSteps.map((step) => (
               <div key={step.step} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
-                <p className="text-purple-500 text-sm font-semibold">Step {step.step}</p>
+                <p className="text-accent text-sm font-semibold">Step {step.step}</p>
                 <h3 className="text-xl font-semibold text-gray-900 mt-3 mb-2">{step.title}</h3>
                 <p className="text-gray-600">{step.body}</p>
               </div>
@@ -244,7 +246,7 @@ const ReviewManagementPage = () => {
       <section className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <p className="text-purple-300 font-semibold uppercase tracking-wide">Why reviews matter</p>
+            <p className="text-accent/80 font-semibold uppercase tracking-wide">Why reviews matter</p>
             <h2 className="text-3xl md:text-4xl font-extrabold mt-3">
               Reviews are a ranking signal, a trust signal, and a conversion driver.
             </h2>
@@ -274,16 +276,16 @@ const ReviewManagementPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-purple-600 to-indigo-600 text-white text-center">
+      <section className="py-20 bg-gradient-to-br from-charcoal to-accent-600 text-white text-center">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to turn satisfied customers into 5-star reviews?</h2>
-          <p className="text-lg text-purple-50 max-w-3xl mx-auto mb-8">
+          <p className="text-lg text-white/90 max-w-3xl mx-auto mb-8">
             Get a free review audit. We will analyze your current review profile, benchmark against competitors, and show you the
             exact strategy we would deploy to increase review volume and improve ratings.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-purple-700 hover:bg-purple-50 transition"
+            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-accent-600 hover:bg-accent/10 transition"
           >
             Request a review audit
           </Link>
@@ -294,7 +296,7 @@ const ReviewManagementPage = () => {
       <section className="py-20 bg-white" id="faq">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <p className="text-purple-600 font-semibold uppercase tracking-wide">FAQs</p>
+            <p className="text-accent-600 font-semibold uppercase tracking-wide">FAQs</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
               Common review management questions from Johannesburg businesses.
             </h2>
@@ -304,7 +306,7 @@ const ReviewManagementPage = () => {
               <details key={faq.question} className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group">
                 <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
                   {faq.question}
-                  <span className="text-purple-500 group-open:rotate-45 transition-transform">+</span>
+                  <span className="text-accent group-open:rotate-45 transition-transform">+</span>
                 </summary>
                 <p className="text-gray-600 mt-4">{faq.answer}</p>
               </details>

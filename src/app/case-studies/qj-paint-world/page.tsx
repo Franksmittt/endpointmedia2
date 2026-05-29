@@ -27,6 +27,7 @@ const QJPaintWorldCaseStudy = () => {
   return (
     <>
       <CaseStudyArticleSchema slug="qj-paint-world" />
+      <article itemScope itemType="https://schema.org/Article">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-red-900 via-slate-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
@@ -40,7 +41,7 @@ const QJPaintWorldCaseStudy = () => {
             Back to Case Studies
           </Link>
           
-          <div className="max-w-4xl">
+          <figure className="max-w-4xl">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-semibold uppercase tracking-wider text-red-300 bg-red-400/20 px-4 py-2 rounded-full border border-red-400/30">Technical Paint Supplier</span>
               <span className="text-xs font-semibold uppercase tracking-wider text-red-200 bg-red-800/50 px-4 py-2 rounded-full border border-red-700">B2B Focus</span>
@@ -48,10 +49,8 @@ const QJPaintWorldCaseStudy = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 font-heading">
               QJ Paint World: Expert Technical Supplier for Professional Coatings
             </h1>
-            <p className="text-lg md:text-xl text-red-100 max-w-3xl">
-              A strategic B2B positioning that establishes QJ Paint World as the <strong className="text-red-300 font-semibold">Expert Technical Supplier</strong> for professional Decorative, Automotive, and Industrial coatings in the Johannesburg South region.
-            </p>
-          </div>
+            <figcaption className="text-lg md:text-xl text-red-100 max-w-3xl">A strategic B2B positioning that establishes QJ Paint World as the <strong className="text-red-300 font-semibold">Expert Technical Supplier</strong> for professional Decorative, Automotive, and Industrial coatings in the Johannesburg South region.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -189,7 +188,7 @@ const QJPaintWorldCaseStudy = () => {
                 </div>
               </div>
               <p className="text-gray-700 ml-16 mb-4">
-                The site is structured into three main hubs (Decorative, Automotive, Industrial), reinforcing the unique claim that QJ provides <strong className="font-semibold">certified expertise for all three verticals under one roof</strong>—a significant competitive advantage over single-vertical competitors.
+                The site is structured into three main hubs (Decorative, Automotive, Industrial), reinforcing the unique claim that QJ provides <strong className="font-semibold">certified expertise for all three verticals under one roof</strong>. A significant competitive advantage over single-vertical competitors.
               </p>
               <ul className="space-y-2 text-gray-700 ml-16">
                 <li className="flex items-start">
@@ -389,10 +388,9 @@ const QJPaintWorldCaseStudy = () => {
               A strategic B2B positioning that establishes QJ Paint World as the Expert Technical Supplier for professional contractors across three verticals.
             </p>
             
-            <div className="grid md:grid-cols-4 gap-6 mb-12">
+            <figure><figcaption className="sr-only">Key project outcomes</figcaption><div className="grid md:grid-cols-4 gap-6 mb-12">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-extrabold mb-2">3</div>
-                <p className="text-red-100 text-sm">Core Verticals</p>
+                <div className="text-3xl font-extrabold mb-2">3</div><p className="text-red-100 text-sm">Core Verticals</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <div className="text-3xl font-extrabold mb-2">5+</div>
@@ -406,7 +404,7 @@ const QJPaintWorldCaseStudy = () => {
                 <div className="text-3xl font-extrabold mb-2">24/7</div>
                 <p className="text-red-100 text-sm">Contact Access</p>
               </div>
-            </div>
+            </div></figure>
           </div>
         </div>
       </section>
@@ -439,6 +437,7 @@ const QJPaintWorldCaseStudy = () => {
         </div>
       </section>
       <HubSpokeLinks variant="case-study" slug="qj-paint-world" />
+      </article>
     </>
   );
 };

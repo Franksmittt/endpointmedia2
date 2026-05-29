@@ -75,7 +75,7 @@ const differentiators = [
   {
     icon: '⚙️',
     title: 'Evidence-based messaging',
-    body: 'We craft practice-area pages around precedent wins, legal content strategy, and keyword data so your pages show up for “intent to instruct” searches—not vanity phrases.',
+    body: 'We craft practice-area pages around precedent wins, legal content strategy, and keyword data so your pages show up for “intent to instruct” searches. Not vanity phrases.',
   },
   {
     icon: '🧠',
@@ -156,7 +156,7 @@ const conversionFeatures = [
   {
     title: 'Practice-area systems',
     description:
-      'Modular sections for attorney bios, fee structures, FAQs, and case studies tailored for each department—easy to expand as you add partners or new matters.',
+      'Modular sections for attorney bios, fee structures, FAQs, and case studies tailored for each department. Easy to expand as you add partners or new matters.',
   },
   {
     title: 'Automated intake',
@@ -245,7 +245,7 @@ export default function LawFirmWebsitesPage() {
               Built for rainmakers, not brochure sites.
             </h2>
             <p className="text-lg text-gray-600 mt-4">
-              Your website should perform like a senior associate—anticipating prospects’ questions,
+              Your website should perform like a senior associate. Anticipating prospects’ questions,
               qualifying them, and routing them to the right attorney with zero friction. We treat
               design, copy, and technology like a single revenue engine.
             </p>

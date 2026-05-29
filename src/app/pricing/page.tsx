@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { buildMetadata, secureJsonLD, BASE_URL, buildSpeakableWebPageSchema } from "@/lib/seo";
 import SocialProof from "@/components/sections/SocialProof";
 
+export const revalidate = 86400;
+
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Website Design Pricing Johannesburg",
@@ -393,7 +395,7 @@ const PricingPage = () => {
               analyzes your market, competitors, and opportunities to determine the optimal strategy for dominating your category.
             </p>
             <p className="mt-4 text-sm max-w-2xl mx-auto">
-              <strong className="text-gray-900">What&apos;s Included:</strong> All packages include premium hosting, domain registration, SSL, comprehensive research, competitor analysis, and strategic consultation. We don&apos;t charge monthly maintenance fees—our Next.js architecture is self-sustaining and requires minimal ongoing support.
+              <strong className="text-gray-900">What&apos;s Included:</strong> All packages include premium hosting, domain registration, SSL, comprehensive research, competitor analysis, and strategic consultation. We don&apos;t charge monthly maintenance fees. Our Next.js architecture is self-sustaining and requires minimal ongoing support.
             </p>
             <p className="mt-4 text-xs text-gray-500 italic max-w-2xl mx-auto">
               *Pricing reflects intensive research, custom engineering, and strategic consultation. We work exclusively with businesses committed to market leadership.

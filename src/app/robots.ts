@@ -1,64 +1,69 @@
 // src/app/robots.ts
 import { MetadataRoute } from 'next';
 
+const AI_AGENTS = [
+  'GPTBot',
+  'ChatGPT-User',
+  'ClaudeBot',
+  'anthropic-ai',
+  'PerplexityBot',
+  'Google-Extended',
+] as const;
+
+const AI_ALLOW = [
+  '/',
+  '/blog/',
+  '/services/',
+  '/insights/',
+  '/locations/',
+  '/case-studies/',
+  '/pricing/',
+  '/process/',
+  '/about/',
+];
+
+const DISALLOW = ['/api/', '/admin/', '/private/'];
+
 export default function robots(): MetadataRoute.Robots {
-  // Use environment variable if available, fallback to hardcoded value
-  // CRITICAL: Always use www version (www.endpointmedia.co.za) as canonical
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za';
 
-  // Dynamic environment detection - prevents staging/dev from being indexed
   if (process.env.NODE_ENV !== 'production') {
     return {
       rules: {
         userAgent: '*',
-        disallow: '/', // Block all crawling on non-production environments
+        disallow: '/',
       },
     };
   }
 
-  // Production robots.txt
-  // CRITICAL: Do NOT block /_next/ - Googlebot needs JS/CSS for rendering
-  // Blocking /_next/ will cause render failures and poor rankings
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: [
-          '/api/',
-          '/admin/',
-          '/private/',
-        ],
+        disallow: DISALLOW,
       },
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: [
-          '/api/',
-          '/admin/',
-          '/private/',
-        ],
+        disallow: DISALLOW,
       },
       {
         userAgent: 'Bingbot',
         allow: '/',
-        disallow: [
-          '/api/',
-          '/admin/',
-          '/private/',
-        ],
+        disallow: DISALLOW,
       },
-      {
-        userAgent: 'GPTBot',
-        allow: ['/blog/', '/services/', '/insights/'],
-        disallow: ['/api/', '/admin/', '/private/'],
-      },
+      ...AI_AGENTS.map((userAgent) => ({
+        userAgent,
+        allow: AI_ALLOW,
+        disallow: DISALLOW,
+      })),
     ],
-    // 3. The Double-Sitemap Declaration
     sitemap: [
       `${baseUrl}/sitemap.xml`,
-      `${baseUrl}/alberton-service-area.kml` // The Geo-Map
+      `${baseUrl}/llms.txt`,
+      `${baseUrl}/alberton-service-area.kml`,
+      `${baseUrl}/northern-corridor.kml`,
     ],
   };
 }
-

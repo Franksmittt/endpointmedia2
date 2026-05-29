@@ -5,7 +5,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { WebVitals } from "@/components/analytics/web-vitals";
-import { secureJsonLD } from "@/lib/seo";
+import { secureJsonLD, ORG_ID, FRANK_SMIT_ID, BASE_URL, GBP_MAPS_URL } from "@/lib/seo";
 import { GOOGLE_ADS_ID } from "@/lib/conversion-config";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
@@ -112,16 +112,13 @@ export default function RootLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://www.endpointmedia.co.za/#organization",
+    "@id": ORG_ID,
     name: "Endpoint Media",
     alternateName: "Endpoint Media Web Design",
-    url: "https://www.endpointmedia.co.za",
-    logo: "https://www.endpointmedia.co.za/images/logo.png",
+    url: BASE_URL,
+    logo: `${BASE_URL}/images/logo.png`,
     description: "Endpoint Media builds high-performance, lead-generating websites for Johannesburg service businesses.",
-    founder: {
-      "@type": "Person",
-      name: "Frank Smit",
-    },
+    founder: { "@type": "Person", "@id": FRANK_SMIT_ID },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Johannesburg",
@@ -138,16 +135,61 @@ export default function RootLayout({
     },
     sameAs: [
       "https://www.facebook.com/people/Endpoint-Media/61583029051159/",
+      "https://www.linkedin.com/in/frank-smittt",
+      GBP_MAPS_URL,
+    ],
+    knowsAbout: [
+      {
+        "@type": "Thing",
+        name: "Next.js",
+        sameAs: "https://www.wikidata.org/wiki/Q28957137",
+      },
+      {
+        "@type": "Thing",
+        name: "Google Ads",
+        sameAs: "https://www.wikidata.org/wiki/Q180864",
+      },
+      {
+        "@type": "Thing",
+        name: "Technical SEO",
+        sameAs: "https://www.wikidata.org/wiki/Q2902242",
+      },
+      {
+        "@type": "Thing",
+        name: "Local SEO",
+        sameAs: "https://en.wikipedia.org/wiki/Local_search_engine_optimisation",
+      },
+      {
+        "@type": "Thing",
+        name: "Conversion Rate Optimization",
+        sameAs: "https://en.wikipedia.org/wiki/Conversion_rate_optimization",
+      },
+    ],
+    areaServed: [
+      { "@type": "City", name: "Johannesburg" },
+      { "@type": "City", name: "Sandton" },
+      { "@type": "City", name: "Randburg" },
+      { "@type": "City", name: "Bryanston" },
+      { "@type": "City", name: "Rivonia" },
+      { "@type": "City", name: "Midrand" },
+      { "@type": "City", name: "Roodepoort" },
+      { "@type": "City", name: "Rosebank" },
+      { "@type": "City", name: "Fourways" },
+      { "@type": "City", name: "Waterfall" },
+      { "@type": "City", name: "Benoni" },
+      { "@type": "City", name: "Meyersdal" },
+      { "@type": "City", name: "New Redruth" },
     ],
   };
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://www.endpointmedia.co.za/#localbusiness",
+    "@id": `${BASE_URL}/#localbusiness`,
     name: "Endpoint Media",
-    image: "https://www.endpointmedia.co.za/images/logo.png",
+    image: `${BASE_URL}/images/logo.png`,
     description: "Professional web design and local SEO services for Johannesburg businesses",
+    parentOrganization: { "@id": ORG_ID },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Johannesburg",
@@ -159,11 +201,11 @@ export default function RootLayout({
       latitude: -26.2041,
       longitude: 28.0473,
     },
-    url: "https://www.endpointmedia.co.za",
+    url: BASE_URL,
     telephone: "+27-76-972-4559",
     email: "hello@endpointmedia.co.za",
     priceRange: "R5,500 - R15,000",
-    hasMap: "https://www.google.com/maps?cid=06180556288562610524",
+    hasMap: GBP_MAPS_URL,
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [
@@ -178,70 +220,74 @@ export default function RootLayout({
     },
     branchCode: "06180556288562610524",
     areaServed: [
-      {
-        "@type": "City",
-        name: "Johannesburg",
-      },
-      {
-        "@type": "City",
-        name: "Sandton",
-      },
-      {
-        "@type": "City",
-        name: "Randburg",
-      },
-      {
-        "@type": "City",
-        name: "Bryanston",
-      },
-      {
-        "@type": "City",
-        name: "Rivonia",
-      },
-      {
-        "@type": "City",
-        name: "Midrand",
-      },
-      {
-        "@type": "City",
-        name: "Roodepoort",
-      },
+      { "@type": "City", name: "Johannesburg", sameAs: "https://www.wikidata.org/wiki/Q1754" },
+      { "@type": "City", name: "Sandton", sameAs: "https://www.wikidata.org/wiki/Q1025682" },
+      { "@type": "City", name: "Randburg", sameAs: "https://www.wikidata.org/wiki/Q2719072" },
+      { "@type": "City", name: "Bryanston", sameAs: "https://www.wikidata.org/wiki/Q4927445" },
+      { "@type": "City", name: "Rivonia", sameAs: "https://www.wikidata.org/wiki/Q7338859" },
+      { "@type": "City", name: "Midrand", sameAs: "https://www.wikidata.org/wiki/Q1025681" },
+      { "@type": "City", name: "Roodepoort", sameAs: "https://www.wikidata.org/wiki/Q943397" },
+      { "@type": "City", name: "Rosebank", sameAs: "https://www.wikidata.org/wiki/Q7371732" },
+      { "@type": "City", name: "Fourways", sameAs: "https://www.wikidata.org/wiki/Q5454389" },
+      { "@type": "City", name: "Waterfall", sameAs: "https://www.wikidata.org/wiki/Q7969776" },
+      { "@type": "City", name: "Benoni", sameAs: "https://www.wikidata.org/wiki/Q816873" },
+      { "@type": "City", name: "Meyersdal", sameAs: "https://www.wikidata.org/wiki/Q3593815" },
+      { "@type": "City", name: "New Redruth", sameAs: "https://www.wikidata.org/wiki/Q3593815" },
     ],
   };
 
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://www.endpointmedia.co.za/#website",
-    url: "https://www.endpointmedia.co.za",
+    "@id": `${BASE_URL}/#website`,
+    url: BASE_URL,
     name: "Endpoint Media",
     description: "Web Design Johannesburg | High-Performance Websites That Generate Revenue",
     publisher: {
-      "@id": "https://www.endpointmedia.co.za/#organization",
+      "@id": ORG_ID,
     },
   };
 
-  // Person schema for Frank Smit (E-E-A-T signal)
   const frankSmitSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": "https://www.endpointmedia.co.za/about/author/frank-smit#person",
+    "@id": FRANK_SMIT_ID,
     name: "Frank Smit",
     jobTitle: "Web Design Expert & Founder",
-    url: "https://www.endpointmedia.co.za/about/author/frank-smit",
-    image: "https://www.endpointmedia.co.za/images/frank-smit.jpg",
+    url: `${BASE_URL}/about/author/frank-smit`,
+    image: `${BASE_URL}/images/frank-smit.jpg`,
     sameAs: [
       "https://www.linkedin.com/in/frank-smittt",
     ],
     worksFor: {
-      "@id": "https://www.endpointmedia.co.za/#organization",
+      "@id": ORG_ID,
     },
     knowsAbout: [
-      "Web Design",
-      "Local SEO",
-      "Next.js Development",
-      "E-commerce Development",
-      "Technical SEO",
+      {
+        "@type": "Thing",
+        name: "Web Design",
+        sameAs: "https://en.wikipedia.org/wiki/Web_design",
+      },
+      {
+        "@type": "Thing",
+        name: "Local SEO",
+        sameAs: "https://en.wikipedia.org/wiki/Local_search_engine_optimisation",
+      },
+      {
+        "@type": "Thing",
+        name: "Next.js Development",
+        sameAs: "https://www.wikidata.org/wiki/Q28957137",
+      },
+      {
+        "@type": "Thing",
+        name: "Technical SEO",
+        sameAs: "https://www.wikidata.org/wiki/Q2902242",
+      },
+      {
+        "@type": "Thing",
+        name: "E-commerce Development",
+        sameAs: "https://en.wikipedia.org/wiki/E-commerce",
+      },
     ],
   };
 

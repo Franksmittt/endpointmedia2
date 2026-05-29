@@ -27,6 +27,7 @@ const AlbertonTyreClinicCaseStudy = () => {
   return (
     <>
       <CaseStudyArticleSchema slug="alberton-tyre-clinic" />
+      <article itemScope itemType="https://schema.org/Article">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-emerald-900 via-teal-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
@@ -40,7 +41,7 @@ const AlbertonTyreClinicCaseStudy = () => {
             Back to Case Studies
           </Link>
           
-          <div className="max-w-4xl">
+          <figure className="max-w-4xl">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-semibold uppercase tracking-wider text-emerald-300 bg-emerald-400/20 px-4 py-2 rounded-full border border-emerald-400/30">Tyre & Vehicle Safety</span>
               <span className="text-xs font-semibold uppercase tracking-wider text-emerald-200 bg-emerald-800/50 px-4 py-2 rounded-full border border-emerald-700">Family Heritage</span>
@@ -48,10 +49,8 @@ const AlbertonTyreClinicCaseStudy = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 font-heading">
               Alberton Tyre Clinic: The Safety & Heritage Funnel
             </h1>
-            <p className="text-lg md:text-xl text-emerald-100 max-w-3xl">
-              A strategic pivot transforming a traditional tyre shop into a modern <strong className="text-emerald-300 font-semibold">Safety-Driven Minor Vehicle Maintenance Center</strong>, leveraging local trust, family heritage, and guaranteed safety protocols to combat national chain competition.
-            </p>
-          </div>
+            <figcaption className="text-lg md:text-xl text-emerald-100 max-w-3xl">A strategic pivot transforming a traditional tyre shop into a modern <strong className="text-emerald-300 font-semibold">Safety-Driven Minor Vehicle Maintenance Center</strong>, leveraging local trust, family heritage, and guaranteed safety protocols to combat national chain competition.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -67,7 +66,7 @@ const AlbertonTyreClinicCaseStudy = () => {
                 This project was a <strong className="font-semibold text-gray-900">strategic pivot</strong>, transforming a traditional tyre shop into a modern <strong className="text-emerald-700 font-semibold">Safety-Driven Minor Vehicle Maintenance Center</strong>. The goal was to combat the aggressive, high-pressure sales tactics of national chains by leveraging <strong className="font-semibold">local trust, family heritage, and guaranteed safety protocols</strong>.
               </p>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                The entire strategy pivots from competing on price to competing on <strong className="text-emerald-700 font-semibold">trust, safety, and local expertise</strong>—values that national chains cannot authentically replicate.
+                The entire strategy pivots from competing on price to competing on <strong className="text-emerald-700 font-semibold">trust, safety, and local expertise</strong>. Values that national chains cannot authentically replicate.
               </p>
             </div>
           </div>
@@ -213,7 +212,7 @@ const AlbertonTyreClinicCaseStudy = () => {
                     <tr className="hover:bg-gray-50 transition">
                       <td className="px-6 py-4 font-semibold text-gray-900 align-top">Dynamic Assessment Form</td>
                       <td className="px-6 py-4 text-gray-700">
-                        The <code className="bg-gray-100 px-2 py-1 rounded text-sm">/assessment</code> landing page includes a high-impact form using <strong className="font-semibold">React Hook Form</strong> that focuses only on Name and Phone Number—the bare minimum required for a successful lead. Connected directly to <strong className="font-semibold">Formspree</strong> for reliable lead routing.
+                        The <code className="bg-gray-100 px-2 py-1 rounded text-sm">/assessment</code> landing page includes a high-impact form using <strong className="font-semibold">React Hook Form</strong> that focuses only on Name and Phone Number. The bare minimum required for a successful lead. Connected directly to <strong className="font-semibold">Formspree</strong> for reliable lead routing.
                       </td>
                       <td className="px-6 py-4 text-gray-700">
                         <strong className="font-semibold text-emerald-700">Optimized Lead Flow:</strong> We reduced form friction and improved lead quality by guiding the user to provide the most important information first.
@@ -302,10 +301,9 @@ const AlbertonTyreClinicCaseStudy = () => {
               A strategic transformation that positions Alberton Tyre Clinic as the trusted, safety-focused alternative to national chain competitors.
             </p>
             
-            <div className="grid md:grid-cols-4 gap-6 mb-12">
+            <figure><figcaption className="sr-only">Key project outcomes</figcaption><div className="grid md:grid-cols-4 gap-6 mb-12">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-extrabold mb-2">36</div>
-                <p className="text-emerald-100 text-sm">Years Heritage</p>
+                <div className="text-3xl font-extrabold mb-2">36</div><p className="text-emerald-100 text-sm">Years Heritage</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <div className="text-3xl font-extrabold mb-2">12</div>
@@ -319,7 +317,7 @@ const AlbertonTyreClinicCaseStudy = () => {
                 <div className="text-3xl font-extrabold mb-2">Local</div>
                 <p className="text-emerald-100 text-sm">Trust First</p>
               </div>
-            </div>
+            </div></figure>
           </div>
         </div>
       </section>
@@ -352,6 +350,7 @@ const AlbertonTyreClinicCaseStudy = () => {
         </div>
       </section>
       <HubSpokeLinks variant="case-study" slug="alberton-tyre-clinic" />
+      </article>
     </>
   );
 };

@@ -9,16 +9,16 @@ const Problem = () => {
       {/* Digital Grid Background Pattern */}
       <div className="absolute inset-0 opacity-20" style={{
         backgroundImage: `
-          linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)
+          linear-gradient(rgba(0, 164, 200, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 164, 200, 0.1) 1px, transparent 1px)
         `,
         backgroundSize: '50px 50px'
       }}></div>
       
       {/* Glowing Data Lines Animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent animate-pulse"></div>
-        <div className="absolute top-2/3 right-0 w-full h-px bg-gradient-to-l from-transparent via-cyan-500/20 to-transparent"></div>
+        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent animate-pulse"></div>
+        <div className="absolute top-2/3 right-0 w-full h-px bg-gradient-to-l from-transparent via-accent/20 to-transparent"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -34,7 +34,7 @@ const Problem = () => {
             </span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 font-heading bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 font-heading bg-gradient-to-r from-white via-accent/30 to-white bg-clip-text text-transparent">
             The Truth: An Underperforming Website is a Hidden Expense.
           </h2>
           
@@ -71,7 +71,7 @@ const Problem = () => {
               
               <Link 
                 href="/services" 
-                className="inline-flex items-center text-cyan-400 font-semibold hover:text-cyan-300 transition-colors group/link"
+                className="inline-flex items-center text-accent font-semibold hover:text-accent/80 transition-colors group/link"
               >
                 <span>See How We Engineer ROI</span>
                 <svg className="w-5 h-5 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,20 +82,20 @@ const Problem = () => {
           </div>
 
           {/* Problem Card 2: Invisible in Johannesburg - Featured/Center */}
-          <div className="group relative p-8 bg-gradient-to-br from-cyan-900/40 via-black to-cyan-900/40 backdrop-blur-sm border-2 border-cyan-500/50 rounded-xl shadow-2xl shadow-cyan-500/20 transition-all duration-500 hover:border-cyan-400 hover:shadow-cyan-400/30 hover:-translate-y-2 lg:scale-105">
+          <div className="group relative p-8 bg-gradient-to-br from-accent-600/40 via-black to-accent-600/40 backdrop-blur-sm border-2 border-accent/50 rounded-xl shadow-2xl shadow-accent/20 transition-all duration-500 hover:border-accent hover:shadow-accent/30 hover:-translate-y-2 lg:scale-105">
             {/* Glowing Cyan Accent */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
             
             {/* Network Nodes Decoration */}
             <div className="absolute top-4 right-4 flex gap-2 opacity-40 group-hover:opacity-80 transition-opacity">
-              <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-              <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-              <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-accent rounded-full"></div>
+              <div className="w-2 h-2 bg-accent rounded-full"></div>
+              <div className="w-2 h-2 bg-accent rounded-full"></div>
             </div>
             
             {/* Growth Arrow Decoration */}
             <div className="absolute bottom-4 left-4 opacity-30 group-hover:opacity-60 transition-opacity">
-              <svg className="w-12 h-12 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 11l5-5m0 0l5 5m-5-5v12" />
               </svg>
@@ -103,21 +103,21 @@ const Problem = () => {
 
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400">Critical Issue</span>
+                <div className="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
+                <span className="text-xs font-semibold uppercase tracking-wider text-accent">Critical Issue</span>
               </div>
               
-              <h3 className="text-2xl md:text-3xl font-extrabold mb-4 font-heading text-cyan-400">
+              <h3 className="text-2xl md:text-3xl font-extrabold mb-4 font-heading text-accent">
                 Invisible in Johannesburg
               </h3>
               
               <p className="text-gray-200 text-lg mb-6 leading-relaxed">
-                Your potential customers in <span className="text-cyan-300 font-semibold">Sandton, Randburg, and Midrand</span> are searching online <em className="text-cyan-400">*right now*</em>. If your site isn&apos;t on Google&apos;s first page, especially in the Map Pack, you are invisible. They are finding and paying your competitors.
+                Your potential customers in <span className="text-accent/80 font-semibold">Sandton, Randburg, and Midrand</span> are searching online <em className="text-accent">*right now*</em>. If your site isn&apos;t on Google&apos;s first page, especially in the Map Pack, you are invisible. They are finding and paying your competitors.
               </p>
               
               <Link 
                 href="/process" 
-                className="inline-flex items-center text-cyan-300 font-semibold hover:text-cyan-200 transition-colors group/link"
+                className="inline-flex items-center text-accent font-semibold hover:text-accent/70 transition-colors group/link"
               >
                 <span>View Our Dominance Blueprint</span>
                 <svg className="w-5 h-5 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -155,7 +155,7 @@ const Problem = () => {
               
               <Link 
                 href="/case-studies" 
-                className="inline-flex items-center text-cyan-400 font-semibold hover:text-cyan-300 transition-colors group/link"
+                className="inline-flex items-center text-accent font-semibold hover:text-accent/80 transition-colors group/link"
               >
                 <span>Meet Your Partner (Case Studies)</span>
                 <svg className="w-5 h-5 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,7 +169,7 @@ const Problem = () => {
         {/* CTA Section */}
         <div className="mt-20 text-center px-4 sm:px-0 relative">
           {/* Glowing Background Effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-transparent to-cyan-500/10 rounded-2xl blur-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-transparent to-accent/10 rounded-2xl blur-3xl"></div>
           
           <div className="relative z-10 max-w-4xl mx-auto">
             <p className="text-xl sm:text-2xl md:text-3xl max-w-4xl mx-auto text-gray-200 mb-10 font-semibold leading-relaxed">

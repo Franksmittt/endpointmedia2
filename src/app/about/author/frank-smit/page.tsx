@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD, FRANK_SMIT_ID, ORG_ID, BASE_URL } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, FRANK_SMIT_ID } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -22,36 +22,17 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const FrankSmitPage = () => {
-  // Person Schema for E-E-A-T
-  const personSchema = {
+  const profilePageSchema = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": FRANK_SMIT_ID,
-    name: "Frank Smit",
-    jobTitle: "Web Design Expert & Founder",
-    worksFor: {
-      "@id": ORG_ID,
-    },
-    url: `${BASE_URL}/about/author/frank-smit`,
-    sameAs: [
-      // Add social media profiles when available
-    ],
-    knowsAbout: [
-      "Web Design",
-      "Local SEO",
-      "Next.js Development",
-      "Technical SEO",
-      "Lead Generation",
-      "E-commerce Development",
-    ],
-    description: "Frank Smit is the founder of Endpoint Media, specializing in high-performance web design and local SEO for Johannesburg businesses.",
+    "@type": "ProfilePage",
+    mainEntity: { "@id": FRANK_SMIT_ID },
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: secureJsonLD(personSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(profilePageSchema) }}
       />
 
       {/* Hero Section */}
@@ -93,7 +74,7 @@ const FrankSmitPage = () => {
               </p>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                 With expertise in modern web technologies including Next.js, React, and TypeScript, 
-                Frank builds websites that don&apos;t just look good—they generate measurable ROI. 
+                Frank builds websites that don&apos;t just look good. They generate measurable ROI. 
                 Every website is engineered for speed, optimized for search engines, and designed to 
                 convert visitors into leads.
               </p>

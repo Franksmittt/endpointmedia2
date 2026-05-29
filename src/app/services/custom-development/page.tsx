@@ -150,7 +150,7 @@ const CustomDevelopmentPage = () => {
               <div className="bg-teal-50 rounded-xl p-8 border-l-4 border-teal-600">
                 <h3 className="text-2xl font-bold mb-3 font-heading text-gray-900">⚡ Performance</h3>
                 <p className="text-gray-700">
-                  Optimized for your specific use case. No bloat, no unnecessary features—just 
+                  Optimized for your specific use case. No bloat, no unnecessary features. Just 
                   exactly what you need, built for maximum performance.
                 </p>
               </div>
