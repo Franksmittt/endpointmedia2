@@ -17,8 +17,8 @@ export function AuditForm() {
     setStatus(null);
 
     const formData = new FormData(event.currentTarget);
-    const honeypot = formData.get('honeypot');
-    if (honeypot) {
+    const website = formData.get('website');
+    if (website) {
       setIsSubmitting(false);
       return;
     }
@@ -35,7 +35,7 @@ export function AuditForm() {
       phone: phone || '',
       message: `[Audit Request] Business: ${businessName}`,
       source: source || 'audit-form',
-      honeypot: '',
+      website: formData.get('website') ?? '',
     };
 
     try {
@@ -145,9 +145,16 @@ export function AuditForm() {
         </div>
       </div>
 
-      <div className="absolute opacity-0 pointer-events-none" aria-hidden="true">
-        <label htmlFor="honeypot">Do not fill this out if you&apos;re human:</label>
-        <input type="text" id="honeypot" name="honeypot" tabIndex={-1} autoComplete="off" />
+      <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+        <label htmlFor="audit-website">Website</label>
+        <input
+          type="text"
+          id="audit-website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          defaultValue=""
+        />
       </div>
 
       {status && (

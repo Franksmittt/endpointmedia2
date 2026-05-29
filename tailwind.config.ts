@@ -21,9 +21,9 @@ const config: Config = {
           foreground: '#FAFAFA',
         },
         accent: {
-          DEFAULT: '#00A4C8',
-          500: '#00A4C8',
-          600: '#008BAD',
+          DEFAULT: '#FF6600',
+          500: '#FF6600',
+          600: '#E55C00',
           foreground: '#FAFAFA',
         },
         // Secondary/Neutral colors for use throughout the UI
@@ -41,7 +41,7 @@ const config: Config = {
       // CRITICAL: Add a custom shadow utility for Neubrutalist visual impact
       boxShadow: {
         'neubrutal': '6px 6px 0px 0px rgba(0, 0, 0, 1)', // Hard, dark offset shadow
-        'neubrutal-accent': '6px 6px 0px 0px #00A4C8', // Accent shadow for contrast
+        'neubrutal-accent': '6px 6px 0px 0px #FF6600', // Accent shadow for contrast
       },
       // Ensure font definitions correctly link to the CSS variables defined in layout.tsx
       fontFamily: {

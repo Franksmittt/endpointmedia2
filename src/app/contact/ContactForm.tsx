@@ -22,7 +22,7 @@ export default function ContactForm() {
       email: formData.get('email'),
       phone: formData.get('phone'),
       message: formData.get('message'),
-      honeypot: formData.get('honeypot'),
+      website: formData.get('website') ?? '',
       source: 'contact-form',
     };
 
@@ -128,9 +128,16 @@ export default function ContactForm() {
           />
         </div>
 
-        <div className="absolute opacity-0 pointer-events-none" aria-hidden="true">
-          <label htmlFor="honeypot">Do not fill this out if you&apos;re human:</label>
-          <input type="text" id="honeypot" name="honeypot" tabIndex={-1} autoComplete="off" />
+        <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+          <label htmlFor="contact-website">Website</label>
+          <input
+            type="text"
+            id="contact-website"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            defaultValue=""
+          />
         </div>
 
         {submitMessage && (

@@ -21,13 +21,13 @@
   --secondary-foreground: 0 0% 13%;
   --muted: 0 0% 96%;
   --muted-foreground: 0 0% 45%;
-  --accent: 192 100% 39%;
+  --accent: 24 100% 50%;
   --accent-foreground: 0 0% 100%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
   --border: 0 0% 90%;
   --input: 0 0% 90%;
-  --ring: 192 100% 39%;
+  --ring: 24 100% 50%;
 }
 
 /* 2. Add Base Layer Customizations */

@@ -1,0 +1,438 @@
+GOD-MODE AUDIT — Endpoint Media Next.js Workspace
+Generated: 2026-05-29
+Auditor scope: Security, CSP, bot defense, brand tokens, typography, hydration/CLS, WCAG 2.2 AAA, dead code
+Verdict: WORKSPACE IS NOT FLAWLESS. 47 discrete flaws documented below.
+
+================================================================================
+1. API SECURITY & BOT ANNIHILATION
+================================================================================
+
+FLAW #1 — No Content-Security-Policy header (iframe/script injection surface uncontrolled)
+FILE: next.config.mjs
+ISSUE: Headers block sets X-Frame-Options but no CSP. Third-party script allowlist (gtag) is unmanaged at policy level. `'unsafe-inline'` in gtag bootstrap is unavoidable without nonces, but baseline CSP is missing entirely.
+PATCH — add inside headers()[0].headers array (after Permissions-Policy):
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: https: blob:",
+              "font-src 'self' data:",
+              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://vitals.vercel-insights.com",
+              "frame-src 'self' https://www.google.com",
+              "frame-ancestors 'self'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "object-src 'none'",
+              "upgrade-insecure-requests",
+            ].join('; '),
+          },
+
+FLAW #2 — Zero rate limiting on public POST /api/contact (email-bomb / Resend quota exhaustion)
+FILE: src/app/api/contact/route.ts
+ISSUE: Unlimited POSTs from any IP. A headless scraper can burn Resend quota or trigger provider blocks in minutes.
+PATCH — create src/lib/rate-limit.ts:
+          import 'server-only';
+
+          const hits = new Map<string, { count: number; reset: number }>();
+          const WINDOW_MS = 60_000;
+          const MAX = 5;
+
+          export function rateLimit(ip: string): boolean {
+            const now = Date.now();
+            const entry = hits.get(ip);
+            if (!entry || now > entry.reset) {
+              hits.set(ip, { count: 1, reset: now + WINDOW_MS });
+              return true;
+            }
+            if (entry.count >= MAX) return false;
+            entry.count += 1;
+            return true;
+          }
+
+          Then at top of POST handler in route.ts:
+          import { rateLimit } from '@/lib/rate-limit';
+
+          const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+          if (!rateLimit(ip)) {
+            return NextResponse.json({ error: 'Too many requests. Try again shortly.' }, { status: 429 });
+          }
+
+          (Production note: replace in-memory Map with @upstash/ratelimit + Redis for multi-instance Vercel.)
+
+FLAW #3 — Email header injection via unsanitized `name` / `source` in subject line
+FILE: src/app/api/contact/route.ts (lines 37–38)
+ISSUE: `name` and `source` are interpolated into Resend `subject` without stripping CR/LF. Crafted payloads can inject SMTP headers.
+PATCH — add sanitizer and apply:
+          function sanitizeHeader(value: unknown, max = 120): string {
+            return String(value ?? '')
+              .replace(/[\r\n\t]/g, ' ')
+              .replace(/\s+/g, ' ')
+              .trim()
+              .slice(0, max);
+          }
+
+          const safeName = sanitizeHeader(name);
+          const safeSource = sanitizeHeader(source, 64);
+          const leadSource = safeSource || 'contact-form';
+          const subject = `[${leadSource}] New inquiry from ${safeName}`;
+
+FLAW #4 — No request body / field length caps (DoS via megabyte JSON payloads)
+FILE: src/app/api/contact/route.ts
+ISSUE: `message`, `name`, `email` unbounded. Large bodies inflate server memory and Resend payload size.
+PATCH — after parsing body:
+          const MAX = { name: 120, email: 254, phone: 32, message: 5000, source: 64 };
+          if (
+            String(name).length > MAX.name ||
+            String(email).length > MAX.email ||
+            String(message).length > MAX.message ||
+            (phone && String(phone).length > MAX.phone)
+          ) {
+            return NextResponse.json({ error: 'Payload too large' }, { status: 413 });
+          }
+
+FLAW #5 — Honeypot defeated by CSS-only hiding (headless browsers ignore opacity)
+FILE: src/components/sections/AuditForm.tsx (line 148)
+FILE: src/app/contact/ContactForm.tsx (line 131)
+ISSUE: `opacity-0 pointer-events-none` is trivially bypassed. Bots POST directly to /api/contact or fill hidden fields programmatically.
+PATCH — replace honeypot wrapper in BOTH files:
+          <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+            <label htmlFor="company-website">Company website</label>
+            <input
+              type="text"
+              id="company-website"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              defaultValue=""
+            />
+          </div>
+
+          Server-side (route.ts) — check BOTH legacy and new field names:
+          const trap = body.website ?? body.honeypot;
+          if (trap) {
+            return NextResponse.json({ success: true }, { status: 200 });
+          }
+
+          Add timing token (minimum 3s on page before accept):
+          // Client: hidden input set via useEffect timestamp on mount
+          // Server: reject if Date.now() - body.formLoadedAt < 3000
+
+FLAW #6 — AuditForm nullifies server-side honeypot (always sends empty string)
+FILE: src/components/sections/AuditForm.tsx (lines 32–38)
+ISSUE: Even if honeypot is filled, client returns early BUT direct API callers bypass. Worse: payload hardcodes `honeypot: ''`, so server never sees bot-filled honeypot from programmatic AuditForm replay.
+PATCH:
+          const payload = {
+            name,
+            email,
+            phone: phone || '',
+            message: `[Audit Request] Business: ${businessName}`,
+            source: source || 'audit-form',
+            website: formData.get('website') ?? '',
+          };
+
+FLAW #7 — No Content-Type enforcement on /api/contact
+FILE: src/app/api/contact/route.ts
+PATCH — first lines inside POST:
+          const contentType = request.headers.get('content-type') ?? '';
+          if (!contentType.includes('application/json')) {
+            return NextResponse.json({ error: 'Unsupported Media Type' }, { status: 415 });
+          }
+
+FLAW #8 — Deprecated X-XSS-Protection header (browser inconsistency; can enable XSS gadgets in legacy IE)
+FILE: next.config.mjs (lines 84–87)
+PATCH — remove the X-XSS-Protection header block entirely. Rely on CSP + React escaping.
+
+FLAW #9 — /api/indexnow returns keyLocation in JSON response (information disclosure if logs scraped)
+FILE: src/app/api/indexnow/route.ts (lines 68–73)
+PATCH — remove keyLocation from response:
+          return NextResponse.json({
+            success: response.ok,
+            status: response.status,
+            urlCount: urlList.length,
+          });
+
+FLAW #10 — INDEXNOW_KEY brute-forceable via /[key].txt dynamic route (no rate limit on GET)
+FILE: src/app/[key].txt/route.ts
+ISSUE: Attackers can enumerate keys against 404/200 boundary. Key is hex-32 — low entropy if short key chosen.
+PATCH — enforce minimum key length in route + .env.example:
+          if (!indexNowKey || indexNowKey.length < 32 || key !== indexNowKey) {
+            return new NextResponse('Not Found', { status: 404 });
+          }
+
+================================================================================
+2. SEMANTIC TYPOGRAPHY & APPLE-LEVEL LAYOUTS / BRAND ENFORCEMENT
+================================================================================
+
+FLAW #11 — Brand token schism: audit spec orange #FF6600 is NOT defined; accent is cyan #00A4C8
+FILE: tailwind.config.ts (lines 23–28)
+FILE: src/app/globals.css (lines 24–25, 30)
+ISSUE: User-facing brand requires charcoal #222222 + orange #FF6600. Codebase primary CTA color is cyan/teal throughout.
+PATCH — tailwind.config.ts:
+          accent: {
+            DEFAULT: '#FF6600',
+            500: '#FF6600',
+            600: '#E55C00',
+            foreground: '#FAFAFA',
+          },
+
+          globals.css:
+          --accent: 24 100% 50%;
+          --ring: 24 100% 50%;
+
+          Then run global replace: text-teal-* / bg-teal-* / focus:ring-teal-* → accent equivalents on money-path components (Header, Footer, ContactForm, Hero CTA).
+
+FLAW #12 — Header navigation and CTA use teal, not brand accent
+FILE: src/components/layout/Header.tsx (lines 47–71, 110, 120)
+PATCH example (logo dot + nav hover + CTA):
+          className="... hover:text-accent ..."
+          Endpoint<span className="text-accent">.</span>
+          className="... bg-accent hover:bg-accent-600 ... focus-visible:ring-accent"
+
+FLAW #13 — ContactForm submit button and focus rings use teal-600 (off-brand money path)
+FILE: src/app/contact/ContactForm.tsx (lines 82, 97, 112, 125, 153)
+PATCH:
+          focus:ring-2 focus:ring-accent focus:border-transparent
+          className="w-full bg-accent hover:bg-accent-600 ... focus-visible:ring-accent"
+
+FLAW #14 — Contact page NAP sidebar uses border-teal-500 and text-teal-600 links
+FILE: src/app/contact/page.tsx (lines 30, 37, 42, 48)
+PATCH:
+          border-t-4 border-accent
+          className="text-accent hover:text-accent-600 transition"
+
+FLAW #15 — Hero grid overlay uses raw cyan rgba(0,255,255) and teal-900 gradient
+FILE: src/components/sections/Hero.tsx (lines 16–17, 24)
+PATCH:
+          linear-gradient(rgba(255, 102, 0, 0.12) 1px, transparent 1px),
+          ...
+          className="md:hidden ... to-charcoal/80"
+
+FLAW #16 — Problem section CTA uses red-orange gradient off-token (red-600 to orange-600)
+FILE: src/components/sections/Problem.tsx (line 181)
+PATCH:
+          className="... bg-accent hover:bg-accent-600 text-white ... focus-visible:ring-accent"
+
+FLAW #17 — Purple gradient blocks survived on case study money path
+FILE: src/app/case-studies/maverick-painting-contractors/page.tsx (throughout — purple-600, indigo-800)
+FILE: src/app/case-studies/page.tsx (lines 293–311 — purple card for Maverick)
+PATCH (representative hero):
+          className="bg-gradient-to-br from-charcoal via-charcoal-light to-charcoal-dark"
+          Replace all text-purple-* / bg-purple-* / border-purple-* with accent/charcoal palette.
+
+FLAW #18 — pricing/page.tsx still contains 83+ cyan-* class usages (largest off-brand surface)
+FILE: src/app/pricing/page.tsx
+PATCH: Run workspace search `cyan-` in file; replace with accent/charcoal per Week 4 pattern used in website-design-prices/page.tsx.
+
+FLAW #19 — Blueprint.tsx uses text-cyan-400 on 74 decorative SVG/icon instances
+FILE: src/components/sections/Blueprint.tsx
+PATCH: Replace text-cyan-400 → text-accent, border-cyan-* → border-accent/30.
+
+FLAW #20 — globals.css skip-link and animated-btn hardcode teal palette (off-brand)
+FILE: src/app/globals.css (lines 79–120)
+PATCH skip-link:
+          background: theme('colors.accent.DEFAULT');
+          .skip-link:focus { background: theme('colors.accent.600'); }
+
+FLAW #21 — Decorative em dashes (—) remain in user-facing copy (Week 4 sweep incomplete)
+FILES (non-exhaustive — run `rg — src`):
+  src/lib/google-ads-services.ts (28 instances)
+  src/lib/blog/posts.ts (19)
+  src/lib/blog/content/silo-1.tsx (6), silo-2.tsx (10), silo-3.tsx (3)
+  src/components/services/GoogleAdsSubPage.tsx (line 166)
+  src/app/process/page.tsx, insights/page.tsx, compare/page.tsx, etc.
+PATCH example (GoogleAdsSubPage.tsx:166):
+          Book a free audit. We map keywords, budgets, landing pages, and tracking before you scale spend.
+
+FLAW #22 — Multi-word technical terms lack line-break protection (typography orphan risk)
+FILE: src/components/sections/Audit.tsx (line 34)
+ISSUE: "Digital Growth Audit" / "Core Web Vitals" / "Google Ads" can split mid-phrase on narrow viewports.
+PATCH:
+          <strong className="text-accent font-semibold whitespace-nowrap">Digital&nbsp;Growth&nbsp;Audit</strong>
+
+          Apply pattern to homepage Hero, Problem, Blueprint headings:
+          <span className="whitespace-nowrap">Core Web Vitals</span>
+          <span className="whitespace-nowrap">Google Ads</span>
+          <span className="whitespace-nowrap">Knowledge Graph</span>
+
+FLAW #23 — neubrutal-accent shadow hardcodes cyan #00A4C8
+FILE: tailwind.config.ts (line 44)
+PATCH:
+          'neubrutal-accent': '6px 6px 0px 0px #FF6600',
+
+================================================================================
+3. NEXT.JS 16+ DEEP RENDERING & HYDRATION
+================================================================================
+
+FLAW #24 — Sensitive server libs lack `server-only` import guard
+FILE: src/lib/indexnow.ts
+FILE: src/lib/google-ads-services.ts
+FILE: src/app/api/contact/route.ts (inline Resend init)
+ISSUE: No compile-time fence. Accidental `'use client'` import of indexnow or route logic would bundle server secrets.
+PATCH — first line of each:
+          import 'server-only';
+
+FLAW #25 — Dynamic ContactForm skeleton height mismatch → measurable CLS on chunk load
+FILE: src/app/contact/page.tsx (line 8)
+FILE: src/app/contact/ContactForm.tsx (wrapper uses h-full; form ~560–620px tall)
+ISSUE: Skeleton `min-h-[480px]` is ~80–140px shorter than hydrated form → layout jump.
+PATCH contact/page.tsx:
+          loading: () => (
+            <div className="min-h-[620px] animate-pulse rounded-xl bg-charcoal/5 border border-gray-200" aria-hidden="true" />
+          ),
+
+FLAW #26 — Dynamic Audit skeleton height mismatch + ScrollReveal double-penalty
+FILE: src/app/page.tsx (line 22)
+FILE: src/components/sections/Audit.tsx (wrapped in ScrollReveal)
+ISSUE: (a) Skeleton 480px vs AuditForm ~520px+. (b) ScrollReveal sets opacity:0 until IntersectionObserver fires AFTER hydration → compound CLS/FOUC.
+PATCH page.tsx skeleton:
+          loading: () => <div className="min-h-[540px] animate-pulse bg-charcoal/5 rounded-xl" aria-hidden="true" />,
+
+          Remove ScrollReveal wrapper from Audit.tsx (keep static section):
+          export default function Audit() {
+            return (
+              <section id="audit" className="...">
+
+FLAW #27 — ScrollReveal hides above-the-fold content from sighted users until JS + IO (5 homepage sections)
+FILE: src/components/ui/scroll-reveal.tsx + consumers (Audit, Blueprint, Proof, Toolkit, Vetting)
+ISSUE: `.scroll-observed { opacity: 0 }` causes content flash and hurts LCP element visibility for sections in initial viewport.
+PATCH scroll-reveal.tsx:
+          useEffect(() => {
+            const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reduced) {
+              el.classList.add('is-visible');
+              return;
+            }
+            ...
+          }, []);
+
+          CSS fallback:
+          @media (prefers-reduced-motion: reduce) {
+            .scroll-observed { opacity: 1; transform: none; }
+          }
+
+FLAW #28 — No `prefers-reduced-motion` guard on animate-pulse loading skeletons
+FILE: src/app/page.tsx, src/app/contact/page.tsx
+PATCH:
+          loading: () => (
+            <div className="min-h-[540px] bg-charcoal/5 rounded-xl motion-safe:animate-pulse" aria-hidden="true" />
+          ),
+
+FLAW #29 — GOOGLE_SITE_VERIFICATION in metadata uses server env correctly, but NEXT_PUBLIC_GOOGLE_ADS_ID hardcoded fallback in .env.example exposes account ID (acceptable) — however conversion labels empty cause silent tracking failure
+FILE: src/lib/analytics.ts (line 61)
+ISSUE: Production forms fire trackFreeAudit() but conversion label may be unset → revenue attribution leak (business logic, not security).
+PATCH: Fail loudly in production build if labels missing:
+          if (process.env.NODE_ENV === 'production' && !CONVERSION_LABELS.FREE_AUDIT) {
+            throw new Error('NEXT_PUBLIC_CONVERSION_LABEL_AUDIT is required in production');
+          }
+
+================================================================================
+4. WCAG 2.2 AAA ACCESSIBILITY
+================================================================================
+
+FLAW #30 — Header mobile menu toggle SVG missing aria-hidden
+FILE: src/components/layout/Header.tsx (line 85)
+PATCH:
+          <svg className="w-8 h-8" aria-hidden="true" focusable="false" ...>
+
+FLAW #31 — Mobile menu panel not aria-hidden when collapsed (screen reader can traverse invisible links)
+FILE: src/components/layout/Header.tsx (lines 98–102)
+PATCH:
+          <div
+            ...
+            aria-hidden={!isMenuOpen}
+            inert={!isMenuOpen ? '' : undefined}
+          >
+
+          (Use `inert` attribute or tabIndex=-1 on all links when closed.)
+
+FLAW #32 — Dozens of decorative inline SVGs lack aria-hidden across homepage sections
+FILES: src/components/sections/Problem.tsx, Solution.tsx, Blueprint.tsx, case-studies/page.tsx (20+ SVGs)
+PATCH pattern on each decorative icon:
+          <svg aria-hidden="true" focusable="false" ...>
+
+FLAW #33 — Solution.tsx checklist SVGs use text-cyan-600 without aria-hidden (decorative checkmarks)
+FILE: src/components/sections/Solution.tsx (lines 54–84)
+PATCH: Add aria-hidden="true" to each; parent list item text carries meaning.
+
+FLAW #34 — Skip link contrast uses teal-600 on focus — fails brand AND may fail 7:1 AAA against some backgrounds
+FILE: src/app/globals.css (lines 117–120)
+PATCH:
+          .skip-link { background: #FF6600; color: #fff; }
+          .skip-link:focus { background: #E55C00; outline: 3px solid #222222; outline-offset: 2px; }
+
+FLAW #35 — AuditForm error/status region not linked to form via aria-describedby
+FILE: src/components/sections/AuditForm.tsx
+PATCH:
+          <form aria-describedby={status ? 'audit-form-status' : undefined} ...>
+          ...
+          {status && (
+            <div id="audit-form-status" role={...} aria-live="polite" ...>
+
+FLAW #36 — ContactForm identical aria-describedby gap
+FILE: src/app/contact/ContactForm.tsx
+PATCH: Same pattern with id="contact-form-status".
+
+FLAW #37 — Honeypot label text "Do not fill this out if you're human" is a bot signal (confirms field purpose)
+FILE: AuditForm.tsx, ContactForm.tsx
+PATCH: Use innocuous label:
+          <label htmlFor="company-website">Website</label>
+
+FLAW #38 — Focus ring on Header mobile button uses focus:ring (always) instead of focus-visible (mouse users see ring)
+FILE: src/components/layout/Header.tsx (line 80)
+PATCH:
+          className="... focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent rounded"
+
+FLAW #39 — Audit section h2 uses bg-clip-text gradient — contrast ratio of clipped text on dark bg may fail AAA for partially transparent gradient stops
+FILE: src/components/sections/Audit.tsx (line 30)
+PATCH:
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 font-heading leading-tight text-white">
+
+================================================================================
+5. DEAD CODE & BUNDLE ANNIHILATION
+================================================================================
+
+FLAW #40 — AnimatedButton component is orphaned (zero imports)
+FILE: src/components/ui/AnimatedButton.tsx
+PATCH: Delete file.
+
+FLAW #41 — ~85 lines of dead CSS tied only to AnimatedButton
+FILE: src/app/globals.css (lines 79–114 .animated-btn rules)
+PATCH: Delete entire `.animated-btn` block and related @keyframes animate1–4 if unused elsewhere.
+
+FLAW #42 — .hero-texture, .animate-blob, .animation-delay-* utilities never referenced in src/
+FILE: src/app/globals.css (lines 122–131, 161–184)
+PATCH: Delete unused blocks.
+
+FLAW #43 — WhatsAppIcon component orphaned AND contains corrupted SVG path data
+FILE: src/components/icons/WhatsAppIcon.tsx
+ISSUE: Path `d` attribute is garbled (invalid geometry). Component has zero imports. Inline SVGs used elsewhere.
+PATCH: Delete src/components/icons/WhatsAppIcon.tsx.
+
+FLAW #44 — tailwind.config.ts content path includes dead ./src/pages/** glob (App Router only project)
+FILE: tailwind.config.ts (line 7)
+PATCH:
+          content: [
+            "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+            "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+          ],
+
+FLAW #45 — lucide-react imported on 4 pages only; tree-shaking ok but @radix-ui/react-slot + cva only used by button.tsx (acceptable, not dead)
+
+FLAW #46 — interactives-static.tsx vs interactives-client.tsx split increases bundle for blog silos; silo-1 imports 6 client interactives (intentional but audit note: CpcReductionSimulator etc. add client JS to blog SSG pages)
+FILE: src/lib/blog/content/silo-1.tsx
+ISSUE: Not dead code, but blog posts hydrate heavy client islands — consider lazy() per interactive for 0.01% perf.
+
+FLAW #47 — src/pages/** path in tailwind + unused pages directory scan adds build noise (minor)
+
+================================================================================
+PRIORITY PATCH ORDER (if fixing in one sprint)
+================================================================================
+P0 (ship blockers): #1 CSP, #2 rate limit, #3 header injection, #4 length caps, #5–6 honeypot, #11 brand token unify
+P1 (money path UX): #12–14 contact/header, #25–26 CLS skeletons, #30–36 a11y
+P2 (polish): #17–20 cyan/purple purge, #21 em dashes, #22 nowrap typography, #40–43 dead code
+
+================================================================================
+END OF AUDIT
+================================================================================
