@@ -82,6 +82,49 @@ type BuildMetadataOptions = {
 /**
  * Builds consistent metadata with canonical + Open Graph data
  */
+/** Speakable WebPage schema for AEO / voice search */
+export function buildSpeakableWebPageSchema(options: {
+  url: string;
+  name: string;
+  description: string;
+  cssSelectors: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${options.url}#webpage`,
+    url: options.url,
+    name: options.name,
+    description: options.description,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: options.cssSelectors,
+    },
+  };
+}
+
+/** HowTo schema for process / instructional pages */
+export function buildHowToSchema(options: {
+  url: string;
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "@id": `${options.url}#howto`,
+    name: options.name,
+    description: options.description,
+    step: options.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  };
+}
+
 export function buildMetadata({
   title,
   description,

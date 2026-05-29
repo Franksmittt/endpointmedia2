@@ -1,8 +1,8 @@
 // src/app/sitemap.ts
 import { MetadataRoute } from 'next';
 
-// Use environment variable if available, fallback to hardcoded value
-// CRITICAL: Always use www version (www.endpointmedia.co.za) as canonical
+export const revalidate = 86400;
+
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za';
 const currentDate = new Date();
 
@@ -10,16 +10,24 @@ type ChangeFrequency = NonNullable<
   MetadataRoute.Sitemap[number]['changeFrequency']
 >;
 
+const BLOG_POST_DATES: Record<string, string> = {
+  'the-true-cost-of-a-website-in-johannesburg': '2025-10-30',
+  'freelancer-vs-agency-the-low-risk-choice-for-johannesburg': '2025-10-23',
+  'the-schema-vacuum-technical-seo-advantage': '2025-10-15',
+  'wix-vs-wordpress-guide-johannesburg-small-businesses': '2025-11-05',
+  'how-much-does-website-cost-south-africa-2025': '2025-11-12',
+};
+
 const createEntry = (
   path: string,
   changeFrequency: ChangeFrequency,
   priority: number,
+  lastModified?: Date,
 ): MetadataRoute.Sitemap[number] => {
-  // Ensure path doesn't have trailing slash (matching next.config.mjs trailingSlash: false)
   const cleanPath = path === '/' ? '' : path.replace(/\/$/, '');
   return {
     url: cleanPath === '' ? baseUrl : `${baseUrl}${cleanPath}`,
-    lastModified: currentDate,
+    lastModified: lastModified ?? currentDate,
     changeFrequency,
     priority,
   };
@@ -29,20 +37,36 @@ const mapPaths = (
   paths: string[],
   changeFrequency: ChangeFrequency,
   priority: number,
-) => paths.map((path) => createEntry(path, changeFrequency, priority));
+  lastModified?: Date,
+) => paths.map((path) => createEntry(path, changeFrequency, priority, lastModified));
 
 const corePaths = ['/services', '/case-studies', '/blog'];
 
-const secondaryCoreConfigs = [
-  { path: '/pricing', changeFrequency: 'monthly' as ChangeFrequency, priority: 0.9 },
-  { path: '/contact', changeFrequency: 'monthly' as ChangeFrequency, priority: 0.8 },
-  { path: '/process', changeFrequency: 'monthly' as ChangeFrequency, priority: 0.7 },
+const googleAdsServicePaths = [
+  '/services/google-ads',
+  '/services/b2b-google-ads-management',
+  '/services/performance-max-google-ads',
+  '/services/google-ads-landing-pages',
+  '/services/google-ads-pricing',
+  '/services/google-ads-manufacturing',
+  '/services/google-ads-financial-services',
+  '/services/google-ads-automotive',
+  '/services/google-ads-sandton',
+  '/services/google-ads-alberton',
+  '/services/google-ads-midrand',
+  '/services/google-ads-alrode',
+  '/services/google-ads-wadeville',
+  '/services/google-ads-bedfordview',
 ];
 
+const insightPaths = ['/insights/south-africa-google-ads-cpc-benchmarks'];
+
+const comparePaths = ['/compare/google-ads-flat-fee-vs-percentage-spend'];
+
 const serviceDetailPaths = [
-  '/services/web-design-firms', // High priority: Target keyword page
-  '/services/website-development', // High priority: Target keyword page
-  '/services/website-design-prices', // High priority: Target keyword page
+  '/services/web-design-firms',
+  '/services/website-development',
+  '/services/website-design-prices',
   '/services/website-redesign',
   '/services/shopify-expert',
   '/services/custom-development',
@@ -50,7 +74,7 @@ const serviceDetailPaths = [
   '/services/medical-websites',
   '/services/growth-rescue',
   '/services/local-seo',
-  '/services/google-ads',
+  ...googleAdsServicePaths.filter((p) => p !== '/services/google-ads'),
   '/services/facebook-ads',
   '/services/conversion-rate-optimization',
   '/services/website-maintenance',
@@ -60,8 +84,8 @@ const serviceDetailPaths = [
 const locationPaths = [
   '/locations',
   '/locations/sandton',
-  '/locations/meyersdal', // The Executive Fortress - HIGH PRIORITY
-  '/locations/new-redruth', // The Professional Hub - HIGH PRIORITY
+  '/locations/meyersdal',
+  '/locations/new-redruth',
   '/locations/roodepoort',
   '/locations/bryanston',
   '/locations/rivonia',
@@ -79,10 +103,11 @@ const industryPaths = [
   '/industries/real-estate',
   '/industries/finance',
   '/industries/medical',
-  '/industries/manufacturing-logistics', // The Alrode Cash Cow - HIGH PRIORITY
+  '/industries/manufacturing-logistics',
 ];
 
 const caseStudySlugs = [
+  'as-brokers',
   'alberton-battery-mart',
   'alberton-tyre-clinic',
   'maverick-painting-contractors',
@@ -99,57 +124,56 @@ const blogSlugs = [
   'how-much-does-website-cost-south-africa-2025',
 ];
 
-const mapConfigs = (
-  configs: { path: string; changeFrequency: ChangeFrequency; priority: number }[],
-) =>
-  configs.map(({ path, changeFrequency, priority }) =>
-    createEntry(path, changeFrequency, priority),
-  );
+function dedupeSitemap(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {
+  const seen = new Set<string>();
+  return entries.filter((entry) => {
+    if (seen.has(entry.url)) {
+      return false;
+    }
+    seen.add(entry.url);
+    return true;
+  });
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Ensure all pages are included and properly prioritized
-  return [
-    // 1. Highest Priority: Homepage
+  const entries: MetadataRoute.Sitemap = [
     createEntry('/', 'weekly', 1.0),
-    
-    // 2. High Priority: The "Money" Pages - High-intent conversion pages
-    createEntry('/industries/manufacturing-logistics', 'weekly', 1.0), // The Alrode Cash Cow
-    createEntry('/locations/meyersdal', 'weekly', 0.95), // The Executive Fortress
-    createEntry('/locations/new-redruth', 'weekly', 0.95), // The Professional Hub
+    createEntry('/industries/manufacturing-logistics', 'weekly', 1.0),
+    createEntry('/locations/meyersdal', 'weekly', 0.95),
+    createEntry('/locations/new-redruth', 'weekly', 0.95),
     createEntry('/locations/sandton', 'weekly', 0.95),
     createEntry('/pricing', 'weekly', 0.95),
-    
-    // 3. High Priority: Core Service Pages - Primary revenue drivers
+    createEntry('/services/google-ads', 'weekly', 0.95),
+    createEntry('/services/b2b-google-ads-management', 'weekly', 0.92),
     ...mapPaths(serviceDetailPaths, 'weekly', 0.9),
-    
-    // 4. High Priority: Core Navigation Pages
     ...mapPaths(corePaths, 'weekly', 0.9),
     createEntry('/contact', 'monthly', 0.9),
     createEntry('/process', 'monthly', 0.85),
-    
-    // 5. High Priority: Location Pages - Local SEO goldmines
-    ...mapPaths(locationPaths.filter(path => path !== '/locations'), 'weekly', 0.9),
-    
-    // 6. High Priority: Industry Pages - Vertical targeting
-    ...mapPaths(industryPaths.filter(path => path !== '/industries'), 'weekly', 0.9),
-    
-    // 7. Medium Priority: Trust & Authority Pages
-    createEntry('/alberton-business-heritage', 'monthly', 0.8), // The Link Magnet
-    createEntry('/about/author/frank-smit', 'monthly', 0.8), // The E-E-A-T Anchor
+    ...mapPaths(locationPaths.filter((path) => path !== '/locations'), 'weekly', 0.9),
+    ...mapPaths(industryPaths.filter((path) => path !== '/industries'), 'weekly', 0.9),
+    createEntry('/alberton-business-heritage', 'monthly', 0.8),
+    createEntry('/about/author/frank-smit', 'monthly', 0.8),
     createEntry('/case-studies', 'weekly', 0.85),
-    
-    // 8. Medium Priority: Case Study Detail Pages
     ...mapPaths(
       caseStudySlugs.map((slug) => `/case-studies/${slug}`),
       'monthly',
       0.75,
     ),
-    
-    // 9. Medium Priority: Blog Posts - Content marketing
-    ...mapPaths(blogSlugs.map((slug) => `/blog/${slug}`), 'weekly', 0.7),
-    
-    // 10. Lower Priority: Index Pages (already covered in corePaths)
-    // Note: /locations and /industries are already included in locationPaths and industryPaths
+    ...blogSlugs.map((slug) =>
+      createEntry(
+        `/blog/${slug}`,
+        'weekly',
+        0.7,
+        new Date(BLOG_POST_DATES[slug] ?? currentDate),
+      ),
+    ),
+    createEntry('/locations', 'weekly', 0.9),
+    createEntry('/industries', 'weekly', 0.9),
+    ...mapPaths(insightPaths, 'monthly', 0.75),
+    ...mapPaths(comparePaths, 'monthly', 0.7),
+    createEntry('/privacy-policy', 'yearly', 0.3),
+    createEntry('/terms-of-service', 'yearly', 0.3),
   ];
-}
 
+  return dedupeSitemap(entries);
+}

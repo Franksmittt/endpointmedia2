@@ -6,7 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seo:validate": "python scripts/seo/validate_seo.py --base-url http://localhost:3000",
+    "seo:validate:prod": "python scripts/seo/validate_seo.py --base-url https://www.endpointmedia.co.za",
+    "seo:graph": "python scripts/seo/graph_auditor.py --base-url http://localhost:3000",
+    "seo:graph:prod": "python scripts/seo/graph_auditor.py --base-url https://www.endpointmedia.co.za",
+    "seo:check": "python scripts/seo/run_all.py --base-url http://localhost:3000",
+    "seo:index": "python scripts/seo/index_pusher.py",
+    "seo:index:dry": "python scripts/seo/index_pusher.py --dry-run"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",

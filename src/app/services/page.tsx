@@ -102,16 +102,28 @@ const serviceCards = [
     ),
   },
   {
-    title: "Google Ads & Paid Search",
+    title: "Google Ads & Paid Search Hub",
     description:
-      "Campaign rebuilds, landing pages, and GA4 tracking to turn Google Ads into accountable, scale-ready lead flow.",
+      "Full-stack paid search: B2B management, Performance Max, landing pages, and transparent ZAR pricing for Johannesburg.",
     href: "/services/google-ads",
-    badge: "New",
+    badge: "Paid media",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M11 4h2v7h-2z" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M6 9h2v7H6zM16 9h2v7h-2z" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M4 18h16" />
+      </svg>
+    ),
+  },
+  {
+    title: "B2B Google Ads Management",
+    description:
+      "Flat-fee PPC for manufacturing, finance, and corporate Gauteng—paired with Next.js pages that cut CPC via Quality Score.",
+    href: "/services/b2b-google-ads-management",
+    badge: "B2B",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13h2v8H3v-8zm4-4h2v12H7V9zm4 2h2v10h-2V11zm4-6h2v16h-2V5zm4 4h2v12h-2V9z" />
       </svg>
     ),
   },

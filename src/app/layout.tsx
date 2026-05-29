@@ -1,10 +1,11 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import Script from 'next/script';
+import Script from "next/script";
 import "./globals.css";
-// Import global styles (including Tailwind directives)
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { WebVitals } from "@/components/analytics/web-vitals";
+import { secureJsonLD } from "@/lib/seo";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const GOOGLE_ADS_ID = "AW-17744075656";
@@ -218,20 +219,7 @@ export default function RootLayout({
     publisher: {
       "@id": "https://www.endpointmedia.co.za/#organization",
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: "https://www.endpointmedia.co.za/search?q={search_term_string}",
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
-
-  // Secure JSON-LD sanitization function (prevents XSS)
-  function secureJsonLD(data: object) {
-    return JSON.stringify(data).replace(/</g, '\\u003c');
-  }
 
   // Person schema for Frank Smit (E-E-A-T signal)
   const frankSmitSchema = {
@@ -286,13 +274,14 @@ export default function RootLayout({
         <Header /> 
         <main id="main-content">{children}</main> 
         <Footer />
+        <WebVitals />
         {trackingIds.length > 0 && (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="google-tags-init" strategy="afterInteractive">
+            <Script id="google-tags-init" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}

@@ -1,6 +1,6 @@
 // src/app/services/website-design-prices/layout.tsx
 import type { Metadata } from 'next';
-import { buildMetadata, secureJsonLD, BASE_URL, ORG_ID } from '@/lib/seo';
+import { buildMetadata, secureJsonLD, BASE_URL, ORG_ID, buildSpeakableWebPageSchema } from '@/lib/seo';
 
 const CANONICAL_SLUG = 'website-design-prices';
 
@@ -125,9 +125,16 @@ export default function WebsiteDesignPricesLayout({
     ],
   };
 
+  const speakableSchema = buildSpeakableWebPageSchema({
+    url: `${BASE_URL}/services/${CANONICAL_SLUG}`,
+    name: "Website Design Prices South Africa 2025",
+    description:
+      "Transparent website design pricing and ROI calculator comparing Next.js architecture to WordPress templates.",
+    cssSelectors: ["#pricing-hero-headline", "#pricing-hero-summary"],
+  });
+
   return (
     <>
-      {/* Advanced Schema Markup - Server-side only to prevent hydration issues */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: secureJsonLD(priceSpecificationSchema) }}
@@ -139,6 +146,10 @@ export default function WebsiteDesignPricesLayout({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(speakableSchema) }}
       />
       {children}
     </>

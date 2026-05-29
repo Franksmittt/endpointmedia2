@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
-import { buildMetadata, secureJsonLD, BASE_URL } from "@/lib/seo";
+import { buildMetadata, secureJsonLD, BASE_URL, buildHowToSchema } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -58,12 +58,37 @@ const processFaqSchema = {
   ],
 };
 
+const processHowToSchema = buildHowToSchema({
+  url: `${BASE_URL}/process`,
+  name: "Endpoint Media Web Design & Local SEO Process",
+  description:
+    "A proven three-step process for building high-performance websites that dominate Johannesburg local search.",
+  steps: [
+    {
+      name: "Elite Performance Foundation",
+      text: "Engineer sub-second load times and flawless mobile execution. Optimize Core Web Vitals from day one so your site wins speed-based rankings for Johannesburg near-me searches.",
+    },
+    {
+      name: "Hyper-Local SEO Architecture",
+      text: "Map services to precise suburb-level search queries. Build geographically targeted pages with technical SEO so you become the definitive local answer when customers search.",
+    },
+    {
+      name: "Map Pack Dominance & Authority Building",
+      text: "Optimize Google Business Profile, generate consistent reviews, and secure Map Pack visibility—the primary source of ready-to-buy local leads.",
+    },
+  ],
+});
+
 const ProcessPage = () => {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: secureJsonLD(processFaqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(processHowToSchema) }}
       />
       {/* Hero Section for Process Page */}
       <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">

@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import InternalLinks from '@/components/seo/InternalLinks';
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 const PAGE_PATH = '/services/google-ads';
@@ -243,6 +244,43 @@ const GoogleAdsPage = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Google Ads service hub */}
+      <section className="py-20 bg-gray-50 border-t border-gray-200">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-10">
+            <p className="text-teal-600 font-semibold uppercase tracking-wide">Full Google Ads stack</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3 font-heading">
+              Specialized paid search for every vertical and Gauteng node.
+            </h2>
+            <p className="text-lg text-gray-600 mt-4">
+              Endpoint Media combines campaign management, Performance Max, dedicated landing pages, and
+              transparent ZAR pricing—built for manufacturers, automotive, finance, and local service operators.
+            </p>
+          </div>
+          <InternalLinks
+            title="Explore Google Ads services"
+            variant="default"
+            links={[
+              { href: '/services/b2b-google-ads-management', title: 'B2B Google Ads management', description: 'Flat-fee enterprise PPC + Next.js infrastructure' },
+              { href: '/services/performance-max-google-ads', title: 'Performance Max & Local Ads', description: 'PMax, Maps, and GBP-integrated campaigns' },
+              { href: '/services/google-ads-landing-pages', title: 'Google Ads landing pages', description: 'CRO pages that lift Quality Score' },
+              { href: '/services/google-ads-pricing', title: 'Google Ads pricing (ZAR)', description: 'Setup fees and monthly retainers' },
+              { href: '/services/google-ads-manufacturing', title: 'Manufacturing & industrial PPC', description: 'Alrode, Wadeville, and B2B lead gen' },
+              { href: '/services/google-ads-financial-services', title: 'Financial services PPC', description: 'Sandton & Bedfordview wealth keywords' },
+              { href: '/services/google-ads-automotive', title: 'Automotive & panel beaters', description: 'Emergency-intent Search + Local' },
+              { href: '/services/google-ads-sandton', title: 'Google Ads Sandton', description: 'Corporate and high-LTV campaigns' },
+              { href: '/services/google-ads-alberton', title: 'Google Ads Alberton', description: 'East Rand local partner' },
+              { href: '/services/google-ads-alrode', title: 'Google Ads Alrode', description: 'Industrial cluster targeting' },
+              { href: '/services/google-ads-midrand', title: 'Google Ads Midrand', description: 'Logistics corridor & corporate' },
+              { href: '/services/google-ads-wadeville', title: 'Google Ads Wadeville', description: 'East Rand industrial PPC' },
+              { href: '/services/google-ads-bedfordview', title: 'Google Ads Bedfordview', description: 'Finance & professional services' },
+              { href: '/insights/south-africa-google-ads-cpc-benchmarks', title: 'SA CPC benchmarks 2026', description: 'Budget planning by vertical' },
+              { href: '/compare/google-ads-flat-fee-vs-percentage-spend', title: 'Flat-fee vs % of spend', description: 'Why pricing model matters' },
+            ]}
+          />
         </div>
       </section>
 

@@ -1,0 +1,172 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
+const formatCurrency = (num: number): string =>
+  num.toLocaleString("en-ZA", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
+
+export default function PricingCalculator() {
+  const [mounted, setMounted] = useState(false);
+  const [pages, setPages] = useState(5);
+  const [traffic, setTraffic] = useState(1000);
+  const [conversion, setConversion] = useState(1);
+  const [avgOrderValue, setAvgOrderValue] = useState(500);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const templateCost = 15000;
+  const nextjsCost = 35000;
+  const speedGain = 3;
+  const conversionImprovement = (speedGain * 7) / 100;
+  const improvedConversion = conversion + conversion * conversionImprovement;
+  const monthlyRevenueTemplate = traffic * (conversion / 100) * avgOrderValue;
+  const monthlyRevenueNextjs = traffic * (improvedConversion / 100) * avgOrderValue;
+  const annualRevenueGain = (monthlyRevenueNextjs - monthlyRevenueTemplate) * 12;
+  const roi = ((annualRevenueGain - (nextjsCost - templateCost)) / (nextjsCost - templateCost)) * 100;
+
+  if (!mounted) {
+    return (
+      <div className="space-y-8 bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 min-h-[400px] flex items-center justify-center">
+        <p className="text-gray-500">Loading calculator...</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-8 bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200">
+      <div className="text-center mb-6">
+        <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">
+          ROI Calculator: Performance vs. Price
+        </h3>
+        <p className="text-gray-600">
+          Calculate the true cost of a slow website. Every second of load time costs you revenue.
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-sm font-bold mb-2 text-gray-900">Monthly Website Traffic</label>
+          <input
+            type="range"
+            min="100"
+            max="10000"
+            step="100"
+            value={traffic}
+            onChange={(e) => setTraffic(Number(e.target.value))}
+            className="w-full accent-cyan-600 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+          />
+          <div className="flex justify-between text-sm text-gray-600 mt-1">
+            <span>100</span>
+            <span className="font-bold text-cyan-600">{traffic.toLocaleString()} visitors/month</span>
+            <span>10,000</span>
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-bold mb-2 text-gray-900">Current Conversion Rate (%)</label>
+          <input
+            type="range"
+            min="0.5"
+            max="5"
+            step="0.1"
+            value={conversion}
+            onChange={(e) => setConversion(Number(e.target.value))}
+            className="w-full accent-cyan-600 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+          />
+          <div className="flex justify-between text-sm text-gray-600 mt-1">
+            <span>0.5%</span>
+            <span className="font-bold text-cyan-600">{conversion}%</span>
+            <span>5%</span>
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-bold mb-2 text-gray-900">Average Order Value (R)</label>
+          <input
+            type="range"
+            min="100"
+            max="5000"
+            step="50"
+            value={avgOrderValue}
+            onChange={(e) => setAvgOrderValue(Number(e.target.value))}
+            className="w-full accent-cyan-600 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+          />
+          <div className="flex justify-between text-sm text-gray-600 mt-1">
+            <span>R100</span>
+            <span className="font-bold text-cyan-600">R{avgOrderValue}</span>
+            <span>R5,000</span>
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-bold mb-2 text-gray-900">Number of Pages</label>
+          <input
+            type="range"
+            min="3"
+            max="20"
+            step="1"
+            value={pages}
+            onChange={(e) => setPages(Number(e.target.value))}
+            className="w-full accent-cyan-600 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+          />
+          <div className="flex justify-between text-sm text-gray-600 mt-1">
+            <span>3</span>
+            <span className="font-bold text-cyan-600">{pages} pages</span>
+            <span>20</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-6 mt-8">
+        <div className="p-6 bg-red-50 border-2 border-red-200 rounded-xl">
+          <h4 className="font-bold text-gray-900 mb-2 text-lg">Template Site (WordPress)</h4>
+          <p className="text-4xl font-black text-red-600 mb-2">R{formatCurrency(templateCost)}</p>
+          <p className="text-sm text-gray-700 mb-3">Load Time: 3-5 seconds</p>
+          <div className="space-y-1 text-sm">
+            <p className="text-gray-700">
+              <strong>Monthly Revenue:</strong> R{formatCurrency(monthlyRevenueTemplate)}
+            </p>
+            <p className="text-red-600 font-bold">
+              <strong>Annual Revenue Lost:</strong> R
+              {formatCurrency(monthlyRevenueTemplate * conversionImprovement * 12)}
+            </p>
+            <p className="text-xs text-gray-600 mt-2">*Due to slow load times affecting conversion rates</p>
+          </div>
+        </div>
+
+        <div className="p-6 bg-gradient-to-br from-cyan-600 to-blue-600 text-white rounded-xl shadow-2xl transform scale-105 relative">
+          <div className="absolute -top-3 -right-3 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold">
+            RECOMMENDED
+          </div>
+          <h4 className="font-bold text-white mb-2 text-lg">Next.js Performance Asset</h4>
+          <p className="text-4xl font-black text-white mb-2">R{formatCurrency(nextjsCost)}</p>
+          <p className="text-sm text-cyan-100 mb-3">Load Time: &lt;1 second</p>
+          <div className="space-y-1 text-sm">
+            <p className="text-white">
+              <strong>Monthly Revenue:</strong> R{formatCurrency(monthlyRevenueNextjs)}
+            </p>
+            <p className="text-green-300 font-bold">
+              <strong>Annual Revenue Gain:</strong> +R{formatCurrency(annualRevenueGain)}
+            </p>
+            <p className="text-white font-bold mt-2">
+              <strong>ROI:</strong> {roi.toFixed(0)}%
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg">
+        <p className="text-sm text-gray-700">
+          <strong>Research Note:</strong> Google&apos;s Core Web Vitals research shows that a 1-second delay in
+          page load time can reduce conversions by up to 7%. Next.js Server Components deliver HTML in under 200ms,
+          while WordPress templates often take 3-5 seconds to fully render.
+        </p>
+      </div>
+    </div>
+  );
+}

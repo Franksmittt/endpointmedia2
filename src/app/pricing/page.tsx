@@ -2,7 +2,7 @@
 import React from 'react';
 import type { Metadata } from "next";
 import Link from 'next/link';
-import { buildMetadata, secureJsonLD, BASE_URL } from "@/lib/seo";
+import { buildMetadata, secureJsonLD, BASE_URL, buildSpeakableWebPageSchema } from "@/lib/seo";
 import SocialProof from "@/components/sections/SocialProof";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -122,6 +122,14 @@ const PricingPage = () => {
     ],
   };
 
+  const pricingSpeakableSchema = buildSpeakableWebPageSchema({
+    url: `${BASE_URL}/pricing`,
+    name: "Endpoint Media Website Design Pricing",
+    description:
+      "Transparent website design and local SEO packages for Johannesburg service businesses.",
+    cssSelectors: ["#pricing-headline", "#pricing-summary"],
+  });
+
   return (
     <>
       <script
@@ -132,13 +140,19 @@ const PricingPage = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }}
       />
-      {/* Hero Section for Pricing Page */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(pricingSpeakableSchema) }}
+      />
       <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 font-heading">
+          <h1
+            id="pricing-headline"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 font-heading"
+          >
             Premium Investment. Maximum Return.
           </h1>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-300">
+          <p id="pricing-summary" className="text-lg md:text-xl max-w-3xl mx-auto text-gray-300">
             We don&apos;t compete on price. We compete on results. Every package is an intensive, research-driven investment engineered to put you <strong className="text-white">completely above your competitors</strong> and generate measurable growth. We&apos;d rather work with fewer clients who excel than hundreds who just become statistics.
           </p>
         </div>

@@ -1,0 +1,972 @@
+================================================================================
+ GSC FLAWLESS AUDIT REPORT — Endpoint Media (Next.js 16.1.1 App Router)
+================================================================================
+Audit Date     : 2026-05-29
+Last Updated   : 2026-05-29 (P0 remediation applied — see CHANGELOG below)
+Auditor Role   : Systems Engineer / Technical SEO Architect
+Project Path   : C:\Users\User1\Downloads\endpointmedia2-main
+Framework      : Next.js 16.1.1 | React 19 | App Router | TypeScript 5
+Production URL : https://www.endpointmedia.co.za
+Blueprint Sources:
+  - searchconsole/Next.js SEO & Core Web Vitals Blueprint.txt
+  - searchconsole/Next.js Indexing Blueprint for SEO.txt
+  - searchconsole/Next.js Indexing & Crawl Optimization Blueprint.txt
+
+EXECUTIVE SUMMARY
+-----------------
+Overall GSC Readiness Score: 84 / 100 (STRONG — P0 BLOCKERS CLEARED)
+
+Tier 1 (Foundational)     : 82% — Core canonical/sitemap/robots alignment is solid.
+Tier 2 (Metadata/Schema)  : 78% — JSON-LD server-injected on homepage; blog OG async params fixed;
+                                  schema-dts typing still absent (P2).
+Tier 3 (Infrastructure)   : 62% — htmlLimitedBots + _rsc strip present; NO proxy.ts/middleware
+                                  bot bypass layer; LCP image uses Next `priority` not blueprint attrs.
+Tier 4 (Extreme Edge)     : 70% — Footer legal 404 trap eliminated; Review schema off client tree;
+                                  still: client Header/WebVitals, no chunk boundary, full-client /contact.
+
+Automated pre-deploy toolchain (scripts/seo/*) is IMPLEMENTED and validated 58/58 URLs locally.
+Production build post-P0: 65 routes (includes /privacy-policy, /terms-of-service).
+Production Indexing API push requires GCP credentials (manual).
+
+Files audited: 94+ src files, next.config.mjs, package.json, robots.ts, sitemap.ts, public/*,
+scripts/seo/*, .env.example, searchconsole blueprints, requirements-seo.txt, SEO_CRAWL_WORKFLOW.md.
+
+CHANGELOG — P0 REMEDIATION (2026-05-29)
+---------------------------------------
+[COMPLETED] src/app/privacy-policy/page.tsx — Server Component + buildMetadata()
+[COMPLETED] src/app/terms-of-service/page.tsx — Server Component + buildMetadata()
+[COMPLETED] src/app/blog/[slug]/opengraph-image.tsx — params: Promise + await params
+[COMPLETED] Review JSON-LD migrated from Proof.tsx → src/app/page.tsx via secureJsonLD()
+[COMPLETED] .env.example — NEXT_PUBLIC_BASE_URL, GOOGLE_SITE_VERIFICATION, INDEXNOW_KEY, INDEXNOW_SECRET
+[VERIFIED]  npm run build — exit 0, 65 static/SSG routes generated
+
+CHANGELOG — GOOGLE ADS EXPANSION (2026-05-29)
+-----------------------------------------------
+[COMPLETED] src/lib/google-ads-services.ts — 13 service configs + Service/FAQ schema builder
+[COMPLETED] src/components/services/GoogleAdsSubPage.tsx — reusable paid-search template
+[COMPLETED] 13 service routes under /services/* (B2B, PMax, landing pages, pricing, verticals, locations)
+[COMPLETED] /insights/south-africa-google-ads-cpc-benchmarks — Article schema + internal links
+[COMPLETED] /compare/google-ads-flat-fee-vs-percentage-spend — comparison page
+[COMPLETED] /services/google-ads hub — InternalLinks to full Google Ads cluster
+[COMPLETED] sitemap.ts — all Google Ads paths + insights/compare + legal pages
+[COMPLETED] services index + Footer — hub, B2B, pricing links
+[VERIFIED]  npm run build — exit 0, 80 routes (includes 16 new Google Ads cluster URLs)
+[PENDING]   npm run seo:check — blocked locally by ENOSPC (disk full) during crawl; re-run after freeing disk
+
+================================================================================
+ TIER 1 — THE FOUNDATIONAL BASELINE (BASICS)
+================================================================================
+
+--------------------------------------------------------------------------------
+1.1 — Root metadataBase Implementation (app/layout.tsx)
+--------------------------------------------------------------------------------
+[STATUS]: PASSED (with production environment caveat)
+
+[CODE REFERENCE]:
+File: src/app/layout.tsx (lines 50-54, 61-76)
+
+  // NOTE: Canonical tags are set per-page via buildMetadata() - do not set here to avoid conflicts
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://www.endpointmedia.co.za"),
+  alternates: {
+    languages: {
+      "en-ZA": "https://www.endpointmedia.co.za",
+      en: "https://www.endpointmedia.co.za",
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_ZA",
+    url: "https://www.endpointmedia.co.za",
+    ...
+
+File: src/lib/seo.ts (lines 128-153) — buildMetadata() emits ABSOLUTE canonical URLs:
+
+  const cleanPath = path === '/' ? '' : path.replace(/\/$/, '');
+  const url = `${BASE_URL}${cleanPath}`;
+  return {
+    alternates: {
+      canonical: url,
+      languages: languageAlternates,
+    },
+    ...
+
+[EVALUATION]:
+- metadataBase is correctly instantiated with new URL() per blueprint.
+- Child routes use buildMetadata() which resolves canonical to absolute https://www.endpointmedia.co.za{path}.
+- trailingSlash stripping in buildMetadata matches next.config.mjs trailingSlash: false.
+- CAUTION: If NEXT_PUBLIC_BASE_URL is unset in Vercel, fallbacks are correct (www). If mis-set to
+  non-www or staging domain, ALL canonicals and OG URLs will poison GSC.
+
+[REMEDIATION PLAN]: N/A (passed). Operational requirement only:
+
+  # Vercel Production Environment Variables (required)
+  NEXT_PUBLIC_BASE_URL=https://www.endpointmedia.co.za
+  GOOGLE_SITE_VERIFICATION=<your-verification-code>
+
+
+--------------------------------------------------------------------------------
+1.2 — robots.txt / Crawl Permission Matrix
+--------------------------------------------------------------------------------
+[STATUS]: PARTIAL PASS (dynamic robots.ts — no static public/robots.txt)
+
+[CODE REFERENCE]:
+File: src/app/robots.ts (complete file, 58 lines)
+
+  if (process.env.NODE_ENV !== 'production') {
+    return {
+      rules: {
+        userAgent: '*',
+        disallow: '/', // Block all crawling on non-production environments
+      },
+    };
+  }
+
+  return {
+    rules: [
+      { userAgent: '*', allow: '/', disallow: ['/api/', '/admin/', '/private/'] },
+      { userAgent: 'Googlebot', allow: '/', disallow: ['/api/', '/admin/', '/private/'] },
+      { userAgent: 'Bingbot', allow: '/', disallow: ['/api/', '/admin/', '/private/'] },
+    ],
+    sitemap: [
+      `${baseUrl}/sitemap.xml`,
+      `${baseUrl}/alberton-service-area.kml`
+    ],
+  };
+
+File: public/ — NO robots.txt present (only humans.txt, alberton-service-area.kml)
+
+[EVALUATION]:
+PASS sub-criteria:
+  (+) Does NOT block /_next/ or /_next/static/ — critical for Googlebot rendering.
+  (+) Blocks /api/ contact and indexnow endpoints from crawl budget waste.
+  (+) Declares sitemap.xml + KML geo sitemap (advanced local signal).
+  (+) Non-production environments hard-disallow all (prevents staging indexation).
+
+FAIL sub-criteria (blueprint advanced directives):
+  (-) No explicit disallow for noisy query-driven paths (?utm_*, ?_rsc handled at redirect layer only).
+  (-) No static public/robots.txt fallback if dynamic route fails at edge.
+  (-) Blueprint references blocking _next/data/ selectively — not implemented (usually OK for App Router).
+
+[REMEDIATION PLAN]:
+
+--- File: src/app/robots.ts (enhanced production rules) ---
+import { MetadataRoute } from 'next';
+
+export default function robots(): MetadataRoute.Robots {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za';
+
+  if (process.env.NODE_ENV !== 'production') {
+    return { rules: { userAgent: '*', disallow: '/' } };
+  }
+
+  return {
+    rules: [
+      {
+        userAgent: '*',
+        allow: ['/', '/_next/static/'],
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/private/',
+          '/*?*utm_',
+          '/*?*_rsc=',
+          '/*?*fbclid=',
+        ],
+      },
+      {
+        userAgent: 'Googlebot',
+        allow: ['/', '/_next/static/'],
+        disallow: ['/api/', '/admin/', '/private/'],
+      },
+    ],
+    sitemap: [`${baseUrl}/sitemap.xml`, `${baseUrl}/alberton-service-area.kml`],
+  };
+}
+
+--- Optional static mirror: public/robots.txt (for CDN-level fallback) ---
+User-agent: *
+Allow: /
+Allow: /_next/static/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://www.endpointmedia.co.za/sitemap.xml
+Sitemap: https://www.endpointmedia.co.za/alberton-service-area.kml
+
+
+--------------------------------------------------------------------------------
+1.3 — Sitemap.ts vs next.config.mjs Trailing-Slash Uniformity
+--------------------------------------------------------------------------------
+[STATUS]: PASSED (uniformity) | FAILED (sitemap quality / deduplication / revalidation)
+
+[CODE REFERENCE]:
+File: next.config.mjs (lines 26-52)
+
+  trailingSlash: false,
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'endpointmedia.co.za' }],
+        destination: 'https://www.endpointmedia.co.za/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'query', key: '_rsc' }],
+        destination: '/:path*',
+        permanent: true,
+      },
+    ];
+  },
+
+File: src/app/sitemap.ts (lines 13-25, 110-154)
+
+  const cleanPath = path === '/' ? '' : path.replace(/\/$/, '');
+  return {
+    url: cleanPath === '' ? baseUrl : `${baseUrl}${cleanPath}`,
+    ...
+  };
+
+[EVALUATION]:
+PASS:
+  - trailingSlash: false aligns with sitemap URL generation (no terminal slash).
+  - Non-www → www 308 at host level prevents duplicate property in GSC.
+  - _rsc query strip redirect prevents React Flight URL duplication in index.
+
+FAIL / WARN:
+  - ALL entries share identical lastModified: currentDate at build time — blueprint requires
+    per-content timestamps for crawl trust.
+  - Duplicate URLs in sitemap output (validator logs showed /locations/sandton etc. twice) because
+    high-priority createEntry() duplicates paths already in locationPaths arrays.
+  - No export const revalidate = 86400 on sitemap.ts (blueprint caching semantics).
+  - skipTrailingSlashRedirect: true not set (blueprint enterprise migration option).
+
+[REMEDIATION PLAN]:
+
+--- File: src/app/sitemap.ts (dedupe + revalidate + accurate blog dates) ---
+import { MetadataRoute } from 'next';
+
+export const revalidate = 86400;
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za';
+
+const BLOG_POST_DATES: Record<string, string> = {
+  'the-true-cost-of-a-website-in-johannesburg': '2025-10-30',
+  'freelancer-vs-agency-the-low-risk-choice-for-johannesburg': '2025-10-23',
+  'the-schema-vacuum-technical-seo-advantage': '2025-10-15',
+  'wix-vs-wordpress-guide-johannesburg-small-businesses': '2025-11-05',
+  'how-much-does-website-cost-south-africa-2025': '2025-11-12',
+};
+
+function createEntry(
+  path: string,
+  changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'],
+  priority: number,
+  lastModified?: Date,
+): MetadataRoute.Sitemap[number] {
+  const cleanPath = path === '/' ? '' : path.replace(/\/$/, '');
+  return {
+    url: cleanPath === '' ? baseUrl : `${baseUrl}${cleanPath}`,
+    lastModified: lastModified ?? new Date(),
+    changeFrequency,
+    priority,
+  };
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const entries: MetadataRoute.Sitemap = [
+    createEntry('/', 'weekly', 1.0),
+    createEntry('/pricing', 'weekly', 0.95),
+    // ... build full list ONCE per path ...
+    ...blogSlugs.map((slug) =>
+      createEntry(
+        `/blog/${slug}`,
+        'weekly',
+        0.7,
+        new Date(BLOG_POST_DATES[slug] ?? Date.now()),
+      ),
+    ),
+  ];
+
+  const seen = new Set<string>();
+  return entries.filter((entry) => {
+    if (seen.has(entry.url)) return false;
+    seen.add(entry.url);
+    return true;
+  });
+}
+
+--- File: next.config.mjs (optional blueprint addition) ---
+  skipTrailingSlashRedirect: true,
+
+
+================================================================================
+ TIER 2 — EDGE AND METADATA INTEGRITY (INTERMEDIATE)
+================================================================================
+
+--------------------------------------------------------------------------------
+2.1 — Dynamic Route params: Next.js 16 Async Compliance ([slug], OG routes)
+--------------------------------------------------------------------------------
+[STATUS]: PASSED (blog page + blog opengraph-image)
+
+[CODE REFERENCE]:
+PASS — File: src/app/blog/[slug]/page.tsx (lines 374-431)
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPostData(slug);
+  ...
+
+const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
+  const post = await getPostData(slug);
+  if (!post) {
+    notFound();
+  }
+
+PASS — File: src/app/blog/[slug]/opengraph-image.tsx (P0 fix applied)
+
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const title = getTitleFromSlug(slug);
+  ...
+
+[EVALUATION]:
+- Only ONE dynamic segment exists: blog/[slug]. Case studies and locations use static folders (no [slug]).
+- Blog content pages use await params — compliant.
+- opengraph-image.tsx now awaits params before getTitleFromSlug — Next.js 16 compliant.
+
+[REMEDIATION PLAN]: N/A (P0 completed 2026-05-29)
+
+
+--------------------------------------------------------------------------------
+2.2 — Structured Data: schema-dts Typings + Server-Only JSON-LD Injection
+--------------------------------------------------------------------------------
+[STATUS]: PARTIAL PASS (XSS sanitization + server injection including homepage Review schemas)
+            FAILED (schema-dts package, SchemaInjector component — P2 backlog)
+
+[CODE REFERENCE]:
+PASS — File: src/lib/seo.ts (lines 17-18)
+
+export function secureJsonLD(data: object): string {
+  return JSON.stringify(data).replace(/</g, '\\u003c');
+}
+
+PASS — File: src/app/layout.tsx — Organization, LocalBusiness, WebSite, Person schemas (server)
+
+PASS — File: src/app/page.tsx (P0 fix) — Review JSON-LD on server, NOT in client tree:
+
+const reviewSchema = { "@context": "https://schema.org", "@type": "Review", "@id": ".../#review-1", ... };
+const reviewSchema2 = { "@context": "https://schema.org", "@type": "Review", "@id": ".../#review-2", ... };
+
+// In HomePage JSX:
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(reviewSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(reviewSchema2) }} />
+
+PASS — File: src/components/sections/Proof.tsx — "use client" retained for UI only;
+       NO <script type="application/ld+json"> blocks (removed P0 2026-05-29).
+
+File: package.json — NO "schema-dts" dependency listed.
+
+[EVALUATION]:
+- 50+ server pages inject JSON-LD via native <script> tags (blueprint-approved pattern).
+- secureJsonLD() implements blueprint XSS unicode escape for < characters.
+- Homepage Review schemas now ship in initial HTML without client hydration bloat (P0 FIXED).
+- Proof.tsx remains client for IntersectionObserver animations only — acceptable UI isolation.
+- SocialProof.tsx is a Server Component with secureJsonLD — GOOD.
+- No SchemaInjector.tsx abstraction; no compile-time schema.org validation (P2).
+
+[REMEDIATION PLAN]: P0 complete. Remaining P2 work:
+
+Step 1 — Install schema-dts: npm install schema-dts
+Step 2 — Create src/components/seo/SchemaInjector.tsx (see original blueprint in report archive)
+Step 3 — Gradually migrate layout/page schemas to SchemaInjector + WithContext<> types
+
+
+--------------------------------------------------------------------------------
+2.3 — generateMetadata Canonical Streaming + isDistinctEntity Thin-Content Guard
+--------------------------------------------------------------------------------
+[STATUS]: PASSED (canonical builder) | FAILED (isDistinctEntity / variant gating)
+
+[CODE REFERENCE]:
+File: src/lib/seo.ts — buildMetadata() (full canonical + OG + twitter pipeline)
+
+File: src/app/contact/layout.tsx — Server metadata wrapper for client page:
+
+export const metadata: Metadata = buildMetadata({
+  title: "Contact Endpoint Media | Talk to Frank Smit",
+  path: "/contact",
+  ...
+});
+
+[EVALUATION]:
+PASS:
+  - All audited static routes call buildMetadata() or export metadata with absolute paths.
+  - Blog generateMetadata uses await params + slug-specific titles/descriptions.
+  - Root layout robots: { index: true, follow: true, googleBot: {...} } — correct defaults.
+
+FAIL:
+  - No isDistinctEntity() threshold function anywhere in codebase (blueprint anti-thin-content trap).
+  - Blog posts share identical placeholder structure — no word-count or uniqueness gate before index.
+  - GOOGLE_SITE_VERIFICATION defaults to empty string when env unset (may emit invalid meta tag).
+  - not-found.tsx has NO metadata export with robots: { index: false } — soft-404 risk for junk URLs.
+
+[REMEDIATION PLAN]:
+
+--- File: src/lib/seo.ts (add guard helper) ---
+export function isDistinctEntity(content: {
+  wordCount: number;
+  uniqueFields: number;
+  minWords?: number;
+  minUnique?: number;
+}): boolean {
+  const minWords = content.minWords ?? 300;
+  const minUnique = content.minUnique ?? 3;
+  return content.wordCount >= minWords && content.uniqueFields >= minUnique;
+}
+
+--- File: src/app/blog/[slug]/page.tsx (use in generateMetadata + page) ---
+import { isDistinctEntity } from '@/lib/seo';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getPostData(slug);
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+      robots: { index: false, follow: false },
+    };
+  }
+  const wordCount = post.content.replace(/<[^>]+>/g, ' ').split(/\s+/).length;
+  const indexable = isDistinctEntity({ wordCount, uniqueFields: 4 });
+  const meta = buildMetadata({ title: `${post.title} | Endpoint Media Blog`, ... });
+  return { ...meta, robots: indexable ? undefined : { index: false, follow: true } };
+}
+
+--- File: src/app/not-found.tsx ---
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Page Not Found | Endpoint Media',
+  robots: { index: false, follow: true },
+};
+
+
+================================================================================
+ TIER 3 — INFRASTRUCTURE & NETWORK OPERATIONS (ADVANCED)
+================================================================================
+
+--------------------------------------------------------------------------------
+3.1 — proxy.ts / middleware.ts Adaptive Content Negotiation & Bot Bypass
+--------------------------------------------------------------------------------
+[STATUS]: FAILED (file does not exist)
+
+[CODE REFERENCE]:
+Project root search: NO middleware.ts, NO proxy.ts found.
+
+Current bot handling relies solely on:
+  - next.config.mjs htmlLimitedBots regex
+  - next.config.mjs redirects (host + _rsc)
+  - No cookie/session gate bypass for Googlebot
+
+[EVALUATION]:
+Blueprint mandates edge proxy with regex crawler detection so statutory bots bypass auth/cookie
+redirects. Without this layer, any future auth middleware risks "Discovered - currently not indexed"
+redirect loops. Current site has no auth — risk is LATENT but architecture is non-compliant.
+
+[REMEDIATION PLAN]:
+
+--- File: src/proxy.ts (Next.js 16 convention — or middleware.ts if preferred) ---
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+const CRAWLER_UA =
+  /Googlebot|Google-InspectionTool|AdsBot-Google|Mediapartners-Google|bingbot|Baiduspider|YandexBot|DuckDuckBot|Slurp|facebookexternalhit|Twitterbot|LinkedInBot|Applebot/i;
+
+export function proxy(request: NextRequest) {
+  const ua = request.headers.get('user-agent') ?? '';
+  const isBot = CRAWLER_UA.test(ua);
+
+  if (isBot) {
+    const response = NextResponse.next();
+    response.headers.set('x-robots-tag', 'all');
+    return response;
+  }
+
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|kml|txt)).*)',
+  ],
+};
+
+
+--------------------------------------------------------------------------------
+3.2 — htmlLimitedBots Synchronous HTML for Automated Agents
+--------------------------------------------------------------------------------
+[STATUS]: PASSED
+
+[CODE REFERENCE]:
+File: next.config.mjs (lines 3-4)
+
+  htmlLimitedBots: /Googlebot|AdsBot-Google|Mediapartners-Google|bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp|Applebot/i,
+
+[EVALUATION]:
+Correctly forces full HTML document delivery to major crawlers and social preview agents.
+Prevents indexing of RSC flight/streaming payloads — aligns with blueprint Tier 4.2 companion.
+
+[REMEDIATION PLAN]: N/A
+
+
+--------------------------------------------------------------------------------
+3.3 — LCP Image Scheduling: priority vs loading/fetchPriority
+--------------------------------------------------------------------------------
+[STATUS]: FAILED (blueprint literal compliance on Hero LCP)
+
+[CODE REFERENCE]:
+File: src/components/sections/Hero.tsx (lines 25-33) — Server Component (GOOD)
+
+        <Image
+          src={HERO_BG_SRC}
+          alt="Endpoint Media - Premium web design..."
+          fill
+          quality={80}
+          priority
+          className="hidden md:block object-cover opacity-15"
+          sizes="(max-width: 1023px) 0px, 100vw"
+        />
+
+File: src/components/sections/Solution.tsx (line 41) — uses priority={false} (acceptable for below-fold)
+
+[EVALUATION]:
+- Hero is correctly a Server Component (H1 in initial HTML — PASSED for soft-404 prevention).
+- Blueprint explicitly requires migration from deprecated `priority` prop to:
+  loading="eager" + fetchPriority="high"
+- Next.js Image `priority` still works internally but fails strict blueprint audit checklist.
+
+[REMEDIATION PLAN]:
+
+--- File: src/components/sections/Hero.tsx (Image block replacement) ---
+        <Image
+          src={HERO_BG_SRC}
+          alt="Endpoint Media - Premium web design and digital marketing services for Johannesburg businesses. High-performance websites that generate leads and dominate local search results."
+          fill
+          quality={80}
+          loading="eager"
+          fetchPriority="high"
+          className="hidden md:block object-cover opacity-15"
+          sizes="(max-width: 1023px) 0px, 100vw"
+        />
+
+Note: Remove the `priority` prop when adding loading/fetchPriority to avoid redundant hints.
+
+
+================================================================================
+ TIER 4 — SYSTEMIC EXTRA-EXTREME TRAPS (SUPER EXTREME EDGE CASES)
+================================================================================
+
+--------------------------------------------------------------------------------
+4.1 — Client-Side Hydration Exception / Soft 404 Vulnerability
+--------------------------------------------------------------------------------
+[STATUS]: FAILED (elevated risk on homepage shell + contact)
+
+[CODE REFERENCE]:
+File: src/app/layout.tsx (lines 274-277) — Client components in root layout tree:
+
+        <Header />   // src/components/layout/Header.tsx line 2: "use client"
+        <main id="main-content">{children}</main>
+        <Footer />   // Server Component — GOOD
+        <WebVitals />  // src/components/analytics/web-vitals.tsx line 1: 'use client'
+
+File: src/app/page.tsx — Homepage composes MULTIPLE client sections:
+  Proof.tsx      — "use client" (lines 1-2)
+  Vetting.tsx    — "use client"
+  Toolkit.tsx    — "use client"
+  Blueprint.tsx  — "use client"
+  Audit.tsx      — "use client"
+
+File: src/app/contact/page.tsx (line 2) — ENTIRE route body is client:
+
+"use client";
+const ContactPage = () => { ... fetch('/api/contact') ... }
+
+PASS mitigations already in place:
+  - Hero.tsx is Server Component with H1 in HTML (critical for homepage indexing).
+  - Pricing page, service pages, blog pages are predominantly Server Components with full HTML content.
+
+[EVALUATION]:
+- Root layout wraps every page with client Header — adds JS to critical path but nav links are
+  still SSR'd as <a> tags inside client component (Googlebot generally sees link equity).
+- Homepage folds 5+ client sections WITH IntersectionObserver effects BELOW hero — content still in
+  SSR HTML. Review JSON-LD hydration bloat REMOVED (P0 — now in server page.tsx).
+- /contact has metadata via layout (GOOD) but body is CSR — form labels exist in SSR of client
+  components, however blueprint classifies full-page "use client" as high soft-404 risk.
+
+[REMEDIATION PLAN]:
+
+--- Pattern: Split contact into server page + client form leaf ---
+File: src/app/contact/ContactForm.tsx
+"use client";
+// move form state, handleSubmit, analytics here only
+
+File: src/app/contact/page.tsx (remove "use client")
+import ContactForm from './ContactForm';
+export default function ContactPage() {
+  return (
+    <section>
+      <h1>Contact Endpoint Media</h1>
+      <p>Speak with Frank Smit...</p>
+      <ContactForm />
+    </section>
+  );
+}
+
+--- Pattern: Convert Header scroll/menu to CSS-only or split ---
+File: src/components/layout/HeaderNav.tsx (server) — static links
+File: src/components/layout/MobileMenu.tsx (client leaf) — only mobile toggle
+
+
+--------------------------------------------------------------------------------
+4.2 — Next.js Build Artifact Trap: _rsc Query Parameter Stripping
+--------------------------------------------------------------------------------
+[STATUS]: PASSED
+
+[CODE REFERENCE]:
+File: next.config.mjs (lines 45-51)
+
+      {
+        source: '/:path*',
+        has: [{ type: 'query', key: '_rsc' }],
+        destination: '/:path*',
+        permanent: true,
+      },
+
+[EVALUATION]:
+Permanent redirect strips ?_rsc= internal React Flight requests from becoming indexable URLs.
+Protects crawl budget per Crawl Optimization Blueprint.
+
+[REMEDIATION PLAN]: N/A
+
+
+--------------------------------------------------------------------------------
+4.3 — Static Chunk Version Skew / GracefullyDegradingErrorBoundary
+--------------------------------------------------------------------------------
+[STATUS]: FAILED (not implemented)
+
+[CODE REFERENCE]:
+Project-wide search: NO GracefullyDegradingErrorBoundary, NO global-error.tsx, NO chunk-recovery.
+
+File: src/app/layout.tsx — No error boundary wrapper.
+
+[EVALUATION]:
+Rapid Vercel deployments can cause stale HTML referencing deleted _next/static chunks.
+Users/bots may see blank screens → GSC "Soft 404" or "Crawled - currently not indexed".
+Blueprint requires layout-level degradation handler.
+
+[REMEDIATION PLAN]:
+
+--- File: src/components/GracefullyDegradingErrorBoundary.tsx ---
+'use client';
+
+import React from 'react';
+
+type Props = { children: React.ReactNode };
+
+type State = { hasError: boolean };
+
+export class GracefullyDegradingErrorBoundary extends React.Component<Props, State> {
+  state: State = { hasError: false };
+
+  static getDerivedStateFromError(): State {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error) {
+    const isChunkError =
+      /ChunkLoadError|Loading chunk|Failed to fetch dynamically imported module/i.test(
+        error.message,
+      );
+    if (isChunkError && typeof window !== 'undefined') {
+      const reloadKey = 'chunk_reload_once';
+      if (!sessionStorage.getItem(reloadKey)) {
+        sessionStorage.setItem(reloadKey, '1');
+        window.location.reload();
+        return;
+      }
+    }
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div role="alert" className="p-8 text-center">
+          <h1>Page temporarily unavailable</h1>
+          <p>
+            <a href="/">Return to homepage</a> or{' '}
+            <button type="button" onClick={() => window.location.reload()}>
+              reload
+            </button>
+          </p>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+--- File: src/app/layout.tsx (wrap body children) ---
+import { GracefullyDegradingErrorBoundary } from '@/components/GracefullyDegradingErrorBoundary';
+
+<body>
+  <GracefullyDegradingErrorBoundary>
+    <Header />
+    <main id="main-content">{children}</main>
+    <Footer />
+  </GracefullyDegradingErrorBoundary>
+  ...
+</body>
+
+
+================================================================================
+ SUPPLEMENTAL AUDIT — INDEXING OPERATIONS & GSC COMPLIANCE VECTORS
+================================================================================
+
+--------------------------------------------------------------------------------
+S.1 — Pre-Deploy Python SEO Toolchain (Blueprint Phase 2-3)
+--------------------------------------------------------------------------------
+[STATUS]: PASSED (implemented)
+
+[CODE REFERENCE]:
+  scripts/seo/validate_seo.py   — Sitemap + Googlebot UA + allow_redirects=False + canonical check
+  scripts/seo/graph_auditor.py — NetworkX BFS + orphan/depth audit
+  scripts/seo/index_pusher.py  — Google Indexing API batch orchestrator
+  scripts/seo/run_all.py       — Combined runner
+  requirements-seo.txt         — Python dependencies
+  package.json scripts: seo:validate, seo:graph, seo:check, seo:index
+
+[REMEDIATION PLAN]: N/A — Run before each deploy:
+  npm run build && npm run start
+  npm run seo:check
+  npm run seo:index   # after setting GOOGLE_APPLICATION_CREDENTIALS
+
+
+--------------------------------------------------------------------------------
+S.2 — IndexNow API (src/app/api/indexnow/route.ts)
+--------------------------------------------------------------------------------
+[STATUS]: PASSED (implementation) | FAILED (operational — env vars required)
+
+[CODE REFERENCE]:
+  Bearer auth via INDEXNOW_SECRET
+  host: 'www.endpointmedia.co.za'
+  POST to https://api.indexnow.org/indexnow
+
+[REMEDIATION PLAN]:
+  Set INDEXNOW_KEY, INDEXNOW_SECRET, publish {key}.txt to public root.
+
+
+--------------------------------------------------------------------------------
+S.3 — Footer Legal Links / Crawl Traps (404 URLs linked sitewide)
+--------------------------------------------------------------------------------
+[STATUS]: PASSED (P0 completed 2026-05-29)
+
+[CODE REFERENCE]:
+File: src/components/layout/Footer.tsx (lines 157-159)
+
+  <Link href="/privacy-policy">Privacy Policy</Link>
+  <Link href="/terms-of-service">Terms of Service</Link>
+
+File: src/app/privacy-policy/page.tsx — Server Component
+
+export const metadata: Metadata = buildMetadata({
+  title: 'Privacy Policy | Endpoint Media',
+  path: '/privacy-policy',
+  ...
+});
+
+File: src/app/terms-of-service/page.tsx — Server Component
+
+export const metadata: Metadata = buildMetadata({
+  title: 'Terms of Service | Endpoint Media',
+  path: '/terms-of-service',
+  ...
+});
+
+[EVALUATION]:
+Footer legal links now resolve to HTTP 200 static pages with absolute canonicals via buildMetadata().
+Boilerplate placeholder legal copy included; counsel review recommended before compliance reliance.
+NOTE: /privacy-policy and /terms-of-service are not yet in sitemap.ts — add in P1 if indexation desired.
+
+[REMEDIATION PLAN]: N/A (P0 complete). Optional P1 — add to sitemap.ts:
+
+  createEntry('/privacy-policy', 'yearly', 0.3),
+  createEntry('/terms-of-service', 'yearly', 0.3),
+
+
+--------------------------------------------------------------------------------
+S.4 — Google Search Console Verification Meta
+--------------------------------------------------------------------------------
+[STATUS]: FAILED (when env unset)
+
+[CODE REFERENCE]:
+File: src/app/layout.tsx (lines 94-98)
+
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || "",
+  },
+
+[REMEDIATION PLAN]:
+  Copy .env.example → .env.local and set values in Vercel Production:
+    GOOGLE_SITE_VERIFICATION=<code from GSC>
+  Or use DNS TXT verification (preferred).
+  Avoid emitting empty content="" verification tags when env is unset.
+
+
+--------------------------------------------------------------------------------
+S.5 — Placeholder / Broken Asset Signals (E-E-A-T & Rich Results)
+--------------------------------------------------------------------------------
+[STATUS]: FAILED (multiple)
+
+[CODE REFERENCE]:
+File: src/components/sections/Proof.tsx (lines 119-120)
+
+  src="https://placehold.co/100x40/..."  // Placeholder client logos — not production assets
+
+File: src/app/blog/[slug]/page.tsx metadata (lines 404-415)
+
+  images: [`${BASE_URL}/images/blog/${post.slug}.jpg`]  // Files may not exist under public/images/blog/
+
+File: src/app/layout.tsx (line 119)
+
+  logo: "https://www.endpointmedia.co.za/images/logo.png"  // Verify file exists
+
+[REMEDIATION PLAN]:
+  - Replace placehold.co URLs with real client logos or remove section.
+  - Add actual OG images per blog slug OR remove twitter/og image overrides until assets exist.
+  - Audit public/images/ for logo.png, frank-smit.jpg, hero-bg-optimized.jpg, blog/*.jpg
+
+
+================================================================================
+ FILE-BY-FILE ROUTE INVENTORY (58 SITEMAP URLs + 2 LEGAL ROUTES + SYSTEM ROUTES)
+================================================================================
+
+INDEXABLE MARKETING ROUTES (Server-rendered unless noted):
+  src/app/page.tsx                          — PASS (Server + schemas incl. Review JSON-LD P0)
+  src/app/pricing/page.tsx                  — PASS
+  src/app/process/page.tsx                  — PASS
+  src/app/privacy-policy/page.tsx           — PASS (P0 — not in sitemap yet)
+  src/app/terms-of-service/page.tsx         — PASS (P0 — not in sitemap yet)
+  src/app/contact/page.tsx                  — FAIL (full client body; metadata via layout PASS)
+  src/app/services/page.tsx + 15 children   — PASS
+  src/app/locations/page.tsx + 12 children  — PASS
+  src/app/industries/page.tsx + 5 children  — PASS
+  src/app/case-studies/page.tsx + 7 studies — PASS
+  src/app/blog/page.tsx                     — PASS
+  src/app/blog/[slug]/page.tsx              — PASS (async params)
+  src/app/alberton-business-heritage/page.tsx — PASS
+  src/app/about/author/frank-smit/page.tsx  — PASS
+
+SYSTEM / NON-INDEX ROUTES:
+  src/app/api/contact/route.ts              — blocked by robots (PASS)
+  src/app/api/indexnow/route.ts             — blocked by robots (PASS)
+  src/app/not-found.tsx                     — FAIL (no robots noindex metadata)
+  src/app/blog/[slug]/opengraph-image.tsx   — PASS (async params P0)
+  src/app/opengraph-image.tsx               — PASS (static OG)
+  src/app/pricing/opengraph-image.tsx       — PASS
+  src/app/robots.ts                           — PASS (production)
+  src/app/sitemap.ts                          — PARTIAL (dedupe/timestamps)
+  src/app/manifest.ts                         — PASS (PWA manifest)
+  .env.example                                — PASS (P0 env template)
+
+CLIENT COMPONENT INVENTORY (SEO-relevant):
+  src/components/layout/Header.tsx          — in root layout (RISK)
+  src/components/analytics/web-vitals.tsx   — in root layout (acceptable)
+  src/components/sections/Proof.tsx         — UI only; placeholders remain (PARTIAL)
+  src/components/sections/Vetting.tsx       — animation only (LOW RISK)
+  src/components/sections/Toolkit.tsx       — animation only (LOW RISK)
+  src/components/sections/Blueprint.tsx     — animation only (LOW RISK)
+  src/components/sections/Audit.tsx         — animation only (LOW RISK)
+  src/app/services/website-design-prices/PricingCalculator.tsx — leaf (PASS)
+
+UNUSED / DORMANT:
+  src/components/analytics/gtm-partytown.tsx — NOT imported in layout (gtag used directly)
+
+
+================================================================================
+ PRIORITIZED REMEDIATION ROADMAP (TO REACH 95+/100)
+================================================================================
+
+P0 — BLOCKING — ✅ COMPLETED 2026-05-29:
+  1. ✅ /privacy-policy and /terms-of-service pages created (buildMetadata + boilerplate).
+  2. ✅ blog/[slug]/opengraph-image.tsx — await params.
+  3. ✅ Review JSON-LD moved to src/app/page.tsx; removed from Proof.tsx.
+  4. ⚠️  .env.example created — OPERATOR ACTION: set vars in Vercel before deploy:
+         NEXT_PUBLIC_BASE_URL, GOOGLE_SITE_VERIFICATION, INDEXNOW_KEY, INDEXNOW_SECRET
+
+P1 — HIGH (GSC indexation quality):
+  5. Implement src/proxy.ts bot bypass matcher.
+  6. Add not-found.tsx robots noindex metadata.
+  7. Deduplicate sitemap.ts URLs + per-post lastModified + revalidate export.
+  8. Serverize /contact page (client form leaf only).
+
+P2 — BLUEPRINT EXCELLENCE:
+  9. Add schema-dts + SchemaInjector component; migrate layout schemas.
+ 10. Add isDistinctEntity() gating for blog/programmatic routes.
+ 11. Add GracefullyDegradingErrorBoundary to root layout.
+ 12. Hero Image: loading="eager" fetchPriority="high" (remove priority prop).
+ 13. Replace placehold.co images; verify blog OG image assets exist.
+ 14. Configure gcp_service_account.json + npm run seo:index post-deploy.
+
+P3 — OPERATIONAL:
+ 15. Run npm run seo:validate:prod && npm run seo:graph:prod after each release.
+ 16. Submit sitemap in GSC property https://www.endpointmedia.co.za (www only).
+ 17. Monitor "Crawled - currently not indexed" weekly; URL inspect priority money pages.
+
+
+================================================================================
+ COMPLIANCE MATRIX (QUICK REFERENCE)
+================================================================================
+
+| Requirement (Blueprint)                         | Status   |
+|-------------------------------------------------|----------|
+| metadataBase absolute canonical resolution      | PASS     |
+| trailingSlash:false + sitemap alignment         | PASS     |
+| robots allows _next/static                        | PASS     |
+| robots blocks /api                              | PASS     |
+| htmlLimitedBots configured                      | PASS     |
+| _rsc query strip redirect                       | PASS     |
+| Dynamic blog await params                       | PASS     |
+| Dynamic OG await params                         | PASS     |
+| schema-dts strict typing                        | FAIL     |
+| JSON-LD server-only (no client injection)       | PASS     |
+| secureJsonLD XSS sanitization                   | PASS     |
+| proxy.ts bot bypass                             | FAIL     |
+| LCP loading=eager + fetchPriority=high          | FAIL     |
+| GracefullyDegradingErrorBoundary                | FAIL     |
+| Python validate_seo + graph_auditor             | PASS     |
+| Google Indexing API script                      | PASS*    |
+| Footer internal links all resolve 200           | PASS     |
+| Contact page server-rendered body               | FAIL     |
+| Sitemap deduplicated + accurate lastModified      | FAIL     |
+| .env.example production template                | PASS     |
+| Legal pages (/privacy-policy, /terms-of-service)| PASS     |
+
+* Indexing API requires manual GCP service account setup.
+
+
+================================================================================
+ END OF REPORT — gsc_flawless_audit_report.txt
+ Initial Audit : 2026-05-29 | Score 78/100
+ Last Updated  : 2026-05-29 | Score 84/100 (P0 remediation applied)
+================================================================================

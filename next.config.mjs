@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Force full HTML for search bots (avoid indexing RSC flight payloads)
+  htmlLimitedBots: /Googlebot|AdsBot-Google|Mediapartners-Google|bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp|Applebot/i,
+
   // Image optimization for Core Web Vitals
   images: {
     remotePatterns: [
@@ -38,6 +41,13 @@ const nextConfig = {
         ],
         destination: 'https://www.endpointmedia.co.za/:path*',
         permanent: true, // 308 redirect
+      },
+      // Strip ?_rsc= query params — duplicate URLs waste crawl budget
+      {
+        source: '/:path*',
+        has: [{ type: 'query', key: '_rsc' }],
+        destination: '/:path*',
+        permanent: true,
       },
     ];
   },

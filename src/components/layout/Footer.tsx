@@ -97,10 +97,13 @@ const Footer = () => {
             <h4 className="text-base font-semibold mb-4 text-white uppercase tracking-wider font-heading">Navigate</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/services" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Services</Link></li>
+              <li><Link href="/industries" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Industries</Link></li>
+              <li><Link href="/locations" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Locations</Link></li>
               <li><Link href="/process" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Our Process</Link></li>
               <li><Link href="/case-studies" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Case Studies</Link></li>
               <li><Link href="/pricing" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Pricing</Link></li>
               <li><Link href="/blog" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Blog</Link></li>
+              <li><Link href="/alberton-business-heritage" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Alberton Heritage</Link></li>
             </ul>
           </div>
 
@@ -108,8 +111,11 @@ const Footer = () => {
           <div>
             <h4 className="text-base font-semibold mb-4 text-white uppercase tracking-wider font-heading">Services</h4>
             <ul className="space-y-2.5 text-sm">
+              <li><Link href="/services/website-design-prices" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Website Design Prices</Link></li>
               <li><Link href="/services/local-seo" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Local SEO &amp; GBP</Link></li>
-              <li><Link href="/services/google-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Google Ads</Link></li>
+              <li><Link href="/services/google-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Google Ads Hub</Link></li>
+              <li><Link href="/services/b2b-google-ads-management" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">B2B Google Ads</Link></li>
+              <li><Link href="/services/google-ads-pricing" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Google Ads Pricing</Link></li>
               <li><Link href="/services/facebook-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Facebook Ads</Link></li>
               <li><Link href="/services/conversion-rate-optimization" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">CRO</Link></li>
               <li><Link href="/services/website-maintenance" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Maintenance</Link></li>

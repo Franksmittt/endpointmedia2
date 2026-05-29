@@ -374,14 +374,15 @@ async function getPostData(slug: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const post = await getPostData(params.slug);
+  const { slug } = await params;
+  const post = await getPostData(slug);
   if (!post) {
     return buildMetadata({
       title: "Post Not Found | Endpoint Media Blog",
       description: "The article you are looking for could not be found.",
-      path: `/blog/${params.slug}`,
+      path: `/blog/${slug}`,
     });
   }
 
@@ -426,8 +427,9 @@ export async function generateStaticParams() {
 
 
 // --- The Blog Post Page Component ---
-const BlogPostPage = async ({ params }: { params: { slug: string } }) => {
-  const post = await getPostData(params.slug);
+const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
+  const post = await getPostData(slug);
   if (!post) {
     notFound(); 
   }
@@ -488,18 +490,18 @@ const BlogPostPage = async ({ params }: { params: { slug: string } }) => {
         </div>
       </section>
 
-      {/* Post Content Section */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-3xl"> 
-          {/* Render the HTML content */}
-          {/* NOTE: We are using dangerouslySetInnerHTML here because the source data is controlled. 
-              In a real application, content should be parsed securely (e.g., using MDX or a library). */}
+      <article
+        className="py-16 md:py-20 bg-white"
+        itemScope
+        itemType="https://schema.org/Article"
+      >
+        <div className="container mx-auto px-6 max-w-3xl">
           <div
-            className="prose prose-lg lg:prose-xl max-w-none prose-teal prose-headings:font-heading prose-a:text-teal-600 hover:prose-a:text-teal-800" 
+            className="prose prose-lg lg:prose-xl max-w-none prose-teal prose-headings:font-heading prose-a:text-teal-600 hover:prose-a:text-teal-800"
+            itemProp="articleBody"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
-          {/* Internal Links - Contextual Related Content */}
           <div className="mt-16">
             <InternalLinks
               title="Related Articles & Resources"
@@ -508,8 +510,7 @@ const BlogPostPage = async ({ params }: { params: { slug: string } }) => {
             />
           </div>
 
-          {/* Author Attribution - E-E-A-T Signal */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
+          <footer className="mt-12 pt-8 border-t border-gray-200">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-2xl font-bold text-white">
                 FS
@@ -519,6 +520,7 @@ const BlogPostPage = async ({ params }: { params: { slug: string } }) => {
                 <Link
                   href="/about/author/frank-smit"
                   className="text-lg font-bold font-heading text-gray-900 hover:text-teal-700 transition"
+                  itemProp="author"
                 >
                   Frank Smit
                 </Link>
@@ -527,16 +529,14 @@ const BlogPostPage = async ({ params }: { params: { slug: string } }) => {
                 </p>
               </div>
             </div>
-          </div>
-
-          {/* Back to Blog Link */}
-          <div className="pt-4 border-t border-gray-200">
-            <Link href="/blog" className="text-teal-600 hover:text-teal-800 font-semibold transition duration-300">
-              &larr; Back to Blog Index
-            </Link>
-          </div>
+            <div className="pt-4 border-t border-gray-200">
+              <Link href="/blog" className="text-teal-600 hover:text-teal-800 font-semibold transition duration-300">
+                &larr; Back to Blog Index
+              </Link>
+            </div>
+          </footer>
         </div>
-      </section>
+      </article>
     </>
   );
 };

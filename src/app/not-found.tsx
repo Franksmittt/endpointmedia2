@@ -1,5 +1,15 @@
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+
+export const metadata: Metadata = {
+  title: 'Page Not Found | Endpoint Media',
+  description: 'The page you requested could not be found.',
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function NotFound() {
   return (
@@ -9,12 +19,12 @@ export default function NotFound() {
         Broken Links Cost You Money.
       </h2>
       <p className="text-xl text-gray-400 max-w-2xl mb-8 leading-relaxed">
-        You found a dead end. If this was your customer looking for your services, 
-        you just lost a sale. <br/><br/>
+        You found a dead end. If this was your customer looking for your services,
+        you just lost a sale. <br /><br />
         I am Frank Smit. I build websites that don&apos;t have dead ends.
         Let&apos;s fix your digital pipeline.
       </p>
-      
+
       <div className="flex flex-col sm:flex-row gap-4">
         <Button asChild className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-6 px-8 text-lg">
           <Link href="/contact">Get A Website That Works</Link>
@@ -24,6 +34,5 @@ export default function NotFound() {
         </Button>
       </div>
     </div>
-  )
+  );
 }
-

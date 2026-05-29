@@ -63,6 +63,13 @@ const CaseStudiesPage = () => {
       description:
         "Luxury koi brand identity with Japanese aesthetic principles and premium lifestyle positioning.",
     },
+    {
+      name: "AS Brokers",
+      url: `${BASE_URL}/case-studies/as-brokers`,
+      websiteUrl: "https://asbrokers.co.za/",
+      description:
+        "Institutional private wealth website with actuarial calculators, CRM workflows, and conversion architecture for high-net-worth lead generation.",
+    },
   ];
 
   const caseStudyListSchema = {
@@ -431,6 +438,47 @@ const CaseStudiesPage = () => {
                   </Link>
                   <Link 
                     href="https://sakana-six.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-600 font-semibold hover:text-gray-700 transition"
+                  >
+                    View Website
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Case Study Card: AS Brokers */}
+            <div className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition duration-300 hover:shadow-2xl hover:border-cyan-300 transform hover:-translate-y-2">
+              <div className="h-48 bg-gradient-to-br from-cyan-900 to-slate-900 flex items-center justify-center">
+                <span className="text-white text-3xl font-extrabold font-heading text-center px-4">AS<br />Brokers</span>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-cyan-600 bg-cyan-50 px-3 py-1 rounded-full">Financial Services</span>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Code 1.8</span>
+                </div>
+                <h3 className="text-2xl font-bold font-heading mb-3 text-gray-900 group-hover:text-cyan-600 transition">
+                  AS Brokers
+                </h3>
+                <p className="text-gray-600 mb-4 line-clamp-3">
+                  Full-scale digital platform for private wealth engineering with actuarial tools, SEO architecture, and lead flow connected to CRM and advisory workflows.
+                </p>
+                <div className="flex gap-3">
+                  <Link
+                    href="/case-studies/as-brokers"
+                    className="flex items-center text-cyan-600 font-semibold hover:text-cyan-700 transition"
+                  >
+                    View Case Study
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                  <Link
+                    href="https://asbrokers.co.za/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center text-gray-600 font-semibold hover:text-gray-700 transition"
