@@ -19,7 +19,7 @@ import { secureJsonLD, BASE_URL, buildMetadata, buildSpeakableWebPageSchema } fr
 // Homepage-specific metadata (extends root layout metadata)
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Premium Web Architecture Firm Johannesburg | Endpoint Media | Market Domination Specialists",
+    title: "Premium Web Architecture Firm Johannesburg | Market Domination Specialists",
     description: "We don't sell cheap websites. We engineer market domination through extreme focus, deep research, and uncompromising attention to detail. Selective partnership with serious businesses committed to outranking competitors and generating massive growth.",
     keywords: [
       "premium web design johannesburg",
@@ -37,7 +37,7 @@ const homepageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": `${BASE_URL}#webpage`,
-  name: "Web Design Johannesburg | Endpoint Media",
+  name: "Web Design Johannesburg",
   description: "High-performance, lead-generating websites for Johannesburg service businesses",
   url: BASE_URL,
   mainEntity: {

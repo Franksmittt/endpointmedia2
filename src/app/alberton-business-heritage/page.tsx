@@ -8,7 +8,7 @@ import { ScrollText, Flag, Building2 } from 'lucide-react';
 // 1. METADATA: Targeting "History" to capture local intent
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "History of Business in Alberton (1904-2025) | Endpoint Media",
+    title: "History of Business in Alberton (1904-2025)",
     description: "A digital archive of Alberton's commercial evolution. From General Alberts' farm to the industrial powerhouse of Alrode. Exploring our town's legacy.",
     path: "/alberton-business-heritage",
     keywords: [

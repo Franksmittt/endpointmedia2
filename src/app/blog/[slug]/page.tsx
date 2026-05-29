@@ -25,14 +25,14 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
   if (!post) {
     return buildMetadata({
-      title: 'Post Not Found | Endpoint Media Blog',
+      title: 'Post Not Found',
       description: 'The article you are looking for could not be found.',
       path: `/blog/${slug}`,
     });
   }
 
   return buildMetadata({
-    title: `${post.title} | Endpoint Media`,
+    title: post.title,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
     keywords: post.keywords,
@@ -90,7 +90,7 @@ const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) =
     url: postUrl,
     name: post.title,
     description: post.excerpt,
-    cssSelectors: ['h1', '.article-summary', 'article'],
+    cssSelectors: ['h1', '.article-summary'],
   });
 
   const faqSchema = buildFaqSchema(post, postUrl);
@@ -116,7 +116,8 @@ const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) =
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 font-heading text-gray-900">
             {post.title}
           </h1>
-          <p className="text-sm text-gray-500">
+          <p className="article-summary text-lg text-gray-600 text-center max-w-2xl mx-auto mb-0">{post.excerpt}</p>
+          <p className="text-sm text-gray-500 mt-4">
             Published{' '}
             <time dateTime={post.date} itemProp="datePublished">
               {post.date}

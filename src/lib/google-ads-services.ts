@@ -66,7 +66,7 @@ function cfg(
 export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
   'b2b-google-ads-management': cfg('b2b-google-ads-management', {
     metadata: {
-      title: 'B2B Google Ads Management Johannesburg | Flat-Fee PPC | Endpoint Media',
+      title: 'B2B Google Ads Management Johannesburg | Flat-Fee PPC',
       description:
         'Enterprise B2B Google Ads management for Johannesburg. Flat-fee retainers, Next.js landing pages, Quality Score optimization, and ROI reporting—not percentage-of-spend traps.',
       keywords: [
@@ -153,7 +153,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
 
   'performance-max-google-ads': cfg('performance-max-google-ads', {
     metadata: {
-      title: 'Performance Max & Local Ads Johannesburg | Endpoint Media',
+      title: 'Performance Max & Local Ads Johannesburg',
       description:
         'Performance Max and Google Local Ads management tied to your GBP. Creative assets, Maps visibility, and conversion tracking for Johannesburg businesses.',
       keywords: ['performance max agency johannesburg', 'google local ads', 'pmax management south africa'],
@@ -200,7 +200,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
 
   'google-ads-landing-pages': cfg('google-ads-landing-pages', {
     metadata: {
-      title: 'Google Ads Landing Pages | Next.js CRO Pages | Endpoint Media',
+      title: 'Google Ads Landing Pages | Next.js CRO Pages',
       description:
         'Dedicated Next.js landing pages for Google Ads traffic. Message match, no nav leaks, sub-2s LCP, and forms wired to GA4 and your CRM.',
       keywords: ['google ads landing pages', 'ppc landing page design johannesburg', 'nextjs landing pages'],
@@ -233,7 +233,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
 
   'google-ads-pricing': cfg('google-ads-pricing', {
     metadata: {
-      title: 'Google Ads Pricing South Africa | Setup & Retainers | Endpoint Media',
+      title: 'Google Ads Pricing South Africa | Setup & Retainers',
       description:
         'Transparent Google Ads pricing for South Africa: infrastructure setup R14,500–R20,000, management from R6,500/month. Ad spend billed separately.',
       keywords: ['google ads pricing south africa', 'ppc management cost johannesburg', 'google ads setup fee'],
@@ -297,7 +297,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
 
   'google-ads-manufacturing': cfg('google-ads-manufacturing', {
     metadata: {
-      title: 'Google Ads for Manufacturing & Industrial | Alrode & Gauteng | Endpoint Media',
+      title: 'Google Ads for Manufacturing & Industrial | Alrode & Gauteng',
       description:
         'Google Ads for manufacturing, logistics, and industrial firms in Alrode, Wadeville, and Johannesburg. B2B lead gen with technical landing pages.',
       keywords: ['ppc manufacturing companies', 'industrial lead generation alrode', 'google ads factory gauteng'],
@@ -330,7 +330,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
 
   'google-ads-financial-services': cfg('google-ads-financial-services', {
     metadata: {
-      title: 'Google Ads for Financial Services & Brokers | Sandton | Endpoint Media',
+      title: 'Google Ads for Financial Services & Brokers | Sandton',
       description:
         'Compliant-focused Google Ads for financial advisors, brokerages, and wealth firms in Sandton and Bedfordview. High-intent keywords and trust-heavy landing pages.',
       keywords: ['financial advisor marketing sandton', 'google ads brokerage', 'wealth management leads'],
@@ -363,7 +363,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
 
   'google-ads-automotive': cfg('google-ads-automotive', {
     metadata: {
-      title: 'Google Ads for Automotive & Panel Beaters | Johannesburg | Endpoint Media',
+      title: 'Google Ads for Automotive & Panel Beaters | Johannesburg',
       description:
         'Google Ads for auto repair, panel beaters, tyre clinics, and premium workshops. Emergency-intent Search and Local Ads across Johannesburg.',
       keywords: ['auto repair marketing johannesburg', 'panel beater google ads', 'automotive ppc south africa'],
@@ -396,7 +396,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
 
   'google-ads-sandton': cfg('google-ads-sandton', {
     metadata: {
-      title: 'Google Ads Agency Sandton | PPC Management | Endpoint Media',
+      title: 'Google Ads Agency Sandton | PPC Management',
       description:
         'Google Ads management for Sandton businesses. Corporate B2B, professional services, and high-LTV local campaigns with Next.js landing pages.',
       keywords: ['google ads sandton', 'ppc agency sandton', 'paid search sandton'],
@@ -418,7 +418,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
 
   'google-ads-alberton': cfg('google-ads-alberton', {
     metadata: {
-      title: 'Google Ads Alberton | Local PPC & Landing Pages | Endpoint Media',
+      title: 'Google Ads Alberton | Local PPC & Landing Pages',
       description:
         'Google Ads for Alberton and south Johannesburg service businesses. Local agency proximity, fast setup, and industrial corridor expertise.',
       keywords: ['google ads alberton', 'ppc alberton', 'digital marketing alberton'],
@@ -440,7 +440,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
 
   'google-ads-midrand': cfg('google-ads-midrand', {
     metadata: {
-      title: 'Google Ads Midrand | PPC & Lead Generation | Endpoint Media',
+      title: 'Google Ads Midrand | PPC & Lead Generation',
       description: 'Google Ads management for Midrand and Kempton Park service businesses. Search, PMax, and conversion-focused landing pages.',
       keywords: ['google ads midrand', 'ppc midrand', 'lead generation midrand'],
     },
@@ -458,7 +458,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
 
   'google-ads-alrode': cfg('google-ads-alrode', {
     metadata: {
-      title: 'Google Ads Alrode | Industrial PPC & Lead Gen | Endpoint Media',
+      title: 'Google Ads Alrode | Industrial PPC & Lead Gen',
       description: 'Google Ads for Alrode manufacturing and industrial operators. B2B search, strict negatives, and RFQ-focused landing pages.',
       keywords: ['google ads alrode', 'industrial lead generation alrode', 'manufacturing ppc alrode'],
     },
@@ -480,7 +480,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
 
   'google-ads-wadeville': cfg('google-ads-wadeville', {
     metadata: {
-      title: 'Google Ads Wadeville | Engineering & Industrial PPC | Endpoint Media',
+      title: 'Google Ads Wadeville | Engineering & Industrial PPC',
       description: 'Google Ads for Wadeville engineering, steel, and industrial firms. Localized campaigns and technical landing pages.',
       keywords: ['google ads wadeville', 'engineering marketing wadeville', 'industrial ppc wadeville'],
     },
@@ -498,7 +498,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
 
   'google-ads-bedfordview': cfg('google-ads-bedfordview', {
     metadata: {
-      title: 'Google Ads Bedfordview | Financial & Professional PPC | Endpoint Media',
+      title: 'Google Ads Bedfordview | Financial & Professional PPC',
       description: 'Google Ads for Bedfordview financial advisors, boutiques, and professional services. High-trust landing pages and strict keyword control.',
       keywords: ['google ads bedfordview', 'financial lead generation bedfordview'],
     },

@@ -6,7 +6,7 @@ import { buildMetadata, secureJsonLD, FRANK_SMIT_ID, ORG_ID, BASE_URL } from '@/
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Frank Smit - Web Design Expert Johannesburg | Endpoint Media Founder",
+    title: "Frank Smit - Web Design Expert Johannesburg | Founder",
     description: "Frank Smit is the founder of Endpoint Media, specializing in high-performance web design and local SEO for Johannesburg businesses. Expert in Next.js, technical SEO, and lead generation.",
     path: "/about/author/frank-smit",
     keywords: [

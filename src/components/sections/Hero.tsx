@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative bg-gradient-to-br from-black via-gray-950 to-black text-white h-screen flex items-center overflow-hidden pt-16 pb-8"
+      className="relative bg-gradient-to-br from-charcoal via-charcoal-dark to-charcoal text-white h-screen flex items-center overflow-hidden pt-16 pb-8"
     >
       <div
         className="absolute inset-0 opacity-10"
@@ -21,17 +21,16 @@ export default function Hero() {
       />
 
       <div className="absolute inset-0 z-0">
-        <div className="md:hidden h-full w-full bg-gradient-to-br from-gray-900 via-gray-900/80 to-cyan-900/40" />
+        <div className="md:hidden h-full w-full bg-gradient-to-br from-charcoal via-charcoal/80 to-teal-900/40" />
         <Image
           src={HERO_BG_SRC}
           alt="Endpoint Media - Premium web design and digital marketing services for Johannesburg businesses. High-performance websites that generate leads and dominate local search results."
           fill
           quality={80}
-          priority
           className="hidden md:block object-cover opacity-15"
           sizes="(max-width: 1023px) 0px, 100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900/80 to-cyan-900/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal/80 to-teal-900/40" />
       </div>
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -42,22 +41,21 @@ export default function Hero() {
       <div className="container mx-auto px-6 z-10 relative text-center flex flex-col justify-center h-full">
         <h1
           id="hero-headline"
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-4 md:mb-6 animate-fade-in-up text-white"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-4 md:mb-6 text-white"
         >
           We Don&apos;t Sell Cheap Websites.
           <br />
-          <span className="text-cyan-400">We Engineer Market Domination.</span>
+          <span className="text-teal-400">We Engineer Market Domination.</span>
         </h1>
 
         <p
           id="hero-summary"
-          className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto text-gray-200 mb-4 md:mb-6 animate-fade-in-up"
-          style={{ animationDelay: "0.2s" }}
+          className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto text-gray-200 mb-4 md:mb-6"
         >
           We take a <strong className="text-white font-semibold">handful of clients</strong> who are serious about growth.
           We dissect every millimeter of your business, your market, and your competitors.
-          We don&apos;t build websites—we architect{" "}
-          <strong className="text-cyan-400 font-semibold">competitive advantages</strong> that put you completely above anyone else in your market.
+          We don&apos;t build websites. We architect{" "}
+          <strong className="text-teal-400 font-semibold">competitive advantages</strong> that put you completely above anyone else in your market.
         </p>
 
         <p
@@ -65,13 +63,13 @@ export default function Hero() {
           style={{ animationDelay: "0.3s" }}
         >
           We&apos;d rather have <strong className="text-white">10 clients who dominate</strong> than 100 who just become a number.
-          Your success isn&apos;t optional—it&apos;s our only metric.
+          Your success isn&apos;t optional. It&apos;s our only metric.
         </p>
 
         <div className="animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
           <a
             href="#audit"
-            className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-extrabold py-3 px-8 md:py-4 md:px-12 rounded-lg shadow-2xl shadow-cyan-500/30 border-2 border-cyan-400/50 transform hover:scale-105 transition-all duration-300 ease-in-out uppercase text-sm md:text-base tracking-wider focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 focus-visible:ring-cyan-300"
+            className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-500 hover:to-teal-400 text-white font-extrabold py-3 px-8 md:py-4 md:px-12 rounded-lg shadow-2xl shadow-teal-500/30 border-2 border-teal-400/50 transform hover:scale-105 transition-all duration-300 ease-in-out uppercase text-sm md:text-base tracking-wider focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal focus-visible:ring-teal-300"
           >
             Get Your Free Architecture Audit
           </a>

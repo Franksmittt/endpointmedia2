@@ -129,7 +129,7 @@ const faqSchema = {
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: 'Review Management Johannesburg | Google Reviews & Reputation Service | Endpoint Media',
+    title: 'Review Management Johannesburg | Google Reviews & Reputation Service',
     description:
       'Turn satisfied customers into 5-star reviews. Endpoint Media offers automated review generation, professional response management, and reputation repair for Johannesburg businesses.',
     path: PAGE_PATH,

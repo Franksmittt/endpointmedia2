@@ -50,27 +50,24 @@ const socialLinks = [
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="pt-16 pb-8 bg-gray-900 text-gray-200 border-t-4 border-teal-700">
+    <footer className="pt-16 pb-8 bg-charcoal text-gray-200 border-t-4 border-teal-700">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 border-b border-gray-700 pb-10 mb-8">
-          {/* Column 1: Logo and Description */}
           <div className="lg:col-span-1">
             <Link href="/" aria-label="Endpoint Media Homepage" className="inline-block text-3xl font-extrabold text-white transition duration-300 hover:text-teal-400 font-heading focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 rounded">
               Endpoint<span className="text-teal-500">.</span><span className="font-normal text-2xl ml-1 text-white opacity-80">Media</span>
             </Link>
             <p className="mt-4 max-w-md text-gray-200 text-sm leading-relaxed">
               Building high-performance digital engines for Johannesburg&apos;s service industry backbone.
-              {/* */}
               We transform websites into predictable lead pipelines. Your market dominance starts here.
             </p>
             <p className="mt-6 text-xs text-teal-500 font-semibold uppercase tracking-wider">
-              Proudly Based in  Johannesburg , South Africa.
+              Proudly Based in Johannesburg, South Africa.
             </p>
             <div className="mt-6 flex space-x-4 items-center">
-              <p className="text-xs text-gray-300 font-semibold uppercase tracking-wider mr-2">Trusted &amp; Secure:</p> {/* Changed from gray-500, fixed & */}
-              {/* These badges have gray-400 on gray-700, which might still fail contrast. */}
-              <span className="inline-block bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">SSL Secured</span> {/* Changed from gray-400 */}
-              <span className="inline-block bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Local Expert</span> {/* Changed from gray-400 */}
+              <p className="text-xs text-gray-300 font-semibold uppercase tracking-wider mr-2">Trusted &amp; Secure:</p>
+              <span className="inline-block bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">SSL Secured</span>
+              <span className="inline-block bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Local Expert</span>
             </div>
             <div className="mt-6">
               <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">
@@ -83,7 +80,7 @@ const Footer = () => {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-10 h-10 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-teal-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-300 focus-visible:ring-offset-gray-900 transition"
+                    className="w-10 h-10 rounded-full bg-charcoal-light text-white flex items-center justify-center hover:bg-teal-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-300 focus-visible:ring-offset-charcoal transition"
                     aria-label={`Visit our ${link.name} page`}
                   >
                     {link.icon}
@@ -92,7 +89,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          {/* Column 2: Quick Links */}
+
           <div>
             <h4 className="text-base font-semibold mb-4 text-white uppercase tracking-wider font-heading">Navigate</h4>
             <ul className="space-y-2.5 text-sm">
@@ -107,7 +104,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3: Services Quick Links */}
           <div>
             <h4 className="text-base font-semibold mb-4 text-white uppercase tracking-wider font-heading">Services</h4>
             <ul className="space-y-2.5 text-sm">
@@ -123,30 +119,26 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 4: Contact Info & CTA */}
           <div>
             <h4 className="text-base font-semibold mb-4 text-white uppercase tracking-wider font-heading">Get In Touch</h4>
-            <ul className="space-y-3 text-sm">
-              <li>
+            <address className="not-italic space-y-3 text-sm">
+              <p>
                 <a href="tel:+27769724559" className="hover:text-teal-400 transition flex items-center focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded">
-                  {/* SVG for phone */}
-                  <svg className="w-4 h-4 mr-2 text-teal-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                  <svg className="w-4 h-4 mr-2 text-teal-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                   076 972 4559 (Frank Smit)
                 </a>
-              </li>
-              <li>
+              </p>
+              <p>
                 <a href="mailto:hello@endpointmedia.co.za" className="hover:text-teal-400 transition flex items-center focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded">
-                  {/* SVG for mail */}
-                  <svg className="w-4 h-4 mr-2 text-teal-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 13l-9-9V7l9 5 9-5v5z"></path></svg>
+                  <svg className="w-4 h-4 mr-2 text-teal-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 13l-9-9V7l9 5 9-5v5z"></path></svg>
                   hello@endpointmedia.co.za
                 </a>
-              </li>
-              <li className="flex items-start">
-                {/* SVG for location */}
-                <svg className="w-4 h-4 mr-2 text-teal-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </p>
+              <p className="flex items-start">
+                <svg className="w-4 h-4 mr-2 text-teal-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 <span>Johannesburg, Gauteng, SA<br />(Online/Remote Operations)</span>
-              </li>
-            </ul>
+              </p>
+            </address>
             <div className="mt-6 pt-6 border-t border-gray-700">
               <Link href="#audit" className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm py-2 px-4 rounded transition focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 uppercase tracking-wider">
                 Free Growth Audit
@@ -156,12 +148,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-300"> {/* Changed from gray-500 */}
-          <p>&copy; {currentYear} Endpoint Media. All rights reserved. Engineering Leads for  Joburg&apos;s  Best.</p> {/* Fixed Joburg's */}
-          <div className="mt-4 md:mt-0 space-x-4">
+        <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-300 gap-4 md:gap-0">
+          <p>&copy; {currentYear} Endpoint Media. All rights reserved. Engineering Leads for Joburg&apos;s Best.</p>
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
             <Link href="/privacy-policy" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded">Privacy Policy</Link>
-            <span aria-hidden="true">|</span>
             <Link href="/terms-of-service" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded">Terms of Service</Link>
           </div>
         </div>

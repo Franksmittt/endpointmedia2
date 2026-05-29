@@ -1,15 +1,9 @@
 import { ImageResponse } from 'next/og';
+import { getPostBySlug } from '@/lib/blog/posts';
 
 export const runtime = 'edge';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-
-function getTitleFromSlug(slug: string) {
-  return slug
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-}
 
 export default async function Image({
   params,
@@ -17,7 +11,8 @@ export default async function Image({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const title = getTitleFromSlug(slug);
+  const post = getPostBySlug(slug);
+  const title = post?.title ?? 'Endpoint Media Blog';
 
   return new ImageResponse(
     (
@@ -29,7 +24,7 @@ export default async function Image({
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundColor: '#111827',
+          backgroundColor: '#222222',
           padding: '80px',
         }}
       >
@@ -41,12 +36,11 @@ export default async function Image({
 
         <div
           style={{
-            fontSize: 70,
+            fontSize: title.length > 60 ? 52 : 70,
             fontWeight: 900,
             color: 'white',
             lineHeight: 1.1,
             marginBottom: '30px',
-            textTransform: 'uppercase',
           }}
         >
           {title}

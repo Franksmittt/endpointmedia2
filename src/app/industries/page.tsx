@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Industry-Specific Web Design Johannesburg | Law Firms, Real Estate, Finance, Medical | Endpoint Media",
+    title: "Industry-Specific Web Design Johannesburg | Law Firms, Real Estate, Finance, Medical",
     description: "Specialized web design services for Johannesburg businesses. We serve law firms, real estate agents, financial advisors, medical practices, and more with industry-specific solutions.",
     path: "/industries",
     keywords: [
@@ -119,6 +120,7 @@ const IndustriesPage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="industry" slug="index" />
     </>
   );
 };

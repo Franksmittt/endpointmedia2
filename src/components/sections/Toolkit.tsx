@@ -1,47 +1,11 @@
 // src/components/sections/Toolkit.tsx
-"use client";
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import ScrollReveal from '@/components/ui/scroll-reveal';
 
 const Toolkit = () => {
-  const observerRefs = useRef<(HTMLDivElement | null | HTMLElement)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); 
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRefs = observerRefs.current.filter(ref => ref !== null);
-    currentRefs.forEach((ref) => {
-      if (ref) {
-        observer.observe(ref);
-      }
-    });
-
-    return () => {
-      currentRefs.forEach((ref) => {
-        if (ref) {
-          observer.unobserve(ref);
-        }
-      });
-    };
-  }, []);
-
-  const addToRefs = (el: HTMLDivElement | null | HTMLElement) => {
-    if (el && !observerRefs.current.includes(el)) {
-      observerRefs.current.push(el);
-    }
-  };
-
   return (
-    <section id="engine" className="py-24 bg-white relative overflow-hidden"> 
+    <ScrollReveal>
+    <section id="engine" className="py-24 bg-white relative overflow-hidden">
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: `
@@ -53,7 +17,7 @@ const Toolkit = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header Section */}
-        <header ref={addToRefs} className="text-center mb-16 max-w-3xl mx-auto scroll-observed">
+        <header className="text-center mb-16 max-w-3xl mx-auto">
           <div className="inline-block mb-6">
             <span className="text-xs font-semibold uppercase tracking-wider text-cyan-700 bg-cyan-50 px-4 py-2 rounded-full border border-cyan-300">
               Conversion Tools
@@ -70,7 +34,7 @@ const Toolkit = () => {
         {/* Grid Section */}
         <div className="grid md:grid-cols-3 gap-8">
           {/* Card 1: Booking Integration */}
-          <div ref={addToRefs} className="scroll-observed group relative p-8 bg-gradient-to-br from-white to-gray-50 text-gray-800 rounded-xl shadow-xl border-2 border-cyan-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-cyan-200">
+          <div className="group relative p-8 bg-gradient-to-br from-white to-gray-50 text-gray-800 rounded-xl shadow-xl border-2 border-cyan-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-cyan-200">
             {/* Glowing Effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             
@@ -92,8 +56,7 @@ const Toolkit = () => {
 
           {/* Card 2: Tap-to-Call & Forms */}
           <div
-            ref={addToRefs}
-            className="scroll-observed group relative p-8 bg-gradient-to-br from-white to-gray-50 text-gray-800 rounded-xl shadow-xl border-2 border-cyan-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-cyan-200"
+            className="group relative p-8 bg-gradient-to-br from-white to-gray-50 text-gray-800 rounded-xl shadow-xl border-2 border-cyan-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-cyan-200"
           >
             {/* Glowing Effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -116,8 +79,7 @@ const Toolkit = () => {
 
           {/* Card 3: Visual Proof */}
           <div
-            ref={addToRefs}
-            className="scroll-observed group relative p-8 bg-gradient-to-br from-white to-gray-50 text-gray-800 rounded-xl shadow-xl border-2 border-cyan-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-cyan-200"
+            className="group relative p-8 bg-gradient-to-br from-white to-gray-50 text-gray-800 rounded-xl shadow-xl border-2 border-cyan-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-cyan-200"
           >
             {/* Glowing Effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -140,6 +102,7 @@ const Toolkit = () => {
         </div>
       </div>
     </section>
+    </ScrollReveal>
   );
 };
 

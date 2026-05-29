@@ -56,7 +56,7 @@ const Solution = () => {
                   </svg>
                 </div>
                 <span>
-                  <strong className="font-semibold text-gray-900">Competitive Intelligence:</strong> We tear down every competitor in your market. We identify their weaknesses, analyze their SEO strategies, and engineer positioning that makes you the obvious choice. You don&apos;t just compete—you dominate.
+                  <strong className="font-semibold text-gray-900">Competitive Intelligence:</strong> We tear down every competitor in your market. We identify their weaknesses, analyze their SEO strategies, and engineer positioning that makes you the obvious choice. You don&apos;t just compete. You dominate.
                 </span>
               </li>
               <li className="flex items-start group">
@@ -86,7 +86,7 @@ const Solution = () => {
                   </svg>
                 </div>
                 <span>
-                  <strong className="font-semibold text-gray-900">Selective Partnership:</strong> We work with a handful of clients at a time. Your success is not optional—it&apos;s our only metric. We&apos;d rather have 10 clients who dominate than 100 who just become numbers. You get our full attention, expertise, and commitment to your growth.
+                  <strong className="font-semibold text-gray-900">Selective Partnership:</strong> We work with a handful of clients at a time. Your success is not optional. It&apos;s our only metric. We&apos;d rather have 10 clients who dominate than 100 who just become numbers. You get our full attention, expertise, and commitment to your growth.
                 </span>
               </li>
             </ul>

@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design Locations Johannesburg | Sandton, Bryanston, Rivonia, Midrand, Roodepoort | Endpoint Media",
+    title: "Web Design Locations Johannesburg | Sandton, Bryanston, Rivonia, Midrand, Roodepoort",
     description: "Professional web design and local SEO services across Johannesburg. We serve Sandton, Bryanston, Rivonia, Midrand, Roodepoort, and surrounding areas.",
     path: "/locations",
     keywords: [
@@ -214,6 +215,7 @@ const LocationsPage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="location" slug="index" />
     </>
   );
 };

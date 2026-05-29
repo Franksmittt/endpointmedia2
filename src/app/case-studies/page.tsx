@@ -7,7 +7,7 @@ import { buildMetadata, secureJsonLD, BASE_URL } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Client Success Stories | Web Design & SEO Results | Endpoint Media Johannesburg",
+    title: "Client Success Stories | Web Design & SEO Results",
     description: "See real-world examples of how Endpoint Media's web design and local SEO strategies have driven measurable growth for service businesses across Johannesburg.",
     path: "/case-studies",
     keywords: [

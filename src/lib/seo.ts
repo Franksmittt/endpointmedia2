@@ -55,6 +55,8 @@ type MetadataTwitter = NonNullable<Metadata['twitter']>;
 
 type BuildMetadataOptions = {
   title: string;
+  /** When true, bypasses root layout title template (no automatic "| Endpoint Media" suffix). */
+  titleAbsolute?: boolean;
   description: string;
   path?: string;
   keywords?: string[];
@@ -103,6 +105,30 @@ export function buildSpeakableWebPageSchema(options: {
   };
 }
 
+/** Article schema for case study conversion assets */
+export function buildCaseStudyArticleSchema(options: {
+  url: string;
+  headline: string;
+  description: string;
+  datePublished: string;
+  image?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${options.url}#article`,
+    headline: options.headline,
+    description: options.description,
+    author: { '@type': 'Person', '@id': FRANK_SMIT_ID, name: 'Frank Smit' },
+    publisher: { '@id': ORG_ID },
+    image: options.image ?? `${BASE_URL}/images/EPM.jpg`,
+    datePublished: new Date(options.datePublished).toISOString(),
+    dateModified: new Date(options.datePublished).toISOString(),
+    mainEntityOfPage: { '@type': 'WebPage', '@id': options.url },
+    inLanguage: 'en-ZA',
+  };
+}
+
 /** HowTo schema for process / instructional pages */
 export function buildHowToSchema(options: {
   url: string;
@@ -127,6 +153,7 @@ export function buildHowToSchema(options: {
 
 export function buildMetadata({
   title,
+  titleAbsolute = false,
   description,
   path = '/',
   keywords,
@@ -144,8 +171,10 @@ export function buildMetadata({
       en: url,
     };
 
+  const resolvedTitle: Metadata['title'] = titleAbsolute ? { absolute: title } : title;
+
   return {
-    title,
+    title: resolvedTitle,
     description,
     keywords,
     alternates: {

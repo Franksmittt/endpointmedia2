@@ -7,7 +7,7 @@ import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 const PAGE_PATH = '/insights/south-africa-google-ads-cpc-benchmarks';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'South Africa Google Ads CPC Benchmarks 2026 | Endpoint Media Insights',
+  title: 'South Africa Google Ads CPC Benchmarks 2026',
   description:
     'Johannesburg and South Africa Google Ads CPC benchmarks by vertical: manufacturing, automotive, finance, and home services. Plan budgets with real ZAR ranges.',
   path: PAGE_PATH,

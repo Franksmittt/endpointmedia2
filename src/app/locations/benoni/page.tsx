@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design Benoni | Website Design Services Benoni | Endpoint Media",
+    title: "Web Design Benoni | Website Design Services Benoni",
     description: "Professional web design and local SEO services for Benoni businesses. Build a high-performance, lead-generating website. Free audit available.",
     path: "/locations/benoni",
     keywords: [
@@ -298,6 +299,7 @@ const BenoniPage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="location" slug="benoni" />
     </>
   );
 };

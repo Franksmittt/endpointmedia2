@@ -2,11 +2,11 @@ import React from 'react';
 import { H2, H3, P, Lead, UL, Callout, InternalLink } from '@/components/blog/blog-prose';
 import {
   ServerSideTrackingFlow,
-  CpcReductionSimulator,
   AlgorithmTrainingGraph,
   LeadScoringMatrix,
   CpaProfitabilityDashboard,
-} from '@/components/blog/interactives';
+} from '@/components/blog/interactives-static';
+import { CpcReductionSimulator } from '@/components/blog/interactives-client';
 
 export function GoogleAdsTrackingErrors() {
   return (

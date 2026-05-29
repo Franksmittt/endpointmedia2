@@ -1,45 +1,10 @@
 // src/components/sections/Vetting.tsx
-"use client";
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import ScrollReveal from '@/components/ui/scroll-reveal';
 
 const Vetting = () => {
-  const observerRefs = useRef<(HTMLElement | null)[]>([]);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); 
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRefs = observerRefs.current.filter(ref => ref !== null);
-    currentRefs.forEach((ref) => {
-      if (ref) {
-        observer.observe(ref);
-      }
-    });
-
-    return () => {
-      currentRefs.forEach((ref) => {
-        if (ref) {
-          observer.unobserve(ref);
-        }
-      });
-    };
-  }, []);
-
-  const addToRefs = (el: HTMLElement | null) => {
-    if (el && !observerRefs.current.includes(el)) {
-      observerRefs.current.push(el);
-    }
-  };
-
   return (
+    <ScrollReveal>
     <section id="vetting" className="py-24 bg-gradient-to-b from-black via-gray-950 to-black text-white relative overflow-hidden">
       {/* Digital Grid Background */}
       <div className="absolute inset-0 opacity-10" style={{
@@ -52,8 +17,7 @@ const Vetting = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div
-          ref={addToRefs} 
-          className="max-w-6xl mx-auto px-12 py-10 bg-gradient-to-br from-gray-900/90 via-black/80 to-gray-900/90 backdrop-blur-sm border-2 border-cyan-500/40 rounded-2xl shadow-2xl shadow-cyan-500/10 scroll-observed relative"
+          className="max-w-6xl mx-auto px-12 py-10 bg-gradient-to-br from-gray-900/90 via-black/80 to-gray-900/90 backdrop-blur-sm border-2 border-cyan-500/40 rounded-2xl shadow-2xl shadow-cyan-500/10 relative"
         >
           {/* Glowing Top Border */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
@@ -69,7 +33,7 @@ const Vetting = () => {
               We&apos;re Extremely Selective. Are You Serious About Growth?
             </h2>
             <p className="text-xl max-w-3xl mx-auto text-gray-200">
-              We don&apos;t work with everyone. We partner exclusively with ambitious Johannesburg businesses that understand the difference between a cheap website and a strategic investment. We take your success extremely seriously—because if you don&apos;t win, we don&apos;t win. See if you meet the Endpoint standard:
+              We don&apos;t work with everyone. We partner exclusively with ambitious Johannesburg businesses that understand the difference between a cheap website and a strategic investment. We take your success extremely seriously, because if you don&apos;t win, we don&apos;t win. See if you meet the Endpoint standard:
             </p>
           </header>
 
@@ -114,6 +78,7 @@ const Vetting = () => {
         </div>
       </div>
     </section>
+    </ScrollReveal>
   );
 };
 

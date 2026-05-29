@@ -116,7 +116,7 @@ const processSteps = [
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: 'Local SEO & Google Business Profile Services Johannesburg | Endpoint Media',
+    title: 'Local SEO & Google Business Profile Services Johannesburg',
     description:
       'Own the map pack in Sandton, Randburg, Midrand, and beyond. Endpoint Media engineers Local SEO sprints: GBP optimisation, suburb landing pages, review automation, and conversion tracking.',
     path: PAGE_PATH,

@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design Roodepoort | Website Design Services Roodepoort | Endpoint Media",
+    title: "Web Design Roodepoort | Website Design Services Roodepoort",
     description: "Professional web design and local SEO services for Roodepoort businesses. Build a high-performance, lead-generating website that dominates local search. Free audit available.",
     path: "/locations/roodepoort",
     keywords: [
@@ -300,6 +301,7 @@ const RoodepoortPage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="location" slug="roodepoort" />
     </>
   );
 };

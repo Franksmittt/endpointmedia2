@@ -7,7 +7,7 @@ import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 const PAGE_PATH = '/compare/google-ads-flat-fee-vs-percentage-spend';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Flat-Fee vs % of Ad Spend Google Ads Pricing | Endpoint Media',
+  title: 'Flat-Fee vs % of Ad Spend Google Ads Pricing',
   description:
     'Why percentage-of-spend PPC pricing misaligns incentives—and how flat-fee Google Ads management plus fast landing pages lowers CPA for Johannesburg businesses.',
   path: PAGE_PATH,

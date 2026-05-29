@@ -7,7 +7,7 @@ import { getAllPosts } from '@/lib/blog/posts';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: 'B2B Web Architecture, Google Ads & Local SEO Blog | Endpoint Media',
+    title: 'B2B Web Architecture, Google Ads & Local SEO Blog',
     description:
       'Technical insights on Next.js web architecture, Core Web Vitals, Google Ads optimization, Answer Engine Optimization, and advanced Local SEO for South African B2B operators.',
     path: '/blog',

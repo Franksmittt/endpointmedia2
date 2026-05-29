@@ -2,13 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { buildMetadata, secureJsonLD, BASE_URL, ORG_ID } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 import { Button } from '@/components/ui/button';
 import { Scale, Calculator, Building, Users, FileCheck, CheckCircle2 } from 'lucide-react';
 
 // 1. METADATA: Targeting "Trust" Keywords for Law & Finance
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "New Redruth Professional Web Design | Legal & Financial Marketing | Endpoint Media",
+    title: "New Redruth Professional Web Design | Legal & Financial Marketing",
     description: "We build high-authority websites for New Redruth's attorneys and accountants. Convert referrals into retained clients with a digital presence that matches your reputation.",
     path: "/locations/new-redruth",
     keywords: [

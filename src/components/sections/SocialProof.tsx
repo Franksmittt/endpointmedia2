@@ -27,7 +27,7 @@ const testimonials = [
   },
   {
     quote:
-      'Our aesthetics clinic booked out two months in advance after launch. Patients love the new FAQ hubs and WhatsApp booking buttons—they convert instantly.',
+      'Our aesthetics clinic booked out two months in advance after launch. Patients love the new FAQ hubs and WhatsApp booking buttons. They convert instantly.',
     author: 'Dr. Nadia K.',
     role: 'Medical Director, Lumina Aesthetics',
     link: '/services/medical-websites',
@@ -75,7 +75,7 @@ const SocialProof = () => {
             Johannesburg operators trust Endpoint to build their revenue engines.
           </h2>
           <p className="text-lg text-gray-300 mt-4">
-            From boutique law firms to multi-location medical practices and industrial field teams—we build the
+            From boutique law firms to multi-location medical practices and industrial field teams. We build the
             high-performance websites they rely on to win more work.
           </p>
         </div>

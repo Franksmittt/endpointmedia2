@@ -112,7 +112,7 @@ const faqSchema = {
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: 'Conversion Rate Optimization Johannesburg | Endpoint Media CRO Sprints',
+    title: 'Conversion Rate Optimization Johannesburg | CRO Sprints',
     description:
       'Stop leaking leads. Endpoint Media runs CRO sprints for Johannesburg service businesses: funnel audits, UX fixes, testing, and analytics to turn visits into booked calls.',
     path: PAGE_PATH,

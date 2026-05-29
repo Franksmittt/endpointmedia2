@@ -6,7 +6,7 @@ import {
   DesignTrustMetric,
   JsonLdMultiLocation,
   KmlIntegrationMap,
-} from '@/components/blog/interactives';
+} from '@/components/blog/interactives-static';
 
 export function LocalSeoBlueprint() {
   return (

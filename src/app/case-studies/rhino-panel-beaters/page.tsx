@@ -3,10 +3,12 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import CaseStudyArticleSchema from '@/components/seo/CaseStudyArticleSchema';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Rhino Panel Beaters Case Study | High-Performance Web Design | Endpoint Media",
+    title: "Rhino Panel Beaters Case Study | High-Performance Web Design",
     description: "Discover how Endpoint Media engineered a conversion-focused, high-performance website for Rhino Panel Beaters using Next.js, featuring a multi-step quote engine and local SEO optimization for Zululand market dominance.",
     path: "/case-studies/rhino-panel-beaters",
     keywords: [
@@ -24,6 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const RhinoPanelBeatersCaseStudy = () => {
   return (
     <>
+      <CaseStudyArticleSchema slug="rhino-panel-beaters" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
@@ -348,6 +351,7 @@ const RhinoPanelBeatersCaseStudy = () => {
           </div>
         </div>
       </section>
+      <HubSpokeLinks variant="case-study" slug="rhino-panel-beaters" />
     </>
   );
 };

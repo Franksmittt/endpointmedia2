@@ -129,7 +129,7 @@ const Pricing = () => {
           <p className="text-lg">
             Not sure which investment level is right? Our <Link href="/contact" className="text-teal-600 font-bold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded px-1">Free Architecture Audit</Link> analyzes your market, competitors, and opportunities to determine the optimal strategy for dominating your category.
           </p>
-          <p className="mt-2 text-sm"><strong>What&apos;s Included:</strong> All packages include premium hosting, domain registration, SSL, comprehensive research, competitor analysis, and strategic consultation. We don&apos;t charge monthly maintenance fees—our Next.js architecture is self-sustaining and requires minimal ongoing support.</p>
+          <p className="mt-2 text-sm"><strong>What&apos;s Included:</strong> All packages include premium hosting, domain registration, SSL, comprehensive research, competitor analysis, and strategic consultation. We don&apos;t charge monthly maintenance fees. Our Next.js architecture is self-sustaining and requires minimal ongoing support.</p>
           <p className="mt-2 text-xs italic">*Pricing reflects intensive research, custom engineering, and strategic consultation. We work exclusively with businesses committed to market leadership.</p>
         </div>
       </div>

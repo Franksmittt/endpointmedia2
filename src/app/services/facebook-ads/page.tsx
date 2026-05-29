@@ -112,7 +112,7 @@ const faqSchema = {
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: 'Facebook & Instagram Ads Management Johannesburg | Endpoint Media',
+    title: 'Facebook & Instagram Ads Management Johannesburg',
     description:
       'Launch Meta ads that actually convert. Endpoint Media runs Facebook & Instagram campaigns with irresistible offers, fresh creative, and full-funnel tracking for Johannesburg service businesses.',
     path: PAGE_PATH,
@@ -133,9 +133,9 @@ const FacebookAdsPage = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#111827] via-[#0f172a] to-[#1e293b] text-white py-20 md:py-28">
+      <section className="bg-gradient-to-br from-charcoal via-charcoal-dark to-charcoal-light text-white py-20 md:py-28">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-pink-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">
+          <p className="text-teal-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">
             Facebook • Instagram • WhatsApp
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
@@ -148,7 +148,7 @@ const FacebookAdsPage = () => {
           <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-pink-500 text-white shadow-lg shadow-pink-500/30 hover:bg-pink-400 transition"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-teal-600 text-white shadow-lg shadow-teal-500/30 hover:bg-teal-500 transition"
             >
               Request a Meta ads audit
             </Link>
@@ -184,7 +184,7 @@ const FacebookAdsPage = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <p className="text-pink-500 font-semibold uppercase tracking-wide">Growth levers</p>
+            <p className="text-teal-600 font-semibold uppercase tracking-wide">Growth levers</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
               The four moves that make Meta ads work for local services.
             </h2>
@@ -204,13 +204,13 @@ const FacebookAdsPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mb-12">
-            <p className="text-pink-500 font-semibold uppercase tracking-wide">Execution process</p>
+            <p className="text-teal-600 font-semibold uppercase tracking-wide">Execution process</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">Launch. Optimize. Scale.</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {processSteps.map((step) => (
               <div key={step.step} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
-                <p className="text-pink-500 text-sm font-semibold">Step {step.step}</p>
+                <p className="text-teal-600 text-sm font-semibold">Step {step.step}</p>
                 <h3 className="text-xl font-semibold text-gray-900 mt-3 mb-2">{step.title}</h3>
                 <p className="text-gray-600">{step.body}</p>
               </div>
@@ -220,10 +220,10 @@ const FacebookAdsPage = () => {
       </section>
 
       {/* Deliverables */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 bg-charcoal text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <p className="text-pink-300 font-semibold uppercase tracking-wide">Included in every sprint</p>
+            <p className="text-teal-300 font-semibold uppercase tracking-wide">Included in every sprint</p>
             <h2 className="text-3xl md:text-4xl font-extrabold">Everything required to make Meta ads profitable.</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -235,7 +235,7 @@ const FacebookAdsPage = () => {
               'Audience strategy (cold, warm, lookalike, remarketing)',
               'Weekly reporting with CPL, booked jobs, and ROAS insights',
             ].map((item) => (
-              <div key={item} className="bg-gray-800 rounded-2xl p-6 border border-white/10">
+              <div key={item} className="bg-charcoal-light rounded-2xl p-6 border border-white/10">
                 <p className="text-lg">{item}</p>
               </div>
             ))}
@@ -244,18 +244,18 @@ const FacebookAdsPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-pink-500 to-rose-600 text-white text-center">
+      <section className="py-20 bg-gradient-to-br from-teal-600 to-teal-700 text-white text-center">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
             Ready to turn Facebook & Instagram into your best-performing pipeline?
           </h2>
-          <p className="text-lg text-pink-50 max-w-3xl mx-auto mb-8">
+          <p className="text-lg text-teal-50 max-w-3xl mx-auto mb-8">
             Book a free Meta ads audit. We will show you the creative angles, audience stacks, and automation flows that can
             generate predictable leads within 30 days.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-pink-600 hover:bg-pink-50 transition"
+            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-teal-700 hover:bg-teal-50 transition"
           >
             Claim your Meta ads audit
           </Link>
@@ -266,7 +266,7 @@ const FacebookAdsPage = () => {
       <section className="py-20 bg-white" id="faq">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <p className="text-pink-500 font-semibold uppercase tracking-wide">FAQs</p>
+            <p className="text-teal-600 font-semibold uppercase tracking-wide">FAQs</p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
               Answers before you hand over your Meta ad spend.
             </h2>
@@ -276,7 +276,7 @@ const FacebookAdsPage = () => {
               <details key={faq.question} className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group">
                 <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
                   {faq.question}
-                  <span className="text-pink-500 group-open:rotate-45 transition-transform">+</span>
+                  <span className="text-teal-600 group-open:rotate-45 transition-transform">+</span>
                 </summary>
                 <p className="text-gray-600 mt-4">{faq.answer}</p>
               </details>

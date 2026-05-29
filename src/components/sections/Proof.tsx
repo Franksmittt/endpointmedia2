@@ -1,46 +1,11 @@
 // src/components/sections/Proof.tsx
-"use client";
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
+import ScrollReveal from '@/components/ui/scroll-reveal';
 
 const Proof = () => {
-  const observerRefs = useRef<(HTMLDivElement | null | HTMLElement | HTMLQuoteElement)[]>([]);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); 
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRefs = observerRefs.current.filter(ref => ref !== null);
-    currentRefs.forEach((ref) => {
-      if (ref) { 
-        observer.observe(ref);
-      }
-    });
-
-    return () => {
-      currentRefs.forEach((ref) => {
-        if (ref) {
-          observer.unobserve(ref);
-        }
-      });
-    };
-  }, []);
-
-  const addToRefs = (el: HTMLDivElement | null | HTMLElement | HTMLQuoteElement) => {
-    if (el && !observerRefs.current.includes(el)) {
-      observerRefs.current.push(el);
-    }
-  };
-
   return (
+    <ScrollReveal>
     <section id="proof" className="py-24 bg-white relative overflow-hidden">
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 opacity-5" style={{
@@ -53,7 +18,7 @@ const Proof = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header Section */}
-        <header ref={addToRefs} className="text-center mb-16 max-w-3xl mx-auto scroll-observed">
+        <header className="text-center mb-16 max-w-3xl mx-auto">
           <div className="flex flex-wrap justify-center items-center space-x-8 mb-10 opacity-60 grayscale">
             <p className="text-sm uppercase tracking-widest text-gray-400 font-semibold mr-4 mb-2 sm:mb-0 w-full sm:w-auto text-center sm:text-left">Trusted By Joburg Experts:</p>
             
@@ -114,7 +79,7 @@ const Proof = () => {
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
           {/* Testimonial 1 */}
-          <blockquote ref={addToRefs} className="scroll-observed p-10 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-xl border-2 border-cyan-100 transition duration-300 hover:shadow-2xl hover:border-cyan-200 transform hover:-translate-y-2 relative">
+          <blockquote className="p-10 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-xl border-2 border-cyan-100 transition duration-300 hover:shadow-2xl hover:border-cyan-200 transform hover:-translate-y-2 relative">
             <div className="absolute top-4 right-4 w-12 h-12 border border-cyan-200 rounded opacity-20"></div>
             <p className="text-6xl font-extrabold text-cyan-100 absolute top-2 left-4 select-none" aria-hidden="true">&ldquo;</p>
             <p className="text-lg md:text-xl italic text-gray-700 mb-8 relative z-10">
@@ -131,8 +96,7 @@ const Proof = () => {
 
           {/* Testimonial 2 */}
           <blockquote
-            ref={addToRefs}
-            className="scroll-observed p-10 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-xl border-2 border-cyan-100 transition duration-300 hover:shadow-2xl hover:border-cyan-200 transform hover:-translate-y-2 relative"
+            className="p-10 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-xl border-2 border-cyan-100 transition duration-300 hover:shadow-2xl hover:border-cyan-200 transform hover:-translate-y-2 relative"
            >
             <div className="absolute top-4 right-4 w-12 h-12 border border-cyan-200 rounded opacity-20"></div>
             <p className="text-6xl font-extrabold text-cyan-100 absolute top-2 left-4 select-none" aria-hidden="true">&ldquo;</p>
@@ -149,6 +113,7 @@ const Proof = () => {
         </div>
       </div>
     </section>
+    </ScrollReveal>
   );
 };
 

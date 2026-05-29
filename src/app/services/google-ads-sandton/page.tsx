@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const config = getGoogleAdsPage(SLUG);
   if (!config) {
     return buildMetadata({
-      title: 'Google Ads | Endpoint Media',
+      title: 'Google Ads',
       description: 'Google Ads services in Johannesburg.',
       path: '/services/google-ads',
     });

@@ -10,7 +10,7 @@ const CANONICAL_SLUG = 'web-design-firms';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Top Rated Web Design Firm Johannesburg | Enterprise Digital Architecture | Endpoint Media",
+    title: "Top Rated Web Design Firm Johannesburg | Enterprise Digital Architecture",
     description: "Beyond web design. We are a digital architecture firm engineering high-performance Next.js assets for market leaders. Server-side rendering, semantic SEO, and enterprise scalability—not WordPress templates.",
     path: `/services/${CANONICAL_SLUG}`,
     keywords: [

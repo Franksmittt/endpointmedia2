@@ -13,7 +13,8 @@
     "seo:graph:prod": "python scripts/seo/graph_auditor.py --base-url https://www.endpointmedia.co.za",
     "seo:check": "python scripts/seo/run_all.py --base-url http://localhost:3000",
     "seo:index": "python scripts/seo/index_pusher.py",
-    "seo:index:dry": "python scripts/seo/index_pusher.py --dry-run"
+    "seo:index:dry": "python scripts/seo/index_pusher.py --dry-run",
+    "indexnow:ping": "bash scripts/ping-indexnow.sh"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",

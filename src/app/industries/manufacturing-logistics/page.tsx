@@ -2,13 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { buildMetadata, secureJsonLD, BASE_URL, ORG_ID } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, FileText, ShieldCheck, Truck } from 'lucide-react';
 
 // 1. METADATA: Aggressive B2B Targeting
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Industrial Web Design Alrode | B2B Procurement Portals | Endpoint Media",
+    title: "Industrial Web Design Alrode | B2B Procurement Portals",
     description: "We build ISO-compliant websites for Alrode manufacturers and logistics firms. Secure document portals, catalogue digitization, and supply chain integration.",
     path: "/industries/manufacturing-logistics",
     keywords: [

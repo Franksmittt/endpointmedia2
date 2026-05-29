@@ -3,10 +3,12 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import CaseStudyArticleSchema from '@/components/seo/CaseStudyArticleSchema';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Alberton Tyre Clinic Case Study | Safety-Driven Vehicle Maintenance & Local Trust | Endpoint Media",
+    title: "Alberton Tyre Clinic Case Study | Safety-Driven Vehicle Maintenance & Local Trust",
     description: "Discover how Endpoint Media transformed Alberton Tyre Clinic from a traditional tyre shop into a modern Safety-Driven Vehicle Maintenance Center, leveraging local trust, family heritage, and guaranteed safety protocols.",
     path: "/case-studies/alberton-tyre-clinic",
     keywords: [
@@ -24,6 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const AlbertonTyreClinicCaseStudy = () => {
   return (
     <>
+      <CaseStudyArticleSchema slug="alberton-tyre-clinic" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-emerald-900 via-teal-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
@@ -348,6 +351,7 @@ const AlbertonTyreClinicCaseStudy = () => {
           </div>
         </div>
       </section>
+      <HubSpokeLinks variant="case-study" slug="alberton-tyre-clinic" />
     </>
   );
 };

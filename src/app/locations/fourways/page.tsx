@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design Fourways | Website Design Services Fourways | Endpoint Media",
+    title: "Web Design Fourways | Website Design Services Fourways",
     description: "Professional web design and local SEO services for Fourways businesses. Build a high-performance, lead-generating website. Free audit available.",
     path: "/locations/fourways",
     keywords: [
@@ -296,6 +297,7 @@ const FourwaysPage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="location" slug="fourways" />
     </>
   );
 };

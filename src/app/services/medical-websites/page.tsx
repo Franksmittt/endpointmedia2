@@ -173,7 +173,7 @@ const conversionFeatures = [
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: 'Medical & Aesthetic Website Design Johannesburg | Endpoint Media',
+    title: 'Medical & Aesthetic Website Design Johannesburg',
     description:
       'Custom medical, dental, and aesthetic websites engineered for bookings. HPCSA-compliant copy, POPIA consent, SEO, WhatsApp + booking automations for Johannesburg practices.',
     path: PAGE_PATH,

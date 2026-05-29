@@ -6,7 +6,7 @@ import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Shopify Expert Johannesburg | E-commerce Website Development | Endpoint Media",
+    title: "Shopify Expert Johannesburg | E-commerce Website Development",
     description: "Need an e-commerce store fast? Our Shopify expert services deliver speed-to-market e-commerce solutions for Johannesburg businesses. Professional, conversion-optimized stores that generate revenue.",
     path: "/services/shopify-expert",
     keywords: [

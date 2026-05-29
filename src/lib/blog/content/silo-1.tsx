@@ -3,14 +3,16 @@ import { H2, H3, P, Lead, UL, Callout, InternalLink } from '@/components/blog/bl
 import {
   LatencyChart,
   ArchitectureDiagram,
-  RevenueLossCalculator,
   JsonLdCodeBlock,
   AECitationGraph,
-  ComponentTearDown,
   TailwindPayloadChart,
-  MigrationChecklist,
   RedirectMapper,
-} from '@/components/blog/interactives';
+} from '@/components/blog/interactives-static';
+import {
+  RevenueLossCalculator,
+  ComponentTearDown,
+  MigrationChecklist,
+} from '@/components/blog/interactives-client';
 
 export function BrutalTruthWordPress() {
   return (

@@ -6,7 +6,7 @@ import { buildMetadata, secureJsonLD, BASE_URL, buildHowToSchema } from "@/lib/s
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Our Web Design & SEO Process | Endpoint Media Johannesburg",
+    title: "Our Web Design & SEO Process",
     description: "Discover Endpoint Media's proven 3-step process for building high-performance, lead-generating websites that dominate the Johannesburg market. Learn how we deliver ROI.",
     path: "/process",
     keywords: [

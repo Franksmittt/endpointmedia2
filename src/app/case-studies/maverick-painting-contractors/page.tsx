@@ -3,10 +3,12 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import CaseStudyArticleSchema from '@/components/seo/CaseStudyArticleSchema';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Maverick Painting Contractors Case Study | Premium Commercial Painting & Structural Maintenance | Endpoint Media",
+    title: "Maverick Painting Contractors Case Study | Premium Commercial Painting & Structural Maintenance",
     description: "Discover how Endpoint Media repositioned Maverick Painting Contractors as a premium, risk-averse partner for commercial and body corporate assets, with Independent QA guarantees and technical authority building.",
     path: "/case-studies/maverick-painting-contractors",
     keywords: [
@@ -24,6 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const MaverickPaintingContractorsCaseStudy = () => {
   return (
     <>
+      <CaseStudyArticleSchema slug="maverick-painting-contractors" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-purple-900 via-purple-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
@@ -400,6 +403,7 @@ const MaverickPaintingContractorsCaseStudy = () => {
           </div>
         </div>
       </section>
+      <HubSpokeLinks variant="case-study" slug="maverick-painting-contractors" />
     </>
   );
 };

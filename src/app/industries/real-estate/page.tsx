@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design for Real Estate Johannesburg | Property Website Design | Endpoint Media",
+    title: "Web Design for Real Estate Johannesburg | Property Website Design",
     description: "Professional web design for Johannesburg real estate agents and agencies. Property listings, IDX integration, lead capture, and local SEO optimized for real estate success.",
     path: "/industries/real-estate",
     keywords: [
@@ -217,6 +218,7 @@ const RealEstatePage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="industry" slug="real-estate" />
     </>
   );
 };

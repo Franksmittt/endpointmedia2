@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design for Law Firms Johannesburg | Legal Website Design | Endpoint Media",
+    title: "Web Design for Law Firms Johannesburg | Legal Website Design",
     description: "Professional web design for Johannesburg law firms. Trust, professionalism, and user navigation are non-negotiable. We build high-performance websites that reflect your expertise and generate qualified leads.",
     path: "/industries/law-firms",
     keywords: [
@@ -348,6 +349,7 @@ const LawFirmsPage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="industry" slug="law-firms" />
     </>
   );
 };

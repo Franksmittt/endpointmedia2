@@ -3,10 +3,12 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import CaseStudyArticleSchema from '@/components/seo/CaseStudyArticleSchema';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Sakana no Ichi Case Study | Luxury Brand Development & Premium Koi Food | Endpoint Media",
+    title: "Sakana no Ichi Case Study | Luxury Brand Development & Premium Koi Food",
     description: "Discover how Endpoint Media transformed Sakana no Ichi from a simple product concept into a premium, luxury lifestyle brand through complete brand development, Japanese aesthetic principles, and mindful ritual positioning.",
     path: "/case-studies/sakana-no-ichi",
     keywords: [
@@ -24,6 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const SakanaNoIchiCaseStudy = () => {
   return (
     <>
+      <CaseStudyArticleSchema slug="sakana-no-ichi" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
@@ -517,6 +520,7 @@ const SakanaNoIchiCaseStudy = () => {
           </div>
         </div>
       </section>
+      <HubSpokeLinks variant="case-study" slug="sakana-no-ichi" />
     </>
   );
 };

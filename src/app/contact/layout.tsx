@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/seo";
 import React from "react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact Endpoint Media | Talk to Frank Smit",
+  title: "Contact | Talk to Frank Smit",
   description:
     "Request your free growth audit. Speak directly with Frank Smit about web design, local SEO, and lead generation for Johannesburg service businesses.",
   path: "/contact",

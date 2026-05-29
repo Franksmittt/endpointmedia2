@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design Sandton | Website Design Services Sandton | Endpoint Media",
+    title: "Web Design Sandton | Website Design Services Sandton",
     description: "Professional web design and local SEO services for Sandton businesses. Dominate Africa's richest square mile with a high-performance, lead-generating website. Free audit available.",
     path: "/locations/sandton",
     keywords: [
@@ -337,6 +338,7 @@ const SandtonPage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="location" slug="sandton" />
     </>
   );
 };

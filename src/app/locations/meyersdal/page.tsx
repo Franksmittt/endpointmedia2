@@ -2,13 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { buildMetadata, secureJsonLD, BASE_URL, ORG_ID } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 import { Button } from '@/components/ui/button';
 import { Shield, Lock, Gem, Fingerprint, EyeOff, CheckCircle2 } from 'lucide-react';
 
 // 1. METADATA: Targeting Wealth & Reputation Keywords
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Meyersdal Executive Digital Services | Private Client Web Design | Endpoint Media",
+    title: "Meyersdal Executive Digital Services | Private Client Web Design",
     description: "Exclusive digital architecture for Meyersdal's business elite. Reputation management, privacy-first hosting, and bespoke development. By Invitation.",
     path: "/locations/meyersdal",
     keywords: [

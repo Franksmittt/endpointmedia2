@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design for Financial Services Johannesburg | Finance Website Design | Endpoint Media",
+    title: "Web Design for Financial Services Johannesburg | Finance Website Design",
     description: "Professional web design for Johannesburg financial advisors, accountants, and finance firms. Trust, security, and compliance-focused websites that generate qualified leads.",
     path: "/industries/finance",
     keywords: [
@@ -216,6 +217,7 @@ const FinancePage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="industry" slug="finance" />
     </>
   );
 };

@@ -2,10 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import CaseStudyArticleSchema from '@/components/seo/CaseStudyArticleSchema';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "AS Brokers Case Study | Wealth Engineering Platform & Calculator Ecosystem | Endpoint Media",
+    title: "AS Brokers Case Study | Wealth Engineering Platform & Calculator Ecosystem",
     description:
       "See how Endpoint Media engineered AS Brokers into a premium wealth platform with actuarial calculator funnels, compliance-first messaging, and CRM-ready lead systems for high-net-worth advisory growth.",
     path: "/case-studies/as-brokers",
@@ -24,6 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const AsBrokersCaseStudy = () => {
   return (
     <>
+      <CaseStudyArticleSchema slug="as-brokers" />
       <section className="bg-gradient-to-br from-cyan-900 via-slate-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
           <Link
@@ -192,6 +195,7 @@ const AsBrokersCaseStudy = () => {
           </div>
         </div>
       </section>
+      <HubSpokeLinks variant="case-study" slug="as-brokers" />
     </>
   );
 };

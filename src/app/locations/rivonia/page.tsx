@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design Rivonia | Website Design Services Rivonia | Endpoint Media",
+    title: "Web Design Rivonia | Website Design Services Rivonia",
     description: "Professional web design and local SEO services for Rivonia businesses. Office parks and professional services. Build a high-performance, lead-generating website. Free audit available.",
     path: "/locations/rivonia",
     keywords: [
@@ -296,6 +297,7 @@ const RivoniaPage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="location" slug="rivonia" />
     </>
   );
 };

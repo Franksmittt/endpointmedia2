@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design Midrand | Website Design Services Midrand | Endpoint Media",
+    title: "Web Design Midrand | Website Design Services Midrand",
     description: "Professional web design and local SEO services for Midrand businesses. Growing commercial hub between Joburg and Pretoria. Build a high-performance, lead-generating website. Free audit available.",
     path: "/locations/midrand",
     keywords: [
@@ -300,6 +301,7 @@ const MidrandPage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="location" slug="midrand" />
     </>
   );
 };

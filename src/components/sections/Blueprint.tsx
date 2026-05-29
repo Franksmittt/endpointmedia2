@@ -1,49 +1,12 @@
 // src/components/sections/Blueprint.tsx
-"use client";
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Link from 'next/link';
+import ScrollReveal from '@/components/ui/scroll-reveal';
 
 const Blueprint = () => {
-  // --- Start Intersection Observer Logic ---
-  const observerRefs = useRef<(HTMLDivElement | null | HTMLElement)[]>([]);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRefs = observerRefs.current.filter(ref => ref !== null);
-    currentRefs.forEach((ref) => {
-      if (ref) {
-        observer.observe(ref);
-      }
-    });
-
-    return () => {
-      currentRefs.forEach((ref) => {
-        if (ref) {
-          observer.unobserve(ref);
-        }
-      });
-    };
-  }, []);
-
-  const addToRefs = (el: HTMLDivElement | null | HTMLElement) => {
-    if (el && !observerRefs.current.includes(el)) {
-      observerRefs.current.push(el);
-    }
-  };
-  // --- End Intersection Observer Logic ---
-
   return (
+    <ScrollReveal>
     <section id="blueprint" className="py-24 bg-gradient-to-b from-black via-gray-950 to-black text-white relative overflow-hidden">
       {/* Digital Grid Background Pattern */}
       <div className="absolute inset-0 opacity-10" style={{
@@ -63,7 +26,7 @@ const Blueprint = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header Section */}
-        <header ref={addToRefs} className="text-center mb-20 max-w-4xl mx-auto scroll-observed">
+        <header className="text-center mb-20 max-w-4xl mx-auto">
           <div className="inline-block mb-6">
             <div className="flex items-center justify-center gap-2 mb-4">
               <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
@@ -95,7 +58,7 @@ const Blueprint = () => {
           </div>
 
           {/* Step 1: Elite Performance Foundation */}
-          <div ref={addToRefs} className="md:flex md:items-center w-full mb-20 md:space-x-12 relative scroll-observed">
+          <div className="md:flex md:items-center w-full mb-20 md:space-x-12 relative">
             <div className="md:w-5/12 md:text-right">
               <div className="group relative p-8 bg-gradient-to-br from-gray-900/90 via-black/80 to-gray-900/90 backdrop-blur-sm border border-cyan-500/40 rounded-xl shadow-2xl shadow-cyan-500/10 mb-8 md:mb-0 transition-all duration-500 hover:border-cyan-400/60 hover:shadow-cyan-400/20 hover:-translate-y-2">
                 {/* Glowing Top Border */}
@@ -156,8 +119,7 @@ const Blueprint = () => {
 
           {/* Step 2: Hyper-Local SEO Architecture */}
           <div
-            ref={addToRefs}
-            className="md:flex md:items-center w-full mb-20 md:space-x-12 md:flex-row-reverse relative scroll-observed"
+            className="md:flex md:items-center w-full mb-20 md:space-x-12 md:flex-row-reverse relative"
           >
             <div className="md:w-5/12 md:text-left">
               <div className="group relative p-8 bg-gradient-to-br from-cyan-900/30 via-black/80 to-cyan-900/30 backdrop-blur-sm border-2 border-cyan-500/50 rounded-xl shadow-2xl shadow-cyan-500/20 mb-8 md:mb-0 transition-all duration-500 hover:border-cyan-400 hover:shadow-cyan-400/30 hover:-translate-y-2">
@@ -219,8 +181,7 @@ const Blueprint = () => {
 
           {/* Step 3: Map Pack Dominance & Authority Building */}
           <div
-            ref={addToRefs}
-            className="md:flex md:items-center w-full md:space-x-12 relative scroll-observed"
+            className="md:flex md:items-center w-full md:space-x-12 relative"
           >
             <div className="md:w-5/12 md:text-right">
               <div className="group relative p-8 bg-gradient-to-br from-gray-900/90 via-black/80 to-gray-900/90 backdrop-blur-sm border border-cyan-500/40 rounded-xl shadow-2xl shadow-cyan-500/10 mb-8 md:mb-0 transition-all duration-500 hover:border-cyan-400/60 hover:shadow-cyan-400/20 hover:-translate-y-2">
@@ -301,6 +262,7 @@ const Blueprint = () => {
         </div>
       </div>
     </section>
+    </ScrollReveal>
   );
 };
 

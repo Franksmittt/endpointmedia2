@@ -10,7 +10,7 @@ const CANONICAL_SLUG = 'website-development';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Website Development Services Johannesburg | Next.js 15 & Modern Architecture | Endpoint Media",
+    title: "Website Development Services Johannesburg | Next.js 15 & Modern Architecture",
     description: "Expert website development using Next.js 15 and semantic entity engineering. We build high-performance web assets that dominate search results through architectural supremacy, not keyword stuffing.",
     path: `/services/${CANONICAL_SLUG}`,
     keywords: [

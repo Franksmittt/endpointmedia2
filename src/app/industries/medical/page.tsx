@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from "@/lib/seo";
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design for Medical Practices Johannesburg | Healthcare Website Design | Endpoint Media",
+    title: "Web Design for Medical Practices Johannesburg | Healthcare Website Design",
     description: "Professional web design for Johannesburg medical practices, clinics, and healthcare providers. HIPAA-compliant, patient-focused websites with online booking and secure portals.",
     path: "/industries/medical",
     keywords: [
@@ -224,6 +225,7 @@ const MedicalPage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="industry" slug="medical" />
     </>
   );
 };

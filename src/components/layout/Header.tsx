@@ -36,7 +36,7 @@ const Header = () => {
 };
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-gray-900/95 shadow-lg backdrop-blur-sm' : 'bg-gray-900/80 backdrop-blur-sm'}`}>
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-charcoal/95 shadow-lg backdrop-blur-sm' : 'bg-charcoal/80 backdrop-blur-sm'}`}>
       {/* Container: Changed layout strategy to center navigation on desktop */}
       <div className="container mx-auto px-6 py-4 flex justify-start lg:justify-between items-center">
         {/* Logo */}
@@ -67,7 +67,7 @@ space-x-6 flex-grow justify-center lg:mx-auto">
         <div className="hidden lg:block ml-auto">
           <Link
             href="/contact" // Link changed to new 
-            className="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-6 rounded shadow transform hover:scale-105 transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 focus-visible:ring-teal-300"
+            className="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-6 rounded shadow transform hover:scale-105 transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal focus-visible:ring-teal-300"
           >
             Contact Us {/* FIX: Consolidated the text inside the Link component */}
           </Link>
@@ -99,7 +99,7 @@ space-x-6 flex-grow justify-center lg:mx-auto">
 'scale-y-100 opacity-100' : 'scale-y-95 opacity-0 pointer-events-none'} duration-300 ease-out z-40`}
         style={{ paddingTop: '72px' }} // Adjust based on header height
       >
-        <div className="bg-gray-800 shadow-xl rounded-b-lg p-6">
+        <div className="bg-charcoal-light shadow-xl rounded-b-lg p-6">
           <nav className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <Link
@@ -116,7 +116,7 @@ key={link.name}
              {/* Mobile CTA Button */}
             <Link
               href="/contact" // Link changed
-              className="mt-4 w-full text-center inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded shadow transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 focus-visible:ring-teal-300"
+              className="mt-4 w-full text-center inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded shadow transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal-light focus-visible:ring-teal-300"
  
               onClick={closeMenu} // Close menu on link click
             >

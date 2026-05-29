@@ -124,7 +124,7 @@ const faqSchema = {
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: 'Website Maintenance Johannesburg | Ongoing Support & Updates | Endpoint Media',
+    title: 'Website Maintenance Johannesburg | Ongoing Support & Updates',
     description:
       'Keep your website fast, secure, and updated. Endpoint Media offers comprehensive maintenance packages for Johannesburg businesses: security updates, backups, content changes, and priority support.',
     path: PAGE_PATH,

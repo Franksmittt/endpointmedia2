@@ -113,7 +113,7 @@ const faqSchema = {
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: 'Google Ads Management Johannesburg | Paid Search Sprints | Endpoint Media',
+    title: 'Google Ads Management Johannesburg | Paid Search Sprints',
     description:
       'Slash wasted ad spend and turn Google Ads into predictable lead flow. Endpoint Media rebuilds paid search for Johannesburg service businesses: campaigns, landing pages, tracking, and reporting.',
     path: PAGE_PATH,

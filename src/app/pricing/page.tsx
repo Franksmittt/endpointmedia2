@@ -7,7 +7,7 @@ import SocialProof from "@/components/sections/SocialProof";
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Website Design Pricing Johannesburg | Endpoint Media Packages",
+    title: "Website Design Pricing Johannesburg",
     description: "Transparent website design and SEO package pricing for Johannesburg service businesses. Explore our Foundation, Growth Engine, and Market Leader options for clear ROI.",
     path: "/pricing",
     keywords: [

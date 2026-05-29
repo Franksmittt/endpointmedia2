@@ -6,7 +6,7 @@ import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Custom Web Development Johannesburg | Enterprise Solutions | Endpoint Media",
+    title: "Custom Web Development Johannesburg | Enterprise Solutions",
     description: "Premium enterprise web development services for Johannesburg businesses. Custom solutions with CRM/ERP integration, advanced functionality, and scalable architecture. Positioned as the premium enterprise solution.",
     path: "/services/custom-development",
     keywords: [

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Page Not Found | Endpoint Media',
+  title: 'Page Not Found',
   description: 'The page you requested could not be found.',
   robots: {
     index: false,

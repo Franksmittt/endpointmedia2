@@ -1,111 +1,107 @@
-// src/lib/analytics.ts
 /**
- * Google Ads Conversion Tracking Utility
+ * Google Ads conversion tracking + gtag queue (survives lazyOnload race).
  */
 
-import { CONVERSION_LABELS } from './conversion-config';
+import {
+  CONVERSION_LABELS,
+  GOOGLE_ADS_ID,
+  isConversionLabelConfigured,
+} from './conversion-config';
 
-const GOOGLE_ADS_ID = "AW-17744075656";
+type GtagFn = (...args: unknown[]) => void;
 
-// Type definition for gtag
 declare global {
   interface Window {
-    gtag?: (
-      command: string,
-      targetId: string,
-      config?: Record<string, unknown>
-    ) => void;
+    gtag?: GtagFn;
     dataLayer?: unknown[];
+    __gtagQueue?: unknown[][];
+    __flushGtagQueue?: () => void;
   }
 }
 
-/**
- * Track a Google Ads conversion
- * @param conversionLabel - Your conversion label from Google Ads (e.g., "LbRwCOqzq6ECEOmRz-gD")
- * @param value - Optional conversion value
- * @param currency - Optional currency code (default: "ZAR")
- */
-export function trackConversion(
-  conversionLabel: string,
-  value?: number,
-  currency: string = "ZAR"
-) {
-  if (typeof window === "undefined") return;
+function getGtagQueue(): unknown[][] {
+  if (typeof window === 'undefined') return [];
+  if (!window.__gtagQueue) {
+    window.__gtagQueue = [];
+  }
+  return window.__gtagQueue;
+}
 
-  // Check if gtag is loaded
-  if (!window.gtag) {
-    console.warn("Google Analytics gtag not loaded. Conversion not tracked.");
+/** Push to gtag immediately, or queue until the layout init script flushes. */
+export function gtagSafe(...args: unknown[]) {
+  if (typeof window === 'undefined') return;
+
+  if (typeof window.gtag === 'function') {
+    window.gtag(...args);
     return;
   }
 
-  // Track the conversion
-  window.gtag("event", "conversion", {
-    send_to: `${GOOGLE_ADS_ID}/${conversionLabel}`,
-    value: value,
-    currency: currency,
-  });
-
-  console.log(`Conversion tracked: ${GOOGLE_ADS_ID}/${conversionLabel}`);
+  getGtagQueue().push(args);
 }
 
-/**
- * Track a generic event (for other analytics)
- */
-export function trackEvent(
-  eventName: string,
-  eventParams?: Record<string, unknown>
-) {
-  if (typeof window === "undefined") return;
+/** Drain queued events after gtag is defined (called from layout inline script + module init). */
+export function flushGtagQueue() {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
 
-  if (window.gtag) {
-    window.gtag("event", eventName, eventParams);
+  const queue = getGtagQueue();
+  while (queue.length > 0) {
+    const args = queue.shift();
+    if (args) window.gtag(...args);
   }
 }
 
-/**
- * Track phone number clicks
- */
-export function trackPhoneClick(phoneNumber: string) {
-  trackEvent("phone_click", {
-    phone_number: phoneNumber,
+if (typeof window !== 'undefined') {
+  getGtagQueue();
+  window.__flushGtagQueue = flushGtagQueue;
+}
+
+export function trackConversion(conversionLabel: string, value?: number, currency = 'ZAR') {
+  if (!isConversionLabelConfigured(conversionLabel)) {
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('[analytics] Conversion label not configured — event skipped.');
+    }
+    return;
+  }
+
+  gtagSafe('event', 'conversion', {
+    send_to: `${GOOGLE_ADS_ID}/${conversionLabel}`,
+    value,
+    currency,
   });
-  
-  // Track as conversion if label is configured
-  if (CONVERSION_LABELS.PHONE_CALL && !CONVERSION_LABELS.PHONE_CALL.startsWith("YOUR_")) {
+
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`[analytics] Conversion queued/sent: ${GOOGLE_ADS_ID}/${conversionLabel}`);
+  }
+}
+
+export function trackEvent(eventName: string, eventParams?: Record<string, unknown>) {
+  gtagSafe('event', eventName, eventParams);
+}
+
+export function trackPhoneClick(phoneNumber: string) {
+  trackEvent('phone_click', { phone_number: phoneNumber });
+
+  if (isConversionLabelConfigured(CONVERSION_LABELS.PHONE_CALL)) {
     trackConversion(CONVERSION_LABELS.PHONE_CALL);
   }
 }
 
-/**
- * Track WhatsApp clicks
- */
 export function trackWhatsAppClick(phoneNumber: string) {
-  trackEvent("whatsapp_click", {
-    phone_number: phoneNumber,
-  });
-  
-  // Track as conversion if label is configured
-  if (CONVERSION_LABELS.WHATSAPP && !CONVERSION_LABELS.WHATSAPP.startsWith("YOUR_")) {
+  trackEvent('whatsapp_click', { phone_number: phoneNumber });
+
+  if (isConversionLabelConfigured(CONVERSION_LABELS.WHATSAPP)) {
     trackConversion(CONVERSION_LABELS.WHATSAPP);
   }
 }
 
-/**
- * Track form submission conversion
- */
 export function trackFormSubmission() {
-  if (CONVERSION_LABELS.FORM_SUBMISSION && !CONVERSION_LABELS.FORM_SUBMISSION.startsWith("YOUR_")) {
+  if (isConversionLabelConfigured(CONVERSION_LABELS.FORM_SUBMISSION)) {
     trackConversion(CONVERSION_LABELS.FORM_SUBMISSION);
   }
 }
 
-/**
- * Track free audit form conversion
- */
 export function trackFreeAudit() {
-  if (CONVERSION_LABELS.FREE_AUDIT && !CONVERSION_LABELS.FREE_AUDIT.startsWith("YOUR_")) {
+  if (isConversionLabelConfigured(CONVERSION_LABELS.FREE_AUDIT)) {
     trackConversion(CONVERSION_LABELS.FREE_AUDIT);
   }
 }
-
-

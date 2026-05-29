@@ -3,10 +3,12 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import CaseStudyArticleSchema from '@/components/seo/CaseStudyArticleSchema';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "QJ Paint World Case Study | Expert Technical Supplier & B2B Paint Specialist | Endpoint Media",
+    title: "QJ Paint World Case Study | Expert Technical Supplier & B2B Paint Specialist",
     description: "Discover how Endpoint Media positioned QJ Paint World as the Expert Technical Supplier for professional Decorative, Automotive, and Industrial coatings in Johannesburg South, with B2B-focused conversion strategy.",
     path: "/case-studies/qj-paint-world",
     keywords: [
@@ -24,6 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const QJPaintWorldCaseStudy = () => {
   return (
     <>
+      <CaseStudyArticleSchema slug="qj-paint-world" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-red-900 via-slate-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
@@ -435,6 +438,7 @@ const QJPaintWorldCaseStudy = () => {
           </div>
         </div>
       </section>
+      <HubSpokeLinks variant="case-study" slug="qj-paint-world" />
     </>
   );
 };

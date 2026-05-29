@@ -112,7 +112,7 @@ const Problem = () => {
               </h3>
               
               <p className="text-gray-200 text-lg mb-6 leading-relaxed">
-                Your potential customers in <span className="text-cyan-300 font-semibold">Sandton, Randburg, and Midrand</span> are searching online <em className="text-cyan-400">*right now*</em>. If your site isn&apos;t on Google&apos;s first page, especially in the Map Pack, you are invisible. They are finding—and paying—your competitors.
+                Your potential customers in <span className="text-cyan-300 font-semibold">Sandton, Randburg, and Midrand</span> are searching online <em className="text-cyan-400">*right now*</em>. If your site isn&apos;t on Google&apos;s first page, especially in the Map Pack, you are invisible. They are finding and paying your competitors.
               </p>
               
               <Link 

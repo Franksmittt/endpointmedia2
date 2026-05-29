@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Web Design Waterfall | Website Design Services Waterfall | Endpoint Media",
+    title: "Web Design Waterfall | Website Design Services Waterfall",
     description: "Professional web design and local SEO services for Waterfall businesses. Dominate this emerging business district with a high-performance website. Free audit available.",
     path: "/locations/waterfall",
     keywords: [
@@ -295,6 +296,7 @@ const WaterfallPage = () => {
           </Link>
         </div>
       </section>
+      <HubSpokeLinks variant="location" slug="waterfall" />
     </>
   );
 };

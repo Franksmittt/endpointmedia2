@@ -1,6 +1,25 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import InternalLinks from "@/components/seo/InternalLinks";
-import PricingCalculator from "@/app/services/website-design-prices/PricingCalculator";
+
+const PricingCalculator = dynamic(() => import("./PricingCalculator"), {
+  loading: () => (
+    <div className="space-y-8 bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 min-h-[400px] animate-pulse">
+      <div className="h-8 bg-gray-200 rounded w-2/3 mx-auto" />
+      <div className="h-4 bg-gray-100 rounded w-1/2 mx-auto" />
+      <div className="grid md:grid-cols-2 gap-6 mt-8">
+        <div className="h-24 bg-gray-100 rounded-xl" />
+        <div className="h-24 bg-gray-100 rounded-xl" />
+        <div className="h-24 bg-gray-100 rounded-xl" />
+        <div className="h-24 bg-gray-100 rounded-xl" />
+      </div>
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="h-48 bg-gray-100 rounded-xl" />
+        <div className="h-48 bg-gray-100 rounded-xl" />
+      </div>
+    </div>
+  ),
+});
 
 export default function WebsiteDesignPricesPage() {
   // Related internal links for topical authority

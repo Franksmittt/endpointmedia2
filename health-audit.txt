@@ -1,0 +1,840 @@
+================================================================================
+ENDPOINT MEDIA — MERCILESS NEXT.JS HEALTH AUDIT
+Generated: 2026-05-29
+Workspace: endpointmedia2-main (Next.js 16.1.1 / React 19 / App Router)
+Auditor persona: Architecture + Technical SEO/AEO + CWV + Tracking + Design System
+================================================================================
+
+EXECUTIVE SUMMARY
+-----------------
+This is a technically ambitious B2B asset with strong SEO intent (programmatic
+sitemap, JSON-LD graph, blog silos, GSC scripts, www canonical enforcement).
+It is NOT yet market-crushing elite. The biggest leaks are:
+
+  1. SERP title template double-branding (Critical SEO)
+  2. Conversion tracking firing placeholder labels + gtag race conditions (Critical)
+  3. LCP sabotaged by hero fade-in animation starting at opacity:0 (Critical CWV)
+  4. Monolithic client blog bundle + 5 duplicated scroll-observer sections (High)
+  5. IndexNow API exists but is completely unwired (High SEO ops)
+  6. Design system fragmentation: pink page, cyan vs teal, no charcoal token (High)
+
+OVERALL HEALTH SCORE: 68 / 100
+
+CATEGORY SCORES
+---------------
+1. Next.js Architecture & Rendering .............. 74 / 100
+2. Technical SEO & Answer Engine Optimization .... 79 / 100
+3. Core Web Vitals (LCP, INP, CLS) ............... 67 / 100
+4. Tracking, Analytics & Scripts ................... 63 / 100
+5. Design System & Semantic Hygiene .............. 57 / 100
+
+================================================================================
+CATEGORY 1: NEXT.JS ARCHITECTURE & RENDERING — 74/100
+================================================================================
+
+STRENGTHS
+- All 68 page.tsx routes are Server Components (zero 'use client' on pages)
+- Blog uses generateStaticParams() — 20 posts SSG at build (95 routes total)
+- next.config.mjs: htmlLimitedBots, non-www→www 308, _rsc query strip, image AVIF/WebP
+- proxy.ts (Next 16) sets crawler headers without blocking static assets
+- Static HTTP cache headers on /images/* and /_next/static/* (1 year immutable)
+
+FINDINGS
+
+[F1.1] CRITICAL — Monolithic client blog interactives barrel
+File: src/components/blog/interactives.tsx
+Issue: File-level 'use client' forces ALL 19 exports into client bundle even though
+       14 are static JSX (LatencyChart, ArchitectureDiagram, etc.). Any blog post
+       importing one chart ships the entire module + React hydration cost.
+Severity: High (bundle + INP)
+
+Fix — split static vs interactive:
+  // src/components/blog/interactives-static.tsx (NO 'use client')
+  export function LatencyChart() { /* pure JSX */ }
+
+  // src/components/blog/interactives-client.tsx
+  'use client';
+  export function RevenueLossCalculator() { /* useState */ }
+
+  // src/lib/blog/content/silo-1.tsx
+  import { LatencyChart } from '@/components/blog/interactives-static';
+  import { RevenueLossCalculator } from '@/components/blog/interactives-client';
+
+Or defer interactive-only:
+  import dynamic from 'next/dynamic';
+  const RevenueLossCalculator = dynamic(
+    () => import('@/components/blog/interactives-client').then(m => m.RevenueLossCalculator),
+    { loading: () => <div className="h-48 animate-pulse bg-gray-100 rounded-xl" /> }
+  );
+
+--------------------------------------------------------------------------------
+
+[F1.2] HIGH — Five homepage sections duplicate identical IntersectionObserver logic
+Files:
+  src/components/sections/Proof.tsx
+  src/components/sections/Blueprint.tsx
+  src/components/sections/Vetting.tsx
+  src/components/sections/Toolkit.tsx
+  src/components/sections/Audit.tsx
+Issue: Each is 'use client' with copy-pasted scroll-reveal useEffect. ~5 client
+       bundles doing the same job CSS already supports (.scroll-observed in globals.css).
+Severity: High
+
+Fix — single client wrapper OR pure CSS:
+  // src/components/ui/scroll-reveal.tsx
+  'use client';
+  import { useEffect, useRef } from 'react';
+  export function ScrollReveal({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+    const ref = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+      const el = ref.current;
+      if (!el) return;
+      const obs = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) { el.classList.add('is-visible'); obs.disconnect(); }
+      }, { threshold: 0.15 });
+      obs.observe(el);
+      return () => obs.disconnect();
+    }, []);
+    return <div ref={ref} className={`scroll-observed ${className}`}>{children}</div>;
+  }
+
+  // Proof.tsx — remove 'use client', wrap sections:
+  import ScrollReveal from '@/components/ui/scroll-reveal';
+  export default function Proof() {
+    return (
+      <ScrollReveal>
+        <section>...</section>
+      </ScrollReveal>
+    );
+  }
+
+Alternative (zero JS): use CSS scroll-driven animations when browser support acceptable:
+  @supports (animation-timeline: view()) {
+    .scroll-observed { animation: fade-up linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+  }
+
+--------------------------------------------------------------------------------
+
+[F1.3] HIGH — Zero Suspense boundaries / no loading.tsx anywhere
+Files: entire src/app/ tree (0 loading.tsx files)
+Issue: No streaming, no progressive render, PricingCalculator uses manual mounted
+       gate causing flash + CLS instead of Suspense fallback.
+Severity: High
+
+Fix:
+  // src/app/blog/[slug]/loading.tsx
+  export default function BlogLoading() {
+    return (
+      <div className="container mx-auto px-6 max-w-3xl py-32 animate-pulse">
+        <div className="h-8 bg-gray-200 rounded w-1/3 mb-4" />
+        <div className="h-12 bg-gray-200 rounded w-full mb-8" />
+        <div className="space-y-4">
+          <div className="h-4 bg-gray-100 rounded w-full" />
+          <div className="h-4 bg-gray-100 rounded w-5/6" />
+        </div>
+      </div>
+    );
+  }
+
+  // src/app/services/website-design-prices/PricingCalculator.tsx — remove mounted gate:
+  // Delete useState(false) + useEffect mounted pattern; use loading.tsx or dynamic() instead.
+
+--------------------------------------------------------------------------------
+
+[F1.4] MEDIUM — No route-level revalidate beyond sitemap
+File: src/app/sitemap.ts (revalidate = 86400 only)
+Issue: Blog/marketing pages rely on full redeploy for content updates. No ISR on
+       high-traffic routes if content changes between deploys.
+Severity: Medium
+
+Fix:
+  // src/app/blog/page.tsx
+  export const revalidate = 86400;
+
+  // Or Next 16 cache components when ready:
+  // 'use cache' + cacheLife('days') on getAllPosts()
+
+--------------------------------------------------------------------------------
+
+[F1.5] MEDIUM — Dead client analytics file
+File: src/components/analytics/gtm-partytown.tsx
+Issue: Never imported. References Partytown without @builder.io/partytown installed.
+Severity: Medium
+
+Fix: Delete file OR fully implement:
+  npm install @builder.io/partytown
+  // layout.tsx
+  import { Partytown } from '@builder.io/partytown/react';
+  <Partytown forward={['dataLayer.push']} />
+  <GTMPartytown /> // only if migrating OFF inline gtag
+
+--------------------------------------------------------------------------------
+
+[F1.6] LOW — Header is client on every route (justified but heavy)
+File: src/components/layout/Header.tsx
+Issue: useState scroll + mobile menu ships globally. Acceptable for UX; consider
+       splitting MobileMenu into dynamic import.
+Severity: Low
+
+Fix:
+  const MobileMenu = dynamic(() => import('./MobileMenu'), { ssr: false });
+
+--------------------------------------------------------------------------------
+
+[F1.7] INFO — Caching strategy is deploy-static-first (acceptable for marketing site)
+No unstable_cache, no fetch cache tuning — fine because content is in-repo TSX, not DB.
+
+================================================================================
+CATEGORY 2: TECHNICAL SEO & ANSWER ENGINE OPTIMIZATION — 79/100
+================================================================================
+
+STRENGTHS
+- Central buildMetadata() with canonical, hreflang, OG, Twitter (src/lib/seo.ts)
+- secureJsonLD() XSS sanitization on all JSON-LD injection
+- Programmatic sitemap from blog registry (20 posts, cornerstone priority 0.85)
+- robots.ts: production-only indexing, dual sitemap (XML + KML), GPTBot partial allow
+- Global Organization + LocalBusiness + WebSite + Person graph in layout.tsx
+- Blog: BlogPosting + Speakable + conditional FAQPage schema
+- Python validators: validate_seo.py, graph_auditor.py, index_pusher.py
+- htmlLimitedBots forces full HTML for search crawlers (next.config.mjs)
+
+FINDINGS
+
+[F2.1] CRITICAL — Title template double-branding in SERPs
+Files:
+  src/app/layout.tsx (L15-17): template: "%s | Endpoint Media"
+  src/app/blog/[slug]/page.tsx (L35): title: `${post.title} | Endpoint Media`
+  ~50+ other pages: title strings already include "| Endpoint Media"
+Issue: Next.js appends template suffix → titles like:
+  "Blog Post | Endpoint Media | Endpoint Media" (triple in some cases)
+Severity: Critical
+
+Fix — use absolute titles in buildMetadata():
+  // src/lib/seo.ts — add to BuildMetadataOptions:
+  type BuildMetadataOptions = {
+    title: string;
+    titleAbsolute?: boolean; // when true, skip template suffix
+    ...
+  };
+
+  export function buildMetadata({ title, titleAbsolute, ...rest }: BuildMetadataOptions): Metadata {
+    return {
+      title: titleAbsolute ? { absolute: title } : title,
+      ...
+    };
+  }
+
+  // Apply to ALL pages that include "| Endpoint Media" in title string:
+  return buildMetadata({
+    title: `${post.title} | Endpoint Media`,
+    titleAbsolute: true,
+    ...
+  });
+
+  // OR cleaner: remove "| Endpoint Media" from all child titles and let template handle it:
+  return buildMetadata({
+    title: post.title, // template adds "| Endpoint Media" once
+    ...
+  });
+
+--------------------------------------------------------------------------------
+
+[F2.2] CRITICAL — IndexNow API unwired (dead infrastructure)
+Files:
+  src/app/api/indexnow/route.ts (exists, auth-gated)
+  public/ — NO {INDEXNOW_KEY}.txt verification file
+  scripts/seo/ — index_pusher.py targets Google Indexing API, NOT IndexNow
+Issue: New blog posts won't ping Bing/Yandex instantly. API never called post-deploy.
+Severity: Critical (ops)
+
+Fix:
+  // 1. Generate key and add to .env:
+  INDEXNOW_KEY=your-32-char-key
+  INDEXNOW_SECRET=your-secret
+
+  // 2. public/{INDEXNOW_KEY}.txt
+  your-32-char-key
+
+  // 3. scripts/seo/indexnow_pusher.py (new) or post-deploy hook:
+  import os, requests
+  KEY = os.environ["INDEXNOW_KEY"]
+  SECRET = os.environ["INDEXNOW_SECRET"]
+  urls = ["https://www.endpointmedia.co.za/blog/the-brutal-truth-about-wordpress", ...]
+  requests.post(
+    "https://www.endpointmedia.co.za/api/indexnow",
+    headers={"Authorization": f"Bearer {SECRET}"},
+    json={"urls": urls},
+  )
+
+--------------------------------------------------------------------------------
+
+[F2.3] HIGH — FAQ schema on only 2/20 blog posts (AEO gap)
+File: src/lib/blog/posts.ts
+Issue: Content rules require FAQPage on cornerstone posts. 18 posts ship without
+       faqs[] → no FAQ rich results, weaker AEO entity signals.
+Severity: High
+
+Fix — add faqs to each post in posts.ts:
+  {
+    slug: 'core-web-vitals-financial-metric',
+    ...
+    faqs: [
+      { question: 'What is a good LCP score?', answer: '2.5 seconds or less.' },
+      { question: 'How does LCP affect Google Ads?', answer: 'Poor LCP lowers Quality Score and increases CPC.' },
+    ],
+  },
+
+--------------------------------------------------------------------------------
+
+[F2.4] HIGH — Speakable schema references non-existent CSS selector
+Files:
+  src/app/blog/[slug]/page.tsx (L93): cssSelectors: ['h1', '.article-summary', 'article']
+  src/lib/blog/content/silo-1.tsx — AEO post uses className on Lead but blog template
+       doesn't wrap excerpt in .article-summary
+Issue: Speakable points at missing element → AEO/voice snippet targeting fails.
+Severity: High
+
+Fix:
+  // src/app/blog/[slug]/page.tsx — add after h1 block:
+  <p className="article-summary text-lg text-gray-600 text-center max-w-2xl mx-auto mb-0">
+    {post.excerpt}
+  </p>
+
+  // Tighten speakable selectors (don't use whole 'article'):
+  cssSelectors: ['h1', '.article-summary'],
+
+--------------------------------------------------------------------------------
+
+[F2.5] HIGH — Weak internal linking on location/industry/case-study pages
+Files: src/app/locations/*/page.tsx (14 routes), src/app/industries/*/page.tsx,
+       src/app/case-studies/*/page.tsx (7 routes)
+Issue: InternalLinks component used on only ~8 routes. Hub-and-spoke model exists
+       in blog content but not enforced in page templates → orphan risk, weak PageRank flow.
+Severity: High
+
+Fix — add to location page template:
+  import InternalLinks from '@/components/seo/InternalLinks';
+
+  <InternalLinks
+    title="Related Resources"
+    links={[
+      { href: '/blog/local-seo-blueprint', title: 'Local SEO Blueprint', description: 'Hub-and-spoke regional architecture.' },
+      { href: '/services/local-seo', title: 'Local SEO Services', description: 'Map pack dominance.' },
+      { href: `/services/google-ads-${slug}`, title: 'Regional Google Ads', description: 'Paid acquisition for your area.' },
+    ]}
+  />
+
+--------------------------------------------------------------------------------
+
+[F2.6] HIGH — Case studies missing Article/CreativeWork JSON-LD
+Files: src/app/case-studies/*/page.tsx (all 7 detail pages)
+Issue: No structured data on highest-trust conversion assets. Competitors with
+       Review/Article schema may outrank in rich results.
+Severity: High
+
+Fix:
+  const caseStudySchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'AS Brokers — B2B Digital Transformation',
+    author: { '@id': FRANK_SMIT_ID },
+    publisher: { '@id': ORG_ID },
+    image: `${BASE_URL}/images/EPM.jpg`,
+    datePublished: '2026-01-15',
+    mainEntityOfPage: `${BASE_URL}/case-studies/as-brokers`,
+  };
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(caseStudySchema) }} />
+
+--------------------------------------------------------------------------------
+
+[F2.7] MEDIUM — Blog h1 outside article itemScope container
+File: src/app/blog/[slug]/page.tsx
+Issue: <h1> in header section, <article itemScope> below — microdata graph disconnect.
+Severity: Medium
+
+Fix: Move h1 + date inside <article itemScope itemType="https://schema.org/BlogPosting">
+
+--------------------------------------------------------------------------------
+
+[F2.8] MEDIUM — GPTBot allowed only on /blog/, /services/, /insights/
+File: src/app/robots.ts (L52-55)
+Issue: Blocks /compare/, /case-studies/, /locations/, /pricing/ from LLM crawlers.
+Severity: Medium (AEO)
+
+Fix:
+  {
+    userAgent: 'GPTBot',
+    allow: ['/', '/blog/', '/services/', '/insights/', '/compare/', '/case-studies/', '/locations/'],
+    disallow: ['/api/', '/admin/', '/private/'],
+  },
+
+--------------------------------------------------------------------------------
+
+[F2.9] MEDIUM — Layout JSON-LD hardcoded URLs vs BASE_URL env
+File: src/app/layout.tsx (L115-268)
+Issue: Schema uses hardcoded https://www.endpointmedia.co.za while buildMetadata uses
+       process.env.NEXT_PUBLIC_BASE_URL — staging/preview drift risk.
+Severity: Medium
+
+Fix:
+  import { BASE_URL, ORG_ID, FRANK_SMIT_ID } from '@/lib/seo';
+  // Replace all hardcoded URLs with BASE_URL template literals
+
+--------------------------------------------------------------------------------
+
+[F2.10] MEDIUM — Blog OG image uses slug-derived title, not post title
+File: src/app/blog/[slug]/opengraph-image.tsx (L7-20)
+Issue: Social previews show mangled slug words instead of actual headline.
+Severity: Medium
+
+Fix:
+  import { getPostBySlug } from '@/lib/blog/posts';
+  export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const post = getPostBySlug(slug);
+    const title = post?.title ?? slugToTitle(slug);
+    ...
+  }
+
+--------------------------------------------------------------------------------
+
+[F2.11] LOW — buildMetadata missing article OG fields (publishedTime, authors)
+File: src/lib/seo.ts
+Severity: Low
+
+Fix:
+  openGraph: {
+    type: 'article',
+    publishedTime: options.publishedTime,
+    modifiedTime: options.modifiedTime,
+    authors: [FRANK_SMIT_ID],
+  },
+
+--------------------------------------------------------------------------------
+
+[F2.12] LOW — WebSite schema missing SearchAction sitelinks box
+File: src/app/layout.tsx
+Severity: Low
+
+Fix:
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${BASE_URL}/blog?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+
+================================================================================
+CATEGORY 3: CORE WEB VITALS (LCP, INP, CLS) — 67/100
+================================================================================
+
+STRENGTHS
+- System font stacks (no webfont FOUT/FOIT) — globals.css
+- next/image with AVIF/WebP formats configured — next.config.mjs
+- Hero image: fill + sizes="(max-width: 1023px) 0px, 100vw" skips mobile download
+- gtag uses lazyOnload (good for TBT/INP baseline)
+- Static generation eliminates server TTFB on marketing routes
+
+FINDINGS
+
+[F3.1] CRITICAL — Hero LCP element starts invisible (fade-in animation)
+Files:
+  src/components/sections/Hero.tsx (L45): className="... animate-fade-in-up"
+  src/app/globals.css: .animate-fade-in-up { opacity: 0; transform: translateY(30px); }
+Issue: LCP candidate (#hero-headline H1) renders at opacity:0 for up to 800ms.
+       Directly inflates LCP metric and fails CrUX thresholds.
+Severity: Critical
+
+Fix — NEVER animate the LCP element:
+  // Hero.tsx — remove animate-fade-in-up from h1 and hero-summary:
+  <h1 id="hero-headline" className="text-3xl sm:text-4xl ... text-white">
+  <p id="hero-summary" className="text-base md:text-lg ... text-gray-200">
+
+  // Optional: animate only below-fold CTAs:
+  <div className="animate-fade-in-up"> {/* buttons only, not headline */}
+
+  // Or use @media (prefers-reduced-motion: reduce) { animation: none; }
+
+--------------------------------------------------------------------------------
+
+[F3.2] HIGH — priority image on desktop-hidden element still preloads on mobile
+File: src/components/sections/Hero.tsx (L25-33)
+Issue: priority + hidden md:block — Next.js may still preload LCP image on mobile
+       where gradient div is shown instead. Wasted bandwidth on SA mobile networks.
+Severity: High
+
+Fix — conditional render by breakpoint OR drop priority:
+  // Option A: two separate components with CSS media query wrapper
+  // Option B: remove priority (hero text is LCP on all viewports anyway):
+  <Image ... className="hidden md:block object-cover opacity-15" /> // no priority
+
+  // Option C: use picture element pattern with next/image only on md+ via dynamic import
+
+--------------------------------------------------------------------------------
+
+[F3.3] HIGH — Scroll-reveal sections start translated (CLS on scroll)
+Files: globals.css (.scroll-observed), Proof/Blueprint/Vetting/Toolkit/Audit
+Issue: opacity:0 + translateY(20px) until IntersectionObserver fires → layout shift
+       when sections enter viewport (below-fold CLS contributor).
+Severity: High
+
+Fix — animate opacity only, not transform:
+  .scroll-observed { opacity: 0; transition: opacity 0.7s ease-out; }
+  .scroll-observed.is-visible { opacity: 1; }
+  /* Remove transform: translateY to eliminate shift */
+
+--------------------------------------------------------------------------------
+
+[F3.4] MEDIUM — Proof.tsx logos use unoptimized + external placehold.co
+File: src/components/sections/Proof.tsx
+Issue: unoptimized={true} skips AVIF/WebP. placehold.co may not be in remotePatterns.
+Severity: Medium
+
+Fix:
+  // next.config.mjs — if keeping remote:
+  { protocol: 'https', hostname: 'placehold.co' }
+
+  // Better: replace with local SVG/PNG client logos in public/images/clients/
+  <Image src="/images/clients/client-1.svg" width={100} height={40} alt="Client name" />
+
+--------------------------------------------------------------------------------
+
+[F3.5] MEDIUM — Solution.tsx missing sizes prop
+File: src/components/sections/Solution.tsx
+Severity: Medium
+
+Fix:
+  <Image ... sizes="(max-width: 768px) 100vw, 600px" />
+
+--------------------------------------------------------------------------------
+
+[F3.6] MEDIUM — Only 3 next/image usages site-wide
+Issue: Most pages are text-heavy (good for LCP) but case study hero sections may
+       use CSS backgrounds without dimensions — audit if images added later.
+Severity: Medium (future risk)
+
+--------------------------------------------------------------------------------
+
+[F3.7] LOW — ContactForm submit message injects without reserved space (CLS)
+File: src/app/contact/ContactForm.tsx
+Severity: Low
+
+Fix:
+  <div className="min-h-[3rem]" aria-live="polite">{submitMessage && <p>...</p>}</div>
+
+================================================================================
+CATEGORY 4: TRACKING, ANALYTICS & SCRIPTS — 63/100
+================================================================================
+
+STRENGTHS
+- gtag loaded via next/script with strategy="lazyOnload" — layout.tsx
+- No render-blocking third-party scripts in <head>
+- Conversion helpers centralized in src/lib/analytics.ts
+- Web Vitals reporter tracks CLS, LCP, INP (modern set)
+
+FINDINGS
+
+[F4.1] CRITICAL — Conversion labels are placeholders
+File: src/lib/conversion-config.ts (L17-28)
+Issue: Defaults to "YOUR_FORM_CONVERSION_LABEL" etc. Google Ads receives broken
+       conversion events even when gtag fires. Smart Bidding gets garbage data.
+Severity: Critical
+
+Fix:
+  // .env.production (NEVER commit secrets — set in Vercel)
+  NEXT_PUBLIC_CONVERSION_LABEL_FORM=LbRwCOqzq6ECEOmRz-gD
+  NEXT_PUBLIC_CONVERSION_LABEL_AUDIT=actual_label_here
+  NEXT_PUBLIC_CONVERSION_LABEL_PHONE=actual_label_here
+  NEXT_PUBLIC_CONVERSION_LABEL_WHATSAPP=actual_label_here
+
+  // Add runtime guard in analytics.ts:
+  if (CONVERSION_LABELS.FORM_SUBMISSION.startsWith('YOUR_')) {
+    if (process.env.NODE_ENV === 'development') console.warn('Conversion label not configured');
+    return; // don't send junk to Google
+  }
+
+--------------------------------------------------------------------------------
+
+[F4.2] CRITICAL — Web Vitals race: gtag lazyOnload vs immediate vitals hook
+Files:
+  src/app/layout.tsx (gtag strategy="lazyOnload")
+  src/components/analytics/web-vitals.tsx (fires on mount)
+Issue: LCP/INP/CLS events often sent before window.gtag exists → silently dropped.
+Severity: Critical
+
+Fix — queue events until gtag ready:
+  // src/lib/analytics.ts
+  const gtagQueue: unknown[][] = [];
+  export function gtagSafe(...args: unknown[]) {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag(...args);
+    } else {
+      gtagQueue.push(args);
+    }
+  }
+  export function flushGtagQueue() {
+    while (gtagQueue.length && window.gtag) {
+      window.gtag(...(gtagQueue.shift() as Parameters<typeof window.gtag>));
+    }
+  }
+
+  // layout.tsx — in gtag init script after gtag('js', new Date()):
+  gtag('config', '${GOOGLE_ADS_ID}');
+  if (window.__flushGtagQueue) window.__flushGtagQueue();
+
+  // web-vitals.tsx — use gtagSafe instead of direct window.gtag
+
+Alternative: use @next/third-parties/google with afterInteractive for gtag ONLY,
+              keep lazyOnload for non-essential pixels.
+
+--------------------------------------------------------------------------------
+
+[F4.3] HIGH — Conversion clicks lost if user acts before lazyOnload
+Files: HeroWhatsAppLink.tsx, ContactForm.tsx, Audit.tsx
+Issue: trackConversion() console.warns and drops event if gtag not loaded.
+Severity: High
+
+Fix: Same gtagSafe queue pattern as F4.2. Optionally switch conversion-critical
+     gtag to strategy="afterInteractive" while keeping GA4 on lazyOnload:
+
+  <Script src="gtag/js?id=AW-xxx" strategy="afterInteractive" /> // Ads conversions
+  <Script src="gtag/js?id=G-xxx" strategy="lazyOnload" />        // GA4 analytics
+
+--------------------------------------------------------------------------------
+
+[F4.4] HIGH — Dead gtm-partytown.tsx (see F1.5)
+Severity: High (confusion + dead code)
+
+--------------------------------------------------------------------------------
+
+[F4.5] MEDIUM — Web Vitals uses legacy UA event params
+File: src/components/analytics/web-vitals.tsx
+Issue: event_category/event_label/non_interaction are UA-era. GA4 prefers:
+       metric_id, metric_value, metric_delta, metric_rating.
+Severity: Medium
+
+Fix:
+  window.gtag('event', metric.name, {
+    value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+    metric_id: metric.id,
+    metric_value: metric.value,
+    metric_delta: metric.delta,
+    metric_rating: metric.rating,
+  });
+
+--------------------------------------------------------------------------------
+
+[F4.6] MEDIUM — GOOGLE_ADS_ID hardcoded, always loads even without GA_ID
+File: src/app/layout.tsx (L11, L278+)
+Issue: trackingIds includes hardcoded AW- ID → gtag always loads in production.
+Severity: Medium (privacy/perf if intentional for Ads-only site, document it)
+
+Fix: Gate on env:
+  const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+  if (!GOOGLE_ADS_ID && !GA_ID) return null; // no scripts
+
+--------------------------------------------------------------------------------
+
+[F4.7] LOW — console.log on every successful conversion in production
+File: src/lib/analytics.ts
+Severity: Low
+
+Fix: Wrap in process.env.NODE_ENV === 'development'
+
+================================================================================
+CATEGORY 5: DESIGN SYSTEM & SEMANTIC HYGIENE — 57/100
+================================================================================
+
+STRENGTHS
+- Consistent Tailwind utility approach
+- font-heading used on key brand elements
+- Skip link + main#main-content landmark in layout
+- Minimal shadcn footprint (button only)
+
+FINDINGS
+
+[F5.1] CRITICAL — Brand charcoal #222222 not defined; generic grays everywhere
+Files:
+  tailwind.config.ts — primary: '#111827' (gray-900, darker than charcoal)
+  Header/Footer/Hero — bg-gray-900, bg-gray-950, bg-black
+Issue: No design token for specified brand charcoal #222222. Visual identity drifts.
+Severity: High (brand)
+
+Fix:
+  // tailwind.config.ts
+  theme: {
+    extend: {
+      colors: {
+        charcoal: {
+          DEFAULT: '#222222',
+          light: '#2d2d2d',
+          dark: '#1a1a1a',
+        },
+        primary: { DEFAULT: '#222222', foreground: '#ffffff' },
+        accent: { DEFAULT: '#00A4C8', foreground: '#ffffff' },
+      },
+    },
+  },
+
+  // globals.css — shadcn variables wired to tokens:
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 13%;
+    --primary: 0 0% 13%;        /* #222222 */
+    --primary-foreground: 0 0% 100%;
+    --accent: 192 100% 39%;     /* #00A4C8 */
+  }
+
+  // Migrate dark surfaces:
+  // Header.tsx: bg-charcoal/95 instead of bg-gray-900/95
+  // Footer.tsx: bg-charcoal instead of bg-gray-900
+
+--------------------------------------------------------------------------------
+
+[F5.2] CRITICAL — Full pink theme on Facebook Ads service page (off-brand)
+File: src/app/services/facebook-ads/page.tsx
+Issue: text-pink-300, bg-pink-500, from-pink-500 to-rose-600 throughout.
+       Directly violates minimalist professional B2B standard.
+Severity: Critical (brand trust)
+
+Fix — replace all pink-* with accent/teal scale:
+  text-pink-300  → text-accent/80 or text-teal-300
+  bg-pink-500    → bg-accent or bg-teal-600
+  from-pink-500  → from-accent to-teal-700
+
+  // Create shared service page accent constants:
+  // src/lib/design-tokens.ts
+  export const SERVICE_ACCENT = 'teal'; // single hue sitewide
+
+--------------------------------------------------------------------------------
+
+[F5.3] HIGH — Cyan vs Teal brand split on homepage vs chrome
+Files:
+  Hero/Problem/Solution/Audit/etc — cyan-400, cyan-600 CTAs
+  Header/Footer/Pricing — teal-400, teal-600, teal-700
+Issue: Two competing accent hues on highest-traffic pages. Looks like two brands.
+Severity: High
+
+Fix — pick ONE accent (recommend teal to match Header/Footer OR map both to accent token):
+  // Replace ALL cyan-* in src/components/sections/* with teal-* OR accent:
+  <span className="text-accent">We Engineer Market Domination.</span>
+  className="bg-accent hover:bg-accent/90"
+
+--------------------------------------------------------------------------------
+
+[F5.4] HIGH — Per-service rainbow accents (purple, emerald, indigo, pink)
+Files:
+  src/app/services/review-management/page.tsx (purple)
+  src/app/services/medical-websites/page.tsx (emerald)
+  src/app/services/website-development/page.tsx (purple/pink gradient)
+  src/app/case-studies/maverick-painting-contractors/page.tsx (purple/indigo)
+Severity: High
+
+Fix: Enforce single accent + charcoal/neutral palette on ALL service/case study templates.
+     Extract shared ServicePageHero component with tokenized colors.
+
+--------------------------------------------------------------------------------
+
+[F5.5] MEDIUM — shadcn button references undefined CSS variables
+Files:
+  src/components/ui/button.tsx (bg-primary, text-primary-foreground)
+  src/app/globals.css — NO --primary, --background HSL vars
+Issue: Primary button variant may not resolve correctly.
+Severity: Medium
+
+Fix: Add shadcn CSS variables block to globals.css (see F5.1 fix)
+
+--------------------------------------------------------------------------------
+
+[F5.6] MEDIUM — Decorative clutter in Footer copy
+File: src/components/layout/Footer.tsx
+Issue: Double spaces ("Proudly Based in  Johannesburg"), empty JSX comment in paragraph,
+       decorative trust badge spans, pipe dividers with aria-hidden.
+Severity: Medium
+
+Fix:
+  <p>Proudly based in Johannesburg, South Africa.</p>
+  // Remove {/* */} empty comment
+  // Consolidate trust badges into single line or remove if redundant with SSL elsewhere
+
+--------------------------------------------------------------------------------
+
+[F5.7] MEDIUM — Em dashes and eyebrow badge overload in marketing copy
+Files: Hero.tsx, Solution.tsx, services/page.tsx, all section components
+Issue: tracking-[0.35em] uppercase eyebrows + em dashes in body copy = visual noise.
+Severity: Medium (brand polish)
+
+Fix: Replace em dashes with periods or commas. Reduce eyebrow badges to one per page max.
+
+--------------------------------------------------------------------------------
+
+[F5.8] LOW — font-roboto and font-poppins are identical system stacks
+File: src/app/globals.css (L7-10)
+Issue: heading font provides zero differentiation from body.
+Severity: Low
+
+Fix:
+  // layout.tsx
+  import { Roboto, Poppins } from 'next/font/google';
+  const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto', display: 'swap' });
+  const poppins = Poppins({ subsets: ['latin'], weight: ['600','700','800'], variable: '--font-poppins', display: 'swap' });
+  <html className={`${roboto.variable} ${poppins.variable}`}>
+
+--------------------------------------------------------------------------------
+
+[F5.9] LOW — Footer contact info not in <address> element
+File: src/components/layout/Footer.tsx
+Severity: Low (semantic)
+
+Fix:
+  <address className="not-italic">
+    <ul>...</ul>
+  </address>
+
+================================================================================
+PRIORITY FIX ROADMAP (DO IN THIS ORDER)
+================================================================================
+
+WEEK 1 — CRITICAL (blocks rankings + conversions)
+  [ ] F2.1 Fix title template double-branding (buildMetadata absolute titles)
+  [ ] F4.1 Set real Google Ads conversion labels in Vercel env
+  [ ] F4.2 Fix gtag/vitals/conversion race with event queue
+  [ ] F3.1 Remove animate-fade-in-up from hero LCP elements
+  [ ] F2.2 Wire IndexNow (key file + post-deploy pusher)
+
+WEEK 2 — HIGH (CWV + AEO + bundle)
+  [ ] F1.1 Split blog interactives static vs client
+  [ ] F1.2 Consolidate scroll-reveal into single wrapper
+  [ ] F2.3 Add FAQ arrays to 18 remaining blog posts
+  [ ] F2.4 Add .article-summary to blog template
+  [ ] F3.2 Remove priority from mobile-hidden hero image
+  [ ] F5.2 Remove pink theme from facebook-ads page
+  [ ] F5.3 Unify cyan→teal/accent sitewide
+
+WEEK 3 — MEDIUM (polish + depth)
+  [ ] F2.5 InternalLinks on all location/industry/case-study pages
+  [ ] F2.6 Case study JSON-LD
+  [ ] F1.3 Add loading.tsx for blog + pricing calculator
+  [ ] F5.1 Add charcoal token + shadcn CSS variables
+  [ ] F2.10 Fix blog OG image titles
+  [ ] F1.5 Delete dead gtm-partytown.tsx
+
+ONGOING
+  [ ] Run npm run seo:validate:prod after each deploy
+  [ ] Monitor GSC Core Web Vitals + Coverage weekly
+  [ ] Expand validate_seo.py to check JSON-LD + speakable selectors
+
+================================================================================
+QUICK REFERENCE: KEY FILES
+================================================================================
+
+Architecture:     src/app/layout.tsx, next.config.mjs, src/proxy.ts
+SEO core:         src/lib/seo.ts, src/app/sitemap.ts, src/app/robots.ts
+Blog/AEO:         src/lib/blog/posts.ts, src/app/blog/[slug]/page.tsx
+CWV hotspots:     src/components/sections/Hero.tsx, src/app/globals.css
+Tracking:         src/lib/analytics.ts, src/lib/conversion-config.ts, web-vitals.tsx
+Design tokens:    tailwind.config.ts, src/app/globals.css
+SEO automation:   scripts/seo/validate_seo.py, scripts/seo/index_pusher.py
+
+================================================================================
+END OF AUDIT
+================================================================================

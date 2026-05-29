@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Privacy Policy | Endpoint Media',
+  title: 'Privacy Policy',
   description:
     'Privacy policy for Endpoint Media. How we collect, use, and protect information submitted through our website and lead forms.',
   path: '/privacy-policy',

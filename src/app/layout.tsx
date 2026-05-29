@@ -6,9 +6,9 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { WebVitals } from "@/components/analytics/web-vitals";
 import { secureJsonLD } from "@/lib/seo";
+import { GOOGLE_ADS_ID } from "@/lib/conversion-config";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-const GOOGLE_ADS_ID = "AW-17744075656";
 
 // Define comprehensive metadata for SEO dominance
 export const metadata: Metadata = {
@@ -284,9 +284,14 @@ export default function RootLayout({
             <Script id="google-tags-init" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
+                window.__gtagQueue = window.__gtagQueue || [];
                 function gtag(){dataLayer.push(arguments);}
+                window.gtag = gtag;
                 gtag('js', new Date());
                 ${gtagConfig}
+                while (window.__gtagQueue.length) {
+                  gtag.apply(null, window.__gtagQueue.shift());
+                }
               `}
             </Script>
           </>

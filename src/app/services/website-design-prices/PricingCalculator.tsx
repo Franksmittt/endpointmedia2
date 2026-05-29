@@ -1,23 +1,18 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
+import { useState } from 'react';
 
 const formatCurrency = (num: number): string =>
-  num.toLocaleString("en-ZA", {
+  num.toLocaleString('en-ZA', {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
 
 export default function PricingCalculator() {
-  const [mounted, setMounted] = useState(false);
   const [pages, setPages] = useState(5);
   const [traffic, setTraffic] = useState(1000);
   const [conversion, setConversion] = useState(1);
   const [avgOrderValue, setAvgOrderValue] = useState(500);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const templateCost = 15000;
   const nextjsCost = 35000;
@@ -29,16 +24,8 @@ export default function PricingCalculator() {
   const annualRevenueGain = (monthlyRevenueNextjs - monthlyRevenueTemplate) * 12;
   const roi = ((annualRevenueGain - (nextjsCost - templateCost)) / (nextjsCost - templateCost)) * 100;
 
-  if (!mounted) {
-    return (
-      <div className="space-y-8 bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 min-h-[400px] flex items-center justify-center">
-        <p className="text-gray-500">Loading calculator...</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="space-y-8 bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200">
+    <div className="space-y-8 bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 min-h-[400px]">
       <div className="text-center mb-6">
         <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">
           ROI Calculator: Performance vs. Price

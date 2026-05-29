@@ -3,10 +3,12 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import CaseStudyArticleSchema from '@/components/seo/CaseStudyArticleSchema';
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Alberton Battery Mart Case Study | Mobile Battery Service & E-commerce | Endpoint Media",
+    title: "Alberton Battery Mart Case Study | Mobile Battery Service & E-commerce",
     description: "Discover how Endpoint Media created a ground-up strategic overhaul for Alberton Battery Mart, positioning them as the fastest mobile battery service with advanced product search, local SEO dominance, and Google Merchant Center integration.",
     path: "/case-studies/alberton-battery-mart",
     keywords: [
@@ -24,6 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const AlbertonBatteryMartCaseStudy = () => {
   return (
     <>
+      <CaseStudyArticleSchema slug="alberton-battery-mart" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-orange-900 via-orange-800 to-gray-900 text-white pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="container mx-auto px-6">
@@ -448,6 +451,7 @@ const AlbertonBatteryMartCaseStudy = () => {
           </div>
         </div>
       </section>
+      <HubSpokeLinks variant="case-study" slug="alberton-battery-mart" />
     </>
   );
 };

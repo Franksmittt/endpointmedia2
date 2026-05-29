@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Terms of Service | Endpoint Media',
+  title: 'Terms of Service',
   description:
     'Terms of service for Endpoint Media website use, enquiries, and digital services for Johannesburg businesses.',
   path: '/terms-of-service',

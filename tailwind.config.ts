@@ -11,17 +11,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Defined a cohesive color scheme:
-        // Primary: Dark background for sophistication/contrast
-        primary: {
-          DEFAULT: '#111827', // Dark Blue/Gray
-          foreground: '#FAFAFA', // Light text on dark background
+        charcoal: {
+          DEFAULT: '#222222',
+          light: '#2d2d2d',
+          dark: '#1a1a1a',
         },
-        // Accent: Teal/Blue for CTAs, links, and highlights (Conversion Focus)
+        primary: {
+          DEFAULT: '#222222',
+          foreground: '#FAFAFA',
+        },
         accent: {
-          DEFAULT: '#00A4C8', // Standard accent blue
+          DEFAULT: '#00A4C8',
           500: '#00A4C8',
-          600: '#008BAD', 
+          600: '#008BAD',
           foreground: '#FAFAFA',
         },
         // Secondary/Neutral colors for use throughout the UI
