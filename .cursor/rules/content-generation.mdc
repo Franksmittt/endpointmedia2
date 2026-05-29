@@ -1,0 +1,59 @@
+---
+description: Rules for generating B2B technical blog content for Endpoint Media Next.js site
+globs:
+  - src/lib/blog/**
+  - content/**
+  - src/components/blog/**
+alwaysApply: false
+---
+
+# Endpoint Media Content Generation Rules
+
+## Persona & Tone
+- Authoritative engineering voice. Deconstruct cheap marketing tactics with evidence.
+- NO introductory fluff, NO persuasive filler, NO "In today's digital landscape" openers.
+- Every article MUST open with a high-impact technical hook (latency data, revenue impact, or architectural fact).
+
+## Structure Requirements
+- Use React components from `@/components/blog/blog-prose` (H2, H3, P, Lead, UL, Callout, InternalLink).
+- Embed interactive components from `@/components/blog/interactives` per silo blueprint.
+- End with 1–2 internal links to relevant service/case study pages.
+- Target word counts per silo blueprint (1500–3000 words for cornerstone posts).
+
+## SEO Metadata (posts.ts)
+Each post requires: slug, title, excerpt (155 chars max), date (ISO), category, keywords (4+), readingTimeMinutes, optional faqs array.
+
+## Three Content Silos
+1. **Web Architecture** — WordPress vs Next.js, CWV, AEO, landing pages, migration
+2. **Google Ads** — tracking, Quality Score, smart bidding, high-ticket lead gen, CPA
+3. **Local Dominance** — hub-spoke local SEO, industrial B2B, schema, KML, map visibility
+
+## MDX Component Mapping (required per article)
+| Article | Components |
+|---------|------------|
+| WordPress truth | LatencyChart, ArchitectureDiagram |
+| Core Web Vitals | RevenueLossCalculator |
+| AEO | JsonLdCodeBlock, AECitationGraph |
+| Elite landing page | ComponentTearDown, TailwindPayloadChart |
+| Migration | MigrationChecklist, RedirectMapper |
+| Tracking errors | ServerSideTrackingFlow |
+| Speed & QS | CpcReductionSimulator |
+| Smart bidding | AlgorithmTrainingGraph |
+| High-ticket lead gen | LeadScoringMatrix |
+| Vanity metrics | CpaProfitabilityDashboard |
+| Local SEO | SemanticSiloDiagram |
+| Industrial B2B | IndustrialBuyerJourney |
+| Minimalist design | DesignTrustMetric |
+| Local schema | JsonLdMultiLocation |
+| Map visibility | KmlIntegrationMap |
+
+## Schema Requirements
+- BlogPosting + Speakable WebPage on every post
+- FAQPage when faqs array populated
+- Author @id links to FRANK_SMIT_ID, publisher to ORG_ID
+
+## Banned Patterns
+- Generic agency speak ("we're passionate about...")
+- Unverified statistics without context
+- Keyword stuffing
+- Client-side only schema injection

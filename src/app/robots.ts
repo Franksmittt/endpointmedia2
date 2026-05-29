@@ -48,6 +48,11 @@ export default function robots(): MetadataRoute.Robots {
           '/private/',
         ],
       },
+      {
+        userAgent: 'GPTBot',
+        allow: ['/blog/', '/services/', '/insights/'],
+        disallow: ['/api/', '/admin/', '/private/'],
+      },
     ],
     // 3. The Double-Sitemap Declaration
     sitemap: [

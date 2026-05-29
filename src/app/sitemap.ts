@@ -1,5 +1,5 @@
-// src/app/sitemap.ts
 import { MetadataRoute } from 'next';
+import { BLOG_POST_DATES, getAllSlugs } from '@/lib/blog/posts';
 
 export const revalidate = 86400;
 
@@ -9,14 +9,6 @@ const currentDate = new Date();
 type ChangeFrequency = NonNullable<
   MetadataRoute.Sitemap[number]['changeFrequency']
 >;
-
-const BLOG_POST_DATES: Record<string, string> = {
-  'the-true-cost-of-a-website-in-johannesburg': '2025-10-30',
-  'freelancer-vs-agency-the-low-risk-choice-for-johannesburg': '2025-10-23',
-  'the-schema-vacuum-technical-seo-advantage': '2025-10-15',
-  'wix-vs-wordpress-guide-johannesburg-small-businesses': '2025-11-05',
-  'how-much-does-website-cost-south-africa-2025': '2025-11-12',
-};
 
 const createEntry = (
   path: string,
@@ -116,20 +108,13 @@ const caseStudySlugs = [
   'sakana-no-ichi',
 ];
 
-const blogSlugs = [
-  'the-true-cost-of-a-website-in-johannesburg',
-  'freelancer-vs-agency-the-low-risk-choice-for-johannesburg',
-  'the-schema-vacuum-technical-seo-advantage',
-  'wix-vs-wordpress-guide-johannesburg-small-businesses',
-  'how-much-does-website-cost-south-africa-2025',
-];
+/** Programmatic blog slugs from central registry */
+const blogSlugs = getAllSlugs();
 
 function dedupeSitemap(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {
   const seen = new Set<string>();
   return entries.filter((entry) => {
-    if (seen.has(entry.url)) {
-      return false;
-    }
+    if (seen.has(entry.url)) return false;
     seen.add(entry.url);
     return true;
   });
@@ -138,6 +123,7 @@ function dedupeSitemap(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [
     createEntry('/', 'weekly', 1.0),
+    createEntry('/blog', 'weekly', 0.95),
     createEntry('/industries/manufacturing-logistics', 'weekly', 1.0),
     createEntry('/locations/meyersdal', 'weekly', 0.95),
     createEntry('/locations/new-redruth', 'weekly', 0.95),
@@ -146,7 +132,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     createEntry('/services/google-ads', 'weekly', 0.95),
     createEntry('/services/b2b-google-ads-management', 'weekly', 0.92),
     ...mapPaths(serviceDetailPaths, 'weekly', 0.9),
-    ...mapPaths(corePaths, 'weekly', 0.9),
+    ...mapPaths(corePaths.filter((p) => p !== '/blog'), 'weekly', 0.9),
     createEntry('/contact', 'monthly', 0.9),
     createEntry('/process', 'monthly', 0.85),
     ...mapPaths(locationPaths.filter((path) => path !== '/locations'), 'weekly', 0.9),
@@ -159,14 +145,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       'monthly',
       0.75,
     ),
-    ...blogSlugs.map((slug) =>
-      createEntry(
+    ...blogSlugs.map((slug) => {
+      const isCornerstone = BLOG_POST_DATES[slug]?.startsWith('2026');
+      return createEntry(
         `/blog/${slug}`,
         'weekly',
-        0.7,
+        isCornerstone ? 0.85 : 0.7,
         new Date(BLOG_POST_DATES[slug] ?? currentDate),
-      ),
-    ),
+      );
+    }),
     createEntry('/locations', 'weekly', 0.9),
     createEntry('/industries', 'weekly', 0.9),
     ...mapPaths(insightPaths, 'monthly', 0.75),
