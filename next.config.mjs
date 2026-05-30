@@ -42,13 +42,6 @@ const nextConfig = {
         destination: 'https://www.endpointmedia.co.za/:path*',
         permanent: true, // 308 redirect
       },
-      // Strip ?_rsc= query params — duplicate URLs waste crawl budget
-      {
-        source: '/:path*',
-        has: [{ type: 'query', key: '_rsc' }],
-        destination: '/:path*',
-        permanent: true,
-      },
     ];
   },
   
