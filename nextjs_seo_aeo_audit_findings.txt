@@ -1,0 +1,9 @@
+NEXT.JS SEO/AEO AUDIT FINDINGS
+==================================
+Root: C:\Users\User1\Downloads\endpointmedia2-main
+App dir: C:\Users\User1\Downloads\endpointmedia2-main\src\app
+
+Total findings: 0
+HIGH: 0 | MEDIUM: 0 | LOW: 0
+
+No structural SEO/AEO findings detected by the static auditor.

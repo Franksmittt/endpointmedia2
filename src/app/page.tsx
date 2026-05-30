@@ -155,6 +155,7 @@ const reviewSchema2 = {
 export default function HomePage() {
   return (
     <>
+      <h1 className="sr-only">Premium Web Architecture Firm in Johannesburg</h1>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: secureJsonLD(homepageSchema) }}
