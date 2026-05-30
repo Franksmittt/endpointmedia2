@@ -36,9 +36,11 @@ export default function ContactForm() {
       });
 
       const rawBody = await response.text();
-      let result: { message?: string; error?: string } = {};
+      let result: { message?: string; error?: string; details?: string } = {};
       try {
-        result = rawBody ? (JSON.parse(rawBody) as { message?: string; error?: string }) : {};
+        result = rawBody
+          ? (JSON.parse(rawBody) as { message?: string; error?: string; details?: string })
+          : {};
       } catch {
         result = {};
       }
@@ -56,9 +58,9 @@ export default function ContactForm() {
       } else {
         setSubmitMessage({
           type: 'error',
-          text:
-            result.error ||
-            `Something went wrong (${response.status}). Please try again or contact us directly.`,
+          text: result.error
+            ? `${result.error}${result.details ? ` (${result.details})` : ''}`
+            : `Something went wrong (${response.status}). Please try again or contact us directly.`,
         });
       }
     } catch (error) {

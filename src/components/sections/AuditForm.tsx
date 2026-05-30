@@ -46,9 +46,11 @@ export function AuditForm() {
       });
 
       const rawBody = await response.text();
-      let result: { message?: string; error?: string } = {};
+      let result: { message?: string; error?: string; details?: string } = {};
       try {
-        result = rawBody ? (JSON.parse(rawBody) as { message?: string; error?: string }) : {};
+        result = rawBody
+          ? (JSON.parse(rawBody) as { message?: string; error?: string; details?: string })
+          : {};
       } catch {
         result = {};
       }
@@ -65,9 +67,9 @@ export function AuditForm() {
       } else {
         setStatus({
           type: 'error',
-          text:
-            result.error ||
-            `Something went wrong (${response.status}). WhatsApp us at 076 972 4559.`,
+          text: result.error
+            ? `${result.error}${result.details ? ` (${result.details})` : ''}`
+            : `Something went wrong (${response.status}). WhatsApp us at 076 972 4559.`,
         });
       }
     } catch {
