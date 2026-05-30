@@ -1,0 +1,995 @@
+================================================================================
+  ENDPOINT MEDIA — MARKET DOMINANCE AUDIT (PHASE 2)
+  Next.js 16.1.1 | App Router | B2B High-Ticket Agency
+  Generated: 2026-05-29
+  Scope: AEO Phase 2, Hyper-Local, Edge/Caching, CRO, Brand Enforcement
+================================================================================
+
+EXECUTIVE SUMMARY
+-----------------
+You cleared the baseline (CWV, IndexNow, bundle split, triple-stack JSON-LD).
+You are NOT yet in the top 0.1%. The architecture talks entity SEO but does not
+execute it uniformly. The homepage audit funnel fires conversion pixels on fake
+submissions. LLM crawlers have no structured ingestion path. Local schema
+conflicts with your remote NAP. These are revenue and ranking leaks.
+
+OVERALL SCORE: 61 / 100
+
+CATEGORY SCORECARD
+------------------
+  1. LLM & Answer Engine Supremacy (AEO Phase 2) .......... 58 / 100
+  2. Hyper-Local & Market Pack Dominance .................. 57 / 100
+  3. Next.js Edge & Caching Supremacy ...................... 72 / 100
+  4. High-Ticket CRO ...................................... 44 / 100
+  5. Strict Brand & Aesthetic Enforcement ................. 74 / 100
+
+Weighted composite reflects conversion and entity gaps as highest business risk.
+
+
+================================================================================
+SECTION 1 — LLM & ANSWER ENGINE SUPREMACY (AEO PHASE 2)
+Score: 58 / 100
+================================================================================
+
+STRENGTHS
+  + 40+ pages with JSON-LD (Organization, LocalBusiness, WebSite, Person,
+    Service, FAQPage, Speakable, BlogPosting, Article, HowTo)
+  + @id graph partially wired (ORG_ID, FRANK_SMIT_ID in seo.ts)
+  + Speakable on homepage, blog, pricing, website-design-prices
+  + Blog posts: microdata + FAQ arrays + article-summary selector
+  + GPTBot partial allow in robots.ts
+
+CRITICAL BOTTLENECKS
+--------------------
+
+[B1.1] SEVERITY: CRITICAL
+FILE:   (missing) public/llms.txt OR src/app/llms.txt/route.ts
+ISSUE:  No AI-specific discovery endpoint. Perplexity, ChatGPT, Claude, and
+        Gemini cannot ingest your service catalog, pricing methodology, or
+        entity graph without DOM parsing. You preach AEO in blog content but
+        give crawlers no structured feed.
+
+FIX — Create src/app/llms.txt/route.ts:
+
+```typescript
+import { NextResponse } from 'next/server';
+import { BASE_URL } from '@/lib/seo';
+
+export const dynamic = 'force-static';
+export const revalidate = 86400;
+
+const LLMS_TXT = `# Endpoint Media
+> High-performance B2B web architecture and Google Ads management. Johannesburg, South Africa. National + hyper-local.
+
+## Entity
+- Organization: ${BASE_URL}/#organization
+- Founder: ${BASE_URL}/about/author/frank-smit
+- Contact: hello@endpointmedia.co.za | +27 76 972 4559
+
+## Core Services
+- Website Development (Next.js): ${BASE_URL}/services/website-development
+- Google Ads Management: ${BASE_URL}/services/google-ads
+- Local SEO: ${BASE_URL}/services/local-seo
+- Conversion Rate Optimization: ${BASE_URL}/services/conversion-rate-optimization
+- Website Design Pricing (R15k–R150k): ${BASE_URL}/services/website-design-prices
+
+## Pricing Methodology
+- Transparent tiered pricing: ${BASE_URL}/pricing
+- ROI-first calculator: ${BASE_URL}/services/website-design-prices
+- No percentage-of-spend Google Ads markup
+
+## Proof
+- Case Studies: ${BASE_URL}/case-studies
+- Process (HowTo): ${BASE_URL}/process
+
+## Local Markets
+- Location Hub: ${BASE_URL}/locations
+- Sandton, Midrand, Meyersdal, New Redruth, Bryanston, Rivonia, Randburg,
+  Rosebank, Fourways, Waterfall, Benoni, Roodepoort
+
+## Content
+- Blog (20 posts): ${BASE_URL}/blog
+- Insights: ${BASE_URL}/insights
+
+## Optional
+- Full sitemap: ${BASE_URL}/sitemap.xml
+`;
+
+export async function GET() {
+  return new NextResponse(LLMS_TXT.trim(), {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+    },
+  });
+}
+```
+
+Also add to src/app/robots.ts sitemap array:
+  `${baseUrl}/llms.txt`
+
+
+[B1.2] SEVERITY: CRITICAL
+FILE:   src/app/about/author/frank-smit/page.tsx (lines 36–46)
+        src/app/layout.tsx (lines 224–246)
+ISSUE:  Duplicate Person JSON-LD on same canonical URL. Author page has EMPTY
+        sameAs array while layout injects LinkedIn. Google sees conflicting
+        entities — E-E-A-T dilution.
+
+FIX — Remove inline Person schema from author page; reference global @id only:
+
+```typescript
+// src/app/about/author/frank-smit/page.tsx — replace duplicate schema with:
+import { FRANK_SMIT_ID, secureJsonLD } from '@/lib/seo';
+
+const personReferenceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: { '@id': FRANK_SMIT_ID },
+};
+// Render once via <script type="application/ld+json" ... />
+```
+
+Sync author page sameAs in layout.tsx (single source of truth).
+
+
+[B1.3] SEVERITY: HIGH
+FILE:   src/app/layout.tsx (lines 120–141, 224–245)
+ISSUE:  Organization sameAs = Facebook only. No LinkedIn company, GBP Maps CID,
+        or Wikidata. Organization lacks knowsAbout. founder is inline name
+        string, not { "@id": FRANK_SMIT_ID }.
+
+FIX — Replace organizationSchema block in layout.tsx:
+
+```typescript
+import { ORG_ID, FRANK_SMIT_ID, BASE_URL } from '@/lib/seo';
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': ORG_ID,
+  name: 'Endpoint Media',
+  url: BASE_URL,
+  logo: `${BASE_URL}/images/logo.png`,
+  description: 'Endpoint Media builds high-performance, lead-generating websites for Johannesburg service businesses.',
+  founder: { '@type': 'Person', '@id': FRANK_SMIT_ID },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Johannesburg',
+    addressRegion: 'Gauteng',
+    addressCountry: 'ZA',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+27-76-972-4559',
+    contactType: 'Sales',
+    email: 'hello@endpointmedia.co.za',
+    areaServed: 'ZA',
+    availableLanguage: ['en-ZA'],
+  },
+  sameAs: [
+    'https://www.facebook.com/people/Endpoint-Media/61583029051159/',
+    'https://www.linkedin.com/in/frank-smittt',
+    'https://www.google.com/maps?cid=06180556288562610524',
+  ],
+  knowsAbout: [
+    { '@type': 'Thing', name: 'Next.js', sameAs: 'https://en.wikipedia.org/wiki/Next.js' },
+    { '@type': 'Thing', name: 'Google Ads', sameAs: 'https://en.wikipedia.org/wiki/Google_Ads' },
+    { '@type': 'Thing', name: 'Local SEO', sameAs: 'https://en.wikipedia.org/wiki/Local_search_engine_optimisation' },
+    { '@type': 'Thing', name: 'Conversion Rate Optimization', sameAs: 'https://en.wikipedia.org/wiki/Conversion_rate_optimization' },
+    { '@type': 'Thing', name: 'Technical SEO', sameAs: 'https://www.google.com/search?kgmid=/m/02h34t' },
+  ],
+};
+```
+
+Extend frankSmitSchema knowsAbout with URIs (not plain strings):
+
+```typescript
+knowsAbout: [
+  { '@type': 'Thing', name: 'Web Design', sameAs: 'https://en.wikipedia.org/wiki/Web_design' },
+  { '@type': 'Thing', name: 'Next.js Development', sameAs: 'https://en.wikipedia.org/wiki/Next.js' },
+  { '@type': 'Thing', name: 'Local SEO', sameAs: 'https://en.wikipedia.org/wiki/Local_search_engine_optimisation' },
+  { '@type': 'Thing', name: 'Technical SEO', sameAs: 'https://www.google.com/search?kgmid=/m/02h34t' },
+  { '@type': 'Thing', name: 'Google Ads Management', sameAs: 'https://en.wikipedia.org/wiki/Google_Ads' },
+],
+```
+
+
+[B1.4] SEVERITY: HIGH
+FILE:   src/lib/google-ads-services.ts (buildGoogleAdsServiceSchema ~lines 522–538)
+        All 12 src/app/locations/*/page.tsx (except website-development pattern)
+ISSUE:  Entity sameAs/KGMID linking exists on ONLY 2 service pages
+        (website-development, web-design-firms). Google Ads subpages and location
+        pages use plain City names without Wikidata QIDs.
+
+FIX — Add to src/lib/seo.ts:
+
+```typescript
+export const WIKIDATA = {
+  johannesburg: 'https://www.wikidata.org/wiki/Q1754',
+  sandton: 'https://www.wikidata.org/wiki/Q1025682',
+  midrand: 'https://www.wikidata.org/wiki/Q1025681',
+  southAfrica: 'https://www.wikidata.org/wiki/Q258',
+} as const;
+
+export function cityAreaServed(name: string, wikidataUrl: string) {
+  return { '@type': 'City' as const, name, sameAs: wikidataUrl };
+}
+```
+
+Apply in sandton/page.tsx LocalBusiness schema:
+
+```typescript
+import { cityAreaServed, WIKIDATA, ORG_ID } from '@/lib/seo';
+
+// Inside localBusinessSchema:
+parentOrganization: { '@id': ORG_ID },
+areaServed: cityAreaServed('Sandton', WIKIDATA.sandton),
+// REMOVE fake streetAddress: "Sandton Central"
+```
+
+
+[B1.5] SEVERITY: HIGH
+FILE:   src/app/robots.ts (lines 51–55)
+ISSUE:  GPTBot allow list excludes homepage, /locations/, /case-studies/,
+        /pricing/, /process/, /about/. No rules for ClaudeBot, PerplexityBot,
+        Google-Extended, anthropic-ai.
+
+FIX:
+
+```typescript
+const AI_AGENTS = ['GPTBot', 'ChatGPT-User', 'ClaudeBot', 'anthropic-ai', 'PerplexityBot', 'Google-Extended'];
+const AI_ALLOW = ['/', '/blog/', '/services/', '/insights/', '/locations/', '/case-studies/', '/pricing/', '/process/', '/about/'];
+
+// Spread into rules array:
+...AI_AGENTS.map((userAgent) => ({
+  userAgent,
+  allow: AI_ALLOW,
+  disallow: ['/api/', '/admin/', '/private/'],
+})),
+```
+
+
+[B1.6] SEVERITY: MEDIUM
+FILE:   src/app/contact/page.tsx
+        src/app/case-studies/*/page.tsx (all 7)
+        src/app/about/author/frank-smit/page.tsx
+ISSUE:  Article JSON-LD present but DOM uses <section> chains only. Zero
+        <figure>/<figcaption> site-wide. Zero <mark> for key AEO terms.
+        Contact page NAP in <div>, not <address>.
+
+FIX — Contact page NAP block:
+
+```tsx
+<address className="not-italic space-y-2">
+  <p className="font-semibold text-charcoal">Endpoint Media</p>
+  <p>
+    <a href="tel:+27769724559" className="text-accent hover:underline">076 972 4559</a>
+  </p>
+  <p>
+    <a href="mailto:hello@endpointmedia.co.za" className="text-accent hover:underline">
+      hello@endpointmedia.co.za
+    </a>
+  </p>
+  <p>Johannesburg, Gauteng, South Africa (Remote Operations)</p>
+</address>
+```
+
+Case study pages — wrap main content:
+
+```tsx
+<article itemScope itemType="https://schema.org/Article">
+  <figure>
+    <Image ... />
+    <figcaption>{clientName} — {outcomeMetric}</figcaption>
+  </figure>
+  ...
+</article>
+```
+
+Blog prose — mark definitional terms:
+
+```tsx
+<mark className="bg-accent/10 text-charcoal font-medium not-italic">Local SEO</mark>
+```
+
+
+[B1.7] SEVERITY: MEDIUM
+FILE:   src/app/locations/page.tsx, src/app/industries/page.tsx, src/app/contact/page.tsx
+ISSUE:  Hub index pages and contact have NO JSON-LD.
+
+FIX — locations/page.tsx:
+
+```typescript
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Web Design Locations Johannesburg',
+  url: `${BASE_URL}/locations`,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: locations.map((loc, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${BASE_URL}/locations/${loc.slug}`,
+      name: loc.name,
+    })),
+  },
+};
+```
+
+
+================================================================================
+SECTION 2 — HYPER-LOCAL & MARKET PACK DOMINANCE
+Score: 57 / 100
+================================================================================
+
+STRENGTHS
+  + 12 location spokes + hub index in sitemap (priority boost for Sandton,
+    Meyersdal, New Redruth)
+  + HubSpokeLinks component wired on 10/12 spokes + hub
+  + KML declared in robots.ts (alberton-service-area.kml)
+  + Sandton page is quality benchmark (GeoCircle, breadcrumbs, unique copy)
+  + NAP phone/email consistent across Footer, Contact, schema
+
+CRITICAL BOTTLENECKS
+--------------------
+
+[B2.1] SEVERITY: CRITICAL
+FILE:   src/app/locations/meyersdal/page.tsx
+        src/app/locations/new-redruth/page.tsx
+ISSUE:  HubSpokeLinks IMPORTED but NEVER RENDERED. Internal link velocity to
+        regional Google Ads, local SEO, and case studies is zero on your two
+        highest-value Alberton-corridor pages.
+
+FIX — Add before closing fragment in both files:
+
+```tsx
+<HubSpokeLinks variant="location" slug="meyersdal" />
+// new-redruth: slug="new-redruth"
+```
+
+
+[B2.2] SEVERITY: CRITICAL
+FILE:   src/app/locations/sandton/page.tsx (~line 44)
+        All 10 template location pages with streetAddress
+        src/app/layout.tsx (lines 144–210)
+ISSUE:  Fake street addresses in schema ("Sandton Central") while DOM says
+        remote Johannesburg. Duplicate LocalBusiness entities (global #localbusiness
+        + per-suburb #localbusiness) without parentOrganization. NAP/schema
+        conflict triggers Google local trust penalties.
+
+FIX — Standardize ALL location schemas:
+
+```typescript
+import { ORG_ID } from '@/lib/seo';
+
+const locationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${BASE_URL}/locations/sandton#service`,
+  name: 'Endpoint Media — Web Design Sandton',
+  parentOrganization: { '@id': ORG_ID },
+  url: `${BASE_URL}/locations/sandton`,
+  telephone: '+27-76-972-4559',
+  email: 'hello@endpointmedia.co.za',
+  areaServed: {
+    '@type': 'City',
+    name: 'Sandton',
+    sameAs: 'https://www.wikidata.org/wiki/Q1025682',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -26.1076,
+    longitude: 28.0567,
+  },
+  // NO streetAddress — remote service model
+};
+```
+
+Remove duplicate @type LocalBusiness from layout OR demote to Organization-only
+and use ProfessionalService on location pages only.
+
+
+[B2.3] SEVERITY: HIGH
+FILE:   src/lib/hub-links.ts (line 30)
+ISSUE:  Benoni location maps to /services/google-ads-bedfordview — geo mismatch.
+        Cannibalization risk between Benoni and Bedfordview intents.
+
+FIX:
+
+```typescript
+// hub-links.ts — add mapping or create page
+benoni: '/services/google-ads-bedfordview', // TEMP: document mismatch
+
+// Preferred fix — create src/app/services/google-ads-benoni/page.tsx
+// OR change mapping after creating the route:
+benoni: '/services/google-ads-benoni',
+```
+
+Add reciprocal link in google-ads-bedfordview spoke back to /locations/benoni
+with copy: "Also serving Benoni →".
+
+
+[B2.4] SEVERITY: HIGH
+FILE:   src/app/layout.tsx (lines 180–209)
+ISSUE:  Global areaServed lists 6 suburbs. Sitemap has 12. Missing Benoni,
+        Fourways, Waterfall, Meyersdal, New Redruth, Rosebank.
+
+FIX:
+
+```typescript
+areaServed: [
+  'Johannesburg', 'Sandton', 'Randburg', 'Bryanston', 'Rivonia', 'Midrand',
+  'Roodepoort', 'Rosebank', 'Fourways', 'Waterfall', 'Benoni', 'Meyersdal',
+  'New Redruth',
+].map((name) => ({ '@type': 'City', name })),
+```
+
+
+[B2.5] SEVERITY: HIGH
+FILE:   public/alberton-service-area.kml (only file)
+        src/lib/google-ads-services.ts
+ISSUE:  KML covers Alberton corridor only. 10 northern suburb pages have no
+        geo polygon. Google Ads Service schema uses generic "Johannesburg"
+        for Sandton/Midrand pages.
+
+FIX — Extend buildGoogleAdsServiceSchema:
+
+```typescript
+areaServed: cityAreaServed(config.areaName, config.wikidataUrl),
+// config per page: { areaName: 'Sandton', wikidataUrl: WIKIDATA.sandton }
+```
+
+Create public/northern-corridor.kml with Sandton/Bryanston/Rivonia polygon;
+add to robots.ts sitemap array.
+
+
+[B2.6] SEVERITY: MEDIUM
+FILE:   src/app/locations/fourways/page.tsx (+ 8 template siblings)
+        src/app/services/local-seo/page.tsx
+        src/components/layout/Header.tsx (lines 8–15)
+ISSUE:  9 template location pages near-identical — inter-suburb cannibalization.
+        /services/local-seo targets Sandton in meta without linking /locations.
+        Header has no Locations nav link — crawl equity leak.
+
+FIX — Header navLinks:
+
+```typescript
+{ name: 'Locations', href: '/locations' },
+```
+
+local-seo/page.tsx — add suburb grid:
+
+```tsx
+import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
+// ...
+<HubSpokeLinks variant="location" slug="index" />
+<p className="text-muted-foreground">
+  We build location-specific pages at{' '}
+  <Link href="/locations/sandton" className="text-accent underline">/locations/*</Link>
+  — not duplicate service URLs.
+</p>
+```
+
+Differentiate template spokes: unique case study, landmark paragraph, sibling links.
+
+
+[B2.7] SEVERITY: MEDIUM
+FILE:   src/app/locations/sandton/page.tsx (~line 240)
+ISSUE:  Copy mentions "Rivonia Road" with no link to /locations/rivonia.
+
+FIX:
+
+```tsx
+<Link href="/locations/rivonia" className="text-accent hover:underline">
+  Rivonia Road corridor
+</Link>
+```
+
+Add "Nearby areas" module to each spoke (2–3 sibling links).
+
+
+================================================================================
+SECTION 3 — NEXT.JS EDGE & CACHING SUPREMACY
+Score: 72 / 100
+================================================================================
+
+STRENGTHS
+  + No heavy middleware.ts — edge logic in src/proxy.ts (~1–3ms overhead)
+  + 95+ pages statically prerendered; blog uses generateStaticParams
+  + htmlLimitedBots forces full HTML for crawlers
+  + GTM lazyOnload; image minimumCacheTTL 30 days
+  + One smart dynamic() import on PricingCalculator with skeleton
+
+CRITICAL BOTTLENECKS
+--------------------
+
+[B3.1] SEVERITY: HIGH
+FILE:   All marketing page.tsx files (no export const revalidate)
+        .next/server/app/pricing.meta shows x-nextjs-stale-time: 300
+ISSUE:  Default 300s stale window with no explicit revalidate. Marketing
+        content should be force-static or 86400s ISR. Wastes regeneration cycles.
+
+FIX — Add to top of high-traffic static pages (page.tsx, layout.tsx):
+
+```typescript
+export const revalidate = 86400; // 24h — marketing content rarely changes
+```
+
+For truly immutable pages (privacy, terms):
+```typescript
+export const dynamic = 'force-static';
+```
+
+
+[B3.2] SEVERITY: HIGH
+FILE:   next.config.mjs (headers section)
+ISSUE:  Cache-Control set for /images/* and /_next/static/* only. HTML
+        documents have no s-maxage / stale-while-revalidate for CDN edge.
+
+FIX — Add to next.config.mjs headers():
+
+```javascript
+{
+  source: '/((?!api|_next/static|_next/image).*)',
+  headers: [
+    {
+      key: 'Cache-Control',
+      value: 'public, s-maxage=3600, stale-while-revalidate=86400',
+    },
+  ],
+},
+```
+
+
+[B3.3] SEVERITY: MEDIUM
+FILE:   src/lib/blog/posts.ts (in-memory)
+        src/app/blog/[slug]/page.tsx
+ISSUE:  No unstable_cache / cacheTag. Content updates require full rebuild.
+        No granular revalidateTag on post publish.
+
+FIX — src/lib/blog/posts.ts:
+
+```typescript
+import { unstable_cache } from 'next/cache';
+
+export const getPostBySlug = unstable_cache(
+  async (slug: string) => {
+    return POSTS.find((p) => p.slug === slug) ?? null;
+  },
+  ['blog-post-by-slug'],
+  { revalidate: 86400, tags: ['blog'] }
+);
+
+export const getAllSlugs = unstable_cache(
+  async () => POSTS.map((p) => p.slug),
+  ['blog-all-slugs'],
+  { revalidate: 86400, tags: ['blog'] }
+);
+```
+
+On content update script: `revalidateTag('blog')`.
+
+
+[B3.4] SEVERITY: MEDIUM
+FILE:   src/app/page.tsx
+        src/app/contact/page.tsx
+        src/components/sections/AuditForm.tsx
+ISSUE:  Homepage loads AuditForm + 5 ScrollReveal client islands synchronously.
+        ContactForm not code-split. Inflates main-thread JS on conversion routes.
+
+FIX — src/app/page.tsx:
+
+```typescript
+import dynamic from 'next/dynamic';
+
+const Audit = dynamic(() => import('@/components/sections/Audit'), {
+  loading: () => <div className="min-h-[480px] animate-pulse bg-charcoal/5" />,
+});
+```
+
+src/app/contact/page.tsx:
+
+```typescript
+const ContactForm = dynamic(() => import('./ContactForm'), {
+  loading: () => <div className="h-96 animate-pulse rounded-xl bg-gray-100" />,
+});
+```
+
+
+[B3.5] SEVERITY: LOW
+FILE:   src/components/layout/Header.tsx (lines 68–73)
+        src/components/layout/Footer.tsx
+ISSUE:  Prefetch untuned — all Link components default prefetch. No explicit
+        prefetch={true} on /pricing and /contact in header.
+
+FIX:
+
+```tsx
+<Link href="/contact" prefetch={true} ...>Contact Us</Link>
+<Link href="/pricing" prefetch={true} ...>Pricing</Link>
+```
+
+Footer deep blog links:
+```tsx
+<Link href={href} prefetch={false} ...>
+```
+
+
+[B3.6] SEVERITY: LOW
+FILE:   src/lib/blog/content/legacy.tsx
+ISSUE:  Raw <a href> bypasses Next.js RSC prefetch.
+
+FIX: Replace with `<Link href="...">` from next/link.
+
+
+================================================================================
+SECTION 4 — HIGH-TICKET CRO (CONVERSION RATE OPTIMIZATION)
+Score: 44 / 100
+================================================================================
+
+STRENGTHS
+  + ContactForm: fetch to API, isSubmitting guard, inline success/error
+  + WhatsApp + mailto alternate paths on contact page
+  + Conversion tracking wired (trackFreeAudit, trackFormSubmit)
+  + Skip link + #main-content landmark in layout
+
+CRITICAL BOTTLENECKS
+--------------------
+
+[B4.1] SEVERITY: CRITICAL
+FILE:   src/components/sections/AuditForm.tsx (lines 8–17)
+ISSUE:  Homepage audit form does NOT submit anywhere. console.log + alert().
+        trackFreeAudit() fires on fake success — corrupts ad optimization data.
+        action="YOUR_FORM_ENDPOINT" placeholder still in production code.
+
+FIX — Replace handleSubmit entirely:
+
+```typescript
+'use client';
+
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { trackFreeAudit } from '@/lib/analytics';
+
+export function AuditForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setStatus(null);
+
+    const formData = new FormData(event.currentTarget);
+    const honeypot = formData.get('honeypot');
+    if (honeypot) {
+      setIsSubmitting(false);
+      return;
+    }
+
+    const payload = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone') || '',
+      message: `[Audit Request] Business: ${formData.get('business_name')}`,
+      source: 'audit-form',
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error('Submit failed');
+      trackFreeAudit();
+      setStatus({ type: 'success', text: 'Audit secured. We will be in touch within 24 hours.' });
+      event.currentTarget.reset();
+    } catch {
+      setStatus({ type: 'error', text: 'Something went wrong. WhatsApp us at 076 972 4559.' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Add optional phone field; replace alert with:
+  // {status && <div role="alert" aria-live="assertive" ...>{status.text}</div>}
+  // Button: disabled={isSubmitting} aria-busy={isSubmitting}
+}
+```
+
+
+[B4.2] SEVERITY: CRITICAL
+FILE:   src/app/api/contact/route.ts
+ISSUE:  API logs to console only. No email/CRM delivery. Leads vanish in prod.
+
+FIX:
+
+```typescript
+import { Resend } from 'resend';
+
+export async function POST(request: NextRequest) {
+  const body = await request.json();
+  const { name, email, phone, message, honeypot, source } = body;
+
+  if (honeypot) return NextResponse.json({ success: true }); // silent bot drop
+
+  if (!name || !email || !message) {
+    return NextResponse.json({ error: 'Required fields missing' }, { status: 400 });
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return NextResponse.json({ error: 'Invalid email' }, { status: 400 });
+  }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  await resend.emails.send({
+    from: 'Endpoint Media <contact@endpointmedia.co.za>',
+    to: process.env.CONTACT_TO_EMAIL ?? 'hello@endpointmedia.co.za',
+    replyTo: email,
+    subject: `[${source ?? 'contact'}] ${name}`,
+    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\n\n${message}`,
+  });
+
+  return NextResponse.json({ success: true, message: 'Received.' });
+}
+```
+
+Add RESEND_API_KEY and CONTACT_TO_EMAIL to .env.example.
+
+
+[B4.3] SEVERITY: HIGH
+FILE:   src/app/contact/ContactForm.tsx (lines 134–143)
+ISSUE:  Form feedback not announced to screen readers. No role="alert" or
+        aria-live.
+
+FIX:
+
+```tsx
+{submitMessage && (
+  <div
+    role={submitMessage.type === 'error' ? 'alert' : 'status'}
+    aria-live="polite"
+    className={...}
+  >
+    {submitMessage.text}
+  </div>
+)}
+```
+
+
+[B4.4] SEVERITY: HIGH
+FILE:   src/components/sections/AuditForm.tsx
+        src/components/sections/Audit.tsx (line 33)
+ISSUE:  Gimmick placeholders (Sarah Connor, Cyberdyne). Broken markdown
+        *actually* in UI copy. No phone field despite WhatsApp-first positioning.
+
+FIX — Audit.tsx copy:
+
+```tsx
+<p className="text-lg text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
+  Claim your <strong className="text-accent font-semibold">100% Free, No-Obligation Digital Growth Audit</strong>.
+  We dissect your online presence, pinpoint lead leaks, and show you a mockup engineered to capture more clients in Johannesburg.
+</p>
+```
+
+AuditForm placeholders: "Your name", "Your company", "you@company.co.za".
+Add optional phone field with tel input.
+
+
+[B4.5] SEVERITY: MEDIUM
+FILE:   src/app/contact/ContactForm.tsx
+ISSUE:  Required 5-row message textarea adds friction. Honeypot not validated
+        server-side. No aria-invalid on fields.
+
+FIX — Make message optional for audit-sourced leads; require for general contact.
+Validate honeypot in API (see B4.2).
+
+
+[B4.6] SEVERITY: MEDIUM
+FILE:   (missing) toast system
+ISSUE:  No premium success feedback. Contact uses inline div; audit uses alert().
+
+FIX — Add sonner (lightweight):
+
+```bash
+npm install sonner
+```
+
+```tsx
+// src/app/layout.tsx
+import { Toaster } from 'sonner';
+// inside body: <Toaster position="top-center" richColors closeButton />
+```
+
+
+[B4.7] SEVERITY: LOW
+FILE:   src/app/globals.css (lines 79–114, animation keyframes)
+ISSUE:  No prefers-reduced-motion overrides. Infinite border animations on
+        .animated-btn violate WCAG 2.3.3 for vestibular disorders.
+
+FIX:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animated-btn { animation: none; }
+}
+```
+
+
+================================================================================
+SECTION 5 — STRICT BRAND & AESTHETIC ENFORCEMENT
+Score: 74 / 100
+================================================================================
+
+STRENGTHS
+  + charcoal DEFAULT: #222222 in tailwind.config.ts
+  + primary DEFAULT: #222222; accent: #00A4C8
+  + Hero, Header, Footer migrated to bg-charcoal
+  + Homepage section components purged of em dashes (prior pass)
+  + facebook-ads page migrated from pink/rose to teal/charcoal
+
+CRITICAL BOTTLENECKS
+--------------------
+
+[B5.1] SEVERITY: HIGH
+FILE:   src/components/sections/AuditForm.tsx
+        src/components/sections/Audit.tsx
+        src/app/pricing/page.tsx
+        src/components/sections/Problem.tsx, Proof.tsx, Toolkit.tsx
+ISSUE:  Dual accent system. Homepage conversion funnel uses Tailwind cyan-*
+        (#06b6d4) while brand accent is #00A4C8 (teal). Header/Footer use
+        teal-500/600. Visual inconsistency on highest-traffic path.
+
+FIX — Replace ALL cyan-* on conversion components with accent token:
+
+```tsx
+// Before: border-cyan-500/40, from-cyan-600, text-cyan-400
+// After:
+className="border-accent/40 focus:ring-accent text-accent bg-accent hover:bg-accent-600"
+```
+
+tailwind.config.ts already defines accent.500: '#00A4C8', accent.600: '#008BAD'.
+
+
+[B5.2] SEVERITY: HIGH
+FILE:   src/app/globals.css (lines 36–59)
+ISSUE:  Global body text-gray-800, all <p> text-gray-600. Bypasses charcoal
+        foreground tokens. Generic Tailwind gray across 60+ pages.
+
+FIX:
+
+```css
+body {
+  @apply text-base antialiased bg-background text-foreground;
+}
+p {
+  @apply leading-relaxed text-base text-foreground/80;
+}
+```
+
+
+[B5.3] SEVERITY: MEDIUM
+FILE:   src/app/services/website-development/page.tsx (line 438)
+        src/app/services/web-design-firms/page.tsx (line 460)
+ISSUE:  Pink/purple gradients remain — explicit brand violation.
+
+FIX:
+
+```tsx
+// website-development/page.tsx line 438:
+<div className="w-12 h-12 bg-gradient-to-br from-accent to-accent-600 rounded-lg ...">
+
+// web-design-firms/page.tsx line 460:
+<div className="bg-gradient-to-br from-accent/5 to-charcoal/5 p-6 rounded-xl border-2 border-accent/20">
+```
+
+
+[B5.4] SEVERITY: MEDIUM
+FILE:   src/app/services/review-management/page.tsx (line 277)
+        Multiple case study pages (cyan-900 gradients)
+ISSUE:  Purple/indigo and cyan-900 gradients off-brand.
+
+FIX: Replace with charcoal/accent palette:
+
+```tsx
+<section className="py-20 bg-charcoal text-white text-center">
+  {/* accent-500 for highlights */}
+</section>
+```
+
+
+[B5.5] SEVERITY: MEDIUM
+FILE:   src/lib/blog/content/silo-*.tsx, posts.ts
+        src/app/services/page.tsx, GoogleAdsSubPage.tsx
+        src/app/case-studies/*/page.tsx, locations/*/page.tsx
+ISSUE:  Em dashes (—) persist across services, blog, case studies, locations.
+        Brand rule: clean commas and periods only.
+
+FIX — Bulk replace in user-facing copy (NOT in code comments):
+
+```
+— → , or .  (context-dependent)
+Example: "Book a free audit—we map" → "Book a free audit. We map"
+```
+
+Run scoped replace on src/app and src/lib/blog/content only.
+
+
+[B5.6] SEVERITY: LOW
+FILE:   public/humans.txt
+ISSUE:  References outdated stack (Next.js 14). No cross-link to llms.txt.
+
+FIX: Update stack to Next.js 16, add line: `LLMs: /llms.txt`
+
+
+================================================================================
+PRIORITY EXECUTION ROADMAP (DO IN THIS ORDER)
+================================================================================
+
+WEEK 1 — REVENUE & TRUST (48 hours)
+  [1] B4.1 — Wire AuditForm to /api/contact (stop fake conversions)
+  [2] B4.2 — Resend email delivery on contact API
+  [3] B4.3 — aria-live on all form feedback
+  [4] B5.1 — Unify cyan → accent on homepage funnel
+
+WEEK 2 — ENTITY & AI DOMINANCE
+  [5] B1.1 — Deploy /llms.txt route
+  [6] B1.3 — Organization knowsAbout + founder @id + expanded sameAs
+  [7] B1.5 — Expand AI bot robots rules
+  [8] B2.1 — Render HubSpokeLinks on Meyersdal + New Redruth
+  [9] B2.2 — Fix duplicate LocalBusiness / remove fake streetAddress
+
+WEEK 3 — LOCAL PACK & PERFORMANCE
+  [10] B2.4 — Complete areaServed in layout
+  [11] B1.4 — Wikidata QIDs on all location + Google Ads schemas
+  [12] B3.1 — export const revalidate = 86400 on marketing pages
+  [13] B3.2 — HTML Cache-Control headers in next.config.mjs
+  [14] B2.6 — Locations in Header nav + local-seo reciprocal links
+
+WEEK 4 — POLISH TO 0.1%
+  [15] B1.6 — Semantic HTML (article, address, figure) on case studies + contact
+  [16] B3.4 — dynamic() code-split AuditForm + ContactForm
+  [17] B5.3/B5.4 — Purge pink/purple/cyan-900 regressions
+  [18] B5.5 — Em dash purge on services/locations/case-studies
+  [19] B2.5 — Northern corridor KML + Google Ads areaServed specificity
+  [20] B3.3 — unstable_cache for blog with revalidateTag
+
+
+================================================================================
+ENVIRONMENT VARIABLES REQUIRED FOR FIXES
+================================================================================
+  RESEND_API_KEY          — Contact/audit email delivery
+  CONTACT_TO_EMAIL        — Lead destination (hello@endpointmedia.co.za)
+  NEXT_PUBLIC_BASE_URL    — Already documented
+  INDEXNOW_KEY            — Already wired
+
+
+================================================================================
+SCORING METHODOLOGY
+================================================================================
+Each category scored 0–100 on:
+  - Implementation completeness (40%)
+  - Competitive differentiation vs top agencies (30%)
+  - Revenue impact / conversion integrity (20%)
+  - Maintainability & drift resistance (10%)
+
+CRO scores lowest because fake audit submissions actively harm paid media
+optimization. AEO scores below caching because volume of schema without
+entity graph unity is table stakes, not dominance.
+
+Target after roadmap execution: 88–92 / 100 overall.
+Remaining 8–12 points require live Search Console data, GBP review velocity,
+and backlink entity co-citation — outside codebase scope.
+
+================================================================================
+END OF AUDIT
+================================================================================

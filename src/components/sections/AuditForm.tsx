@@ -45,7 +45,13 @@ export function AuditForm() {
         body: JSON.stringify(payload),
       });
 
-      const result = await response.json();
+      const rawBody = await response.text();
+      let result: { message?: string; error?: string } = {};
+      try {
+        result = rawBody ? (JSON.parse(rawBody) as { message?: string; error?: string }) : {};
+      } catch {
+        result = {};
+      }
 
       if (response.ok) {
         trackFreeAudit();
@@ -61,7 +67,7 @@ export function AuditForm() {
           type: 'error',
           text:
             result.error ||
-            'Something went wrong. WhatsApp us at 076 972 4559.',
+            `Something went wrong (${response.status}). WhatsApp us at 076 972 4559.`,
         });
       }
     } catch {

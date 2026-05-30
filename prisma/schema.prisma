@@ -1,0 +1,97 @@
+// Endpoint Media — Google Ads CSV Automation Factory
+// Multi-tenant PostgreSQL schema (Vercel + PgBouncer compatible)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+/// Root tenant: an agency client whose campaigns the factory generates.
+model AgencyClient {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  slug      String   @unique
+
+  dailyBudget Float  @default(50.00)
+  isActive    Boolean @default(true)
+  targetArea  String
+  location    String  @default("Johannesburg, Gauteng, South Africa")
+
+  /// Campaign-level defaults for the Micro-Budget Sniper Protocol
+  maxCpc             String @default("15.00")
+  campaignName       String?
+  finalUrl           String  @default("https://www.endpointmedia.co.za")
+  language           String  @default("English")
+  adSchedule         String  @default("(Monday[08:00-17:00]);(Tuesday[08:00-17:00]);(Wednesday[08:00-17:00]);(Thursday[08:00-17:00]);(Friday[08:00-17:00])")
+  mobileBidModifier  String  @default("-30")
+  tabletBidModifier  String  @default("-100")
+  globalNegatives    String[] @default(["cheap", "free", "tutorial", "diy", "how to", "course", "jobs", "salary"])
+
+  /// Service-to-service and external API credentials (store hashed in production)
+  apiAuthKey         String?
+  googleAdsCustomerId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  serviceNiches  ServiceNiche[]
+  campaignAssets CampaignAsset[]
+
+  @@index([isActive])
+  @@index([slug])
+}
+
+/// Commercial vertical siloed into exact-match ad groups.
+model ServiceNiche {
+  id         String   @id @default(uuid())
+  name       String
+  /// Micro-Budget Sniper: exact match only — stored for audit, enforced in factory
+  matchTypes String[] @default(["exact"])
+  /// Optional explicit keyword seeds; factory expands with geo templates when empty
+  keywords   String[] @default([])
+  sortOrder  Int      @default(0)
+
+  clientId String
+  client   AgencyClient @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  assets CampaignAsset[]
+
+  @@index([clientId])
+  @@unique([clientId, name])
+}
+
+enum AssetType {
+  HEADLINE
+  DESCRIPTION
+  SITELINK
+  CALLOUT
+}
+
+/// RSA headlines/descriptions and campaign-level sitelink extensions.
+model CampaignAsset {
+  id   String    @id @default(uuid())
+  type AssetType
+  text String    @db.VarChar(90)
+
+  /// Sitelink-only fields
+  descriptionLine1 String? @db.VarChar(35)
+  descriptionLine2 String? @db.VarChar(35)
+  finalUrl         String?
+
+  clientId String
+  client   AgencyClient @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  serviceNicheId String?
+  serviceNiche   ServiceNiche? @relation(fields: [serviceNicheId], references: [id], onDelete: SetNull)
+
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([clientId, type])
+  @@index([serviceNicheId])
+}

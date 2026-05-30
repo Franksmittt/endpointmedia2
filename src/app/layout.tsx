@@ -8,7 +8,7 @@ import { WebVitals } from "@/components/analytics/web-vitals";
 import { secureJsonLD, ORG_ID, FRANK_SMIT_ID, BASE_URL, GBP_MAPS_URL } from "@/lib/seo";
 import { GOOGLE_ADS_ID } from "@/lib/conversion-config";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-SGFD6DFTRV";
 
 // Define comprehensive metadata for SEO dominance
 export const metadata: Metadata = {
@@ -104,9 +104,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const trackingIds = [GOOGLE_ADS_ID, GA_ID].filter(
+  const trackingIds = [GA_ID, GOOGLE_ADS_ID].filter(
     (id): id is string => typeof id === "string" && id.length > 0,
   );
+  const primaryTagId = GA_ID || GOOGLE_ADS_ID;
   const gtagConfig = trackingIds.map((id) => `gtag('config', '${id}');`).join("\n");
   // JSON-LD Structured Data for Organization & LocalBusiness
   const organizationSchema = {
@@ -321,13 +322,13 @@ export default function RootLayout({
         <main id="main-content">{children}</main> 
         <Footer />
         <WebVitals />
-        {trackingIds.length > 0 && (
+        {primaryTagId && (
           <>
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
-              strategy="lazyOnload"
+              src={`https://www.googletagmanager.com/gtag/js?id=${primaryTagId}`}
+              strategy="afterInteractive"
             />
-            <Script id="google-tags-init" strategy="lazyOnload">
+            <Script id="google-tags-init" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
                 window.__gtagQueue = window.__gtagQueue || [];

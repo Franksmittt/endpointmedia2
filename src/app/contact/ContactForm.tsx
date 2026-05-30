@@ -35,7 +35,13 @@ export default function ContactForm() {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
+      const rawBody = await response.text();
+      let result: { message?: string; error?: string } = {};
+      try {
+        result = rawBody ? (JSON.parse(rawBody) as { message?: string; error?: string }) : {};
+      } catch {
+        result = {};
+      }
 
       if (response.ok) {
         trackFormSubmission();
@@ -52,7 +58,7 @@ export default function ContactForm() {
           type: 'error',
           text:
             result.error ||
-            'Something went wrong. Please try again or contact us directly.',
+            `Something went wrong (${response.status}). Please try again or contact us directly.`,
         });
       }
     } catch (error) {

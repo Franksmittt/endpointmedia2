@@ -4,8 +4,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { rateLimit } from '@/lib/rate-limit';
 
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
-
 const MAX = { name: 120, email: 254, phone: 32, message: 5000, source: 64 };
 
 function sanitizeHeader(value: unknown, max = 120): string {
@@ -14,6 +12,18 @@ function sanitizeHeader(value: unknown, max = 120): string {
     .replace(/\s+/g, ' ')
     .trim()
     .slice(0, max);
+}
+
+function getResendClient(): Resend | null {
+  const apiKey = (process.env.RESEND_API_KEY ?? '').trim();
+  if (!apiKey) return null;
+
+  try {
+    return new Resend(apiKey);
+  } catch (error) {
+    console.error('Invalid RESEND_API_KEY:', error);
+    return null;
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -28,6 +38,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
+    const resend = getResendClient();
     const body = await request.json();
     const { name, email, phone, message, honeypot, website, source } = body;
 
@@ -57,7 +68,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
     }
 
-    const toEmail = process.env.CONTACT_TO_EMAIL || 'hello@endpointmedia.co.za';
+    const toEmail = (process.env.CONTACT_TO_EMAIL || 'hello@endpointmedia.co.za').trim();
+    const fromEmail = (process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev').trim();
 
     if (!resend) {
       console.error('RESEND_API_KEY is not configured');
@@ -72,8 +84,8 @@ export async function POST(request: NextRequest) {
     const leadSource = safeSource || 'contact-form';
     const subject = `[${leadSource}] New inquiry from ${safeName}`;
 
-    await resend.emails.send({
-      from: 'Endpoint Media <contact@endpointmedia.co.za>',
+    const sendResult = await resend.emails.send({
+      from: `Endpoint Media <${fromEmail}>`,
       to: toEmail,
       replyTo: String(email),
       subject,
@@ -86,6 +98,17 @@ export async function POST(request: NextRequest) {
         String(message),
       ].join('\n'),
     });
+
+    if (sendResult.error) {
+      console.error('Resend API error:', sendResult.error);
+      return NextResponse.json(
+        {
+          error:
+            'Email provider rejected the request. Check RESEND_FROM_EMAIL/domain verification and try again.',
+        },
+        { status: 502 }
+      );
+    }
 
     return NextResponse.json(
       {
