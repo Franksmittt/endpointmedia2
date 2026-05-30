@@ -26,6 +26,15 @@ function getResendClient(): Resend | null {
   }
 }
 
+function getErrorMessage(error: unknown): string {
+  if (error instanceof Error) return error.message;
+  if (typeof error === 'object' && error !== null) {
+    const maybeMessage = (error as { message?: unknown }).message;
+    if (typeof maybeMessage === 'string') return maybeMessage;
+  }
+  return 'Unknown email provider error';
+}
+
 export async function POST(request: NextRequest) {
   const contentType = request.headers.get('content-type') ?? '';
   if (!contentType.includes('application/json')) {
@@ -84,27 +93,41 @@ export async function POST(request: NextRequest) {
     const leadSource = safeSource || 'contact-form';
     const subject = `[${leadSource}] New inquiry from ${safeName}`;
 
-    const sendResult = await resend.emails.send({
-      from: `Endpoint Media <${fromEmail}>`,
-      to: toEmail,
-      replyTo: String(email),
-      subject,
-      text: [
-        `Source: ${leadSource}`,
-        `Name: ${safeName}`,
-        `Email: ${email}`,
-        `Phone: ${phone || 'Not provided'}`,
-        '',
-        String(message),
-      ].join('\n'),
-    });
+    try {
+      const sendResult = await resend.emails.send({
+        from: `Endpoint Media <${fromEmail}>`,
+        to: toEmail,
+        replyTo: String(email),
+        subject,
+        text: [
+          `Source: ${leadSource}`,
+          `Name: ${safeName}`,
+          `Email: ${email}`,
+          `Phone: ${phone || 'Not provided'}`,
+          '',
+          String(message),
+        ].join('\n'),
+      });
 
-    if (sendResult.error) {
-      console.error('Resend API error:', sendResult.error);
+      if (sendResult.error) {
+        console.error('Resend API error:', sendResult.error);
+        return NextResponse.json(
+          {
+            error:
+              'Email provider rejected the request. Check RESEND_FROM_EMAIL/domain verification and try again.',
+            details: getErrorMessage(sendResult.error),
+          },
+          { status: 502 }
+        );
+      }
+    } catch (providerError) {
+      const details = getErrorMessage(providerError);
+      console.error('Resend provider exception:', providerError);
       return NextResponse.json(
         {
           error:
             'Email provider rejected the request. Check RESEND_FROM_EMAIL/domain verification and try again.',
+          details,
         },
         { status: 502 }
       );
