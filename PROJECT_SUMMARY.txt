@@ -2,12 +2,12 @@
                     ENDPOINT MEDIA - COMPREHENSIVE PROJECT SUMMARY
 ================================================================================
 
-LAST UPDATED: May 29, 2026
-PROJECT STATUS: Production Deployed | Market Dominance Architecture Locked
+LAST UPDATED: May 30, 2026
+PROJECT STATUS: Production Deployed | Contact System Stabilized | SEO/AEO Audit Suite Automated
 DOMAIN: https://www.endpointmedia.co.za
 REPOSITORY: https://github.com/Franksmittt/endpointmedia2
 BUILD STATUS: Successful (96 static pages generated)
-LATEST COMMIT THEME: feat: market dominance architecture locked (100/100)
+LATEST COMMIT THEME: feat: add internal link graph runtime auditor
 
 ================================================================================
                             EXECUTIVE SNAPSHOT
@@ -16,8 +16,8 @@ LATEST COMMIT THEME: feat: market dominance architecture locked (100/100)
 Endpoint Media is a premium B2B digital architecture and Google Ads agency
 site built on Next.js 16 (App Router). The codebase implements a full-funnel
 market-dominance strategy: revenue capture, entity/AEO signals, local pack
-geo-targeting, edge caching, semantic HTML, code-split forms, and P0 API
-security hardening.
+geo-targeting, edge caching, semantic HTML, code-split forms, and hardened API
+security with production-safe form delivery.
 
 What this project IS:
 - A 96-page statically generated / ISR-optimized marketing site
@@ -30,6 +30,8 @@ What was completed through May 2026:
 - Market Dominance Audit (Weeks 1-4) — executed and deployed
 - God-Mode Audit (P0 security patches) — API hardened, brand tokens aligned
 - Production push to main → Vercel live
+- Contact pipeline recovery + Resend domain verification stabilization (May 30)
+- Static + runtime + link-graph SEO/AEO Python audit tooling implemented
 
 Reference audit files in repo root:
 - market-dominance-audit.txt (roadmap, completed)
@@ -241,7 +243,18 @@ Contact API (src/app/api/contact/route.ts) — P0 HARDENED:
 - Payload caps: name 120, message 5000, email 254, phone 32 chars
 - sanitizeHeader() strips \\r\\n\\t from name/source before email subject
 - Honeypot: silent 200 if `website` OR legacy `honeypot` filled
-- Resend email to CONTACT_TO_EMAIL (env)
+- Resend email to CONTACT_TO_EMAIL using configurable sender:
+  RESEND_FROM_EMAIL (defaults onboarding@resend.dev)
+- Provider rejection handling returns actionable 502 detail payload
+- Runtime-safe client initialization (`getResendClient`) per request
+
+CRITICAL FORM STABILITY FIXES (May 30):
+- ContactForm and AuditForm now capture `const form = event.currentTarget`
+  before async calls and use `form.reset()` on success.
+- This resolves production crash:
+  "Cannot read properties of null (reading 'reset')".
+- Frontend error handling now surfaces network/provider detail strings instead
+  of generic failure-only messages.
 
 IndexNow API (src/app/api/indexnow/route.ts):
 - Bearer auth (INDEXNOW_SECRET or CRON_SECRET)
@@ -283,8 +296,11 @@ TECHNICAL SEO:
 - SpeakableWebPage schema on key money pages
 - htmlLimitedBots regex in next.config.mjs (full HTML for crawlers)
 - WWW 308 redirect (endpointmedia.co.za → www)
-- _rsc query param strip redirect (crawl budget)
 - trailingSlash: false
+
+RUNTIME ROUTING CORRECTION (May 30):
+- Removed `_rsc` query redirect rule from next.config.mjs after HAR evidence
+  of `net::ERR_TOO_MANY_REDIRECTS` noise on RSC fetch requests.
 
 SCHEMA TYPES IN USE:
 Organization, LocalBusiness, WebSite, Person/ProfilePage, Service,
@@ -371,6 +387,7 @@ SEO TOOLING (npm scripts):
 REQUIRED (production):
 - NEXT_PUBLIC_BASE_URL=https://www.endpointmedia.co.za
 - RESEND_API_KEY=... (form email delivery)
+- RESEND_FROM_EMAIL=hello@endpointmedia.co.za
 - CONTACT_TO_EMAIL=hello@endpointmedia.co.za
 
 RECOMMENDED:
@@ -426,16 +443,61 @@ P0 GOD-MODE PATCHES (May 29, 2026):
 - AuditForm + ContactForm structural honeypot (`website` field)
 - Brand accent token → #FF6600 / #E55C00 globally in tailwind + globals.css
 
+MAY 30, 2026 — PRODUCTION STABILIZATION + AUDIT AUTOMATION:
+------------------------------------------------------------
+Contact / Email Delivery:
+- Resend domain DNS records configured and verified (DKIM/SPF/MX).
+- Vercel envs aligned for sender/recipient routing.
+- Live API tests confirmed `/api/contact` 200 success.
+- Root cause of remaining UI failure traced to async React event lifecycle
+  (null currentTarget), patched and deployed.
+
+HAR-Led Runtime Debugging:
+- Production HAR analysis confirmed successful 200 POST /api/contact.
+- Identified and removed redirect-loop risk tied to `_rsc` redirect rule.
+
+Google Ads Factory Stack (implemented and pushed):
+- prisma/schema.prisma (AgencyClient / ServiceNiche / CampaignAsset model set)
+- src/lib/prisma.ts singleton client
+- src/app/api/factory/generate/route.ts bridge route
+- microservice/main.py FastAPI CSV engine with:
+  * API key auth (`Authorization: Bearer INTERNAL_API_KEY`)
+  * strict EAV matrix generation
+  * exact-match keyword enforcement and R15 max CPC policy
+  * campaign-level ValueTrack suffix + custom parameter injection
+  * in-memory streamed CSV response (no disk write)
+- scripts/google_ads_overlord.js (daily Ads script modules: 404 sentinel,
+  budget pacing alarm, CPC anomaly detection)
+
+Python Audit Tooling Added + Executed:
+- scripts/seo/nextjs_seo_aeo_audit.py
+  * Static App Router SEO/AEO checks
+  * Output: nextjs_seo_aeo_audit_findings.txt
+  * Final result: HIGH 0 | MEDIUM 0 | LOW 0
+
+- scripts/seo/nextjs_runtime_seo_aeo_audit.py
+  * Live/runtime checks for robots/sitemap/llms, bot accessibility,
+    redirect chains, canonical parity, noindex headers/meta, JSON-LD parseability
+  * Output: nextjs_runtime_seo_aeo_findings.txt
+  * Final result: HIGH 0 | MEDIUM 0 | LOW 0
+
+- scripts/seo/internal_link_graph_audit.py
+  * Runtime internal-link graph scoring (orphan/unreachable/depth analysis)
+  * Output: internal_link_graph_audit_findings.txt
+  * Final result: HIGH 0 | MEDIUM 0 | LOW 0
+
 ================================================================================
                          PROJECT STATUS & NEXT STEPS
 ================================================================================
 
-CURRENT STATUS: PRODUCTION LIVE
-- 96 pages building cleanly (npm run build exit 0)
-- Forms deliver via Resend when RESEND_API_KEY configured
-- P0 API security patches applied (May 29, 2026)
+CURRENT STATUS: PRODUCTION LIVE + STABLE
+- Contact and audit forms confirmed operational in production
+- Resend sender pipeline verified post-domain validation
+- Redirect-loop risk removed from Next config
+- Static/runtime/link-graph SEO audits currently return zero findings
+- Factory architecture code is merged and available for infra activation
 
-REMAINING (from god-mode-audit.txt — not yet done):
+REMAINING (from god-mode-audit.txt / infra rollout backlog):
 - P1: Full teal/cyan → accent purge (Header, Footer, pricing hub, case studies)
 - P1: CLS skeleton height tuning for dynamic forms
 - P1: ScrollReveal prefers-reduced-motion + above-fold removal
@@ -443,6 +505,11 @@ REMAINING (from god-mode-audit.txt — not yet done):
 - P2: Dead code removal (AnimatedButton, WhatsAppIcon, orphaned CSS)
 - P2: Upstash Redis rate limiter (replace in-memory Map for multi-instance)
 - P2: Remaining em dashes in google-ads-services.ts metadata strings
+- Factory deployment activation:
+  * Provision Postgres + run Prisma migrations
+  * Deploy FastAPI microservice
+  * Configure FASTAPI_SERVICE_URL / INTERNAL_API_KEY / FACTORY_ADMIN_SECRET
+  * Seed AgencyClient data for initial CSV generation
 
 OPTIONAL ENHANCEMENTS:
 - Additional blog silo expansion
@@ -473,15 +540,26 @@ BLOG:
 API & SECURITY:
   src/app/api/contact/route.ts ... hardened form handler
   src/lib/rate-limit.ts .......... in-memory IP rate limiter
+  src/app/api/factory/generate/route.ts ... Next.js→FastAPI CSV bridge
+  src/lib/prisma.ts ............... Prisma singleton
 
 FORMS:
   src/components/sections/AuditForm.tsx
   src/app/contact/ContactForm.tsx
 
+FACTORY / MICROSERVICE:
+  prisma/schema.prisma ............ multi-tenant factory schema
+  microservice/main.py ............ FastAPI CSV engine
+  microservice/requirements.txt ... service deps
+  scripts/google_ads_overlord.js .. Google Ads daily automation script
+
 AUDIT DOCS:
   PROJECT_SUMMARY.txt .......... this file
   market-dominance-audit.txt ... 4-week execution roadmap (complete)
   god-mode-audit.txt ............. 47-flaw security/UX audit register
+  nextjs_seo_aeo_audit_findings.txt ........ static audit output
+  nextjs_runtime_seo_aeo_findings.txt ...... runtime audit output
+  internal_link_graph_audit_findings.txt ... graph audit output
 
 ================================================================================
                          MAINTENANCE REMINDERS
@@ -495,11 +573,15 @@ AUDIT DOCS:
 6. Blog cache purge: revalidateTag('blog') after post updates
 7. Rate limiter: upgrade to Redis before high-traffic campaigns
 8. After major deploys: verify /llms.txt, /northern-corridor.kml, robots.txt live
+9. Re-run all three SEO audits after major routing/content changes:
+   - nextjs_seo_aeo_audit.py
+   - nextjs_runtime_seo_aeo_audit.py
+   - internal_link_graph_audit.py
 
 ================================================================================
-DOCUMENT VERSION: 4.0
-LAST UPDATED: May 29, 2026
-STATUS: Production deployed | 96 pages | Market Dominance + P0 security complete
+DOCUMENT VERSION: 5.0
+LAST UPDATED: May 30, 2026
+STATUS: Production deployed | Contact stabilized | SEO static/runtime/link audits clean
 ================================================================================
                             END OF DOCUMENT
 ================================================================================

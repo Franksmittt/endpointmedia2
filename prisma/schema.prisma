@@ -95,3 +95,14 @@ model CampaignAsset {
   @@index([clientId, type])
   @@index([serviceNicheId])
 }
+
+/// Persisted runtime/web audit reports for SaaS lead capture and paywall unlocks.
+model AuditReport {
+  id              String   @id @default(cuid())
+  targetUrl       String
+  leadEmail       String?
+  rawAuditData    Json
+  blurState       Boolean  @default(true)
+  stripeSessionId String?
+  createdAt       DateTime @default(now())
+}

@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 export const revalidate = 86400;
 
 // Import all sections for the main landing page
-import Hero from '@/components/sections/Hero';
+import AgencyHeroSection from '@/components/sections/AgencyHeroSection';
 import Problem from '@/components/sections/Problem';
 import Solution from '@/components/sections/Solution';
 import WhoWeServe from "@/components/sections/WhoWeServe";
@@ -176,7 +176,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: secureJsonLD(reviewSchema2) }}
       />
-      <Hero />
+      <AgencyHeroSection />
       <Problem />
       <Solution />
       <WhoWeServe />
