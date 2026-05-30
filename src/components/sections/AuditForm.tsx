@@ -72,10 +72,11 @@ export function AuditForm() {
             : `Something went wrong (${response.status}). WhatsApp us at 076 972 4559.`,
         });
       }
-    } catch {
+    } catch (error) {
+      const details = error instanceof Error ? error.message : 'Unknown network error';
       setStatus({
         type: 'error',
-        text: 'Failed to send your request. WhatsApp us at 076 972 4559.',
+        text: `Failed to send your request (${details}). WhatsApp us at 076 972 4559.`,
       });
     } finally {
       setIsSubmitting(false);

@@ -65,9 +65,10 @@ export default function ContactForm() {
       }
     } catch (error) {
       console.error('Form submission error:', error);
+      const details = error instanceof Error ? error.message : 'Unknown network error';
       setSubmitMessage({
         type: 'error',
-        text: 'Failed to send your inquiry. Please try again or contact us directly at hello@endpointmedia.co.za',
+        text: `Failed to send your inquiry (${details}). Please try again or contact us directly at hello@endpointmedia.co.za`,
       });
     } finally {
       setIsSubmitting(false);
