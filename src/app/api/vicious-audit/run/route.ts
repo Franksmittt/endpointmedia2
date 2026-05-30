@@ -9,6 +9,7 @@ export const runtime = 'nodejs';
 
 type AuditRequestBody = {
   url: string;
+  competitorUrl?: string;
   tier?: AuditTier;
   unlockToken?: string;
 };
@@ -52,13 +53,25 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Only http/https URLs are allowed.' }, { status: 400 });
   }
 
+  let competitorUrl: string | undefined;
+  if (body.competitorUrl) {
+    try {
+      const parsed = new URL(body.competitorUrl);
+      if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+        competitorUrl = parsed.toString();
+      }
+    } catch {
+      return NextResponse.json({ error: 'Competitor URL is invalid.' }, { status: 400 });
+    }
+  }
+
   const tier = normalizeTier(body.tier);
   const unlocked = isUnlockVerified(tier, body.unlockToken);
 
   // BullMQ is optional. When REDIS_URL is configured we expose a queue job id
   // while still returning inline results for immediate UX.
   const queuedJobId = await enqueueAuditJob(url.toString(), tier);
-  const audit = await runViciousAudit(url.toString(), tier, unlocked);
+  const audit = await runViciousAudit(url.toString(), tier, unlocked, competitorUrl);
   const persistedReport = await prisma.auditReport.create({
     data: {
       targetUrl: url.toString(),

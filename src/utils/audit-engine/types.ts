@@ -40,10 +40,14 @@ export type AuditSummary = {
   score: number;
   criticalIssues: number;
   warnings: number;
+  estimatedLostLeadValueZar: number;
+  advisory: string;
 };
 
 export type AuditResult = {
   auditedUrl: string;
+  competitorUrl?: string | null;
+  competitorSummary?: AuditSummary;
   fingerprint: Fingerprint;
   runtime: RuntimeChecks;
   summary: AuditSummary;

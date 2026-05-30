@@ -45,9 +45,10 @@ const config: Config = {
       },
       // Ensure font definitions correctly link to the CSS variables defined in layout.tsx
       fontFamily: {
-        // Use the CSS variable defined in layout.tsx, falling back to system sans-serif
-        sans: ["var(--font-roboto)", ...fontFamily.sans], 
-        heading: ["var(--font-poppins)", ...fontFamily.sans], 
+        // Use next/font variables from layout.tsx with robust fallbacks.
+        sans: ["var(--font-inter)", ...fontFamily.sans],
+        heading: ["var(--font-inter)", ...fontFamily.sans],
+        mono: ["var(--font-geist-mono)", ...fontFamily.mono],
       },
     },
   },

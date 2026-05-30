@@ -16,7 +16,17 @@ export function buildSummary(runtime: RuntimeChecks): AuditSummary {
   if (runtime.jsonLdCount === 0) warnings += 1;
 
   const score = Math.max(0, 100 - criticalIssues * 22 - warnings * 6);
-  return { score, criticalIssues, warnings };
+  const estimatedLostLeadValueZar = Math.max(
+    3000,
+    criticalIssues * 9000 + warnings * 2500
+  );
+  const advisory =
+    criticalIssues > 0
+      ? 'Critical crawl and visibility risks detected. Competitors can outrank and out-convert you rapidly.'
+      : warnings > 0
+        ? 'Structural issues are suppressing trust and conversion efficiency.'
+        : 'Your technical baseline is strong. Focus on authority and conversion experiments to compound growth.';
+  return { score, criticalIssues, warnings, estimatedLostLeadValueZar, advisory };
 }
 
 export function buildQuote(summary: AuditSummary): AuditQuote {

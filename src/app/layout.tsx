@@ -1,5 +1,6 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
+import { Geist_Mono, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -9,6 +10,16 @@ import { secureJsonLD, ORG_ID, FRANK_SMIT_ID, BASE_URL, GBP_MAPS_URL } from "@/l
 import { GOOGLE_ADS_ID } from "@/lib/conversion-config";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-SGFD6DFTRV";
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+  display: "swap",
+});
 
 // Define comprehensive metadata for SEO dominance
 export const metadata: Metadata = {
@@ -293,7 +304,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en-ZA" className="scroll-smooth font-sans" suppressHydrationWarning>
+    <html
+      lang="en-ZA"
+      className={`scroll-smooth font-sans ${inter.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
@@ -315,7 +330,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: secureJsonLD(frankSmitSchema) }}
         />
       </head>
-      <body className={`bg-gray-50 text-gray-800 antialiased font-sans`}>
+      <body className="bg-gray-50 text-gray-800 antialiased font-sans">
         <a href="#main-content" className="skip-link">Skip to main content</a>
     
         <Header /> 

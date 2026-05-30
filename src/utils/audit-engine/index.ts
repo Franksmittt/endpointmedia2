@@ -31,15 +31,31 @@ function buildEvidence(url: string, runtime: RuntimeChecks): TechnicalEvidence[]
 export async function runViciousAudit(
   targetUrl: string,
   tier: AuditTier,
-  unlocked: boolean
+  unlocked: boolean,
+  competitorUrl?: string
 ): Promise<AuditResult> {
-  const [fingerprint, runtime] = await Promise.all([detectPlatform(targetUrl), runRuntimeChecks(targetUrl)]);
+  const [fingerprint, runtime] = await Promise.all([
+    detectPlatform(targetUrl),
+    runRuntimeChecks(targetUrl),
+  ]);
   const summary = buildSummary(runtime);
   const quote = buildQuote(summary);
   const rawTechnicalEvidence = blurEvidence(buildEvidence(targetUrl, runtime), unlocked);
 
+  let competitorSummary: AuditResult['competitorSummary'] = undefined;
+  if (competitorUrl) {
+    try {
+      const competitorRuntime = await runRuntimeChecks(competitorUrl);
+      competitorSummary = buildSummary(competitorRuntime);
+    } catch {
+      competitorSummary = undefined;
+    }
+  }
+
   return {
     auditedUrl: targetUrl,
+    competitorUrl: competitorUrl ?? null,
+    competitorSummary,
     fingerprint,
     runtime,
     summary,
