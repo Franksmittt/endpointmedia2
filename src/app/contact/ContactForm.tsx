@@ -15,8 +15,9 @@ export default function ContactForm() {
     event.preventDefault();
     setIsSubmitting(true);
     setSubmitMessage(null);
+    const form = event.currentTarget;
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
@@ -54,7 +55,7 @@ export default function ContactForm() {
             result.message ||
             'Thank you! Your inquiry has been sent. We will be in touch within 24 hours.',
         });
-        event.currentTarget.reset();
+        form.reset();
       } else {
         setSubmitMessage({
           type: 'error',

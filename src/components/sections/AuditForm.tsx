@@ -15,8 +15,9 @@ export function AuditForm() {
     event.preventDefault();
     setIsSubmitting(true);
     setStatus(null);
+    const form = event.currentTarget;
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     const website = formData.get('website');
     if (website) {
       setIsSubmitting(false);
@@ -63,7 +64,7 @@ export function AuditForm() {
             result.message ||
             'Audit secured. We will be in touch within 24 hours.',
         });
-        event.currentTarget.reset();
+        form.reset();
       } else {
         setStatus({
           type: 'error',
