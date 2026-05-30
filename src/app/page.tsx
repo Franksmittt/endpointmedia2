@@ -7,15 +7,14 @@ export const revalidate = 86400;
 
 // Import all sections for the main landing page
 import AgencyHeroSection from '@/components/sections/AgencyHeroSection';
-import Problem from '@/components/sections/Problem';
-import Solution from '@/components/sections/Solution';
-import WhoWeServe from "@/components/sections/WhoWeServe";
-import Blueprint from '@/components/sections/Blueprint';
+import ProofBar from '@/components/sections/ProofBar';
+import SymptomSection from '@/components/sections/SymptomSection';
+import MethodologySection from '@/components/sections/MethodologySection';
 import Proof from '@/components/sections/Proof';
-import Vetting from '@/components/sections/Vetting';
 import Pricing from '@/components/sections/Pricing';
-import Toolkit from '@/components/sections/Toolkit';
-import SocialProof from '@/components/sections/SocialProof';
+import FitSection from '@/components/sections/FitSection';
+import FounderLetterSection from '@/components/sections/FounderLetterSection';
+import FinalCtaSection from '@/components/sections/FinalCtaSection';
 import { secureJsonLD, BASE_URL, buildMetadata, buildSpeakableWebPageSchema } from '@/lib/seo';
 
 const Audit = dynamic(() => import('@/components/sections/Audit'), {
@@ -177,15 +176,14 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: secureJsonLD(reviewSchema2) }}
       />
       <AgencyHeroSection />
-      <Problem />
-      <Solution />
-      <WhoWeServe />
-      <Blueprint />
+      <ProofBar />
+      <SymptomSection />
+      <MethodologySection />
       <Proof />
-      <Vetting />
+      <FitSection />
+      <FounderLetterSection />
       <Pricing />
-      <SocialProof />
-      <Toolkit />
+      <FinalCtaSection />
       <Audit />
     </>
   );

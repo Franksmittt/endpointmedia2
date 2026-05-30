@@ -152,7 +152,8 @@ class NextSeoAeoAuditor:
                 "Client component fetch in useEffect may hide content from crawlers. Prefer server-side data fetching.",
             )
 
-        if is_page and "[" in rel and "]" in rel and "generateStaticParams" not in content:
+        dynamic_route_ignored = "/report/[" in rel or "/api/" in rel
+        if is_page and "[" in rel and "]" in rel and "generateStaticParams" not in content and not dynamic_route_ignored:
             self.add(rel, "MEDIUM", "Dynamic route missing generateStaticParams; may hurt crawl efficiency/TTFB.")
 
         if is_page and re.search(r"<head\b", content):

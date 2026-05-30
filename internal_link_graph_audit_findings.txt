@@ -12,32 +12,32 @@ Top hub pages (outgoing links):
 - https://www.endpointmedia.co.za/services/google-ads -> 33
 - https://www.endpointmedia.co.za/services -> 29
 - https://www.endpointmedia.co.za/case-studies -> 27
-- https://www.endpointmedia.co.za/blog/anatomy-elite-landing-page -> 26
-- https://www.endpointmedia.co.za/industries -> 26
 - https://www.endpointmedia.co.za/blog/performance-engine-high-ticket-lead-gen -> 26
+- https://www.endpointmedia.co.za/blog/anatomy-elite-landing-page -> 26
+- https://www.endpointmedia.co.za/blog/landing-page-speed-quality-score -> 26
+- https://www.endpointmedia.co.za/blog/the-brutal-truth-about-wordpress -> 26
 - https://www.endpointmedia.co.za/blog/answer-engine-optimization-aeo -> 26
-- https://www.endpointmedia.co.za/blog/structured-data-local-schema -> 26
 
 Top authority pages (incoming links):
-- https://www.endpointmedia.co.za/services/b2b-google-ads-management <- 87
-- https://www.endpointmedia.co.za/services/website-maintenance <- 87
-- https://www.endpointmedia.co.za/services/google-ads-pricing <- 87
-- https://www.endpointmedia.co.za/services/local-seo <- 87
-- https://www.endpointmedia.co.za/services/website-design-prices <- 87
+- https://www.endpointmedia.co.za/ <- 87
 - https://www.endpointmedia.co.za/privacy-policy <- 87
-- https://www.endpointmedia.co.za/industries <- 87
-- https://www.endpointmedia.co.za/case-studies <- 87
-- https://www.endpointmedia.co.za/terms-of-service <- 87
-- https://www.endpointmedia.co.za/pricing <- 87
+- https://www.endpointmedia.co.za/services/website-design-prices <- 87
+- https://www.endpointmedia.co.za/alberton-business-heritage <- 87
+- https://www.endpointmedia.co.za/services/google-ads-pricing <- 87
+- https://www.endpointmedia.co.za/services/facebook-ads <- 87
+- https://www.endpointmedia.co.za/process <- 87
+- https://www.endpointmedia.co.za/services/conversion-rate-optimization <- 87
+- https://www.endpointmedia.co.za/locations <- 87
+- https://www.endpointmedia.co.za/services/google-ads <- 87
 
 Deepest pages by click depth from home:
 - depth 3: https://www.endpointmedia.co.za/about/author/frank-smit
-- depth 2: https://www.endpointmedia.co.za/services/web-design-firms
-- depth 2: https://www.endpointmedia.co.za/services/custom-development
-- depth 2: https://www.endpointmedia.co.za/blog/the-true-cost-of-a-website-in-johannesburg
-- depth 2: https://www.endpointmedia.co.za/services/website-development
-- depth 2: https://www.endpointmedia.co.za/industries/manufacturing-logistics
-- depth 2: https://www.endpointmedia.co.za/industries/medical
-- depth 2: https://www.endpointmedia.co.za/industries/real-estate
-- depth 2: https://www.endpointmedia.co.za/industries/law-firms
+- depth 2: https://www.endpointmedia.co.za/blog/how-much-does-website-cost-south-africa-2025
+- depth 2: https://www.endpointmedia.co.za/blog/wix-vs-wordpress-guide-johannesburg-small-businesses
+- depth 2: https://www.endpointmedia.co.za/blog/anatomy-elite-landing-page
 - depth 2: https://www.endpointmedia.co.za/blog/local-seo-blueprint
+- depth 2: https://www.endpointmedia.co.za/blog/the-true-cost-of-a-website-in-johannesburg
+- depth 2: https://www.endpointmedia.co.za/blog/minimalist-design-b2b-value
+- depth 2: https://www.endpointmedia.co.za/blog/landing-page-speed-quality-score
+- depth 2: https://www.endpointmedia.co.za/blog/answer-engine-optimization-aeo
+- depth 2: https://www.endpointmedia.co.za/blog/google-ads-tracking-errors-budget
