@@ -53,11 +53,63 @@ class NextSeoAeoAuditor:
         if not self.app_path.exists():
             raise FileNotFoundError(f"App directory not found: {self.app_path}")
 
+        self._audit_platform_artifacts()
+        self._audit_next_config()
         self._audit_root_layout()
 
         for file_path in self.app_path.rglob("*"):
             if file_path.is_file() and file_path.suffix in SOURCE_EXTENSIONS:
                 self._audit_file(file_path)
+
+    def _audit_platform_artifacts(self) -> None:
+        robots_path = self.app_path / "robots.ts"
+        sitemap_path = self.app_path / "sitemap.ts"
+        llms_route_path = self.app_path / "llms.txt" / "route.ts"
+
+        if not robots_path.exists():
+            self.add("src/app/robots.ts", "HIGH", "Missing robots metadata file.")
+        else:
+            robots = self.read_text(robots_path)
+            if "sitemap" not in robots:
+                self.add(self._rel(robots_path), "MEDIUM", "robots.ts does not advertise sitemap.")
+            disallow_all = re.search(r"disallow:\s*['\"]/\s*['\"]", robots)
+            if disallow_all and "process.env.NODE_ENV" not in robots:
+                self.add(self._rel(robots_path), "HIGH", "robots.ts appears to disallow full site crawl.")
+
+        if not sitemap_path.exists():
+            self.add("src/app/sitemap.ts", "HIGH", "Missing sitemap metadata file.")
+        else:
+            sitemap = self.read_text(sitemap_path)
+            if "baseUrl" not in sitemap:
+                self.add(self._rel(sitemap_path), "MEDIUM", "sitemap.ts missing base URL handling.")
+            if "https://" not in sitemap:
+                self.add(self._rel(sitemap_path), "MEDIUM", "sitemap.ts does not show explicit https URL pattern.")
+
+        if not llms_route_path.exists():
+            self.add("src/app/llms.txt/route.ts", "MEDIUM", "Missing llms.txt route for LLM crawler discovery.")
+        else:
+            llms = self.read_text(llms_route_path)
+            if "Core Services" not in llms:
+                self.add(self._rel(llms_route_path), "LOW", "llms.txt missing a core services section.")
+            if "/sitemap.xml" not in llms:
+                self.add(self._rel(llms_route_path), "LOW", "llms.txt should reference sitemap.xml.")
+
+    def _audit_next_config(self) -> None:
+        candidates = [self.root / "next.config.mjs", self.root / "next.config.js", self.root / "next.config.ts"]
+        config_path = next((p for p in candidates if p.exists()), None)
+        if not config_path:
+            self.add("next.config.mjs", "MEDIUM", "next.config file missing; cannot validate redirect/crawl guards.")
+            return
+
+        content = self.read_text(config_path)
+        rel = self._rel(config_path)
+
+        # Known crawl-killer pattern: redirecting _rsc query can trigger looping fetch paths.
+        if re.search(r"has:\s*\[\s*\{\s*type:\s*['\"]query['\"],\s*key:\s*['_\"]_rsc", content):
+            self.add(rel, "HIGH", "Detected _rsc query redirect rule; this can create redirect loops.")
+
+        if "host" not in content or "www.endpointmedia.co.za" not in content:
+            self.add(rel, "LOW", "No explicit host canonical redirect found in next.config.")
 
     def _audit_root_layout(self) -> None:
         candidates = [self.app_path / "layout.tsx", self.app_path / "layout.ts", self.app_path / "layout.js"]
@@ -72,6 +124,9 @@ class NextSeoAeoAuditor:
 
         if not re.search(r"metadataBase\s*:\s*new\s+URL\(", content):
             self.add(rel, "HIGH", "Missing metadataBase; canonical URL resolution can break in production.")
+        else:
+            if "https://www." not in content:
+                self.add(rel, "LOW", "metadataBase does not visibly enforce https+www canonical host.")
 
         has_third_parties_lib = "@next/third-parties/google" in content
         has_gtm_component = "GoogleTagManager" in content
@@ -105,6 +160,8 @@ class NextSeoAeoAuditor:
 
         if is_page:
             self._check_page_metadata_presence(file_path, rel, content)
+            self._check_noindex_directives(rel, content)
+            self._check_internal_link_hygiene(rel, content)
 
         self._check_image_alt(rel, content)
         self._check_jsonld(rel, is_page, is_client, content)
@@ -158,6 +215,18 @@ class NextSeoAeoAuditor:
             return
         if "return" in content:
             self.add(rel, "MEDIUM", "No <h1> detected in page component.")
+
+    def _check_noindex_directives(self, rel: str, content: str) -> None:
+        if re.search(r"robots\s*:\s*\{[^}]*index\s*:\s*false", content, flags=re.DOTALL):
+            self.add(rel, "MEDIUM", "robots.index is false; page is configured as noindex.")
+        if re.search(r"['\"]noindex['\"]", content):
+            self.add(rel, "LOW", "Found explicit noindex token; verify intentional.")
+
+    def _check_internal_link_hygiene(self, rel: str, content: str) -> None:
+        # Catch obviously broken href placeholders on route pages.
+        for href in re.findall(r"href\s*=\s*[\"']([^\"']+)[\"']", content):
+            if href in {"#", "javascript:void(0)", "javascript:;"}:
+                self.add(rel, "LOW", f"Placeholder href found: {href}")
 
     def write_report(self, output_path: Path) -> None:
         severity_order = {"HIGH": 0, "MEDIUM": 1, "LOW": 2}
