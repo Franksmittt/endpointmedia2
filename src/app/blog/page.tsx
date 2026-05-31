@@ -30,6 +30,7 @@ const SILO_LABELS: Record<string, string> = {
   'web-architecture': 'Web Architecture',
   'google-ads': 'Google Ads',
   'local-dominance': 'Local Dominance',
+  'meta-ads': 'Meta Ads Engineering',
 };
 
 const BlogIndexPage = () => {
@@ -72,7 +73,7 @@ const BlogIndexPage = () => {
           <header className="mb-12 text-center">
             <h2 className="text-3xl font-bold text-white md:text-4xl">Cornerstone Articles &amp; Insights</h2>
             <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
-              20 technical cornerstone posts across three content silos, plus Johannesburg market guides.
+              25 technical cornerstone posts across four content silos, plus Johannesburg market guides.
             </p>
           </header>
 

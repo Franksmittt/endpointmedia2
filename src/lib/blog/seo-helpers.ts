@@ -20,6 +20,12 @@ export function getRelatedLinks(slug: string) {
       { href: '/services/google-ads-alberton', title: 'Alberton Google Ads', description: 'Regional service pages.' },
       { href: '/services/local-seo', title: 'Local SEO Services', description: 'Dominate map pack results.' },
     ],
+    'meta-ads': [
+      { href: '/blog/meta-andromeda-manual-media-buying-dead', title: 'Andromeda & Entity ID', description: 'Why manual media buying failed.' },
+      { href: '/blog/programmatic-design-factory-meta-creative-disparity', title: 'Creative Factory', description: 'Scale Entity ID diversity.' },
+      { href: '/blog/server-side-capi-middleware-closed-loop-roi', title: 'CAPI Middleware', description: 'Closed-loop B2B attribution.' },
+      { href: '/services/facebook-ads', title: 'Meta Ads Management', description: 'Engineered acquisition systems.' },
+    ],
   };
 
   const post = slug;
@@ -44,6 +50,16 @@ export function getRelatedLinks(slug: string) {
     post.includes('ai-bot')
   ) {
     return siloLinks['web-architecture'];
+  }
+  if (
+    post.includes('meta-') ||
+    post.includes('andromeda') ||
+    post.includes('programmatic-design') ||
+    post.includes('abo-testing') ||
+    post.includes('capi-middleware') ||
+    post.includes('systemic-divergence')
+  ) {
+    return siloLinks['meta-ads'];
   }
   if (post.includes('google-ads') || post.includes('bidding') || post.includes('vanity') || post.includes('performance-engine') || post.includes('quality-score') || post.includes('tracking')) {
     return siloLinks['google-ads'];

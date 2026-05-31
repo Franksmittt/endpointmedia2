@@ -1,8 +1,178 @@
 import type { BlogPostMeta } from './types';
 import { unstable_cache } from 'next/cache';
 
-/** All blog posts — 20 cornerstone silo articles + 5 legacy Johannesburg posts */
+/** All blog posts — 25 cornerstone silo articles + 5 legacy Johannesburg posts */
 export const BLOG_POSTS: BlogPostMeta[] = [
+  // ─── Silo 5: Meta Ads Systems Engineering ───
+  {
+    slug: 'meta-andromeda-manual-media-buying-dead',
+    title: 'The Death of Manual Media Buying: Inside Meta’s Andromeda Algorithmic Shift',
+    excerpt:
+      'Meta’s Andromeda engine clusters creatives by Entity ID — not your audience stacks. Learn why manual media buying and cosmetic A/B tests are mathematically obsolete for B2B scaling in 2026.',
+    date: '2026-06-05',
+    category: 'Meta Ads',
+    silo: 'meta-ads',
+    keywords: [
+      'Meta Andromeda algorithm 2026',
+      'Entity ID Meta ads',
+      'manual media buying obsolete',
+      'scale Meta ads without resetting learning',
+      'Advantage+ creative targeting',
+    ],
+    readingTimeMinutes: 12,
+    faqs: [
+      {
+        question: 'What is Meta Andromeda?',
+        answer:
+          'Andromeda is Meta’s intent-retrieval layer that uses GPU clusters to filter millions of ads to ~1,000 candidates in under 300ms. It reads creative pixels and context to assign Entity IDs that dictate who sees the ad — overriding manual audience targeting.',
+      },
+      {
+        question: 'What is an Entity ID on Meta ads?',
+        answer:
+          'An Entity ID is a computer-vision fingerprint grouping visually similar creatives. Ads sharing one Entity ID compete in the same retrieval pool — cosmetic variations do not create independent tests.',
+      },
+      {
+        question: 'Are lookalike audiences still effective in 2026?',
+        answer:
+          'Lookalikes are demoted to suggestions. Broad Advantage+ structures with creative-led targeting outperform manual audience stacking when Entity ID diversity is maintained.',
+      },
+    ],
+  },
+  {
+    slug: 'programmatic-design-factory-meta-creative-disparity',
+    title: 'The Programmatic Design Factory: Scaling Creative Disparity Without Human Latency',
+    excerpt:
+      'Beat Meta ad fatigue with automated Next.js + Python + Figma pipelines that render safe-zone-compliant, Entity ID-diverse creatives at scale — not one template repeated twelve times.',
+    date: '2026-06-04',
+    category: 'Meta Ads',
+    silo: 'meta-ads',
+    keywords: [
+      'programmatic Meta ad creative',
+      'beat Meta ad fatigue 2026',
+      'Figma API ad factory',
+      '9:16 safe zone Meta ads',
+      'creative Entity ID diversity',
+    ],
+    readingTimeMinutes: 11,
+    faqs: [
+      {
+        question: 'How do you beat Meta ad fatigue in 2026?',
+        answer:
+          'Produce structurally distinct creatives — different layouts, environments, personas, and benefit axes — so Andromeda assigns unique Entity IDs. Volume without visual disparity increases CPA through self-competition.',
+      },
+      {
+        question: 'What is the Meta 9:16 safe zone?',
+        answer:
+          'On 1080×1920 vertical assets, keep critical text and CTAs inside the center safe area (roughly Y 250–1248). Top ~220px and bottom ~220px are occluded by native Reels/Stories UI.',
+      },
+      {
+        question: 'Can Figma automate ad production?',
+        answer:
+          'Yes. The Figma REST API lets Python/Next.js pipelines inject copy and brand variables into layout nodes and export PNGs at scale — eliminating designer queue latency.',
+      },
+    ],
+  },
+  {
+    slug: 'abo-testing-sandbox-meta-algorithmic-liquidity',
+    title: 'The ABO Testing Sandbox: Mathematical Framework for Meta Algorithmic Liquidity',
+    excerpt:
+      'Calculate minimum daily Meta test budgets from target CPA, isolate winners in ABO sandboxes, graduate via Graph API Post IDs, and enforce 15-minute AdRules pacing — not daily dashboard checks.',
+    date: '2026-06-03',
+    category: 'Meta Ads',
+    silo: 'meta-ads',
+    keywords: [
+      'ABO testing Meta ads',
+      'Meta learning phase 50 events',
+      'scale Meta ads without losing performance',
+      'Meta AdRules automation',
+      'effective_object_story_id API',
+    ],
+    readingTimeMinutes: 10,
+    faqs: [
+      {
+        question: 'How do you calculate Meta ABO test budget?',
+        answer: 'Minimum daily budget ≈ (50 ÷ 7) × target CPA. This targets enough conversion events per 7-day window to exit learning phase.',
+      },
+      {
+        question: 'How do you scale Meta ads without resetting social proof?',
+        answer:
+          'Extract effective_object_story_id via Graph API and inject it into the scale campaign payload — preserving likes, comments, and engagement history instead of duplicating ads manually.',
+      },
+      {
+        question: 'What is the Meta 20% budget increase rule?',
+        answer:
+          'Increasing ad set budget more than ~20% in 24 hours can reset learning phase. Automated scripts scale by ~19.5% increments to maintain momentum.',
+      },
+    ],
+  },
+  {
+    slug: 'server-side-capi-middleware-closed-loop-roi',
+    title: 'Closed-Loop Data Sovereignty: Server-Side CAPI Middleware for True Meta ROI',
+    excerpt:
+      'Browser pixels fail on iOS and ad blockers. Learn SHA-256 PII normalization, UUID deduplication, EMQ optimization, and CRM stage feedback for high-ticket B2B Meta campaigns in South Africa.',
+    date: '2026-06-02',
+    category: 'Meta Ads',
+    silo: 'meta-ads',
+    keywords: [
+      'Meta Conversions API setup',
+      'Meta pixel deduplication server side',
+      'Event Match Quality EMQ',
+      'CAPI B2B lead generation South Africa',
+      'CRM offline conversions Meta',
+    ],
+    readingTimeMinutes: 11,
+    faqs: [
+      {
+        question: 'What EMQ score should Meta CAPI events target?',
+        answer:
+          'Keep bottom-funnel Event Match Quality above 7.0; aim for 8.0–9.5 with hashed email, E.164 phone, client IP, and user agent in the user_data payload.',
+      },
+      {
+        question: 'How do you deduplicate Meta pixel and CAPI events?',
+        answer:
+          'Generate one UUID event_id per user action and pass the identical ID in both browser pixel and server CAPI payloads with matching event_name.',
+      },
+      {
+        question: 'Why send CRM stages to Meta CAPI?',
+        answer:
+          'Lead events alone optimize for form fills. Offline MQL, SQL, Proposal, and Closed-Won events train Value Optimization on qualified pipeline — critical for high-ticket B2B.',
+      },
+    ],
+  },
+  {
+    slug: 'systemic-divergence-industry-vs-retail-south-africa',
+    title: 'Systemic Divergence: Meta Performance for Heavy Industry vs Local Retail in South Africa',
+    excerpt:
+      'Alrode B2B qualification carousels, Alberton retail WhatsApp funnels, and load-shedding-aware payload compression — why one Meta template cannot serve every Gauteng sector.',
+    date: '2026-06-01',
+    category: 'Meta Ads',
+    silo: 'meta-ads',
+    keywords: [
+      'B2B lead generation automation South Africa',
+      'heavy industry marketing Alrode Alberton',
+      'Meta ads South Africa load shedding',
+      'WhatsApp lead gen Meta ads',
+      'enterprise performance marketing systems',
+    ],
+    readingTimeMinutes: 12,
+    faqs: [
+      {
+        question: 'How should B2B industrial Meta ads differ from retail?',
+        answer:
+          'Industrial campaigns use high-friction qualification (5-card carousels, Higher Intent forms, corporate fields). Retail uses zero-friction trust creative and WhatsApp/Messenger routing.',
+      },
+      {
+        question: 'How does load shedding affect Meta ad performance in SA?',
+        answer:
+          'Tower outages and battery theft increase latency and packet loss. Heavy video fails to load; static compressed payloads and time-weighted delivery during stable grid windows improve conversion.',
+      },
+      {
+        question: 'What is infrastructure-aware ad delivery?',
+        answer:
+          'Programmatic engines swap large video for compressed static assets in degraded network geos and bid heavier during off-peak hours when B2B buyers research and connectivity stabilizes.',
+      },
+    ],
+  },
   // ─── Silo 4: Technical Diagnostic & AEO Architecture ───
   {
     slug: 'aeo-shift-chatgpt-gemini-optimization',

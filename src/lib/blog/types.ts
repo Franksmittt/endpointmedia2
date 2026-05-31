@@ -1,4 +1,4 @@
-export type BlogSilo = 'web-architecture' | 'google-ads' | 'local-dominance';
+export type BlogSilo = 'web-architecture' | 'google-ads' | 'local-dominance' | 'meta-ads';
 
 export interface BlogPostMeta {
   slug: string;
