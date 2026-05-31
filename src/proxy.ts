@@ -5,15 +5,17 @@ const CRAWLER_UA =
   /Googlebot|Google-InspectionTool|AdsBot-Google|Mediapartners-Google|bingbot|Baiduspider|YandexBot|DuckDuckBot|Slurp|facebookexternalhit|Twitterbot|LinkedInBot|Applebot/i;
 
 export function proxy(request: NextRequest) {
-  const userAgent = request.headers.get('user-agent') ?? '';
+  const { pathname } = request.nextUrl;
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-pathname', pathname);
 
-  if (CRAWLER_UA.test(userAgent)) {
-    const response = NextResponse.next();
+  const response = NextResponse.next({ request: { headers: requestHeaders } });
+
+  if (CRAWLER_UA.test(request.headers.get('user-agent') ?? '')) {
     response.headers.set('x-robots-tag', 'all');
-    return response;
   }
 
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {

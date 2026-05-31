@@ -1,0 +1,35 @@
+# Endpoint Media
+> High-performance B2B web architecture and Google Ads management. Johannesburg, South Africa. National + hyper-local.
+
+## Entity
+- Organization: https://www.endpointmedia.co.za/#organization
+- Founder: https://www.endpointmedia.co.za/about/author/frank-smit
+- Contact: hello@endpointmedia.co.za | +27 76 972 4559
+
+## Core Services
+- Website Development (Next.js): https://www.endpointmedia.co.za/services/website-development
+- Google Ads Management: https://www.endpointmedia.co.za/services/google-ads
+- Local SEO: https://www.endpointmedia.co.za/services/local-seo
+- Conversion Rate Optimization: https://www.endpointmedia.co.za/services/conversion-rate-optimization
+- Website Design Pricing (R15k–R150k): https://www.endpointmedia.co.za/services/website-design-prices
+
+## Pricing Methodology
+- Transparent tiered pricing: https://www.endpointmedia.co.za/pricing
+- ROI-first calculator: https://www.endpointmedia.co.za/services/website-design-prices
+- No percentage-of-spend Google Ads markup
+
+## Proof
+- Case Studies: https://www.endpointmedia.co.za/case-studies
+- Process (HowTo): https://www.endpointmedia.co.za/process
+
+## Local Markets
+- Location Hub: https://www.endpointmedia.co.za/locations
+- Sandton, Midrand, Meyersdal, New Redruth, Bryanston, Rivonia, Randburg,
+  Rosebank, Fourways, Waterfall, Benoni, Roodepoort
+
+## Content
+- Blog (20 posts): https://www.endpointmedia.co.za/blog
+- Insights: https://www.endpointmedia.co.za/insights
+
+## Optional
+- Full sitemap: https://www.endpointmedia.co.za/sitemap.xml

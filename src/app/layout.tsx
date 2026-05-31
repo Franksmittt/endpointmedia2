@@ -110,7 +110,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -333,8 +333,8 @@ export default function RootLayout({
       <body className="bg-gray-50 font-sans text-gray-800 antialiased">
         <a href="#main-content" className="skip-link">Skip to main content</a>
     
-        <Header /> 
-        <main id="main-content">{children}</main> 
+        <Header />
+        <main id="main-content">{children}</main>
         <Footer />
         <WebVitals />
         {primaryTagId && (

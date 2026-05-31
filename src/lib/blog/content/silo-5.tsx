@@ -168,8 +168,8 @@ export function ProgrammaticDesignFactoryMeta() {
 
       <Callout title="We Build the Factory, Not Just the Ads" variant="teal">
         <p>
-          Endpoint Media&apos;s agency portal connects creative briefs, layout specs, and export pipelines for
-          multi-client Meta programs. Stop mail-merging one template.{' '}
+          Endpoint Media engineers creative systems — layout specs, export pipelines, and entity-diverse
+          Meta programs for multi-location clients. Stop mail-merging one template.{' '}
           <InternalLink href="/case-studies/alberton-tyre-clinic">See Alberton Tyre Clinic positioning</InternalLink>{' '}
           · <InternalLink href="/contact">Book a creative systems consult</InternalLink>
         </p>

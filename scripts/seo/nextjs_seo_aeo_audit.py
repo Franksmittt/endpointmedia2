@@ -21,10 +21,7 @@ from typing import Dict, List
 SOURCE_EXTENSIONS = {".ts", ".tsx", ".js", ".jsx"}
 
 # Routes intentionally noindexed (also disallowed in robots.ts) — not SEO defects.
-INTENTIONAL_NOINDEX_PREFIXES = (
-    "src/app/agency-login/",
-    "src/app/agency/",
-)
+INTENTIONAL_NOINDEX_PREFIXES: tuple[str, ...] = ()
 
 
 @dataclass

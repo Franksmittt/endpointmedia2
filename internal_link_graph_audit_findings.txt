@@ -1,43 +1,43 @@
 INTERNAL LINK GRAPH AUDIT FINDINGS
 =================================
-Base URL: http://localhost:3000
+Base URL: http://localhost:3001
 
 Total findings: 0
 HIGH: 0 | MEDIUM: 0 | LOW: 0
 
 No internal link graph issues detected.
 Top hub pages (outgoing links):
-- http://localhost:3000/blog -> 42
-- http://localhost:3000/services/google-ads -> 31
-- http://localhost:3000/locations -> 30
-- http://localhost:3000/services -> 28
-- http://localhost:3000/ -> 27
-- http://localhost:3000/blog/shopify-canonical-loop-duplicate-paths -> 24
-- http://localhost:3000/case-studies -> 24
-- http://localhost:3000/blog/landing-page-speed-quality-score -> 24
-- http://localhost:3000/blog/wordpress-rest-api-user-leak-security -> 24
-- http://localhost:3000/blog/anatomy-elite-landing-page -> 23
+- http://localhost:3001/blog -> 47
+- http://localhost:3001/services/google-ads -> 31
+- http://localhost:3001/locations -> 30
+- http://localhost:3001/services -> 28
+- http://localhost:3001/ -> 27
+- http://localhost:3001/blog/systemic-divergence-industry-vs-retail-south-africa -> 25
+- http://localhost:3001/case-studies -> 24
+- http://localhost:3001/blog/shopify-canonical-loop-duplicate-paths -> 24
+- http://localhost:3001/blog/wordpress-rest-api-user-leak-security -> 24
+- http://localhost:3001/blog/landing-page-speed-quality-score -> 24
 
 Top authority pages (incoming links):
-- http://localhost:3000/services/website-design-prices <- 92
-- http://localhost:3000/services/facebook-ads <- 92
-- http://localhost:3000/services/conversion-rate-optimization <- 92
-- http://localhost:3000/services/google-ads <- 92
-- http://localhost:3000/blog <- 92
-- http://localhost:3000/services <- 92
-- http://localhost:3000/pricing <- 92
-- http://localhost:3000/services/google-ads-pricing <- 92
-- http://localhost:3000/ <- 92
-- http://localhost:3000/services/local-seo <- 92
+- http://localhost:3001/locations <- 97
+- http://localhost:3001/services <- 97
+- http://localhost:3001/pricing <- 97
+- http://localhost:3001/services/facebook-ads <- 97
+- http://localhost:3001/services/website-design-prices <- 97
+- http://localhost:3001/blog <- 97
+- http://localhost:3001/contact <- 97
+- http://localhost:3001/case-studies <- 97
+- http://localhost:3001/ <- 97
+- http://localhost:3001/services/google-ads <- 97
 
 Deepest pages by click depth from home:
-- depth 2: http://localhost:3000/blog/anatomy-elite-landing-page
-- depth 2: http://localhost:3000/blog/minimalist-design-b2b-value
-- depth 2: http://localhost:3000/blog/answer-engine-optimization-aeo
-- depth 2: http://localhost:3000/blog/landing-page-speed-quality-score
-- depth 2: http://localhost:3000/blog/the-brutal-truth-about-wordpress
-- depth 2: http://localhost:3000/blog/nextjs-hydration-seo-rendering-traps
-- depth 2: http://localhost:3000/blog/core-web-vitals-financial-metric
-- depth 2: http://localhost:3000/blog/performance-engine-high-ticket-lead-gen
-- depth 2: http://localhost:3000/blog/wordpress-rest-api-user-leak-security
-- depth 2: http://localhost:3000/blog/freelancer-vs-agency-the-low-risk-choice-for-johannesburg
+- depth 2: http://localhost:3001/services/website-development
+- depth 2: http://localhost:3001/blog/local-seo-blueprint
+- depth 2: http://localhost:3001/services/google-ads-automotive
+- depth 2: http://localhost:3001/blog/the-true-cost-of-a-website-in-johannesburg
+- depth 2: http://localhost:3001/blog/the-schema-vacuum-technical-seo-advantage
+- depth 2: http://localhost:3001/blog/wix-vs-wordpress-guide-johannesburg-small-businesses
+- depth 2: http://localhost:3001/locations/bryanston
+- depth 2: http://localhost:3001/locations/randburg
+- depth 2: http://localhost:3001/locations/rivonia
+- depth 2: http://localhost:3001/locations/rosebank

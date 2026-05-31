@@ -1,0 +1,106 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-Agent: GPTBot
+Allow: /
+Allow: /blog/
+Allow: /services/
+Allow: /insights/
+Allow: /locations/
+Allow: /case-studies/
+Allow: /pricing/
+Allow: /process/
+Allow: /about/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-Agent: ChatGPT-User
+Allow: /
+Allow: /blog/
+Allow: /services/
+Allow: /insights/
+Allow: /locations/
+Allow: /case-studies/
+Allow: /pricing/
+Allow: /process/
+Allow: /about/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-Agent: ClaudeBot
+Allow: /
+Allow: /blog/
+Allow: /services/
+Allow: /insights/
+Allow: /locations/
+Allow: /case-studies/
+Allow: /pricing/
+Allow: /process/
+Allow: /about/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-Agent: anthropic-ai
+Allow: /
+Allow: /blog/
+Allow: /services/
+Allow: /insights/
+Allow: /locations/
+Allow: /case-studies/
+Allow: /pricing/
+Allow: /process/
+Allow: /about/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-Agent: PerplexityBot
+Allow: /
+Allow: /blog/
+Allow: /services/
+Allow: /insights/
+Allow: /locations/
+Allow: /case-studies/
+Allow: /pricing/
+Allow: /process/
+Allow: /about/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-Agent: Google-Extended
+Allow: /
+Allow: /blog/
+Allow: /services/
+Allow: /insights/
+Allow: /locations/
+Allow: /case-studies/
+Allow: /pricing/
+Allow: /process/
+Allow: /about/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://www.endpointmedia.co.za/sitemap.xml
+Sitemap: https://www.endpointmedia.co.za/llms.txt
+Sitemap: https://www.endpointmedia.co.za/alberton-service-area.kml
+Sitemap: https://www.endpointmedia.co.za/northern-corridor.kml

@@ -107,10 +107,36 @@ class RuntimeAuditor:
             path = path[:-1]
         return f"{scheme}://{netloc}{path}"
 
+    def _normalize_for_compare(self, url: str, path_only: bool = False) -> str:
+        parsed = urllib.parse.urlparse(url)
+        path = parsed.path or "/"
+        if path != "/" and path.endswith("/"):
+            path = path[:-1]
+        if path_only:
+            return path
+        host = parsed.netloc.lower().replace("www.", "")
+        return f"{host}{path}"
+
     def _is_html_url(self, url: str) -> bool:
         parsed = urllib.parse.urlparse(url)
         path = parsed.path.lower()
         return not any(path.endswith(ext) for ext in HTML_EXT_BLOCKLIST)
+
+    def _is_local_mode(self) -> bool:
+        host = urllib.parse.urlparse(self.base_url).hostname
+        return host in {"localhost", "127.0.0.1"}
+
+    def _remap_to_base(self, url: str) -> str:
+        """
+        When auditing localhost, sitemap loc values may still be production URLs.
+        Remap them to the supplied base host so runtime checks stay local.
+        """
+        if not self._is_local_mode():
+            return url
+        base = urllib.parse.urlparse(self.base_url)
+        parsed = urllib.parse.urlparse(url)
+        path = parsed.path or "/"
+        return f"{base.scheme}://{base.netloc}{path}"
 
     def _extract_canonical(self, html: str) -> Optional[str]:
         match = re.search(
@@ -156,7 +182,11 @@ class RuntimeAuditor:
                 nodes = root.findall(".//sm:url/sm:loc", ns)
                 if not nodes:
                     nodes = root.findall(".//url/loc")
-                sitemap_urls = [n.text.strip() for n in nodes if n.text and n.text.strip()]
+                sitemap_urls = [
+                    self._remap_to_base(n.text.strip())
+                    for n in nodes
+                    if n.text and n.text.strip()
+                ]
                 if not sitemap_urls:
                     self.add("HIGH", sitemap_url, "sitemap.xml parsed but contains zero URLs.")
             except Exception as exc:
@@ -223,6 +253,7 @@ class RuntimeAuditor:
                 self.add("HIGH", url, f"Redirect chain exceeded {MAX_REDIRECT_HOPS} hops.")
 
     def audit_page_indexability_and_semantics(self, urls: List[str]) -> None:
+        path_only = self._is_local_mode()
         for url in urls:
             if not self._is_html_url(url):
                 continue
@@ -243,11 +274,13 @@ class RuntimeAuditor:
                 self.add("MEDIUM", url, "Canonical link tag missing.")
             else:
                 canonical_abs = urllib.parse.urljoin(final_url, canonical)
-                if self._normalize_url(canonical_abs) != self._normalize_url(final_url):
+                if self._normalize_for_compare(canonical_abs, path_only) != self._normalize_for_compare(
+                    final_url, path_only
+                ):
                     self.add(
                         "MEDIUM",
                         url,
-                        f"Canonical mismatch. page={self._normalize_url(final_url)} canonical={self._normalize_url(canonical_abs)}",
+                        f"Canonical mismatch. page={self._normalize_for_compare(final_url, path_only)} canonical={self._normalize_for_compare(canonical_abs, path_only)}",
                     )
 
             # JSON-LD checks
