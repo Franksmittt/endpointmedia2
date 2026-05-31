@@ -18,6 +18,10 @@ export default function FounderLetterSection() {
             <h2 className="text-4xl font-bold leading-[1.06] tracking-[-1.5px] text-white md:text-5xl xl:text-6xl">
               You Don&apos;t Need Another Agency.
             </h2>
+            <div
+              aria-hidden="true"
+              className="mt-5 h-px w-28 bg-gradient-to-r from-teal-400/90 to-transparent"
+            />
             <p className="mt-5 text-3xl font-bold leading-[1.1] tracking-[-1px] text-zinc-500 md:text-4xl">
               You Need A Revenue System.
             </p>
@@ -38,7 +42,7 @@ export default function FounderLetterSection() {
                 conversion treated as separate projects instead of one accountable growth system.
               </p>
 
-              <blockquote className="border-l border-white/20 py-1 pl-6 text-xl leading-snug text-white md:text-2xl">
+              <blockquote className="border-l border-teal-400/60 bg-zinc-900/35 py-3 pl-6 pr-4 text-xl leading-snug text-white md:text-2xl">
                 Endpoint Media exists to unify discoverability, acquisition, and conversion into a
                 single technical stack you can actually measure.
               </blockquote>

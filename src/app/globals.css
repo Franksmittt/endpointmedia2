@@ -186,3 +186,41 @@
 .animation-delay-4000 {
   animation-delay: 4s;
 }
+
+@keyframes tenant-scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-tenant-scroll {
+  animation: tenant-scroll 28s linear infinite;
+}
+
+@keyframes proof-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.proof-marquee {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.proof-marquee-track {
+  animation: proof-marquee-scroll 24s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proof-marquee-track {
+    animation: none;
+  }
+}

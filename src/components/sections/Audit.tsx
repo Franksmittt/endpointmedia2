@@ -11,8 +11,8 @@ const Audit = () => {
   return (
     <section id="audit" className="bg-zinc-950 py-20 md:py-28">
       <div className="container mx-auto px-6">
-        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-20">
-          <div>
+        <div className="grid items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
+          <div className="flex h-full flex-col rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 sm:p-8">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
               Growth Audit
             </p>
@@ -34,7 +34,7 @@ const Audit = () => {
               ))}
             </ul>
 
-            <p className="mt-8 font-mono text-xs uppercase tracking-[0.16em] text-zinc-600">
+            <p className="mt-auto pt-8 font-mono text-xs uppercase tracking-[0.16em] text-zinc-600">
               Limited audit capacity each month · Senior review on every submission
             </p>
           </div>

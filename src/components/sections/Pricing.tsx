@@ -59,6 +59,11 @@ const includedItems = [
   'Strategic consultation included',
   'No monthly maintenance fees',
   'Self-sustaining Next.js architecture',
+  'Technical SEO baseline and schema setup',
+  'Core Web Vitals performance hardening',
+  'Conversion-focused page architecture',
+  'Analytics and event tracking foundation',
+  'Post-launch QA and handover documentation',
 ];
 
 const Pricing = () => {
@@ -155,7 +160,7 @@ const Pricing = () => {
             <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
               What&apos;s Included In Every Package
             </p>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-5 grid gap-x-8 gap-y-3 md:grid-cols-2">
               {includedItems.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-zinc-400">
                   <span className="mt-2 h-px w-4 shrink-0 bg-zinc-600" aria-hidden="true" />

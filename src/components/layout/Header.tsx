@@ -96,6 +96,11 @@ const Header = () => {
         </button>
       </div>
 
+      <div
+        aria-hidden="true"
+        className="h-px w-full bg-gradient-to-r from-transparent via-teal-400/90 to-transparent animate-pulse"
+      />
+
       {isMenuOpen && (
         <div className="fixed inset-0 top-[65px] z-40 bg-black/98 lg:hidden">
           <nav className="container mx-auto flex flex-col gap-1 px-6 py-8" aria-label="Mobile navigation">

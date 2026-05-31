@@ -90,11 +90,11 @@ export default function AgencyHeroSection() {
 
   return (
     <>
-      <section className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-black px-[5%] pb-10 pt-28 text-[#F5F5F7] md:pb-12 md:pt-32">
+      <section className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-black px-[5%] pb-12 pt-24 text-[#F5F5F7] md:pb-14 md:pt-28">
         <div className="pointer-events-none absolute top-0 h-[420px] w-[420px] rounded-full bg-blue-900/10 blur-[120px]" />
 
-        <div className="z-10 flex w-full max-w-5xl flex-col items-start text-left">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-400 mb-5">
+        <div className="z-10 mx-auto flex w-full max-w-5xl flex-col items-center text-center">
+        <p className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-zinc-400">
           Elite Web Architecture + Revenue Systems
         </p>
         <h1
@@ -114,7 +114,7 @@ export default function AgencyHeroSection() {
 
         <form
           onSubmit={handleRunAudit}
-          className="mb-2 flex w-full max-w-3xl flex-col items-stretch rounded-sm border border-[#333333] bg-[#111111] p-2 shadow-2xl transition-all duration-300 focus-within:border-zinc-500"
+          className="mb-2 flex w-full max-w-3xl flex-col items-stretch rounded-sm border border-[#333333] bg-[#111111] p-2 text-left shadow-2xl transition-all duration-300 focus-within:border-zinc-500"
         >
           <div className="flex flex-col gap-2 sm:flex-row">
             <input
@@ -226,17 +226,39 @@ export default function AgencyHeroSection() {
             </div>
           </div>
         )}
-      </div>
-      </section>
-      <section className="bg-zinc-950/90 py-12 md:py-14">
-        <div className="container mx-auto px-6">
-          <p className="max-w-4xl text-sm leading-relaxed text-[#86868B] md:text-base">
-            We engineered this deep diagnostics platform to protect our clients against modern
-            crawler traps, platform-specific duplicate canonical paths, and edge network failures
-            that completely sever brands from generative AI search spaces like OpenAI, Claude, and
-            Gemini.
-          </p>
+
+        <div className="mt-6 grid w-full max-w-5xl gap-4 md:grid-cols-3">
+          <a
+            href="/services/facebook-ads"
+            className="rounded-sm border border-zinc-800 bg-zinc-950/95 p-5 shadow-2xl transition-colors hover:border-teal-400/70"
+          >
+            <h3 className="text-lg font-semibold text-white">Facebook Ads + Management</h3>
+            <p className="mt-2 text-sm text-zinc-400">
+              Full-funnel Meta campaign strategy, creative direction, and optimization focused on revenue.
+            </p>
+          </a>
+
+          <a
+            href="/services/google-ads"
+            className="rounded-sm border border-zinc-800 bg-zinc-950/95 p-5 shadow-2xl transition-colors hover:border-teal-400/70"
+          >
+            <h3 className="text-lg font-semibold text-white">Google Ads + Management</h3>
+            <p className="mt-2 text-sm text-zinc-400">
+              Search, PMax, and landing-page system management with strict cost-per-acquisition control.
+            </p>
+          </a>
+
+          <a
+            href="/services/website-development"
+            className="rounded-sm border border-zinc-800 bg-zinc-950/95 p-5 shadow-2xl transition-colors hover:border-teal-400/70"
+          >
+            <h3 className="text-lg font-semibold text-white">Web Architecture + Dominance</h3>
+            <p className="mt-2 text-sm text-zinc-400">
+              Technical web architecture built for speed, authority, and long-term search dominance.
+            </p>
+          </a>
         </div>
+      </div>
       </section>
     </>
   );
