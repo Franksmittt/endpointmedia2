@@ -1,6 +1,6 @@
 NEXT.JS RUNTIME SEO/AEO AUDIT FINDINGS
 ======================================
-Base URL: http://localhost:3001
+Base URL: http://localhost:3000
 
 Total findings: 0
 HIGH: 0 | MEDIUM: 0 | LOW: 0

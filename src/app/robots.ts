@@ -22,7 +22,7 @@ const AI_ALLOW = [
   '/about/',
 ];
 
-const DISALLOW = ['/api/', '/admin/', '/private/'];
+const DISALLOW = ['/api/', '/admin/', '/private/', '/agency/', '/agency-login'];
 
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za';
@@ -33,6 +33,7 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         disallow: '/',
       },
+      sitemap: `${baseUrl}/sitemap.xml`,
     };
   }
 

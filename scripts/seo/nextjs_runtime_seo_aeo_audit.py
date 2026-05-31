@@ -274,9 +274,15 @@ class RuntimeAuditor:
     def run(self) -> None:
         sitemap_urls = self.audit_platform_files()
         sample_urls = sitemap_urls[:30] if sitemap_urls else [self.base_url]
+        blog_urls = [
+            u
+            for u in sitemap_urls
+            if "/blog/" in u and self._normalize_url(u) != self._normalize_url(f"{self.base_url}/blog")
+        ]
         self.audit_bot_access(sample_urls)
         self.audit_redirect_chain(sample_urls[:20])
-        self.audit_page_indexability_and_semantics(sample_urls[:20])
+        semantic_urls = list(dict.fromkeys([*sample_urls[:20], *blog_urls]))
+        self.audit_page_indexability_and_semantics(semantic_urls)
         self.write_report()
 
     def write_report(self) -> None:

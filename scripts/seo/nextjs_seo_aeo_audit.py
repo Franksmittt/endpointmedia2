@@ -20,6 +20,12 @@ from typing import Dict, List
 
 SOURCE_EXTENSIONS = {".ts", ".tsx", ".js", ".jsx"}
 
+# Routes intentionally noindexed (also disallowed in robots.ts) — not SEO defects.
+INTENTIONAL_NOINDEX_PREFIXES = (
+    "src/app/agency-login/",
+    "src/app/agency/",
+)
+
 
 @dataclass
 class Finding:
@@ -225,6 +231,8 @@ class NextSeoAeoAuditor:
             self.add(rel, "MEDIUM", "No <h1> detected in page component.")
 
     def _check_noindex_directives(self, rel: str, content: str) -> None:
+        if any(rel.replace("\\", "/").startswith(prefix) for prefix in INTENTIONAL_NOINDEX_PREFIXES):
+            return
         if re.search(r"robots\s*:\s*\{[^}]*index\s*:\s*false", content, flags=re.DOTALL):
             self.add(rel, "MEDIUM", "robots.index is false; page is configured as noindex.")
         if re.search(r"['\"]noindex['\"]", content):
