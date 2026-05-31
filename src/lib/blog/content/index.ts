@@ -20,10 +20,22 @@ import {
   StructuredDataLocalSchema,
   MaximizingRegionalMapVisibility,
 } from './silo-3';
+import {
+  AeoShiftChatgptGemini,
+  NextjsHydrationSeoTraps,
+  ShopifyCanonicalLoopDuplicatePaths,
+  WordpressRestApiUserLeakSecurity,
+  AiBotEdgeMiddlewareCloudflareBlocking,
+} from './silo-4';
 import { LEGACY_CONTENT_MAP } from './legacy-map';
 export { isLegacySlug } from './legacy';
 
 export const BLOG_CONTENT_MAP: Record<string, ComponentType> = {
+  'aeo-shift-chatgpt-gemini-optimization': AeoShiftChatgptGemini,
+  'nextjs-hydration-seo-rendering-traps': NextjsHydrationSeoTraps,
+  'shopify-canonical-loop-duplicate-paths': ShopifyCanonicalLoopDuplicatePaths,
+  'wordpress-rest-api-user-leak-security': WordpressRestApiUserLeakSecurity,
+  'ai-bot-edge-middleware-cloudflare-blocking': AiBotEdgeMiddlewareCloudflareBlocking,
   'the-brutal-truth-about-wordpress': BrutalTruthWordPress,
   'core-web-vitals-financial-metric': CoreWebVitalsFinancial,
   'answer-engine-optimization-aeo': AnswerEngineOptimization,

@@ -88,6 +88,17 @@ class InternalLinkGraphAudit:
         path = urllib.parse.urlparse(url).path.lower()
         return not any(path.endswith(ext) for ext in HTML_SKIP_EXTENSIONS)
 
+    def rewrite_to_base_host(self, url: str) -> str:
+        """Map sitemap absolute URLs onto the audit base host (e.g. localhost staging)."""
+        base_parsed = urllib.parse.urlparse(self.base_url)
+        url_parsed = urllib.parse.urlparse(url)
+        if url_parsed.netloc.lower() == base_parsed.netloc.lower():
+            return url
+        scheme = base_parsed.scheme or "https"
+        netloc = base_parsed.netloc
+        path = url_parsed.path or "/"
+        return f"{scheme}://{netloc}{path}"
+
     def parse_sitemap(self) -> List[str]:
         sitemap_url = f"{self.base_url}/sitemap.xml"
         status, _, _, body = self.request(sitemap_url)
@@ -101,7 +112,8 @@ class InternalLinkGraphAudit:
             nodes = root.findall(".//sm:url/sm:loc", ns)
             if not nodes:
                 nodes = root.findall(".//url/loc")
-            urls = [n.text.strip() for n in nodes if n.text and n.text.strip()]
+            raw_urls = [n.text.strip() for n in nodes if n.text and n.text.strip()]
+            urls = [self.rewrite_to_base_host(u) for u in raw_urls]
             urls = [u for u in urls if self.is_html_candidate(u)]
             # Deduplicate, preserve order
             seen: Set[str] = set()

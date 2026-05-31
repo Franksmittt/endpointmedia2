@@ -1,5 +1,3 @@
-// src/components/layout/Footer.tsx
-import React from 'react';
 import Link from 'next/link';
 
 const socialLinks = [
@@ -7,12 +5,7 @@ const socialLinks = [
     name: 'Facebook',
     href: 'https://www.facebook.com/people/Endpoint-Media/61583029051159/',
     icon: (
-      <svg
-        className="w-5 h-5"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        aria-hidden="true"
-      >
+      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M13.5 9.5V7.5c0-.8.5-1.3 1.4-1.3h1.6V3h-2.1c-2.7 0-4 1.4-4 4.1v2.4H8v3h2.4V21h3.1v-8.5h2.4l.4-3h-2.8z" />
       </svg>
     ),
@@ -21,12 +14,7 @@ const socialLinks = [
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/frank-smittt',
     icon: (
-      <svg
-        className="w-5 h-5"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        aria-hidden="true"
-      >
+      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M6.5 9H3.5V21H6.5V9ZM5 7.5C6 7.5 6.8 6.7 6.8 5.8 6.8 5 6 4.2 5 4.2s-1.7.8-1.7 1.6c0 .9.8 1.7 1.7 1.7ZM20.5 21H17.5V14.5c0-1.6-.7-2.5-1.9-2.5s-1.9.9-1.9 2.5V21h-3v-12h3v1.5c.6-1 1.6-1.8 3.2-1.8 2.2 0 3.6 1.5 3.6 4.3V21Z" />
       </svg>
     ),
@@ -35,124 +23,135 @@ const socialLinks = [
     name: 'Google Business Profile',
     href: 'https://www.google.com/maps?cid=06180556288562610524',
     icon: (
-      <svg
-        className="w-5 h-5"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        aria-hidden="true"
-      >
+      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M12 2a10 10 0 1 0 0 20c2.7 0 5-1 6.6-2.6l-2.2-2.1c-.9.8-2.1 1.3-3.4 1.3-3 0-5.5-2.4-5.5-5.5S9 7.6 12 7.6c1.3 0 2.3.4 3.1 1.1l-1.9 1.9h6.7v-6.5l-2.1 2.1C16.5 4.3 14.5 2 12 2Z" />
       </svg>
     ),
   },
 ];
 
+const navigateLinks = [
+  { name: 'Services', href: '/services' },
+  { name: 'Industries', href: '/industries' },
+  { name: 'Locations', href: '/locations' },
+  { name: 'Process', href: '/process' },
+  { name: 'Case Studies', href: '/case-studies' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'Blog', href: '/blog' },
+];
+
+const serviceLinks = [
+  { name: 'Google Ads Management', href: '/services/google-ads' },
+  { name: 'Local SEO & GBP', href: '/services/local-seo' },
+  { name: 'Website Design', href: '/services/website-design-prices' },
+  { name: 'Google Ads Pricing', href: '/services/google-ads-pricing' },
+  { name: 'Conversion Optimization', href: '/services/conversion-rate-optimization' },
+  { name: 'Facebook Ads', href: '/services/facebook-ads' },
+];
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="pt-16 pb-8 bg-charcoal text-gray-200 border-t-4 border-teal-700">
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 border-b border-gray-700 pb-10 mb-8">
-          <div className="lg:col-span-1">
-            <Link href="/" aria-label="Endpoint Media Homepage" className="inline-block text-3xl font-extrabold text-white transition duration-300 hover:text-teal-400 font-heading focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 rounded">
-              Endpoint<span className="text-teal-500">.</span><span className="font-normal text-2xl ml-1 text-white opacity-80">Media</span>
+    <footer className="border-t border-zinc-800 bg-black text-zinc-400">
+      <div className="container mx-auto px-6 py-16 md:py-20">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-4">
+            <Link
+              href="/"
+              aria-label="Endpoint Media Homepage"
+              className="inline-block text-lg font-bold tracking-tight text-white"
+            >
+              Endpoint<span className="text-zinc-500">.</span>
+              <span className="ml-1 font-normal text-zinc-400">Media</span>
             </Link>
-            <p className="mt-4 max-w-md text-gray-200 text-sm leading-relaxed">
-              Building high-performance digital engines for Johannesburg&apos;s service industry backbone.
-              We transform websites into predictable lead pipelines. Your market dominance starts here.
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-500">
+              Elite web architecture and revenue systems for Johannesburg service businesses.
+              We engineer discoverability, acquisition, and conversion as one accountable stack.
             </p>
-            <p className="mt-6 text-xs text-teal-500 font-semibold uppercase tracking-wider">
-              Proudly Based in Johannesburg, South Africa.
+            <p className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-zinc-600">
+              Johannesburg · South Africa
             </p>
-            <div className="mt-6 flex space-x-4 items-center">
-              <p className="text-xs text-gray-300 font-semibold uppercase tracking-wider mr-2">Trusted &amp; Secure:</p>
-              <span className="inline-block bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">SSL Secured</span>
-              <span className="inline-block bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Local Expert</span>
-            </div>
-            <div className="mt-6">
-              <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">
-                Connect with us
-              </p>
-              <div className="flex space-x-3">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-10 h-10 rounded-full bg-charcoal-light text-white flex items-center justify-center hover:bg-teal-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-300 focus-visible:ring-offset-charcoal transition"
-                    aria-label={`Visit our ${link.name} page`}
-                  >
-                    {link.icon}
-                  </a>
-                ))}
-              </div>
+
+            <div className="mt-6 flex gap-2">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-sm border border-zinc-800 text-zinc-400 transition-colors hover:border-zinc-600 hover:text-white"
+                  aria-label={`Visit our ${link.name} page`}
+                >
+                  {link.icon}
+                </a>
+              ))}
             </div>
           </div>
 
-          <div>
-            <h4 className="text-base font-semibold mb-4 text-white uppercase tracking-wider font-heading">Navigate</h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link href="/services" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Services</Link></li>
-              <li><Link href="/industries" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Industries</Link></li>
-              <li><Link href="/locations" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Locations</Link></li>
-              <li><Link href="/process" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Our Process</Link></li>
-              <li><Link href="/case-studies" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Case Studies</Link></li>
-              <li><Link href="/pricing" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Pricing</Link></li>
-              <li><Link href="/blog" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Blog</Link></li>
-              <li><Link href="/alberton-business-heritage" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Alberton Heritage</Link></li>
+          <div className="lg:col-span-2">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600">Navigate</p>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              {navigateLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="transition-colors hover:text-white">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-base font-semibold mb-4 text-white uppercase tracking-wider font-heading">Services</h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link href="/services/website-design-prices" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Website Design Prices</Link></li>
-              <li><Link href="/services/local-seo" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Local SEO &amp; GBP</Link></li>
-              <li><Link href="/services/google-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Google Ads Hub</Link></li>
-              <li><Link href="/services/b2b-google-ads-management" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">B2B Google Ads</Link></li>
-              <li><Link href="/services/google-ads-pricing" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Google Ads Pricing</Link></li>
-              <li><Link href="/services/facebook-ads" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Facebook Ads</Link></li>
-              <li><Link href="/services/conversion-rate-optimization" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">CRO</Link></li>
-              <li><Link href="/services/website-maintenance" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">Maintenance</Link></li>
-              <li className="pt-2"><Link href="/services" className="text-teal-400 hover:text-teal-300 transition font-medium text-xs uppercase tracking-wider focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded px-1">View All Services →</Link></li>
+          <div className="lg:col-span-3">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600">Services</p>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              {serviceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="transition-colors hover:text-white">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-base font-semibold mb-4 text-white uppercase tracking-wider font-heading">Get In Touch</h4>
-            <address className="not-italic space-y-3 text-sm">
+          <div className="lg:col-span-3">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600">Contact</p>
+            <address className="mt-4 space-y-3 text-sm not-italic">
               <p>
-                <a href="tel:+27769724559" className="hover:text-teal-400 transition flex items-center focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded">
-                  <svg className="w-4 h-4 mr-2 text-teal-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                  076 972 4559 (Frank Smit)
+                <a href="tel:+27769724559" className="transition-colors hover:text-white">
+                  076 972 4559
                 </a>
               </p>
               <p>
-                <a href="mailto:hello@endpointmedia.co.za" className="hover:text-teal-400 transition flex items-center focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded">
-                  <svg className="w-4 h-4 mr-2 text-teal-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 13l-9-9V7l9 5 9-5v5z"></path></svg>
+                <a
+                  href="mailto:hello@endpointmedia.co.za"
+                  className="transition-colors hover:text-white"
+                >
                   hello@endpointmedia.co.za
                 </a>
               </p>
-              <p className="flex items-start">
-                <svg className="w-4 h-4 mr-2 text-teal-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                <span>Johannesburg, Gauteng, SA<br />(Online/Remote Operations)</span>
-              </p>
+              <p className="text-zinc-500">Johannesburg, Gauteng · Remote-first</p>
             </address>
-            <div className="mt-6 pt-6 border-t border-gray-700">
-              <Link href="#audit" className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm py-2 px-4 rounded transition focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 uppercase tracking-wider">
-                Free Growth Audit
-              </Link>
-              <p className="text-xs text-gray-400 mt-2">Zero cost. Zero risk.</p>
-            </div>
+
+            <Link
+              href="/#audit"
+              className="mt-6 inline-flex items-center justify-center rounded-sm bg-white px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-zinc-200"
+            >
+              Free Growth Audit
+            </Link>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-300 gap-4 md:gap-0">
-          <p>&copy; {currentYear} Endpoint Media. All rights reserved. Engineering Leads for Joburg&apos;s Best.</p>
-          <div className="flex flex-wrap gap-x-4 gap-y-2">
-            <Link href="/privacy-policy" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="hover:text-teal-400 transition focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded">Terms of Service</Link>
+        <div className="mt-14 flex flex-col gap-4 border-t border-zinc-800 pt-8 text-xs text-zinc-600 md:flex-row md:items-center md:justify-between">
+          <p>&copy; {currentYear} Endpoint Media. All rights reserved.</p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <Link href="/privacy-policy" className="transition-colors hover:text-zinc-400">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-of-service" className="transition-colors hover:text-zinc-400">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

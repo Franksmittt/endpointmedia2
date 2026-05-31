@@ -1,8 +1,10 @@
 "use client";
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { trackFormSubmission } from '@/lib/analytics';
+
+const inputClassName =
+  'w-full rounded-sm border border-zinc-800 bg-zinc-950/80 px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 outline-none transition-colors focus:border-zinc-500';
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -77,41 +79,42 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="p-8 bg-white rounded-xl shadow-2xl text-left max-w-2xl mx-auto border-t-4 border-gray-900 h-full">
-      <h3 className="text-3xl font-bold font-heading mb-6 text-gray-900">Send Us an Inquiry</h3>
-      <form onSubmit={handleSubmit} method="POST" className="space-y-6 relative">
+    <div className="h-full max-w-2xl rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 text-left">
+      <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">Inquiry Form</p>
+      <h3 className="mt-2 text-2xl font-semibold text-white">Send Us a Message</h3>
+      <form onSubmit={handleSubmit} method="POST" className="relative mt-6 space-y-5">
         <div>
-          <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-1">
-            Your Full Name <span className="text-red-500">*</span>
+          <label htmlFor="contact-name" className="mb-1.5 block text-sm text-zinc-400">
+            Your Full Name <span className="text-zinc-600">*</span>
           </label>
           <input
             type="text"
             id="contact-name"
             name="name"
             placeholder="e.g. John Doe"
-            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+            className={inputClassName}
             required
             aria-required="true"
           />
         </div>
 
         <div>
-          <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 mb-1">
-            Email Address <span className="text-red-500">*</span>
+          <label htmlFor="contact-email" className="mb-1.5 block text-sm text-zinc-400">
+            Email Address <span className="text-zinc-600">*</span>
           </label>
           <input
             type="email"
             id="contact-email"
             name="email"
             placeholder="e.g. hello@business.co.za"
-            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+            className={inputClassName}
             required
             aria-required="true"
           />
         </div>
 
         <div>
-          <label htmlFor="contact-phone" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="contact-phone" className="mb-1.5 block text-sm text-zinc-400">
             Phone Number
           </label>
           <input
@@ -119,20 +122,20 @@ export default function ContactForm() {
             id="contact-phone"
             name="phone"
             placeholder="e.g. 076 972 4559"
-            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+            className={inputClassName}
           />
         </div>
 
         <div>
-          <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700 mb-1">
-            What can we help you achieve? <span className="text-red-500">*</span>
+          <label htmlFor="contact-message" className="mb-1.5 block text-sm text-zinc-400">
+            What can we help you achieve? <span className="text-zinc-600">*</span>
           </label>
           <textarea
             id="contact-message"
             name="message"
             rows={5}
             placeholder="Tell us about your business, your goals, and your service area (e.g., Sandton, Randburg)."
-            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+            className={inputClassName}
             required
             aria-required="true"
           />
@@ -154,23 +157,23 @@ export default function ContactForm() {
           <div
             role={submitMessage.type === 'error' ? 'alert' : 'status'}
             aria-live="polite"
-            className={`p-4 rounded-lg ${
+            className={`rounded-sm border p-4 text-sm ${
               submitMessage.type === 'success'
-                ? 'bg-green-50 text-green-800 border border-green-200'
-                : 'bg-red-50 text-red-800 border border-red-200'
+                ? 'border-emerald-800/40 bg-emerald-950/20 text-emerald-200'
+                : 'border-red-800/40 bg-red-950/20 text-red-200'
             }`}
           >
             {submitMessage.text}
           </div>
         )}
 
-        <Button
+        <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-teal-600 hover:bg-teal-700 text-white font-extrabold py-4 px-6 rounded-lg transition duration-300 text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500 uppercase tracking-wider shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full rounded-sm bg-white px-6 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isSubmitting ? 'Sending...' : 'Send My Inquiry'}
-        </Button>
+        </button>
       </form>
     </div>
   );

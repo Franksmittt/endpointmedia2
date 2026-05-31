@@ -1,43 +1,43 @@
 INTERNAL LINK GRAPH AUDIT FINDINGS
 =================================
-Base URL: https://www.endpointmedia.co.za
+Base URL: http://localhost:3001
 
 Total findings: 0
 HIGH: 0 | MEDIUM: 0 | LOW: 0
 
 No internal link graph issues detected.
 Top hub pages (outgoing links):
-- https://www.endpointmedia.co.za/blog -> 40
-- https://www.endpointmedia.co.za/locations -> 33
-- https://www.endpointmedia.co.za/services/google-ads -> 33
-- https://www.endpointmedia.co.za/services -> 29
-- https://www.endpointmedia.co.za/case-studies -> 27
-- https://www.endpointmedia.co.za/blog/performance-engine-high-ticket-lead-gen -> 26
-- https://www.endpointmedia.co.za/blog/anatomy-elite-landing-page -> 26
-- https://www.endpointmedia.co.za/blog/landing-page-speed-quality-score -> 26
-- https://www.endpointmedia.co.za/blog/the-brutal-truth-about-wordpress -> 26
-- https://www.endpointmedia.co.za/blog/answer-engine-optimization-aeo -> 26
+- http://localhost:3001/blog -> 42
+- http://localhost:3001/services/google-ads -> 31
+- http://localhost:3001/locations -> 30
+- http://localhost:3001/services -> 28
+- http://localhost:3001/ -> 27
+- http://localhost:3001/case-studies -> 24
+- http://localhost:3001/blog/wordpress-rest-api-user-leak-security -> 24
+- http://localhost:3001/blog/shopify-canonical-loop-duplicate-paths -> 24
+- http://localhost:3001/blog/landing-page-speed-quality-score -> 24
+- http://localhost:3001/industries -> 23
 
 Top authority pages (incoming links):
-- https://www.endpointmedia.co.za/ <- 87
-- https://www.endpointmedia.co.za/privacy-policy <- 87
-- https://www.endpointmedia.co.za/services/website-design-prices <- 87
-- https://www.endpointmedia.co.za/alberton-business-heritage <- 87
-- https://www.endpointmedia.co.za/services/google-ads-pricing <- 87
-- https://www.endpointmedia.co.za/services/facebook-ads <- 87
-- https://www.endpointmedia.co.za/process <- 87
-- https://www.endpointmedia.co.za/services/conversion-rate-optimization <- 87
-- https://www.endpointmedia.co.za/locations <- 87
-- https://www.endpointmedia.co.za/services/google-ads <- 87
+- http://localhost:3001/case-studies <- 92
+- http://localhost:3001/services/conversion-rate-optimization <- 92
+- http://localhost:3001/industries <- 92
+- http://localhost:3001/ <- 92
+- http://localhost:3001/services/google-ads-pricing <- 92
+- http://localhost:3001/services/local-seo <- 92
+- http://localhost:3001/terms-of-service <- 92
+- http://localhost:3001/privacy-policy <- 92
+- http://localhost:3001/services <- 92
+- http://localhost:3001/services/facebook-ads <- 92
 
 Deepest pages by click depth from home:
-- depth 3: https://www.endpointmedia.co.za/about/author/frank-smit
-- depth 2: https://www.endpointmedia.co.za/blog/how-much-does-website-cost-south-africa-2025
-- depth 2: https://www.endpointmedia.co.za/blog/wix-vs-wordpress-guide-johannesburg-small-businesses
-- depth 2: https://www.endpointmedia.co.za/blog/anatomy-elite-landing-page
-- depth 2: https://www.endpointmedia.co.za/blog/local-seo-blueprint
-- depth 2: https://www.endpointmedia.co.za/blog/the-true-cost-of-a-website-in-johannesburg
-- depth 2: https://www.endpointmedia.co.za/blog/minimalist-design-b2b-value
-- depth 2: https://www.endpointmedia.co.za/blog/landing-page-speed-quality-score
-- depth 2: https://www.endpointmedia.co.za/blog/answer-engine-optimization-aeo
-- depth 2: https://www.endpointmedia.co.za/blog/google-ads-tracking-errors-budget
+- depth 2: http://localhost:3001/blog/the-schema-vacuum-technical-seo-advantage
+- depth 2: http://localhost:3001/blog/wix-vs-wordpress-guide-johannesburg-small-businesses
+- depth 2: http://localhost:3001/blog/the-true-cost-of-a-website-in-johannesburg
+- depth 2: http://localhost:3001/services/google-ads-automotive
+- depth 2: http://localhost:3001/blog/local-seo-blueprint
+- depth 2: http://localhost:3001/services/website-development
+- depth 2: http://localhost:3001/services/law-firm-websites
+- depth 2: http://localhost:3001/services/growth-rescue
+- depth 2: http://localhost:3001/services/b2b-google-ads-management
+- depth 2: http://localhost:3001/services/website-redesign

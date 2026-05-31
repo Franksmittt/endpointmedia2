@@ -1,8 +1,16 @@
-// src/app/services/google-ads/page.tsx
-import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import InternalLinks from '@/components/seo/InternalLinks';
+import {
+  PageBulletGrid,
+  PageCardGrid,
+  PageCta,
+  PageFaq,
+  PageHero,
+  PageIntro,
+  PageMetrics,
+  PageSection,
+} from '@/components/layout/page-ui';
 import { buildMetadata, secureJsonLD, BASE_URL } from '@/lib/seo';
 
 const PAGE_PATH = '/services/google-ads';
@@ -74,6 +82,15 @@ const metrics = [
   { stat: '12 hrs', label: 'Response time for campaign change requests' },
 ];
 
+const deliverables = [
+  'Campaign/AdGroup rebuild with suburb + intent targeting',
+  'Ad copy + asset stacks for search and Performance Max',
+  'Dedicated landing pages with CRO best practices',
+  'GA4, server-side tracking, and call tracking numbers',
+  'Negative keyword governance & search term mining',
+  'Weekly reports focused on CPA, ROAS, and pipeline value',
+];
+
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -134,200 +151,82 @@ const GoogleAdsPage = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-white py-20 md:py-28">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-teal-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">Paid Search • CRO • Tracking</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-            Turn wasted Google Ads spend into predictable booked work.
-          </h1>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
-            We rebuild Google Ads for Johannesburg operators in one sprint: campaign architecture, landing pages, GA4 + call
-            tracking, and relentless optimization tied to actual lead quality. No retainers. Just measurable ROI.
-          </p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-teal-500 text-white shadow-lg shadow-teal-500/30 hover:bg-teal-400 transition"
-            >
-              Request a paid search audit
-            </Link>
-            <Link
-              href="/case-studies"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition"
-            >
-              See campaign results
-            </Link>
-          </div>
-          <p className="text-sm text-gray-400 mt-6">
-            Built for emergency services, legal, medical, home improvement, and B2B operators across Sandton, Midrand, and
-            greater Johannesburg.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        kicker="Paid Search · CRO · Tracking"
+        title="Turn wasted Google Ads spend into predictable booked work."
+        description="We rebuild Google Ads for Johannesburg operators in one sprint: campaign architecture, landing pages, GA4 + call tracking, and relentless optimization tied to actual lead quality."
+        note="Built for emergency services, legal, medical, home improvement, and B2B operators across Sandton, Midrand, and greater Johannesburg."
+        primaryCta={{ href: '/contact', label: 'Request a paid search audit' }}
+        secondaryCta={{ href: '/case-studies', label: 'See campaign results' }}
+      />
 
-      {/* Metrics */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid gap-6 md:grid-cols-4">
-            {metrics.map((metric) => (
-              <div key={metric.label} className="text-center border border-gray-200 rounded-2xl p-6 shadow-sm">
-                <p className="text-3xl font-bold text-gray-900">{metric.stat}</p>
-                <p className="text-sm text-gray-600 mt-2">{metric.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageSection tone="zinc">
+        <PageMetrics items={metrics} />
+      </PageSection>
 
-      {/* Differentiators */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mb-12">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">Why Endpoint Media</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
-              Paid search built for operators, not vanity dashboards.
-            </h2>
-            <p className="text-lg text-gray-600 mt-4">
-              We obsess over booked jobs and pipeline value. That means fixing tracking, aligning landing pages, and iterating on
-              real sales feedback. Not just tweaking bids.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {differentiators.map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageSection tone="black">
+        <PageIntro
+          kicker="Why Endpoint Media"
+          title="Paid search built for operators, not vanity dashboards."
+          description="We obsess over booked jobs and pipeline value. That means fixing tracking, aligning landing pages, and iterating on real sales feedback — not just tweaking bids."
+        />
+        <PageCardGrid items={differentiators} />
+      </PageSection>
 
-      {/* Process */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-2xl mb-12">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">Execution playbook</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">One sprint. Three stages.</h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {processSteps.map((step) => (
-              <div key={step.step} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
-                <p className="text-teal-500 text-sm font-semibold">Step {step.step}</p>
-                <h3 className="text-xl font-semibold text-gray-900 mt-3 mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageSection tone="zinc">
+        <PageIntro kicker="Execution playbook" title="One sprint. Three stages." />
+        <PageCardGrid columns={3} items={processSteps} />
+      </PageSection>
 
-      {/* Deliverables */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <p className="text-teal-300 font-semibold uppercase tracking-wide">Every sprint includes</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold">All the pieces required for profitable Google Ads.</h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              'Campaign/AdGroup rebuild with suburb + intent targeting',
-              'Ad copy + asset stacks for search and Performance Max',
-              'Dedicated landing pages with CRO best practices',
-              'GA4, server-side tracking, and call tracking numbers',
-              'Negative keyword governance & search term mining',
-              'Weekly reports focused on CPA, ROAS, and pipeline value',
-            ].map((item) => (
-              <div key={item} className="bg-gray-800 rounded-2xl p-6 border border-white/10">
-                <p className="text-lg">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageSection tone="black">
+        <PageIntro
+          kicker="Every sprint includes"
+          title="All the pieces required for profitable Google Ads."
+        />
+        <PageBulletGrid items={deliverables} />
+      </PageSection>
 
-      {/* Google Ads service hub */}
-      <section className="py-20 bg-gray-50 border-t border-gray-200">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mb-10">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">Full Google Ads stack</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3 font-heading">
-              Specialized paid search for every vertical and Gauteng node.
-            </h2>
-            <p className="text-lg text-gray-600 mt-4">
-              Endpoint Media combines campaign management, Performance Max, dedicated landing pages, and
-              transparent ZAR pricing. Built for manufacturers, automotive, finance, and local service operators.
-            </p>
-          </div>
-          <InternalLinks
-            title="Explore Google Ads services"
-            variant="default"
-            links={[
-              { href: '/services/b2b-google-ads-management', title: 'B2B Google Ads management', description: 'Flat-fee enterprise PPC + Next.js infrastructure' },
-              { href: '/services/performance-max-google-ads', title: 'Performance Max & Local Ads', description: 'PMax, Maps, and GBP-integrated campaigns' },
-              { href: '/services/google-ads-landing-pages', title: 'Google Ads landing pages', description: 'CRO pages that lift Quality Score' },
-              { href: '/services/google-ads-pricing', title: 'Google Ads pricing (ZAR)', description: 'Setup fees and monthly retainers' },
-              { href: '/services/google-ads-manufacturing', title: 'Manufacturing & industrial PPC', description: 'Alrode, Wadeville, and B2B lead gen' },
-              { href: '/services/google-ads-financial-services', title: 'Financial services PPC', description: 'Sandton & Bedfordview wealth keywords' },
-              { href: '/services/google-ads-automotive', title: 'Automotive & panel beaters', description: 'Emergency-intent Search + Local' },
-              { href: '/services/google-ads-sandton', title: 'Google Ads Sandton', description: 'Corporate and high-LTV campaigns' },
-              { href: '/services/google-ads-alberton', title: 'Google Ads Alberton', description: 'East Rand local partner' },
-              { href: '/services/google-ads-alrode', title: 'Google Ads Alrode', description: 'Industrial cluster targeting' },
-              { href: '/services/google-ads-midrand', title: 'Google Ads Midrand', description: 'Logistics corridor & corporate' },
-              { href: '/services/google-ads-wadeville', title: 'Google Ads Wadeville', description: 'East Rand industrial PPC' },
-              { href: '/services/google-ads-bedfordview', title: 'Google Ads Bedfordview', description: 'Finance & professional services' },
-              { href: '/insights/south-africa-google-ads-cpc-benchmarks', title: 'SA CPC benchmarks 2026', description: 'Budget planning by vertical' },
-              { href: '/compare/google-ads-flat-fee-vs-percentage-spend', title: 'Flat-fee vs % of spend', description: 'Why pricing model matters' },
-            ]}
-          />
-        </div>
-      </section>
+      <PageSection tone="zinc">
+        <PageIntro
+          kicker="Full Google Ads stack"
+          title="Specialized paid search for every vertical and Gauteng node."
+          description="Endpoint Media combines campaign management, Performance Max, dedicated landing pages, and transparent ZAR pricing. Built for manufacturers, automotive, finance, and local service operators."
+        />
+        <InternalLinks
+          theme="dark"
+          title="Explore Google Ads services"
+          links={[
+            { href: '/services/b2b-google-ads-management', title: 'B2B Google Ads management', description: 'Flat-fee enterprise PPC + Next.js infrastructure' },
+            { href: '/services/performance-max-google-ads', title: 'Performance Max & Local Ads', description: 'PMax, Maps, and GBP-integrated campaigns' },
+            { href: '/services/google-ads-landing-pages', title: 'Google Ads landing pages', description: 'CRO pages that lift Quality Score' },
+            { href: '/services/google-ads-pricing', title: 'Google Ads pricing (ZAR)', description: 'Setup fees and monthly retainers' },
+            { href: '/services/google-ads-manufacturing', title: 'Manufacturing & industrial PPC', description: 'Alrode, Wadeville, and B2B lead gen' },
+            { href: '/services/google-ads-financial-services', title: 'Financial services PPC', description: 'Sandton & Bedfordview wealth keywords' },
+            { href: '/services/google-ads-automotive', title: 'Automotive & panel beaters', description: 'Emergency-intent Search + Local' },
+            { href: '/services/google-ads-sandton', title: 'Google Ads Sandton', description: 'Corporate and high-LTV campaigns' },
+            { href: '/services/google-ads-alberton', title: 'Google Ads Alberton', description: 'East Rand local partner' },
+            { href: '/services/google-ads-alrode', title: 'Google Ads Alrode', description: 'Industrial cluster targeting' },
+            { href: '/services/google-ads-midrand', title: 'Google Ads Midrand', description: 'Logistics corridor & corporate' },
+            { href: '/services/google-ads-wadeville', title: 'Google Ads Wadeville', description: 'East Rand industrial PPC' },
+            { href: '/services/google-ads-bedfordview', title: 'Google Ads Bedfordview', description: 'Finance & professional services' },
+            { href: '/insights/south-africa-google-ads-cpc-benchmarks', title: 'SA CPC benchmarks 2026', description: 'Budget planning by vertical' },
+            { href: '/compare/google-ads-flat-fee-vs-percentage-spend', title: 'Flat-fee vs % of spend', description: 'Why pricing model matters' },
+          ]}
+        />
+      </PageSection>
 
-      {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-teal-600 to-emerald-600 text-white text-center">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-            Ready to see every Rand in your Google Ads account produce qualified leads?
-          </h2>
-          <p className="text-lg text-teal-50 max-w-3xl mx-auto mb-8">
-            Book a free audit and we will map the keywords, budgets, landing pages, and tracking fixes required to hit your
-            targets this quarter.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-teal-700 hover:bg-teal-50 transition"
-          >
-            Claim your Google Ads audit
-          </Link>
-        </div>
-      </section>
+      <PageCta
+        title="Ready to see every Rand in your Google Ads account produce qualified leads?"
+        description="Book a free audit and we will map the keywords, budgets, landing pages, and tracking fixes required to hit your targets this quarter."
+        cta={{ href: '/contact', label: 'Claim your Google Ads audit' }}
+      />
 
-      {/* FAQs */}
-      <section className="py-20 bg-white" id="faq">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mb-12">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">FAQs</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
-              Questions Johannesburg teams ask before trusting us with their ad spend.
-            </h2>
-          </div>
-          <div className="space-y-6">
-            {faqs.map((faq) => (
-              <details key={faq.question} className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group">
-                <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
-                  {faq.question}
-                  <span className="text-teal-500 group-open:rotate-45 transition-transform">+</span>
-                </summary>
-                <p className="text-gray-600 mt-4">{faq.answer}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageFaq
+        title="Questions Johannesburg teams ask before trusting us with their ad spend."
+        items={faqs}
+      />
     </>
   );
 };
 
 export default GoogleAdsPage;
-

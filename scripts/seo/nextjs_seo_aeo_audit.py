@@ -212,6 +212,13 @@ class NextSeoAeoAuditor:
         if "<h1" in content:
             return
         # Wrapper pages that delegate to imported components often place h1 in child sections.
+        if (
+            "PageHero" in content
+            or "AgencyHeroSection" in content
+            or "HeroSection" in content
+            or "from '@/components/layout/page-ui'" in content
+        ):
+            return
         if re.search(r"return\s*<\w+", content):
             return
         if "return" in content:

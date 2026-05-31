@@ -10,7 +10,7 @@ import AgencyHeroSection from '@/components/sections/AgencyHeroSection';
 import ProofBar from '@/components/sections/ProofBar';
 import SymptomSection from '@/components/sections/SymptomSection';
 import MethodologySection from '@/components/sections/MethodologySection';
-import Proof from '@/components/sections/Proof';
+import GoogleAdsSection from '@/components/sections/GoogleAdsSection';
 import Pricing from '@/components/sections/Pricing';
 import FitSection from '@/components/sections/FitSection';
 import FounderLetterSection from '@/components/sections/FounderLetterSection';
@@ -153,7 +153,7 @@ const reviewSchema2 = {
 
 export default function HomePage() {
   return (
-    <>
+    <div className="bg-black text-zinc-300">
       <h1 className="sr-only">Premium Web Architecture Firm in Johannesburg</h1>
       <script
         type="application/ld+json"
@@ -179,12 +179,12 @@ export default function HomePage() {
       <ProofBar />
       <SymptomSection />
       <MethodologySection />
-      <Proof />
+      <GoogleAdsSection />
       <FitSection />
       <FounderLetterSection />
       <Pricing />
       <FinalCtaSection />
       <Audit />
-    </>
+    </div>
   );
 }

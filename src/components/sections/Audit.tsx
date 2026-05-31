@@ -1,48 +1,48 @@
-// src/components/sections/Audit.tsx
 import React from 'react';
-import ScrollReveal from '@/components/ui/scroll-reveal';
 import { AuditForm } from '@/components/sections/AuditForm';
+
+const deliverables = [
+  'Live visibility and AEO infrastructure review',
+  'Conversion friction and lead-leak diagnosis',
+  'Priority roadmap with actionable next steps',
+];
 
 const Audit = () => {
   return (
-    <ScrollReveal>
-      <section id="audit" className="py-16 sm:py-24 bg-gradient-to-br from-black via-gray-950 to-black text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: `
-          linear-gradient(rgba(0, 164, 200, 0.15) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0, 164, 200, 0.15) 1px, transparent 1px)
-        `,
-          backgroundSize: '40px 40px'
-        }}></div>
+    <section id="audit" className="bg-zinc-950 py-20 md:py-28">
+      <div className="container mx-auto px-6">
+        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-20">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
+              Growth Audit
+            </p>
+            <h2 className="mt-4 text-4xl font-bold leading-tight tracking-[-1px] text-white md:text-5xl">
+              See Exactly Where Your Pipeline Is Leaking.
+            </h2>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-zinc-400">
+              Request a free, no-obligation audit. We map your discoverability gaps, conversion
+              bottlenecks, and technical debt — then show you what to fix first for measurable
+              growth in Johannesburg.
+            </p>
 
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
-        </div>
+            <ul className="mt-8 space-y-4">
+              {deliverables.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-zinc-300">
+                  <span className="mt-2 h-px w-5 shrink-0 bg-zinc-600" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
 
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="text-center lg:text-left order-2 lg:order-1">
-              <div className="inline-block mb-6">
-                <span className="text-xs font-semibold uppercase tracking-wider text-accent bg-accent/10 px-4 py-2 rounded-full border border-accent/30">
-                  Free Audit
-                </span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-6 font-heading leading-tight bg-gradient-to-r from-white via-accent/30 to-white bg-clip-text text-transparent">
-                Stop Guessing.<br /> Start Dominating Your Market.
-              </h2>
-              <p className="text-lg text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
-                Claim your <strong className="text-accent font-semibold">100% Free, No-Obligation Digital Growth Audit</strong>. We dissect your online presence, pinpoint your biggest lead leaks, and show you a custom mockup engineered to capture more clients in Johannesburg.
-              </p>
-              <p className="text-accent/70 text-sm">Secure your spot. Limited audit spots available each month. That&apos;s the Endpoint guarantee.</p>
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <AuditForm />
-            </div>
+            <p className="mt-8 font-mono text-xs uppercase tracking-[0.16em] text-zinc-600">
+              Limited audit capacity each month · Senior review on every submission
+            </p>
           </div>
+
+          <AuditForm />
         </div>
-      </section>
-    </ScrollReveal>
+      </div>
+    </section>
   );
 };
 

@@ -18,7 +18,7 @@ const phases = [
 
 export default function MethodologySection() {
   return (
-    <section className="border-y border-zinc-800 bg-zinc-950 py-24 md:py-32">
+    <section className="bg-zinc-950 py-20 md:py-28">
       <div className="container mx-auto px-6">
         <h2 className="max-w-3xl text-4xl font-bold leading-tight text-white md:text-5xl">
           The Methodology We Use To Outperform Typical Agencies

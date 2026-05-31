@@ -1,8 +1,89 @@
 import type { BlogPostMeta } from './types';
 import { unstable_cache } from 'next/cache';
 
-/** All blog posts — 15 cornerstone silo articles + 5 legacy Johannesburg posts */
+/** All blog posts — 20 cornerstone silo articles + 5 legacy Johannesburg posts */
 export const BLOG_POSTS: BlogPostMeta[] = [
+  // ─── Silo 4: Technical Diagnostic & AEO Architecture ───
+  {
+    slug: 'aeo-shift-chatgpt-gemini-optimization',
+    title: 'The AEO Shift: Why Traditional SEO is Dead (And How to Optimize)',
+    excerpt:
+      'Explore the technical mechanics of Answer Engine Optimization (AEO). Learn how RAG models, vector embeddings, and schema dictate ChatGPT and Gemini citations.',
+    date: '2026-05-31',
+    category: 'Technical SEO',
+    silo: 'web-architecture',
+    keywords: ['Answer Engine Optimization', 'AEO ChatGPT optimization', 'RAG vector embeddings', 'LLM citation SEO'],
+    readingTimeMinutes: 11,
+    faqs: [
+      { question: 'What is Answer Engine Optimization (AEO)?', answer: 'AEO structures content for RAG retrieval: BLUF formatting, hierarchical H2/H3 chunking, and JSON-LD entity mapping so ChatGPT, Gemini, and Perplexity cite your domain as an authoritative source.' },
+      { question: 'Why does keyword density hurt AEO?', answer: 'Embedding models map semantic meaning into vector space. Keyword stuffing dilutes vector clarity and reduces retrieval probability during RAG query execution.' },
+      { question: 'How much does schema improve AI citations?', answer: 'Domains with correctly formatted FAQPage and Article JSON-LD achieve approximately 2.7× higher citation frequency than identical sites without structured data.' },
+    ],
+  },
+  {
+    slug: 'nextjs-hydration-seo-rendering-traps',
+    title: "Next.js Rendering Traps: 'use client' Hydration SEO Failures",
+    excerpt:
+      "Discover how Next.js hydration mismatches, JavaScript main-thread locks, and misuse of the 'use client' directive destroy INP metrics and Google indexation.",
+    date: '2026-05-30',
+    category: 'Web Architecture',
+    silo: 'web-architecture',
+    keywords: ['Next.js client component hydration SEO', 'hydration mismatch SEO', 'INP Core Web Vitals', 'React Server Components SEO'],
+    readingTimeMinutes: 10,
+    faqs: [
+      { question: 'Why does hydration break Google indexation?', answer: 'Crawlers operate on strict CPU budgets. If JavaScript hydration exceeds hundreds of milliseconds, crawlers abandon execution and index empty skeleton HTML instead of rendered content.' },
+      { question: 'What causes Next.js hydration mismatches?', answer: 'Server HTML differing from client React tree — from browser-only APIs during SSR, time-dependent values, or improper HTML nesting. React destroys and rebuilds the entire DOM, spiking INP and TBT.' },
+      { question: 'How do React Server Components fix hydration SEO?', answer: 'RSCs render to pure HTML on the server with zero client JavaScript for static content. Push use client boundaries to leaf nodes and dynamically import off-screen interactive widgets.' },
+    ],
+  },
+  {
+    slug: 'shopify-canonical-loop-duplicate-paths',
+    title: 'The Shopify Canonical Loop: Bleeding Google Rankings via Duplicate Paths',
+    excerpt:
+      "Examine Shopify SEO failures: how the 'within: collection' Liquid filter creates duplicate URL loops and destroys canonical structures.",
+    date: '2026-05-29',
+    category: 'Technical SEO',
+    silo: 'web-architecture',
+    keywords: ['Shopify canonical loop duplicate URLs', 'Shopify SEO duplicate content', 'Liquid within collection filter', 'e-commerce canonical tags'],
+    readingTimeMinutes: 9,
+    faqs: [
+      { question: 'What is the Shopify canonical loop?', answer: 'The Liquid within: collection filter generates collection-aware product URLs (/collections/x/products/y) alongside root product URLs (/products/y), splitting link equity and triggering duplicate content de-indexation.' },
+      { question: 'How do you fix Shopify duplicate product URLs?', answer: 'Remove within: collection from all internal links, override theme.liquid canonical tags to force root product URLs, and use self-referencing canonicals on paginated collection pages.' },
+      { question: 'How do Shopify variant parameters cause duplication?', answer: '?variant=12345 generates dozens of duplicate pages per SKU. Use JavaScript and sessionStorage to update pricing and images without appending parameters to the URL bar.' },
+    ],
+  },
+  {
+    slug: 'wordpress-rest-api-user-leak-security',
+    title: 'WordPress Bloat & API Leaks: The Security Cost of Legacy Builders',
+    excerpt:
+      'Examine catastrophic WordPress REST API security risks: how unauthenticated /wp-json/wp/v2/users endpoints power Oracle-style brute-force enumeration attacks.',
+    date: '2026-05-28',
+    category: 'Web Architecture',
+    silo: 'web-architecture',
+    keywords: ['WordPress REST API security user leak', 'wp-json users enumeration', 'WordPress API brute force', 'CVE-2023-5561'],
+    readingTimeMinutes: 10,
+    faqs: [
+      { question: 'Is the WordPress REST API enabled by default?', answer: 'Yes. The /wp-json/wp/v2/users endpoint is exposed on standard installations and permits unauthenticated extraction of usernames, user IDs, and email addresses.' },
+      { question: 'How do attackers exploit the WordPress users endpoint?', answer: 'Oracle-style enumeration maps the user database via iterative API queries. Harvested administrator names feed credential-stuffing attacks against wp-login.php with exponentially higher success rates.' },
+      { question: 'How do you disable WordPress REST API user enumeration?', answer: 'Use the rest_endpoints filter to unset /wp/v2/users routes, enforce rest_authentication_errors for session verification, and supplement with Nginx-level 404 responses for unauthorized JSON requests.' },
+    ],
+  },
+  {
+    slug: 'ai-bot-edge-middleware-cloudflare-blocking',
+    title: 'AI Bot Asphyxiation: Is Edge Middleware Blocking ChatGPT from Reading Sites?',
+    excerpt:
+      "Learn how Cloudflare's Managed robots.txt and Vercel edge middleware silently drop verified AI bots, destroying Answer Engine Optimization and ChatGPT citations.",
+    date: '2026-05-27',
+    category: 'Technical SEO',
+    silo: 'web-architecture',
+    keywords: ['Edge middleware AI bot block WAF', 'Cloudflare block AI bots', 'GPTBot robots.txt', 'Vercel middleware SEO'],
+    readingTimeMinutes: 10,
+    faqs: [
+      { question: 'Can Cloudflare block ChatGPT from crawling my site?', answer: 'Yes. Managed "Block AI Bots" WAF rules and prepended robots.txt Disallow directives terminate GPTBot and ClaudeBot connections with HTTP 403 before requests reach your application server.' },
+      { question: 'Why is blocking AI bots bad for SEO?', answer: 'While you invest in Answer Engine Optimization, edge-level blocks prevent LLMs from ingesting your entity schema — making AI citations impossible regardless of on-page content quality.' },
+      { question: 'How should WAF rules handle verified AI crawlers?', answer: 'Use Custom WAF Skip rules with ASN or Reverse DNS verification for official OpenAI IP blocks. Route verified AI crawlers past managed bot protections while maintaining rate-limits against unauthorized scrapers.' },
+    ],
+  },
   // ─── Silo 1: Premium Web Architecture & Technical SEO ───
   {
     slug: 'the-brutal-truth-about-wordpress',

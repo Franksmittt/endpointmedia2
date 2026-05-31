@@ -1,11 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { trackFreeAudit } from '@/lib/analytics';
 
 const inputClassName =
-  'w-full p-3 bg-gray-800/50 border border-accent/30 rounded-md text-white placeholder-gray-400 focus:ring-2 focus:ring-accent focus:border-accent transition-colors';
+  'w-full rounded-sm border border-zinc-800 bg-zinc-950/80 px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 outline-none transition-colors focus:border-zinc-500';
 
 export function AuditForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -87,17 +86,18 @@ export function AuditForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-gradient-to-br from-gray-900/90 via-black/80 to-gray-900/90 backdrop-blur-sm border-2 border-accent/40 p-6 sm:p-8 rounded-xl text-white shadow-2xl shadow-accent/10 text-left mx-auto lg:ml-auto lg:mr-0 relative"
+      className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 text-left sm:p-8"
     >
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
-
-      <h3 className="text-2xl font-bold font-heading mb-6 text-center text-white">Get Your Free Audit & Mockup</h3>
+      <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
+        Request Audit
+      </p>
+      <h3 className="mt-2 text-2xl font-semibold text-white">Get Your Free Growth Audit</h3>
       <input type="hidden" name="source" value="Website Audit Form" />
 
-      <div className="space-y-4">
+      <div className="mt-6 space-y-4">
         <div>
-          <label htmlFor="audit-name" className="block text-sm font-medium text-gray-300 mb-1">
-            Your Name <span className="text-red-400">*</span>
+          <label htmlFor="audit-name" className="mb-1.5 block text-sm text-zinc-400">
+            Your Name <span className="text-zinc-600">*</span>
           </label>
           <input
             type="text"
@@ -111,8 +111,8 @@ export function AuditForm() {
         </div>
 
         <div>
-          <label htmlFor="audit-business" className="block text-sm font-medium text-gray-300 mb-1">
-            Business Name <span className="text-red-400">*</span>
+          <label htmlFor="audit-business" className="mb-1.5 block text-sm text-zinc-400">
+            Business Name <span className="text-zinc-600">*</span>
           </label>
           <input
             type="text"
@@ -126,8 +126,8 @@ export function AuditForm() {
         </div>
 
         <div>
-          <label htmlFor="audit-email" className="block text-sm font-medium text-gray-300 mb-1">
-            Email Address <span className="text-red-400">*</span>
+          <label htmlFor="audit-email" className="mb-1.5 block text-sm text-zinc-400">
+            Email Address <span className="text-zinc-600">*</span>
           </label>
           <input
             type="email"
@@ -141,7 +141,7 @@ export function AuditForm() {
         </div>
 
         <div>
-          <label htmlFor="audit-phone" className="block text-sm font-medium text-gray-300 mb-1">
+          <label htmlFor="audit-phone" className="mb-1.5 block text-sm text-zinc-400">
             Phone Number
           </label>
           <input
@@ -171,26 +171,24 @@ export function AuditForm() {
         <div
           role={status.type === 'error' ? 'alert' : 'status'}
           aria-live="polite"
-          className={`mt-6 p-4 rounded-lg text-sm ${
+          className={`mt-6 rounded-sm border p-4 text-sm ${
             status.type === 'success'
-              ? 'bg-green-900/40 text-green-200 border border-green-700/50'
-              : 'bg-red-900/40 text-red-200 border border-red-700/50'
+              ? 'border-emerald-800/40 bg-emerald-950/20 text-emerald-200'
+              : 'border-red-800/40 bg-red-950/20 text-red-200'
           }`}
         >
           {status.text}
         </div>
       )}
 
-      <div className="mt-8">
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          aria-busy={isSubmitting}
-          className="w-full bg-gradient-to-r from-accent-600 to-accent hover:from-accent hover:to-accent/90 text-white font-bold py-4 px-6 rounded-lg shadow-2xl shadow-accent/30 border-2 border-accent/50 transition-all duration-300 text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 focus-visible:ring-accent uppercase tracking-wider transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-        >
-          {isSubmitting ? 'Submitting...' : 'Claim My Free Audit Now'}
-        </Button>
-      </div>
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        aria-busy={isSubmitting}
+        className="mt-8 w-full rounded-sm bg-white px-6 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        {isSubmitting ? 'Submitting...' : 'Claim My Free Audit'}
+      </button>
     </form>
   );
 }

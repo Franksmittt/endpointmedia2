@@ -3,9 +3,9 @@ import type { BlogPostMeta } from './types';
 export function getRelatedLinks(slug: string) {
   const siloLinks: Record<string, { href: string; title: string; description: string }[]> = {
     'web-architecture': [
-      { href: '/blog/the-brutal-truth-about-wordpress', title: 'WordPress vs Next.js', description: 'Why legacy CMS architecture destroys conversion rates.' },
-      { href: '/blog/core-web-vitals-financial-metric', title: 'Core Web Vitals ROI', description: 'LCP and CLS as financial metrics.' },
-      { href: '/blog/website-migration-blueprint', title: 'Migration Blueprint', description: 'Rebuild without losing search traffic.' },
+      { href: '/blog/aeo-shift-chatgpt-gemini-optimization', title: 'The AEO Shift', description: 'RAG, vector embeddings, and AI citation mechanics.' },
+      { href: '/blog/nextjs-hydration-seo-rendering-traps', title: 'Next.js Hydration Traps', description: 'Fix use client SEO failures and INP degradation.' },
+      { href: '/blog/ai-bot-edge-middleware-cloudflare-blocking', title: 'AI Bot Blocking', description: 'Cloudflare and middleware WAF traps.' },
       { href: '/services/website-development', title: 'Website Development', description: 'Next.js enterprise builds.' },
     ],
     'google-ads': [
@@ -30,7 +30,19 @@ export function getRelatedLinks(slug: string) {
     { href: '/blog', title: 'All Articles', description: 'Full insights library.' },
   ];
 
-  if (post.includes('wordpress') || post.includes('vitals') || post.includes('migration') || post.includes('landing-page') || post.includes('aeo')) {
+  if (
+    post.includes('wordpress') ||
+    post.includes('vitals') ||
+    post.includes('migration') ||
+    post.includes('landing-page') ||
+    post.includes('aeo') ||
+    post.includes('hydration') ||
+    post.includes('shopify') ||
+    post.includes('canonical') ||
+    post.includes('rest-api') ||
+    post.includes('edge-middleware') ||
+    post.includes('ai-bot')
+  ) {
     return siloLinks['web-architecture'];
   }
   if (post.includes('google-ads') || post.includes('bidding') || post.includes('vanity') || post.includes('performance-engine') || post.includes('quality-score') || post.includes('tracking')) {

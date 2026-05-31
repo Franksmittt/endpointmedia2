@@ -1,5 +1,3 @@
-// src/components/sections/Pricing.tsx
-import React from 'react';
 import Link from 'next/link';
 
 const packages = [
@@ -17,6 +15,7 @@ const packages = [
       'Performance engineered (LCP <1s, 100/100 Core Web Vitals)',
       '60-day intensive research & build process',
     ],
+    cta: 'Start Strategic Foundation',
   },
   {
     name: 'Market Dominance',
@@ -33,6 +32,7 @@ const packages = [
       '90-day intensive research, build & optimization',
       'Post-launch growth acceleration program',
     ],
+    cta: 'Start Market Dominance',
   },
   {
     name: 'Category Authority',
@@ -49,89 +49,127 @@ const packages = [
       '120-day comprehensive strategy, build & scale',
       'Ongoing strategic partnership & optimization',
     ],
+    cta: 'Start Category Authority',
   },
+];
+
+const includedItems = [
+  'Premium hosting, domain & SSL',
+  'Competitor and market research',
+  'Strategic consultation included',
+  'No monthly maintenance fees',
+  'Self-sustaining Next.js architecture',
 ];
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-24 bg-white relative overflow-hidden">
-      {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: `
-          linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
-        `,
-        backgroundSize: '40px 40px'
-      }}></div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <header className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="inline-block mb-6">
-            <span className="text-xs font-semibold uppercase tracking-wider text-teal-700 bg-teal-50 px-4 py-2 rounded-full border border-teal-300">
+    <section id="pricing" className="bg-zinc-950 py-20 md:py-28">
+      <div className="container mx-auto px-6">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-7">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
               Transparent Pricing
-            </span>
+            </p>
+            <h2 className="mt-4 text-4xl font-bold leading-[1.06] tracking-[-1px] text-white md:text-5xl">
+              Premium Investment.
+              <span className="mt-1 block text-zinc-500">Maximum Return.</span>
+            </h2>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-900 font-heading">
-            Premium Investment. Maximum Return.
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We don&apos;t compete on price. We compete on results. Every package is an intensive, research-driven investment engineered to put you <strong className="text-gray-900">completely above your competitors</strong> and generate measurable growth. We&apos;d rather work with fewer clients who excel than hundreds who just become statistics.
-          </p>
-        </header>
 
-        <div className="grid lg:grid-cols-3 gap-8 items-stretch max-w-7xl mx-auto">
+          <div className="lg:col-span-5 lg:border-l lg:border-zinc-800 lg:pl-12">
+            <p className="text-lg leading-relaxed text-zinc-400">
+              We don&apos;t compete on price. We compete on results. Every package is an intensive,
+              research-driven investment engineered to put you above your competitors and generate
+              measurable growth.
+            </p>
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-zinc-600">
+              Fewer clients · Senior-led delivery · Once-off architecture
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-16 grid items-stretch gap-6 md:mt-20 md:gap-8 lg:grid-cols-3">
           {packages.map((pkg) => (
-            <div
+            <article
               key={pkg.name}
-              className={`group relative flex flex-col p-8 rounded-xl border transition-all duration-300 ${
+              className={`flex flex-col rounded-sm border p-8 ${
                 pkg.highlight
-                  ? 'bg-gray-900 text-white border-4 border-teal-500 shadow-2xl lg:scale-105'
-                  : 'bg-white text-gray-900 border-gray-200 shadow-lg hover:shadow-xl hover:border-teal-300'
+                  ? 'border-zinc-500 bg-black'
+                  : 'border-zinc-800 bg-zinc-950/60'
               }`}
             >
-              {pkg.tag && (
-                <span className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
-                  {pkg.tag}
-                </span>
-              )}
-              <div className="flex-grow">
-                <h3 className="text-3xl font-bold font-heading mb-2">{pkg.name}</h3>
-                <p className={pkg.highlight ? 'text-gray-300 mb-6' : 'text-gray-500 mb-6'}>{pkg.description}</p>
-                <p className={`text-5xl font-extrabold mb-6 ${pkg.highlight ? 'text-white' : 'text-gray-900'}`}>
-                  {pkg.price} <span className={`text-lg font-normal ${pkg.highlight ? 'text-gray-400' : 'text-gray-500'}`}>once-off</span>
-                </p>
-                <ul className={`space-y-4 text-sm mb-8 ${pkg.highlight ? 'text-gray-200' : 'text-gray-700'}`}>
-                  {pkg.features.map((feature) => (
-                    <li key={feature} className="flex items-start">
-                      <span className={pkg.highlight ? 'text-teal-400 mr-3 mt-1 font-bold' : 'text-teal-500 mr-3 mt-1'}>&#10003;</span>
-                      <span dangerouslySetInnerHTML={{ __html: feature.replace(/<strong>/g, '<strong className="font-semibold">') }} />
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
+                {pkg.tag}
+              </p>
+              <h3 className="mt-3 text-2xl font-semibold text-white">{pkg.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{pkg.description}</p>
+
+              <p className="mt-6 flex flex-wrap items-baseline gap-x-2 text-4xl font-bold tracking-tight text-white">
+                <span>{pkg.price}</span>
+                <span className="text-base font-normal text-zinc-500">once-off</span>
+              </p>
+
+              <ul className="mt-8 flex-grow space-y-3 border-t border-zinc-800 pt-8 text-sm text-zinc-300">
+                {pkg.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3">
+                    <span className="mt-0.5 shrink-0 text-zinc-500" aria-hidden="true">
+                      —
+                    </span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
               <Link
-                  href="/contact"
-                  className={`w-full mt-8 text-center block font-bold py-3 px-6 rounded-lg transition duration-300 ${
-                    pkg.highlight
-                      ? 'bg-teal-500 hover:bg-teal-600 text-white'
-                      : 'bg-white border-2 border-teal-700 text-teal-700 hover:bg-teal-700 hover:text-white'
-                  } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500`}
-                >
-                  {pkg.name === 'Strategic Foundation' && 'Start Strategic Foundation'}
-                  {pkg.name === 'Market Dominance' && 'Start Market Dominance'}
-                  {pkg.name === 'Category Authority' && 'Start Category Authority'}
-                </Link>
-            </div>
+                href="/contact"
+                className={`mt-8 block w-full rounded-sm px-6 py-3 text-center text-sm font-semibold transition-colors ${
+                  pkg.highlight
+                    ? 'bg-white text-black hover:bg-zinc-200'
+                    : 'border border-zinc-700 text-zinc-100 hover:bg-zinc-900'
+                }`}
+              >
+                {pkg.cta}
+              </Link>
+            </article>
           ))}
         </div>
 
-        <div className="text-center mt-16 text-gray-600">
-          <p className="text-lg">
-            Not sure which investment level is right? Our <Link href="/contact" className="text-teal-600 font-bold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded px-1">Free Architecture Audit</Link> analyzes your market, competitors, and opportunities to determine the optimal strategy for dominating your category.
-          </p>
-          <p className="mt-2 text-sm"><strong>What&apos;s Included:</strong> All packages include premium hosting, domain registration, SSL, comprehensive research, competitor analysis, and strategic consultation. We don&apos;t charge monthly maintenance fees. Our Next.js architecture is self-sustaining and requires minimal ongoing support.</p>
-          <p className="mt-2 text-xs italic">*Pricing reflects intensive research, custom engineering, and strategic consultation. We work exclusively with businesses committed to market leadership.</p>
+        <div className="mt-16 grid gap-6 md:mt-20 md:gap-8 lg:grid-cols-3">
+          <div className="rounded-sm border border-zinc-800 bg-black/50 p-6 md:p-8">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
+              Not Sure Yet?
+            </p>
+            <p className="mt-3 text-zinc-300">
+              Our Free Architecture Audit maps your market, competitors, and growth gaps — then
+              recommends the right investment tier.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-6 inline-flex items-center justify-center rounded-sm bg-white px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-zinc-200"
+            >
+              Book Free Architecture Audit
+            </Link>
+          </div>
+
+          <div className="rounded-sm border border-zinc-800 bg-zinc-950/60 p-6 md:p-8 lg:col-span-2">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
+              What&apos;s Included In Every Package
+            </p>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+              {includedItems.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm text-zinc-400">
+                  <span className="mt-2 h-px w-4 shrink-0 bg-zinc-600" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
+        <p className="mt-12 font-mono text-xs uppercase tracking-[0.14em] leading-relaxed text-zinc-600 md:mt-16">
+          Pricing reflects intensive research, custom engineering, and strategic consultation. We
+          work exclusively with businesses committed to market leadership.
+        </p>
       </div>
     </section>
   );

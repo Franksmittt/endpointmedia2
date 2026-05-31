@@ -89,23 +89,24 @@ export default function AgencyHeroSection() {
   }
 
   return (
-    <section className="relative w-full bg-black text-[#F5F5F7] pt-48 pb-24 px-[5%] flex flex-col items-center justify-center border-b border-[#333333] overflow-hidden">
-      <div className="absolute top-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none" />
+    <>
+      <section className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-black px-[5%] pb-10 pt-28 text-[#F5F5F7] md:pb-12 md:pt-32">
+        <div className="pointer-events-none absolute top-0 h-[420px] w-[420px] rounded-full bg-blue-900/10 blur-[120px]" />
 
-      <div className="w-full max-w-5xl text-left z-10 flex flex-col items-start">
+        <div className="z-10 flex w-full max-w-5xl flex-col items-start text-left">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-400 mb-5">
           Elite Web Architecture + Revenue Systems
         </p>
         <h1
           id="hero-headline"
-          className="text-5xl md:text-7xl font-bold tracking-[-2.5px] leading-[1.05] mb-6 text-white select-none"
+          className="mb-4 text-4xl font-bold leading-[1.05] tracking-[-2px] text-white md:text-6xl"
         >
-          Is your website invisible <br className="hidden md:inline" /> to ChatGPT?
+          Is your website invisible to ChatGPT?
         </h1>
 
         <p
           id="hero-summary"
-          className="text-xl md:text-2xl text-[#A1A1AA] max-w-3xl mb-12 tracking-[-0.5px]"
+          className="mb-6 max-w-3xl text-lg tracking-[-0.3px] text-[#A1A1AA] md:text-xl"
         >
           Run a vicious, military-grade Answer Engine Optimization (AEO) and SEO audit on your
           live infrastructure. Discover the hidden edge traps destroying your visibility.
@@ -113,7 +114,7 @@ export default function AgencyHeroSection() {
 
         <form
           onSubmit={handleRunAudit}
-          className="w-full max-w-3xl bg-[#111111] border border-[#333333] rounded-sm p-2 flex flex-col items-stretch shadow-2xl transition-all duration-300 focus-within:border-zinc-500 mb-16"
+          className="mb-2 flex w-full max-w-3xl flex-col items-stretch rounded-sm border border-[#333333] bg-[#111111] p-2 shadow-2xl transition-all duration-300 focus-within:border-zinc-500"
         >
           <div className="flex flex-col gap-2 sm:flex-row">
             <input
@@ -143,15 +144,6 @@ export default function AgencyHeroSection() {
           </button>
         </form>
 
-        <div className="w-full max-w-4xl border-t border-[#333333] pt-12">
-          <p className="text-sm md:text-base text-[#86868B] leading-relaxed max-w-3xl">
-            We engineered this deep diagnostics platform to protect our clients against modern
-            crawler traps, platform-specific duplicate canonical paths, and edge network failures
-            that completely sever brands from generative AI search spaces like OpenAI, Claude, and
-            Gemini.
-          </p>
-        </div>
-
         {error && (
           <div className="w-full max-w-4xl mt-8 rounded-xl border border-red-700/40 bg-red-900/20 p-5 text-left text-red-200">
             {error}
@@ -159,7 +151,7 @@ export default function AgencyHeroSection() {
         )}
 
         {result && (
-          <div className="w-full max-w-4xl mt-8 rounded-2xl border border-zinc-800 bg-zinc-950/80 p-6 text-left">
+          <div className="w-full max-w-4xl mt-6 rounded-2xl border border-zinc-800 bg-zinc-950/80 p-6 text-left">
             <h2 className="text-2xl font-semibold mb-2">Free Scan Snapshot</h2>
             <p className="text-zinc-400 mb-5">
               Platform: <span className="text-zinc-200">{result.report.fingerprint.platform}</span>{' '}
@@ -235,7 +227,18 @@ export default function AgencyHeroSection() {
           </div>
         )}
       </div>
-    </section>
+      </section>
+      <section className="bg-zinc-950/90 py-12 md:py-14">
+        <div className="container mx-auto px-6">
+          <p className="max-w-4xl text-sm leading-relaxed text-[#86868B] md:text-base">
+            We engineered this deep diagnostics platform to protect our clients against modern
+            crawler traps, platform-specific duplicate canonical paths, and edge network failures
+            that completely sever brands from generative AI search spaces like OpenAI, Claude, and
+            Gemini.
+          </p>
+        </div>
+      </section>
+    </>
   );
 }
 

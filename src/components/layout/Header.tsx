@@ -1,131 +1,131 @@
-// src/components/layout/Header.tsx
-"use client";
-// Keep this for useState and event handlers
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-// Define the new navigation links
+
 const navLinks = [
-  { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
   { name: 'Locations', href: '/locations' },
-  { name: 'Our Process', href: '/process' },
+  { name: 'Process', href: '/process' },
   { name: 'Case Studies', href: '/case-studies' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'Blog', href: '/blog' },
 ];
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-// Handle scroll effect for header background
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial scroll position
-
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-// Toggle mobile menu
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-// Close mobile menu when a link is clicked
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-};
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-charcoal/95 shadow-lg backdrop-blur-sm' : 'bg-charcoal/80 backdrop-blur-sm'}`}>
-      {/* Container: Changed layout strategy to center navigation on desktop */}
-      <div className="container mx-auto px-6 py-4 flex justify-start lg:justify-between items-center">
-        {/* Logo */}
-        <Link 
-          href="/" 
-          aria-label="Endpoint Media Homepage" 
-          className="text-2xl font-extrabold text-white transition duration-300 hover:text-teal-400 font-heading focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 rounded"
+    <header
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+        isScrolled
+          ? 'border-b border-zinc-800 bg-black/95 backdrop-blur-md'
+          : 'bg-black/80 backdrop-blur-sm'
+      }`}
+    >
+      <div className="container mx-auto flex items-center justify-between px-6 py-4">
+        <Link
+          href="/"
+          aria-label="Endpoint Media Homepage"
+          className="text-lg font-bold tracking-tight text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500 rounded-sm"
         >
-          Endpoint<span className="text-teal-500">.</span><span className="font-normal text-xl ml-1 text-white opacity-80">Media</span>
+          Endpoint<span className="text-zinc-500">.</span>
+          <span className="ml-1 font-normal text-zinc-400">Media</span>
         </Link>
 
-        {/* Desktop Navigation - CENTERED LINKS */}
-        {/* The use of flex-grow and mx-auto pushes the centered element in between the two fixed elements (logo and button) */}
-        <nav className="hidden lg:flex items-center 
-space-x-6 flex-grow justify-center lg:mx-auto">
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-gray-300 hover:text-teal-400 transition duration-300 font-medium px-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded"
+              className="text-sm text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-zinc-500 rounded-sm"
             >
               {link.name}
             </Link>
           ))}
         </nav>
-        
-        {/* CTA Button (Now "Contact Us") - Floats Right on desktop */}
-        <div className="hidden lg:block ml-auto">
+
+        <div className="hidden items-center gap-3 lg:flex">
           <Link
-            href="/contact" // Link changed to new 
-            className="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-6 rounded shadow transform hover:scale-105 transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal focus-visible:ring-teal-300"
+            href="/services/google-ads"
+            className="text-sm text-zinc-400 transition-colors hover:text-white"
           >
-            Contact Us {/* FIX: Consolidated the text inside the Link component */}
+            Google Ads
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-sm bg-white px-5 py-2 text-sm font-semibold text-black transition-colors hover:bg-zinc-200"
+          >
+            Contact
           </Link>
         </div>
 
-
-        {/* Mobile Menu Button */}
         <button
-          className="lg:hidden text-white ml-auto focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500 rounded"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
+          type="button"
+          className="rounded-sm p-2 text-zinc-300 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500 lg:hidden"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
         >
-          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isMenuOpen ?
-(
+          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isMenuOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
       </div>
 
-     
-{/* Mobile Menu Panel */}
-      <div
-        className={`lg:hidden fixed inset-x-0 top-0 origin-top transition-transform transform ${isMenuOpen ?
-'scale-y-100 opacity-100' : 'scale-y-95 opacity-0 pointer-events-none'} duration-300 ease-out z-40`}
-        style={{ paddingTop: '72px' }} // Adjust based on header height
-      >
-        <div className="bg-charcoal-light shadow-xl rounded-b-lg p-6">
-          <nav className="flex flex-col space-y-4">
+      {isMenuOpen && (
+        <div className="fixed inset-0 top-[65px] z-40 bg-black/98 lg:hidden">
+          <nav className="container mx-auto flex flex-col gap-1 px-6 py-8" aria-label="Mobile navigation">
             {navLinks.map((link) => (
               <Link
-                
-key={link.name}
+                key={link.name}
                 href={link.href}
-                className="text-gray-200 hover:text-teal-400 transition duration-300 text-lg font-medium py-2 px-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-teal-300 rounded"
-                onClick={closeMenu} // Close menu on link click
+                className="border-b border-zinc-900 py-4 text-lg text-zinc-300 transition-colors hover:text-white"
+                onClick={closeMenu}
               >
                 {link.name}
-     
-          </Link>
+              </Link>
             ))}
-             {/* Mobile CTA Button */}
             <Link
-              href="/contact" // Link changed
-              className="mt-4 w-full text-center inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded shadow transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal-light focus-visible:ring-teal-300"
- 
-              onClick={closeMenu} // Close menu on link click
+              href="/services/google-ads"
+              className="border-b border-zinc-900 py-4 text-lg text-zinc-300 transition-colors hover:text-white"
+              onClick={closeMenu}
             >
-              Contact Us {/* Text changed */}
+              Google Ads
+            </Link>
+            <Link
+              href="/contact"
+              className="mt-6 inline-flex items-center justify-center rounded-sm bg-white px-6 py-3 text-sm font-semibold text-black"
+              onClick={closeMenu}
+            >
+              Contact
             </Link>
           </nav>
         </div>
-      </div>
+      )}
     </header>
   );
 };

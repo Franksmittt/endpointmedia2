@@ -107,18 +107,18 @@ const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) =
         />
       ))}
 
-      <section className="bg-gray-100 py-16 md:py-24 border-b border-gray-200">
-        <div className="container mx-auto px-6 max-w-3xl text-center">
+      <section className="border-b border-zinc-800 bg-black py-20 md:py-24">
+        <div className="container mx-auto max-w-3xl px-6 text-center">
           {post.category && (
-            <p className="text-sm font-semibold text-teal-700 uppercase tracking-wider mb-2">
+            <p className="mb-2 font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
               {post.category}
             </p>
           )}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 font-heading text-gray-900">
+          <h1 className="mb-4 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
             {post.title}
           </h1>
-          <p className="article-summary text-lg text-gray-600 text-center max-w-2xl mx-auto mb-0">{post.excerpt}</p>
-          <p className="text-sm text-gray-500 mt-4">
+          <p className="article-summary mx-auto mb-0 max-w-2xl text-lg text-zinc-400">{post.excerpt}</p>
+          <p className="mt-4 text-sm text-zinc-500">
             Published{' '}
             <time dateTime={post.date} itemProp="datePublished">
               {post.date}
@@ -129,29 +129,22 @@ const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) =
         </div>
       </section>
 
-      <article
-        className="py-16 md:py-20 bg-white"
-        itemScope
-        itemType="https://schema.org/BlogPosting"
-      >
-        <div className="container mx-auto px-6 max-w-3xl">
-          <div
-            className="prose prose-lg lg:prose-xl max-w-none prose-teal prose-headings:font-heading prose-a:text-teal-600 hover:prose-a:text-teal-800"
-            itemProp="articleBody"
-          >
+      <article className="bg-zinc-950 py-16 md:py-20" itemScope itemType="https://schema.org/BlogPosting">
+        <div className="container mx-auto max-w-3xl px-6">
+          <div className="max-w-none" itemProp="articleBody">
             <Content />
           </div>
 
           {post.faqs && post.faqs.length > 0 && (
-            <section className="mt-12 pt-8 border-t border-gray-200" aria-labelledby="faq-heading">
-              <h2 id="faq-heading" className="text-2xl font-bold font-heading mb-6 text-gray-900">
+            <section className="mt-12 border-t border-zinc-800 pt-8" aria-labelledby="faq-heading">
+              <h2 id="faq-heading" className="mb-6 text-2xl font-bold text-white">
                 Frequently Asked Questions
               </h2>
               <div className="space-y-6">
                 {post.faqs.map((faq) => (
                   <div key={faq.question}>
-                    <h3 className="text-lg font-bold text-teal-800 mb-2">{faq.question}</h3>
-                    <p className="text-gray-700">{faq.answer}</p>
+                    <h3 className="mb-2 text-lg font-semibold text-white">{faq.question}</h3>
+                    <p className="text-zinc-400">{faq.answer}</p>
                   </div>
                 ))}
               </div>
@@ -160,34 +153,32 @@ const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) =
 
           <div className="mt-16">
             <InternalLinks
+              theme="dark"
               title="Related Articles & Resources"
               variant="default"
               links={getRelatedLinks(post.slug)}
             />
           </div>
 
-          <footer className="mt-12 pt-8 border-t border-gray-200">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-2xl font-bold text-white">
+          <footer className="mt-12 border-t border-zinc-800 pt-8">
+            <div className="mb-6 flex items-center gap-4">
+              <div className="flex h-16 w-16 items-center justify-center rounded-sm border border-zinc-700 bg-black font-mono text-2xl font-bold text-white">
                 FS
               </div>
               <div>
-                <p className="text-sm text-gray-500 mb-1">Written by</p>
+                <p className="mb-1 text-sm text-zinc-500">Written by</p>
                 <Link
                   href="/about/author/frank-smit"
-                  className="text-lg font-bold font-heading text-gray-900 hover:text-teal-700 transition"
+                  className="text-lg font-bold text-white transition-colors hover:text-zinc-300"
                   itemProp="author"
                 >
                   Frank Smit
                 </Link>
-                <p className="text-sm text-gray-600">Web Design Expert &amp; Founder of Endpoint Media</p>
+                <p className="text-sm text-zinc-500">Web Design Expert &amp; Founder of Endpoint Media</p>
               </div>
             </div>
-            <div className="pt-4 border-t border-gray-200">
-              <Link
-                href="/blog"
-                className="text-teal-600 hover:text-teal-800 font-semibold transition duration-300"
-              >
+            <div className="border-t border-zinc-800 pt-4">
+              <Link href="/blog" className="font-semibold text-zinc-300 transition-colors hover:text-white">
                 &larr; Back to Blog Index
               </Link>
             </div>
