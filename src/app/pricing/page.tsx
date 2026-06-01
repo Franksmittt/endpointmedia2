@@ -232,7 +232,7 @@ const faqItems = [
   {
     question: 'Do you offer Meta (Facebook & Instagram) ads pricing?',
     answer:
-      'Meta management is scoped per engagement based on creative volume, funnel complexity, and recommended ad budget. Most Johannesburg service businesses run R8,000ΓÇôR25,000/month in ad spend. See our Facebook Ads service page or book an audit for a tailored quote.',
+      'Yes. Account and CAPI setup is R12,500–R18,000 once-off. Monthly management starts at R7,500/month for up to R15k ad spend, R14,500/month for R15,001–R25k, and R22,000+ for larger accounts. Ad spend is paid directly to Meta.',
   },
   {
     question: 'How do I know which package is right for me?',
