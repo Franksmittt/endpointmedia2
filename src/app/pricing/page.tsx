@@ -1,4 +1,4 @@
-// src/app/pricing/page.tsx
+﻿// src/app/pricing/page.tsx
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -33,7 +33,7 @@ const webPackages = [
     highlight: false,
     features: [
       'Deep competitor and market analysis',
-      'Custom 5–7 page Next.js 15 architecture',
+      'Custom 5ΓÇô7 page Next.js 15 architecture',
       'Entity-based SEO with Knowledge Graph integration',
       'Comprehensive suburb targeting strategy',
       'Performance engineered (LCP <1s, 100/100 Core Web Vitals)',
@@ -52,7 +52,7 @@ const webPackages = [
     features: [
       'Everything in Strategic Foundation, plus:',
       'Complete competitor teardown and positioning strategy',
-      '10–15 page architecture with service clusters',
+      '10ΓÇô15 page architecture with service clusters',
       'Advanced semantic SEO and entity injection',
       'Custom conversion funnels and lead generation systems',
       '90-day intensive research, build, and optimization',
@@ -81,50 +81,57 @@ const webPackages = [
   },
 ];
 
+const pricingNav = [
+  { href: '#web-design-packages', label: 'Web Design Packages' },
+  { href: '#google-ads-management', label: 'Google Ads Management' },
+  { href: '#facebook-instagram-management', label: 'Facebook & Instagram Management' },
+  { href: '#website-maintenance', label: 'Website Maintenance' },
+];
+
 const metaAdsPricing = [
   {
-    name: 'Account audit & CAPI setup',
-    price: 'Quoted after audit',
+    name: 'Account & CAPI setup',
+    price: 'R12,500 – R18,000',
     detail:
-      'Once-off · Meta CAPI + pixel dedup · offer engineering · campaign architecture · creative roadmap',
+      'Once-off ┬╖ Meta CAPI + pixel dedup ┬╖ offer engineering ┬╖ campaign architecture ┬╖ creative roadmap',
   },
   {
-    name: 'Starter ad spend',
-    price: 'R8,000 – R12,000 / mo',
-    detail: 'Media budget paid directly to Meta · single-location service businesses',
+    name: 'Growth management',
+    price: 'R7,500 / month',
+    detail: 'Up to R15k ad spend · core funnels · monthly creative refresh · reporting',
   },
   {
-    name: 'Growth ad spend',
-    price: 'R12,001 – R25,000 / mo',
-    detail: 'Typical Johannesburg operators · hook-first creative refreshed each sprint',
+    name: 'Premium management',
+    price: 'R14,500 / month',
+    detail: 'R15,001–R25k ad spend · ABO testing · multi-placement · WhatsApp lead flows',
   },
   {
-    name: 'Management retainer',
-    price: 'Flat monthly fee',
-    detail: 'Scoped by creative volume & funnel complexity — never a % of your ad spend',
+    name: 'Elite management',
+    price: 'R22,000+ / month',
+    detail: 'R25,001+ ad spend · programmatic creative · CRM stage feedback · dedicated lead',
   },
 ];
 
 const googleAdsPricing = [
   {
     name: 'Infrastructure setup',
-    price: 'R14,500 – R20,000',
-    detail: 'Once-off · GA4/GTM · campaign architecture · 1–3 landing pages',
+    price: 'R14,500 ΓÇô R20,000',
+    detail: 'Once-off ┬╖ GA4/GTM ┬╖ campaign architecture ┬╖ 1ΓÇô3 landing pages',
   },
   {
     name: 'Growth management',
     price: 'R6,500 / month',
-    detail: 'Up to R20k ad spend · Search campaigns · monthly reporting',
+    detail: 'Up to R20k ad spend ┬╖ Search campaigns ┬╖ monthly reporting',
   },
   {
     name: 'Premium management',
     price: 'R12,500 / month',
-    detail: 'R20,001–R50,000 ad spend · Search + PMax + Local · A/B testing',
+    detail: 'R20,001ΓÇôR50,000 ad spend ┬╖ Search + PMax + Local ┬╖ A/B testing',
   },
   {
     name: 'Elite management',
     price: 'R22,000+ / month',
-    detail: 'R50,001+ ad spend · full stack · weekly strategy · dedicated lead',
+    detail: 'R50,001+ ad spend ┬╖ full stack ┬╖ weekly strategy ┬╖ dedicated lead',
   },
 ];
 
@@ -132,17 +139,17 @@ const maintenancePricing = [
   {
     name: 'Essential',
     price: 'R500 / month',
-    detail: 'Security updates · uptime monitoring · basic support',
+    detail: 'Security updates ┬╖ uptime monitoring ┬╖ basic support',
   },
   {
     name: 'Professional',
     price: 'R1,200 / month',
-    detail: 'Content updates (5 pages) · performance checks · priority support',
+    detail: 'Content updates (5 pages) ┬╖ performance checks ┬╖ priority support',
   },
   {
     name: 'Enterprise',
     price: 'R2,500 / month',
-    detail: 'Unlimited minor updates · SEO monitoring · dedicated support',
+    detail: 'Unlimited minor updates ┬╖ SEO monitoring ┬╖ dedicated support',
   },
 ];
 
@@ -166,7 +173,7 @@ const pricingPrinciples = [
   },
   {
     title: 'Flat-fee ad management',
-    body: 'Google Ads management is a fixed monthly retainer based on spend tier. We never take a percentage of your ad budget.',
+    body: 'Google Ads and Meta (Facebook & Instagram) management are fixed monthly retainers based on spend tier. We never take a percentage of your ad budget.',
   },
   {
     title: 'Senior-led delivery',
@@ -200,7 +207,7 @@ const faqItems = [
   {
     question: 'Are there any hidden costs or monthly fees?',
     answer:
-      'No hidden costs on web packages. The listed price is a once-off project fee. After the first year, hosting and domain renewal typically runs R200–R500 per month. Optional maintenance plans start at R500/month. Google Ads ad spend is paid directly to Google and is separate from management fees.',
+      'No hidden costs on web packages. The listed price is a once-off project fee. After the first year, hosting and domain renewal typically runs R200ΓÇôR500 per month. Optional maintenance plans start at R500/month. Google Ads ad spend is paid directly to Google and is separate from management fees.',
   },
   {
     question: 'Can I upgrade from Strategic Foundation to Market Dominance later?',
@@ -215,7 +222,7 @@ const faqItems = [
   {
     question: 'How does Google Ads pricing work?',
     answer:
-      'Infrastructure setup is R14,500–R20,000 once-off (tracking, campaign architecture, landing pages). Monthly management starts at R6,500/month for up to R20k ad spend, with Premium covering R20,001–R50,000 and Elite for R50,001+ accounts. Ad spend is billed separately to Google. We never markup media.',
+      'Infrastructure setup is R14,500ΓÇôR20,000 once-off (tracking, campaign architecture, landing pages). Monthly management starts at R6,500/month for up to R20k ad spend, with Premium covering R20,001ΓÇôR50,000 and Elite for R50,001+ accounts. Ad spend is billed separately to Google. We never markup media.',
   },
   {
     question: 'What if I need changes after my website is built?',
@@ -225,7 +232,7 @@ const faqItems = [
   {
     question: 'Do you offer Meta (Facebook & Instagram) ads pricing?',
     answer:
-      'Meta management is scoped per engagement based on creative volume, funnel complexity, and recommended ad budget. Most Johannesburg service businesses run R8,000–R25,000/month in ad spend. See our Facebook Ads service page or book an audit for a tailored quote.',
+      'Meta management is scoped per engagement based on creative volume, funnel complexity, and recommended ad budget. Most Johannesburg service businesses run R8,000ΓÇôR25,000/month in ad spend. See our Facebook Ads service page or book an audit for a tailored quote.',
   },
   {
     question: 'How do I know which package is right for me?',
@@ -308,7 +315,7 @@ function PackageCard({ pkg }: { pkg: (typeof webPackages)[number] }) {
         {pkg.features.map((feature) => (
           <li key={feature} className="flex items-start gap-3">
             <span className="mt-0.5 shrink-0 text-zinc-500" aria-hidden="true">
-              •
+              ΓÇó
             </span>
             <span>{feature}</span>
           </li>
@@ -326,6 +333,36 @@ function PackageCard({ pkg }: { pkg: (typeof webPackages)[number] }) {
         {pkg.cta}
       </Link>
     </article>
+  );
+}
+
+function PricingCategoryLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="inline-flex items-center rounded-sm bg-white px-4 py-2 text-sm font-bold uppercase tracking-[0.12em] text-black">
+      {children}
+    </p>
+  );
+}
+
+function PricingSectionHeader({
+  title,
+  description,
+  aside,
+}: {
+  title: string;
+  description: string;
+  aside?: React.ReactNode;
+}) {
+  return (
+    <header className="mb-14 border-b border-zinc-800 pb-8">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="max-w-3xl">
+          <PricingCategoryLabel>{title}</PricingCategoryLabel>
+          <p className="mt-5 text-lg leading-relaxed text-zinc-400 md:text-xl">{description}</p>
+        </div>
+        {aside ? <div className="shrink-0">{aside}</div> : null}
+      </div>
+    </header>
   );
 }
 
@@ -381,7 +418,7 @@ const PricingPage = () => {
 
         <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
           <p className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-zinc-400">
-            Transparent ZAR Pricing · Johannesburg
+            Transparent ZAR Pricing ┬╖ Johannesburg
           </p>
           <h1
             id="pricing-headline"
@@ -398,23 +435,20 @@ const PricingPage = () => {
             measurable pipeline growth.
           </p>
           <p className="mb-8 max-w-2xl text-base text-zinc-500">
-            Fewer clients · Senior-led delivery · Once-off architecture · Flat-fee ad management
+            Fewer clients ┬╖ Senior-led delivery ┬╖ Once-off architecture ┬╖ Flat-fee ad management
           </p>
           <nav
-            aria-label="Pricing sections"
-            className="mb-8 flex flex-wrap items-center justify-center gap-2"
+            aria-label="Jump to pricing category"
+            className="mb-8 grid w-full max-w-3xl gap-2 sm:grid-cols-2"
           >
-            {[
-              { href: '#websites', label: 'Websites' },
-              { href: '#google-ads', label: 'Google Ads' },
-              { href: '#meta-ads', label: 'Facebook & Instagram' },
-            ].map((item) => (
+            {pricingNav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-sm border border-zinc-800 bg-zinc-950/60 px-4 py-2 text-sm font-semibold text-zinc-300 transition-colors hover:border-zinc-600 hover:text-white"
+                className="rounded-sm border border-zinc-700 bg-zinc-950/80 px-4 py-3 text-left text-sm font-semibold text-white transition-colors hover:border-teal-400/60 hover:bg-zinc-900"
               >
                 {item.label}
+                <span className="mt-0.5 block text-xs font-normal text-zinc-500">View pricing →</span>
               </a>
             ))}
           </nav>
@@ -512,23 +546,19 @@ const PricingPage = () => {
       </section>
 
       {/* Web packages */}
-      <section id="websites" className="bg-zinc-950 py-20 md:py-28 scroll-mt-28">
+      <section id="web-design-packages" className="scroll-mt-28 bg-zinc-950 py-20 md:py-28">
         <div className="container mx-auto px-6">
-          <div className="mb-14 flex flex-col gap-3 border-b border-zinc-800 pb-8 sm:flex-row sm:items-end sm:justify-between">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
-              Web Architecture
-            </p>
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600">
-              Once-off · Next.js 15 · Entity SEO
-            </p>
-          </div>
-
-          <h2 className="max-w-3xl text-4xl font-bold leading-tight text-white md:text-5xl">
-            Next.js Website Packages
-          </h2>
-          <p className="mt-5 max-w-3xl text-zinc-400">
-            Custom architecture built for speed, suburb-level SEO, and conversion. Not page builders.
-            Not WordPress templates. Every tier includes research, strategy, and senior-led delivery.
+          <PricingSectionHeader
+            title="Web Design Packages"
+            description="Once-off Next.js website builds from R25,000. Custom architecture for speed, suburb-level SEO, and conversion — not page builders or WordPress templates."
+            aside={
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600">
+                Once-off · Next.js 15 · Entity SEO
+              </p>
+            }
+          />
+          <p className="-mt-8 mb-10 font-mono text-xs uppercase tracking-[0.16em] text-zinc-500">
+            Choose your build tier
           </p>
 
           <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-3">
@@ -577,27 +607,20 @@ const PricingPage = () => {
       </section>
 
       {/* Google Ads pricing */}
-      <section id="google-ads" className="bg-black py-20 md:py-28 scroll-mt-28">
+      <section id="google-ads-management" className="scroll-mt-28 bg-black py-20 md:py-28">
         <div className="container mx-auto px-6">
-          <div className="mb-14 flex flex-col gap-3 border-b border-zinc-800 pb-8 sm:flex-row sm:items-end sm:justify-between">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
-              Google Ads Management
-            </p>
-            <Link
-              href="/services/google-ads-pricing"
-              className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600 transition-colors hover:text-zinc-400"
-            >
-              Full pricing breakdown →
-            </Link>
-          </div>
-
-          <h2 className="max-w-3xl text-4xl font-bold leading-tight text-white md:text-5xl">
-            Flat-Fee Paid Search Retainers
-          </h2>
-          <p className="mt-5 max-w-3xl text-zinc-400">
-            Infrastructure setup once. Management scaled to ad spend tier. Ad spend is paid directly
-            to Google. We never take a percentage of your budget.
-          </p>
+          <PricingSectionHeader
+            title="Google Ads Management"
+            description="Flat-fee paid search retainers. Infrastructure setup once, then monthly management scaled to your ad spend tier. Media budget is paid directly to Google — we never take a percentage."
+            aside={
+              <Link
+                href="/services/google-ads-pricing"
+                className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600 transition-colors hover:text-zinc-400"
+              >
+                Full breakdown →
+              </Link>
+            }
+          />
 
           <div className="mt-10">
             <PricingTierGrid tiers={googleAdsPricing} columns={4} />
@@ -627,33 +650,29 @@ const PricingPage = () => {
       </section>
 
       {/* Meta Ads pricing */}
-      <section id="meta-ads" className="bg-zinc-950 py-20 md:py-28 scroll-mt-28">
+      <section id="facebook-instagram-management" className="scroll-mt-28 bg-zinc-950 py-20 md:py-28">
         <div className="container mx-auto px-6">
-          <div className="mb-14 flex flex-col gap-3 border-b border-zinc-800 pb-8 sm:flex-row sm:items-end sm:justify-between">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
-              Meta Ads Management
-            </p>
-            <Link
-              href="/services/facebook-ads"
-              className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600 transition-colors hover:text-zinc-400"
-            >
-              Facebook & Instagram services →
-            </Link>
-          </div>
-
-          <h2 className="max-w-3xl text-4xl font-bold leading-tight text-white md:text-5xl">
-            Facebook & Instagram Retainers
-          </h2>
-          <p className="mt-5 max-w-3xl text-zinc-400">
-            Meta fills the top and middle of your funnel while Google captures active search intent.
-            Ad spend is paid directly to Meta. Management is a flat monthly retainer scoped after
-            audit based on creative volume, funnel complexity, and placements (Facebook, Instagram,
-            Messenger, Audience Network).
-          </p>
+          <PricingSectionHeader
+            title="Facebook & Instagram Management"
+            description="Meta ads for demand creation and remarketing. Flat monthly management from R7,500/month. Recommended media budgets R8,000–R25,000/month, paid directly to Meta."
+            aside={
+              <Link
+                href="/services/facebook-ads"
+                className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600 transition-colors hover:text-zinc-400"
+              >
+                Service details →
+              </Link>
+            }
+          />
 
           <div className="mt-10">
             <PricingTierGrid tiers={metaAdsPricing} columns={4} />
           </div>
+
+          <p className="mt-6 text-sm text-zinc-500">
+            Management fees are flat retainers. Ad spend is billed separately to Meta and is not
+            marked up.
+          </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -673,18 +692,12 @@ const PricingPage = () => {
       </section>
 
       {/* Maintenance */}
-      <section className="bg-black py-20 md:py-28">
+      <section id="website-maintenance" className="scroll-mt-28 bg-black py-20 md:py-28">
         <div className="container mx-auto px-6">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
-            Optional Maintenance
-          </p>
-          <h2 className="mt-4 max-w-3xl text-4xl font-bold leading-tight text-white md:text-5xl">
-            Post-Launch Support Plans
-          </h2>
-          <p className="mt-5 max-w-3xl text-zinc-400">
-            Our Next.js architecture is self-sustaining. Maintenance is optional, not mandatory.
-            Choose a plan if you want ongoing updates, monitoring, and priority support.
-          </p>
+          <PricingSectionHeader
+            title="Website Maintenance"
+            description="Optional post-launch support from R500/month. Our Next.js builds are self-sustaining — choose a plan only if you want ongoing updates, monitoring, and priority support."
+          />
           <div className="mt-10">
             <PricingTierGrid tiers={maintenancePricing} columns={3} />
           </div>
@@ -692,7 +705,7 @@ const PricingPage = () => {
             href="/services/website-maintenance"
             className="mt-6 inline-flex items-center text-sm font-semibold text-white transition-colors hover:text-teal-400/90"
           >
-            Website Maintenance Details →
+            Website Maintenance Details ΓåÆ
           </Link>
         </div>
       </section>
@@ -710,24 +723,24 @@ const PricingPage = () => {
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             <article className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 md:p-8">
               <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600">
-                Typical R5k–R15k Template Build
+                Typical R5kΓÇôR15k Template Build
               </p>
               <ul className="mt-5 space-y-3 text-sm text-zinc-400">
                 <li className="flex items-start gap-3">
-                  <span className="text-zinc-600">×</span>
-                  <span>3–5 second load times that kill paid traffic Quality Score</span>
+                  <span className="text-zinc-600">├ù</span>
+                  <span>3ΓÇô5 second load times that kill paid traffic Quality Score</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-zinc-600">×</span>
+                  <span className="text-zinc-600">├ù</span>
                   <span>No suburb targeting, schema, or entity SEO foundation</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-zinc-600">×</span>
+                  <span className="text-zinc-600">├ù</span>
                   <span>Plugin bloat that breaks Core Web Vitals within months</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-zinc-600">×</span>
-                  <span>Rebuild required within 12–18 months when rankings stall</span>
+                  <span className="text-zinc-600">├ù</span>
+                  <span>Rebuild required within 12ΓÇô18 months when rankings stall</span>
                 </li>
               </ul>
             </article>
@@ -738,19 +751,19 @@ const PricingPage = () => {
               </p>
               <ul className="mt-5 space-y-3 text-sm text-zinc-300">
                 <li className="flex items-start gap-3">
-                  <span className="text-teal-400/80">•</span>
+                  <span className="text-teal-400/80">ΓÇó</span>
                   <span>Sub-second LCP with Next.js 15 server components</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-teal-400/80">•</span>
+                  <span className="text-teal-400/80">ΓÇó</span>
                   <span>Entity SEO, schema, and suburb pages from day one</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-teal-400/80">•</span>
+                  <span className="text-teal-400/80">ΓÇó</span>
                   <span>Conversion architecture wired for Google Ads and Meta landing</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-teal-400/80">•</span>
+                  <span className="text-teal-400/80">ΓÇó</span>
                   <span>Full code ownership. No platform lock-in. Scales as you grow</span>
                 </li>
               </ul>
