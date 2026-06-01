@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Solution = () => {
   return (
-    <section id="solution" className="py-24 bg-white relative overflow-hidden">
+    <section id="solution" className="py-20 md:py-28 bg-black relative overflow-hidden">
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: `
@@ -17,15 +17,15 @@ const Solution = () => {
       <div className="container mx-auto px-6 relative z-10">
         <header className="text-center mb-16 max-w-3xl mx-auto">
           <div className="inline-block mb-6">
-            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-700 bg-cyan-50 px-4 py-2 rounded-full border border-cyan-300">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-700 bg-teal-400/10 px-4 py-2 rounded-full border border-cyan-300">
               Your Growth Partner
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-gray-900 font-heading">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white font-heading">
             Extreme Focus. Uncompromising Attention to Every Detail.
           </h2>
-          <p className="text-xl text-gray-600">
-            We don&apos;t just build websites. We <strong className="text-gray-900">dissect every millimeter</strong> of your business, your market, your competitors, and your customers. Every decision is backed by research. Every pixel is intentional. Every word is strategic. This is how we engineer competitive advantages that can&apos;t be replicated.
+          <p className="text-xl text-zinc-500">
+            We don&apos;t just build websites. We <strong className="text-white">dissect every millimeter</strong> of your business, your market, your competitors, and your customers. Every decision is backed by research. Every pixel is intentional. Every word is strategic. This is how we engineer competitive advantages that can&apos;t be replicated.
           </p>
         </header>
 
@@ -44,49 +44,49 @@ const Solution = () => {
           </div>
 
           <div className="space-y-6">
-            <h3 className="text-3xl font-bold font-heading text-gray-900">The Endpoint Difference: Deep Research, Precision Execution</h3>
-            <p className="text-lg text-gray-700">
+            <h3 className="text-3xl font-bold font-heading text-white">The Endpoint Difference: Deep Research, Precision Execution</h3>
+            <p className="text-lg text-zinc-400">
               Before we write a single line of code, we spend weeks uncovering every detail. We analyze your competitors&apos; weaknesses. We map your market&apos;s search behavior. We understand your customer&apos;s psychology. Then we engineer a solution that puts you in a league of your own.
             </p>
-            <ul className="space-y-4 text-gray-700">
+            <ul className="space-y-4 text-zinc-400">
               <li className="flex items-start group">
-                <div className="flex-shrink-0 w-6 h-6 mr-3 mt-1 bg-cyan-50 rounded-full flex items-center justify-center border-2 border-cyan-200 group-hover:border-cyan-400 transition-colors">
+                <div className="flex-shrink-0 w-6 h-6 mr-3 mt-1 bg-teal-400/10 rounded-full flex items-center justify-center border-2 border-cyan-200 group-hover:border-cyan-400 transition-colors">
                   <svg className="w-4 h-4 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
                 <span>
-                  <strong className="font-semibold text-gray-900">Competitive Intelligence:</strong> We tear down every competitor in your market. We identify their weaknesses, analyze their SEO strategies, and engineer positioning that makes you the obvious choice. You don&apos;t just compete. You dominate.
+                  <strong className="font-semibold text-white">Competitive Intelligence:</strong> We tear down every competitor in your market. We identify their weaknesses, analyze their SEO strategies, and engineer positioning that makes you the obvious choice. You don&apos;t just compete. You dominate.
                 </span>
               </li>
               <li className="flex items-start group">
-                <div className="flex-shrink-0 w-6 h-6 mr-3 mt-1 bg-cyan-50 rounded-full flex items-center justify-center border-2 border-cyan-200 group-hover:border-cyan-400 transition-colors">
+                <div className="flex-shrink-0 w-6 h-6 mr-3 mt-1 bg-teal-400/10 rounded-full flex items-center justify-center border-2 border-cyan-200 group-hover:border-cyan-400 transition-colors">
                   <svg className="w-4 h-4 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
                 <span>
-                  <strong className="font-semibold text-gray-900">Market Deep-Dive:</strong> We uncover search patterns, analyze customer intent, map suburb-by-suburb opportunities, and build an architecture that captures high-value traffic your competitors miss. Nothing is left to chance.
+                  <strong className="font-semibold text-white">Market Deep-Dive:</strong> We uncover search patterns, analyze customer intent, map suburb-by-suburb opportunities, and build an architecture that captures high-value traffic your competitors miss. Nothing is left to chance.
                 </span>
               </li>
               <li className="flex items-start group">
-                <div className="flex-shrink-0 w-6 h-6 mr-3 mt-1 bg-cyan-50 rounded-full flex items-center justify-center border-2 border-cyan-200 group-hover:border-cyan-400 transition-colors">
+                <div className="flex-shrink-0 w-6 h-6 mr-3 mt-1 bg-teal-400/10 rounded-full flex items-center justify-center border-2 border-cyan-200 group-hover:border-cyan-400 transition-colors">
                   <svg className="w-4 h-4 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
                 <span>
-                  <strong className="font-semibold text-gray-900">Extreme Attention to Detail:</strong> Every word, every image, every technical decision is backed by research and strategy. We don&apos;t use templates. We don&apos;t cut corners. We engineer solutions that generate measurable ROI and put you completely above your competition.
+                  <strong className="font-semibold text-white">Extreme Attention to Detail:</strong> Every word, every image, every technical decision is backed by research and strategy. We don&apos;t use templates. We don&apos;t cut corners. We engineer solutions that generate measurable ROI and put you completely above your competition.
                 </span>
               </li>
               <li className="flex items-start group">
-                <div className="flex-shrink-0 w-6 h-6 mr-3 mt-1 bg-cyan-50 rounded-full flex items-center justify-center border-2 border-cyan-200 group-hover:border-cyan-400 transition-colors">
+                <div className="flex-shrink-0 w-6 h-6 mr-3 mt-1 bg-teal-400/10 rounded-full flex items-center justify-center border-2 border-cyan-200 group-hover:border-cyan-400 transition-colors">
                   <svg className="w-4 h-4 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
                 <span>
-                  <strong className="font-semibold text-gray-900">Selective Partnership:</strong> We work with a handful of clients at a time. Your success is not optional. It&apos;s our only metric. We&apos;d rather have 10 clients who dominate than 100 who just become numbers. You get our full attention, expertise, and commitment to your growth.
+                  <strong className="font-semibold text-white">Selective Partnership:</strong> We work with a handful of clients at a time. Your success is not optional. It&apos;s our only metric. We&apos;d rather have 10 clients who dominate than 100 who just become numbers. You get our full attention, expertise, and commitment to your growth.
                 </span>
               </li>
             </ul>

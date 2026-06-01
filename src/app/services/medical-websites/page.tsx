@@ -197,15 +197,16 @@ export default function MedicalWebsitesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-slate-900 via-gray-900 to-emerald-900 text-white py-20 md:py-28">
+      <section className="relative overflow-hidden bg-black text-white py-20 md:py-28">
+      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-900/10 blur-[120px]" aria-hidden />
         <div className="container mx-auto px-6 text-center">
-          <p className="text-emerald-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">
+          <p className="text-teal-400/90 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">
             Medical • Dental • Aesthetic • Wellness
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Turn patient search intent into booked appointments.
           </h1>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-100">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-400">
             We build HPCSA-compliant, conversion-optimised websites for practices across Gauteng.
             Patients get answers in under 30 seconds. Your reception gets qualified leads. You get a
             predictable calendar filled with high-value treatments.
@@ -213,32 +214,32 @@ export default function MedicalWebsitesPage() {
           <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-400 transition"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-sm bg-white text-black hover:bg-zinc-200 transition"
             >
               Book a discovery call
             </Link>
             <Link
               href="/case-studies"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-sm border border-zinc-700 text-white hover:bg-white/10 transition"
             >
               See practice results
             </Link>
           </div>
-          <p className="text-sm text-gray-300 mt-6">
+          <p className="text-sm text-zinc-400 mt-6">
             Serving practices in Sandton, Rosebank, Midrand, Waterfall, Pretoria East, and nationwide.
           </p>
         </div>
       </section>
 
       {/* Differentiators */}
-      <section className="py-20 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <p className="text-emerald-600 font-semibold uppercase tracking-wide">Why clinics choose us</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <p className="text-teal-400/90 font-semibold uppercase tracking-wide">Why clinics choose us</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               Not another template. A patient acquisition engine.
             </h2>
-            <p className="text-lg text-gray-600 mt-4">
+            <p className="text-lg text-zinc-500 mt-4">
               We align web design, messaging, and marketing automation so your front desk spends less time
               chasing enquiries and more time confirming bookings.
             </p>
@@ -247,11 +248,11 @@ export default function MedicalWebsitesPage() {
             {differentiators.map((item) => (
               <div
                 key={item.title}
-                className="bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition"
+                className="rounded-sm border border-zinc-800 bg-black/40 p-6 shadow-sm hover:shadow-md transition"
               >
                 <div className="text-3xl">{item.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mt-4 mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.body}</p>
+                <h3 className="text-xl font-semibold text-white mt-4 mb-2">{item.title}</h3>
+                <p className="text-zinc-500">{item.body}</p>
               </div>
             ))}
           </div>
@@ -259,29 +260,29 @@ export default function MedicalWebsitesPage() {
       </section>
 
       {/* Verticals */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-12">
             <div className="max-w-2xl">
-              <p className="text-emerald-600 font-semibold uppercase tracking-wide">Practice depth</p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+              <p className="text-teal-400/90 font-semibold uppercase tracking-wide">Practice depth</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
                 Built for every discipline in your group.
               </h2>
-              <p className="text-lg text-gray-600 mt-4">
+              <p className="text-lg text-zinc-500 mt-4">
                 Dental, derm, GP, allied health, or wellness. Each department gets a conversion playbook tailored
                 to its patient journey.
               </p>
             </div>
-            <div className="lg:w-64 p-6 bg-white rounded-2xl shadow">
-              <p className="text-5xl font-bold text-gray-900">+71%</p>
-              <p className="text-sm text-gray-600 mt-2">Average uplift in treatment-specific enquiries.</p>
+            <div className="lg:w-64 rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+              <p className="text-5xl font-bold text-white">+71%</p>
+              <p className="text-sm text-zinc-500 mt-2">Average uplift in treatment-specific enquiries.</p>
             </div>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {verticals.map((area) => (
-              <div key={area.name} className="bg-white rounded-2xl border border-gray-200 p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{area.name}</h3>
-                <ul className="space-y-2 text-gray-600 list-disc list-inside">
+              <div key={area.name} className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <h3 className="text-xl font-semibold text-white mb-4">{area.name}</h3>
+                <ul className="space-y-2 text-zinc-500 list-disc list-inside">
                   {area.bullets.map((bullet) => (
                     <li key={bullet}>{bullet}</li>
                   ))}
@@ -293,13 +294,13 @@ export default function MedicalWebsitesPage() {
       </section>
 
       {/* Proof */}
-      <section className="py-16 bg-gray-900 text-white">
+      <section className="py-20 md:py-28 bg-zinc-950 text-white">
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-4">
             {proofPoints.map((point) => (
               <div key={point.label} className="text-center border border-white/10 rounded-2xl p-6">
-                <p className="text-3xl font-bold text-emerald-300">{point.stat}</p>
-                <p className="text-sm text-gray-300 mt-2">{point.label}</p>
+                <p className="text-3xl font-bold text-teal-400/90">{point.stat}</p>
+                <p className="text-sm text-zinc-400 mt-2">{point.label}</p>
               </div>
             ))}
           </div>
@@ -307,20 +308,20 @@ export default function MedicalWebsitesPage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mb-12">
-            <p className="text-emerald-600 font-semibold uppercase tracking-wide">Endpoint process</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <p className="text-teal-400/90 font-semibold uppercase tracking-wide">Endpoint process</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               One sprint to launch, continuous optimisation thereafter.
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {processSteps.map((step) => (
-              <div key={step.step} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
-                <p className="text-emerald-500 text-sm font-semibold">Step {step.step}</p>
-                <h3 className="text-xl font-semibold text-gray-900 mt-3 mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.body}</p>
+              <div key={step.step} className="rounded-sm border border-zinc-800 bg-black/40 p-6">
+                <p className="text-teal-400/90 text-sm font-semibold">Step {step.step}</p>
+                <h3 className="text-xl font-semibold text-white mt-3 mb-2">{step.title}</h3>
+                <p className="text-zinc-500">{step.body}</p>
               </div>
             ))}
           </div>
@@ -328,19 +329,19 @@ export default function MedicalWebsitesPage() {
       </section>
 
       {/* Conversion features */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mb-12">
-            <p className="text-emerald-600 font-semibold uppercase tracking-wide">Conversion stack</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <p className="text-teal-400/90 font-semibold uppercase tracking-wide">Conversion stack</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               Everything you need to turn awareness into appointments.
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {conversionFeatures.map((feature) => (
-              <div key={feature.title} className="bg-white rounded-2xl border border-gray-200 p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+              <div key={feature.title} className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+                <p className="text-zinc-500">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -348,16 +349,16 @@ export default function MedicalWebsitesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-emerald-600 to-teal-600 text-white">
+      <section className="py-20 md:py-28 bg-zinc-950 text-white border-t border-zinc-800">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Fill your appointment book.</h2>
-          <p className="text-lg text-emerald-50 max-w-3xl mx-auto mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Fill your appointment book.</h2>
+          <p className="text-lg text-zinc-400 max-w-3xl mx-auto mb-8">
             Request your free Growth Audit to see the exact CRO, SEO, and automation plays we would deploy
             over the next 30 days for your practice.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-emerald-700 hover:bg-emerald-50 transition"
+            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-black hover:bg-zinc-200 transition"
           >
             Claim your audit
           </Link>
@@ -365,11 +366,11 @@ export default function MedicalWebsitesPage() {
       </section>
 
       {/* FAQs */}
-      <section className="py-20 bg-white" id="faq">
+      <section className="py-20 md:py-28 bg-black" id="faq">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <p className="text-emerald-600 font-semibold uppercase tracking-wide">FAQs</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <p className="text-teal-400/90 font-semibold uppercase tracking-wide">FAQs</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               Your most important questions. Answered.
             </h2>
           </div>
@@ -377,13 +378,13 @@ export default function MedicalWebsitesPage() {
             {faqs.map((item) => (
               <details
                 key={item.question}
-                className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group"
+                className="rounded-sm border border-zinc-800 bg-black/40 p-6 group"
               >
-                <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                <summary className="text-lg font-semibold text-white cursor-pointer flex items-center justify-between">
                   {item.question}
-                  <span className="text-emerald-500 group-open:rotate-45 transition-transform">+</span>
+                  <span className="text-teal-400/90 group-open:rotate-45 transition-transform">+</span>
                 </summary>
-                <p className="text-gray-600 mt-4">{item.answer}</p>
+                <p className="text-zinc-500 mt-4">{item.answer}</p>
               </details>
             ))}
           </div>

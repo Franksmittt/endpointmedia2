@@ -9,7 +9,7 @@ export function RevenueLossCalculator() {
   const slowPenalty = 0.35;
   const lostRevenue = Math.round(traffic * (cvr / 100) * slowPenalty * aov);
   return (
-    <div className="my-8 p-6 bg-gray-900 text-white rounded-xl">
+    <div className="my-8 p-6 bg-gray-900 text-white rounded-sm">
       <h4 className="font-bold mb-4 font-heading text-teal-400">Revenue Loss Calculator</h4>
       <div className="grid sm:grid-cols-3 gap-4 mb-6">
         <label className="text-sm">
@@ -28,7 +28,7 @@ export function RevenueLossCalculator() {
       <p className="text-2xl font-bold text-red-400">
         Estimated monthly revenue at risk: R{lostRevenue.toLocaleString()}
       </p>
-      <p className="text-sm text-gray-400 mt-2">Assumes 35% conversion drop from LCP &gt; 2.5s (Google/CWV data).</p>
+      <p className="text-sm text-zinc-500 mt-2">Assumes 35% conversion drop from LCP &gt; 2.5s (Google/CWV data).</p>
     </div>
   );
 }
@@ -36,12 +36,12 @@ export function RevenueLossCalculator() {
 export function ComponentTearDown() {
   const [mode, setMode] = useState<'legacy' | 'modern'>('legacy');
   return (
-    <div className="my-8 p-6 bg-gray-50 rounded-xl border border-gray-200">
+    <div className="my-8 p-6 bg-zinc-950/70 rounded-sm border border-zinc-800">
       <div className="flex gap-2 mb-4">
-        <button type="button" onClick={() => setMode('legacy')} className={`px-4 py-2 rounded-lg text-sm font-semibold ${mode === 'legacy' ? 'bg-red-600 text-white' : 'bg-white border'}`}>Legacy DOM</button>
-        <button type="button" onClick={() => setMode('modern')} className={`px-4 py-2 rounded-lg text-sm font-semibold ${mode === 'modern' ? 'bg-teal-600 text-white' : 'bg-white border'}`}>React Server Components</button>
+        <button type="button" onClick={() => setMode('legacy')} className={`px-4 py-2 rounded-sm text-sm font-semibold ${mode === 'legacy' ? 'bg-red-600 text-white' : 'border border-zinc-700 bg-black/40 text-zinc-300'}`}>Legacy DOM</button>
+        <button type="button" onClick={() => setMode('modern')} className={`px-4 py-2 rounded-sm text-sm font-semibold ${mode === 'modern' ? 'bg-teal-600 text-white' : 'border border-zinc-700 bg-black/40 text-zinc-300'}`}>React Server Components</button>
       </div>
-      <pre className="text-xs bg-gray-900 text-gray-300 p-4 rounded-lg overflow-x-auto">
+      <pre className="text-xs bg-gray-900 text-zinc-400 p-4 rounded-lg overflow-x-auto">
         {mode === 'legacy'
           ? `<div class="wrapper">\n  <div class="row">\n    <div class="col-md-12">\n      <div class="elementor-widget">\n        ... 847 nested divs ...\n      </div>\n    </div>\n  </div>\n</div>\nPayload: 1.2MB CSS + 340KB JS`
           : `<main>\n  <Hero />        {/* Server Component */}\n  <Proof />       {/* Static HTML */}\n  <Audit />       {/* Client island */}\n</main>\nPayload: 42KB CSS + 18KB JS`}
@@ -61,13 +61,13 @@ export function MigrationChecklist() {
   ];
   const [checked, setChecked] = useState<Record<number, boolean>>({});
   return (
-    <div className="my-8 p-6 bg-gray-50 rounded-xl border border-gray-200">
+    <div className="my-8 p-6 bg-zinc-950/70 rounded-sm border border-zinc-800">
       <h4 className="font-bold mb-4 font-heading">Migration Checklist</h4>
       <ul className="space-y-2">
         {items.map((item, i) => (
           <li key={i} className="flex items-center gap-3">
             <input type="checkbox" checked={!!checked[i]} onChange={() => setChecked((c) => ({ ...c, [i]: !c[i] }))} className="w-5 h-5 accent-teal-600" />
-            <span className={checked[i] ? 'line-through text-gray-400' : 'text-gray-800'}>{item}</span>
+            <span className={checked[i] ? 'line-through text-zinc-500' : 'text-zinc-300'}>{item}</span>
           </li>
         ))}
       </ul>
@@ -80,7 +80,7 @@ export function CpcReductionSimulator() {
   const baseCpc = 45;
   const adjustedCpc = Math.round(baseCpc * (10 / (qs + 5)));
   return (
-    <div className="my-8 p-6 bg-gray-900 text-white rounded-xl">
+    <div className="my-8 p-6 bg-gray-900 text-white rounded-sm">
       <h4 className="font-bold mb-4 text-teal-400 font-heading">CPC Reduction Simulator</h4>
       <label className="text-sm block mb-4">
         Quality Score: {qs}/10

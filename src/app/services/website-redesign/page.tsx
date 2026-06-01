@@ -100,19 +100,20 @@ const WebsiteRedesignPage = () => {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white py-20 md:py-32">
+      <section className="relative overflow-hidden bg-black px-[5%] pb-16 pt-24 md:pb-20 md:pt-28 text-white">
+      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-900/10 blur-[120px]" aria-hidden />
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 font-heading">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4 font-heading">
             Website Redesign Services: Transform Your Outdated Site Into a Lead-Generating Asset
           </h1>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 mb-8">
+          <p className="text-lg md:text-xl max-w-3xl mx-auto text-zinc-400 mb-8">
             Is your website outdated, underperforming, or mobile-incompatible? Stop losing clients 
             to competitors. We specialize in transforming existing websites into high-converting, 
             modern assets that generate measurable ROI.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-extrabold py-3 px-10 rounded shadow-lg transform hover:scale-105 transition duration-300 uppercase text-lg tracking-wider"
+            className="inline-flex items-center justify-center rounded-sm bg-white px-8 py-4 text-base font-semibold text-black transition-colors hover:bg-zinc-200"
           >
             Get Your Free Website Audit
           </Link>
@@ -120,30 +121,30 @@ const WebsiteRedesignPage = () => {
       </section>
 
       {/* Problem Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-gray-900 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white font-heading text-center">
               Is Your Website Costing You Clients?
             </h2>
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-white rounded-xl p-8 border-l-4 border-red-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">❌ Outdated Design</h3>
-                <p className="text-gray-700">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l-4 border-red-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">❌ Outdated Design</h3>
+                <p className="text-zinc-400">
                   Your website looks like it was built in 2010. First impressions matter. An outdated 
                   site tells clients you don&apos;t invest in your business.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-8 border-l-4 border-red-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">📱 Mobile-Incompatible</h3>
-                <p className="text-gray-700">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l-4 border-red-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">📱 Mobile-Incompatible</h3>
+                <p className="text-zinc-400">
                   Over 60% of traffic is mobile. If your site doesn&apos;t work on phones, you&apos;re 
                   losing more than half your potential clients.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-8 border-l-4 border-red-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">🐌 Slow & Underperforming</h3>
-                <p className="text-gray-700">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l-4 border-red-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">🐌 Slow & Underperforming</h3>
+                <p className="text-zinc-400">
                   Slow websites kill conversions. If your site takes more than 3 seconds to load, 
                   visitors are gone. And so are your leads.
                 </p>
@@ -154,23 +155,23 @@ const WebsiteRedesignPage = () => {
       </section>
 
       {/* Solution Section */}
-      <section className="py-24 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-gray-900 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white font-heading text-center">
               How We Transform Your Website
             </h2>
             <div className="space-y-6 mb-12">
-              <div className="bg-teal-50 rounded-xl p-8 border-l-4 border-teal-600">
-                <h3 className="text-2xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-900/35 p-8 border-l border-teal-400/60">
+                <h3 className="text-2xl font-bold mb-3 font-heading text-white">
                   1. Comprehensive Website Audit
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-zinc-400 mb-4">
                   We analyze your current website&apos;s performance, user experience, mobile 
                   compatibility, SEO, and conversion potential. You&apos;ll receive a detailed 
                   report with actionable recommendations.
                 </p>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <ul className="list-disc list-inside text-zinc-400 space-y-2">
                   <li>Performance analysis (speed, Core Web Vitals)</li>
                   <li>Mobile compatibility testing</li>
                   <li>SEO audit and ranking assessment</li>
@@ -178,45 +179,45 @@ const WebsiteRedesignPage = () => {
                   <li>Competitive analysis</li>
                 </ul>
               </div>
-              <div className="bg-teal-50 rounded-xl p-8 border-l-4 border-teal-600">
-                <h3 className="text-2xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-900/35 p-8 border-l border-teal-400/60">
+                <h3 className="text-2xl font-bold mb-3 font-heading text-white">
                   2. Modern Design Refresh
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-zinc-400 mb-4">
                   We redesign your website with a modern, professional aesthetic that reflects 
                   your brand and converts visitors into leads.
                 </p>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <ul className="list-disc list-inside text-zinc-400 space-y-2">
                   <li>Contemporary UI/UX design</li>
                   <li>Mobile-first responsive layout</li>
                   <li>Brand consistency and visual hierarchy</li>
                   <li>Conversion-optimized layouts</li>
                 </ul>
               </div>
-              <div className="bg-teal-50 rounded-xl p-8 border-l-4 border-teal-600">
-                <h3 className="text-2xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-900/35 p-8 border-l border-teal-400/60">
+                <h3 className="text-2xl font-bold mb-3 font-heading text-white">
                   3. Performance Optimization
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-zinc-400 mb-4">
                   We rebuild your website on Next.js for maximum speed, ensuring fast load times 
                   and excellent Core Web Vitals scores.
                 </p>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <ul className="list-disc list-inside text-zinc-400 space-y-2">
                   <li>Next.js-powered for blazing speed</li>
                   <li>Image optimization and lazy loading</li>
                   <li>Code minification and bundling</li>
                   <li>CDN integration</li>
                 </ul>
               </div>
-              <div className="bg-teal-50 rounded-xl p-8 border-l-4 border-teal-600">
-                <h3 className="text-2xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-900/35 p-8 border-l border-teal-400/60">
+                <h3 className="text-2xl font-bold mb-3 font-heading text-white">
                   4. Conversion Rate Optimization
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-zinc-400 mb-4">
                   We optimize every element for conversion, from call-to-action buttons to lead 
                   capture forms, ensuring your website generates measurable ROI.
                 </p>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <ul className="list-disc list-inside text-zinc-400 space-y-2">
                   <li>Strategic CTAs and form placement</li>
                   <li>A/B testing and optimization</li>
                   <li>Lead capture optimization</li>
@@ -229,56 +230,56 @@ const WebsiteRedesignPage = () => {
       </section>
 
       {/* FAQ Section with Schema */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-gray-900 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white font-heading text-center">
               Frequently Asked Questions About Website Redesign
             </h2>
             <div className="space-y-6">
-              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">
                   How long does a website redesign take?
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   A typical website redesign takes 4-8 weeks depending on complexity. We provide 
                   a detailed timeline during your free audit, including milestones and deliverables.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">
                   Will my SEO rankings be affected during the redesign?
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   No. We maintain all existing URLs, redirects, and SEO elements during the redesign. 
                   In fact, most clients see improved rankings due to better performance and technical SEO.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">
                   What if I need changes after the redesign is complete?
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   We offer maintenance packages starting at R500/month for updates, security patches, 
                   and minor changes. Major updates are quoted separately.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">
                   Do you redesign websites built on different platforms?
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   Yes. We can redesign websites built on WordPress, Wix, Squarespace, or any other 
                   platform. We typically migrate to Next.js for better performance and SEO.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">
                   How much does a website redesign cost in Johannesburg?
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   Website redesign costs range from R10,000 to R60,000 depending on complexity, 
-                  number of pages, and required features. See our <Link href="/pricing" className="text-teal-600 font-semibold hover:underline">pricing page</Link> for detailed packages.
+                  number of pages, and required features. See our <Link href="/pricing" className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 hover:underline">pricing page</Link> for detailed packages.
                 </p>
               </div>
             </div>
@@ -287,7 +288,7 @@ const WebsiteRedesignPage = () => {
       </section>
 
       {/* Internal Links - Pillar-Cluster Model */}
-      <section className="py-16 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <InternalLinks
             title="Related Services & Resources"
@@ -329,18 +330,18 @@ const WebsiteRedesignPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+      <section className="py-24 bg-black text-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-6 font-heading">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-heading">
             Ready to Transform Your Outdated Website?
           </h2>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-300 mb-8">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto text-zinc-400 mb-8">
             Get your free website audit and discover how we can transform your site into a 
             lead-generating asset that drives measurable ROI.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-extrabold py-4 px-12 rounded shadow-lg transform hover:scale-105 transition duration-300 uppercase text-lg tracking-wider"
+            className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-12 rounded shadow-lg transform hover:scale-105 transition duration-300 uppercase text-lg tracking-wider"
           >
             Get Your Free Website Audit
           </Link>

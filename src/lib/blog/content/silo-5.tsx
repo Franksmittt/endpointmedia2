@@ -1,47 +1,22 @@
 import React from 'react';
-import { H2, H3, P, Lead, UL, Callout, InternalLink, CodeBlock } from '@/components/blog/blog-prose';
-
-function ComparisonTable({
-  headers,
-  rows,
-}: {
-  headers: string[];
-  rows: string[][];
-}) {
-  return (
-    <div className="my-8 overflow-x-auto rounded-sm border border-zinc-800">
-      <table className="w-full min-w-[640px] text-left text-sm">
-        <thead className="bg-zinc-900">
-          <tr>
-            {headers.map((header) => (
-              <th key={header} className="px-4 py-3 font-semibold text-zinc-200">
-                {header}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, index) => (
-            <tr key={index} className="border-t border-zinc-800">
-              {row.map((cell, cellIndex) => (
-                <td key={cellIndex} className="px-4 py-3 text-zinc-400">
-                  {cell}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
+import {
+  H2,
+  H3,
+  P,
+  Lead,
+  UL,
+  Callout,
+  InternalLink,
+  CodeBlock,
+  ComparisonTable,
+} from '@/components/blog/blog-prose';
 
 export function MetaAndromedaManualMediaBuying() {
   return (
     <>
       <p className="article-summary mb-6 text-xl font-semibold leading-relaxed text-zinc-200">
         Meta&apos;s Andromeda engine treats the creative asset as the primary targeting vector via Entity ID
-        clustering — not your audience stacks. Manual media buying that tweaks demographics while cloning
+        clustering, not your audience stacks. Manual media buying that tweaks demographics while cloning
         visuals is now mathematically obsolete for high-ticket B2B and retail scaling.
       </p>
 
@@ -50,12 +25,12 @@ export function MetaAndromedaManualMediaBuying() {
         Before Andromeda, advertisers built campaigns around lookalikes, interest stacks, and demographic
         filters. Media buyers justified retainers by &quot;testing audiences.&quot; That model collapsed when Meta
         inserted a GPU-accelerated retrieval stage that scans tens of millions of ad candidates and narrows
-        to roughly 1,000 finalists in under 300 milliseconds — before your bid or budget ever matter.
+        to roughly 1,000 finalists in under 300 milliseconds, before your bid or budget ever matters.
       </P>
       <P>
         Andromeda reads pixel data, motion, audio pacing, on-screen text, and semantic context, then assigns
         an <strong>Entity ID</strong>: a computer-vision fingerprint that determines who sees the ad. Manual
-        targeting inputs become suggestions. Broad Advantage+ configurations are not lazy — they are structural
+        targeting inputs become suggestions. Broad Advantage+ configurations are not lazy: they are structural
         requirements that let the algorithm map Entity IDs to psychographic intent.
       </P>
 
@@ -63,15 +38,15 @@ export function MetaAndromedaManualMediaBuying() {
       <P>
         Changing a headline generates a new Creative ID. Changing background colour or aspect ratio also
         generates a new Creative ID. But if visual similarity exceeds Meta&apos;s clustering threshold, all
-        those variations collapse under one Entity ID — one auction ticket, one shared learning pool.
+        those variations collapse under one Entity ID: one auction ticket, one shared learning pool.
       </P>
       <ComparisonTable
         headers={['What you change', 'Creative ID', 'Entity ID', 'Actual test value']}
         rows={[
-          ['Headline copy only', 'New', 'Often same', 'Low — text-only swaps rarely diversify retrieval'],
-          ['CTA button colour', 'New', 'Same', 'None — cosmetic noise'],
-          ['Same layout, new music on video', 'New', 'Same', 'None — audio alone does not break clustering'],
-          ['Different format, environment, persona, benefit axis', 'New', 'New', 'High — opens new auction pockets'],
+          ['Headline copy only', 'New', 'Often same', 'Low: text-only swaps rarely diversify retrieval'],
+          ['CTA button colour', 'New', 'Same', 'None: cosmetic noise'],
+          ['Same layout, new music on video', 'New', 'Same', 'None: audio alone does not break clustering'],
+          ['Different format, environment, persona, benefit axis', 'New', 'New', 'High: opens new auction pockets'],
         ]}
       />
 
@@ -79,13 +54,13 @@ export function MetaAndromedaManualMediaBuying() {
       <P>
         When ten &quot;different&quot; ads share one Entity ID, they bid against each other in the same retrieval
         subset. Spend rises. Reach stagnates. The account looks active while the algorithm learns nothing
-        new. This is premature algorithmic convergence — and it is the hidden tax of template-factory
+        new. This is premature algorithmic convergence, and it is the hidden tax of template-factory
         creative.
       </P>
       <Callout title="Systems Engineering, Not Button-Clicking" variant="teal">
         <p>
           Scaling profitably in 2026 means feeding Andromeda structurally divergent Entity IDs: different
-          layouts, proof structures, environments, and benefit axes — not colour swaps on one Canva frame.
+          layouts, proof structures, environments, and benefit axes, not colour swaps on one Canva frame.
           Endpoint Media builds programmatic creative pipelines and API-governed campaign architecture for
           exactly this problem.{' '}
           <InternalLink href="/services/facebook-ads">Explore Meta ads engineering</InternalLink>.
@@ -95,10 +70,10 @@ export function MetaAndromedaManualMediaBuying() {
       <H2>What High-Ticket Operators Should Demand Instead</H2>
       <UL
         items={[
-          <>Creative volume targets tied to Entity ID diversity — not &quot;12 posts that look identical&quot;</>,
+          <>Creative volume targets tied to Entity ID diversity, not &quot;12 posts that look identical&quot;</>,
           <>Broad or Advantage+ structures that let retrieval map creative signals to intent</>,
           <>Documentation of layout archetypes, not just copy variations</>,
-          <>API-first graduation from sandbox to scale — not manual duplication in Ads Manager</>,
+          <>API-first graduation from sandbox to scale, not manual duplication in Ads Manager</>,
         ]}
       />
       <P>
@@ -121,11 +96,11 @@ export function ProgrammaticDesignFactoryMeta() {
         pixel-perfect, mathematically constrained ad variations without human latency.
       </Lead>
 
-      <H2>The Bottleneck Is Not Media Buying — It Is Creative Throughput</H2>
+      <H2>The Bottleneck Is Not Media Buying: It Is Creative Throughput</H2>
       <P>
         Accounts that sustain 20+ visually distinct concepts per month report materially higher ROAS than
         accounts recycling one template. The constraint is production speed. The programmatic design factory
-        injects database variables — headlines, geo tags, offers, proof points — into pre-engineered layout
+        injects database variables: headlines, geo tags, offers, proof points, into pre-engineered layout
         nodes and rasterizes production PNGs via the Figma REST API at api.figma.com/v1.
       </P>
 
@@ -133,14 +108,14 @@ export function ProgrammaticDesignFactoryMeta() {
       <P>
         Vertical 1080×1920 is the default for Reels, Stories, and vertical placements. But native UI covers
         roughly the top 220px (username, progress bars) and bottom 220px (captions, engagement row). Critical
-        copy and CTAs must live inside the center safe zone — often implemented as the 1080×1080 center-square
+        copy and CTAs must live inside the center safe zone, often implemented as the 1080×1080 center-square
         method with messaging constrained to roughly Y 250–1248 on a 1920px canvas.
       </P>
 
       <H3>Split-Frame 60/40: One Archetype, Not the Only Archetype</H3>
       <P>
         Split-frame layouts isolate documentary imagery (top 60%) from high-contrast copy blocks (bottom
-        40%). That architecture works for B2B proof and local retail trust — but Entity ID diversity
+        40%). That architecture works for B2B proof and local retail trust, but Entity ID diversity
         requires multiple archetypes: comparison grids, carousel series, masthead typography, multi-image
         proof boards, and geo-specific variants. One template repeated twelve times defeats the entire
         system.
@@ -150,8 +125,8 @@ export function ProgrammaticDesignFactoryMeta() {
         headers={['Engineering action', 'Business outcome']}
         rows={[
           ['Figma API variable injection', 'Same-day creative liquidity without designer queue backlog'],
-          ['Safe-zone hardcoding in render pipeline', 'Zero UI occlusion — higher thumb-stop and readability'],
-          ['Layout archetype rotation', 'Distinct Entity IDs — lower CPA from reduced self-competition'],
+          ['Safe-zone hardcoding in render pipeline', 'Zero UI occlusion: higher thumb-stop and readability'],
+          ['Layout archetype rotation', 'Distinct Entity IDs: lower CPA from reduced self-competition'],
           ['Tracking code per angle (e.g. ATC_916_HOOK_A)', 'Clean attribution from ad click to CRM stage'],
         ]}
       />
@@ -160,15 +135,15 @@ export function ProgrammaticDesignFactoryMeta() {
       <UL
         items={[
           <>Display hooks: tight line-height (90–120%), negative letter-spacing (~−3%)</>,
-          <>Max 7–8 words per line on mobile hooks — forces fast retinal parsing</>,
+          <>Max 7–8 words per line on mobile hooks, forces fast retinal parsing</>,
           <>Three-tone palette: dominant field, high-contrast type, single accent for CTA only</>,
-          <>Documentary imagery briefs — not stock gloss — for authentic local trust (especially Gauteng B2C/B2B)</>,
+          <>Documentary imagery briefs, not stock gloss, for authentic local trust (especially Gauteng B2C/B2B)</>,
         ]}
       />
 
       <Callout title="We Build the Factory, Not Just the Ads" variant="teal">
         <p>
-          Endpoint Media engineers creative systems — layout specs, export pipelines, and entity-diverse
+          Endpoint Media engineers creative systems: layout specs, export pipelines, and entity-diverse
           Meta programs for multi-location clients. Stop mail-merging one template.{' '}
           <InternalLink href="/case-studies/alberton-tyre-clinic">See Alberton Tyre Clinic positioning</InternalLink>{' '}
           · <InternalLink href="/contact">Book a creative systems consult</InternalLink>
@@ -183,13 +158,13 @@ export function AboTestingSandboxMetaLiquidity() {
     <>
       <p className="article-summary mb-6 text-xl font-semibold leading-relaxed text-zinc-200">
         Meta ad sets need roughly 50 conversion events in a 7-day window to exit learning phase. ABO sandboxes
-        isolate variables with mathematically computed daily budgets — then API AdRules enforce 15-minute
+        isolate variables with mathematically computed daily budgets, then API AdRules enforce 15-minute
         pacing instead of a media buyer checking Ads Manager once a day.
       </p>
 
       <H2>The Minimum Daily Budget Formula</H2>
       <P>
-        Algorithmic liquidity — reliable delivery and stable CPA — requires enough conversion density per ad
+        Algorithmic liquidity: reliable delivery and stable CPA, requires enough conversion density per ad
         set. The minimum viable daily test budget follows:
       </P>
       <CodeBlock
@@ -208,13 +183,13 @@ Example: target CPA R850 → daily_budget ≈ R6,071`}
       <P>
         Campaign Budget Optimization prematurely concentrates spend on early false positives. ABO sandboxes
         force Meta to spend against specific creative hypotheses until statistical signal exists. Winners
-        graduate to Advantage+ CBO scale environments — but only through API workflows that preserve social
+        graduate to Advantage+ CBO scale environments, but only through API workflows that preserve social
         proof.
       </P>
 
       <H3>Graduation Without Destroying Social Proof</H3>
       <P>
-        Manually duplicating a winning ad in Ads Manager creates a new post — likes, comments, and shares
+        Manually duplicating a winning ad in Ads Manager creates a new post, likes, comments, and shares
         reset. The programmatic approach extracts <code>effective_object_story_id</code> via Graph API{' '}
         <code>ads_read</code>, then injects that immutable Post ID into the scale campaign JSON payload.
         Engagement history and algorithmic weight transfer intact.
@@ -224,7 +199,7 @@ Example: target CPA R850 → daily_budget ≈ R6,071`}
       <P>
         Human operators evaluate performance daily. Runaway ad sets can burn thousands before anyone pauses
         them. Python AdRules scripts polling rolling 7-day ROAS every 15 minutes implement kill switches on
-        unprofitable spend and scale winners by ~19.5% per interval — respecting Meta&apos;s ~20% daily
+        unprofitable spend and scale winners by ~19.5% per interval, respecting Meta&apos;s ~20% daily
         increase guardrail that resets learning phase if violated.
       </P>
 
@@ -253,14 +228,14 @@ export function ServerSideCapiMiddlewareRoi() {
   return (
     <>
       <Lead>
-        Browser pixels fail on iOS, ad blockers, and ITP — blinding Andromeda to the conversions it drives.
+        Browser pixels fail on iOS, ad blockers, and ITP, blinding Andromeda to the conversions it drives.
         Server-side Conversions API middleware with SHA-256 PII normalization, UUID deduplication, and CRM
         stage feedback is the only durable attribution stack for high-ticket B2B in 2026.
       </Lead>
 
       <H2>Why Client-Side Tracking Is a Structural Vulnerability</H2>
       <P>
-        When the pixel misfires, Smart Bidding optimizes on incomplete data — often toward low-intent form
+        When the pixel misfires, Smart Bidding optimizes on incomplete data, often toward low-intent form
         fills instead of qualified pipeline. CAPI sends events from your server after form validation or CRM
         updates, enriched with first-party fields Meta can match against logged-in users.
       </P>
@@ -268,10 +243,10 @@ export function ServerSideCapiMiddlewareRoi() {
       <H3>PII Normalization Before Hashing</H3>
       <UL
         items={[
-          <>Email: lowercase, trim whitespace, then SHA-256 — capitalization differences break matching</>,
+          <>Email: lowercase, trim whitespace, then SHA-256, capitalization differences break matching</>,
           <>Phone: E.164 format (+27…) with no spaces or dashes before hash</>,
           <><code>_fbc</code> and <code>_fbp</code> cookies: transmit unhashed from request headers</>,
-          <>Generate UUID <code>event_id</code> once — pass identical ID in browser pixel and CAPI payload</>,
+          <>Generate UUID <code>event_id</code> once, pass identical ID in browser pixel and CAPI payload</>,
         ]}
       />
 
@@ -286,14 +261,14 @@ export function ServerSideCapiMiddlewareRoi() {
       <H3>Closed-Loop CRM for B2B: Beyond the Lead Event</H3>
       <P>
         A top-of-funnel lead is noise until CRM progression proves intent. Middleware should fire offline
-        events when records hit MQL, SQL, Proposal Sent, and Closed-Won — training GEM sequence models to
+        events when records hit MQL, SQL, Proposal Sent, and Closed-Won, training GEM sequence models to
         pursue buyers with corporate authority, not form spammers.
       </P>
 
       <Callout title="Data Sovereignty Is a Revenue Feature" variant="teal">
         <p>
           Endpoint Media implements Next.js API routes and Python CAPI middleware with deduplication and CRM
-          stage mapping — the same architecture we deploy for{' '}
+          stage mapping, the same architecture we deploy for{' '}
           <InternalLink href="/case-studies/as-brokers">AS Brokers</InternalLink> and industrial clients.{' '}
           <InternalLink href="/blog/google-ads-tracking-errors-budget">Compare: Google Ads server-side tracking</InternalLink>
         </p>
@@ -318,13 +293,13 @@ export function SystemicDivergenceIndustryVsRetailSa() {
       <p className="article-summary mb-6 text-xl font-semibold leading-relaxed text-zinc-200">
         One ad engine cannot serve Alrode industrial procurement and Alberton retail tyre trust with the same
         funnel, payload, or creative psychology. Autonomous infrastructure must diverge by sector economics
-        and South Africa&apos;s network realities — load shedding, tower outages, and mobile-first buyers.
+        and South Africa&apos;s network realities: load shedding, tower outages, and mobile-first buyers.
       </p>
 
       <H2>Heavy Industry: Alrode, Wadeville, and High-Friction Qualification</H2>
       <P>
         B2B manufacturing and logistics buyers in Gauteng industrial nodes evaluate uptime, capacity, and
-        compliance — not impulse offers. The engine deploys sequential 5-card carousels: infrastructure
+        compliance, not impulse offers. The engine deploys sequential 5-card carousels: infrastructure
         scale, operational proof, technical metrics, certification, then Higher Intent lead forms requiring
         corporate credentials. Friction is intentional. It filters retail curiosity and feeds qualified MQLs
         into CAPI closed-loop pipelines.
@@ -337,10 +312,10 @@ export function SystemicDivergenceIndustryVsRetailSa() {
 
       <H2>Localized Retail: Zero-Friction Trust Funnels</H2>
       <P>
-        Affluent suburban retail — tyre clinics, medical, home services — demands documentary authenticity and
+        Affluent suburban retail, tyre clinics, medical, home services, demands documentary authenticity and
         instant conversational routing. WhatsApp Business API integrations qualify leads in-chat before human
         handoff, eliminating landing-page latency and drop-off. Creative psychology competes on safety,
-        heritage, and anti-chain-store trust — not price gimmicks.
+        heritage, and anti-chain-store trust, not price gimmicks.
       </P>
       <P>
         <InternalLink href="/case-studies/alberton-tyre-clinic">Alberton Tyre Clinic case study</InternalLink> ·{' '}
@@ -352,7 +327,7 @@ export function SystemicDivergenceIndustryVsRetailSa() {
         Load shedding and cell tower battery theft degrade MTN and Vodacom latency outside stable grid windows.
         Heavy video payloads fail to load; bounce rates spike; ad sets get auction penalties. Programmatic
         engines monitor connection viability and swap to compressed static WebP or JPEG under ~30MB when
-        geotargeting nodes with acute degradation — while weighting B2B delivery toward early-morning windows
+        geotargeting nodes with acute degradation, while weighting B2B delivery toward early-morning windows
         (02:00–04:00) when grid stability and procurement research peaks align.
       </P>
 
@@ -369,8 +344,8 @@ export function SystemicDivergenceIndustryVsRetailSa() {
       <Callout title="Stop Hiring Button-Clickers" variant="red">
         <p>
           Legacy agencies pull levers in an interface built for machines. Endpoint Media engineers autonomous
-          ad infrastructure — creative factories, ABO sandboxes, CAPI middleware, and sector-specific funnel
-          divergence — for Gauteng operators who need pipeline sovereignty, not monthly PDF reports.{' '}
+          ad infrastructure, creative factories, ABO sandboxes, CAPI middleware, and sector-specific funnel
+          divergence, for Gauteng operators who need pipeline sovereignty, not monthly PDF reports.{' '}
           <InternalLink href="/contact">Get your growth audit</InternalLink>
         </p>
       </Callout>

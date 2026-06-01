@@ -201,22 +201,23 @@ const WebsiteDevelopmentPage = () => {
       />
 
       {/* Hero Section - Optimized for LCP */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white pt-32 pb-20 md:pt-40 md:pb-24">
+      <section className="relative overflow-hidden bg-black px-[5%] pb-16 pt-24 md:pb-20 md:pt-28 text-white">
+      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-900/10 blur-[120px]" aria-hidden />
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="mb-6 inline-block">
-              <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-4 py-2 rounded-full border border-cyan-500/30">
+              <span className="text-xs font-semibold uppercase tracking-wider text-teal-400/90 bg-teal-400/10 px-4 py-2 rounded-sm border border-teal-400/30">
                 Architectural Supremacy
               </span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 font-heading">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 font-heading">
               Website Development Services
               <br />
               <span className="text-cyan-400">Built for Search Dominance</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-zinc-400 mb-8 leading-relaxed">
               We engineer high-performance web assets using <strong className="text-white">Next.js 15</strong> and <strong className="text-white">semantic entity optimization</strong>. 
               Not keyword stuffing. Not plugin bloat. Pure architectural superiority that outranks legacy WordPress sites.
             </p>
@@ -235,7 +236,7 @@ const WebsiteDevelopmentPage = () => {
               </a>
               <Link
                 href="/case-studies"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white font-bold py-4 px-8 rounded-lg transition-all"
+                className="inline-flex items-center justify-center gap-2 border border-zinc-700 text-zinc-100 font-semibold py-4 px-8 rounded-sm hover:bg-zinc-900 transition-all"
               >
                 View Case Studies
               </Link>
@@ -245,14 +246,14 @@ const WebsiteDevelopmentPage = () => {
       </section>
 
       {/* Position Zero: Definition Snippet - "What is Modern Website Development?" */}
-      <section className="py-16 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-heading">
               What is Modern Website Development?
             </h2>
-            <div className="bg-gradient-to-r from-cyan-50 to-blue-50 border-l-4 border-cyan-600 p-6 rounded-r-lg mb-8">
-              <p className="text-lg leading-relaxed text-gray-800">
+            <div className="rounded-sm border border-zinc-800 bg-zinc-900/35 p-6 border-l border-teal-400/60 mb-8">
+              <p className="text-lg leading-relaxed text-zinc-300">
                 Modern website development is the process of engineering web applications using server-side rendering technologies like <strong>Next.js 15</strong> to ensure maximum performance and crawlability. Unlike traditional CMS platforms, it prioritizes <strong>semantic HTML</strong>, <strong>entity-based indexing</strong>, and <strong>Core Web Vitals optimization</strong> to achieve superior search engine visibility and user conversion rates. This architectural approach transforms websites from mere content containers into structured, machine-readable entities that search engines understand inherently.
               </p>
             </div>
@@ -261,65 +262,65 @@ const WebsiteDevelopmentPage = () => {
       </section>
 
       {/* Comparison Table - Position Zero for "WordPress vs Next.js" */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 text-center font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center font-heading">
               WordPress vs. Next.js 15: The Architecture Gap
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+            <p className="text-center text-zinc-500 mb-12 max-w-3xl mx-auto">
               Legacy CMS platforms rely on outdated SEO tactics. Modern frameworks leverage architectural superiority for search dominance.
             </p>
 
-            <div className="bg-white rounded-xl shadow-xl overflow-hidden border-2 border-gray-200">
+            <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 overflow-hidden">
               <table className="min-w-full border-collapse">
                 <thead>
                   <tr className="bg-gradient-to-r from-gray-900 to-gray-800 text-white">
                     <th className="p-4 text-left font-bold font-heading">Feature</th>
                     <th className="p-4 text-left font-bold font-heading">Legacy (WordPress/CMS)</th>
-                    <th className="p-4 text-left font-bold font-heading bg-cyan-600">Modern (Next.js 15)</th>
+                    <th className="p-4 text-left font-bold font-heading bg-teal-400/20">Modern (Next.js 15)</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Rendering Strategy</td>
-                    <td className="p-4 text-gray-700">Client-Side JavaScript / Heavy PHP</td>
-                    <td className="p-4 text-gray-900 font-semibold">React Server Components (Zero JS)</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Rendering Strategy</td>
+                    <td className="p-4 text-zinc-400">Client-Side JavaScript / Heavy PHP</td>
+                    <td className="p-4 text-white font-semibold">React Server Components (Zero JS)</td>
                   </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">SEO Approach</td>
-                    <td className="p-4 text-gray-700">Keyword Stuffing / Plugin-Based</td>
-                    <td className="p-4 text-gray-900 font-semibold">Entity & Semantic Indexing</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">SEO Approach</td>
+                    <td className="p-4 text-zinc-400">Keyword Stuffing / Plugin-Based</td>
+                    <td className="p-4 text-white font-semibold">Entity & Semantic Indexing</td>
                   </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Performance (LCP)</td>
-                    <td className="p-4 text-gray-700">3-5 seconds (Plugin Bloat)</td>
-                    <td className="p-4 text-gray-900 font-semibold">&lt;1 second (Optimized)</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Performance (LCP)</td>
+                    <td className="p-4 text-zinc-400">3-5 seconds (Plugin Bloat)</td>
+                    <td className="p-4 text-white font-semibold">&lt;1 second (Optimized)</td>
                   </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Canonical Tags</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Canonical Tags</td>
                     <td className="p-4 text-red-600 font-medium">Often Undefined / Broken</td>
-                    <td className="p-4 text-green-600 font-semibold">Self-Referencing & Self-Healing</td>
+                    <td className="p-4 text-teal-400/90 font-semibold">Self-Referencing & Self-Healing</td>
                   </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Structured Data</td>
-                    <td className="p-4 text-gray-700">Basic / Missing KGMID Links</td>
-                    <td className="p-4 text-gray-900 font-semibold">Deep JSON-LD with Knowledge Graph IDs</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Structured Data</td>
+                    <td className="p-4 text-zinc-400">Basic / Missing KGMID Links</td>
+                    <td className="p-4 text-white font-semibold">Deep JSON-LD with Knowledge Graph IDs</td>
                   </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Schema Implementation</td>
-                    <td className="p-4 text-gray-700">Plugin-Dependent / Static</td>
-                    <td className="p-4 text-gray-900 font-semibold">Programmatic / Dynamic</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Schema Implementation</td>
+                    <td className="p-4 text-zinc-400">Plugin-Dependent / Static</td>
+                    <td className="p-4 text-white font-semibold">Programmatic / Dynamic</td>
                   </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Crawl Efficiency</td>
-                    <td className="p-4 text-gray-700">Low (Heavy JS Execution)</td>
-                    <td className="p-4 text-gray-900 font-semibold">High (Pre-Rendered HTML)</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Crawl Efficiency</td>
+                    <td className="p-4 text-zinc-400">Low (Heavy JS Execution)</td>
+                    <td className="p-4 text-white font-semibold">High (Pre-Rendered HTML)</td>
                   </tr>
-                  <tr className="hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Total Cost of Ownership</td>
-                    <td className="p-4 text-gray-700">High (Plugin Subscriptions, Maintenance)</td>
-                    <td className="p-4 text-gray-900 font-semibold">Low (Built-in Optimization)</td>
+                  <tr className="hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Total Cost of Ownership</td>
+                    <td className="p-4 text-zinc-400">High (Plugin Subscriptions, Maintenance)</td>
+                    <td className="p-4 text-white font-semibold">Low (Built-in Optimization)</td>
                   </tr>
                 </tbody>
               </table>
@@ -329,20 +330,20 @@ const WebsiteDevelopmentPage = () => {
       </section>
 
       {/* Entity-First Optimization Explanation */}
-      <section className="py-16 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-heading">
               Entity-First Optimization: Beyond Keywords
             </h2>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              Google&apos;s ranking algorithm has transitioned to an <strong className="text-gray-900">Entity-First model</strong>. It no longer indexes pages primarily as &ldquo;bags of words,&rdquo; but as documents containing recognized entities (people, places, organizations, concepts) and the relationships between them.
+            <p className="text-lg text-zinc-400 mb-8 leading-relaxed">
+              Google&apos;s ranking algorithm has transitioned to an <strong className="text-white">Entity-First model</strong>. It no longer indexes pages primarily as &ldquo;bags of words,&rdquo; but as documents containing recognized entities (people, places, organizations, concepts) and the relationships between them.
             </p>
             
             <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Old SEO (Legacy CMS)</h3>
-                <ul className="space-y-2 text-gray-700">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l border-red-500/60">
+                <h3 className="text-xl font-bold text-white mb-3">Old SEO (Legacy CMS)</h3>
+                <ul className="space-y-2 text-zinc-400">
                   <li className="flex items-start">
                     <span className="text-red-500 mr-2">✗</span>
                     <span>Keyword frequency optimization</span>
@@ -362,9 +363,9 @@ const WebsiteDevelopmentPage = () => {
                 </ul>
               </div>
 
-              <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">New SEO (Next.js 15)</h3>
-                <ul className="space-y-2 text-gray-700">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l border-teal-400/60">
+                <h3 className="text-xl font-bold text-white mb-3">New SEO (Next.js 15)</h3>
+                <ul className="space-y-2 text-zinc-400">
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
                     <span>Entity-based semantic indexing</span>
@@ -385,12 +386,12 @@ const WebsiteDevelopmentPage = () => {
               </div>
             </div>
 
-            <div className="bg-cyan-50 border-2 border-cyan-200 rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">How We Establish Entity Authority</h3>
-              <p className="text-gray-700 mb-4">
+            <div className="bg-teal-400/10 border-2 border-cyan-200 rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-4">How We Establish Entity Authority</h3>
+              <p className="text-zinc-400 mb-4">
                 We explicitly link your services to Google&apos;s Knowledge Graph using entity IDs. For example:
               </p>
-              <ul className="space-y-3 text-gray-700">
+              <ul className="space-y-3 text-zinc-400">
                 <li className="flex items-start">
                   <span className="text-cyan-600 font-bold mr-3">•</span>
                   <span><strong>Web Development</strong> → Linked to KGMID <code className="bg-white px-2 py-1 rounded text-sm">/m/081rb</code></span>
@@ -404,7 +405,7 @@ const WebsiteDevelopmentPage = () => {
                   <span><strong>SEO</strong> → Linked to KGMID <code className="bg-white px-2 py-1 rounded text-sm">/m/02h34t</code></span>
                 </li>
               </ul>
-              <p className="text-gray-700 mt-4">
+              <p className="text-zinc-400 mt-4">
                 This tells Google <strong>exactly</strong> what entities you represent, creating defensible competitive advantages that legacy CMS sites cannot replicate.
               </p>
             </div>
@@ -413,61 +414,61 @@ const WebsiteDevelopmentPage = () => {
       </section>
 
       {/* Zero-Volume Keyword Strategy */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-heading">
               Advanced Solutions for High-Scale Web Assets
             </h2>
-            <p className="text-lg text-gray-700 mb-8">
-              While competitors target high-volume keywords, we exploit <strong className="text-gray-900">zero-volume, high-intent queries</strong> that traditional SEO tools miss.
+            <p className="text-lg text-zinc-400 mb-8">
+              While competitors target high-volume keywords, we exploit <strong className="text-white">zero-volume, high-intent queries</strong> that traditional SEO tools miss.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 hover:shadow-xl transition-shadow">
                 <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Automated Internal Linking</h3>
-                <p className="text-gray-700">
+                <h3 className="text-xl font-bold text-white mb-3">Automated Internal Linking</h3>
+                <p className="text-zinc-400">
                   We utilize <strong>TF-IDF algorithms</strong> to mathematically calculate relevance between pages, ensuring your link equity flows efficiently without manual plugins or guesswork. This creates topic clusters that establish topical authority.
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 hover:shadow-xl transition-shadow">
                 <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent-600 rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Self-Healing Architecture</h3>
-                <p className="text-gray-700">
+                <h3 className="text-xl font-bold text-white mb-3">Self-Healing Architecture</h3>
+                <p className="text-zinc-400">
                   Our systems automatically detect URL changes and issue <strong>301 redirects</strong> to canonical URLs, preserving your domain authority permanently. This eliminates the &ldquo;undefined canonical&rdquo; errors that plague legacy CMS sites.
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 hover:shadow-xl transition-shadow">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Core Web Vitals Engineering</h3>
-                <p className="text-gray-700">
+                <h3 className="text-xl font-bold text-white mb-3">Core Web Vitals Engineering</h3>
+                <p className="text-zinc-400">
                   Every site is optimized for <strong>LCP &lt;1s</strong>, <strong>CLS &lt;0.1</strong>, and <strong>INP &lt;200ms</strong>. We use Next.js Image optimization, server-side rendering, and Partytown for third-party scripts to achieve scores that legacy platforms cannot match.
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-4">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 hover:shadow-xl transition-shadow">
+                <div className="w-12 h-12 bg-gradient-to-br from-teal-400/90 to-zinc-500 rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Programmatic SEO at Scale</h3>
-                <p className="text-gray-700">
+                <h3 className="text-xl font-bold text-white mb-3">Programmatic SEO at Scale</h3>
+                <p className="text-zinc-400">
                   Using Next.js dynamic routes and metadata generation, we create thousands of pages targeting <strong>zero-volume, high-intent keywords</strong> that competitors ignore. This blue ocean strategy captures aggregate traffic from long-tail queries.
                 </p>
               </div>
@@ -477,20 +478,20 @@ const WebsiteDevelopmentPage = () => {
       </section>
 
       {/* Technical Implementation Details */}
-      <section className="py-16 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 font-heading">
               Technical Architecture: Built for Search Dominance
             </h2>
 
             <div className="space-y-8">
-              <div className="border-l-4 border-cyan-600 pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Server Components & Crawl Efficiency</h3>
-                <p className="text-gray-700 mb-4">
+              <div className="border-l-4 border-teal-400/60 pl-6">
+                <h3 className="text-xl font-bold text-white mb-3">Server Components & Crawl Efficiency</h3>
+                <p className="text-zinc-400 mb-4">
                   Next.js 15 uses <strong>React Server Components (RSC)</strong> by default. This means content is pre-rendered as HTML on the server, sent to search engines instantly, and requires zero client-side JavaScript for rendering. This conserves crawl budget and ensures immediate indexing.
                 </p>
-                <ul className="space-y-2 text-gray-700 ml-4">
+                <ul className="space-y-2 text-zinc-400 ml-4">
                   <li className="flex items-start">
                     <span className="text-cyan-600 mr-2">•</span>
                     <span>HTML delivered in initial HTTP response (no JS execution required)</span>
@@ -507,11 +508,11 @@ const WebsiteDevelopmentPage = () => {
               </div>
 
               <div className="border-l-4 border-accent pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Metadata API: Programmatic SEO</h3>
-                <p className="text-gray-700 mb-4">
+                <h3 className="text-xl font-bold text-white mb-3">Metadata API: Programmatic SEO</h3>
+                <p className="text-zinc-400 mb-4">
                   Next.js 15&apos;s Metadata API runs on the server and dynamically generates meta tags, eliminating title duplication and ensuring every page has proper canonical tags. Unlike WordPress plugins, this is built into the framework.
                 </p>
-                <ul className="space-y-2 text-gray-700 ml-4">
+                <ul className="space-y-2 text-zinc-400 ml-4">
                   <li className="flex items-start">
                     <span className="text-accent mr-2">•</span>
                     <span>Automatic canonical tag generation (self-referencing)</span>
@@ -528,11 +529,11 @@ const WebsiteDevelopmentPage = () => {
               </div>
 
               <div className="border-l-4 border-green-600 pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Knowledge Graph Integration</h3>
-                <p className="text-gray-700 mb-4">
-                  We implement deep JSON-LD schema with <code className="bg-gray-100 px-2 py-1 rounded text-sm">sameAs</code> properties linking to Google&apos;s Knowledge Graph IDs (KGMID) and Wikidata entities. This explicitly establishes your entity authority.
+                <h3 className="text-xl font-bold text-white mb-3">Knowledge Graph Integration</h3>
+                <p className="text-zinc-400 mb-4">
+                  We implement deep JSON-LD schema with <code className="bg-zinc-900 px-2 py-1 rounded text-sm text-zinc-300">sameAs</code> properties linking to Google&apos;s Knowledge Graph IDs (KGMID) and Wikidata entities. This explicitly establishes your entity authority.
                 </p>
-                <ul className="space-y-2 text-gray-700 ml-4">
+                <ul className="space-y-2 text-zinc-400 ml-4">
                   <li className="flex items-start">
                     <span className="text-green-600 mr-2">•</span>
                     <span>Organization schema linked to Knowledge Graph</span>
@@ -553,55 +554,55 @@ const WebsiteDevelopmentPage = () => {
       </section>
 
       {/* Position Zero: List Snippet - "How to Choose" */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 font-heading">
               How to Choose the Right Website Development Approach
             </h2>
             
-            <ol className="space-y-6 bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200">
+            <ol className="space-y-6 rounded-sm border border-zinc-800 bg-zinc-950/70 p-8">
               <li className="flex items-start">
-                <span className="flex-shrink-0 w-8 h-8 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold mr-4">1</span>
+                <span className="flex-shrink-0 w-8 h-8 bg-teal-400/20 text-white rounded-full flex items-center justify-center font-bold mr-4">1</span>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Assess Your SEO Requirements</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-xl font-bold text-white mb-2">Assess Your SEO Requirements</h3>
+                  <p className="text-zinc-400">
                     If you need to rank for competitive keywords and establish topical authority, Next.js 15 with entity-based SEO provides architectural advantages that WordPress plugins cannot replicate. Legacy CMS platforms rely on keyword density, while modern frameworks use semantic indexing.
                   </p>
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="flex-shrink-0 w-8 h-8 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold mr-4">2</span>
+                <span className="flex-shrink-0 w-8 h-8 bg-teal-400/20 text-white rounded-full flex items-center justify-center font-bold mr-4">2</span>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Evaluate Performance Needs</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-xl font-bold text-white mb-2">Evaluate Performance Needs</h3>
+                  <p className="text-zinc-400">
                     Core Web Vitals are ranking factors. If your site loads in 3-5 seconds (typical WordPress), you&apos;re losing rankings to faster competitors. Next.js Server Components deliver sub-second LCP scores, directly impacting search visibility.
                   </p>
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="flex-shrink-0 w-8 h-8 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
+                <span className="flex-shrink-0 w-8 h-8 bg-teal-400/20 text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Consider Total Cost of Ownership</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-xl font-bold text-white mb-2">Consider Total Cost of Ownership</h3>
+                  <p className="text-zinc-400">
                     WordPress sites require plugin subscriptions (SEO plugins, security, caching), hosting optimization, and constant maintenance. Next.js sites have lower ongoing costs due to built-in optimization and superior architecture.
                   </p>
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="flex-shrink-0 w-8 h-8 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
+                <span className="flex-shrink-0 w-8 h-8 bg-teal-400/20 text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Plan for Scalability</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-xl font-bold text-white mb-2">Plan for Scalability</h3>
+                  <p className="text-zinc-400">
                     As your business grows, you&apos;ll need more pages, better performance, and deeper SEO. Next.js enables programmatic SEO at scale through dynamic routes and automated metadata generation. WordPress sites become slower and harder to manage as they grow.
                   </p>
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="flex-shrink-0 w-8 h-8 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold mr-4">5</span>
+                <span className="flex-shrink-0 w-8 h-8 bg-teal-400/20 text-white rounded-full flex items-center justify-center font-bold mr-4">5</span>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Audit Current Technical SEO</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-xl font-bold text-white mb-2">Audit Current Technical SEO</h3>
+                  <p className="text-zinc-400">
                     Request a free architecture audit. We&apos;ll analyze your current site&apos;s canonical tags, schema implementation, Core Web Vitals, and entity optimization. This reveals gaps that competitors are exploiting and opportunities for immediate improvements.
                   </p>
                 </div>
@@ -612,46 +613,46 @@ const WebsiteDevelopmentPage = () => {
       </section>
 
       {/* FAQ Section - Position Zero Formatting */}
-      <section className="py-16 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 font-heading">
               Frequently Asked Questions
             </h2>
 
             <div className="space-y-6">
-              <details className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+              <details className="rounded-sm border border-zinc-800 bg-black/40 p-6">
+                <summary className="font-bold text-lg text-white cursor-pointer hover:text-cyan-600 transition-colors">
                   What technologies do you use for website development?
                 </summary>
-                <p className="mt-4 text-gray-700 leading-relaxed">
+                <p className="mt-4 text-zinc-400 leading-relaxed">
                   We use <strong>Next.js 15</strong> with React Server Components, TypeScript for type safety, and Tailwind CSS for styling. For backend, we use Node.js or Python depending on requirements. All sites are hosted on Vercel or AWS for optimal performance and global CDN distribution.
                 </p>
               </details>
 
-              <details className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+              <details className="rounded-sm border border-zinc-800 bg-black/40 p-6">
+                <summary className="font-bold text-lg text-white cursor-pointer hover:text-cyan-600 transition-colors">
                   Can you migrate my existing WordPress site to Next.js?
                 </summary>
-                <p className="mt-4 text-gray-700 leading-relaxed">
+                <p className="mt-4 text-zinc-400 leading-relaxed">
                   Yes. We migrate content, maintain URLs with 301 redirects, preserve SEO elements, and rebuild using Next.js architecture. Most clients see improved performance and rankings within 30-60 days due to better technical SEO and Core Web Vitals scores.
                 </p>
               </details>
 
-              <details className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+              <details className="rounded-sm border border-zinc-800 bg-black/40 p-6">
+                <summary className="font-bold text-lg text-white cursor-pointer hover:text-cyan-600 transition-colors">
                   How do you ensure my site ranks quickly?
                 </summary>
-                <p className="mt-4 text-gray-700 leading-relaxed">
+                <p className="mt-4 text-zinc-400 leading-relaxed">
                   We implement entity-based SEO from day one, linking services to Knowledge Graph IDs. Server-side rendering ensures immediate crawlability. Structured data with FAQPage schema targets featured snippets. Internal linking uses TF-IDF algorithms for optimal authority distribution. Combined with Core Web Vitals optimization, these create ranking advantages that compound over time.
                 </p>
               </details>
 
-              <details className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+              <details className="rounded-sm border border-zinc-800 bg-black/40 p-6">
+                <summary className="font-bold text-lg text-white cursor-pointer hover:text-cyan-600 transition-colors">
                   Do you provide ongoing maintenance and updates?
                 </summary>
-                <p className="mt-4 text-gray-700 leading-relaxed">
+                <p className="mt-4 text-zinc-400 leading-relaxed">
                   Yes. We offer maintenance packages starting at R500/month that include security updates, performance monitoring, content updates, and technical SEO audits. Unlike WordPress sites that require constant plugin updates, Next.js sites have lower maintenance needs due to superior architecture.
                 </p>
               </details>
@@ -661,13 +662,13 @@ const WebsiteDevelopmentPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-900 to-black text-white">
+      <section className="py-20 md:py-28 bg-black text-white border-t border-zinc-800">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-6 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-heading">
               Ready to Outrank Legacy CMS Sites?
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-zinc-400 mb-8">
               Get a free architecture audit. We&apos;ll analyze your current site&apos;s technical SEO gaps and show you exactly how Next.js 15 can dominate search results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -684,7 +685,7 @@ const WebsiteDevelopmentPage = () => {
               </a>
               <Link
                 href="/case-studies"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white font-bold py-4 px-8 rounded-lg transition-all"
+                className="inline-flex items-center justify-center gap-2 border border-zinc-700 text-zinc-100 font-semibold py-4 px-8 rounded-sm hover:bg-zinc-900 transition-all"
               >
                 View Success Stories
               </Link>
@@ -694,7 +695,7 @@ const WebsiteDevelopmentPage = () => {
       </section>
 
       {/* Internal Linking for Topical Authority */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <InternalLinks links={relatedLinks} />

@@ -25,19 +25,19 @@ export default function PricingCalculator() {
   const roi = ((annualRevenueGain - (nextjsCost - templateCost)) / (nextjsCost - templateCost)) * 100;
 
   return (
-    <div className="space-y-8 bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 min-h-[400px]">
+    <div className="space-y-8 rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 min-h-[400px]">
       <div className="text-center mb-6">
-        <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">
+        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
           ROI Calculator: Performance vs. Price
         </h3>
-        <p className="text-gray-600">
+        <p className="text-zinc-500">
           Calculate the true cost of a slow website. Every second of load time costs you revenue.
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-bold mb-2 text-gray-900">Monthly Website Traffic</label>
+          <label className="block text-sm font-bold mb-2 text-white">Monthly Website Traffic</label>
           <input
             type="range"
             min="100"
@@ -45,9 +45,9 @@ export default function PricingCalculator() {
             step="100"
             value={traffic}
             onChange={(e) => setTraffic(Number(e.target.value))}
-            className="w-full accent-accent h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            className="w-full accent-teal-400 h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer"
           />
-          <div className="flex justify-between text-sm text-gray-600 mt-1">
+          <div className="flex justify-between text-sm text-zinc-500 mt-1">
             <span>100</span>
             <span className="font-bold text-accent">{traffic.toLocaleString()} visitors/month</span>
             <span>10,000</span>
@@ -55,7 +55,7 @@ export default function PricingCalculator() {
         </div>
 
         <div>
-          <label className="block text-sm font-bold mb-2 text-gray-900">Current Conversion Rate (%)</label>
+          <label className="block text-sm font-bold mb-2 text-white">Current Conversion Rate (%)</label>
           <input
             type="range"
             min="0.5"
@@ -63,9 +63,9 @@ export default function PricingCalculator() {
             step="0.1"
             value={conversion}
             onChange={(e) => setConversion(Number(e.target.value))}
-            className="w-full accent-accent h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            className="w-full accent-teal-400 h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer"
           />
-          <div className="flex justify-between text-sm text-gray-600 mt-1">
+          <div className="flex justify-between text-sm text-zinc-500 mt-1">
             <span>0.5%</span>
             <span className="font-bold text-accent">{conversion}%</span>
             <span>5%</span>
@@ -73,7 +73,7 @@ export default function PricingCalculator() {
         </div>
 
         <div>
-          <label className="block text-sm font-bold mb-2 text-gray-900">Average Order Value (R)</label>
+          <label className="block text-sm font-bold mb-2 text-white">Average Order Value (R)</label>
           <input
             type="range"
             min="100"
@@ -81,9 +81,9 @@ export default function PricingCalculator() {
             step="50"
             value={avgOrderValue}
             onChange={(e) => setAvgOrderValue(Number(e.target.value))}
-            className="w-full accent-accent h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            className="w-full accent-teal-400 h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer"
           />
-          <div className="flex justify-between text-sm text-gray-600 mt-1">
+          <div className="flex justify-between text-sm text-zinc-500 mt-1">
             <span>R100</span>
             <span className="font-bold text-accent">R{avgOrderValue}</span>
             <span>R5,000</span>
@@ -91,7 +91,7 @@ export default function PricingCalculator() {
         </div>
 
         <div>
-          <label className="block text-sm font-bold mb-2 text-gray-900">Number of Pages</label>
+          <label className="block text-sm font-bold mb-2 text-white">Number of Pages</label>
           <input
             type="range"
             min="3"
@@ -99,9 +99,9 @@ export default function PricingCalculator() {
             step="1"
             value={pages}
             onChange={(e) => setPages(Number(e.target.value))}
-            className="w-full accent-accent h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            className="w-full accent-teal-400 h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer"
           />
-          <div className="flex justify-between text-sm text-gray-600 mt-1">
+          <div className="flex justify-between text-sm text-zinc-500 mt-1">
             <span>3</span>
             <span className="font-bold text-accent">{pages} pages</span>
             <span>20</span>
@@ -110,24 +110,24 @@ export default function PricingCalculator() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 mt-8">
-        <div className="p-6 bg-red-50 border-2 border-red-200 rounded-xl">
-          <h4 className="font-bold text-gray-900 mb-2 text-lg">Template Site (WordPress)</h4>
+        <div className="p-6 rounded-sm border border-zinc-800 bg-zinc-950/70 border-l border-red-500/60">
+          <h4 className="font-bold text-white mb-2 text-lg">Template Site (WordPress)</h4>
           <p className="text-4xl font-black text-red-600 mb-2">R{formatCurrency(templateCost)}</p>
-          <p className="text-sm text-gray-700 mb-3">Load Time: 3-5 seconds</p>
+          <p className="text-sm text-zinc-400 mb-3">Load Time: 3-5 seconds</p>
           <div className="space-y-1 text-sm">
-            <p className="text-gray-700">
+            <p className="text-zinc-400">
               <strong>Monthly Revenue:</strong> R{formatCurrency(monthlyRevenueTemplate)}
             </p>
             <p className="text-red-600 font-bold">
               <strong>Annual Revenue Lost:</strong> R
               {formatCurrency(monthlyRevenueTemplate * conversionImprovement * 12)}
             </p>
-            <p className="text-xs text-gray-600 mt-2">*Due to slow load times affecting conversion rates</p>
+            <p className="text-xs text-zinc-500 mt-2">*Due to slow load times affecting conversion rates</p>
           </div>
         </div>
 
-        <div className="p-6 bg-gradient-to-br from-charcoal to-accent-600 text-white rounded-xl shadow-2xl transform scale-105 relative">
-          <div className="absolute -top-3 -right-3 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold">
+        <div className="p-6 rounded-sm border border-teal-400/60 bg-zinc-950/90 text-white relative">
+          <div className="absolute -top-3 -right-3 bg-yellow-400 text-white px-3 py-1 rounded-full text-xs font-bold">
             RECOMMENDED
           </div>
           <h4 className="font-bold text-white mb-2 text-lg">Next.js Performance Asset</h4>
@@ -148,7 +148,7 @@ export default function PricingCalculator() {
       </div>
 
       <div className="bg-accent/5 border-l-4 border-accent p-4 rounded-r-lg">
-        <p className="text-sm text-gray-700">
+        <p className="text-sm text-zinc-400">
           <strong>Research Note:</strong> Google&apos;s Core Web Vitals research shows that a 1-second delay in
           page load time can reduce conversions by up to 7%. Next.js Server Components deliver HTML in under 200ms,
           while WordPress templates often take 3-5 seconds to fully render.

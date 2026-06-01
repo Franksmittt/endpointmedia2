@@ -30,15 +30,16 @@ const articleSchema = {
 
 export default function ComparePricingPage() {
   return (
-    <article className="bg-white">
+    <article className="bg-black text-zinc-300">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(articleSchema) }} />
 
-      <section className="bg-gradient-to-br from-gray-900 to-slate-800 text-white py-20 md:py-28">
+      <section className="relative overflow-hidden bg-black text-white py-20 md:py-28">
+      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-900/10 blur-[120px]" aria-hidden />
         <div className="container mx-auto px-6 max-w-4xl text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold font-heading mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6">
             Flat-fee Google Ads vs % of ad spend
           </h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-zinc-400">
             When your agency earns more every time you increase budget, who is really incentivized to
             lower your cost per lead?
           </p>
@@ -47,18 +48,18 @@ export default function ComparePricingPage() {
 
       <section className="py-16 container mx-auto px-6 max-w-4xl">
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="border border-red-200 bg-red-50 rounded-2xl p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 font-heading">% of spend model</h2>
-            <ul className="space-y-3 text-gray-700">
+          <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l border-red-500/60">
+            <h2 className="text-2xl font-bold text-white mb-4 font-heading">% of spend model</h2>
+            <ul className="space-y-3 text-zinc-400">
               <li>Fee rises when you scale budget. Even if CPA worsens</li>
               <li>Agency rewarded for recommending higher spend</li>
               <li>Often paired with slow WordPress landing pages</li>
               <li>Typical in legacy Randburg / Sandton agencies</li>
             </ul>
           </div>
-          <div className="border border-teal-200 bg-teal-50 rounded-2xl p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 font-heading">Endpoint Media model</h2>
-            <ul className="space-y-3 text-gray-700">
+          <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l border-teal-400/60">
+            <h2 className="text-2xl font-bold text-white mb-4 font-heading">Endpoint Media model</h2>
+            <ul className="space-y-3 text-zinc-400">
               <li>Flat monthly tiers from R6,500 (ad spend separate)</li>
               <li>One-time infrastructure build R14,500–R20,000</li>
               <li>Next.js landing pages improve Quality Score</li>
@@ -67,13 +68,13 @@ export default function ComparePricingPage() {
           </div>
         </div>
 
-        <p className="text-lg text-gray-600 mb-8">
+        <p className="text-lg text-zinc-500 mb-8">
           We engineer post-click infrastructure so the same budget buys more leads. Explore{' '}
-          <Link href="/services/b2b-google-ads-management" className="text-teal-600 font-semibold">
+          <Link href="/services/b2b-google-ads-management" className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
             B2B Google Ads management
           </Link>{' '}
           and{' '}
-          <Link href="/insights/south-africa-google-ads-cpc-benchmarks" className="text-teal-600 font-semibold">
+          <Link href="/insights/south-africa-google-ads-cpc-benchmarks" className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
             SA CPC benchmarks
           </Link>
           .
@@ -87,7 +88,7 @@ export default function ComparePricingPage() {
         </Link>
       </section>
 
-      <section className="py-12 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6 max-w-4xl">
           <InternalLinks
             title="Next steps"

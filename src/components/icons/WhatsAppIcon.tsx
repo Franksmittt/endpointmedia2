@@ -9,7 +9,7 @@ export function WhatsAppIcon({ className }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       className={className}
-      fill="currentColor" // Allows color control via Tailwind (e.g., text-teal-500)
+      fill="currentColor" // Allows color control via Tailwind (e.g., text-zinc-4000)
       aria-hidden="true" 
     >
       <path

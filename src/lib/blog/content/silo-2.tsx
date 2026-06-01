@@ -12,12 +12,12 @@ export function GoogleAdsTrackingErrors() {
   return (
     <>
       <Lead>
-        Most Google Ads accounts hemorrhage budget before the first optimization cycle completes. The cause is not bid strategy . It is foundational tracking errors that feed garbage data to Google&apos;s algorithm while ad blockers silently discard half your conversion signals.
+        Most Google Ads accounts hemorrhage budget before the first optimization cycle completes. The cause is not bid strategy. It is foundational tracking errors that feed garbage data to Google&apos;s algorithm while ad blockers silently discard half your conversion signals.
       </Lead>
 
       <H2>Error 1: Broad Match Without Negative Keywords</H2>
       <P>
-        Broad match in 2026 without a rigorous negative keyword list sends B2B budgets to job seekers, students, and DIY researchers. For a R45,000/month Google Ads spend, 20% waste on irrelevant queries equals R9,000/month burned , R108,000 annually with zero pipeline contribution.
+        Broad match in 2026 without a rigorous negative keyword list sends B2B budgets to job seekers, students, and DIY researchers. For a R45,000/month Google Ads spend, 20% waste on irrelevant queries equals R9,000/month burned: R108,000 annually with zero pipeline contribution.
       </P>
 
       <H2>Error 2: Soft Conversion Goals</H2>
@@ -50,12 +50,12 @@ export function LandingPageSpeedQualityScore() {
   return (
     <>
       <Lead>
-        Google Ads Quality Score is not opaque. Landing page experience is 39% of the formula . And page speed is its primary input. A Next.js landing page loading in 1.2 seconds can reduce effective CPC by 30–50% versus the same keyword on a 4-second WordPress page.
+        Google Ads Quality Score is not opaque. Landing page experience is 39% of the formula. And page speed is its primary input. A Next.js landing page loading in 1.2 seconds can reduce effective CPC by 30–50% versus the same keyword on a 4-second WordPress page.
       </Lead>
 
       <H2>The Auction Math</H2>
       <P>
-        Ad Rank = Bid × Quality Score × Expected Impact of Extensions. Quality Score 8 vs 5 on the same keyword can halve your actual CPC while improving average position. For high-intent B2B keywords at R45–R120 CPC in Gauteng, this is not marginal . It is account-level profitability.
+        Ad Rank = Bid × Quality Score × Expected Impact of Extensions. Quality Score 8 vs 5 on the same keyword can halve your actual CPC while improving average position. For high-intent B2B keywords at R45–R120 CPC in Gauteng, this is not marginal. It is account-level profitability.
       </P>
       <CpcReductionSimulator />
 
@@ -63,13 +63,13 @@ export function LandingPageSpeedQualityScore() {
       <UL items={[
         <>LCP under 2.5s on mobile (Google Ads mobile-first crawling)</>,
         <>No interstitials or pop-ups blocking content on load</>,
-        <>HTTPS with valid certificate . Non-negotiable</>,
+        <>HTTPS with valid certificate. Non-negotiable</>,
         <>Content relevance: H1 must match ad headline keyword intent</>,
         <>Privacy policy and contact information visible without scroll</>,
       ]} />
 
       <Callout title="Engineering Pays for Itself" variant="teal">
-        <p>Investing R25,000 in a Next.js landing page that improves Quality Score from 5 to 8 on R30,000/month ad spend typically saves R6,000–R9,000/month in CPC , ROI within 3–4 months from ad efficiency alone.</p>
+        <p>Investing R25,000 in a Next.js landing page that improves Quality Score from 5 to 8 on R30,000/month ad spend typically saves R6,000–R9,000/month in CPC. ROI within 3–4 months from ad efficiency alone.</p>
       </Callout>
 
       <P>
@@ -83,7 +83,7 @@ export function SmartBiddingVsManual() {
   return (
     <>
       <Lead>
-        Google Ads smart bidding strategies , Target CPA, Maximize Conversion Value, Target ROAS . Only outperform manual CPC when the conversion data pipeline is clean, fast, and voluminous. Feed the algorithm lies and it optimizes for fiction.
+        Google Ads smart bidding strategies (Target CPA, Maximize Conversion Value, Target ROAS) only outperform manual CPC when the conversion data pipeline is clean, fast, and voluminous. Feed the algorithm lies and it optimizes for fiction.
       </Lead>
 
       <H2>The Conversion Data Feedback Loop</H2>
@@ -94,7 +94,7 @@ export function SmartBiddingVsManual() {
 
       <H2>Maximize Conversion Value for B2B</H2>
       <P>
-        Assign dynamic conversion values: contact form = R500, phone call &gt;60s = R1,500, qualified meeting booked = R5,000, closed deal imported from CRM = actual contract value. This teaches the algorithm to find users who progress through your 60–90 day B2B sales cycle . Not just form fillers.
+        Assign dynamic conversion values: contact form = R500, phone call &gt;60s = R1,500, qualified meeting booked = R5,000, closed deal imported from CRM = actual contract value. This teaches the algorithm to find users who progress through your 60–90 day B2B sales cycle. Not just form fillers.
       </P>
 
       <H3>When Manual Bidding Still Wins</H3>
@@ -128,7 +128,7 @@ export function PerformanceEngineHighTicket() {
 
       <H2>Nurture Integration</H2>
       <P>
-        60–70% of B2B buyers complete research before contacting sales. Your ad strategy must feed a content education system: case studies, pricing transparency, technical blog silos, and retargeting sequences aligned to buyer journey stage . Not a single landing page expecting instant conversion.
+        60–70% of B2B buyers complete research before contacting sales. Your ad strategy must feed a content education system: case studies, pricing transparency, technical blog silos, and retargeting sequences aligned to buyer journey stage. Not a single landing page expecting instant conversion.
       </P>
       <UL items={[
         <>Tier A leads: sales call within 4 hours</>,
@@ -147,7 +147,7 @@ export function PerformanceOverVanity() {
   return (
     <>
       <Lead>
-        Impressions and clicks are vanity metrics. Cost Per Acquisition against Customer Lifetime Value is the only dashboard that matters. A campaign generating 10,000 clicks at 0.3% conversion is a failure . Even if the agency report highlights &quot;record traffic.&quot;
+        Impressions and clicks are vanity metrics. Cost Per Acquisition against Customer Lifetime Value is the only dashboard that matters. A campaign generating 10,000 clicks at 0.3% conversion is a failure. Even if the agency report highlights &quot;record traffic.&quot;
       </Lead>
 
       <H2>CPA Optimization Framework</H2>
@@ -158,12 +158,12 @@ export function PerformanceOverVanity() {
 
       <H2>The 5–8% Conversion Baseline</H2>
       <P>
-        Elite Next.js architecture targets 5–8% landing page conversion for qualified traffic. Legacy CMS sites average below 3%. The difference is not copy . It is render speed, trust signals, form UX, and zero layout shift. Without the infrastructure, no amount of ad spend fixes unit economics.
+        Elite Next.js architecture targets 5–8% landing page conversion for qualified traffic. Legacy CMS sites average below 3%. The difference is not copy. It is render speed, trust signals, form UX, and zero layout shift. Without the infrastructure, no amount of ad spend fixes unit economics.
       </P>
 
       <H2>Audit Your Agency Report</H2>
       <UL items={[
-        <>Demand CPA and ROAS . Not CTR and impressions</>,
+        <>Demand CPA and ROAS. Not CTR and impressions</>,
         <>Require conversion value tracking, not conversion count alone</>,
         <>Segment by campaign intent: brand vs commercial vs competitor</>,
         <>Compare blended CPL against SEO content CPL monthly</>,

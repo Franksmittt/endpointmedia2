@@ -18,7 +18,7 @@ import FinalCtaSection from '@/components/sections/FinalCtaSection';
 import { secureJsonLD, BASE_URL, buildMetadata, buildSpeakableWebPageSchema } from '@/lib/seo';
 
 const Audit = dynamic(() => import('@/components/sections/Audit'), {
-  loading: () => <div className="min-h-[480px] animate-pulse bg-charcoal/5" />,
+  loading: () => <div className="min-h-[480px] animate-pulse bg-zinc-950/40" />,
 });
 
 // Homepage-specific metadata (extends root layout metadata)

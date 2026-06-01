@@ -330,7 +330,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: secureJsonLD(frankSmitSchema) }}
         />
       </head>
-      <body className="bg-gray-50 font-sans text-gray-800 antialiased">
+      <body className="bg-black font-sans text-zinc-300 antialiased">
         <a href="#main-content" className="skip-link">Skip to main content</a>
     
         <Header />

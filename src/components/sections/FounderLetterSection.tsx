@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 
 export default function FounderLetterSection() {
   return (
@@ -38,7 +38,7 @@ export default function FounderLetterSection() {
             <div className="relative space-y-6 text-base leading-relaxed text-zinc-400 md:text-lg">
               <p className="text-zinc-300">
                 Most service businesses are not losing because they lack effort. They are losing
-                because their digital infrastructure is fragmented — ranking, paid traffic, and
+                because their digital infrastructure is fragmented: ranking, paid traffic, and
                 conversion treated as separate projects instead of one accountable growth system.
               </p>
 

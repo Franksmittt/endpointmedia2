@@ -57,14 +57,14 @@ const WhoWeServe = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-block mb-6">
-            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-4 py-2 rounded-full border border-cyan-500/30">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 bg-teal-400/100/10 px-4 py-2 rounded-full border border-teal-400/30">
               Target Market
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white font-heading mb-4 bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-heading mb-4 bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
             For Serious Businesses Ready to Dominate
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
             We work exclusively with businesses that understand the difference between a cheap website and a strategic investment. If you&apos;re serious about outranking competitors, generating measurable growth, and establishing market leadership, our intensive research-driven approach is built for you.
           </p>
         </div>
@@ -73,7 +73,7 @@ const WhoWeServe = () => {
           {industries.map((industry) => (
             <div
               key={industry.title}
-              className="group relative p-8 bg-gradient-to-br from-gray-900/90 via-black/80 to-gray-900/90 backdrop-blur-sm border border-cyan-500/30 rounded-xl shadow-2xl shadow-cyan-500/10 transition-all duration-500 hover:border-cyan-400/60 hover:shadow-cyan-400/20 hover:-translate-y-2"
+              className="group relative p-8 bg-gradient-to-br from-gray-900/90 via-black/80 to-gray-900/90 backdrop-blur-sm border border-teal-400/30 rounded-xl shadow-2xl shadow-cyan-500/10 transition-all duration-500 hover:border-cyan-400/60 hover:shadow-cyan-400/20 hover:-translate-y-2"
             >
               {/* Glowing Top Border */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
@@ -84,14 +84,14 @@ const WhoWeServe = () => {
               </div>
 
               <div className="relative z-10">
-                <div className="text-cyan-400 mb-4 group-hover:text-cyan-300 transition-colors">
+                <div className="text-cyan-400 mb-4 group-hover:text-teal-400/90 transition-colors">
                   {industry.icon}
                 </div>
-                <h3 className="text-2xl font-bold font-heading text-white mb-3 group-hover:text-cyan-300 transition-colors">
+                <h3 className="text-2xl font-bold font-heading text-white mb-3 group-hover:text-teal-400/90 transition-colors">
                   {industry.title}
                 </h3>
-                <p className="text-gray-300 flex-1 mb-6">{industry.description}</p>
-                <ul className="space-y-2 text-sm text-gray-300">
+                <p className="text-zinc-400 flex-1 mb-6">{industry.description}</p>
+                <ul className="space-y-2 text-sm text-zinc-400">
                   {industry.highlights.map((highlight) => (
                     <li key={highlight} className="flex items-start gap-2">
                       <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>

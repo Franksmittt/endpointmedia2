@@ -30,19 +30,19 @@ const Blueprint = () => {
           <div className="inline-block mb-6">
             <div className="flex items-center justify-center gap-2 mb-4">
               <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-              <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+              <div className="w-2 h-2 bg-teal-400/100 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
               <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
             </div>
-            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-4 py-2 rounded-full border border-cyan-500/30">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 bg-teal-400/100/10 px-4 py-2 rounded-full border border-teal-400/30">
               Performance Engineered Process
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 font-heading bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 font-heading bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
             The Johannesburg Dominance Blueprint
           </h2>
           
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
             Our disciplined, <span className="text-cyan-400 font-semibold">3-step process</span> engineers Johannesburg search intent into paying customers. We build digital assets that own the local map.
           </p>
         </header>
@@ -68,9 +68,9 @@ const Blueprint = () => {
                 <div className="absolute top-4 right-4 opacity-30 group-hover:opacity-60 transition-opacity">
                   <div className="flex items-end gap-1 h-12">
                     <div className="w-2 bg-cyan-400 h-8 rounded-t"></div>
-                    <div className="w-2 bg-cyan-500 h-10 rounded-t"></div>
+                    <div className="w-2 bg-teal-400/100 h-10 rounded-t"></div>
                     <div className="w-2 bg-cyan-400 h-12 rounded-t"></div>
-                    <div className="w-2 bg-cyan-500 h-8 rounded-t"></div>
+                    <div className="w-2 bg-teal-400/100 h-8 rounded-t"></div>
                   </div>
                 </div>
 
@@ -80,23 +80,23 @@ const Blueprint = () => {
                     <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-extrabold mb-4 font-heading text-white group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 font-heading text-white group-hover:text-teal-400/90 transition-colors">
                     1. Elite Performance Foundation
                   </h3>
                   
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    We engineer for <strong className="text-cyan-400 font-semibold">sub-second load times</strong> and flawless mobile execution. Google rewards speed, especially for &quot;near me&quot; searches originating in Johannesburg. By optimizing <span className="text-cyan-300">Core Web Vitals (LCP, INP, CLS)</span> from day one, your site doesn&apos;t just compete; it <span className="text-cyan-400 font-semibold">dominates performance rankings</span>. This isn&apos;t just speed; it&apos;s a competitive weapon.
+                  <p className="text-zinc-400 text-lg leading-relaxed">
+                    We engineer for <strong className="text-cyan-400 font-semibold">sub-second load times</strong> and flawless mobile execution. Google rewards speed, especially for &quot;near me&quot; searches originating in Johannesburg. By optimizing <span className="text-teal-400/90">Core Web Vitals (LCP, INP, CLS)</span> from day one, your site doesn&apos;t just compete; it <span className="text-cyan-400 font-semibold">dominates performance rankings</span>. This isn&apos;t just speed; it&apos;s a competitive weapon.
                   </p>
 
                   {/* Performance Indicators */}
                   <div className="mt-6 flex items-center gap-4 text-sm">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-gray-400">LCP &lt; 1.2s</span>
+                      <span className="text-zinc-500">LCP &lt; 1.2s</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-gray-400">Mobile-First</span>
+                      <span className="text-zinc-500">Mobile-First</span>
                     </div>
                   </div>
                 </div>
@@ -106,7 +106,7 @@ const Blueprint = () => {
             {/* Step Indicator */}
             <div className="md:w-2/12 hidden md:block text-center z-10 relative">
               <div className="relative">
-                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full text-white flex items-center justify-center font-extrabold text-2xl shadow-2xl shadow-cyan-500/50 ring-4 ring-cyan-500/30 border-2 border-cyan-400/50">
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full text-white flex items-center justify-center font-bold text-2xl shadow-2xl shadow-cyan-500/50 ring-4 ring-cyan-500/30 border-2 border-cyan-400/50">
                   1
                 </div>
                 {/* Glowing Pulse Effect */}
@@ -147,20 +147,20 @@ const Blueprint = () => {
                     <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400">Precision Targeting</span>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-extrabold mb-4 font-heading text-cyan-400">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 font-heading text-cyan-400">
                     2. Hyper-Local SEO Architecture
                   </h3>
                   
-                  <p className="text-gray-200 text-lg leading-relaxed">
-                    Generic SEO fails locally. We meticulously map your services to <strong className="text-cyan-300 font-semibold">specific Johannesburg suburbs and search queries</strong> (e.g., &quot;plumber Sandton,&quot; &quot;electrician Randburg&quot;). Every service page is engineered to be the <span className="text-cyan-400 font-semibold">definitive answer</span> for a local customer in their moment of need. It&apos;s precision targeting that drives qualified, local leads.
+                  <p className="text-zinc-400 text-lg leading-relaxed">
+                    Generic SEO fails locally. We meticulously map your services to <strong className="text-teal-400/90 font-semibold">specific Johannesburg suburbs and search queries</strong> (e.g., &quot;plumber Sandton,&quot; &quot;electrician Randburg&quot;). Every service page is engineered to be the <span className="text-cyan-400 font-semibold">definitive answer</span> for a local customer in their moment of need. It&apos;s precision targeting that drives qualified, local leads.
                   </p>
 
                   {/* Location Tags */}
                   <div className="mt-6 flex flex-wrap gap-2">
-                    <span className="text-xs px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full border border-cyan-500/30">Sandton</span>
-                    <span className="text-xs px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full border border-cyan-500/30">Randburg</span>
-                    <span className="text-xs px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full border border-cyan-500/30">Midrand</span>
-                    <span className="text-xs px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full border border-cyan-500/30">+ More</span>
+                    <span className="text-xs px-3 py-1 bg-teal-400/100/20 text-teal-400/90 rounded-full border border-teal-400/30">Sandton</span>
+                    <span className="text-xs px-3 py-1 bg-teal-400/100/20 text-teal-400/90 rounded-full border border-teal-400/30">Randburg</span>
+                    <span className="text-xs px-3 py-1 bg-teal-400/100/20 text-teal-400/90 rounded-full border border-teal-400/30">Midrand</span>
+                    <span className="text-xs px-3 py-1 bg-teal-400/100/20 text-teal-400/90 rounded-full border border-teal-400/30">+ More</span>
                   </div>
                 </div>
               </div>
@@ -169,7 +169,7 @@ const Blueprint = () => {
             {/* Step Indicator */}
             <div className="md:w-2/12 hidden md:block text-center z-10 relative">
               <div className="relative">
-                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full text-white flex items-center justify-center font-extrabold text-2xl shadow-2xl shadow-cyan-500/50 ring-4 ring-cyan-500/30 border-2 border-cyan-400/50">
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full text-white flex items-center justify-center font-bold text-2xl shadow-2xl shadow-cyan-500/50 ring-4 ring-cyan-500/30 border-2 border-cyan-400/50">
                   2
                 </div>
                 <div className="absolute inset-0 w-16 h-16 mx-auto rounded-full bg-cyan-400/30 animate-ping"></div>
@@ -202,12 +202,12 @@ const Blueprint = () => {
                     <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-extrabold mb-4 font-heading text-white group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 font-heading text-white group-hover:text-teal-400/90 transition-colors">
                     3. Map Pack Dominance & Authority Building
                   </h3>
                   
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Visibility isn&apos;t enough; <span className="text-cyan-400 font-semibold">trust converts</span>. We establish your authority through expert <span className="text-cyan-300">Google Business Profile (GBP) optimization</span> and a system for generating consistent, high-quality reviews. This strategy secures placement in the lucrative <strong className="text-cyan-400 font-semibold">Google Map Pack</strong> – the primary source of high-intent local leads.
+                  <p className="text-zinc-400 text-lg leading-relaxed">
+                    Visibility isn&apos;t enough; <span className="text-cyan-400 font-semibold">trust converts</span>. We establish your authority through expert <span className="text-teal-400/90">Google Business Profile (GBP) optimization</span> and a system for generating consistent, high-quality reviews. This strategy secures placement in the lucrative <strong className="text-cyan-400 font-semibold">Google Map Pack</strong> – the primary source of high-intent local leads.
                   </p>
 
                   {/* Trust Indicators */}
@@ -216,11 +216,11 @@ const Blueprint = () => {
                       <svg className="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
-                      <span className="text-gray-400">GBP Optimized</span>
+                      <span className="text-zinc-500">GBP Optimized</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                      <span className="text-gray-400">Review System</span>
+                      <span className="text-zinc-500">Review System</span>
                     </div>
                   </div>
                 </div>
@@ -230,7 +230,7 @@ const Blueprint = () => {
             {/* Step Indicator */}
             <div className="md:w-2/12 hidden md:block text-center z-10 relative">
               <div className="relative">
-                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full text-white flex items-center justify-center font-extrabold text-2xl shadow-2xl shadow-cyan-500/50 ring-4 ring-cyan-500/30 border-2 border-cyan-400/50">
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full text-white flex items-center justify-center font-bold text-2xl shadow-2xl shadow-cyan-500/50 ring-4 ring-cyan-500/30 border-2 border-cyan-400/50">
                   3
                 </div>
                 <div className="absolute inset-0 w-16 h-16 mx-auto rounded-full bg-cyan-400/30 animate-ping"></div>
@@ -246,12 +246,12 @@ const Blueprint = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-transparent to-cyan-500/10 rounded-2xl blur-3xl"></div>
           
           <div className="relative z-10 max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 font-semibold">
+            <p className="text-xl md:text-2xl text-zinc-400 mb-8 font-semibold">
               Ready to execute this blueprint for your Johannesburg business?
             </p>
             <Link
               href="/process"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-extrabold py-4 px-8 md:py-5 md:px-12 rounded-lg shadow-2xl shadow-cyan-500/30 border-2 border-cyan-400/50 transition-all duration-300 transform hover:scale-105 hover:shadow-cyan-400/50 uppercase text-sm sm:text-base md:text-lg tracking-wider"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-bold py-4 px-8 md:py-5 md:px-12 rounded-lg shadow-2xl shadow-cyan-500/30 border-2 border-cyan-400/50 transition-all duration-300 transform hover:scale-105 hover:shadow-cyan-400/50 uppercase text-sm sm:text-base md:text-lg tracking-wider"
             >
               <span>View Complete Process</span>
               <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

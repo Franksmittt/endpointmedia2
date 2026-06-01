@@ -14,25 +14,25 @@ export const metadata: Metadata = buildMetadata({
 
 export default function PrivacyPolicyPage() {
   return (
-    <article className="bg-white">
-      <section className="bg-gray-100 py-16 md:py-20 border-b border-gray-200">
+    <article className="bg-black text-zinc-300">
+      <section className="border-b border-zinc-800 bg-black py-16 md:py-20">
         <div className="container mx-auto px-6 max-w-3xl">
-          <h1 className="text-3xl md:text-4xl font-extrabold font-heading text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold font-heading text-white mb-4">
             Privacy Policy
           </h1>
-          <p className="text-gray-600">Last updated: May 2026</p>
+          <p className="text-zinc-500">Last updated: May 2026</p>
         </div>
       </section>
 
       <section className="py-12 md:py-16">
-        <div className="container mx-auto px-6 max-w-3xl prose prose-lg prose-gray max-w-none">
+        <div className="container mx-auto px-6 max-w-3xl prose prose-lg prose-invert max-w-none">
           <p>
             Endpoint Media (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) respects your privacy. This policy
             describes how we handle personal information when you visit{' '}
             <strong>www.endpointmedia.co.za</strong> or contact us through our forms.
           </p>
 
-          <h2 className="text-2xl font-bold font-heading text-gray-900 mt-10 mb-4">
+          <h2 className="text-2xl font-bold font-heading text-white mt-10 mb-4">
             Information we collect
           </h2>
           <p>
@@ -41,7 +41,7 @@ export default function PrivacyPolicyPage() {
             as browser type and pages visited through analytics tools, where enabled.
           </p>
 
-          <h2 className="text-2xl font-bold font-heading text-gray-900 mt-10 mb-4">
+          <h2 className="text-2xl font-bold font-heading text-white mt-10 mb-4">
             How we use your information
           </h2>
           <p>
@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
             improve our website. We do not sell your personal information to third parties.
           </p>
 
-          <h2 className="text-2xl font-bold font-heading text-gray-900 mt-10 mb-4">
+          <h2 className="text-2xl font-bold font-heading text-white mt-10 mb-4">
             Data retention and security
           </h2>
           <p>
@@ -58,39 +58,39 @@ export default function PrivacyPolicyPage() {
             unauthorised access.
           </p>
 
-          <h2 className="text-2xl font-bold font-heading text-gray-900 mt-10 mb-4">
+          <h2 className="text-2xl font-bold font-heading text-white mt-10 mb-4">
             Your rights
           </h2>
           <p>
             You may request access, correction, or deletion of your personal information by emailing{' '}
-            <a href="mailto:hello@endpointmedia.co.za" className="text-teal-600 font-semibold">
+            <a href="mailto:hello@endpointmedia.co.za" className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
               hello@endpointmedia.co.za
             </a>
             .
           </p>
 
-          <h2 className="text-2xl font-bold font-heading text-gray-900 mt-10 mb-4">
+          <h2 className="text-2xl font-bold font-heading text-white mt-10 mb-4">
             Contact
           </h2>
           <p>
             For privacy-related questions, contact Endpoint Media at{' '}
-            <a href="mailto:hello@endpointmedia.co.za" className="text-teal-600 font-semibold">
+            <a href="mailto:hello@endpointmedia.co.za" className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
               hello@endpointmedia.co.za
             </a>{' '}
             or{' '}
-            <a href="tel:+27769724559" className="text-teal-600 font-semibold">
+            <a href="tel:+27769724559" className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
               076 972 4559
             </a>
             .
           </p>
 
-          <p className="mt-12 text-sm text-gray-500">
+          <p className="mt-12 text-sm text-zinc-500">
             This page is provided as boilerplate placeholder text and should be reviewed by qualified
             legal counsel before production reliance.
           </p>
 
           <p className="mt-8">
-            <Link href="/" className="text-teal-600 font-semibold hover:text-teal-800">
+            <Link href="/" className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 hover:text-white">
               &larr; Return to homepage
             </Link>
           </p>

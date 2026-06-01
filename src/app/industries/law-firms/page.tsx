@@ -99,19 +99,20 @@ const LawFirmsPage = () => {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-800 to-gray-900 text-white py-20 md:py-32">
+      <section className="relative overflow-hidden bg-black px-[5%] pb-16 pt-24 md:pb-20 md:pt-28 text-white">
+      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-900/10 blur-[120px]" aria-hidden />
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 font-heading">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4 font-heading">
             Web Design for Law Firms: Professional Excellence Online
           </h1>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 mb-8">
+          <p className="text-lg md:text-xl max-w-3xl mx-auto text-zinc-400 mb-8">
             Trust, professionalism, and user navigation are non-negotiable for law firms. 
             We build high-performance websites that reflect your expertise, establish credibility, 
             and generate qualified leads from potential clients.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-extrabold py-3 px-10 rounded shadow-lg transform hover:scale-105 transition duration-300 uppercase text-lg tracking-wider"
+            className="inline-flex items-center justify-center rounded-sm bg-white px-8 py-4 text-base font-semibold text-black transition-colors hover:bg-zinc-200"
           >
             Get Your Free Law Firm Website Audit
           </Link>
@@ -119,38 +120,38 @@ const LawFirmsPage = () => {
       </section>
 
       {/* Why Law Firms Choose Us */}
-      <section className="py-24 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-gray-900 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white font-heading text-center">
               Why Johannesburg Law Firms Trust Endpoint Media
             </h2>
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-gray-50 rounded-xl p-8 border-l-4 border-teal-500">
-                <h3 className="text-2xl font-bold mb-4 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l border-teal-400/60">
+                <h3 className="text-2xl font-bold mb-4 font-heading text-white">
                   ⚖️ Trust & Credibility
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-zinc-400 leading-relaxed">
                   First impressions matter in legal services. We design websites that establish 
                   trust, convey professionalism, and reflect your firm&apos;s expertise. Every 
                   element is crafted to build confidence in potential clients.
                 </p>
               </div>
-              <div className="bg-gray-50 rounded-xl p-8 border-l-4 border-teal-500">
-                <h3 className="text-2xl font-bold mb-4 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l border-teal-400/60">
+                <h3 className="text-2xl font-bold mb-4 font-heading text-white">
                   🧭 Professional Navigation
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-zinc-400 leading-relaxed">
                   Clients need to find information quickly. We design intuitive navigation that 
                   guides visitors to practice areas, attorney profiles, and contact information 
                   with ease, reducing friction and increasing inquiries.
                 </p>
               </div>
-              <div className="bg-gray-50 rounded-xl p-8 border-l-4 border-teal-500">
-                <h3 className="text-2xl font-bold mb-4 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l border-teal-400/60">
+                <h3 className="text-2xl font-bold mb-4 font-heading text-white">
                   📋 Lead Qualification
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-zinc-400 leading-relaxed">
                   Not all inquiries are equal. We build forms and systems that qualify leads, 
                   ensuring your team spends time on serious clients, not tire-kickers. Every 
                   element is optimized for quality over quantity.
@@ -162,67 +163,67 @@ const LawFirmsPage = () => {
       </section>
 
       {/* Key Features for Law Firms */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-gray-900 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white font-heading text-center">
               Essential Features for Law Firm Websites
             </h2>
             <div className="space-y-6 mb-12">
-              <div className="bg-white rounded-xl p-8 border-l-4 border-teal-600">
-                <h3 className="text-2xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l-4 border-teal-600">
+                <h3 className="text-2xl font-bold mb-3 font-heading text-white">
                   Practice Area Pages
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-zinc-400 mb-4">
                   Dedicated pages for each practice area with detailed information, case studies, 
                   and attorney expertise. Optimized for both user experience and search engines.
                 </p>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <ul className="list-disc list-inside text-zinc-400 space-y-2">
                   <li>Individual practice area landing pages</li>
                   <li>Attorney profile pages with expertise areas</li>
                   <li>Case study and success story sections</li>
                   <li>Legal blog integration for thought leadership</li>
                 </ul>
               </div>
-              <div className="bg-white rounded-xl p-8 border-l-4 border-teal-600">
-                <h3 className="text-2xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l-4 border-teal-600">
+                <h3 className="text-2xl font-bold mb-3 font-heading text-white">
                   Attorney Profiles & Expertise
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-zinc-400 mb-4">
                   Showcase your team&apos;s expertise with professional attorney profiles, 
                   credentials, and practice areas. Build trust through transparency and professionalism.
                 </p>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <ul className="list-disc list-inside text-zinc-400 space-y-2">
                   <li>Professional attorney profile pages</li>
                   <li>Credentials and education display</li>
                   <li>Practice area specialization tags</li>
                   <li>Contact information and consultation requests</li>
                 </ul>
               </div>
-              <div className="bg-white rounded-xl p-8 border-l-4 border-teal-600">
-                <h3 className="text-2xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l-4 border-teal-600">
+                <h3 className="text-2xl font-bold mb-3 font-heading text-white">
                   Client Portal & Case Management
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-zinc-400 mb-4">
                   Secure client portals for document sharing, case updates, and communication. 
                   Integration with your existing case management systems.
                 </p>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <ul className="list-disc list-inside text-zinc-400 space-y-2">
                   <li>Secure client portal access</li>
                   <li>Document upload and sharing</li>
                   <li>Case status updates</li>
                   <li>CRM integration (Clio, PracticePanther, etc.)</li>
                 </ul>
               </div>
-              <div className="bg-white rounded-xl p-8 border-l-4 border-teal-600">
-                <h3 className="text-2xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l-4 border-teal-600">
+                <h3 className="text-2xl font-bold mb-3 font-heading text-white">
                   Consultation Request Forms
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-zinc-400 mb-4">
                   Lead capture forms that qualify potential clients before they contact you. 
                   Gather essential information to prioritize and respond effectively.
                 </p>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <ul className="list-disc list-inside text-zinc-400 space-y-2">
                   <li>Multi-step consultation forms</li>
                   <li>Practice area selection</li>
                   <li>Urgency and timeline questions</li>
@@ -235,33 +236,33 @@ const LawFirmsPage = () => {
       </section>
 
       {/* SEO for Law Firms */}
-      <section className="py-24 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-gray-900 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white font-heading text-center">
               Local SEO for Johannesburg Law Firms
             </h2>
-            <div className="bg-teal-50 rounded-xl p-8 border-l-4 border-teal-600 mb-8">
-              <p className="text-gray-700 mb-6 leading-relaxed">
+            <div className="rounded-sm border border-zinc-800 bg-zinc-900/35 p-8 border-l border-teal-400/60 mb-8">
+              <p className="text-zinc-400 mb-6 leading-relaxed">
                 When potential clients search for legal services in Johannesburg, they&apos;re 
                 looking for local expertise. Our hyper-local SEO strategy ensures your firm appears 
                 for searches like:
               </p>
-              <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
+              <ul className="list-disc list-inside text-zinc-400 space-y-2 mb-6">
                 <li>&quot;divorce lawyer Sandton&quot;</li>
                 <li>&quot;criminal defense attorney Johannesburg&quot;</li>
                 <li>&quot;corporate lawyer Sandton CBD&quot;</li>
                 <li>&quot;personal injury lawyer near me&quot;</li>
                 <li>&quot;estate planning attorney Bryanston&quot;</li>
               </ul>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-zinc-400 leading-relaxed mb-4">
                 We optimize your Google Business Profile, build local citations, create location-specific 
                 content, and implement schema markup for legal services to dominate local search results.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-zinc-400 leading-relaxed">
                 <strong>Specializing in New Redruth:</strong> Serving firms in the New Redruth legal hub, 
                 we understand the specific needs of the &quot;Van Rensburg Street&quot; elite. 
-                <Link href="/locations/new-redruth" className="text-teal-600 hover:text-teal-700 font-semibold ml-1">
+                <Link href="/locations/new-redruth" className="text-teal-600 hover:text-teal-400/90 font-semibold ml-1">
                   Learn more about our New Redruth services →
                 </Link>
               </p>
@@ -271,56 +272,56 @@ const LawFirmsPage = () => {
       </section>
 
       {/* FAQ Section with Schema */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-gray-900 font-heading text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white font-heading text-center">
               Frequently Asked Questions About Law Firm Websites
             </h2>
             <div className="space-y-6">
-              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">
                   How much does a law firm website cost in Johannesburg?
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   Law firm websites typically range from R15,000 to R60,000 depending on number of 
                   practice areas, attorney profiles, and required features like client portals or 
                   booking systems.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">
                   Do you create practice area pages for law firms?
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   Yes. We create dedicated practice area pages optimized for SEO, showcasing your 
                   expertise in areas like family law, corporate law, criminal defense, and estate planning.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">
                   Can you integrate client portals or case management systems?
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   Yes. We integrate with Clio, PracticePanther, MyCase, and other case management systems. 
                   We can also build custom client portals for secure document sharing and communication.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">
                   Will my law firm website be optimized for local search?
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   Absolutely. We optimize for searches like &quot;divorce lawyer Sandton&quot;, 
                   &quot;criminal defense attorney Johannesburg&quot;, and &quot;estate planning attorney Bryanston&quot;. 
                   Local SEO is critical for law firm success.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500">
-                <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l-4 border-teal-500">
+                <h3 className="text-xl font-bold mb-3 font-heading text-white">
                   How long does it take to build a law firm website?
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   A typical law firm website takes 6-10 weeks depending on complexity, number of practice 
                   areas, and attorney profiles. We work efficiently while ensuring every detail reflects 
                   your firm&apos;s professionalism.
@@ -332,18 +333,18 @@ const LawFirmsPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+      <section className="py-24 bg-black text-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-6 font-heading">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-heading">
             Ready to Establish Your Firm&apos;s Online Presence?
           </h2>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-300 mb-8">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto text-zinc-400 mb-8">
             Join the Johannesburg law firms that have transformed their online presence with Endpoint Media. 
             Get your free audit and discover how we can help you generate qualified leads.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-extrabold py-4 px-12 rounded shadow-lg transform hover:scale-105 transition duration-300 uppercase text-lg tracking-wider"
+            className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-12 rounded shadow-lg transform hover:scale-105 transition duration-300 uppercase text-lg tracking-wider"
           >
             Get Your Free Law Firm Website Audit
           </Link>

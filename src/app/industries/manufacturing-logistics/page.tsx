@@ -119,31 +119,26 @@ export default function ManufacturingPage() {
       />
 
       {/* SECTION 1: The "Heavy Industry" Hero */}
-      <section className="relative bg-gray-900 text-white h-screen flex items-center overflow-hidden border-b-8 border-orange-600 pt-20 md:pt-24">
-        {/* Abstract Industrial Background */}
-        <div className="absolute inset-0 z-0 opacity-20 bg-gradient-to-br from-orange-900/20 to-gray-900" />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-900/90 to-transparent z-10" />
-        
-        <div className="container mx-auto px-6 relative z-20 py-8">
+      <section className="relative overflow-hidden bg-black text-zinc-300 min-h-[85vh] flex items-center border-b border-zinc-800 pt-24 md:pt-28 pb-16 md:pb-20">
+        <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-900/10 blur-[120px]" aria-hidden />
+        <div className="container mx-auto px-6 relative z-10 py-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500 text-orange-400 text-xs md:text-sm font-mono mb-4 md:mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-zinc-700 bg-zinc-900 font-mono text-xs uppercase tracking-[0.2em] text-zinc-400 mb-4 md:mb-6">
               <ShieldCheck className="w-3 h-3 md:w-4 md:h-4" />
               <span>ISO 9001 / 27001 READY ARCHITECTURE</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading leading-tight mb-4 md:mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-tight tracking-[-2px] text-white mb-4 md:mb-6">
               Your Website Is Not a Brochure.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">
-                It Is A Procurement Tool.
-              </span>
+              <span className="text-teal-400/90">It Is A Procurement Tool.</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-xl text-zinc-400 mb-6 md:mb-8 leading-relaxed max-w-2xl">
               Alrode&apos;s supply chain runs on data, not aesthetics. We build <strong>high-performance B2B portals</strong> that streamline tenders, host compliance docs, and integrate with your logistics network.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-              <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wider text-sm md:text-base">
+              <Button asChild size="lg" className="bg-white text-black hover:bg-zinc-200 font-semibold uppercase tracking-wider text-sm md:text-base">
                 <Link href="/contact">Audit My Supply Chain Visibility</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-gray-600 text-gray-300 hover:bg-gray-800 text-sm md:text-base">
+              <Button asChild variant="outline" size="lg" className="border-zinc-700 text-zinc-400 hover:bg-zinc-900 text-sm md:text-base">
                 <Link href="/case-studies">View B2B Case Studies</Link>
               </Button>
             </div>
@@ -152,14 +147,14 @@ export default function ManufacturingPage() {
       </section>
 
       {/* SECTION 2: The "Tender Vault" (The USP) */}
-      <section className="py-24 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold font-heading text-gray-900 mb-6">
+              <h2 className="text-4xl font-bold font-heading text-white mb-6">
                 Stop Emailing BEE Certificates.
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-zinc-500 mb-6">
                 Major clients like SAB and Henkel don&apos;t have time to chase you for paperwork. 
                 We build a <strong>Secure Client Portal</strong> directly into your Next.js site.
               </p>
@@ -172,41 +167,41 @@ export default function ManufacturingPage() {
                   "Real-Time Stock Integration (ERP)"
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-orange-600 flex-shrink-0" />
-                    <span className="font-medium text-gray-800">{item}</span>
+                    <CheckCircle2 className="w-6 h-6 text-teal-400/90 flex-shrink-0" />
+                    <span className="font-medium text-zinc-300">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
             
             {/* VISUAL COMPONENT: The "Vault" UI Mockup */}
-            <div className="relative bg-gray-100 rounded-xl border border-gray-200 p-8 shadow-2xl">
-              <div className="absolute -top-4 -right-4 bg-orange-600 text-white px-4 py-1 text-sm font-bold uppercase tracking-wider rounded shadow-lg">
+            <div className="relative bg-zinc-900 rounded-xl border border-zinc-800 p-8 shadow-2xl">
+              <div className="absolute -top-4 -right-4 rounded-sm border border-teal-400/40 bg-teal-400/20 text-teal-400/90 px-4 py-1 text-sm font-bold uppercase tracking-wider rounded shadow-lg">
                 Live Demo
               </div>
               <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-gray-300 pb-4">
+                <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
                   <div className="flex items-center gap-3">
-                    <FileText className="w-8 h-8 text-gray-500" />
+                    <FileText className="w-8 h-8 text-zinc-500" />
                     <div>
-                      <p className="font-bold text-gray-900">BEE_Certificate_2025.pdf</p>
-                      <p className="text-xs text-gray-500">Updated: 2 Hours Ago</p>
+                      <p className="font-bold text-white">BEE_Certificate_2025.pdf</p>
+                      <p className="text-xs text-zinc-500">Updated: 2 Hours Ago</p>
                     </div>
                   </div>
-                  <Button size="sm" variant="outline" className="text-orange-600 border-orange-200">Download</Button>
+                  <Button size="sm" variant="outline" className="text-teal-400/90 border-zinc-700">Download</Button>
                 </div>
-                <div className="flex items-center justify-between border-b border-gray-300 pb-4">
+                <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
                   <div className="flex items-center gap-3">
-                    <ShieldCheck className="w-8 h-8 text-gray-500" />
+                    <ShieldCheck className="w-8 h-8 text-zinc-500" />
                     <div>
-                      <p className="font-bold text-gray-900">ISO_9001_Compliance.pdf</p>
-                      <p className="text-xs text-gray-500">Status: Valid</p>
+                      <p className="font-bold text-white">ISO_9001_Compliance.pdf</p>
+                      <p className="text-xs text-zinc-500">Status: Valid</p>
                     </div>
                   </div>
-                  <Button size="sm" variant="outline" className="text-orange-600 border-orange-200">Download</Button>
+                  <Button size="sm" variant="outline" className="text-teal-400/90 border-zinc-700">Download</Button>
                 </div>
                 {/* Blur effect to suggest more content */}
-                <div className="h-12 w-full bg-gray-200 rounded opacity-50 animate-pulse"></div>
+                <div className="h-12 w-full bg-zinc-800 rounded opacity-50 animate-pulse"></div>
               </div>
             </div>
           </div>
@@ -214,13 +209,13 @@ export default function ManufacturingPage() {
       </section>
 
       {/* SECTION 3: The Local Moat (Alrode Heritage) */}
-      <section className="py-24 bg-gray-50 border-t border-gray-200">
+      <section className="py-20 md:py-28 bg-zinc-950 border-t border-zinc-800">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-4">
               Built for the R59 Corridor
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-zinc-500">
               We don&apos;t just build websites; we understand the industrial geography of Alberton. 
               From the heavy manufacturing of Alrode to the logistics hubs of Alrode South.
             </p>
@@ -249,13 +244,13 @@ export default function ManufacturingPage() {
       </section>
 
       {/* SECTION 4: The Alrode Guarantee */}
-      <section className="py-16 bg-orange-50 border-y border-orange-200">
+      <section className="py-20 md:py-28 bg-zinc-950 border-y border-zinc-800">
         <div className="container mx-auto px-6 max-w-4xl">
-          <div className="bg-white rounded-xl p-8 border-l-4 border-orange-600 shadow-lg">
-            <h3 className="text-2xl font-bold font-heading text-gray-900 mb-4">
+          <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l border-teal-400/60">
+            <h3 className="text-2xl font-bold font-heading text-white mb-4">
               The Alrode Guarantee
             </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg text-zinc-400 leading-relaxed">
               We don&apos;t just build the site. We stay until your first ISO Audit is passed. If your site fails a procurement compliance check, we fix it for free.
             </p>
           </div>
@@ -263,33 +258,33 @@ export default function ManufacturingPage() {
       </section>
 
       {/* SECTION 5: FAQ Section (Visible) */}
-      <section className="py-24 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900 mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-12 text-center">
             Frequently Asked Questions
           </h2>
           <div className="space-y-6">
-            <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-orange-500">
-              <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+            <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l border-teal-400/60">
+              <h3 className="text-xl font-bold mb-3 font-heading text-white">
                 What are the website requirements for Alrode suppliers?
               </h3>
-              <p className="text-gray-700">
+              <p className="text-zinc-400">
                 Suppliers in Alrode often need ISO 9001 compliant portals, secure document storage for BEE certificates, and Tax Clearance availability for procurement audits.
               </p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-orange-500">
-              <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+            <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l border-teal-400/60">
+              <h3 className="text-xl font-bold mb-3 font-heading text-white">
                 Do you offer industrial photography in Alrode?
               </h3>
-              <p className="text-gray-700">
+              <p className="text-zinc-400">
                 Yes. Endpoint Media provides on-site industrial photography in Alrode and Wadeville to ensure your digital presence reflects your physical scale.
               </p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-orange-500">
-              <h3 className="text-xl font-bold mb-3 font-heading text-gray-900">
+            <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-l border-teal-400/60">
+              <h3 className="text-xl font-bold mb-3 font-heading text-white">
                 Can you integrate my website with ERP systems?
               </h3>
-              <p className="text-gray-700">
+              <p className="text-zinc-400">
                 Yes. We integrate websites with ERP systems for real-time inventory display, automated catalogue updates, and seamless supply chain visibility.
               </p>
             </div>
@@ -298,15 +293,15 @@ export default function ManufacturingPage() {
       </section>
 
       {/* SECTION 6: Final CTA */}
-      <section className="py-24 bg-gray-900 text-white text-center">
+      <section className="py-20 md:py-28 bg-zinc-950 text-white text-center">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold font-heading mb-6">
             Is Your Website Costing You Tenders?
           </h2>
-          <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-zinc-500 mb-10 max-w-2xl mx-auto">
             Get a free &quot;Procurement Readiness Audit&quot; of your current site. We will check your speed, security, and compliance visibility.
           </p>
-          <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700 text-white text-lg px-10 py-6 h-auto">
+          <Button asChild size="lg" className="bg-white text-black hover:bg-zinc-200 text-lg px-10 py-6 h-auto">
             <Link href="/contact">Secure My Digital Supply Chain</Link>
           </Button>
         </div>
@@ -332,8 +327,8 @@ function Card({
   const cardContent = (
     <>
       <div className="mb-6">{icon}</div>
-      <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
-      <p className="text-gray-600 leading-relaxed mb-4">{desc}</p>
+      <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
+      <p className="text-zinc-500 leading-relaxed mb-4">{desc}</p>
       {link && linkText && (
         <span className="text-orange-600 font-semibold hover:underline inline-flex items-center gap-1">
           {linkText} →
@@ -344,14 +339,14 @@ function Card({
 
   if (link) {
     return (
-      <Link href={link} className="block bg-white p-8 rounded-xl shadow-lg border-b-4 border-gray-200 hover:border-orange-500 transition-all">
+      <Link href={link} className="block rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-b-4 border-zinc-800 hover:border-teal-400/70 transition-all">
         {cardContent}
       </Link>
     );
   }
 
   return (
-    <div className="bg-white p-8 rounded-xl shadow-lg border-b-4 border-gray-200 hover:border-orange-500 transition-all">
+    <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-b-4 border-zinc-800 hover:border-teal-400/70 transition-all">
       {cardContent}
     </div>
   );

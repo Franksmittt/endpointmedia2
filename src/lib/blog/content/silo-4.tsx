@@ -1,40 +1,15 @@
 import React from 'react';
-import { H2, H3, P, Lead, UL, Callout, InternalLink, CodeBlock } from '@/components/blog/blog-prose';
-
-function ComparisonTable({
-  headers,
-  rows,
-}: {
-  headers: string[];
-  rows: string[][];
-}) {
-  return (
-    <div className="my-8 overflow-x-auto rounded-sm border border-zinc-800">
-      <table className="w-full min-w-[640px] text-left text-sm">
-        <thead className="bg-zinc-900">
-          <tr>
-            {headers.map((header) => (
-              <th key={header} className="px-4 py-3 font-semibold text-zinc-200">
-                {header}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, index) => (
-            <tr key={index} className="border-t border-zinc-800">
-              {row.map((cell, cellIndex) => (
-                <td key={cellIndex} className="px-4 py-3 text-zinc-400">
-                  {cell}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
+import {
+  H2,
+  H3,
+  P,
+  Lead,
+  UL,
+  Callout,
+  InternalLink,
+  CodeBlock,
+  ComparisonTable,
+} from '@/components/blog/blog-prose';
 
 export function AeoShiftChatgptGemini() {
   return (
@@ -48,7 +23,7 @@ export function AeoShiftChatgptGemini() {
       <H2>The Fundamental Depreciation of Traditional Search Algorithms</H2>
       <P>
         Traditional SEO relied on keyword density, backlink volume, and superficial text matching. That
-        paradigm is obsolete. Modern answer engines — ChatGPT, Google Gemini, Perplexity — evaluate sites
+        paradigm is obsolete. Modern answer engines, ChatGPT, Google Gemini, Perplexity, evaluate sites
         through Retrieval-Augmented Generation (RAG): user prompts become vector arrays, the system retrieves
         the closest semantic chunks, and responses are grounded in those citations. Unparseable content
         never enters the retrieval pipeline.
@@ -56,7 +31,7 @@ export function AeoShiftChatgptGemini() {
 
       <H3>The Technical Mechanics of Semantic Vector Extraction</H3>
       <P>
-        Embedding models convert text into high-dimensional numerical representations — often 1,024+
+        Embedding models convert text into high-dimensional numerical representations, often 1,024+
         dimensions mapping semantic meaning. Keyword stuffing dilutes vector clarity. LLM parsers penalize
         documents that bury answers beneath introductory fluff. They demand BLUF (Bottom Line Up Front):
         the definitive answer within the first three sentences of a discrete DOM node.
@@ -101,7 +76,7 @@ export function AeoShiftChatgptGemini() {
 
       <H2>Engineering the CITABLE DOM Architecture</H2>
       <P>
-        The CITABLE framework — Clear entity structure, Intent architecture, Entity graph markup — must
+        The CITABLE framework: Clear entity structure, Intent architecture, Entity graph markup, must
         execute at the engineering layer. Authoritative brands and key definitions must use identical
         semantic terminology across the web. If internal definitions contradict Wikidata or LinkedIn
         verification nodes, semantic drift signals unreliability and triggers algorithmic demotion.
@@ -139,14 +114,14 @@ export function NextjsHydrationSeoTraps() {
     <>
       <Lead>
         Next.js hydration mismatches and indiscriminate &apos;use client&apos; directives lock the main
-        thread, destroy INP metrics, and cause Googlebot to index empty skeleton HTML — erasing
+        thread, destroy INP metrics, and cause Googlebot to index empty skeleton HTML, erasing
         revenue-generating pages from search results.
       </Lead>
 
       <H2>The Hydration Bottleneck in Modern Web Architecture</H2>
       <P>
         The pathology is rarely content quality. It is flawed rendering architecture where bloated JavaScript
-        payloads lock the browser main thread during hydration — when React attaches event handlers to
+        payloads lock the browser main thread during hydration, when React attaches event handlers to
         server-rendered HTML. Crawlers operate on strict CPU and time budgets. If compilation and Virtual DOM
         hydration exceed hundreds of milliseconds, the crawler abandons the thread and indexes an empty
         document.
@@ -154,14 +129,14 @@ export function NextjsHydrationSeoTraps() {
 
       <H3>DOM Mismatches and The Uncanny Valley of Performance</H3>
       <P>
-        Hydration mismatches occur when server HTML deviates from the client React tree — from improper HTML
+        Hydration mismatches occur when server HTML deviates from the client React tree, from improper HTML
         nesting, browser-only APIs during initial render, or time-dependent calculations. React destroys the
         entire DOM and rebuilds from scratch, obliterating Interaction to Next Paint (INP) and spiking Total
         Blocking Time beyond the 200ms Core Web Vitals threshold.
       </P>
 
       <CodeBlock
-        title="Fatal hydration trap — DOM mismatch on every request"
+        title="Fatal hydration trap: DOM mismatch on every request"
         code={`'use client';
 export function UserDashboard() {
   // Time APIs during initial render break SSR parity
@@ -174,12 +149,12 @@ export function UserDashboard() {
       <P>
         Technical SEO must be approached as infrastructure engineering. React Server Components render to
         pure HTML on the server and transmit zero kilobytes of JavaScript for static content. Push client
-        boundaries exclusively to leaf nodes. Off-screen interactive elements — charting libraries, modals —
+        boundaries exclusively to leaf nodes. Off-screen interactive elements (charting libraries, modals)
         must be dynamically imported to strip them from the initial crawler execution path.
       </P>
 
       <CodeBlock
-        title="Correct pattern — code-split non-critical JS"
+        title="Correct pattern: code-split non-critical JS"
         code={`import dynamic from 'next/dynamic';
 
 const AnalyticsModal = dynamic(() => import('../components/HeavyModal'), {
@@ -225,7 +200,7 @@ export function ShopifyCanonicalLoopDuplicatePaths() {
     <>
       <Lead>
         Shopify&apos;s default Liquid routing generates duplicate product URLs via the{' '}
-        <code className="text-zinc-300">within: collection</code> filter — splintering ranking signals,
+        <code className="text-zinc-300">within: collection</code> filter, splintering ranking signals,
         exhausting crawl budget, and triggering de-indexation when Google cannot resolve canonical conflicts.
       </Lead>
 
@@ -237,7 +212,7 @@ export function ShopifyCanonicalLoopDuplicatePaths() {
       </P>
 
       <CodeBlock
-        title="Toxic pattern — collection-aware product links"
+        title="Toxic pattern: collection-aware product links"
         code={`<a href="{{ product.url | within: collection }}">`}
       />
 
@@ -276,7 +251,7 @@ export function ShopifyCanonicalLoopDuplicatePaths() {
         Canonicalizing paginated collection nodes (e.g. ?page=2) back to the root page commands crawlers to
         ignore subsequent inventory pages. Paginated nodes need self-referencing canonicals with rel=&quot;prev&quot;
         and rel=&quot;next&quot; mapping. Variant parameters (?variant=12345) generate dozens of duplicate pages per
-        SKU — intercept variant selection with JavaScript and sessionStorage to update DOM without appending
+        SKU, intercept variant selection with JavaScript and sessionStorage to update DOM without appending
         URL parameters.
       </P>
 
@@ -312,7 +287,7 @@ export function WordpressRestApiUserLeakSecurity() {
     <>
       <Lead>
         WordPress exposes the unauthenticated <code className="text-zinc-300">/wp-json/wp/v2/users</code>{' '}
-        endpoint by default — enabling Oracle-style enumeration attacks that harvest administrator usernames
+        endpoint by default, enabling Oracle-style enumeration attacks that harvest administrator usernames
         and feed credential-stuffing pipelines against wp-login.php.
       </Lead>
 
@@ -321,7 +296,7 @@ export function WordpressRestApiUserLeakSecurity() {
         Visual page builders destroy Core Web Vitals through DOM depth and synchronous JavaScript. A more
         severe vulnerability lives in the application layer: the native WP-JSON REST API. The{' '}
         <code className="text-zinc-300">/wp-json/wp/v2/users</code> endpoint permits unauthenticated
-        connections to extract the platform&apos;s user entity graph — administrator usernames, user IDs, and
+        connections to extract the platform&apos;s user entity graph, administrator usernames, user IDs, and
         exposed email addresses (CVE-2023-5561).
       </P>
 
@@ -340,7 +315,7 @@ export function WordpressRestApiUserLeakSecurity() {
       </P>
 
       <CodeBlock
-        title="Architectural fix — sever the exposed user endpoint"
+        title="Architectural fix: sever the exposed user endpoint"
         code={`add_filter('rest_endpoints', function( $endpoints ) {
   if ( isset( $endpoints['/wp/v2/users'] ) ) {
     unset( $endpoints['/wp/v2/users'] );
@@ -405,14 +380,14 @@ export function AiBotEdgeMiddlewareCloudflareBlocking() {
     <>
       <Lead>
         While engineering teams invest in Answer Engine Optimization, edge networks silently block verified
-        AI crawlers — GPTBot, ClaudeBot — with HTTP 403 responses before requests reach your application,
+        AI crawlers: GPTBot, ClaudeBot, with HTTP 403 responses before requests reach your application,
         leaving domains totally asphyxiated from AI training and citation models.
       </Lead>
 
       <H2>The Silent Eradication of AI Crawler Traffic</H2>
       <P>
         CDNs and serverless architectures deploy aggressive managed rulesets against automated scraping. These
-        features inadvertently drop connections from compliant AI crawlers at the Edge tier — absent from
+        features inadvertently drop connections from compliant AI crawlers at the Edge tier, absent from
         standard application logs. Organizations remain blind while their domain is excluded from AI discovery
         entirely.
       </P>
@@ -425,7 +400,7 @@ export function AiBotEdgeMiddlewareCloudflareBlocking() {
       </P>
       <P>
         Cloudflare&apos;s Managed robots.txt prepends strict Disallow: / directives for 8+ major AI bots at
-        the top of the file. Crawler protocols dictate first matching User-Agent block wins — overriding any
+        the top of the file. Crawler protocols dictate first matching User-Agent block wins, overriding any
         Allow: / rules coded lower in the document.
       </P>
 
@@ -442,12 +417,12 @@ export function AiBotEdgeMiddlewareCloudflareBlocking() {
       <H3>Vercel Edge Middleware and Proxy Traps</H3>
       <P>
         Early-return security filters in Next.js middleware.ts effectively drop script kiddies before lambda
-        invocation. But naive User-Agent string matching is highly destructive — and trivially spoofed.
+        invocation. But naive User-Agent string matching is highly destructive, and trivially spoofed.
         Blocking exact GPTBot strings guarantees your entity schema is never ingested by OpenAI.
       </P>
 
       <CodeBlock
-        title="Lethal middleware trap — indiscriminately dropping AI bots"
+        title="Lethal middleware trap: indiscriminately dropping AI bots"
         code={`import { NextResponse } from 'next/server';
 
 export function middleware(request) {

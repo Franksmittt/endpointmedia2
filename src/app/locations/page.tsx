@@ -1,4 +1,4 @@
-// src/app/locations/page.tsx
+﻿// src/app/locations/page.tsx
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -184,7 +184,7 @@ const LocationsPage = () => {
             Choose Your Suburb
           </h2>
           <p className="mt-5 max-w-3xl text-zinc-400">
-            Each location page targets suburb-specific keywords, landmarks, and buyer intent — not
+            Each location page targets suburb-specific keywords, landmarks, and buyer intent, not
             generic &quot;web design Johannesburg&quot; copy that every competitor uses.
           </p>
 
@@ -250,7 +250,7 @@ const LocationsPage = () => {
 
               <blockquote className="border-l border-teal-400/60 bg-zinc-900/35 py-3 pl-6 pr-4 text-xl leading-snug text-white md:text-2xl">
                 Hyper-local SEO means creating location-specific landing pages that target
-                &quot;service + suburb&quot; keyword combinations — precision targeting that
+                &quot;service + suburb&quot; keyword combinations: precision targeting that
                 dramatically increases conversion rates and local search visibility.
               </blockquote>
 

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 
 const metrics = [
   { stat: '38%', label: 'Average CPA reduction within 45 days' },
@@ -18,7 +18,7 @@ const capabilities = [
   },
   {
     title: 'Creative and CRO built in',
-    body: 'Ad copy, responsive assets, and landing pages evolve together — not as disconnected agency deliverables.',
+    body: 'Ad copy, responsive assets, and landing pages evolve together. Not as disconnected agency deliverables.',
   },
   {
     title: 'Operator-level reporting',
@@ -46,7 +46,7 @@ export default function GoogleAdsSection() {
               Turn Wasted Ad Spend Into Predictable Pipeline.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-zinc-400">
-              We rebuild Google Ads for Johannesburg service businesses in focused sprints — campaign
+              We rebuild Google Ads for Johannesburg service businesses in focused sprints: campaign
               architecture, landing pages, GA4 + call tracking, and relentless optimization tied to
               booked jobs and revenue.
             </p>

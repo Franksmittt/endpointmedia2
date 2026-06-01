@@ -141,15 +141,16 @@ const LocalSEOPage = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-20 md:py-28">
+      <section className="relative overflow-hidden bg-black text-white py-20 md:py-28">
+      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-900/10 blur-[120px]" aria-hidden />
         <div className="container mx-auto px-6 text-center">
-          <p className="text-teal-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-400 mb-4">
             Local SEO • GBP • Reviews • Suburb Funnels
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Dominate Google’s map pack before your competitors even see the brief.
           </h1>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-400">
             We build Local SEO systems for Johannesburg’s hardest-working service businesses. From Sandton electricians to
             Rosebank dentists, you get suburb-specific landing pages, Google Business Profile engineering, review automation,
             and airtight tracking. Shipped in one sprint.
@@ -157,31 +158,31 @@ const LocalSEOPage = () => {
           <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-teal-500 text-white shadow-lg shadow-teal-500/30 hover:bg-teal-400 transition"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-sm bg-white text-black hover:bg-zinc-200 transition"
             >
               Book a Local SEO audit
             </Link>
             <Link
               href="/case-studies"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-sm border border-zinc-700 text-white hover:bg-white/10 transition"
             >
               See ranking wins
             </Link>
           </div>
-          <p className="text-sm text-gray-400 mt-6">
+          <p className="text-sm text-zinc-500 mt-6">
             Built for operators across Sandton, Randburg, Bryanston, Midrand, Fourways, Roodepoort, and the East Rand.
           </p>
         </div>
       </section>
 
       {/* Proof stats */}
-      <section className="py-16 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-4">
             {proofStats.map((stat) => (
-              <div key={stat.label} className="text-center border border-gray-200 rounded-2xl p-6 shadow-sm">
-                <p className="text-3xl font-bold text-gray-900">{stat.value}</p>
-                <p className="text-sm text-gray-600 mt-2">{stat.label}</p>
+              <div key={stat.label} className="text-center rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <p className="text-3xl font-bold text-white">{stat.value}</p>
+                <p className="text-sm text-zinc-500 mt-2">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -189,23 +190,23 @@ const LocalSEOPage = () => {
       </section>
 
       {/* Levers */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">Local growth engines</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 uppercase tracking-wide">Local growth engines</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               Four levers that compound into suburb dominance.
             </h2>
-            <p className="text-lg text-gray-600 mt-4">
+            <p className="text-lg text-zinc-500 mt-4">
               We align Google Business Profile, landing pages, citations, and reviews so every signal points to your company as
               the only credible choice in your service area.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {levers.map((lever) => (
-              <div key={lever.title} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{lever.title}</h3>
-                <p className="text-gray-600">{lever.body}</p>
+              <div key={lever.title} className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <h3 className="text-xl font-semibold text-white mb-3">{lever.title}</h3>
+                <p className="text-zinc-500">{lever.body}</p>
               </div>
             ))}
           </div>
@@ -213,18 +214,18 @@ const LocalSEOPage = () => {
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mb-12">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">Proven sprint</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">How we ship measurable gains in 30 days.</h2>
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 uppercase tracking-wide">Proven sprint</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">How we ship measurable gains in 30 days.</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {processSteps.map((step) => (
-              <div key={step.step} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
-                <p className="text-teal-500 text-sm font-semibold">Step {step.step}</p>
-                <h3 className="text-xl font-semibold text-gray-900 mt-3 mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.body}</p>
+              <div key={step.step} className="rounded-sm border border-zinc-800 bg-black/40 p-6">
+                <p className="text-zinc-4000 text-sm font-semibold">Step {step.step}</p>
+                <h3 className="text-xl font-semibold text-white mt-3 mb-2">{step.title}</h3>
+                <p className="text-zinc-500">{step.body}</p>
               </div>
             ))}
           </div>
@@ -232,11 +233,11 @@ const LocalSEOPage = () => {
       </section>
 
       {/* Deliverables */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 md:py-28 bg-zinc-950 text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <p className="text-teal-300 font-semibold uppercase tracking-wide">Included in every sprint</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold">Everything you need to outrank entrenched competitors.</h2>
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">Included in every sprint</p>
+            <h2 className="text-3xl md:text-4xl font-bold">Everything you need to outrank entrenched competitors.</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
@@ -247,7 +248,7 @@ const LocalSEOPage = () => {
               'Review acquisition funnels with automation + reporting',
               'Call tracking, UTM wiring, and dashboard reporting',
             ].map((item) => (
-              <div key={item} className="bg-gray-800 rounded-2xl p-6 border border-white/10">
+              <div key={item} className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
                 <p className="text-lg">{item}</p>
               </div>
             ))}
@@ -256,18 +257,18 @@ const LocalSEOPage = () => {
       </section>
 
       {/* Related service */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide text-sm mb-3">Complementary service</p>
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">Boost your local rankings with review management</h3>
-            <p className="text-gray-600 mb-6">
+          <div className="max-w-4xl mx-auto rounded-sm border border-zinc-800 bg-zinc-950/70 p-8">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 uppercase tracking-wide text-sm mb-3">Complementary service</p>
+            <h3 className="text-2xl font-bold text-white mb-3">Boost your local rankings with review management</h3>
+            <p className="text-zinc-500 mb-6">
               Reviews are a critical local ranking factor. Our review management service automates review generation, handles
               professional responses, and protects your reputation. Complementing your Local SEO strategy perfectly.
             </p>
             <Link
               href="/services/review-management"
-              className="inline-flex items-center text-teal-600 font-semibold hover:text-teal-700 transition"
+              className="inline-flex items-center font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 hover:text-white transition"
             >
               Learn about review management
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -279,16 +280,16 @@ const LocalSEOPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-teal-600 to-emerald-600 text-white text-center">
+      <section className="py-20 md:py-28 bg-zinc-950 text-white text-center border-t border-zinc-800">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to turn &quot;near me&quot; searches into booked jobs?</h2>
-          <p className="text-lg text-teal-50 max-w-3xl mx-auto mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to turn &quot;near me&quot; searches into booked jobs?</h2>
+          <p className="text-lg text-zinc-400 max-w-3xl mx-auto mb-8">
             Request your free Local SEO growth audit. We will show you the exact suburbs, keywords, and review plays to tackle
             first. And the projected call volume you can expect.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-teal-700 hover:bg-teal-50 transition"
+            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-sm bg-white text-black hover:bg-zinc-200 transition"
           >
             Claim your Local SEO audit
           </Link>
@@ -296,35 +297,35 @@ const LocalSEOPage = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-20 bg-white" id="faq">
+      <section className="py-20 md:py-28 bg-black" id="faq">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">FAQs</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">Local SEO questions we answer daily.</h2>
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 uppercase tracking-wide">FAQs</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">Local SEO questions we answer daily.</h2>
           </div>
           <div className="space-y-6">
             {faqs.map((faq) => (
-              <details key={faq.question} className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group">
-                <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+              <details key={faq.question} className="rounded-sm border border-zinc-800 bg-black/40 p-6 group">
+                <summary className="text-lg font-semibold text-white cursor-pointer flex items-center justify-between">
                   {faq.question}
-                  <span className="text-teal-500 group-open:rotate-45 transition-transform">+</span>
+                  <span className="text-zinc-4000 group-open:rotate-45 transition-transform">+</span>
                 </summary>
-                <p className="text-gray-600 mt-4">{faq.answer}</p>
+                <p className="text-zinc-500 mt-4">{faq.answer}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50 border-t border-gray-200">
+      <section className="py-20 md:py-28 bg-zinc-950 border-t border-zinc-800">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 font-heading mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-white font-heading mb-4">
             Hyper-local pages, not keyword overlap
           </h2>
-          <p className="text-gray-600 text-lg leading-relaxed mb-8">
+          <p className="text-zinc-500 text-lg leading-relaxed mb-8">
             This page covers our Local SEO methodology for Johannesburg. Suburb-specific rankings live on
             dedicated location spokes, for example{' '}
-            <Link href="/locations/sandton" className="text-teal-600 font-semibold hover:underline">
+            <Link href="/locations/sandton" className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 hover:underline">
               Web Design Sandton
             </Link>
             , so we do not cannibalize &quot;service + suburb&quot; queries with duplicate service URLs.

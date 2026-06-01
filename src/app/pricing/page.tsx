@@ -81,6 +81,30 @@ const webPackages = [
   },
 ];
 
+const metaAdsPricing = [
+  {
+    name: 'Account audit & CAPI setup',
+    price: 'Quoted after audit',
+    detail:
+      'Once-off · Meta CAPI + pixel dedup · offer engineering · campaign architecture · creative roadmap',
+  },
+  {
+    name: 'Starter ad spend',
+    price: 'R8,000 – R12,000 / mo',
+    detail: 'Media budget paid directly to Meta · single-location service businesses',
+  },
+  {
+    name: 'Growth ad spend',
+    price: 'R12,001 – R25,000 / mo',
+    detail: 'Typical Johannesburg operators · hook-first creative refreshed each sprint',
+  },
+  {
+    name: 'Management retainer',
+    price: 'Flat monthly fee',
+    detail: 'Scoped by creative volume & funnel complexity — never a % of your ad spend',
+  },
+];
+
 const googleAdsPricing = [
   {
     name: 'Infrastructure setup',
@@ -376,6 +400,24 @@ const PricingPage = () => {
           <p className="mb-8 max-w-2xl text-base text-zinc-500">
             Fewer clients · Senior-led delivery · Once-off architecture · Flat-fee ad management
           </p>
+          <nav
+            aria-label="Pricing sections"
+            className="mb-8 flex flex-wrap items-center justify-center gap-2"
+          >
+            {[
+              { href: '#websites', label: 'Websites' },
+              { href: '#google-ads', label: 'Google Ads' },
+              { href: '#meta-ads', label: 'Facebook & Instagram' },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="rounded-sm border border-zinc-800 bg-zinc-950/60 px-4 py-2 text-sm font-semibold text-zinc-300 transition-colors hover:border-zinc-600 hover:text-white"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Link
               href="/contact"
@@ -470,7 +512,7 @@ const PricingPage = () => {
       </section>
 
       {/* Web packages */}
-      <section className="bg-zinc-950 py-20 md:py-28">
+      <section id="websites" className="bg-zinc-950 py-20 md:py-28 scroll-mt-28">
         <div className="container mx-auto px-6">
           <div className="mb-14 flex flex-col gap-3 border-b border-zinc-800 pb-8 sm:flex-row sm:items-end sm:justify-between">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
@@ -535,7 +577,7 @@ const PricingPage = () => {
       </section>
 
       {/* Google Ads pricing */}
-      <section className="bg-black py-20 md:py-28">
+      <section id="google-ads" className="bg-black py-20 md:py-28 scroll-mt-28">
         <div className="container mx-auto px-6">
           <div className="mb-14 flex flex-col gap-3 border-b border-zinc-800 pb-8 sm:flex-row sm:items-end sm:justify-between">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
@@ -584,53 +626,74 @@ const PricingPage = () => {
         </div>
       </section>
 
-      {/* Meta & maintenance */}
-      <section className="bg-zinc-950 py-20 md:py-28">
+      {/* Meta Ads pricing */}
+      <section id="meta-ads" className="bg-zinc-950 py-20 md:py-28 scroll-mt-28">
         <div className="container mx-auto px-6">
-          <div className="grid gap-14 lg:grid-cols-2">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
-                Meta Ads
-              </p>
-              <h2 className="mt-4 text-3xl font-bold leading-tight text-white md:text-4xl">
-                Facebook & Instagram Management
-              </h2>
-              <p className="mt-5 text-zinc-400">
-                Meta fills the top and middle of your funnel while Google captures active search
-                intent. Recommended ad budgets for most Johannesburg service businesses run R8,000–
-                R25,000/month. Management is scoped per engagement based on creative volume and
-                funnel complexity.
-              </p>
-              <Link
-                href="/services/facebook-ads"
-                className="mt-6 inline-flex items-center text-sm font-semibold text-white transition-colors hover:text-teal-400/90"
-              >
-                Explore Meta Ads Services →
-              </Link>
-            </div>
-
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
-                Optional Maintenance
-              </p>
-              <h2 className="mt-4 text-3xl font-bold leading-tight text-white md:text-4xl">
-                Post-Launch Support Plans
-              </h2>
-              <p className="mt-5 text-zinc-400">
-                Our Next.js architecture is self-sustaining. Maintenance is optional, not mandatory.
-                Choose a plan if you want ongoing updates, monitoring, and priority support.
-              </p>
-              <div className="mt-8">
-                <PricingTierGrid tiers={maintenancePricing} columns={3} />
-              </div>
-              <Link
-                href="/services/website-maintenance"
-                className="mt-6 inline-flex items-center text-sm font-semibold text-white transition-colors hover:text-teal-400/90"
-              >
-                Website Maintenance Details →
-              </Link>
-            </div>
+          <div className="mb-14 flex flex-col gap-3 border-b border-zinc-800 pb-8 sm:flex-row sm:items-end sm:justify-between">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
+              Meta Ads Management
+            </p>
+            <Link
+              href="/services/facebook-ads"
+              className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600 transition-colors hover:text-zinc-400"
+            >
+              Facebook & Instagram services →
+            </Link>
           </div>
+
+          <h2 className="max-w-3xl text-4xl font-bold leading-tight text-white md:text-5xl">
+            Facebook & Instagram Retainers
+          </h2>
+          <p className="mt-5 max-w-3xl text-zinc-400">
+            Meta fills the top and middle of your funnel while Google captures active search intent.
+            Ad spend is paid directly to Meta. Management is a flat monthly retainer scoped after
+            audit based on creative volume, funnel complexity, and placements (Facebook, Instagram,
+            Messenger, Audience Network).
+          </p>
+
+          <div className="mt-10">
+            <PricingTierGrid tiers={metaAdsPricing} columns={4} />
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/services/facebook-ads"
+              className="rounded-sm border border-zinc-800 bg-zinc-950/60 px-4 py-2 text-sm text-zinc-400 transition-colors hover:border-zinc-600 hover:text-white"
+            >
+              Meta Ads Services
+            </Link>
+            <Link
+              href="/blog/meta-andromeda-manual-media-buying-dead"
+              className="rounded-sm border border-zinc-800 bg-zinc-950/60 px-4 py-2 text-sm text-zinc-400 transition-colors hover:border-zinc-600 hover:text-white"
+            >
+              Andromeda & Entity ID Guide
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Maintenance */}
+      <section className="bg-black py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
+            Optional Maintenance
+          </p>
+          <h2 className="mt-4 max-w-3xl text-4xl font-bold leading-tight text-white md:text-5xl">
+            Post-Launch Support Plans
+          </h2>
+          <p className="mt-5 max-w-3xl text-zinc-400">
+            Our Next.js architecture is self-sustaining. Maintenance is optional, not mandatory.
+            Choose a plan if you want ongoing updates, monitoring, and priority support.
+          </p>
+          <div className="mt-10">
+            <PricingTierGrid tiers={maintenancePricing} columns={3} />
+          </div>
+          <Link
+            href="/services/website-maintenance"
+            className="mt-6 inline-flex items-center text-sm font-semibold text-white transition-colors hover:text-teal-400/90"
+          >
+            Website Maintenance Details →
+          </Link>
         </div>
       </section>
 

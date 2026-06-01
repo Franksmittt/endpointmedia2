@@ -153,13 +153,14 @@ const ReviewManagementPage = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-charcoal via-gray-800 to-charcoal-dark text-white py-20 md:py-28">
+      <section className="relative overflow-hidden bg-black text-white py-20 md:py-28">
+      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-900/10 blur-[120px]" aria-hidden />
         <div className="container mx-auto px-6 text-center">
           <p className="text-accent/80 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">Reviews • Reputation • Rankings</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Turn satisfied customers into 5-star reviews that drive bookings.
           </h1>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-400">
             Your Google Business Profile reviews are a ranking signal and a conversion driver. We automate review generation, respond
             professionally to every review, and protect your reputation so you rank higher and book more work.
           </p>
@@ -172,25 +173,25 @@ const ReviewManagementPage = () => {
             </Link>
             <Link
               href="/services/local-seo"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-sm border border-zinc-700 text-white hover:bg-white/10 transition"
             >
               See Local SEO services
             </Link>
           </div>
-          <p className="text-sm text-gray-400 mt-6">
+          <p className="text-sm text-zinc-500 mt-6">
             Trusted by service businesses across Sandton, Rosebank, Midrand, Bryanston, and the broader Gauteng region.
           </p>
         </div>
       </section>
 
       {/* Proof */}
-      <section className="py-16 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-4">
             {proofStats.map((stat) => (
-              <div key={stat.label} className="text-center border border-gray-200 rounded-2xl p-6 shadow-sm">
-                <p className="text-3xl font-bold text-gray-900">{stat.stat}</p>
-                <p className="text-sm text-gray-600 mt-2">{stat.label}</p>
+              <div key={stat.label} className="text-center rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <p className="text-3xl font-bold text-white">{stat.stat}</p>
+                <p className="text-sm text-zinc-500 mt-2">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -198,23 +199,23 @@ const ReviewManagementPage = () => {
       </section>
 
       {/* Service features */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
             <p className="text-accent-600 font-semibold uppercase tracking-wide">What we deliver</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               Everything required to build and protect your online reputation.
             </h2>
-            <p className="text-lg text-gray-600 mt-4">
+            <p className="text-lg text-zinc-500 mt-4">
               From automated review requests to professional responses and reputation repair, we handle every aspect of review
               management so you can focus on delivering great service.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {serviceFeatures.map((feature) => (
-              <div key={feature.title} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.body}</p>
+              <div key={feature.title} className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
+                <p className="text-zinc-500">{feature.body}</p>
               </div>
             ))}
           </div>
@@ -222,20 +223,20 @@ const ReviewManagementPage = () => {
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mb-12">
             <p className="text-accent-600 font-semibold uppercase tracking-wide">How it works</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               A systematic approach to review generation and management.
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {processSteps.map((step) => (
-              <div key={step.step} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+              <div key={step.step} className="rounded-sm border border-zinc-800 bg-black/40 p-6">
                 <p className="text-accent text-sm font-semibold">Step {step.step}</p>
-                <h3 className="text-xl font-semibold text-gray-900 mt-3 mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.body}</p>
+                <h3 className="text-xl font-semibold text-white mt-3 mb-2">{step.title}</h3>
+                <p className="text-zinc-500">{step.body}</p>
               </div>
             ))}
           </div>
@@ -243,11 +244,11 @@ const ReviewManagementPage = () => {
       </section>
 
       {/* Why reviews matter */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 md:py-28 bg-zinc-950 text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <p className="text-accent/80 font-semibold uppercase tracking-wide">Why reviews matter</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold mt-3">
+            <h2 className="text-3xl md:text-4xl font-bold mt-3">
               Reviews are a ranking signal, a trust signal, and a conversion driver.
             </h2>
           </div>
@@ -266,9 +267,9 @@ const ReviewManagementPage = () => {
                 body: 'Businesses with 4.5+ stars and 50+ reviews outrank competitors with fewer or lower-rated reviews in local search.',
               },
             ].map((item) => (
-              <div key={item.title} className="bg-gray-800 rounded-2xl p-6 border border-white/10">
+              <div key={item.title} className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
                 <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
-                <p className="text-gray-300">{item.body}</p>
+                <p className="text-zinc-400">{item.body}</p>
               </div>
             ))}
           </div>
@@ -276,9 +277,9 @@ const ReviewManagementPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-charcoal to-accent-600 text-white text-center">
+      <section className="py-20 md:py-28 bg-zinc-950 text-white text-center border-t border-zinc-800">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to turn satisfied customers into 5-star reviews?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to turn satisfied customers into 5-star reviews?</h2>
           <p className="text-lg text-white/90 max-w-3xl mx-auto mb-8">
             Get a free review audit. We will analyze your current review profile, benchmark against competitors, and show you the
             exact strategy we would deploy to increase review volume and improve ratings.
@@ -293,22 +294,22 @@ const ReviewManagementPage = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-20 bg-white" id="faq">
+      <section className="py-20 md:py-28 bg-black" id="faq">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
             <p className="text-accent-600 font-semibold uppercase tracking-wide">FAQs</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               Common review management questions from Johannesburg businesses.
             </h2>
           </div>
           <div className="space-y-6">
             {faqs.map((faq) => (
-              <details key={faq.question} className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group">
-                <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+              <details key={faq.question} className="rounded-sm border border-zinc-800 bg-black/40 p-6 group">
+                <summary className="text-lg font-semibold text-white cursor-pointer flex items-center justify-between">
                   {faq.question}
                   <span className="text-accent group-open:rotate-45 transition-transform">+</span>
                 </summary>
-                <p className="text-gray-600 mt-4">{faq.answer}</p>
+                <p className="text-zinc-500 mt-4">{faq.answer}</p>
               </details>
             ))}
           </div>

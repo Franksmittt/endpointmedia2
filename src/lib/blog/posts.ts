@@ -1,14 +1,14 @@
 import type { BlogPostMeta } from './types';
 import { unstable_cache } from 'next/cache';
 
-/** All blog posts — 25 cornerstone silo articles + 5 legacy Johannesburg posts */
+/** All blog posts, 25 cornerstone silo articles + 5 legacy Johannesburg posts */
 export const BLOG_POSTS: BlogPostMeta[] = [
   // ─── Silo 5: Meta Ads Systems Engineering ───
   {
     slug: 'meta-andromeda-manual-media-buying-dead',
     title: 'The Death of Manual Media Buying: Inside Meta’s Andromeda Algorithmic Shift',
     excerpt:
-      'Meta’s Andromeda engine clusters creatives by Entity ID — not your audience stacks. Learn why manual media buying and cosmetic A/B tests are mathematically obsolete for B2B scaling in 2026.',
+      'Meta’s Andromeda engine clusters creatives by Entity ID, not your audience stacks. Learn why manual media buying and cosmetic A/B tests are mathematically obsolete for B2B scaling in 2026.',
     date: '2026-06-05',
     category: 'Meta Ads',
     silo: 'meta-ads',
@@ -24,12 +24,12 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       {
         question: 'What is Meta Andromeda?',
         answer:
-          'Andromeda is Meta’s intent-retrieval layer that uses GPU clusters to filter millions of ads to ~1,000 candidates in under 300ms. It reads creative pixels and context to assign Entity IDs that dictate who sees the ad — overriding manual audience targeting.',
+          'Andromeda is Meta’s intent-retrieval layer that uses GPU clusters to filter millions of ads to ~1,000 candidates in under 300ms. It reads creative pixels and context to assign Entity IDs that dictate who sees the ad, overriding manual audience targeting.',
       },
       {
         question: 'What is an Entity ID on Meta ads?',
         answer:
-          'An Entity ID is a computer-vision fingerprint grouping visually similar creatives. Ads sharing one Entity ID compete in the same retrieval pool — cosmetic variations do not create independent tests.',
+          'An Entity ID is a computer-vision fingerprint grouping visually similar creatives. Ads sharing one Entity ID compete in the same retrieval pool: cosmetic variations do not create independent tests.',
       },
       {
         question: 'Are lookalike audiences still effective in 2026?',
@@ -42,7 +42,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     slug: 'programmatic-design-factory-meta-creative-disparity',
     title: 'The Programmatic Design Factory: Scaling Creative Disparity Without Human Latency',
     excerpt:
-      'Beat Meta ad fatigue with automated Next.js + Python + Figma pipelines that render safe-zone-compliant, Entity ID-diverse creatives at scale — not one template repeated twelve times.',
+      'Beat Meta ad fatigue with automated Next.js + Python + Figma pipelines that render safe-zone-compliant, Entity ID-diverse creatives at scale, not one template repeated twelve times.',
     date: '2026-06-04',
     category: 'Meta Ads',
     silo: 'meta-ads',
@@ -58,7 +58,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       {
         question: 'How do you beat Meta ad fatigue in 2026?',
         answer:
-          'Produce structurally distinct creatives — different layouts, environments, personas, and benefit axes — so Andromeda assigns unique Entity IDs. Volume without visual disparity increases CPA through self-competition.',
+          'Produce structurally distinct creatives: different layouts, environments, personas, and benefit axes, so Andromeda assigns unique Entity IDs. Volume without visual disparity increases CPA through self-competition.',
       },
       {
         question: 'What is the Meta 9:16 safe zone?',
@@ -68,7 +68,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       {
         question: 'Can Figma automate ad production?',
         answer:
-          'Yes. The Figma REST API lets Python/Next.js pipelines inject copy and brand variables into layout nodes and export PNGs at scale — eliminating designer queue latency.',
+          'Yes. The Figma REST API lets Python/Next.js pipelines inject copy and brand variables into layout nodes and export PNGs at scale, eliminating designer queue latency.',
       },
     ],
   },
@@ -76,7 +76,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     slug: 'abo-testing-sandbox-meta-algorithmic-liquidity',
     title: 'The ABO Testing Sandbox: Mathematical Framework for Meta Algorithmic Liquidity',
     excerpt:
-      'Calculate minimum daily Meta test budgets from target CPA, isolate winners in ABO sandboxes, graduate via Graph API Post IDs, and enforce 15-minute AdRules pacing — not daily dashboard checks.',
+      'Calculate minimum daily Meta test budgets from target CPA, isolate winners in ABO sandboxes, graduate via Graph API Post IDs, and enforce 15-minute AdRules pacing, not daily dashboard checks.',
     date: '2026-06-03',
     category: 'Meta Ads',
     silo: 'meta-ads',
@@ -96,7 +96,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       {
         question: 'How do you scale Meta ads without resetting social proof?',
         answer:
-          'Extract effective_object_story_id via Graph API and inject it into the scale campaign payload — preserving likes, comments, and engagement history instead of duplicating ads manually.',
+          'Extract effective_object_story_id via Graph API and inject it into the scale campaign payload, preserving likes, comments, and engagement history instead of duplicating ads manually.',
       },
       {
         question: 'What is the Meta 20% budget increase rule?',
@@ -135,7 +135,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
       {
         question: 'Why send CRM stages to Meta CAPI?',
         answer:
-          'Lead events alone optimize for form fills. Offline MQL, SQL, Proposal, and Closed-Won events train Value Optimization on qualified pipeline — critical for high-ticket B2B.',
+          'Lead events alone optimize for form fills. Offline MQL, SQL, Proposal, and Closed-Won events train Value Optimization on qualified pipeline, critical for high-ticket B2B.',
       },
     ],
   },
@@ -143,7 +143,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     slug: 'systemic-divergence-industry-vs-retail-south-africa',
     title: 'Systemic Divergence: Meta Performance for Heavy Industry vs Local Retail in South Africa',
     excerpt:
-      'Alrode B2B qualification carousels, Alberton retail WhatsApp funnels, and load-shedding-aware payload compression — why one Meta template cannot serve every Gauteng sector.',
+      'Alrode B2B qualification carousels, Alberton retail WhatsApp funnels, and load-shedding-aware payload compression, why one Meta template cannot serve every Gauteng sector.',
     date: '2026-06-01',
     category: 'Meta Ads',
     silo: 'meta-ads',
@@ -202,7 +202,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     readingTimeMinutes: 10,
     faqs: [
       { question: 'Why does hydration break Google indexation?', answer: 'Crawlers operate on strict CPU budgets. If JavaScript hydration exceeds hundreds of milliseconds, crawlers abandon execution and index empty skeleton HTML instead of rendered content.' },
-      { question: 'What causes Next.js hydration mismatches?', answer: 'Server HTML differing from client React tree — from browser-only APIs during SSR, time-dependent values, or improper HTML nesting. React destroys and rebuilds the entire DOM, spiking INP and TBT.' },
+      { question: 'What causes Next.js hydration mismatches?', answer: 'Server HTML differing from client React tree, from browser-only APIs during SSR, time-dependent values, or improper HTML nesting. React destroys and rebuilds the entire DOM, spiking INP and TBT.' },
       { question: 'How do React Server Components fix hydration SEO?', answer: 'RSCs render to pure HTML on the server with zero client JavaScript for static content. Push use client boundaries to leaf nodes and dynamically import off-screen interactive widgets.' },
     ],
   },
@@ -250,7 +250,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     readingTimeMinutes: 10,
     faqs: [
       { question: 'Can Cloudflare block ChatGPT from crawling my site?', answer: 'Yes. Managed "Block AI Bots" WAF rules and prepended robots.txt Disallow directives terminate GPTBot and ClaudeBot connections with HTTP 403 before requests reach your application server.' },
-      { question: 'Why is blocking AI bots bad for SEO?', answer: 'While you invest in Answer Engine Optimization, edge-level blocks prevent LLMs from ingesting your entity schema — making AI citations impossible regardless of on-page content quality.' },
+      { question: 'Why is blocking AI bots bad for SEO?', answer: 'While you invest in Answer Engine Optimization, edge-level blocks prevent LLMs from ingesting your entity schema, making AI citations impossible regardless of on-page content quality.' },
       { question: 'How should WAF rules handle verified AI crawlers?', answer: 'Use Custom WAF Skip rules with ASN or Reverse DNS verification for official OpenAI IP blocks. Route verified AI crawlers past managed bot protections while maintaining rate-limits against unauthorized scrapers.' },
     ],
   },
@@ -416,7 +416,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     slug: 'local-seo-blueprint',
     title: 'The Local SEO Blueprint: Hub-and-Spoke Architecture for Alrode, Wadeville, and Germiston',
     excerpt:
-      'Advanced Local SEO strategy using semantic silos, programmatic multi-location landing pages, and KML integration — not keyword stuffing — to dominate Gauteng industrial search.',
+      'Advanced Local SEO strategy using semantic silos, programmatic multi-location landing pages, and KML integration, not keyword stuffing, to dominate Gauteng industrial search.',
     date: '2026-05-21',
     category: 'Local SEO',
     silo: 'local-dominance',
@@ -448,7 +448,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     slug: 'minimalist-design-b2b-value',
     title: 'The Value of Minimalist Design in B2B: Cognitive Load, Typography, and C-Suite Trust',
     excerpt:
-      'Premium web design impact comes from structured layouts and typographic hierarchy — not visual clutter. Minimalist B2B websites convert high-ticket buyers faster.',
+      'Premium web design impact comes from structured layouts and typographic hierarchy, not visual clutter. Minimalist B2B websites convert high-ticket buyers faster.',
     date: '2026-05-25',
     category: 'Web Architecture',
     silo: 'local-dominance',

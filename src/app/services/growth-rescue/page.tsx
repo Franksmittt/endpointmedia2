@@ -156,46 +156,47 @@ export default function GrowthRescuePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-950 via-gray-900 to-slate-900 text-white py-20 md:py-28">
+      <section className="relative overflow-hidden bg-black text-white py-20 md:py-28">
+      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-900/10 blur-[120px]" aria-hidden />
         <div className="container mx-auto px-6 text-center">
           <p className="text-teal-300 text-xs md:text-sm uppercase tracking-[0.4em] mb-4">
             Emergency CRO • Tracking • Paid Media • SEO
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Broken funnels? We fix them before payroll hits.
           </h1>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-400">
             When lead flow stalls or ad spend burns cash, Endpoint’s Growth Rescue team steps in: rebuild landing
             pages, repair tracking, relaunch ads, and get you back in the black. Fast.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-teal-500 text-white shadow-lg shadow-teal-500/30 hover:bg-teal-400 transition"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-sm bg-white text-black hover:bg-zinc-200 transition"
             >
               Request a rescue audit
             </Link>
             <Link
               href="/case-studies"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-sm border border-zinc-700 text-white hover:bg-white/10 transition"
             >
               View turnaround stories
             </Link>
           </div>
-          <p className="text-sm text-gray-400 mt-6">
+          <p className="text-sm text-zinc-500 mt-6">
             Serving service businesses in Gauteng, KZN, Western Cape & remote teams worldwide.
           </p>
         </div>
       </section>
 
       {/* Wins */}
-      <section className="py-16 bg-gray-900 text-white">
+      <section className="py-20 md:py-28 bg-zinc-950 text-white">
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-4">
             {wins.map((win) => (
               <div key={win.label} className="text-center border border-white/10 rounded-2xl p-6">
                 <p className="text-3xl font-bold text-teal-300">{win.stat}</p>
-                <p className="text-sm text-gray-200 mt-2">{win.label}</p>
+                <p className="text-sm text-zinc-400 mt-2">{win.label}</p>
               </div>
             ))}
           </div>
@@ -203,23 +204,23 @@ export default function GrowthRescuePage() {
       </section>
 
       {/* Stack */}
-      <section className="py-20 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">Growth rescue stack</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 uppercase tracking-wide">Growth rescue stack</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               One team. All the levers that drive revenue.
             </h2>
-            <p className="text-lg text-gray-600 mt-4">
+            <p className="text-lg text-zinc-500 mt-4">
               We deploy CROs, media buyers, copywriters, and engineers as a single strike team so fixes happen
               simultaneously. Not in slow silos.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {stack.map((item) => (
-              <div key={item.title} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{item.title}</h3>
-                <ul className="space-y-2 text-gray-600 list-disc list-inside">
+              <div key={item.title} className="rounded-sm border border-zinc-800 bg-black/40 p-6">
+                <h3 className="text-xl font-semibold text-white mb-4">{item.title}</h3>
+                <ul className="space-y-2 text-zinc-500 list-disc list-inside">
                   {item.bullets.map((bullet) => (
                     <li key={bullet}>{bullet}</li>
                   ))}
@@ -231,20 +232,20 @@ export default function GrowthRescuePage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mb-12">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">How we work</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 uppercase tracking-wide">How we work</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               Forensic audit. Rapid deployments. Repeatable wins.
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {process.map((step) => (
-              <div key={step.step} className="bg-white border border-gray-200 rounded-2xl p-6">
-                <p className="text-teal-500 text-sm font-semibold">Step {step.step}</p>
-                <h3 className="text-xl font-semibold text-gray-900 mt-3 mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.body}</p>
+              <div key={step.step} className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <p className="text-zinc-4000 text-sm font-semibold">Step {step.step}</p>
+                <h3 className="text-xl font-semibold text-white mt-3 mb-2">{step.title}</h3>
+                <p className="text-zinc-500">{step.body}</p>
               </div>
             ))}
           </div>
@@ -252,18 +253,18 @@ export default function GrowthRescuePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-slate-800 text-white">
+      <section className="py-20 bg-zinc-950 text-white border-t border-zinc-800">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to stop wasting spend and start scaling again?
           </h2>
-          <p className="text-lg text-gray-200 max-w-3xl mx-auto mb-8">
+          <p className="text-lg text-zinc-400 max-w-3xl mx-auto mb-8">
             Request a free Growth Rescue audit. We’ll show you exactly where money is leaking and what we’ll
             deploy in the next 30 days to fix it.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-teal-500 text-white hover:bg-teal-400 transition"
+            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-sm bg-white text-black hover:bg-zinc-200 transition"
           >
             Get your rescue plan
           </Link>
@@ -271,11 +272,11 @@ export default function GrowthRescuePage() {
       </section>
 
       {/* FAQs */}
-      <section className="py-20 bg-white" id="faq">
+      <section className="py-20 md:py-28 bg-black" id="faq">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">FAQs</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 uppercase tracking-wide">FAQs</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               Answers for founders, marketing leads, and revenue teams.
             </h2>
           </div>
@@ -283,13 +284,13 @@ export default function GrowthRescuePage() {
             {faqs.map((item) => (
               <details
                 key={item.question}
-                className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group"
+                className="rounded-sm border border-zinc-800 bg-black/40 p-6 group"
               >
-                <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                <summary className="text-lg font-semibold text-white cursor-pointer flex items-center justify-between">
                   {item.question}
-                  <span className="text-teal-500 group-open:rotate-45 transition-transform">+</span>
+                  <span className="text-zinc-4000 group-open:rotate-45 transition-transform">+</span>
                 </summary>
-                <p className="text-gray-600 mt-4">{item.answer}</p>
+                <p className="text-zinc-500 mt-4">{item.answer}</p>
               </details>
             ))}
           </div>

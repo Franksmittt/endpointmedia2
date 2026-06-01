@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 
 const packages = [
   {
@@ -118,7 +118,7 @@ const Pricing = () => {
                 {pkg.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <span className="mt-0.5 shrink-0 text-zinc-500" aria-hidden="true">
-                      —
+                      •
                     </span>
                     <span>{feature}</span>
                   </li>
@@ -145,7 +145,7 @@ const Pricing = () => {
               Not Sure Yet?
             </p>
             <p className="mt-3 text-zinc-300">
-              Our Free Architecture Audit maps your market, competitors, and growth gaps — then
+              Our Free Architecture Audit maps your market, competitors, and growth gaps, then
               recommends the right investment tier.
             </p>
             <Link

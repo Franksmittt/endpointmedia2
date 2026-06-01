@@ -34,11 +34,11 @@ const Problem = () => {
             </span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 font-heading bg-gradient-to-r from-white via-accent/30 to-white bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 font-heading bg-gradient-to-r from-white via-accent/30 to-white bg-clip-text text-transparent">
             The Truth: An Underperforming Website is a Hidden Expense.
           </h2>
           
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
             If your site isn&apos;t actively generating leads and making your phone ring, it&apos;s not an asset. 
             <span className="text-red-400 font-semibold"> It&apos;s an online expense.</span> You are losing revenue every single day.
           </p>
@@ -61,17 +61,17 @@ const Problem = () => {
                 <span className="text-xs font-semibold uppercase tracking-wider text-red-400">Problem Identified</span>
               </div>
               
-              <h3 className="text-2xl md:text-3xl font-extrabold mb-4 font-heading text-white group-hover:text-red-400 transition-colors">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 font-heading text-white group-hover:text-red-400 transition-colors">
                 The &quot;Looks Good, Does Nothing&quot; Trap
               </h3>
               
-              <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+              <p className="text-zinc-400 text-lg mb-6 leading-relaxed">
                 You invested in a visually appealing website... that delivers zero ROI. No calls, no form submissions, just silence. It&apos;s an expensive digital brochure collecting virtual dust.
               </p>
               
               <Link 
                 href="/services" 
-                className="inline-flex items-center text-accent font-semibold hover:text-accent/80 transition-colors group/link"
+                className="inline-flex items-center text-accent font-semibold hover:text-teal-400/90/80 transition-colors group/link"
               >
                 <span>See How We Engineer ROI</span>
                 <svg className="w-5 h-5 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,17 +107,17 @@ const Problem = () => {
                 <span className="text-xs font-semibold uppercase tracking-wider text-accent">Critical Issue</span>
               </div>
               
-              <h3 className="text-2xl md:text-3xl font-extrabold mb-4 font-heading text-accent">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 font-heading text-accent">
                 Invisible in Johannesburg
               </h3>
               
-              <p className="text-gray-200 text-lg mb-6 leading-relaxed">
+              <p className="text-zinc-400 text-lg mb-6 leading-relaxed">
                 Your potential customers in <span className="text-accent/80 font-semibold">Sandton, Randburg, and Midrand</span> are searching online <em className="text-accent">*right now*</em>. If your site isn&apos;t on Google&apos;s first page, especially in the Map Pack, you are invisible. They are finding and paying your competitors.
               </p>
               
               <Link 
                 href="/process" 
-                className="inline-flex items-center text-accent font-semibold hover:text-accent/70 transition-colors group/link"
+                className="inline-flex items-center text-accent font-semibold hover:text-teal-400/90/70 transition-colors group/link"
               >
                 <span>View Our Dominance Blueprint</span>
                 <svg className="w-5 h-5 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -145,17 +145,17 @@ const Problem = () => {
                 <span className="text-xs font-semibold uppercase tracking-wider text-orange-400">Trust Broken</span>
               </div>
               
-              <h3 className="text-2xl md:text-3xl font-extrabold mb-4 font-heading text-white group-hover:text-orange-400 transition-colors">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 font-heading text-white group-hover:text-orange-400 transition-colors">
                 The Agency Disappointment
               </h3>
               
-              <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+              <p className="text-zinc-400 text-lg mb-6 leading-relaxed">
                 You&apos;ve been burned by faceless agencies and broken promises. It&apos;s not your fault you have an underperforming website. You needed a dedicated partner truly invested in <em className="text-orange-400">*your*</em> business results.
               </p>
               
               <Link 
                 href="/case-studies" 
-                className="inline-flex items-center text-accent font-semibold hover:text-accent/80 transition-colors group/link"
+                className="inline-flex items-center text-accent font-semibold hover:text-teal-400/90/80 transition-colors group/link"
               >
                 <span>Meet Your Partner (Case Studies)</span>
                 <svg className="w-5 h-5 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,13 +172,13 @@ const Problem = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-transparent to-accent/10 rounded-2xl blur-3xl"></div>
           
           <div className="relative z-10 max-w-4xl mx-auto">
-            <p className="text-xl sm:text-2xl md:text-3xl max-w-4xl mx-auto text-gray-200 mb-10 font-semibold leading-relaxed">
+            <p className="text-xl sm:text-2xl md:text-3xl max-w-4xl mx-auto text-zinc-400 mb-10 font-semibold leading-relaxed">
               Stop accepting an ineffective online presence. Your expertise deserves a website that works as hard as you do.
             </p>
             
             <Button
               asChild
-              className="group relative bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white font-extrabold py-4 px-8 md:py-5 md:px-12 rounded-lg shadow-2xl shadow-red-500/30 border-2 border-red-400/50 transition-all duration-300 transform hover:scale-105 hover:shadow-red-500/50 uppercase text-sm sm:text-base md:text-lg tracking-wider focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 focus-visible:ring-red-500 w-full sm:w-auto max-w-full sm:max-w-none overflow-hidden"
+              className="group relative bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white font-bold py-4 px-8 md:py-5 md:px-12 rounded-lg shadow-2xl shadow-red-500/30 border-2 border-red-400/50 transition-all duration-300 transform hover:scale-105 hover:shadow-red-500/50 uppercase text-sm sm:text-base md:text-lg tracking-wider focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 focus-visible:ring-red-500 w-full sm:w-auto max-w-full sm:max-w-none overflow-hidden"
             >
               <Link href="#audit" className="relative z-10 flex items-center justify-center gap-2">
                 <span>Diagnose My Website Problem</span>

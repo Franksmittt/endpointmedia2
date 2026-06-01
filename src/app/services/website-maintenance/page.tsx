@@ -145,44 +145,45 @@ const WebsiteMaintenancePage = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-white py-20 md:py-28">
+      <section className="relative overflow-hidden bg-black text-white py-20 md:py-28">
+      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-900/10 blur-[120px]" aria-hidden />
         <div className="container mx-auto px-6 text-center">
-          <p className="text-teal-300 text-xs md:text-sm uppercase tracking-[0.35em] mb-4">Maintenance • Security • Support</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-400 mb-4">Maintenance • Security • Support</p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Keep your website fast, secure, and updated. Without the headaches.
           </h1>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-200">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-400">
             Your website is a revenue engine. We handle security updates, backups, performance tuning, and content changes so you
             can focus on running your Johannesburg business, not managing technical debt.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-teal-500 text-white shadow-lg shadow-teal-500/30 hover:bg-teal-400 transition"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-sm bg-white text-black hover:bg-zinc-200 transition"
             >
               Get a maintenance quote
             </Link>
             <Link
               href="/pricing"
-              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition"
+              className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-sm border border-zinc-700 text-white hover:bg-white/10 transition"
             >
               View package options
             </Link>
           </div>
-          <p className="text-sm text-gray-400 mt-6">
+          <p className="text-sm text-zinc-500 mt-6">
             Trusted by service businesses across Sandton, Rosebank, Midrand, Bryanston, and the broader Gauteng region.
           </p>
         </div>
       </section>
 
       {/* Proof */}
-      <section className="py-16 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-4">
             {proofStats.map((stat) => (
-              <div key={stat.label} className="text-center border border-gray-200 rounded-2xl p-6 shadow-sm">
-                <p className="text-3xl font-bold text-gray-900">{stat.stat}</p>
-                <p className="text-sm text-gray-600 mt-2">{stat.label}</p>
+              <div key={stat.label} className="text-center rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <p className="text-3xl font-bold text-white">{stat.stat}</p>
+                <p className="text-sm text-zinc-500 mt-2">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -190,14 +191,14 @@ const WebsiteMaintenancePage = () => {
       </section>
 
       {/* What we handle */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">What we handle</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 uppercase tracking-wide">What we handle</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               Everything required to keep your website running smoothly.
             </h2>
-            <p className="text-lg text-gray-600 mt-4">
+            <p className="text-lg text-zinc-500 mt-4">
               From security patches to content updates, we take care of the technical details so your site stays fast, secure, and
               up-to-date.
             </p>
@@ -229,9 +230,9 @@ const WebsiteMaintenancePage = () => {
                 body: 'Fast response times for bugs, errors, and questions. Priority support available for urgent issues.',
               },
             ].map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.body}</p>
+              <div key={item.title} className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
+                <p className="text-zinc-500">{item.body}</p>
               </div>
             ))}
           </div>
@@ -239,14 +240,14 @@ const WebsiteMaintenancePage = () => {
       </section>
 
       {/* Pricing tiers */}
-      <section className="py-20 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mb-12 text-center mx-auto">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">Flexible plans</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 uppercase tracking-wide">Flexible plans</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               Choose the support level that fits your business.
             </h2>
-            <p className="text-lg text-gray-600 mt-4">
+            <p className="text-lg text-zinc-500 mt-4">
               All plans are month-to-month with no long-term contracts. Upgrade, downgrade, or cancel anytime.
             </p>
           </div>
@@ -254,41 +255,41 @@ const WebsiteMaintenancePage = () => {
             {maintenanceTiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`flex flex-col p-8 rounded-2xl border ${
+                className={`relative flex flex-col rounded-sm border p-8 ${
                   tier.highlight
-                    ? 'bg-gray-900 text-white border-teal-500 shadow-2xl lg:scale-105'
-                    : 'bg-white text-gray-900 border-gray-200 shadow-lg'
+                    ? 'border-teal-400/60 bg-zinc-950/90 text-white shadow-2xl lg:scale-105'
+                    : 'border-zinc-800 bg-zinc-950/70 text-zinc-300'
                 }`}
               >
                 {tier.highlight && (
-                  <span className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
+                  <span className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 rounded-sm border border-teal-400/40 bg-teal-400/20 px-4 py-1 text-xs font-bold uppercase tracking-wider text-teal-400/90">
                     Most Popular
                   </span>
                 )}
                 <div className="flex-grow">
-                  <h3 className="text-3xl font-bold font-heading mb-2">{tier.name}</h3>
-                  <p className={tier.highlight ? 'text-gray-300 mb-6' : 'text-gray-500 mb-6'}>{tier.description}</p>
-                  <p className="text-5xl font-extrabold mb-6">
-                    {tier.price} <span className="text-lg font-normal">{tier.period}</span>
+                  <h3 className="text-3xl font-bold font-heading mb-2 text-white">{tier.name}</h3>
+                  <p className="text-zinc-500 mb-6">{tier.description}</p>
+                  <p className="text-5xl font-bold mb-6 text-white">
+                    {tier.price} <span className="text-lg font-normal text-zinc-500">{tier.period}</span>
                   </p>
                   <ul className="space-y-4 text-sm mb-8">
                     {tier.features.map((feature) => (
                       <li key={feature} className="flex items-start">
-                        <span className={tier.highlight ? 'text-teal-400 mr-3 mt-1 font-bold' : 'text-teal-500 mr-3 mt-1'}>
+                        <span className="text-teal-400/90 mr-3 mt-1 font-bold">
                           &#10003;
                         </span>
-                        <span className={tier.highlight ? 'text-gray-100' : 'text-gray-700'}>{feature}</span>
+                        <span className="text-zinc-400">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <Link
                   href="/contact"
-                  className={`w-full mt-auto text-center block font-bold py-3 px-6 rounded-lg transition duration-300 ${
+                  className={`w-full mt-auto text-center block font-semibold py-3 px-6 rounded-sm transition duration-300 ${
                     tier.highlight
-                      ? 'bg-teal-500 hover:bg-teal-400 text-white focus-visible:ring-offset-gray-900'
-                      : 'bg-white border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white'
-                  } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500`}
+                      ? 'bg-white text-black hover:bg-zinc-200'
+                      : 'border border-zinc-700 text-zinc-100 hover:bg-zinc-900'
+                  } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500 focus-visible:ring-offset-zinc-950`}
                 >
                   Start {tier.name}
                 </Link>
@@ -299,16 +300,16 @@ const WebsiteMaintenancePage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-teal-600 to-emerald-600 text-white text-center">
+      <section className="py-20 md:py-28 bg-zinc-950 text-white text-center border-t border-zinc-800">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Stop worrying about website maintenance.</h2>
-          <p className="text-lg text-teal-50 max-w-3xl mx-auto mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Stop worrying about website maintenance.</h2>
+          <p className="text-lg text-zinc-400 max-w-3xl mx-auto mb-8">
             Get a free maintenance audit. We will review your current setup, identify risks, and recommend the right support level
             for your business.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-full bg-white text-teal-700 hover:bg-teal-50 transition"
+            className="inline-flex items-center justify-center px-10 py-3 text-lg font-semibold rounded-sm bg-white text-black hover:bg-zinc-200 transition"
           >
             Request a maintenance audit
           </Link>
@@ -316,22 +317,22 @@ const WebsiteMaintenancePage = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-20 bg-white" id="faq">
+      <section className="py-20 md:py-28 bg-black" id="faq">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <p className="text-teal-600 font-semibold uppercase tracking-wide">FAQs</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500 uppercase tracking-wide">FAQs</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               Common maintenance questions from Johannesburg businesses.
             </h2>
           </div>
           <div className="space-y-6">
             {faqs.map((faq) => (
-              <details key={faq.question} className="bg-gray-50 border border-gray-200 rounded-2xl p-6 group">
-                <summary className="text-lg font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+              <details key={faq.question} className="rounded-sm border border-zinc-800 bg-black/40 p-6 group">
+                <summary className="text-lg font-semibold text-white cursor-pointer flex items-center justify-between">
                   {faq.question}
-                  <span className="text-teal-500 group-open:rotate-45 transition-transform">+</span>
+                  <span className="text-zinc-4000 group-open:rotate-45 transition-transform">+</span>
                 </summary>
-                <p className="text-gray-600 mt-4">{faq.answer}</p>
+                <p className="text-zinc-500 mt-4">{faq.answer}</p>
               </details>
             ))}
           </div>

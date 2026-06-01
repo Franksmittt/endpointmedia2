@@ -98,7 +98,7 @@ const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) =
   const schemas = [articleSchema, speakableSchema, faqSchema].filter(Boolean);
 
   return (
-    <>
+    <div className="bg-black text-zinc-300">
       {schemas.map((schema, i) => (
         <script
           key={i}
@@ -107,18 +107,29 @@ const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) =
         />
       ))}
 
-      <section className="border-b border-zinc-800 bg-black py-20 md:py-24">
-        <div className="container mx-auto max-w-3xl px-6 text-center">
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b border-zinc-800 bg-black px-[5%] pb-16 pt-24 md:pb-20 md:pt-28">
+        <div className="pointer-events-none absolute top-0 h-[420px] w-[420px] rounded-full bg-blue-900/10 blur-[120px]" />
+
+        <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
+          <Link
+            href="/blog"
+            className="mb-6 text-sm font-semibold text-zinc-400 transition-colors hover:text-white"
+          >
+            ← Back to Blog
+          </Link>
           {post.category && (
-            <p className="mb-2 font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
+            <p className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-zinc-400">
               {post.category}
             </p>
           )}
-          <h1 className="mb-4 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+          <h1 className="mb-4 text-4xl font-bold leading-[1.05] tracking-[-2px] text-white md:text-6xl">
             {post.title}
           </h1>
-          <p className="article-summary mx-auto mb-0 max-w-2xl text-lg text-zinc-400">{post.excerpt}</p>
-          <p className="mt-4 text-sm text-zinc-500">
+          <p className="article-summary mx-auto max-w-2xl text-lg leading-relaxed text-[#A1A1AA] md:text-xl">
+            {post.excerpt}
+          </p>
+          <p className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-zinc-500">
             Published{' '}
             <time dateTime={post.date} itemProp="datePublished">
               {post.date}
@@ -129,23 +140,32 @@ const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) =
         </div>
       </section>
 
-      <article className="bg-zinc-950 py-16 md:py-20" itemScope itemType="https://schema.org/BlogPosting">
-        <div className="container mx-auto max-w-3xl px-6">
-          <div className="max-w-none" itemProp="articleBody">
+      {/* Article body */}
+      <article
+        className="bg-zinc-950 py-20 md:py-28"
+        itemScope
+        itemType="https://schema.org/BlogPosting"
+      >
+        <div className="container mx-auto px-6">
+          <div className="mx-auto w-full max-w-none" itemProp="articleBody">
             <Content />
           </div>
 
           {post.faqs && post.faqs.length > 0 && (
-            <section className="mt-12 border-t border-zinc-800 pt-8" aria-labelledby="faq-heading">
-              <h2 id="faq-heading" className="mb-6 text-2xl font-bold text-white">
+            <section className="mt-16 border-t border-zinc-800 pt-12" aria-labelledby="faq-heading">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">FAQ</p>
+              <h2 id="faq-heading" className="mt-4 text-3xl font-bold text-white md:text-4xl">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6">
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
                 {post.faqs.map((faq) => (
-                  <div key={faq.question}>
-                    <h3 className="mb-2 text-lg font-semibold text-white">{faq.question}</h3>
-                    <p className="text-zinc-400">{faq.answer}</p>
-                  </div>
+                  <article
+                    key={faq.question}
+                    className="rounded-sm border border-zinc-800 bg-black/40 p-6"
+                  >
+                    <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-zinc-400">{faq.answer}</p>
+                  </article>
                 ))}
               </div>
             </section>
@@ -160,32 +180,74 @@ const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) =
             />
           </div>
 
-          <footer className="mt-12 border-t border-zinc-800 pt-8">
-            <div className="mb-6 flex items-center gap-4">
-              <div className="flex h-16 w-16 items-center justify-center rounded-sm border border-zinc-700 bg-black font-mono text-2xl font-bold text-white">
+          <footer className="mt-16 border-t border-zinc-800 pt-10">
+            <div className="flex items-center gap-4">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-sm border border-zinc-700 bg-black font-mono text-base text-white">
                 FS
               </div>
               <div>
-                <p className="mb-1 text-sm text-zinc-500">Written by</p>
+                <p className="font-mono text-xs uppercase tracking-[0.14em] text-zinc-500">
+                  Written by
+                </p>
                 <Link
                   href="/about/author/frank-smit"
-                  className="text-lg font-bold text-white transition-colors hover:text-zinc-300"
+                  className="mt-1 block text-lg font-semibold text-white transition-colors hover:text-zinc-300"
                   itemProp="author"
                 >
                   Frank Smit
                 </Link>
-                <p className="text-sm text-zinc-500">Web Design Expert &amp; Founder of Endpoint Media</p>
+                <p className="text-sm text-zinc-500">
+                  Web Design Expert & Founder of Endpoint Media
+                </p>
               </div>
             </div>
-            <div className="border-t border-zinc-800 pt-4">
-              <Link href="/blog" className="font-semibold text-zinc-300 transition-colors hover:text-white">
-                &larr; Back to Blog Index
+            <div className="mt-8 flex flex-col gap-3 border-t border-zinc-800 pt-8 sm:flex-row sm:items-center sm:justify-between">
+              <Link
+                href="/blog"
+                className="text-sm font-semibold text-zinc-300 transition-colors hover:text-white"
+              >
+                ← Back to Blog Index
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-sm bg-white px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-zinc-200"
+              >
+                Discuss This With Frank
               </Link>
             </div>
           </footer>
         </div>
       </article>
-    </>
+
+      {/* CTA */}
+      <section className="bg-black py-20 md:py-28">
+        <div className="container mx-auto px-6">
+          <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 text-center md:p-12">
+            <h2 className="text-3xl font-bold leading-tight text-white md:text-4xl">
+              Want This Engineered For Your Business?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
+              Every article maps to a service we deploy. Book a free architecture audit and we will
+              show you what implementation looks like for your market.
+            </p>
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-sm bg-white px-6 py-3 text-sm font-semibold text-black hover:bg-zinc-200"
+              >
+                Get Free Growth Audit
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center rounded-sm border border-zinc-700 px-6 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900"
+              >
+                Explore Services
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 

@@ -1,9 +1,9 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 
 const fitCriteria = [
   {
     title: 'Pipeline-first operators',
-    body: 'You measure success in qualified leads, booked calls, and revenue — not page views or vanity redesigns.',
+    body: 'You measure success in qualified leads, booked calls, and revenue. Not page views or vanity redesigns.',
   },
   {
     title: 'Infrastructure over cosmetics',
@@ -75,7 +75,7 @@ export default function FitSection() {
           </h2>
           <p className="mt-5 text-lg text-zinc-400">
             Endpoint Media is intentionally selective. We maintain a small roster so every client
-            gets architecture-grade attention — not a rotating junior account team and a recycled
+            gets architecture-grade attention. Not a rotating junior account team and a recycled
             template.
           </p>
         </div>

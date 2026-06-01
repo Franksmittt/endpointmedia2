@@ -19,7 +19,7 @@ const HubSpokeLinks = ({
   variant,
   slug,
   title = 'Related Resources',
-  theme = 'light',
+  theme = 'dark',
 }: HubSpokeLinksProps) => {
   const links =
     variant === 'location'
@@ -33,7 +33,7 @@ const HubSpokeLinks = ({
         : getCaseStudyHubLinks(slug);
 
   return (
-    <section className={theme === 'dark' ? 'bg-black py-16 md:py-20' : 'bg-white py-12'}>
+    <section className="bg-zinc-950 py-16 md:py-20">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-7xl">
           <InternalLinks title={title} links={links} theme={theme} />

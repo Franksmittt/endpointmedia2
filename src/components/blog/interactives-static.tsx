@@ -10,16 +10,16 @@ export function LatencyChart() {
   ];
   const max = 4500;
   return (
-    <div className="my-8 p-6 bg-gray-50 rounded-xl border border-gray-200">
-      <h4 className="font-bold text-gray-900 mb-4 font-heading">TTFB & LCP Comparison (ms)</h4>
+    <div className="my-8 p-6 bg-zinc-950/70 rounded-sm border border-zinc-800">
+      <h4 className="font-bold text-white mb-4 font-heading">TTFB & LCP Comparison (ms)</h4>
       <div className="space-y-4">
         {data.map((row) => (
           <div key={row.label}>
             <div className="flex justify-between text-sm mb-1">
-              <span className="font-semibold text-gray-800">{row.label}</span>
-              <span className="text-gray-500">TTFB {row.ttfb}ms · LCP {row.lcp}ms</span>
+              <span className="font-semibold text-zinc-300">{row.label}</span>
+              <span className="text-zinc-500">TTFB {row.ttfb}ms · LCP {row.lcp}ms</span>
             </div>
-            <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
+            <div className="h-3 bg-zinc-800 rounded-full overflow-hidden">
               <div
                 className="h-full bg-teal-600 rounded-full transition-all"
                 style={{ width: `${(row.lcp / max) * 100}%` }}
@@ -28,7 +28,7 @@ export function LatencyChart() {
           </div>
         ))}
       </div>
-      <p className="text-xs text-gray-500 mt-4">Source: typical enterprise benchmarks, South African hosting.</p>
+      <p className="text-xs text-zinc-500 mt-4">Source: typical enterprise benchmarks, South African hosting.</p>
     </div>
   );
 }
@@ -36,9 +36,9 @@ export function LatencyChart() {
 export function ArchitectureDiagram() {
   return (
     <div className="my-8 grid md:grid-cols-2 gap-4">
-      <div className="p-5 bg-red-50 border border-red-200 rounded-xl">
-        <h4 className="font-bold text-red-800 mb-2">Legacy CMS Request</h4>
-        <ol className="text-sm text-red-900 space-y-1 list-decimal list-inside">
+      <div className="p-5 bg-red-950/20 border border-red-800/50 rounded-sm">
+        <h4 className="font-bold text-red-300 mb-2">Legacy CMS Request</h4>
+        <ol className="list-inside list-decimal space-y-1 text-sm text-red-200/90">
           <li>DNS → Apache/Nginx</li>
           <li>PHP bootstrap + plugin load</li>
           <li>MySQL query chain (10–40 queries)</li>
@@ -46,9 +46,9 @@ export function ArchitectureDiagram() {
           <li>HTML + 800KB JS/CSS to client</li>
         </ol>
       </div>
-      <div className="p-5 bg-teal-50 border border-teal-200 rounded-xl">
-        <h4 className="font-bold text-teal-800 mb-2">Next.js Static Generation</h4>
-        <ol className="text-sm text-teal-900 space-y-1 list-decimal list-inside">
+      <div className="p-5 rounded-sm border border-zinc-800 bg-zinc-900/35 border-l border-teal-400/60">
+        <h4 className="mb-2 font-bold text-teal-400/90">Next.js Static Generation</h4>
+        <ol className="list-inside list-decimal space-y-1 text-sm text-zinc-300">
           <li>Pre-built HTML at deploy time</li>
           <li>Zero database round-trips</li>
           <li>Edge CDN cache hit</li>
@@ -73,9 +73,9 @@ export function JsonLdCodeBlock({ title = 'BlogPosting Schema' }: { title?: stri
   }
 }`;
   return (
-    <div className="my-8 rounded-lg overflow-hidden border border-gray-200">
-      <div className="bg-gray-800 text-gray-300 text-sm px-4 py-2 font-mono">{title}</div>
-      <pre className="bg-gray-900 text-green-400 p-4 overflow-x-auto text-sm"><code>{code}</code></pre>
+    <div className="my-8 rounded-lg overflow-hidden border border-zinc-800">
+      <div className="bg-zinc-900 text-zinc-400 text-sm px-4 py-2 font-mono">{title}</div>
+      <pre className="bg-black text-emerald-400 p-4 overflow-x-auto text-sm"><code>{code}</code></pre>
     </div>
   );
 }
@@ -83,17 +83,17 @@ export function JsonLdCodeBlock({ title = 'BlogPosting Schema' }: { title?: stri
 export function AECitationGraph() {
   const nodes = ['Your Article', 'ChatGPT', 'Perplexity', 'Google AI Overviews', 'Bing Copilot'];
   return (
-    <div className="my-8 p-6 bg-teal-50 rounded-xl border border-teal-200 text-center">
-      <h4 className="font-bold text-teal-900 mb-4 font-heading">AEO Citation Flow</h4>
-      <div className="flex flex-wrap justify-center gap-3">
+    <div className="my-8 rounded-sm border border-zinc-800 border-l-4 border-l-teal-400/60 bg-zinc-950/70 p-6 md:p-8">
+      <h4 className="mb-4 font-heading text-lg font-bold text-white">AEO Citation Flow</h4>
+      <div className="flex flex-wrap gap-3">
         {nodes.map((n, i) => (
           <React.Fragment key={n}>
-            <span className="px-4 py-2 bg-white rounded-lg border border-teal-300 text-sm font-semibold text-teal-800">{n}</span>
+            <span className="px-4 py-2 rounded-sm border border-zinc-700 bg-black/40 text-sm font-semibold text-teal-400/90">{n}</span>
             {i < nodes.length - 1 && <span className="text-teal-600 self-center">→</span>}
           </React.Fragment>
         ))}
       </div>
-      <p className="text-sm text-teal-700 mt-4">Structured entities + clean headers = LLM citation eligibility.</p>
+      <p className="text-sm text-teal-400/90 mt-4">Structured entities + clean headers = LLM citation eligibility.</p>
     </div>
   );
 }
@@ -101,12 +101,12 @@ export function AECitationGraph() {
 export function TailwindPayloadChart() {
   return (
     <div className="my-8 grid sm:grid-cols-2 gap-4">
-      <div className="p-4 bg-red-50 rounded-lg border border-red-200 text-center">
-        <p className="text-3xl font-bold text-red-700">847KB</p>
-        <p className="text-sm text-red-600">Bootstrap + theme CSS (unused 70%)</p>
+      <div className="rounded-sm border border-red-800/50 bg-red-950/20 p-4 text-center md:p-6">
+        <p className="text-3xl font-bold text-red-300">847KB</p>
+        <p className="text-sm text-red-200/80">Bootstrap + theme CSS (unused 70%)</p>
       </div>
-      <div className="p-4 bg-teal-50 rounded-lg border border-teal-200 text-center">
-        <p className="text-3xl font-bold text-teal-700">12KB</p>
+      <div className="p-4 rounded-sm border border-zinc-800 bg-zinc-900/35 text-center">
+        <p className="text-3xl font-bold text-teal-400/90">12KB</p>
         <p className="text-sm text-teal-600">Tailwind purged production bundle</p>
       </div>
     </div>
@@ -115,9 +115,9 @@ export function TailwindPayloadChart() {
 
 export function RedirectMapper() {
   return (
-    <div className="my-8 rounded-lg overflow-hidden border border-gray-200">
-      <div className="bg-gray-800 text-gray-300 text-sm px-4 py-2 font-mono">next.config.mjs redirects</div>
-      <pre className="bg-gray-900 text-green-400 p-4 overflow-x-auto text-sm">{`async redirects() {
+    <div className="my-8 rounded-lg overflow-hidden border border-zinc-800">
+      <div className="bg-zinc-900 text-zinc-400 text-sm px-4 py-2 font-mono">next.config.mjs redirects</div>
+      <pre className="bg-black text-emerald-400 p-4 overflow-x-auto text-sm">{`async redirects() {
   return [
     { source: '/old-services', destination: '/services', permanent: true },
     { source: '/blog/:slug', destination: '/blog/:slug', permanent: false },
@@ -132,11 +132,11 @@ export function RedirectMapper() {
 export function ServerSideTrackingFlow() {
   const steps = ['Ad Click', 'Next.js Page Load', 'API Route /api/convert', 'Google Ads gtag', 'Offline Conversion Import'];
   return (
-    <div className="my-8 flex flex-wrap items-center justify-center gap-2 p-6 bg-gray-50 rounded-xl">
+    <div className="my-8 flex flex-wrap items-center justify-center gap-2 p-6 bg-zinc-950/70 rounded-sm">
       {steps.map((s, i) => (
         <React.Fragment key={s}>
           <span className="px-3 py-2 bg-teal-600 text-white text-xs font-bold rounded-lg">{s}</span>
-          {i < steps.length - 1 && <span className="text-gray-400">→</span>}
+          {i < steps.length - 1 && <span className="text-zinc-500">→</span>}
         </React.Fragment>
       ))}
     </div>
@@ -145,15 +145,15 @@ export function ServerSideTrackingFlow() {
 
 export function AlgorithmTrainingGraph() {
   return (
-    <div className="my-8 p-6 bg-gray-50 rounded-xl border border-gray-200">
+    <div className="my-8 p-6 bg-zinc-950/70 rounded-sm border border-zinc-800">
       <h4 className="font-bold mb-3 font-heading">Smart Bidding Feedback Loop</h4>
-      <p className="text-sm text-gray-600 mb-4">Clean conversion data → faster algorithm learning → lower CPA within 30–45 days.</p>
+      <p className="text-sm text-zinc-500 mb-4">Clean conversion data → faster algorithm learning → lower CPA within 30–45 days.</p>
       <div className="h-32 flex items-end gap-2">
         {[20, 35, 50, 65, 80, 92].map((h, i) => (
           <div key={i} className="flex-1 bg-teal-600 rounded-t" style={{ height: `${h}%` }} title={`Week ${i + 1}`} />
         ))}
       </div>
-      <p className="text-xs text-gray-500 mt-2">Conversion signal quality over 6 weeks</p>
+      <p className="text-xs text-zinc-500 mt-2">Conversion signal quality over 6 weeks</p>
     </div>
   );
 }
@@ -166,8 +166,8 @@ export function LeadScoringMatrix() {
   ];
   return (
     <div className="my-8 overflow-x-auto">
-      <table className="min-w-full border border-gray-200 rounded-lg text-sm">
-        <thead className="bg-gray-50">
+      <table className="min-w-full border border-zinc-800 rounded-lg text-sm">
+        <thead className="bg-zinc-950/70">
           <tr>
             <th className="px-4 py-2 text-left font-bold">Tier</th>
             <th className="px-4 py-2 text-left font-bold">Intent Signal</th>
@@ -177,7 +177,7 @@ export function LeadScoringMatrix() {
         <tbody>
           {rows.map((r) => (
             <tr key={r.tier} className="border-t">
-              <td className="px-4 py-2 font-bold text-teal-700">{r.tier}</td>
+              <td className="px-4 py-2 font-bold text-teal-400/90">{r.tier}</td>
               <td className="px-4 py-2">{r.signal}</td>
               <td className="px-4 py-2">{r.action}</td>
             </tr>
@@ -196,10 +196,10 @@ export function CpaProfitabilityDashboard() {
         { label: 'LTV', value: 'R85,000', sub: '12-month contract avg' },
         { label: 'ROAS', value: '6.8x', sub: 'Blended paid + organic' },
       ].map((m) => (
-        <div key={m.label} className="p-4 bg-teal-50 rounded-xl border border-teal-200 text-center">
-          <p className="text-xs uppercase text-teal-600 font-semibold">{m.label}</p>
-          <p className="text-2xl font-bold text-teal-900">{m.value}</p>
-          <p className="text-xs text-gray-500">{m.sub}</p>
+        <div key={m.label} className="p-4 rounded-sm border border-zinc-800 bg-zinc-900/35 text-center">
+          <p className="text-xs uppercase font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">{m.label}</p>
+          <p className="text-2xl font-bold text-white">{m.value}</p>
+          <p className="text-xs text-zinc-500">{m.sub}</p>
         </div>
       ))}
     </div>
@@ -212,16 +212,16 @@ export function SemanticSiloDiagram() {
   const hubs = ['Alberton Hub', 'Sandton Hub', 'Midrand Hub'];
   const spokes = ['Google Ads Alrode', 'Local SEO Wadeville', 'Manufacturing Germiston'];
   return (
-    <div className="my-8 p-6 bg-gray-50 rounded-xl text-center">
+    <div className="my-8 p-6 bg-zinc-950/70 rounded-sm text-center">
       <div className="flex justify-center gap-4 mb-4 flex-wrap">
         {hubs.map((h) => (
           <span key={h} className="px-4 py-2 bg-teal-600 text-white rounded-lg font-bold text-sm">{h}</span>
         ))}
       </div>
-      <div className="text-gray-400 mb-2">↓ spoke pages ↓</div>
+      <div className="text-zinc-500 mb-2">↓ spoke pages ↓</div>
       <div className="flex justify-center gap-2 flex-wrap">
         {spokes.map((s) => (
-          <span key={s} className="px-3 py-1 bg-white border border-gray-300 rounded text-xs">{s}</span>
+          <span key={s} className="px-3 py-1 rounded-sm border border-zinc-700 bg-black/40 text-xs text-zinc-400">{s}</span>
         ))}
       </div>
     </div>
@@ -238,9 +238,9 @@ export function IndustrialBuyerJourney() {
   return (
     <div className="my-8 space-y-3">
       {phases.map((p) => (
-        <div key={p.week} className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-teal-600">
-          <span className="font-bold text-teal-700 whitespace-nowrap">{p.week}</span>
-          <span className="text-gray-700">{p.action}</span>
+        <div key={p.week} className="flex gap-4 p-4 bg-zinc-950/70 rounded-lg border-l-4 border-teal-600">
+          <span className="font-bold text-teal-400/90 whitespace-nowrap">{p.week}</span>
+          <span className="text-zinc-400">{p.action}</span>
         </div>
       ))}
     </div>
@@ -250,12 +250,12 @@ export function IndustrialBuyerJourney() {
 export function DesignTrustMetric() {
   return (
     <div className="my-8 grid sm:grid-cols-2 gap-4">
-      <div className="p-6 bg-red-50 rounded-xl border border-red-200">
-        <p className="text-4xl font-bold text-red-700">23%</p>
-        <p className="text-sm text-red-600">Trust score: cluttered WP template</p>
+      <div className="rounded-sm border border-red-800/50 bg-red-950/20 p-6">
+        <p className="text-4xl font-bold text-red-300">23%</p>
+        <p className="text-sm text-red-200/80">Trust score: cluttered WP template</p>
       </div>
-      <div className="p-6 bg-teal-50 rounded-xl border border-teal-200">
-        <p className="text-4xl font-bold text-teal-700">78%</p>
+      <div className="p-6 rounded-sm border border-zinc-800 bg-zinc-900/35 border-l border-teal-400/60">
+        <p className="text-4xl font-bold text-teal-400/90">78%</p>
         <p className="text-sm text-teal-600">Trust score: minimalist Next.js layout</p>
       </div>
     </div>
@@ -273,19 +273,19 @@ export function JsonLdMultiLocation() {
   "areaServed": ["Alrode", "Wadeville", "Germiston"]
 }`;
   return (
-    <div className="my-8 rounded-lg overflow-hidden border border-gray-200">
-      <div className="bg-gray-800 text-gray-300 text-sm px-4 py-2 font-mono">LocalBusiness + GeoCoordinates</div>
-      <pre className="bg-gray-900 text-green-400 p-4 overflow-x-auto text-sm"><code>{code}</code></pre>
+    <div className="my-8 rounded-lg overflow-hidden border border-zinc-800">
+      <div className="bg-zinc-900 text-zinc-400 text-sm px-4 py-2 font-mono">LocalBusiness + GeoCoordinates</div>
+      <pre className="bg-black text-emerald-400 p-4 overflow-x-auto text-sm"><code>{code}</code></pre>
     </div>
   );
 }
 
 export function KmlIntegrationMap() {
   return (
-    <div className="my-8 p-6 bg-teal-50 rounded-xl border border-teal-200">
-      <h4 className="font-bold text-teal-900 mb-2 font-heading">KML + Sitemap Integration</h4>
-      <p className="text-sm text-teal-800">
-        <code className="bg-white px-2 py-1 rounded">/alberton-service-area.kml</code> declared in robots.ts alongside sitemap.xml.
+    <div className="my-8 p-6 rounded-sm border border-zinc-800 bg-zinc-900/35 border-l border-teal-400/60">
+      <h4 className="mb-2 font-heading text-lg font-bold text-white">KML + Sitemap Integration</h4>
+      <p className="text-sm text-zinc-400">
+        <code className="bg-black/40 border border-zinc-800 px-2 py-1 rounded-sm text-zinc-300">/alberton-service-area.kml</code> declared in robots.ts alongside sitemap.xml.
         Geo polygons reinforce service-area entities for regional map pack dominance.
       </p>
     </div>

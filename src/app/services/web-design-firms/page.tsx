@@ -201,22 +201,23 @@ const WebDesignFirmsPage = () => {
       />
 
       {/* Hero Section - Optimized for LCP */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white pt-32 pb-20 md:pt-40 md:pb-24">
+      <section className="relative overflow-hidden bg-black px-[5%] pb-16 pt-24 md:pb-20 md:pt-28 text-white">
+      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-900/10 blur-[120px]" aria-hidden />
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="mb-6 inline-block">
-              <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-4 py-2 rounded-full border border-cyan-500/30">
+              <span className="text-xs font-semibold uppercase tracking-wider text-teal-400/90 bg-teal-400/10 px-4 py-2 rounded-sm border border-teal-400/30">
                 Professional Service Firm
               </span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 font-heading">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 font-heading">
               Beyond &ldquo;Web Design.&rdquo;
               <br />
               <span className="text-cyan-400">We Build Digital Architecture.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-zinc-400 mb-8 leading-relaxed">
               Most &ldquo;web design firms&rdquo; sell you WordPress templates. We engineer 
               <strong className="text-white"> commercial-grade digital architecture</strong> using Next.js 15. 
               Speed, security, and semantic authority. Not plugin dependency.
@@ -236,7 +237,7 @@ const WebDesignFirmsPage = () => {
               </a>
               <Link
                 href="/case-studies"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white font-bold py-4 px-8 rounded-lg transition-all"
+                className="inline-flex items-center justify-center gap-2 border border-zinc-700 text-zinc-100 font-semibold py-4 px-8 rounded-sm hover:bg-zinc-900 transition-all"
               >
                 View Enterprise Projects
               </Link>
@@ -246,14 +247,14 @@ const WebDesignFirmsPage = () => {
       </section>
 
       {/* Position Zero: Definition Snippet - "What distinguishes a web design firm?" */}
-      <section className="py-16 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-heading">
               What Distinguishes a Web Design Firm from an Agency?
             </h2>
-            <div className="bg-gradient-to-r from-cyan-50 to-blue-50 border-l-4 border-cyan-600 p-6 rounded-r-lg mb-8">
-              <p className="text-lg leading-relaxed text-gray-800">
+            <div className="rounded-sm border border-zinc-800 bg-zinc-900/35 p-6 border-l border-teal-400/60 mb-8">
+              <p className="text-lg leading-relaxed text-zinc-300">
                 A <strong>Web Design Firm</strong> is a specialized consultancy that focuses on the engineering, architecture, and strategic implementation of digital products using advanced technologies like React Server Components. Whereas general agencies often prioritize marketing services and rely on WordPress templates, professional firms deliver server-side rendering, semantic SEO optimization, and enterprise scalability that ensures long-term technical superiority and search dominance.
               </p>
             </div>
@@ -262,74 +263,74 @@ const WebDesignFirmsPage = () => {
       </section>
 
       {/* Comparison Table - Position Zero for "Best web design firms comparison" */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 text-center font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center font-heading">
               Firm vs. Agency vs. Freelancer: The Architecture Comparison
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+            <p className="text-center text-zinc-500 mb-12 max-w-3xl mx-auto">
               Professional firms use enterprise technology. Agencies use templates. Freelancers use whatever they know. Here&apos;s the difference.
             </p>
 
-            <div className="bg-white rounded-xl shadow-xl overflow-hidden border-2 border-gray-200">
+            <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 overflow-hidden">
               <table className="min-w-full border-collapse">
                 <thead>
                   <tr className="bg-gradient-to-r from-gray-900 to-gray-800 text-white">
                     <th className="p-4 text-left font-bold font-heading">Criteria</th>
-                    <th className="p-4 text-left font-bold font-heading bg-cyan-600">Professional Firm (Us)</th>
+                    <th className="p-4 text-left font-bold font-heading bg-teal-400/20">Professional Firm (Us)</th>
                     <th className="p-4 text-left font-bold font-heading">Standard Agency</th>
                     <th className="p-4 text-left font-bold font-heading">Freelancer / DIY</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Technology Core</td>
-                    <td className="p-4 text-gray-900 font-semibold bg-cyan-50">Next.js 15 (Server Components)</td>
-                    <td className="p-4 text-gray-700">WordPress / PHP Templates</td>
-                    <td className="p-4 text-gray-700">Wix / Squarespace / Templates</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Technology Core</td>
+                    <td className="p-4 text-white font-semibold bg-teal-400/10">Next.js 15 (Server Components)</td>
+                    <td className="p-4 text-zinc-400">WordPress / PHP Templates</td>
+                    <td className="p-4 text-zinc-400">Wix / Squarespace / Templates</td>
                   </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Performance (Core Web Vitals)</td>
-                    <td className="p-4 text-green-600 font-semibold bg-cyan-50">100/100 (Static Edge)</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Performance (Core Web Vitals)</td>
+                    <td className="p-4 text-teal-400/90 font-semibold bg-teal-400/10">100/100 (Static Edge)</td>
                     <td className="p-4 text-orange-600">60-80 (Plugin Dependent)</td>
                     <td className="p-4 text-red-600">30-60 (Unoptimized)</td>
                   </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">SEO Strategy</td>
-                    <td className="p-4 text-gray-900 font-semibold bg-cyan-50">Semantic Entity Injection</td>
-                    <td className="p-4 text-gray-700">Keyword Stuffing / Plugins</td>
-                    <td className="p-4 text-gray-700">Basic Meta Tags</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">SEO Strategy</td>
+                    <td className="p-4 text-white font-semibold bg-teal-400/10">Semantic Entity Injection</td>
+                    <td className="p-4 text-zinc-400">Keyword Stuffing / Plugins</td>
+                    <td className="p-4 text-zinc-400">Basic Meta Tags</td>
                   </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Canonical Tags</td>
-                    <td className="p-4 text-green-600 font-semibold bg-cyan-50">Self-Healing & Defined</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Canonical Tags</td>
+                    <td className="p-4 text-teal-400/90 font-semibold bg-teal-400/10">Self-Healing & Defined</td>
                     <td className="p-4 text-red-600 font-medium">Often Undefined</td>
                     <td className="p-4 text-red-600">Missing</td>
                   </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Code Ownership</td>
-                    <td className="p-4 text-gray-900 font-semibold bg-cyan-50">Full Ownership (Custom)</td>
-                    <td className="p-4 text-gray-700">Template-Based</td>
-                    <td className="p-4 text-gray-700">Platform-Locked</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Code Ownership</td>
+                    <td className="p-4 text-white font-semibold bg-teal-400/10">Full Ownership (Custom)</td>
+                    <td className="p-4 text-zinc-400">Template-Based</td>
+                    <td className="p-4 text-zinc-400">Platform-Locked</td>
                   </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Scalability</td>
-                    <td className="p-4 text-gray-900 font-semibold bg-cyan-50">Enterprise Scale</td>
-                    <td className="p-4 text-gray-700">Plugin Dependent</td>
-                    <td className="p-4 text-gray-700">Severely Limited</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Scalability</td>
+                    <td className="p-4 text-white font-semibold bg-teal-400/10">Enterprise Scale</td>
+                    <td className="p-4 text-zinc-400">Plugin Dependent</td>
+                    <td className="p-4 text-zinc-400">Severely Limited</td>
                   </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Knowledge Graph Integration</td>
-                    <td className="p-4 text-gray-900 font-semibold bg-cyan-50">KGMID Linking</td>
-                    <td className="p-4 text-gray-700">Basic Schema</td>
-                    <td className="p-4 text-gray-700">None</td>
+                  <tr className="border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Knowledge Graph Integration</td>
+                    <td className="p-4 text-white font-semibold bg-teal-400/10">KGMID Linking</td>
+                    <td className="p-4 text-zinc-400">Basic Schema</td>
+                    <td className="p-4 text-zinc-400">None</td>
                   </tr>
-                  <tr className="hover:bg-gray-50 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">Total Cost of Ownership</td>
-                    <td className="p-4 text-gray-900 font-semibold bg-cyan-50">Lower (Built-in Optimization)</td>
-                    <td className="p-4 text-gray-700">Higher (Plugin Subscriptions)</td>
-                    <td className="p-4 text-gray-700">Variable (Rebuilds Needed)</td>
+                  <tr className="hover:bg-zinc-900/50 transition-colors">
+                    <td className="p-4 font-semibold text-white">Total Cost of Ownership</td>
+                    <td className="p-4 text-white font-semibold bg-teal-400/10">Lower (Built-in Optimization)</td>
+                    <td className="p-4 text-zinc-400">Higher (Plugin Subscriptions)</td>
+                    <td className="p-4 text-zinc-400">Variable (Rebuilds Needed)</td>
                   </tr>
                 </tbody>
               </table>
@@ -339,58 +340,58 @@ const WebDesignFirmsPage = () => {
       </section>
 
       {/* Position Zero: List Snippet - "How to choose a web design firm" */}
-      <section className="py-16 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 font-heading">
               5 Criteria for Selecting a Web Architecture Firm
             </h2>
-            <p className="text-lg text-gray-700 mb-8">
+            <p className="text-lg text-zinc-400 mb-8">
               Not all firms are created equal. Use these technical indicators to separate professional digital architecture firms from standard agencies competing on price.
             </p>
             
-            <ol className="space-y-6 bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200">
+            <ol className="space-y-6 rounded-sm border border-zinc-800 bg-zinc-950/70 p-8">
               <li className="flex items-start">
-                <span className="flex-shrink-0 w-10 h-10 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold mr-4 text-lg">1</span>
+                <span className="flex-shrink-0 w-10 h-10 bg-teal-400/20 text-white rounded-full flex items-center justify-center font-bold mr-4 text-lg">1</span>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Demand Server-Side Rendering</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-xl font-bold text-white mb-2">Demand Server-Side Rendering</h3>
+                  <p className="text-zinc-400">
                     Ensure the firm uses Next.js 15 or similar frameworks with React Server Components. This delivers HTML to search engines instantly, conserving crawl budget and enabling immediate indexing. Avoid firms relying solely on client-side JavaScript or WordPress PHP rendering.
                   </p>
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="flex-shrink-0 w-10 h-10 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold mr-4 text-lg">2</span>
+                <span className="flex-shrink-0 w-10 h-10 bg-teal-400/20 text-white rounded-full flex items-center justify-center font-bold mr-4 text-lg">2</span>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Audit Core Web Vitals Scores</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-xl font-bold text-white mb-2">Audit Core Web Vitals Scores</h3>
+                  <p className="text-zinc-400">
                     Request their LCP (Largest Contentful Paint) and CLS (Cumulative Layout Shift) scores. Professional firms achieve scores above 90. Accept nothing below 85. These metrics directly impact search rankings and user experience. Firms using Next.js typically achieve 100/100 scores.
                   </p>
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="flex-shrink-0 w-10 h-10 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold mr-4 text-lg">3</span>
+                <span className="flex-shrink-0 w-10 h-10 bg-teal-400/20 text-white rounded-full flex items-center justify-center font-bold mr-4 text-lg">3</span>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Verify Entity-Based SEO Implementation</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-xl font-bold text-white mb-2">Verify Entity-Based SEO Implementation</h3>
+                  <p className="text-zinc-400">
                     Check that they use JSON-LD structured data with Knowledge Graph ID (KGMID) linking. This establishes entity authority beyond keyword optimization. Review their schema markup. Professional firms link services to Google&apos;s Knowledge Graph, not just local business listings.
                   </p>
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="flex-shrink-0 w-10 h-10 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold mr-4 text-lg">4</span>
+                <span className="flex-shrink-0 w-10 h-10 bg-teal-400/20 text-white rounded-full flex items-center justify-center font-bold mr-4 text-lg">4</span>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Avoid Template Dependency</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-xl font-bold text-white mb-2">Avoid Template Dependency</h3>
+                  <p className="text-zinc-400">
                     Ensure the code is custom-engineered, not a recycled WordPress theme or template builder. Professional firms build from scratch using modern frameworks, resulting in unique architecture optimized for your specific needs. Templates limit customization and create duplicate content issues.
                   </p>
                 </div>
               </li>
               <li className="flex items-start">
-                <span className="flex-shrink-0 w-10 h-10 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold mr-4 text-lg">5</span>
+                <span className="flex-shrink-0 w-10 h-10 bg-teal-400/20 text-white rounded-full flex items-center justify-center font-bold mr-4 text-lg">5</span>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Require Scalable Hosting Architecture</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-xl font-bold text-white mb-2">Require Scalable Hosting Architecture</h3>
+                  <p className="text-zinc-400">
                     Look for Vercel, AWS, or similar enterprise hosting, not shared cPanel hosting. Professional firms use edge networks, CDN distribution, and auto-scaling infrastructure. This ensures your site performs globally and handles traffic spikes without crashing. Critical for enterprise clients.
                   </p>
                 </div>
@@ -401,40 +402,40 @@ const WebDesignFirmsPage = () => {
       </section>
 
       {/* Why Firms vs Agencies - Deep Dive */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 font-heading">
               Why Professional Firms Outperform Standard Agencies
             </h2>
             
             <div className="space-y-8">
-              <div className="bg-white p-8 rounded-xl border-l-4 border-cyan-600 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Technical Architecture Focus</h3>
-                <p className="text-gray-700 mb-4">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l-4 border-teal-400/60 shadow-lg">
+                <h3 className="text-2xl font-bold text-white mb-4">Technical Architecture Focus</h3>
+                <p className="text-zinc-400 mb-4">
                   Professional web design firms prioritize technical architecture over marketing buzzwords. They build using Next.js Server Components, ensuring zero client-side JavaScript for initial rendering. This creates faster load times, better SEO crawlability, and superior user experience.
                 </p>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   Standard agencies often prioritize &ldquo;beautiful designs&rdquo; using WordPress themes, ignoring the technical foundation. This results in slow performance, plugin bloat, and maintenance nightmares that cost more long-term.
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-xl border-l-4 border-accent shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Entity-First SEO Engineering</h3>
-                <p className="text-gray-700 mb-4">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l-4 border-accent shadow-lg">
+                <h3 className="text-2xl font-bold text-white mb-4">Entity-First SEO Engineering</h3>
+                <p className="text-zinc-400 mb-4">
                   Leading firms implement semantic SEO by linking services to Google&apos;s Knowledge Graph using entity IDs (KGMID). This tells Google <strong>exactly</strong> what entities you represent, creating defensible competitive advantages.
                 </p>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   Agencies rely on SEO plugins that generate basic schema markup without entity linking. They compete on keyword density. An outdated strategy that Google&apos;s algorithm increasingly ignores in favor of entity understanding.
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-xl border-l-4 border-green-600 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Enterprise Scalability & Ownership</h3>
-                <p className="text-gray-700 mb-4">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 border-l-4 border-green-600 shadow-lg">
+                <h3 className="text-2xl font-bold text-white mb-4">Enterprise Scalability & Ownership</h3>
+                <p className="text-zinc-400 mb-4">
                   Professional firms deliver full code ownership with custom-engineered solutions. Your site can scale to handle millions of visitors, integrate with enterprise systems, and adapt to future requirements without platform limitations.
                 </p>
-                <p className="text-gray-700">
+                <p className="text-zinc-400">
                   Agency solutions built on WordPress require ongoing plugin subscriptions, theme updates, and often can&apos;t scale beyond medium traffic. Template-based solutions create vendor lock-in, limiting your ability to switch providers or customize beyond theme options.
                 </p>
               </div>
@@ -444,38 +445,38 @@ const WebDesignFirmsPage = () => {
       </section>
 
       {/* What Makes Us Different - Technical Advantages */}
-      <section className="py-16 bg-white">
+      <section className="py-20 md:py-28 bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 font-heading">
               Endpoint Media: Beyond the Standard Firm
             </h2>
             
             <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-xl border-2 border-cyan-200">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Next.js 15 Architecture</h3>
-                <p className="text-gray-700">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <h3 className="text-xl font-bold text-white mb-3">Next.js 15 Architecture</h3>
+                <p className="text-zinc-400">
                   We build exclusively on Next.js 15 with React Server Components. This eliminates client-side JavaScript bloat, delivering HTML to search engines instantly. Our sites achieve Core Web Vitals scores of 100/100. Something WordPress agencies cannot match.
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-accent/5 to-charcoal/5 p-6 rounded-xl border-2 border-accent/20">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Knowledge Graph Integration</h3>
-                <p className="text-gray-700">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <h3 className="text-xl font-bold text-white mb-3">Knowledge Graph Integration</h3>
+                <p className="text-zinc-400">
                   Every site includes deep JSON-LD schema with Knowledge Graph ID (KGMID) linking. We connect your services to Google&apos;s entity database, establishing topical authority that competitors using basic schema cannot replicate.
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border-2 border-green-200">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Self-Healing URL Architecture</h3>
-                <p className="text-gray-700">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <h3 className="text-xl font-bold text-white mb-3">Self-Healing URL Architecture</h3>
+                <p className="text-zinc-400">
                   Our systems automatically detect URL changes and issue 301 redirects to canonical URLs, preserving domain authority permanently. This eliminates the &ldquo;undefined canonical&rdquo; errors that plague WordPress-based agencies.
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl border-2 border-orange-200">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Programmatic SEO at Scale</h3>
-                <p className="text-gray-700">
+              <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+                <h3 className="text-xl font-bold text-white mb-3">Programmatic SEO at Scale</h3>
+                <p className="text-zinc-400">
                   Using Next.js dynamic routes and metadata generation, we create thousands of pages targeting zero-volume, high-intent keywords. This blue ocean strategy captures aggregate traffic from long-tail queries that competitors ignore.
                 </p>
               </div>
@@ -485,46 +486,46 @@ const WebDesignFirmsPage = () => {
       </section>
 
       {/* FAQ Section - Position Zero Formatting */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 font-heading">
               Frequently Asked Questions
             </h2>
 
             <div className="space-y-6">
-              <details className="bg-white rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+              <details className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-2 border-zinc-800">
+                <summary className="font-bold text-lg text-white cursor-pointer hover:text-cyan-600 transition-colors">
                   How much does a professional web design firm cost compared to an agency?
                 </summary>
-                <p className="mt-4 text-gray-700 leading-relaxed">
+                <p className="mt-4 text-zinc-400 leading-relaxed">
                   Professional firms typically charge R25,000 to R150,000+ for enterprise projects, reflecting custom architecture and advanced technology. Standard agencies charge R5,000 to R30,000 using WordPress templates. While firms cost more initially, they deliver lower total cost of ownership due to built-in optimization, no plugin subscriptions, and superior scalability. The premium reflects technical superiority and long-term value.
                 </p>
               </details>
 
-              <details className="bg-white rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+              <details className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-2 border-zinc-800">
+                <summary className="font-bold text-lg text-white cursor-pointer hover:text-cyan-600 transition-colors">
                   Can a web design firm migrate my existing WordPress site to Next.js?
                 </summary>
-                <p className="mt-4 text-gray-700 leading-relaxed">
+                <p className="mt-4 text-zinc-400 leading-relaxed">
                   Yes. Professional firms specialize in migrating WordPress sites to Next.js architecture. We maintain all URLs with 301 redirects, preserve SEO elements, rebuild using server-side rendering, and typically improve Core Web Vitals scores from 60-70 to 95-100. Most clients see improved rankings within 30-60 days due to better technical SEO and performance metrics.
                 </p>
               </details>
 
-              <details className="bg-white rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+              <details className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-2 border-zinc-800">
+                <summary className="font-bold text-lg text-white cursor-pointer hover:text-cyan-600 transition-colors">
                   What is the typical timeline for a professional web design firm project?
                 </summary>
-                <p className="mt-4 text-gray-700 leading-relaxed">
+                <p className="mt-4 text-zinc-400 leading-relaxed">
                   Enterprise projects typically take 8-16 weeks depending on complexity. A custom Next.js site with 5-10 pages takes 6-10 weeks. Complex solutions with CRM integration may take 12-20 weeks. Professional firms provide detailed timelines with milestones during consultation, unlike agencies that often provide vague estimates based on template modifications.
                 </p>
               </details>
 
-              <details className="bg-white rounded-lg p-6 border-2 border-gray-200">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer hover:text-cyan-600 transition-colors">
+              <details className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 border-2 border-zinc-800">
+                <summary className="font-bold text-lg text-white cursor-pointer hover:text-cyan-600 transition-colors">
                   Do web design firms provide ongoing maintenance and support?
                 </summary>
-                <p className="mt-4 text-gray-700 leading-relaxed">
+                <p className="mt-4 text-zinc-400 leading-relaxed">
                   Yes. Professional firms offer maintenance packages starting at R1,000/month for security updates, performance monitoring, and technical SEO audits. Unlike WordPress sites requiring constant plugin updates, Next.js sites have lower maintenance needs due to superior architecture. Firms also provide strategic consulting as your business scales.
                 </p>
               </details>
@@ -534,13 +535,13 @@ const WebDesignFirmsPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-900 to-black text-white">
+      <section className="py-20 md:py-28 bg-black text-white border-t border-zinc-800">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-6 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-heading">
               Ready to Partner with a Professional Web Design Firm?
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-zinc-400 mb-8">
               Get a free architecture audit. We&apos;ll analyze your current site&apos;s technical gaps and show you exactly how Next.js 15 architecture can dominate search results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -557,7 +558,7 @@ const WebDesignFirmsPage = () => {
               </a>
               <Link
                 href="/case-studies"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white font-bold py-4 px-8 rounded-lg transition-all"
+                className="inline-flex items-center justify-center gap-2 border border-zinc-700 text-zinc-100 font-semibold py-4 px-8 rounded-sm hover:bg-zinc-900 transition-all"
               >
                 View Enterprise Success Stories
               </Link>
@@ -567,7 +568,7 @@ const WebDesignFirmsPage = () => {
       </section>
 
       {/* Internal Linking for Topical Authority */}
-      <section className="py-12 bg-white">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <InternalLinks links={relatedLinks} />

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { AuditForm } from '@/components/sections/AuditForm';
 
 const deliverables = [
@@ -21,7 +21,7 @@ const Audit = () => {
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-zinc-400">
               Request a free, no-obligation audit. We map your discoverability gaps, conversion
-              bottlenecks, and technical debt — then show you what to fix first for measurable
+              bottlenecks, and technical debt. Then show you what to fix first for measurable
               growth in Johannesburg.
             </p>
 

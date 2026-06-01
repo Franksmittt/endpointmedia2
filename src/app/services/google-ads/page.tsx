@@ -168,7 +168,7 @@ const GoogleAdsPage = () => {
         <PageIntro
           kicker="Why Endpoint Media"
           title="Paid search built for operators, not vanity dashboards."
-          description="We obsess over booked jobs and pipeline value. That means fixing tracking, aligning landing pages, and iterating on real sales feedback — not just tweaking bids."
+          description="We obsess over booked jobs and pipeline value. That means fixing tracking, aligning landing pages, and iterating on real sales feedback, not just tweaking bids."
         />
         <PageCardGrid items={differentiators} />
       </PageSection>

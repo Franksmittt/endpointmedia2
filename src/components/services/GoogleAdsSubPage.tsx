@@ -31,7 +31,7 @@ export default function GoogleAdsSubPage({ config }: Props) {
   };
 
   return (
-    <>
+    <div className="bg-black text-zinc-300">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(serviceSchema) }} />
       {config.faqs.length > 0 && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(faqSchema) }} />
@@ -85,7 +85,7 @@ export default function GoogleAdsSubPage({ config }: Props) {
                 <ul className="mt-4 flex-grow space-y-2 text-sm text-zinc-300">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex gap-2">
-                      <span className="text-zinc-600">—</span>
+                      <span className="text-zinc-600">•</span>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -112,9 +112,9 @@ export default function GoogleAdsSubPage({ config }: Props) {
 
       <PageCta
         title="Ready to engineer profitable Google Ads?"
-        description="Book a free audit — we map keywords, budgets, landing pages, and tracking before you scale spend."
+        description="Book a free audit. We map keywords, budgets, landing pages, and tracking before you scale spend."
         cta={{ href: '/contact', label: 'Claim your audit' }}
       />
-    </>
+    </div>
   );
 }
