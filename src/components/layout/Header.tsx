@@ -36,10 +36,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-        isScrolled
-          ? 'border-b border-zinc-800 bg-black/95 backdrop-blur-md'
-          : 'bg-black/80 backdrop-blur-sm'
+      className={`fixed top-0 left-0 z-[80] w-full transition-all duration-300 ${
+        isMenuOpen || isScrolled
+          ? 'border-b border-zinc-800 bg-black'
+          : 'bg-black/95 backdrop-blur-md'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
@@ -102,34 +102,42 @@ const Header = () => {
       />
 
       {isMenuOpen && (
-        <div className="fixed inset-0 top-[65px] z-40 bg-black/98 lg:hidden">
-          <nav className="container mx-auto flex flex-col gap-1 px-6 py-8" aria-label="Mobile navigation">
-            {navLinks.map((link) => (
+        <>
+          <button
+            type="button"
+            className="fixed inset-0 top-[65px] z-[70] bg-black lg:hidden"
+            onClick={closeMenu}
+            aria-label="Close menu overlay"
+          />
+          <div className="fixed inset-x-0 top-[65px] bottom-0 z-[75] overflow-y-auto border-t border-zinc-800 bg-zinc-950 shadow-2xl lg:hidden">
+            <nav className="container mx-auto flex flex-col gap-1 px-6 py-8" aria-label="Mobile navigation">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="border-b border-zinc-800 py-4 text-lg font-medium text-white transition-colors hover:text-teal-400/90"
+                  onClick={closeMenu}
+                >
+                  {link.name}
+                </Link>
+              ))}
               <Link
-                key={link.name}
-                href={link.href}
-                className="border-b border-zinc-900 py-4 text-lg text-zinc-300 transition-colors hover:text-white"
+                href="/services/google-ads"
+                className="border-b border-zinc-800 py-4 text-lg font-medium text-white transition-colors hover:text-teal-400/90"
                 onClick={closeMenu}
               >
-                {link.name}
+                Google Ads
               </Link>
-            ))}
-            <Link
-              href="/services/google-ads"
-              className="border-b border-zinc-900 py-4 text-lg text-zinc-300 transition-colors hover:text-white"
-              onClick={closeMenu}
-            >
-              Google Ads
-            </Link>
-            <Link
-              href="/contact"
-              className="mt-6 inline-flex items-center justify-center rounded-sm bg-white px-6 py-3 text-sm font-semibold text-black"
-              onClick={closeMenu}
-            >
-              Contact
-            </Link>
-          </nav>
-        </div>
+              <Link
+                href="/contact"
+                className="mt-6 inline-flex items-center justify-center rounded-sm bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-200"
+                onClick={closeMenu}
+              >
+                Contact
+              </Link>
+            </nav>
+          </div>
+        </>
       )}
     </header>
   );
