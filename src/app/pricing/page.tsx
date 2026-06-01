@@ -33,7 +33,7 @@ const webPackages = [
     highlight: false,
     features: [
       'Deep competitor and market analysis',
-      'Custom 5ΓÇô7 page Next.js 15 architecture',
+      'Custom 5–7 page Next.js 15 architecture',
       'Entity-based SEO with Knowledge Graph integration',
       'Comprehensive suburb targeting strategy',
       'Performance engineered (LCP <1s, 100/100 Core Web Vitals)',
@@ -52,7 +52,7 @@ const webPackages = [
     features: [
       'Everything in Strategic Foundation, plus:',
       'Complete competitor teardown and positioning strategy',
-      '10ΓÇô15 page architecture with service clusters',
+      '10–15 page architecture with service clusters',
       'Advanced semantic SEO and entity injection',
       'Custom conversion funnels and lead generation systems',
       '90-day intensive research, build, and optimization',
@@ -93,7 +93,7 @@ const metaAdsPricing = [
     name: 'Account & CAPI setup',
     price: 'R12,500 – R18,000',
     detail:
-      'Once-off ┬╖ Meta CAPI + pixel dedup ┬╖ offer engineering ┬╖ campaign architecture ┬╖ creative roadmap',
+      'Once-off · Meta CAPI + pixel dedup · offer engineering · campaign architecture · creative roadmap',
   },
   {
     name: 'Growth management',
@@ -115,23 +115,23 @@ const metaAdsPricing = [
 const googleAdsPricing = [
   {
     name: 'Infrastructure setup',
-    price: 'R14,500 ΓÇô R20,000',
-    detail: 'Once-off ┬╖ GA4/GTM ┬╖ campaign architecture ┬╖ 1ΓÇô3 landing pages',
+    price: 'R14,500 – R20,000',
+    detail: 'Once-off · GA4/GTM · campaign architecture · 1–3 landing pages',
   },
   {
     name: 'Growth management',
     price: 'R6,500 / month',
-    detail: 'Up to R20k ad spend ┬╖ Search campaigns ┬╖ monthly reporting',
+    detail: 'Up to R20k ad spend · Search campaigns · monthly reporting',
   },
   {
     name: 'Premium management',
     price: 'R12,500 / month',
-    detail: 'R20,001ΓÇôR50,000 ad spend ┬╖ Search + PMax + Local ┬╖ A/B testing',
+    detail: 'R20,001–R50,000 ad spend · Search + PMax + Local · A/B testing',
   },
   {
     name: 'Elite management',
     price: 'R22,000+ / month',
-    detail: 'R50,001+ ad spend ┬╖ full stack ┬╖ weekly strategy ┬╖ dedicated lead',
+    detail: 'R50,001+ ad spend · full stack · weekly strategy · dedicated lead',
   },
 ];
 
@@ -139,17 +139,17 @@ const maintenancePricing = [
   {
     name: 'Essential',
     price: 'R500 / month',
-    detail: 'Security updates ┬╖ uptime monitoring ┬╖ basic support',
+    detail: 'Security updates · uptime monitoring · basic support',
   },
   {
     name: 'Professional',
     price: 'R1,200 / month',
-    detail: 'Content updates (5 pages) ┬╖ performance checks ┬╖ priority support',
+    detail: 'Content updates (5 pages) · performance checks · priority support',
   },
   {
     name: 'Enterprise',
     price: 'R2,500 / month',
-    detail: 'Unlimited minor updates ┬╖ SEO monitoring ┬╖ dedicated support',
+    detail: 'Unlimited minor updates · SEO monitoring · dedicated support',
   },
 ];
 
@@ -207,7 +207,7 @@ const faqItems = [
   {
     question: 'Are there any hidden costs or monthly fees?',
     answer:
-      'No hidden costs on web packages. The listed price is a once-off project fee. After the first year, hosting and domain renewal typically runs R200ΓÇôR500 per month. Optional maintenance plans start at R500/month. Google Ads ad spend is paid directly to Google and is separate from management fees.',
+      'No hidden costs on web packages. The listed price is a once-off project fee. After the first year, hosting and domain renewal typically runs R200–R500 per month. Optional maintenance plans start at R500/month. Google Ads ad spend is paid directly to Google and is separate from management fees.',
   },
   {
     question: 'Can I upgrade from Strategic Foundation to Market Dominance later?',
@@ -222,7 +222,7 @@ const faqItems = [
   {
     question: 'How does Google Ads pricing work?',
     answer:
-      'Infrastructure setup is R14,500ΓÇôR20,000 once-off (tracking, campaign architecture, landing pages). Monthly management starts at R6,500/month for up to R20k ad spend, with Premium covering R20,001ΓÇôR50,000 and Elite for R50,001+ accounts. Ad spend is billed separately to Google. We never markup media.',
+      'Infrastructure setup is R14,500–R20,000 once-off (tracking, campaign architecture, landing pages). Monthly management starts at R6,500/month for up to R20k ad spend, with Premium covering R20,001–R50,000 and Elite for R50,001+ accounts. Ad spend is billed separately to Google. We never markup media.',
   },
   {
     question: 'What if I need changes after my website is built?',
@@ -315,7 +315,7 @@ function PackageCard({ pkg }: { pkg: (typeof webPackages)[number] }) {
         {pkg.features.map((feature) => (
           <li key={feature} className="flex items-start gap-3">
             <span className="mt-0.5 shrink-0 text-zinc-500" aria-hidden="true">
-              ΓÇó
+              •
             </span>
             <span>{feature}</span>
           </li>
@@ -418,7 +418,7 @@ const PricingPage = () => {
 
         <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
           <p className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-zinc-400">
-            Transparent ZAR Pricing ┬╖ Johannesburg
+            Transparent ZAR Pricing · Johannesburg
           </p>
           <h1
             id="pricing-headline"
@@ -435,7 +435,7 @@ const PricingPage = () => {
             measurable pipeline growth.
           </p>
           <p className="mb-8 max-w-2xl text-base text-zinc-500">
-            Fewer clients ┬╖ Senior-led delivery ┬╖ Once-off architecture ┬╖ Flat-fee ad management
+            Web design packages · Google Ads management · Facebook & Instagram management — jump to the section you need below.
           </p>
           <nav
             aria-label="Jump to pricing category"
@@ -705,7 +705,7 @@ const PricingPage = () => {
             href="/services/website-maintenance"
             className="mt-6 inline-flex items-center text-sm font-semibold text-white transition-colors hover:text-teal-400/90"
           >
-            Website Maintenance Details ΓåÆ
+            Website Maintenance Details →
           </Link>
         </div>
       </section>
@@ -723,12 +723,12 @@ const PricingPage = () => {
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             <article className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 md:p-8">
               <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600">
-                Typical R5kΓÇôR15k Template Build
+                Typical R5k–R15k Template Build
               </p>
               <ul className="mt-5 space-y-3 text-sm text-zinc-400">
                 <li className="flex items-start gap-3">
                   <span className="text-zinc-600">├ù</span>
-                  <span>3ΓÇô5 second load times that kill paid traffic Quality Score</span>
+                  <span>3–5 second load times that kill paid traffic Quality Score</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-zinc-600">├ù</span>
@@ -740,7 +740,7 @@ const PricingPage = () => {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-zinc-600">├ù</span>
-                  <span>Rebuild required within 12ΓÇô18 months when rankings stall</span>
+                  <span>Rebuild required within 12–18 months when rankings stall</span>
                 </li>
               </ul>
             </article>
@@ -751,19 +751,19 @@ const PricingPage = () => {
               </p>
               <ul className="mt-5 space-y-3 text-sm text-zinc-300">
                 <li className="flex items-start gap-3">
-                  <span className="text-teal-400/80">ΓÇó</span>
+                  <span className="text-teal-400/80">•</span>
                   <span>Sub-second LCP with Next.js 15 server components</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-teal-400/80">ΓÇó</span>
+                  <span className="text-teal-400/80">•</span>
                   <span>Entity SEO, schema, and suburb pages from day one</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-teal-400/80">ΓÇó</span>
+                  <span className="text-teal-400/80">•</span>
                   <span>Conversion architecture wired for Google Ads and Meta landing</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-teal-400/80">ΓÇó</span>
+                  <span className="text-teal-400/80">•</span>
                   <span>Full code ownership. No platform lock-in. Scales as you grow</span>
                 </li>
               </ul>

@@ -203,10 +203,30 @@ Geo-targeted Google Ads pages:
 ================================================================================
 6. META ADS (FACEBOOK & INSTAGRAM)
 ================================================================================
-URL: /services/facebook-ads
+URL: /services/facebook-ads | /pricing#facebook-instagram-management
 
-Management: Scoped per engagement (audit for quote)
-Recommended ad spend: R8,000 – R25,000/month (most Johannesburg service businesses)
+--- Once-off account & CAPI setup ---
+R12,500 – R18,000
+  Meta CAPI + pixel dedup · offer engineering · campaign architecture · creative sprint
+
+--- Monthly management (flat fee; ad spend separate) ---
+
+Growth management — R7,500/month
+  Up to R15,000/month ad spend
+  Core funnels · monthly creative refresh · reporting
+
+Premium management — R14,500/month
+  R15,001 – R25,000/month ad spend
+  ABO testing · multi-placement · WhatsApp lead flows
+
+Elite management — R22,000+/month
+  R25,001+ ad spend
+  Programmatic creative · CRM stage feedback · dedicated lead
+
+--- Recommended monthly ad spend budgets (guidance) ---
+  Starter: R8,000 – R12,000 ad spend + management fee
+  Growth: R12,001 – R25,000 (most Johannesburg service businesses)
+  Scale: R25,001+
 
 Includes:
   Offer engineering, hook-first creative systems, audience layering (geo, lookalike, remarketing),
