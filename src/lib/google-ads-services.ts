@@ -68,7 +68,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
     metadata: {
       title: 'B2B Google Ads Management Johannesburg | Flat-Fee PPC',
       description:
-        'Enterprise B2B Google Ads management for Johannesburg. Flat-fee retainers, Next.js landing pages, Quality Score optimization, and ROI reporting—not percentage-of-spend traps.',
+        'Enterprise B2B Google Ads management for Johannesburg. Flat-fee retainers, Next.js landing pages, Quality Score optimization, and ROI reporting, not percentage-of-spend traps.',
       keywords: [
         'b2b google ads agency johannesburg',
         'ppc management manufacturing',
@@ -91,7 +91,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
     pillars: [
       {
         title: 'Anti-vanity reporting',
-        body: 'Dashboards focus on CPA, ROAS, and pipeline value—not impressions or CTR alone.',
+        body: 'Dashboards focus on CPA, ROAS, and pipeline value, not impressions or CTR alone.',
       },
       {
         title: 'Flat-fee alignment',
@@ -103,7 +103,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
       },
       {
         title: 'Senior operator access',
-        body: 'No junior-only account management—strategy and execution stay with experienced operators.',
+        body: 'No junior-only account management: strategy and execution stay with experienced operators.',
       },
     ],
     processSteps: [
@@ -115,19 +115,19 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
       {
         name: 'Growth',
         price: 'R6,500 / month',
-        spend: 'Up to R30,000 ad spend',
+        spend: 'Up to R20,000 ad spend',
         features: ['2 Search campaigns', '1 landing page', 'Monthly reporting', 'Negative keyword governance'],
       },
       {
         name: 'Premium',
         price: 'R12,500 / month',
-        spend: 'R30,001 – R75,000 ad spend',
+        spend: 'R20,001 – R50,000 ad spend',
         features: ['Search + PMax + Local', '3 landing pages + A/B tests', 'Call tracking', 'Active bid management'],
       },
       {
         name: 'Elite',
         price: 'R22,000+ / month',
-        spend: 'R75,000+ ad spend',
+        spend: 'R50,001+ ad spend',
         features: ['Full Google Ads stack', 'Continuous CRO', 'Weekly strategy calls', 'Dedicated account lead'],
       },
     ],
@@ -139,12 +139,12 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
       },
       {
         question: 'Do you require long-term contracts?',
-        answer: 'No. After the one-time infrastructure setup, management is month-to-month—we earn retention with results.',
+        answer: 'No. After the one-time infrastructure setup, management is month-to-month. We earn retention with results.',
       },
       {
         question: 'What is included in the setup fee?',
         answer:
-          'Tracking (GA4/GTM), campaign architecture, keyword/negative research, and 1–3 dedicated Next.js landing pages—typically R14,500–R20,000 once-off.',
+          'Tracking (GA4/GTM), campaign architecture, keyword/negative research, and 1–3 dedicated Next.js landing pages, typically R14,500–R20,000 once-off.',
       },
     ],
     serviceName: 'B2B Google Ads Management',
@@ -162,7 +162,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
       eyebrow: 'PMax • Maps • Multi-channel',
       headline: 'Performance Max fueled by creative your algorithm can actually learn from.',
       subhead:
-        'We pair PMax with Local Ads and Google Business Profile signals—plus the image and copy assets your web and social teams already produce.',
+        'We pair PMax with Local Ads and Google Business Profile signals, plus the image and copy assets your web and social teams already produce.',
     },
     pillars: [
       {
@@ -179,7 +179,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
       },
       {
         title: 'Feed the funnel',
-        body: 'Dedicated landing pages per offer—not homepage traffic that bleeds budget.',
+        body: 'Dedicated landing pages per offer, not homepage traffic that bleeds budget.',
       },
     ],
     faqs: [
@@ -209,11 +209,11 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
       eyebrow: 'Post-click • CRO • Speed',
       headline: 'Stop sending R50 clicks to a homepage that was never built to convert.',
       subhead:
-        'We deploy frictionless, navigation-free landing pages with perfect message match—engineered to lift Quality Score and slash cost per lead.',
+        'We deploy frictionless, navigation-free landing pages with perfect message match, engineered to lift Quality Score and slash cost per lead.',
     },
     pillars: [
       { title: 'Message match', body: 'H1 mirrors the exact keyword and ad copy the user searched.' },
-      { title: 'Zero leak layout', body: 'No main nav, footer clutter, or social exits—convert or exit.' },
+      { title: 'Zero leak layout', body: 'No main nav, footer clutter, or social exits. Convert or exit.' },
       { title: 'Core Web Vitals', body: 'Static Next.js pages targeting LCP under 2.5s on mobile.' },
       { title: 'Trust stack', body: 'Local proof, reviews, real team photos, and compliant lead capture.' },
     ],
@@ -259,24 +259,24 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
       {
         name: 'Growth management',
         price: 'R6,500 / month',
-        spend: 'Up to R30,000 ad spend',
+        spend: 'Up to R20,000 ad spend',
         features: ['2 Search campaigns', 'Monthly reporting', '1 landing page maintained'],
       },
       {
         name: 'Premium management',
         price: 'R12,500 / month',
-        spend: 'R30k – R75k ad spend',
+        spend: 'R20,001 – R50,000 ad spend',
         features: ['Search + PMax + Local', 'A/B testing', '3 landing pages'],
       },
       {
         name: 'Elite management',
         price: 'R22,000+ / month',
-        spend: 'R75,000+ ad spend',
+        spend: 'R50,001+ ad spend',
         features: ['Full stack', 'Weekly calls', 'Continuous CRO'],
       },
     ],
     pillars: [
-      { title: 'Ad spend is yours', body: 'Paid directly to Google—we never markup media.' },
+      { title: 'Ad spend is yours', body: 'Paid directly to Google. We never markup media.' },
       { title: 'Setup reflects real work', body: 'Tracking, pages, and account build are intensive in month one.' },
       { title: 'Scales with complexity', body: 'Higher tiers for multi-location and high-spend accounts.' },
     ],
@@ -284,7 +284,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
       {
         question: 'What is a realistic ad budget in South Africa?',
         answer:
-          'Many service businesses start at R8,000–R30,000/month; competitive finance and legal verticals often need R40,000+.',
+          'Many service businesses start at R8,000–R20,000/month; competitive finance and legal verticals often need R40,000+.',
       },
       {
         question: 'Do you charge a percentage of spend?',
@@ -304,19 +304,19 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
     },
     hero: {
       eyebrow: 'Industrial • B2B • Gauteng',
-      headline: 'Google Ads for manufacturers who sell on specification—not impulse.',
+      headline: 'Google Ads for manufacturers who sell on specification, not impulse.',
       subhead:
         'High-intent search, strict negatives, and landing pages that speak procurement, engineering, and plant managers in their language.',
     },
     pillars: [
       { title: 'B2B intent filters', body: 'Block job-seeker and DIY queries that waste industrial CPCs.' },
-      { title: 'Capability-led pages', body: 'Specs, certifications, MOQ, and RFQ flows—not consumer fluff.' },
+      { title: 'Capability-led pages', body: 'Specs, certifications, MOQ, and RFQ flows, not consumer fluff.' },
       { title: 'Geo nodes', body: 'Alrode, Wadeville, Isando, and East Rand industrial corridors.' },
     ],
     faqs: [
       {
         question: 'What CPC should manufacturers expect?',
-        answer: 'Industrial B2B terms often run R6.70–R15+ per click—efficiency comes from QS and landing page fit.',
+        answer: 'Industrial B2B terms often run R6.70–R15+ per click. Efficiency comes from QS and landing page fit.',
       },
     ],
     serviceName: 'Google Ads for Manufacturing & Industrial',
@@ -339,17 +339,17 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
       eyebrow: 'Finance • FAIS-aware • High LTV',
       headline: 'Paid search for financial brands that cannot afford a compliance misstep.',
       subhead:
-        'Tight keyword governance, transparent copy, and landing experiences built for trust—targeting Sandton, Bedfordview, and corporate Gauteng.',
+        'Tight keyword governance, transparent copy, and landing experiences built for trust, targeting Sandton, Bedfordview, and corporate Gauteng.',
     },
     pillars: [
       { title: 'Keyword discipline', body: 'Exclude career, training, and low-intent finance queries.' },
       { title: 'Trust architecture', body: 'Disclosures, credentials, and E-E-A-T signals on every page.' },
-      { title: 'High-LTV tracking', body: 'CRM integration for qualified appointment—not form spam.' },
+      { title: 'High-LTV tracking', body: 'CRM integration for qualified appointment, not form spam.' },
     ],
     faqs: [
       {
         question: 'What CPC do finance keywords see in SA?',
-        answer: 'Competitive wealth and advisory terms often land R35–R60+ per click—QS and CRO are critical.',
+        answer: 'Competitive wealth and advisory terms often land R35–R60+ per click. QS and CRO are critical.',
       },
     ],
     serviceName: 'Google Ads for Financial Services',
@@ -372,7 +372,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
       eyebrow: 'Automotive • Local • Urgent intent',
       headline: 'Turn emergency searches into booked bays and approved quotes.',
       subhead:
-        'Suburb-level campaigns, click-to-call, and landing pages built for automotive trust—aligned with how Joburg drivers actually search.',
+        'Suburb-level campaigns, click-to-call, and landing pages built for automotive trust, aligned with how Joburg drivers actually search.',
     },
     pillars: [
       { title: 'Urgent Search', body: 'Near-me and suburb modifiers for breakdown and repair intent.' },
@@ -382,7 +382,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
     faqs: [
       {
         question: 'What is typical automotive CPC in SA?',
-        answer: 'Automotive service averages around R17+ CPC nationally—local intent can be higher in affluent nodes.',
+        answer: 'Automotive service averages around R17+ CPC nationally. Local intent can be higher in affluent nodes.',
       },
     ],
     serviceName: 'Google Ads for Automotive Services',
@@ -404,7 +404,7 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
     hero: {
       eyebrow: 'Sandton • Corporate • High LTV',
       headline: 'Google Ads built for Sandton’s cost-per-lead reality.',
-      subhead: 'Competitive auctions demand Quality Score discipline—we deliver speed, message match, and reporting your CFO respects.',
+      subhead: 'Competitive auctions demand Quality Score discipline. We deliver speed, message match, and reporting your CFO respects.',
     },
     pillars: [
       { title: 'Corporate keywords', body: 'B2B and professional service campaign structures.' },
@@ -426,10 +426,10 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
     hero: {
       eyebrow: 'Alberton • Local partner',
       headline: 'Your Alberton-based Google Ads and web infrastructure partner.',
-      subhead: 'We understand the East Rand market—from Meyersdal professionals to Alrode industrial buyers.',
+      subhead: 'We understand the East Rand market, from Meyersdal professionals to Alrode industrial buyers.',
     },
     pillars: [
-      { title: 'Local proximity', body: 'Same timezone, same market—no offshore account drift.' },
+      { title: 'Local proximity', body: 'Same timezone, same market, no offshore account drift.' },
       { title: 'East Rand targeting', body: 'Alberton, New Redruth, Meyersdal, and south JHB corridors.' },
     ],
     faqs: [],

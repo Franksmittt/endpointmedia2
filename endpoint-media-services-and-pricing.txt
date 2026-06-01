@@ -1,0 +1,350 @@
+================================================================================
+ENDPOINT MEDIA — SERVICES & PRICING CATALOG
+================================================================================
+Source: endpointmedia.co.za website content (pricing, services, and service pages)
+Currency: ZAR (South African Rand) unless noted
+Last compiled: May 2026
+
+Contact: hello@endpointmedia.co.za | 076 972 4559
+Website: https://www.endpointmedia.co.za
+
+Primary market: Johannesburg & greater Gauteng (Sandton, Midrand, Alberton, Roodepoort,
+Fourways, Bryanston, Randburg, Rivonia, Rosebank, Waterfall, Benoni, Meyersdal, New Redruth,
+Alrode, Wadeville, Bedfordview, and surrounding areas)
+
+================================================================================
+PRICING PRINCIPLES
+================================================================================
+• Web builds: Once-off project fees. You own the code. Post-launch maintenance is mapped to build complexity.
+• Google Ads: Flat-fee management by ad-spend tier. Never a percentage of ad spend.
+• Meta Ads: Scoped per engagement; ad spend paid directly to Meta.
+• Ad spend (Google/Meta): Billed separately to the platforms — not marked up by Endpoint.
+• After year one: Hosting/domain renewal typically R200–R500/month (traffic-dependent).
+• Optional maintenance: From R500/month (see Maintenance section).
+• Free architecture audit available via /contact (recommended before choosing a tier).
+
+================================================================================
+1. WEB ARCHITECTURE PACKAGES (ONCE-OFF — FLAGSHIP TIERS)
+================================================================================
+URL: /pricing | /services
+
+Strategic Foundation — R25,000 once-off | ~60-day build
+  • Competitor and market analysis
+  • Custom 5–7 page Next.js 15 architecture
+  • Entity-based SEO + Knowledge Graph integration
+  • Suburb targeting strategy
+  • Core Web Vitals performance (LCP <1s target)
+  • Hosting, domain, SSL (year one included on packages)
+
+Market Dominance — R45,000 once-off | ~90-day build [Most popular]
+  • Everything in Strategic Foundation, plus:
+  • Competitor teardown and positioning
+  • 10–15 page architecture with service clusters
+  • Advanced semantic SEO and entity injection
+  • Conversion funnels and lead generation systems
+  • Post-launch growth acceleration
+
+Category Authority — R75,000+ once-off | ~120-day build
+  • Everything in Market Dominance, plus:
+  • Full market mapping and competitive intelligence
+  • Custom integrations and automation
+  • Multi-location / suburb expansion architecture
+  • Advanced analytics and CRO
+  • Ongoing strategic partnership option
+
+Included across web packages (typical):
+  Premium hosting, domain, SSL (year one)
+  Competitor/market research, strategic consultation
+  Technical SEO baseline, schema markup
+  Analytics/event tracking foundation
+  Post-launch QA and handover documentation
+
+================================================================================
+2. WEB DESIGN & DEVELOPMENT (INDIVIDUAL SERVICES)
+================================================================================
+
+Website Development
+  URL: /services/website-development
+  Price: From R15,000 (focused sites) to R150,000+ (enterprise)
+  Stack: Custom Next.js 15, entity SEO, semantic clusters, CRO architecture
+
+Web Design Firm Services (enterprise)
+  URL: /services/web-design-firms
+  Price: From R25,000 to R150,000+ (professional firms; typical R25k–R150k+ range cited on site)
+  Maintenance (firms): From R1,000/month cited for professional firm support
+
+Website Redesign
+  URL: /services/website-redesign
+  Price: R10,000 – R60,000 (complexity, pages, features)
+  SEO-safe migrations, redirects, URL preservation
+
+Custom Development & Integrations
+  URL: /services/custom-development
+  Price: R40,000 – R500,000+ (scope-dependent)
+  CRM/ERP, quoting tools, dashboards, automation
+  Ongoing support: From R2,000/month (bug fixes, security, minor changes)
+
+Shopify Expert Builds
+  URL: /services/shopify-expert
+  Price: R13,000 – R35,000+ (basic stores); R35,000+ (advanced custom features)
+  Note: Shopify subscription R149–R299/month billed separately to Shopify
+
+Website Design Prices & ROI Calculator
+  URL: /services/website-design-prices
+  Reference ranges on site:
+    • Template/basic: R2,500 – R8,000 (freelancer/templates — not recommended tier)
+    • DIY builders: R1,500 – R5,000 (Wix, Squarespace, etc.)
+    • Small business average: R15,000 – R45,000
+    • Professional Next.js minimum: R15,000 – R25,000+
+    • Enterprise Next.js: up to R150,000+
+    • WordPress 3-year TCO often higher due to R500–R2,000/month maintenance
+
+Payment terms (larger builds): 50% deposit, 50% on completion; milestone payments for R50,000+
+
+================================================================================
+3. WEBSITE MAINTENANCE & SUPPORT (MONTH-TO-MONTH)
+================================================================================
+URL: /services/website-maintenance | /pricing
+
+Essential — R500/month
+  Daily backups, security updates, uptime monitoring, SSL management,
+  performance optimization, email support (24–48h)
+
+Professional / Growth — R1,200/month [Popular on maintenance page: "Growth"]
+  Everything in Essential, plus:
+  Content updates (up to 5 pages/month), SEO monitoring, GA health checks,
+  priority support (same-day), quarterly performance reports
+
+Enterprise — R2,500/month
+  Unlimited minor content updates, advanced SEO audits, dedicated account manager,
+  phone/WhatsApp support, monthly strategy calls, custom integrations
+
+All plans: Month-to-month, no long-term contract; 30 days notice to change/cancel.
+Works with Next.js, WordPress, Shopify, and sites built by other agencies.
+
+================================================================================
+4. LOCAL SEO & REPUTATION
+================================================================================
+
+Hyper-Local SEO Sprints
+  URL: /services/local-seo
+  Price: Maintenance SEO R2,000–R5,000/month or Market Domination SEO R8,500–R15,000/month
+  Suburb silos, Google Business Profile, citations, Map Pack focus
+  Typical initial wins cited: 30–45 days
+
+Review Management & Reputation
+  URL: /services/review-management
+  Price: Monthly retainer (quote after audit)
+  Review generation workflows, responses, multi-platform monitoring,
+  AggregateRating schema for rich snippets
+
+Related: /locations (suburb pages), /blog/local-seo-blueprint
+
+================================================================================
+5. GOOGLE ADS & PAID SEARCH
+================================================================================
+Hub: /services/google-ads
+Pricing hub: /services/google-ads-pricing
+Compare: /compare/google-ads-flat-fee-vs-percentage-spend
+Benchmarks: /insights/south-africa-google-ads-cpc-benchmarks
+
+--- Once-off infrastructure setup ---
+R14,500 – R20,000 (before first campaign launch)
+  GA4 + GTM + conversion actions
+  Campaign architecture & negative keywords
+  1–3 Next.js landing pages
+  Call tracking configuration
+
+--- Monthly management (flat fee; ad spend separate) ---
+
+Growth management — R6,500/month
+  Up to R20,000/month ad spend
+  ~2 Search campaigns, monthly reporting, landing page maintenance
+  Negative keyword governance
+
+Premium management — R12,500/month
+  R20,001 – R50,000/month ad spend
+  Search + Performance Max + Local
+  A/B testing, ~3 landing pages, call tracking, active bid management
+
+Elite management — R22,000+/month
+  R50,001+ ad spend
+  Full Google Ads stack, continuous CRO, weekly strategy, dedicated lead
+
+--- Recommended monthly ad spend budgets (guidance) ---
+  Growth local services: R8,000 – R20,000 ad spend + management fee
+  Regional B2B: R20,001 – R50,000
+  Elite finance / industrial: R50,001+
+
+--- CPC benchmarks (South Africa, 2026 — reference only) ---
+  Broad consumer: R4 – R9
+  B2B services (JHB): R9 – R28
+  Manufacturing / industrial: R6.70 – R15
+  Automotive repair: R17 – R25
+  Home services: R10 – R30
+  Financial / wealth: R35 – R60+
+
+Google Ads sub-services (management pricing follows tiers above unless quoted):
+  • B2B Google Ads Management — /services/b2b-google-ads-management
+  • Performance Max & Local Ads — /services/performance-max-google-ads
+  • Google Ads Landing Pages — /services/google-ads-landing-pages
+  • Manufacturing Google Ads — /services/google-ads-manufacturing
+  • Financial Services Google Ads — /services/google-ads-financial-services
+  • Automotive Google Ads — /services/google-ads-automotive
+
+Geo-targeted Google Ads pages:
+  • /services/google-ads-sandton
+  • /services/google-ads-midrand
+  • /services/google-ads-alberton
+  • /services/google-ads-alrode
+  • /services/google-ads-wadeville
+  • /services/google-ads-bedfordview
+
+================================================================================
+6. META ADS (FACEBOOK & INSTAGRAM)
+================================================================================
+URL: /services/facebook-ads
+
+Management: Scoped per engagement (audit for quote)
+Recommended ad spend: R8,000 – R25,000/month (most Johannesburg service businesses)
+
+Includes:
+  Offer engineering, hook-first creative systems, audience layering (geo, lookalike, remarketing),
+  Meta CAPI + GA4 attribution, Facebook, Instagram, Messenger, Audience Network placements
+
+================================================================================
+7. CONVERSION & GROWTH RESCUE
+================================================================================
+
+Conversion Rate Optimization (CRO)
+  URL: /services/conversion-rate-optimization
+  Price: 30-day sprint engagements (quoted per audit)
+  Funnel forensics, UX fixes, A/B testing; site cites ~+46% form submission lift after first sprint
+
+Growth Rescue
+  URL: /services/growth-rescue
+  Price: From R20,000 (schema/listing reference; full scope quoted)
+  Emergency turnaround: broken tracking, ads, funnels, SEO/technical audits
+  Stabilisation target: 21–30 days for controlled lead flow
+  Covers: CRO, landing pages, Google Ads, Meta, SEO, automation, reporting
+
+================================================================================
+8. INDUSTRY-SPECIFIC WEBSITES
+================================================================================
+Industries hub: /industries
+
+Dedicated service pages:
+  • Law Firm Websites — /services/law-firm-websites (from ~R18,000 in schema; industry page R15k–R60k)
+  • Medical & Aesthetic Websites — /services/medical-websites (from ~R15,000 in schema; industry R18k–R60k)
+
+Industry hub pages (typical website ranges cited on site):
+  • Law Firms — /industries/law-firms — R15,000 – R60,000
+  • Real Estate — /industries/real-estate — R20,000 – R60,000
+  • Financial Services — /industries/finance — R20,000 – R80,000
+  • Medical Practices — /industries/medical — R18,000 – R60,000
+  • Manufacturing & Logistics — /industries/manufacturing-logistics — B2B portals, RFQ, compliance (quote)
+
+Industry capabilities (summary):
+  Law: LPC/POPIA-aware intake, practice areas, attorney bios, client portals, legal SEO
+  Medical: HPCSA-ready journeys, booking, secure intake, provider profiles
+  Real estate: Listings, IDX, lead capture
+  Finance: Secure portals, compliance, trust architecture
+  Manufacturing: B2B procurement portals, catalogue digitization, ISO-ready architecture
+
+================================================================================
+9. LOCATIONS & LOCAL PRESENCE (SEO / ADS TARGETING)
+================================================================================
+Locations hub: /locations
+
+Suburb/area pages (web design + local SEO positioning):
+  Sandton, Midrand, Randburg, Bryanston, Rivonia, Rosebank, Roodepoort, Fourways,
+  Waterfall, Benoni, Meyersdal (private client / executive), New Redruth (legal/financial),
+  and related Gauteng corridors.
+
+Special pages:
+  • /alberton-business-heritage — local heritage content
+  • /about/author/frank-smit — founder profile
+
+================================================================================
+10. OTHER SITE PAGES & DELIVERABLES
+================================================================================
+  • Homepage — / (agency positioning, audit CTA, service overview)
+  • Process — /process (how engagements run)
+  • Case Studies — /case-studies (portfolio)
+  • Blog — /blog (SEO/AEO content)
+  • Pricing — /pricing (master pricing page)
+  • Contact — /contact (audit, quotes, enquiries)
+  • Privacy Policy — /privacy-policy
+  • Terms of Service — /terms-of-service
+
+Paid audit/report (if applicable):
+  • /report/[id] — client audit report delivery (dynamic)
+
+================================================================================
+11. OPTIONAL / ADD-ON COSTS (NOT INCLUDED IN BASE PACKAGES)
+================================================================================
+  • Google Ads media spend (paid to Google)
+  • Meta Ads media spend (paid to Meta)
+  • Shopify platform subscription (R149–R299/month)
+  • Hosting after year one: ~R200–R500/month
+  • Domain renewal: ~R200/year
+  • Professional copywriting: ~R500–R2,000/page (if outsourced)
+  • Stock photography: ~R50–R200/image
+  • Logo design: ~R2,000–R5,000
+  • Ongoing SEO retainer (if separate from build): Maintenance SEO ~R2,000–R5,000/month or Market Domination SEO ~R8,500–R15,000/month
+  • Major post-launch feature work: Quoted separately
+
+================================================================================
+12. FULL SERVICE URL INDEX
+================================================================================
+/services
+/services/website-development
+/services/web-design-firms
+/services/website-redesign
+/services/custom-development
+/services/shopify-expert
+/services/website-design-prices
+/services/website-maintenance
+/services/local-seo
+/services/review-management
+/services/google-ads
+/services/b2b-google-ads-management
+/services/performance-max-google-ads
+/services/google-ads-landing-pages
+/services/google-ads-pricing
+/services/google-ads-manufacturing
+/services/google-ads-financial-services
+/services/google-ads-automotive
+/services/google-ads-sandton
+/services/google-ads-midrand
+/services/google-ads-alberton
+/services/google-ads-alrode
+/services/google-ads-wadeville
+/services/google-ads-bedfordview
+/services/facebook-ads
+/services/conversion-rate-optimization
+/services/growth-rescue
+/services/law-firm-websites
+/services/medical-websites
+/pricing
+/locations
+/industries
+/industries/law-firms
+/industries/real-estate
+/industries/finance
+/industries/medical
+/industries/manufacturing-logistics
+/compare/google-ads-flat-fee-vs-percentage-spend
+/insights/south-africa-google-ads-cpc-benchmarks
+
+================================================================================
+NOTES
+================================================================================
+• Prices on the live site may be updated; confirm final quotes on /contact or /pricing.
+• Ranges (e.g. R40,000–R500,000+) depend on scope discovered in discovery/audit.
+• Endpoint Media does not take a percentage of Google or Meta ad spend.
+• Upgrade path exists between web packages (pay difference + small migration fee).
+
+================================================================================
+END OF CATALOG
+================================================================================

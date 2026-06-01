@@ -44,16 +44,17 @@ const articleSchema = {
 
 export default function CpcBenchmarksPage() {
   return (
-    <article className="bg-white">
+    <article className="bg-black text-zinc-300">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: secureJsonLD(articleSchema) }} />
 
-      <section className="bg-gray-900 text-white py-20 md:py-28">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <p className="text-teal-300 text-sm uppercase tracking-widest mb-4">Insights • Paid search</p>
-          <h1 className="text-4xl md:text-5xl font-extrabold font-heading mb-6">
+      <section className="relative overflow-hidden bg-black text-white py-20 md:py-28">
+        <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-blue-900/10 blur-[120px]" aria-hidden />
+        <div className="container relative z-10 mx-auto px-6 max-w-4xl">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-400 mb-4">Insights • Paid search</p>
+          <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6">
             South Africa Google Ads CPC benchmarks (2026)
           </h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-zinc-400">
             Use these ZAR ranges to model budgets, forecast CPA, and spot when your agency should be
             lowering CPC via Quality Score. Not asking you to spend more.
           </p>
@@ -61,7 +62,7 @@ export default function CpcBenchmarksPage() {
       </section>
 
       <section className="py-16">
-        <div className="container mx-auto px-6 max-w-4xl prose prose-lg">
+        <div className="container mx-auto px-6 max-w-4xl prose prose-lg prose-invert">
           <p>
             South Africa benefits from lower average CPCs than the US or UK, but vertical and intent matter
             enormously. A campaign buying &quot;financial broker Johannesburg&quot; lives in a different economy than
@@ -69,8 +70,8 @@ export default function CpcBenchmarksPage() {
           </p>
 
           <div className="not-prose overflow-x-auto my-10">
-            <table className="min-w-full border border-gray-200 rounded-lg text-left text-sm">
-              <thead className="bg-gray-50">
+            <table className="min-w-full border border-zinc-800 rounded-lg text-left text-sm">
+              <thead className="bg-zinc-950/70">
                 <tr>
                   <th className="px-4 py-3 font-semibold">Vertical</th>
                   <th className="px-4 py-3 font-semibold">Typical CPC (ZAR)</th>
@@ -79,10 +80,10 @@ export default function CpcBenchmarksPage() {
               </thead>
               <tbody>
                 {benchmarks.map((row) => (
-                  <tr key={row.vertical} className="border-t border-gray-200">
+                  <tr key={row.vertical} className="border-t border-zinc-800">
                     <td className="px-4 py-3 font-medium">{row.vertical}</td>
                     <td className="px-4 py-3">{row.cpc}</td>
-                    <td className="px-4 py-3 text-gray-600">{row.ctr}</td>
+                    <td className="px-4 py-3 text-zinc-500">{row.ctr}</td>
                   </tr>
                 ))}
               </tbody>
@@ -94,7 +95,7 @@ export default function CpcBenchmarksPage() {
             Poor landing page experience can inflate CPC by up to 400% and crush impression share. Moving
             Quality Score from 4→8 often cuts CPC ~35% without increasing budget. This is why Endpoint Media
             pairs Google Ads with{' '}
-            <Link href="/services/google-ads-landing-pages" className="text-teal-600 font-semibold">
+            <Link href="/services/google-ads-landing-pages" className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
               Next.js landing pages
             </Link>
             .
@@ -102,13 +103,13 @@ export default function CpcBenchmarksPage() {
 
           <h2 className="text-2xl font-bold font-heading">What to budget monthly</h2>
           <ul>
-            <li>Growth local services: R8,000 – R30,000 ad spend + management</li>
-            <li>Regional B2B: R30,000 – R75,000</li>
-            <li>Elite finance / industrial: R75,000+</li>
+            <li>Growth local services: R8,000 – R20,000 ad spend + management</li>
+            <li>Regional B2B: R20,001 – R50,000</li>
+            <li>Elite finance / industrial: R50,001+</li>
           </ul>
           <p>
             See our{' '}
-            <Link href="/services/google-ads-pricing" className="text-teal-600 font-semibold">
+            <Link href="/services/google-ads-pricing" className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
               Google Ads pricing page
             </Link>{' '}
             for setup and retainer tiers (separate from ad spend).
@@ -116,7 +117,7 @@ export default function CpcBenchmarksPage() {
         </div>
       </section>
 
-      <section className="py-12 bg-gray-50">
+      <section className="py-20 md:py-28 bg-zinc-950">
         <div className="container mx-auto px-6 max-w-4xl">
           <InternalLinks
             title="Google Ads services"
