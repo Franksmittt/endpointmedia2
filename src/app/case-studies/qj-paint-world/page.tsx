@@ -113,7 +113,7 @@ const QJPaintWorldCaseStudy = () => {
                   </div>
                 </div>
                 <p className="text-zinc-400 ml-16">
-                  The core architecture is based on <strong className="font-semibold">Next.js 14</strong> using the App Router, optimized with <code className="bg-zinc-900 px-2 py-1 rounded text-sm text-zinc-300">swcMinify: true</code> and asset optimizations to ensure <strong className="text-zinc-300 font-semibold">lightning-fast loading speeds for trade professionals</strong> who need quick access to product specifications and technical data.
+                  The core architecture is based on the <strong className="font-semibold">Next.js App Router</strong>, optimized with modern production bundling and asset delivery to ensure <strong className="text-zinc-300 font-semibold">lightning-fast loading speeds for trade professionals</strong> who need quick access to product specifications and technical data.
                 </p>
               </div>
 

@@ -1,21 +1,6 @@
 // src/components/sections/SocialProof.tsx
 import React from 'react';
 import Link from 'next/link';
-import { secureJsonLD, BASE_URL } from '@/lib/seo';
-
-const reviewSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'AggregateRating',
-  '@id': `${BASE_URL}#aggregateRating`,
-  itemReviewed: {
-    '@type': 'Organization',
-    name: 'Endpoint Media',
-    url: BASE_URL,
-  },
-  ratingValue: '4.9',
-  bestRating: '5',
-  reviewCount: '47',
-};
 
 const testimonials = [
   {
@@ -50,11 +35,6 @@ const stats = [
 const SocialProof = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-black via-gray-950 to-black text-white relative overflow-hidden" aria-labelledby="social-proof-title">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: secureJsonLD(reviewSchema) }}
-      />
-
       {/* Digital Grid Background */}
       <div className="absolute inset-0 opacity-10" style={{
         backgroundImage: `

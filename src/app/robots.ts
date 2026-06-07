@@ -15,14 +15,18 @@ const AI_ALLOW = [
   '/blog/',
   '/services/',
   '/insights/',
+  '/compare/',
   '/locations/',
+  '/industries/',
   '/case-studies/',
   '/pricing/',
   '/process/',
   '/about/',
+  '/contact/',
+  '/alberton-business-heritage',
 ];
 
-const DISALLOW = ['/api/', '/admin/', '/private/'];
+const DISALLOW = ['/api/', '/admin/', '/private/', '/report/'];
 
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za';

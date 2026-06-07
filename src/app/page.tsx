@@ -101,60 +101,9 @@ const homepageSpeakableSchema = buildSpeakableWebPageSchema({
   cssSelectors: ["#hero-headline", "#hero-summary"],
 });
 
-const reviewSchema = {
-  "@context": "https://schema.org",
-  "@type": "Review",
-  "@id": "https://www.endpointmedia.co.za/#review-1",
-  itemReviewed: {
-    "@type": "Service",
-    name: "Endpoint Media Web Design Services",
-    provider: {
-      "@type": "Organization",
-      name: "Endpoint Media",
-    },
-  },
-  author: {
-    "@type": "Person",
-    name: "David M.",
-  },
-  reviewRating: {
-    "@type": "Rating",
-    ratingValue: "5",
-    bestRating: "5",
-  },
-  reviewBody:
-    "We went from obscurity on page three to the top of the Google Map Pack for 'emergency electrician Sandton'. The phone rings constantly. This isn't just a website; it's a genuine lead pipeline.",
-};
-
-const reviewSchema2 = {
-  "@context": "https://schema.org",
-  "@type": "Review",
-  "@id": "https://www.endpointmedia.co.za/#review-2",
-  itemReviewed: {
-    "@type": "Service",
-    name: "Endpoint Media Web Design Services",
-    provider: {
-      "@type": "Organization",
-      name: "Endpoint Media",
-    },
-  },
-  author: {
-    "@type": "Person",
-    name: "Sipho N.",
-  },
-  reviewRating: {
-    "@type": "Rating",
-    ratingValue: "5",
-    bestRating: "5",
-  },
-  reviewBody:
-    "I needed to get my plumbing business online properly but was completely overwhelmed. Endpoint handled everything and explained it clearly. Now I get quote requests daily through the site. Total game changer, it finally feels professional.",
-};
-
 export default function HomePage() {
   return (
     <div className="bg-black text-zinc-300">
-      <h1 className="sr-only">Premium Web Architecture Firm in Johannesburg</h1>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: secureJsonLD(homepageSchema) }}
@@ -166,14 +115,6 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: secureJsonLD(homepageSpeakableSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: secureJsonLD(reviewSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: secureJsonLD(reviewSchema2) }}
       />
       <AgencyHeroSection />
       <ProofBar />

@@ -1,5 +1,6 @@
 import 'server-only';
 
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import ReportActions from './ReportActions';
@@ -21,9 +22,32 @@ type StoredAuditData = {
 };
 
 export const dynamic = 'force-dynamic';
+export const metadata: Metadata = {
+  title: 'Audit Report',
+  description: 'Private Endpoint Media audit report.',
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+      noarchive: true,
+      nosnippet: true,
+    },
+  },
+};
+
+function isLikelyAuditReportId(id: string): boolean {
+  return /^[a-z0-9]{20,32}$/i.test(id);
+}
 
 export default async function ReportPage({ params }: ReportPageProps) {
   const { id } = await params;
+
+  if (!isLikelyAuditReportId(id)) {
+    notFound();
+  }
+
   const report = await prisma.auditReport.findUnique({
     where: { id },
   });

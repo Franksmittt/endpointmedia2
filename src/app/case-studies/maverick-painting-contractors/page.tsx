@@ -96,7 +96,7 @@ const MaverickPaintingContractorsCaseStudy = () => {
                   </div>
                 </div>
                 <p className="text-zinc-400 ml-16">
-                  The use of <strong className="font-semibold">Next.js 14 App Router</strong> and the Server-First Paradigm minimizes client-side JavaScript, ensuring <strong className="text-purple-700 font-semibold">lightning-fast initial load speeds</strong> and perfect Lighthouse Core Web Vitals scores. Performance matters for B2B decision-makers.
+                  The use of the <strong className="font-semibold">Next.js App Router</strong> and a server-first rendering model minimizes client-side JavaScript, ensuring <strong className="text-purple-700 font-semibold">lightning-fast initial load speeds</strong> and strong Core Web Vitals. Performance matters for B2B decision-makers.
                 </p>
               </div>
 
