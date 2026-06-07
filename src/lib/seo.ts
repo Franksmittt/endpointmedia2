@@ -38,6 +38,11 @@ export const FRANK_SMIT_ID = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www
  */
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za';
 
+/** Crawlable brand assets used by metadata and schema. */
+export const DEFAULT_OG_IMAGE = `${BASE_URL}/opengraph-image`;
+export const LOGO_IMAGE = `${BASE_URL}/images/endpoint-media-logo.svg`;
+export const FOUNDER_IMAGE = `${BASE_URL}/images/frank-smit.svg`;
+
 /** Google Business Profile Maps CID */
 export const GBP_MAPS_URL = 'https://www.google.com/maps?cid=06180556288562610524';
 
@@ -77,7 +82,7 @@ export function buildLocationLocalBusinessSchema(config: {
     '@type': 'LocalBusiness',
     '@id': `${url}#localbusiness`,
     name: `Endpoint Media - Web Design ${config.label}`,
-    image: `${BASE_URL}/images/logo.png`,
+    image: LOGO_IMAGE,
     description: `Professional web design and local SEO services for ${config.label} businesses`,
     parentOrganization: { '@id': ORG_ID },
     areaServed: cityAreaServed(config.label, config.wikidataUrl),
@@ -194,7 +199,7 @@ export function buildCaseStudyArticleSchema(options: {
     description: options.description,
     author: { '@type': 'Person', '@id': FRANK_SMIT_ID, name: 'Frank Smit' },
     publisher: { '@id': ORG_ID },
-    image: options.image ?? `${BASE_URL}/images/EPM.jpg`,
+    image: options.image ?? DEFAULT_OG_IMAGE,
     datePublished: new Date(options.datePublished).toISOString(),
     dateModified: new Date(options.datePublished).toISOString(),
     mainEntityOfPage: { '@type': 'WebPage', '@id': options.url },
@@ -265,7 +270,7 @@ export function buildMetadata({
         openGraph?.images ??
         [
           {
-            url: `${BASE_URL}/images/EPM.jpg`,
+            url: DEFAULT_OG_IMAGE,
             width: 1200,
             height: 630,
             alt: 'Endpoint Media - Web Design Johannesburg',
@@ -276,7 +281,7 @@ export function buildMetadata({
       card: twitter?.card ?? 'summary_large_image',
       title: twitter?.title ?? title,
       description: twitter?.description ?? description,
-      images: twitter?.images ?? [`${BASE_URL}/images/EPM.jpg`],
+      images: twitter?.images ?? [DEFAULT_OG_IMAGE],
     },
   };
 }

@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss";
-// CRITICAL FIX: Merge the require and destructuring into one correct block.
-const { fontFamily } = require("tailwindcss/defaultTheme"); 
+import defaultTheme from "tailwindcss/defaultTheme";
+import animate from "tailwindcss-animate";
+
+const { fontFamily } = defaultTheme;
 
 const config: Config = {
   content: [
@@ -53,7 +55,7 @@ const config: Config = {
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
+    animate,
   ],
 };
 export default config;

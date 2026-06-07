@@ -6,7 +6,16 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { WebVitals } from "@/components/analytics/web-vitals";
-import { secureJsonLD, ORG_ID, FRANK_SMIT_ID, BASE_URL, GBP_MAPS_URL } from "@/lib/seo";
+import {
+  secureJsonLD,
+  ORG_ID,
+  FRANK_SMIT_ID,
+  BASE_URL,
+  GBP_MAPS_URL,
+  DEFAULT_OG_IMAGE,
+  LOGO_IMAGE,
+  FOUNDER_IMAGE,
+} from "@/lib/seo";
 import { GOOGLE_ADS_ID } from "@/lib/conversion-config";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-SGFD6DFTRV";
@@ -78,7 +87,7 @@ export const metadata: Metadata = {
     description: "Stop buying online brochures. Endpoint Media builds high-performance, lead-generating websites for Johannesburg service businesses. We deliver ROI, not excuses.",
     images: [
       {
-        url: "/images/EPM.jpg", 
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: "Endpoint Media - Web Design Johannesburg",
@@ -89,7 +98,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Web Design Johannesburg | Endpoint Media",
     description: "High-performance, lead-generating websites for Johannesburg service businesses. We deliver ROI, not excuses.",
-    images: ["/images/EPM.jpg"], 
+    images: [DEFAULT_OG_IMAGE],
   },
   robots: {
     index: true,
@@ -128,7 +137,7 @@ export default async function RootLayout({
     name: "Endpoint Media",
     alternateName: "Endpoint Media Web Design",
     url: BASE_URL,
-    logo: `${BASE_URL}/images/logo.png`,
+    logo: LOGO_IMAGE,
     description: "Endpoint Media builds high-performance, lead-generating websites for Johannesburg service businesses.",
     founder: { "@type": "Person", "@id": FRANK_SMIT_ID },
     address: {
@@ -199,7 +208,7 @@ export default async function RootLayout({
     "@type": "LocalBusiness",
     "@id": `${BASE_URL}/#localbusiness`,
     name: "Endpoint Media",
-    image: `${BASE_URL}/images/logo.png`,
+    image: LOGO_IMAGE,
     description: "Professional web design and local SEO services for Johannesburg businesses",
     parentOrganization: { "@id": ORG_ID },
     address: {
@@ -267,7 +276,7 @@ export default async function RootLayout({
     name: "Frank Smit",
     jobTitle: "Web Design Expert & Founder",
     url: `${BASE_URL}/about/author/frank-smit`,
-    image: `${BASE_URL}/images/frank-smit.jpg`,
+    image: FOUNDER_IMAGE,
     sameAs: [
       "https://www.linkedin.com/in/frank-smittt",
     ],

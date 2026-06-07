@@ -17,6 +17,8 @@ var MAX_SAFE_CPC = 30.0;
 /** HTTP status codes that trigger an immediate ad pause. */
 var FATAL_HTTP_CODES = [404, 500];
 
+// Google Ads Scripts invokes this global entrypoint from the scheduler.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function main() {
   Logger.log('=== Account Overlord: daily run started ===');
   run404Sentinel();

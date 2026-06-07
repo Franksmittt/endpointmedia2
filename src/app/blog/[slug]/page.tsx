@@ -13,8 +13,10 @@ import {
   ORG_ID,
 } from '@/lib/seo';
 import { getPostBySlug, getAllSlugs } from '@/lib/blog/posts';
-import { getBlogContentComponent } from '@/lib/blog/content';
+import { BLOG_CONTENT_MAP } from '@/lib/blog/content';
 import { getRelatedLinks, buildFaqSchema } from '@/lib/blog/seo-helpers';
+
+export const dynamicParams = false;
 
 export async function generateMetadata({
   params,
@@ -24,11 +26,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) {
-    return buildMetadata({
+    return {
       title: 'Post Not Found',
       description: 'The article you are looking for could not be found.',
-      path: `/blog/${slug}`,
-    });
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
   }
 
   return buildMetadata({
@@ -61,7 +66,7 @@ export async function generateStaticParams() {
 const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
-  const Content = getBlogContentComponent(slug);
+  const Content = BLOG_CONTENT_MAP[slug];
 
   if (!post || !Content) {
     notFound();

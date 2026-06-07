@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import InternalLinks from '@/components/seo/InternalLinks';
 import {
-  PageBulletGrid,
   PageCardGrid,
   PageCta,
   PageFaq,

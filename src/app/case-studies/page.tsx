@@ -214,49 +214,6 @@ const caseStudyListSchema = {
   },
 };
 
-const reviewSchema1 = {
-  '@context': 'https://schema.org',
-  '@type': 'Review',
-  '@id': `${BASE_URL}/case-studies#review-1`,
-  itemReviewed: {
-    '@type': 'Service',
-    name: 'Endpoint Media Web Design Services',
-    provider: { '@id': `${BASE_URL}#organization` },
-  },
-  author: { '@type': 'Person', name: 'David M.' },
-  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-  reviewBody: testimonials[0].quote,
-};
-
-const reviewSchema2 = {
-  '@context': 'https://schema.org',
-  '@type': 'Review',
-  '@id': `${BASE_URL}/case-studies#review-2`,
-  itemReviewed: {
-    '@type': 'Service',
-    name: 'Endpoint Media Web Design Services',
-    provider: { '@id': `${BASE_URL}#organization` },
-  },
-  author: { '@type': 'Person', name: 'Sipho N.' },
-  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-  reviewBody: testimonials[1].quote,
-};
-
-const aggregateRatingSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  '@id': `${BASE_URL}/case-studies#service`,
-  name: 'Endpoint Media Web Design Services',
-  provider: { '@id': `${BASE_URL}#organization` },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '2',
-    bestRating: '5',
-    worstRating: '5',
-  },
-};
-
 function StoryBlock({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
@@ -322,18 +279,6 @@ const CaseStudiesPage = () => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: secureJsonLD(caseStudyListSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: secureJsonLD(reviewSchema1) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: secureJsonLD(reviewSchema2) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: secureJsonLD(aggregateRatingSchema) }}
       />
 
       {/* Hero */}

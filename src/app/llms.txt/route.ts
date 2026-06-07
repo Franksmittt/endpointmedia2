@@ -34,7 +34,7 @@ const LLMS_TXT = `# Endpoint Media
   Rosebank, Fourways, Waterfall, Benoni, Roodepoort
 
 ## Content
-- Blog (20 posts): ${BASE_URL}/blog
+- Blog (30 posts): ${BASE_URL}/blog
 - Insights: ${BASE_URL}/insights
 
 ## Optional

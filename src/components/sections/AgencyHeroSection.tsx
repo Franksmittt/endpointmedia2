@@ -101,15 +101,15 @@ export default function AgencyHeroSection() {
           id="hero-headline"
           className="mb-4 text-4xl font-bold leading-[1.05] tracking-[-2px] text-white md:text-6xl"
         >
-          Is your website invisible to ChatGPT?
+          Web Design Johannesburg Built for Google, ChatGPT, and Qualified Leads.
         </h1>
 
         <p
           id="hero-summary"
           className="mb-6 max-w-3xl text-lg tracking-[-0.3px] text-[#A1A1AA] md:text-xl"
         >
-          Run a vicious, military-grade Answer Engine Optimization (AEO) and SEO audit on your
-          live infrastructure. Discover the hidden edge traps destroying your visibility.
+          Run a technical SEO and Answer Engine Optimization audit on your live infrastructure.
+          Discover the hidden edge traps destroying your visibility before prospects find you.
         </p>
 
         <form
