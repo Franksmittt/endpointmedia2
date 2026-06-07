@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { buildMetadata, secureJsonLD, BASE_URL, ORG_ID } from '@/lib/seo';
-import HubSpokeLinks from '@/components/seo/HubSpokeLinks';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, FileText, ShieldCheck, Truck } from 'lucide-react';
 

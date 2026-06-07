@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "seo:validate": "python scripts/seo/validate_seo.py --base-url http://localhost:3000",
     "seo:validate:prod": "python scripts/seo/validate_seo.py --base-url https://www.endpointmedia.co.za",
     "seo:graph": "python scripts/seo/graph_auditor.py --base-url http://localhost:3000",

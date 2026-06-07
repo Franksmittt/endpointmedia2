@@ -13,7 +13,7 @@ import {
   ORG_ID,
 } from '@/lib/seo';
 import { getPostBySlug, getAllSlugs } from '@/lib/blog/posts';
-import { getBlogContentComponent } from '@/lib/blog/content';
+import { BLOG_CONTENT_MAP } from '@/lib/blog/content';
 import { getRelatedLinks, buildFaqSchema } from '@/lib/blog/seo-helpers';
 
 export const dynamicParams = false;
@@ -66,7 +66,7 @@ export async function generateStaticParams() {
 const BlogPostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
-  const Content = getBlogContentComponent(slug);
+  const Content = BLOG_CONTENT_MAP[slug];
 
   if (!post || !Content) {
     notFound();
