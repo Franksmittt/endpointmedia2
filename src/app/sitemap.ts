@@ -71,6 +71,9 @@ const serviceDetailPaths = [
   '/services/conversion-rate-optimization',
   '/services/website-maintenance',
   '/services/review-management',
+  '/services/answer-engine-optimization-aeo',
+  '/services/ai-crawler-firewall',
+  '/services/technical-seo-edge-compute',
 ];
 
 const locationPaths = [

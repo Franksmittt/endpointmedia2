@@ -12,6 +12,9 @@
 - [Local SEO](https://www.endpointmedia.co.za/services/local-seo): Local search and Google Business Profile growth system.
 - [Conversion Rate Optimization](https://www.endpointmedia.co.za/services/conversion-rate-optimization): Landing-page and funnel improvements tied to lead quality.
 - [Website Design Pricing](https://www.endpointmedia.co.za/services/website-design-prices): Transparent website investment and pricing methodology.
+- [Answer Engine Optimization](https://www.endpointmedia.co.za/services/answer-engine-optimization-aeo): Vector-ready DOMs and Business-to-Agent llms.txt architecture.
+- [AI Crawler Firewall](https://www.endpointmedia.co.za/services/ai-crawler-firewall): JA4 fingerprinting, scraper blocking, and live-retrieval allowlisting.
+- [Technical SEO Edge Compute](https://www.endpointmedia.co.za/services/technical-seo-edge-compute): Edge crawl traps, URL normalization, and Googlebot-safe rendering branches.
 
 ## Pricing and Process
 - [Pricing](https://www.endpointmedia.co.za/pricing): Commercial pricing tiers and investment model.

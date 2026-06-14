@@ -8,15 +8,18 @@ export const revalidate = 86400;
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: 'Web Design, SEO, Google Ads & Meta Services Johannesburg',
+    title: 'Web Design, SEO, Google Ads, AEO & AI Firewall Services Johannesburg',
     description:
-      'Full service catalog for Johannesburg businesses: Next.js web architecture, local SEO, Google Ads, Meta social management, CRO, and industry specialists, with transparent ZAR pricing.',
+      'Full service catalog for Johannesburg businesses: Next.js web architecture, local SEO, Google Ads, Meta management, CRO, AEO, AI crawler firewalls, and edge technical SEO.',
     path: '/services',
     keywords: [
       'web design johannesburg',
       'local SEO services johannesburg',
       'google ads johannesburg',
       'facebook ads johannesburg',
+      'answer engine optimization services',
+      'AI crawler firewall',
+      'technical SEO edge compute',
       'website development johannesburg',
       'next.js web design south africa',
       'digital marketing services johannesburg',
@@ -178,6 +181,44 @@ const serviceCategories: ServiceCategory[] = [
     extraLinks: [
       { title: 'All Johannesburg Locations', href: '/locations' },
       { title: 'Local SEO Blueprint (Blog)', href: '/blog/local-seo-blueprint' },
+    ],
+  },
+  {
+    id: 'technical-seo-aeo',
+    label: 'Technical SEO & AEO Infrastructure',
+    title: 'Answer Engine, Edge Compute & AI Crawler Control',
+    intro:
+      'Enterprise visibility now depends on machine-readable architecture, not just rankings. We build Vector-Ready DOMs, B2A llms.txt pipelines, edge crawl traps, JA4 bot firewalls, and bot-safe rendering paths so Googlebot and answer engines can crawl, parse, and cite the right business facts.',
+    services: [
+      {
+        title: 'Answer Engine Optimization (AEO) & B2A Architecture',
+        description:
+          'Vector-Ready DOMs, HtmlRAG chunking, flattened schema graphs, and automated llms.txt pipelines so ChatGPT, Claude, Perplexity, and Gemini extract your services, proof, and pricing accurately.',
+        href: '/services/answer-engine-optimization-aeo',
+        price: 'Enterprise audit',
+        badge: 'AEO',
+      },
+      {
+        title: 'Enterprise AI Crawler Firewalls & Bot Management',
+        description:
+          'JA4 TLS fingerprinting, search bot verification, training-scraper blocking, live-retrieval allowlists, and static asset rate limiting at the edge.',
+        href: '/services/ai-crawler-firewall',
+        price: 'Edge retainer',
+        badge: 'Firewall',
+      },
+      {
+        title: 'Edge-Level Crawl Budget Optimization',
+        description:
+          'Regex crawl traps, tracking parameter normalization, 410 Gone responses, verified-bot immutable asset caching, and PPR bot branching for WRS-safe HTML delivery.',
+        href: '/services/technical-seo-edge-compute',
+        price: 'Technical SEO',
+        badge: 'Edge SEO',
+      },
+    ],
+    extraLinks: [
+      { title: 'Growth Rescue', href: '/services/growth-rescue' },
+      { title: 'AEO Blog Blueprint', href: '/blog/answer-engine-optimization-aeo' },
+      { title: 'AI Bot Edge Middleware Article', href: '/blog/ai-bot-edge-middleware-cloudflare-blocking' },
     ],
   },
   {

@@ -198,6 +198,20 @@ CRO AND GROWTH RESCUE:
 - Growth Rescue:
   Intervention for underperforming websites/campaigns with technical,
   conversion, and tracking fixes.
+- Enterprise Rendering and AEO Audit:
+  CI/CD rendering QA for hydration mismatches, WRS payload limits, schema graph
+  drift, and answer-engine extraction failures.
+
+ENTERPRISE TECHNICAL SEO / AEO INFRASTRUCTURE:
+- Answer Engine Optimization (AEO) and B2A Architecture:
+  Vector-Ready DOMs, HtmlRAG chunking, flattened schema graphs, and generated
+  llms.txt / llms-full.txt pipelines.
+- Enterprise AI Crawler Firewalls and Bot Management:
+  JA4 TLS fingerprinting, search bot verification, training-scraper blocking,
+  live-retrieval allowlists, and edge rate limiting.
+- Edge-Level Crawl Budget Optimization:
+  Regex crawl traps, tracking parameter normalization, 410 Gone responses,
+  verified-bot cache policy, and PPR bot branching.
 
 INDUSTRY-SPECIFIC SERVICE PAGES:
 - Law Firm Websites.
@@ -364,6 +378,15 @@ SERVICE PAGES:
   Facebook and Instagram advertising service page.
 - /services/conversion-rate-optimization:
   CRO service page for lead-flow and funnel improvements.
+- /services/answer-engine-optimization-aeo:
+  AEO and Business-to-Agent architecture page for Vector-Ready DOMs, HtmlRAG
+  chunking, schema graphs, and llms.txt pipelines.
+- /services/ai-crawler-firewall:
+  Enterprise bot management page for JA4 fingerprinting, training-scraper
+  blocking, search bot verification, and live-retrieval allowlisting.
+- /services/technical-seo-edge-compute:
+  Edge-level crawl budget optimization page for 410 traps, URL normalization,
+  verified-bot cache controls, and PPR bot branching.
 
 GOOGLE ADS SERVICE PAGES:
 - /services/google-ads:
