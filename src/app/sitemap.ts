@@ -110,6 +110,7 @@ const caseStudySlugs = [
   'qj-paint-world',
   'rhino-panel-beaters',
   'sakana-no-ichi',
+  'vnr-professional-accountants',
 ];
 
 function dedupeSitemap(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {

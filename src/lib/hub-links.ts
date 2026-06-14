@@ -218,6 +218,21 @@ export function getCaseStudyHubLinks(slug: string): HubLink[] {
     );
   }
 
+  if (slug === 'vnr-professional-accountants') {
+    links.unshift(
+      {
+        href: '/industries/finance',
+        title: 'Financial Services Web Design',
+        description: 'Trust-first digital architecture for finance and advisory firms.',
+      },
+      {
+        href: '/services/web-design-firms',
+        title: 'Professional Services Web Design',
+        description: 'Premium web architecture for high-trust service providers.',
+      },
+    );
+  }
+
   if (slug === 'maverick-painting-contractors' || slug === 'rhino-panel-beaters') {
     links.unshift({
       href: '/services/google-ads-automotive',
@@ -277,5 +292,11 @@ export const CASE_STUDY_SEO: Record<
     description:
       'Premium lifestyle brand built on Japanese aesthetic principles and mindful ritual positioning.',
     datePublished: '2025-04-10',
+  },
+  'vnr-professional-accountants': {
+    headline: 'VNR Professional Accountants: Advisory Positioning & Conversion Path',
+    description:
+      'How Endpoint Media positioned VNR Professional Accountants around sustainable wealth, business growth, cash flow, tax, asset protection, and legacy planning.',
+    datePublished: '2026-06-14',
   },
 };
