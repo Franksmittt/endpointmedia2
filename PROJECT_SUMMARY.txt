@@ -1,587 +1,764 @@
 ================================================================================
-                    ENDPOINT MEDIA - COMPREHENSIVE PROJECT SUMMARY
+                    ENDPOINT MEDIA - PROJECT SUMMARY
 ================================================================================
 
-LAST UPDATED: May 30, 2026
-PROJECT STATUS: Production Deployed | Contact System Stabilized | SEO/AEO Audit Suite Automated
+LAST UPDATED: June 14, 2026
+PROJECT STATUS: Production deployed | Enterprise SEO/AEO edge architecture active
 DOMAIN: https://www.endpointmedia.co.za
 REPOSITORY: https://github.com/Franksmittt/endpointmedia2
-BUILD STATUS: Successful (96 static pages generated)
-LATEST COMMIT THEME: feat: add internal link graph runtime auditor
+CURRENT WORK BRANCH: cursor/seo-graph-wrs-refactor-9f34
+OPEN PR: https://github.com/Franksmittt/endpointmedia2/pull/3
+LATEST COMMIT: 108bf14 - Add JA4 fingerprinting and AEO browser rendering
+VERCEL STATUS FOR LATEST COMMIT: success
 
 ================================================================================
                             EXECUTIVE SNAPSHOT
 ================================================================================
 
-Endpoint Media is a premium B2B digital architecture and Google Ads agency
-site built on Next.js 16 (App Router). The codebase implements a full-funnel
-market-dominance strategy: revenue capture, entity/AEO signals, local pack
-geo-targeting, edge caching, semantic HTML, code-split forms, and hardened API
-security with production-safe form delivery.
+Endpoint Media is a Johannesburg-based technical web architecture, paid media,
+local SEO, and conversion systems agency. The site is built with Next.js 16 App
+Router, React 19, TypeScript, Tailwind CSS, structured JSON-LD, static/ISR
+delivery, edge proxy controls, and build-time Answer Engine Optimization assets.
 
-What this project IS:
-- A 96-page statically generated / ISR-optimized marketing site
-- A lead-generation engine (audit form, contact form, WhatsApp CTAs)
-- An SEO/AEO/Local Pack authority platform (schema, llms.txt, KML polygons)
-- A 20-post technical blog with interactive MDX-style components
-- A geo-spoked Google Ads landing page cluster (11 suburb/industry variants)
+The codebase now operates as a machine-first acquisition platform:
 
-What was completed through May 2026:
-- Market Dominance Audit (Weeks 1-4) — executed and deployed
-- God-Mode Audit (P0 security patches) — API hardened, brand tokens aligned
-- Production push to main → Vercel live
-- Contact pipeline recovery + Resend domain verification stabilization (May 30)
-- Static + runtime + link-graph SEO/AEO Python audit tooling implemented
+- Human users receive fast, conversion-focused pages and forms.
+- Googlebot/Bingbot receive deterministic full HTML and bot-specific headers.
+- Answer engines receive llms.txt, llms-full.txt, clean JSON-LD graph nodes, and
+  layout-aware HtmlRAG chunk boundaries.
+- Training scrapers, spoofed bots, recursive crawl loops, tracking-parameter
+  variants, and known headless automation signatures are blocked or normalized
+  at the edge before origin compute is wasted.
 
-Reference audit files in repo root:
-- market-dominance-audit.txt (roadmap, completed)
-- god-mode-audit.txt (0.01% flaw register + patches)
+================================================================================
+                         WHAT HAS BEEN COMPLETED TO DATE
+================================================================================
+
+Foundational Next.js / SEO hardening:
+- Replaced non-deterministic footer year logic with COPYRIGHT_YEAR = 2026.
+- Standardized global schema IDs in src/lib/seo.ts:
+  ORG_ID, WEBSITE_ID, LOCAL_BUSINESS_ID, HOMEPAGE_ID, HOMEPAGE_FAQ_ID,
+  FRANK_SMIT_ID.
+- Removed disconnected layout/page schema scripts.
+- Consolidated homepage schema into one JSON-LD script containing one flattened
+  @graph with six top-level nodes:
+  Organization, LocalBusiness, WebSite, Person, WebPage, FAQPage.
+- Verified rendered homepage:
+  json_ld_script_count=1, graph_lengths=[6], duplicate_defined_ids=[],
+  orphan_refs=[].
+- Added semantic data-chunk-boundary="true" markers across homepage and core
+  content sections for HtmlRAG extraction.
+- Converted key relational homepage data to semantic table markup where needed.
+
+Enterprise SEO / AEO automation:
+- Added scripts/seo/gsc_canonical_diff.mjs.
+  This calls Google Search Console URL Inspection API and fails CI when
+  userCanonical does not match googleCanonical.
+- Added scripts/seo/compile_llms.mjs.
+  This compiles public/llms.txt and public/llms-full.txt at build time.
+- Added BPE token-budget control through gpt-tokenizer.
+  Current llms-full.txt output is under the 128k token ceiling.
+- Removed route-based llms.txt generation in favor of generated public assets.
+- Added npm scripts:
+  b2a:compile
+  seo:gsc:canonical
+  prebuild -> npm run b2a:compile
+
+Edge / crawler control:
+- Expanded src/proxy.ts into an enterprise crawler control layer.
+- Added crawler verification:
+  static CIDR manifests for Google/Bing first, DNS-over-HTTPS rDNS plus forward
+  DNS confirmation as fallback.
+- Added allowlist for live-retrieval agents:
+  OAI-SearchBot, PerplexityBot, ChatGPT-User, Claude-Web.
+- Added training scraper blocklist:
+  GPTBot, CCBot, FacebookBot.
+- Added spoofed search bot blocking.
+- Added token-bucket rate limiting for unverified bot-like static asset bursts.
+- Added immutable asset caching for verified search bots.
+- Added deterministic URL normalization:
+  strips utm_*, fbclid, and gclid by clean 301 redirect.
+- Added crawl-budget traps:
+  trailing anomalies, recursive path loops, encoded recursive queries,
+  excessive query parameters, repeated query parameters.
+- Added JA4 TLS fingerprint blocking for known Playwright and
+  undetected-chromedriver signatures:
+  t13d1516h2_8daaf6152771_e5627efa2ab1
+  t13d1516h2_8daaf6152771_b44b8a2a8848
+- Added optional serverless browser-rendering offload for live-retrieval agents
+  through BROWSER_RENDERING_ENDPOINT or CLOUDFLARE_BROWSER_RENDERING_ENDPOINT.
+- Browser-rendered AEO HTML shells return:
+  Cache-Control: public, s-maxage=3600, stale-while-revalidate=86400.
+
+Validation completed:
+- npm run b2a:compile
+- ./node_modules/.bin/tsc --noEmit
+- npm run lint
+- npm run build
+- Local HTTP probes for:
+  JA4 blocking, GPTBot blocking, spoofed Googlebot blocking, verified Googlebot
+  branch, live retrieval allow, 410 traps, tracking-param normalization,
+  immutable verified-bot asset caching, unverified asset rate limiting, and
+  serverless browser-rendered AEO HTML shell behavior.
 
 ================================================================================
                             COMPANY OVERVIEW
 ================================================================================
 
 COMPANY POSITIONING:
---------------------
-Endpoint Media is a PREMIUM digital architecture firm specializing in high-
-performance, lead-generating websites and Google Ads management for
-Johannesburg and Gauteng service businesses. The company competes on RESULTS,
-not price.
+Endpoint Media is a premium technical web architecture and performance marketing
+firm for Johannesburg, Gauteng, and South African service businesses. The
+business competes on measurable pipeline generation, not cheap brochure sites.
 
 CORE VALUE PROPOSITION:
 "We don't sell cheap websites. We engineer market domination."
 
-BUSINESS PHILOSOPHY:
-- Selective partnership with serious, growth-minded operators
-- Deep research and uncompromising technical execution
-- Websites as revenue assets, not brochureware
-- Flat-fee Google Ads management (no percentage-of-spend markup)
-
-TARGET MARKET:
-- Johannesburg / Gauteng B2B service businesses
-- High-ticket operators (R25,000 - R150,000+ web projects)
-- Northern Corridor: Sandton, Bryanston, Rivonia, Midrand, etc.
-- Alberton / East Rand industrial and automotive verticals
+OPERATING PRINCIPLES:
+- Senior-led execution.
+- Selective partnership model.
+- Websites as revenue infrastructure, not visual brochureware.
+- Entity SEO, Answer Engine Optimization, local SEO, paid acquisition, and CRO
+  treated as one accountable system.
+- Flat-fee Google Ads management instead of percentage-of-spend incentives.
 
 FOUNDER:
-- Frank Smit (Founder, Web Design & Google Ads)
-- Direct accountable partnership (remote-first, no agency overhead)
-- Author page: /about/author/frank-smit
-- LinkedIn: https://www.linkedin.com/in/frank-smittt
+- Frank Smit.
+- Public author/E-E-A-T page: /about/author/frank-smit.
+- LinkedIn: https://www.linkedin.com/in/frank-smittt.
 
-PRICING MODEL (public-facing):
-- Value-based tiers: R25,000 / R45,000 / R75,000+ (homepage + /pricing)
-- ROI calculator at /services/website-design-prices
-- Transparent TCO comparison vs WordPress/templates
-
-CORE SERVICES:
-- Next.js 16 website development (Server Components, static edge delivery)
-- Entity-based SEO + Knowledge Graph / AEO architecture
-- Local SEO + Google Business Profile optimization
-- B2B Google Ads management (Performance Max, landing pages, tracking)
-- Conversion rate optimization (CRO)
-- Review management, website maintenance, Shopify, custom dev
+TARGET MARKET:
+- Johannesburg and Gauteng service businesses.
+- B2B and high-ticket local operators.
+- Legal, medical, financial, real estate, manufacturing, logistics, automotive,
+  industrial, home improvement, and professional services.
+- Companies that need high-quality leads, not vanity traffic.
 
 ================================================================================
-                            DESIGN SYSTEM (CURRENT)
+                         SERVICES ENDPOINT MEDIA OFFERS
 ================================================================================
 
-BRAND TOKENS (canonical — May 2026):
-------------------------------------
-Charcoal (primary dark):  #222222  → Tailwind `charcoal`
-Charcoal light:           #2d2d2d  → `charcoal-light`
-Charcoal dark:            #1a1a1a  → `charcoal-dark`
-Accent orange (CTA):      #FF6600  → Tailwind `accent` / `accent-500`
-Accent orange hover:      #E55C00  → `accent-600`
-Foreground on dark:       #FAFAFA
+WEB ARCHITECTURE AND DEVELOPMENT:
+- Website Development:
+  Custom Next.js architecture with entity SEO, semantic content clusters,
+  conversion-focused page structure, Core Web Vitals hardening, and full code
+  ownership.
+- Web Design Firm Services:
+  Enterprise-grade digital architecture for firms needing scalable, senior-led,
+  performance-first websites.
+- Website Redesign:
+  Transformation of outdated or underperforming sites into fast, modern,
+  search-visible, lead-generation assets.
+- Custom Development and Integrations:
+  Bespoke applications, CRM/ERP integrations, dashboards, automations, and
+  advanced web functionality.
+- Shopify Expert Builds:
+  Shopify and e-commerce builds with conversion, SEO, and performance concerns
+  accounted for.
+- Website Design Prices and ROI Calculator:
+  Transparent pricing education and calculator-led TCO/ROI comparison.
 
-CSS variables (globals.css):
-- --accent: 24 100% 50%  (HSL for shadcn-style ring/focus)
-- --ring: 24 100% 50%
+SEO, LOCAL SEO, AND REPUTATION:
+- Hyper-Local SEO Sprints:
+  Suburb and service-area targeting, entity optimization, local schema, and
+  Google Business Profile support.
+- Review Management and Reputation:
+  Review request flows, response systems, multi-platform monitoring, and
+  review-driven conversion trust.
 
-NOTE: Legacy `teal-*` and raw `cyan-*` classes still exist on some older
-pages (Header, Footer, pricing hub, case study brand colors). Components
-using `accent-*` automatically inherit the orange token after P0 patch.
-Full teal/cyan purge is tracked in god-mode-audit.txt (P1).
+GOOGLE ADS AND PAID SEARCH:
+- Google Ads Management Hub:
+  Search, Performance Max, Local, conversion tracking, landing-page alignment,
+  and optimization.
+- B2B Google Ads Management:
+  Flat-fee paid search for B2B operators with pipeline, CPA, and ROAS reporting.
+- Performance Max and Local Ads:
+  PMax/local campaign structures tied to real conversion infrastructure.
+- Google Ads Landing Pages:
+  Fast post-click pages engineered for Quality Score, relevance, and conversion.
+- Google Ads Pricing:
+  Transparent ZAR pricing, setup fees, management tiers, and flat-fee model.
+- Manufacturing Google Ads:
+  Paid search for industrial and specification-led B2B buyers.
+- Financial Services Google Ads:
+  Paid search for advisors, accountants, brokers, and finance firms.
+- Automotive Google Ads:
+  Paid search for automotive service, repair, parts, and related operators.
+- Google Ads location spokes:
+  Sandton, Midrand, Alberton, Alrode, Wadeville, and Bedfordview.
 
-AESTHETIC:
-----------
-Premium dark-mode agency feel. Charcoal backgrounds, orange accent CTAs,
-subtle grid textures, scroll-reveal animations, neubrutalist shadow option
-(`neubrutal`, `neubrutal-accent` at #FF6600).
+META / SOCIAL PAID MEDIA:
+- Facebook and Instagram Ads:
+  Meta campaign architecture, creative testing, audience strategy, and
+  conversion tracking for service businesses.
 
-TYPOGRAPHY:
------------
-- System font stack (Segoe UI, Inter, -apple-system) — zero font-load penalty
-- CSS vars: --font-roboto (body), --font-poppins (headings)
-- Responsive clamp headings (H1–H3)
-- Em dashes purged from primary user-facing copy (Week 4 polish)
+CRO AND GROWTH RESCUE:
+- Conversion Rate Optimization:
+  30-day sprint model for landing pages, messaging, forms, funnels, and
+  measurable conversion lift.
+- Growth Rescue:
+  Intervention for underperforming websites/campaigns with technical,
+  conversion, and tracking fixes.
 
-LAYOUT:
--------
-- Container: max-w-1280, px-6
-- Section rhythm: py-16 to py-24
-- Mobile-first Tailwind grid/flex patterns
+INDUSTRY-SPECIFIC SERVICE PAGES:
+- Law Firm Websites.
+- Medical and Aesthetic Websites.
+- Related industry hubs for finance, manufacturing/logistics, legal, medical,
+  and real estate.
+
+MAINTENANCE AND SUPPORT:
+- Website Maintenance and Support:
+  Security updates, uptime monitoring, content updates, performance checks, SEO
+  maintenance, backups, and technical support.
+
+PUBLIC PRICING MODEL:
+- Website architecture:
+  Strategic Foundation: R25,000.
+  Market Dominance: R45,000.
+  Category Authority: R75,000+.
+- Google Ads:
+  Infrastructure setup: R14,500 - R20,000.
+  Growth management: R6,500/month.
+  Premium management: R12,500/month.
+  Elite management: R22,000+/month.
+- Website maintenance:
+  Essential: R500/month.
+  Professional: R1,200/month.
+  Enterprise: R2,500/month.
 
 ================================================================================
-                         SITE ARCHITECTURE & PAGE MAP
+                         CURRENT TECHNOLOGY STACK
 ================================================================================
 
-TOTAL ROUTES: ~96 prerendered pages (Next.js 16.1.1 build)
+Runtime:
+- Next.js 16.1.1 App Router.
+- React 19.
+- TypeScript 5.
+- Node.js.
+- Turbopack production build.
+
+Styling and UI:
+- Tailwind CSS 3.4.1.
+- tailwindcss-animate.
+- Radix Slot.
+- class-variance-authority.
+- clsx.
+- tailwind-merge.
+- lucide-react.
+
+Data, APIs, and automation:
+- Prisma / @prisma/client.
+- Resend for email delivery.
+- Stripe.
+- BullMQ and ioredis.
+- Cheerio.
+- Playwright Core.
+- @sparticuz/chromium-min.
+- google-auth-library for GSC API telemetry.
+- gpt-tokenizer for BPE token counting.
+
+Deployment:
+- GitHub repository: Franksmittt/endpointmedia2.
+- Vercel deployments.
+- Current Vercel deployment for latest Phase 4 commit:
+  https://vercel.com/endpointmedia/endpointmedia2/EhmzHLezG1P25UREDfF56Q6nZ7G4
+
+================================================================================
+                         CURRENT BUILD AND ROUTE STATUS
+================================================================================
+
+Latest successful production build:
+- Next.js 16.1.1.
+- 110 generated/static routes shown in build output.
+- Edge proxy enabled.
+- Major hubs use ISR with revalidate = 86400.
+- Legal/static pages are prerendered.
+- Dynamic/private routes remain server-rendered as needed.
+
+NPM scripts:
+- npm run dev
+- npm run build
+- npm run start
+- npm run lint
+- npm run b2a:compile
+- npm run seo:gsc:canonical
+- npm run seo:validate
+- npm run seo:validate:prod
+- npm run seo:graph
+- npm run seo:graph:prod
+- npm run seo:check
+- npm run seo:index
+- npm run seo:index:dry
+- npm run indexnow:ping
+
+================================================================================
+                         FULL PAGE AND ROUTE INVENTORY
+================================================================================
 
 CORE PAGES:
------------
-/ ................................. Homepage (11 sections, dynamic Audit form)
-/pricing .......................... Three-tier premium pricing + FAQ schema
-/contact .......................... NAP + dynamic ContactForm (Resend API)
-/process .......................... HowTo schema, methodology
-/services ......................... Services hub (pillar page)
-/locations ........................ 12 suburb hub + hyper-local copy
-/industries ....................... 5 vertical hub pages
-/case-studies ..................... 7 case studies index
-/blog ............................. 20 posts index
-/about/author/frank-smit .......... ProfilePage schema, E-E-A-T
-/compare/google-ads-flat-fee-vs-percentage-spend
-/insights/south-africa-google-ads-cpc-benchmarks
-/alberton-business-heritage ....... Link magnet / local heritage asset
-/privacy-policy, /terms-of-service  force-static legal pages
+- /:
+  Homepage for Endpoint Media. Positions the business as a premium web
+  architecture and revenue systems firm. Includes audit CTA, proof, methodology,
+  Google Ads section, pricing, founder note, and final conversion CTA.
+- /services:
+  Services hub covering web architecture, local SEO, Google Ads, Meta ads, CRO,
+  industry websites, and maintenance.
+- /pricing:
+  Public pricing page for premium website architecture packages and investment
+  framing.
+- /contact:
+  Contact and lead-capture page with NAP details, audit/contact form, and
+  conversion routing.
+- /process:
+  Methodology page explaining discovery, architecture, implementation, and
+  growth process.
+- /case-studies:
+  Case study index and proof hub for client outcomes.
+- /blog:
+  Editorial index for web architecture, Google Ads, local SEO, Meta Ads, and
+  technical SEO content.
+- /locations:
+  Location hub for Johannesburg and Gauteng service areas.
+- /industries:
+  Industry hub for vertical-specific website and acquisition systems.
+- /about/author/frank-smit:
+  Founder profile and E-E-A-T entity page for Frank Smit.
+- /alberton-business-heritage:
+  Local linkable asset documenting Alberton commercial history and relevance.
+- /compare/google-ads-flat-fee-vs-percentage-spend:
+  Comparison page explaining flat-fee Google Ads management versus
+  percentage-of-spend agency pricing.
+- /insights/south-africa-google-ads-cpc-benchmarks:
+  Insight article with South African Google Ads CPC benchmarks.
+- /privacy-policy:
+  Legal privacy page.
+- /terms-of-service:
+  Legal terms page.
 
-SERVICE PAGES (28 detail + index):
---------------------------------
+SERVICE PAGES:
+- /services/website-development:
+  Next.js development and semantic entity engineering service page.
+- /services/web-design-firms:
+  Enterprise web design firm services for companies needing senior-led,
+  scalable architecture.
+- /services/website-design-prices:
+  Website pricing guide and ROI calculator.
+- /services/website-redesign:
+  Redesign service for outdated, low-converting, or technically weak websites.
+- /services/shopify-expert:
+  Shopify build and e-commerce implementation service.
+- /services/custom-development:
+  Custom development, integrations, CRM/ERP, dashboards, and advanced web apps.
+- /services/law-firm-websites:
+  Legal website design service page for law firms and legal intake systems.
+- /services/medical-websites:
+  Medical and aesthetic practice website design service page.
+- /services/growth-rescue:
+  Rescue service for businesses with underperforming sites, funnels, or ads.
+- /services/local-seo:
+  Hyper-local SEO, GBP, suburb targeting, schema, and local visibility service.
+- /services/review-management:
+  Review generation, reputation management, response systems, and trust signals.
+- /services/website-maintenance:
+  Ongoing maintenance, updates, support, backups, performance, and SEO support.
+- /services/facebook-ads:
+  Facebook and Instagram advertising service page.
+- /services/conversion-rate-optimization:
+  CRO service page for lead-flow and funnel improvements.
+
+GOOGLE ADS SERVICE PAGES:
+- /services/google-ads:
+  Main Google Ads management hub.
+- /services/b2b-google-ads-management:
+  B2B paid search service with flat-fee management and pipeline reporting.
+- /services/performance-max-google-ads:
+  Performance Max and Google AI campaign service.
+- /services/google-ads-landing-pages:
+  Landing pages built for Google Ads Quality Score and conversion.
+- /services/google-ads-pricing:
+  Google Ads pricing model, setup, retainers, and fee transparency.
+- /services/google-ads-manufacturing:
+  Paid search for manufacturing and industrial suppliers.
+- /services/google-ads-financial-services:
+  Paid search for financial services firms.
+- /services/google-ads-automotive:
+  Paid search for automotive businesses.
+- /services/google-ads-sandton:
+  Google Ads service page for Sandton businesses.
+- /services/google-ads-alberton:
+  Google Ads service page for Alberton businesses.
+- /services/google-ads-midrand:
+  Google Ads service page for Midrand businesses.
+- /services/google-ads-alrode:
+  Google Ads service page for Alrode industrial operators.
+- /services/google-ads-wadeville:
+  Google Ads service page for Wadeville industrial operators.
+- /services/google-ads-bedfordview:
+  Google Ads service page for Bedfordview businesses.
+
+LOCATION PAGES:
+- /locations/sandton:
+  Web design and local SEO for Sandton companies.
+- /locations/meyersdal:
+  Web architecture and local acquisition for Meyersdal executive/service firms.
+- /locations/new-redruth:
+  Local SEO and web design for New Redruth professional services.
+- /locations/roodepoort:
+  Web design and local visibility for Roodepoort businesses.
+- /locations/bryanston:
+  Web architecture for Bryanston professional and high-value service firms.
+- /locations/rivonia:
+  Web design and local search for Rivonia office-park and service businesses.
+- /locations/midrand:
+  Web architecture for Midrand growth corridor businesses.
+- /locations/rosebank:
+  Web design and SEO for Rosebank commercial/professional operators.
+- /locations/randburg:
+  Web design and acquisition support for Randburg businesses.
+- /locations/fourways:
+  Web design and local SEO for Fourways businesses.
+- /locations/waterfall:
+  Web design and digital acquisition for Waterfall businesses.
+- /locations/benoni:
+  Web design and local SEO for Benoni and East Rand businesses.
+
+INDUSTRY PAGES:
+- /industries/law-firms:
+  Websites for legal practices, attorney profiles, intake, legal SEO, and trust.
+- /industries/real-estate:
+  Websites for real estate agencies, listings, lead capture, and local search.
+- /industries/finance:
+  Websites for financial advisors, accountants, brokers, and trust-led finance
+  firms.
+- /industries/medical:
+  Websites for medical practices, clinics, aesthetic practices, and patient
+  acquisition.
+- /industries/manufacturing-logistics:
+  Industrial/B2B websites for manufacturers, logistics firms, RFQ flows, and
+  procurement buyers.
+
+CASE STUDY PAGES:
+- /case-studies/alberton-battery-mart:
+  Case study for Alberton Battery Mart and local service/search architecture.
+- /case-studies/alberton-tyre-clinic:
+  Case study for Alberton Tyre Clinic and local automotive search visibility.
+- /case-studies/as-brokers:
+  Case study for AS Brokers and financial/professional services positioning.
+- /case-studies/maverick-painting-contractors:
+  Case study for a painting contractor and service-area lead generation.
+- /case-studies/qj-paint-world:
+  Case study for QJ Paint World and retail/local search growth.
+- /case-studies/rhino-panel-beaters:
+  Case study for Rhino Panel Beaters and automotive repair visibility.
+- /case-studies/sakana-no-ichi:
+  Case study for Sakana no Ichi and local hospitality/restaurant visibility.
+
+BLOG PAGES:
+- /blog/meta-andromeda-manual-media-buying-dead:
+  Meta Andromeda article explaining Entity IDs and why manual media buying is
+  obsolete.
+- /blog/programmatic-design-factory-meta-creative-disparity:
+  Programmatic creative production article for Meta ad variation at scale.
+- /blog/abo-testing-sandbox-meta-algorithmic-liquidity:
+  Meta ABO testing and budget-liquidity framework.
+- /blog/server-side-capi-middleware-closed-loop-roi:
+  Server-side CAPI, event deduplication, EMQ, and CRM feedback loop article.
+- /blog/systemic-divergence-industry-vs-retail-south-africa:
+  Meta performance differences between heavy industry and local retail.
+- /blog/aeo-shift-chatgpt-gemini-optimization:
+  Article on the shift from traditional SEO to AEO for ChatGPT/Gemini.
+- /blog/nextjs-hydration-seo-rendering-traps:
+  Next.js hydration and client-rendering SEO failure modes.
+- /blog/shopify-canonical-loop-duplicate-paths:
+  Shopify duplicate-path and canonical loop analysis.
+- /blog/wordpress-rest-api-user-leak-security:
+  WordPress bloat and REST API/security exposure analysis.
+- /blog/ai-bot-edge-middleware-cloudflare-blocking:
+  Article about edge middleware blocking AI bots and retrieval systems.
+- /blog/the-brutal-truth-about-wordpress:
+  WordPress architecture critique for B2B conversion and performance.
+- /blog/core-web-vitals-financial-metric:
+  Core Web Vitals as a revenue and financial performance metric.
+- /blog/answer-engine-optimization-aeo:
+  AEO structure for ChatGPT, Perplexity, and citation extraction.
+- /blog/anatomy-elite-landing-page:
+  Anatomy of a high-performance landing page with minimal runtime bloat.
+- /blog/website-migration-blueprint:
+  Migration blueprint for moving to Next.js without search loss.
+- /blog/google-ads-tracking-errors-budget:
+  Google Ads tracking errors and server-side attribution fixes.
+- /blog/landing-page-speed-quality-score:
+  Relationship between landing-page speed and Google Ads Quality Score/CPC.
+- /blog/smart-bidding-vs-manual-waste:
+  Smart bidding versus manual bidding waste and clean conversion signals.
+- /blog/performance-engine-high-ticket-lead-gen:
+  High-ticket lead generation for long B2B sales cycles.
+- /blog/performance-over-vanity-metrics:
+  CPA, LTV, direct response, and performance measurement over vanity metrics.
+- /blog/local-seo-blueprint:
+  Hub-and-spoke local SEO architecture for industrial/local markets.
+- /blog/b2b-digital-marketing-specialized-industries:
+  B2B digital marketing for specialized industries and independent research
+  buyers.
+- /blog/minimalist-design-b2b-value:
+  Minimalist B2B design, cognitive load, typography, and trust.
+- /blog/structured-data-local-schema:
+  LocalBusiness JSON-LD, geo coordinates, and local schema implementation.
+- /blog/maximizing-regional-map-visibility:
+  KML overlays, citations, sitemap integration, and regional map visibility.
+- /blog/the-true-cost-of-a-website-in-johannesburg:
+  Johannesburg website pricing guide.
+- /blog/freelancer-vs-agency-the-low-risk-choice-for-johannesburg:
+  Freelancer versus agency comparison for Johannesburg web design buyers.
+- /blog/the-schema-vacuum-technical-seo-advantage:
+  Technical SEO and schema opportunity analysis for Johannesburg competitors.
+- /blog/wix-vs-wordpress-guide-johannesburg-small-businesses:
+  Wix versus WordPress guide for Johannesburg small businesses.
+- /blog/how-much-does-website-cost-south-africa-2025:
+  South African website cost guide.
+
+DISCOVERY, MACHINE, AND STATIC ASSET ROUTES:
+- /robots.txt:
+  Robots policy with AI/search crawler rules and sitemap references.
+- /sitemap.xml:
+  Dynamic sitemap generated from public routes and blog slugs.
+- /llms.txt:
+  Build-generated concise Answer Engine discovery file.
+- /llms-full.txt:
+  Build-generated full machine-readable context file under 128k BPE tokens.
+- /humans.txt:
+  Human-readable ownership metadata.
+- /alberton-service-area.kml:
+  Alberton service-area geo polygon.
+- /northern-corridor.kml:
+  Northern corridor geo polygon for Sandton/Bryanston/Rivonia area context.
+- /manifest.webmanifest:
+  Web app manifest.
+- /opengraph-image:
+  Dynamic root Open Graph image route.
+- /pricing/opengraph-image:
+  Pricing Open Graph image route.
+- /services/website-design-prices/opengraph-image:
+  Website pricing Open Graph image route.
+- /blog/[slug]/opengraph-image:
+  Per-blog-post Open Graph image route.
+- /apple-icon:
+  Apple icon route.
+- /[key].txt:
+  Env-gated IndexNow verification file route.
+
+PRIVATE / API ROUTES:
+- /api/contact:
+  Hardened form/audit request endpoint with rate limiting, content-type checks,
+  honeypot handling, payload caps, and Resend delivery.
+- /api/indexnow:
+  Authenticated IndexNow submission endpoint.
+- /api/checkout:
+  Stripe checkout endpoint.
+- /api/webhook/stripe:
+  Stripe webhook endpoint.
+- /api/factory/generate:
+  Google Ads factory CSV generation bridge.
+- /api/vicious-audit/run:
+  Audit engine run endpoint.
+- /api/vicious-audit/export-pdf:
+  Audit report PDF export endpoint.
+- /report/[id]:
+  Private noindex audit report view.
+
+================================================================================
+                         SEO, AEO, EDGE, AND BOT ARCHITECTURE
+================================================================================
+
+Schema:
+- secureJsonLD() sanitizes JSON-LD payloads.
+- Homepage emits one @graph script only.
+- Root graph nodes are centralized in src/lib/seo.ts.
+- Homepage graph includes Organization, LocalBusiness, WebSite, Person, WebPage,
+  and FAQPage nodes.
+- All core IDs use absolute canonical www endpointmedia.co.za fragments.
+
+Metadata:
+- buildMetadata() creates canonical, Open Graph, Twitter, and language alternate
+  values for pages.
+- Canonical strategy: always https://www.endpointmedia.co.za, trailingSlash false.
+
+Answer Engine Optimization:
+- Generated public/llms.txt and public/llms-full.txt.
+- HtmlRAG chunk boundaries on homepage and blog prose components.
+- Semantic tables for relational metric/pricing data.
+- Optional serverless browser-rendering offload for live-retrieval agents.
+
+Edge proxy:
+- File: src/proxy.ts.
+- Adds crawler verification, scraper blocking, JA4 fingerprint filtering,
+  tracking-parameter normalization, crawl traps, spell-check redirects, verified
+  bot cache policy, and live-retrieval browser-rendering offload.
+
+Security / anti-abuse:
+- Blocks known training scrapers.
+- Blocks spoofed Google/Bing bots that fail manifest/rDNS verification.
+- Blocks known headless JA4 fingerprints.
+- Rate-limits unverified bot-like static asset traffic.
+- Returns 410 for recursive trap patterns.
+
+================================================================================
+                         IMPORTANT ENVIRONMENT VARIABLES
+================================================================================
+
 Core:
-  website-development, website-redesign, web-design-firms,
-  website-design-prices (+ PricingCalculator), custom-development,
-  law-firm-websites, medical-websites, growth-rescue, local-seo,
-  google-ads, facebook-ads, conversion-rate-optimization,
-  website-maintenance, shopify-expert, review-management,
-  b2b-google-ads-management, performance-max-google-ads
-
-Google Ads geo/vertical spokes:
-  google-ads-sandton, google-ads-midrand, google-ads-alberton,
-  google-ads-alrode, google-ads-wadeville, google-ads-bedfordview,
-  google-ads-automotive, google-ads-manufacturing,
-  google-ads-financial-services, google-ads-landing-pages,
-  google-ads-pricing
-
-LOCATION PAGES (12):
---------------------
-sandton, bryanston, rivonia, midrand, randburg, rosebank, fourways,
-waterfall, benoni, roodepoort, meyersdal, new-redruth
-
-Each: LocalBusiness schema (Wikidata areaServed), hub-spoke internal links,
-ISR revalidate 86400, no fake street addresses.
-
-INDUSTRY PAGES (5):
--------------------
-law-firms, real-estate, finance, medical, manufacturing-logistics
-
-CASE STUDIES (7):
------------------
-alberton-battery-mart, alberton-tyre-clinic, maverick-painting-contractors,
-qj-paint-world, rhino-panel-beaters, sakana-no-ichi, as-brokers
-
-Semantic HTML: <article itemScope itemType="Article">, hero <figure>/<figcaption>,
-metrics grids wrapped in <figure>.
-
-BLOG (20 posts):
-----------------
-15 cornerstone silo articles (3 silos):
-  Silo 1 — Web Architecture & Technical SEO (5 posts)
-  Silo 2 — Google Ads & Paid Media (5 posts)
-  Silo 3 — Local SEO & Industry Dominance (5 posts)
-
-5 legacy Johannesburg posts (pricing, freelancer vs agency, schema, Wix vs WP, etc.)
-
-Infrastructure:
-- src/lib/blog/posts.ts — metadata registry
-- src/lib/blog/content/silo-{1,2,3}.tsx — interactive content components
-- unstable_cache on getPostBySlug / getAllSlugs (revalidate 86400, tag: blog)
-- Per-post OG images, Article/BlogPosting schema, speakable blocks
-
-DISCOVERY & GEO ASSETS:
------------------------
-/llms.txt ......................... AI discovery feed (GPTBot, ClaudeBot, etc.)
-/robots.txt ....................... AI agent allow rules + sitemap array
-/sitemap.xml ...................... Dynamic, priority-weighted
-/alberton-service-area.kml ........ Alberton geo polygon
-/northern-corridor.kml ............ Sandton/Bryanston/Rivonia polygon
-/[INDEXNOW_KEY].txt ............... IndexNow verification (env-gated)
-
-================================================================================
-                         HOMEPAGE & KEY COMPONENTS
-================================================================================
-
-HOMEPAGE SECTIONS (src/components/sections/):
-1. Hero — charcoal grid, priority LCP image, WhatsApp + audit CTAs
-2. Problem — pain points, orange accent cards
-3. Solution — competitive intelligence positioning
-4. WhoWeServe — target industries
-5. Blueprint — methodology (ScrollReveal)
-6. Proof — testimonials + Review/AggregateRating schema
-7. Vetting — selective partnership criteria
-8. Pricing — three tiers (links to /pricing)
-9. Toolkit — tech stack credibility
-10. SocialProof — case study cards + schema
-11. Audit — dynamic import (next/dynamic) + AuditForm
-
-FORMS & LEAD CAPTURE:
----------------------
-AuditForm (src/components/sections/AuditForm.tsx):
-- Client component, POST /api/contact
-- Fields: name, business, email, phone, source
-- Off-screen `website` honeypot (structural, not opacity-only)
-- aria-live status feedback, trackFreeAudit() on success
-
-ContactForm (src/app/contact/ContactForm.tsx):
-- Dynamically imported on /contact (code-split)
-- Same API route, Resend delivery
-- trackFormSubmission() analytics hook
-
-Contact API (src/app/api/contact/route.ts) — P0 HARDENED:
-- Content-Type: application/json required (415)
-- Rate limit: 5 POSTs/min/IP (src/lib/rate-limit.ts, in-memory)
-- Payload caps: name 120, message 5000, email 254, phone 32 chars
-- sanitizeHeader() strips \\r\\n\\t from name/source before email subject
-- Honeypot: silent 200 if `website` OR legacy `honeypot` filled
-- Resend email to CONTACT_TO_EMAIL using configurable sender:
-  RESEND_FROM_EMAIL (defaults onboarding@resend.dev)
-- Provider rejection handling returns actionable 502 detail payload
-- Runtime-safe client initialization (`getResendClient`) per request
-
-CRITICAL FORM STABILITY FIXES (May 30):
-- ContactForm and AuditForm now capture `const form = event.currentTarget`
-  before async calls and use `form.reset()` on success.
-- This resolves production crash:
-  "Cannot read properties of null (reading 'reset')".
-- Frontend error handling now surfaces network/provider detail strings instead
-  of generic failure-only messages.
-
-IndexNow API (src/app/api/indexnow/route.ts):
-- Bearer auth (INDEXNOW_SECRET or CRON_SECRET)
-- Submits sitemap URLs to Bing/Yandex IndexNow
-
-LAYOUT:
--------
-Header — fixed charcoal nav, Locations link, mobile menu, Contact CTA
-Footer — 4-column links, NAP, social, trust badges, audit CTA
-
-SEO COMPONENTS:
----------------
-InternalLinks — contextual pillar-cluster links
-HubSpokeLinks — location/service spoke navigation
-CaseStudyArticleSchema — Article JSON-LD helper
-
-BLOG COMPONENTS:
-----------------
-blog-prose.tsx, interactives-static.tsx, interactives-client.tsx
-(CPC simulators, comparison tables, timeline components, etc.)
-
-ANALYTICS:
-----------
-web-vitals.tsx — Core Web Vitals RUM
-src/lib/analytics.ts — gtag event helpers (form, audit, WhatsApp, phone)
-src/lib/conversion-config.ts — Google Ads AW-17744075656 + conversion labels
-
-================================================================================
-                         SEO, AEO & LOCAL PACK IMPLEMENTATION
-================================================================================
-
-TECHNICAL SEO:
---------------
-- buildMetadata() utility on all major pages (canonical www enforcement)
-- secureJsonLD() XSS-safe JSON-LD injection
-- Organization graph in layout.tsx:
-  founder → FRANK_SMIT_ID, knowsAbout Wikidata entities, GBP CID,
-  areaServed all 13 cities
-- SpeakableWebPage schema on key money pages
-- htmlLimitedBots regex in next.config.mjs (full HTML for crawlers)
-- WWW 308 redirect (endpointmedia.co.za → www)
-- trailingSlash: false
-
-RUNTIME ROUTING CORRECTION (May 30):
-- Removed `_rsc` query redirect rule from next.config.mjs after HAR evidence
-  of `net::ERR_TOO_MANY_REDIRECTS` noise on RSC fetch requests.
-
-SCHEMA TYPES IN USE:
-Organization, LocalBusiness, WebSite, Person/ProfilePage, Service,
-OfferCatalog, Article/BlogPosting, FAQPage, BreadcrumbList, Review,
-AggregateRating, HowTo, CollectionPage, ItemList, SpeakableSpecification
-
-AEO / AI DISCOVERY:
--------------------
-- /llms.txt route — structured AI crawler feed
-- robots.ts — explicit allow rules for GPTBot, ClaudeBot, PerplexityBot,
-  Google-Extended, ChatGPT-User, anthropic-ai
-- Blog AEO content silo (answer-engine-optimization-aeo post)
-- JSON-LD entity @id linking throughout
-
-LOCAL SEO / GEO:
-----------------
-- 12 location pages with buildLocationLocalBusinessSchema()
-- KML polygons (Alberton + Northern Corridor) in robots sitemap array
-- Hub-spoke internal linking (Meyersdal, New Redruth, Sandton→Rivonia)
-- google-ads-services.ts — Wikidata areaServed per geo slug
-
-PERFORMANCE & CACHING:
-----------------------
-- export const revalidate = 86400 on major hub pages (ISR, 24h)
-- next.config.mjs HTML Cache-Control:
-  s-maxage=3600, stale-while-revalidate=86400
-- Blog: unstable_cache with tags: ['blog'] for selective purge
-- Homepage/contact: dynamic form code-splitting (smaller initial JS)
-- next/image WebP/AVIF, 30-day image cache TTL
-- System fonts (no external font requests)
-
-SECURITY HEADERS (next.config.mjs):
-------------------------------------
-- Strict-Transport-Security (preload)
-- X-Frame-Options: SAMEORIGIN
-- X-Content-Type-Options: nosniff
-- Referrer-Policy, Permissions-Policy, COOP
-- Content-Security-Policy (P0 — May 2026):
-  default-src 'self'; script-src gtag/GTM allowlist; frame-ancestors 'self';
-  form-action 'self'; object-src 'none'; upgrade-insecure-requests
-
-PROXY (src/proxy.ts):
----------------------
-Next.js 16 proxy middleware — sets x-robots-tag for verified crawlers;
-matcher excludes static assets, kml, txt.
-
-================================================================================
-                         TECHNOLOGY STACK
-================================================================================
-
-RUNTIME:
-- Next.js 16.1.1 (App Router, Turbopack build)
-- React 19
-- TypeScript 5
-- Node.js LTS
-
-STYLING:
-- Tailwind CSS 3.4.1 + tailwindcss-animate
-- Custom globals.css (CSS variables, scroll-observed, skip-link)
-
-UI:
-- @radix-ui/react-slot, class-variance-authority, clsx, tailwind-merge
-- lucide-react (icons on select pages)
-- Custom Button component (src/components/ui/button.tsx)
-
-EMAIL:
-- resend ^6.12.4 (contact + audit form delivery)
-
-DEPLOYMENT:
-- Vercel (production, auto-deploy from main branch)
-- GitHub: Franksmittt/endpointmedia2
-
-SEO TOOLING (npm scripts):
-- seo:validate / seo:validate:prod — Python SEO validator
-- seo:graph / seo:graph:prod — Knowledge graph auditor
-- seo:check — run all checks
-- seo:index / seo:index:dry — index pusher
-- indexnow:ping — bash IndexNow ping script
-
-================================================================================
-                         ENVIRONMENT VARIABLES
-================================================================================
-
-REQUIRED (production):
 - NEXT_PUBLIC_BASE_URL=https://www.endpointmedia.co.za
-- RESEND_API_KEY=... (form email delivery)
-- RESEND_FROM_EMAIL=hello@endpointmedia.co.za
-- CONTACT_TO_EMAIL=hello@endpointmedia.co.za
+- RESEND_API_KEY
+- RESEND_FROM_EMAIL
+- CONTACT_TO_EMAIL
 
-RECOMMENDED:
-- NEXT_PUBLIC_GA_ID (Google Analytics 4)
-- NEXT_PUBLIC_GOOGLE_ADS_ID=AW-17744075656
-- NEXT_PUBLIC_CONVERSION_LABEL_FORM / _AUDIT / _PHONE / _WHATSAPP
-- GOOGLE_SITE_VERIFICATION (Search Console)
-- INDEXNOW_KEY, INDEXNOW_SECRET (or CRON_SECRET for Vercel Cron)
+Analytics / Ads:
+- NEXT_PUBLIC_GA_ID
+- NEXT_PUBLIC_GOOGLE_ADS_ID
+- NEXT_PUBLIC_CONVERSION_LABEL_FORM
+- NEXT_PUBLIC_CONVERSION_LABEL_AUDIT
+- NEXT_PUBLIC_CONVERSION_LABEL_PHONE
+- NEXT_PUBLIC_CONVERSION_LABEL_WHATSAPP
 
-See .env.example for full list and comments.
+Search / indexing:
+- GOOGLE_SITE_VERIFICATION
+- INDEXNOW_KEY
+- INDEXNOW_SECRET or CRON_SECRET
 
-================================================================================
-                    MARKET DOMINANCE AUDIT — COMPLETION LOG
-================================================================================
+GSC canonical diff CI:
+- GOOGLE_APPLICATION_CREDENTIALS or GSC_SERVICE_ACCOUNT_JSON
+- GSC_SITE_URL
+- GSC_INSPECTION_URLS optional comma-separated sample list
 
-WEEK 1 — REVENUE & TRUST:
-- AuditForm → real POST /api/contact + Resend
-- trackFreeAudit() only on confirmed success
-- Contact route honeypot + phone field + aria-live
-- Accent unification on homepage funnel sections
+Serverless browser rendering:
+- BROWSER_RENDERING_ENDPOINT or CLOUDFLARE_BROWSER_RENDERING_ENDPOINT
+- BROWSER_RENDERING_TOKEN or CLOUDFLARE_BROWSER_RENDERING_TOKEN optional
 
-WEEK 2 — ENTITY & AI DOMINANCE:
-- /llms.txt AI discovery route
-- robots.ts AI bot rules + llms.txt in sitemap
-- Organization graph (founder, knowsAbout, GBP CID)
-- Author → ProfilePage schema (no duplicate Person)
-- seo.ts: WIKIDATA, cityAreaServed(), buildLocationLocalBusinessSchema()
-- 10 location pages cleaned (no fake streetAddress)
-- HubSpokeLinks on Meyersdal + New Redruth
-
-WEEK 3 — LOCAL PACK & PERFORMANCE:
-- revalidate = 86400 on major hubs
-- force-static on privacy/terms
-- HTML Cache-Control edge headers
-- Organization areaServed all 13 cities
-- Header: Locations nav link
-- local-seo hub + Sandton cannibalization fix
-
-WEEK 4 — POLISH TO 0.1%:
-- Semantic HTML: <address>, <article>, <figure>/<figcaption> on case studies
-- next/dynamic code-split for Audit + ContactForm (pulse skeletons)
-- Palette sweep on key service pages (charcoal/accent)
-- Em dash purge across src/app + blog content
-- public/northern-corridor.kml + robots sitemap entry
-- Blog unstable_cache (86400, tag: blog)
-- website-design-prices final accent sweep
-- Deployed: commit 0d60c89 on main
-
-P0 GOD-MODE PATCHES (May 29, 2026):
-- CSP header block in next.config.mjs
-- src/lib/rate-limit.ts (5 req/min/IP)
-- contact/route.ts: 415, 429, 413, sanitizeHeader, website+honeypot trap
-- AuditForm + ContactForm structural honeypot (`website` field)
-- Brand accent token → #FF6600 / #E55C00 globally in tailwind + globals.css
-
-MAY 30, 2026 — PRODUCTION STABILIZATION + AUDIT AUTOMATION:
-------------------------------------------------------------
-Contact / Email Delivery:
-- Resend domain DNS records configured and verified (DKIM/SPF/MX).
-- Vercel envs aligned for sender/recipient routing.
-- Live API tests confirmed `/api/contact` 200 success.
-- Root cause of remaining UI failure traced to async React event lifecycle
-  (null currentTarget), patched and deployed.
-
-HAR-Led Runtime Debugging:
-- Production HAR analysis confirmed successful 200 POST /api/contact.
-- Identified and removed redirect-loop risk tied to `_rsc` redirect rule.
-
-Google Ads Factory Stack (implemented and pushed):
-- prisma/schema.prisma (AgencyClient / ServiceNiche / CampaignAsset model set)
-- src/lib/prisma.ts singleton client
-- src/app/api/factory/generate/route.ts bridge route
-- microservice/main.py FastAPI CSV engine with:
-  * API key auth (`Authorization: Bearer INTERNAL_API_KEY`)
-  * strict EAV matrix generation
-  * exact-match keyword enforcement and R15 max CPC policy
-  * campaign-level ValueTrack suffix + custom parameter injection
-  * in-memory streamed CSV response (no disk write)
-- scripts/google_ads_overlord.js (daily Ads script modules: 404 sentinel,
-  budget pacing alarm, CPC anomaly detection)
-
-Python Audit Tooling Added + Executed:
-- scripts/seo/nextjs_seo_aeo_audit.py
-  * Static App Router SEO/AEO checks
-  * Output: nextjs_seo_aeo_audit_findings.txt
-  * Final result: HIGH 0 | MEDIUM 0 | LOW 0
-
-- scripts/seo/nextjs_runtime_seo_aeo_audit.py
-  * Live/runtime checks for robots/sitemap/llms, bot accessibility,
-    redirect chains, canonical parity, noindex headers/meta, JSON-LD parseability
-  * Output: nextjs_runtime_seo_aeo_findings.txt
-  * Final result: HIGH 0 | MEDIUM 0 | LOW 0
-
-- scripts/seo/internal_link_graph_audit.py
-  * Runtime internal-link graph scoring (orphan/unreachable/depth analysis)
-  * Output: internal_link_graph_audit_findings.txt
-  * Final result: HIGH 0 | MEDIUM 0 | LOW 0
-
-================================================================================
-                         PROJECT STATUS & NEXT STEPS
-================================================================================
-
-CURRENT STATUS: PRODUCTION LIVE + STABLE
-- Contact and audit forms confirmed operational in production
-- Resend sender pipeline verified post-domain validation
-- Redirect-loop risk removed from Next config
-- Static/runtime/link-graph SEO audits currently return zero findings
-- Factory architecture code is merged and available for infra activation
-
-REMAINING (from god-mode-audit.txt / infra rollout backlog):
-- P1: Full teal/cyan → accent purge (Header, Footer, pricing hub, case studies)
-- P1: CLS skeleton height tuning for dynamic forms
-- P1: ScrollReveal prefers-reduced-motion + above-fold removal
-- P1: WCAG SVG aria-hidden sweep, mobile menu inert
-- P2: Dead code removal (AnimatedButton, WhatsAppIcon, orphaned CSS)
-- P2: Upstash Redis rate limiter (replace in-memory Map for multi-instance)
-- P2: Remaining em dashes in google-ads-services.ts metadata strings
-- Factory deployment activation:
-  * Provision Postgres + run Prisma migrations
-  * Deploy FastAPI microservice
-  * Configure FASTAPI_SERVICE_URL / INTERNAL_API_KEY / FACTORY_ADMIN_SECRET
-  * Seed AgencyClient data for initial CSV generation
-
-OPTIONAL ENHANCEMENTS:
-- Additional blog silo expansion
-- VideoObject schema for case study walkthroughs
-- GBP citation campaign (off-site)
-- Production conversion label validation at build time
+Factory / ads automation:
+- FASTAPI_SERVICE_URL
+- INTERNAL_API_KEY
+- FACTORY_ADMIN_SECRET
+- STRIPE_SECRET_KEY
+- STRIPE_WEBHOOK_SECRET
 
 ================================================================================
                          KEY FILE REFERENCE
 ================================================================================
 
-CONFIG:
-  next.config.mjs ........ redirects, CSP, cache headers, image config
-  tailwind.config.ts ..... charcoal + accent orange tokens
-  src/proxy.ts ........... crawler proxy middleware
-  src/app/robots.ts ...... AI bots + KML sitemaps
-  src/app/sitemap.ts ..... dynamic sitemap generation
+Root:
+- PROJECT_SUMMARY.txt:
+  This file.
+- README.md:
+  Repository readme.
+- package.json:
+  Scripts and dependencies.
+- next.config.mjs:
+  Next.js configuration, headers, redirects, image config, cache policy.
+- tailwind.config.ts:
+  Tailwind configuration.
 
-SEO CORE:
-  src/lib/seo.ts ......... buildMetadata, schemas, BASE_URL, ORG_ID, WIKIDATA
-  src/lib/google-ads-services.ts ... geo-spoke page configs
-  src/lib/hub-links.ts ... hub-spoke link registry
+SEO and AEO:
+- src/lib/seo.ts:
+  Metadata builders, schema IDs, schema nodes, city helpers, WIKIDATA mapping.
+- src/proxy.ts:
+  Edge crawler firewall, normalization, rendering, cache, and trap logic.
+- src/app/robots.ts:
+  Robots and AI crawler policy.
+- src/app/sitemap.ts:
+  Dynamic sitemap.
+- scripts/seo/gsc_canonical_diff.mjs:
+  GSC URL Inspection canonical parity CI checker.
+- scripts/seo/compile_llms.mjs:
+  llms.txt and llms-full.txt compiler.
+- public/llms.txt:
+  Concise Answer Engine file.
+- public/llms-full.txt:
+  Expanded Answer Engine file.
 
-BLOG:
-  src/lib/blog/posts.ts .. post registry + unstable_cache
-  src/lib/blog/content/ .. silo content components
+Forms / APIs:
+- src/app/api/contact/route.ts:
+  Contact/audit form backend.
+- src/app/contact/ContactForm.tsx:
+  Contact form component.
+- src/components/sections/AuditForm.tsx:
+  Audit request form component.
+- src/lib/rate-limit.ts:
+  In-memory request limiter.
 
-API & SECURITY:
-  src/app/api/contact/route.ts ... hardened form handler
-  src/lib/rate-limit.ts .......... in-memory IP rate limiter
-  src/app/api/factory/generate/route.ts ... Next.js→FastAPI CSV bridge
-  src/lib/prisma.ts ............... Prisma singleton
+Content:
+- src/app/page.tsx:
+  Homepage.
+- src/components/sections/:
+  Homepage sections.
+- src/components/blog/blog-prose.tsx:
+  Blog prose components and HtmlRAG semantics.
+- src/lib/blog/posts.ts:
+  Blog metadata registry.
+- src/lib/blog/content/:
+  Blog content silo components.
+- src/lib/google-ads-services.ts:
+  Programmatic Google Ads service page configuration.
 
-FORMS:
-  src/components/sections/AuditForm.tsx
-  src/app/contact/ContactForm.tsx
+Automation / factory:
+- src/app/api/factory/generate/route.ts:
+  Google Ads factory bridge.
+- src/lib/prisma.ts:
+  Prisma singleton.
+- prisma/schema.prisma:
+  Database schema.
+- scripts/google_ads_overlord.js:
+  Google Ads automation script.
 
-FACTORY / MICROSERVICE:
-  prisma/schema.prisma ............ multi-tenant factory schema
-  microservice/main.py ............ FastAPI CSV engine
-  microservice/requirements.txt ... service deps
-  scripts/google_ads_overlord.js .. Google Ads daily automation script
+================================================================================
+                         CURRENT OPERATIONAL NOTES
+================================================================================
 
-AUDIT DOCS:
-  PROJECT_SUMMARY.txt .......... this file
-  market-dominance-audit.txt ... 4-week execution roadmap (complete)
-  god-mode-audit.txt ............. 47-flaw security/UX audit register
-  nextjs_seo_aeo_audit_findings.txt ........ static audit output
-  nextjs_runtime_seo_aeo_findings.txt ...... runtime audit output
-  internal_link_graph_audit_findings.txt ... graph audit output
+1. There is an open draft PR for the latest Phase 4 change:
+   https://github.com/Franksmittt/endpointmedia2/pull/3
+
+2. PR #2 was merged earlier. If GitHub does not show it under open PRs, that is
+   expected because it is merged.
+
+3. Latest Phase 4 branch is pushed:
+   cursor/seo-graph-wrs-refactor-9f34
+
+4. Latest Vercel status for commit 108bf14 is success.
+
+5. Before merging Phase 4, confirm production edge platform exposes JA4 through
+   request.cf.botManagement.ja4 or one of the configured header fallbacks.
+
+6. Browser rendering is opt-in. Without BROWSER_RENDERING_ENDPOINT configured,
+   live-retrieval agents are still allowed but receive the standard Next.js HTML.
+
+7. Keep Google/Bing crawler CIDR manifests current. Static manifests are a fast
+   first-pass verifier; rDNS/forward DNS is the fallback.
 
 ================================================================================
                          MAINTENANCE REMINDERS
 ================================================================================
 
-1. Canonical: ALWAYS www.endpointmedia.co.za
-2. Schema: ALWAYS use secureJsonLD() — never raw JSON.stringify in dangerouslySetInnerHTML
-3. Metadata: ALWAYS use buildMetadata() for new pages
-4. Forms: POST /api/contact only — never commit RESEND_API_KEY
-5. Brand: use accent-* (orange) and charcoal-* — avoid new teal/cyan on money paths
-6. Blog cache purge: revalidateTag('blog') after post updates
-7. Rate limiter: upgrade to Redis before high-traffic campaigns
-8. After major deploys: verify /llms.txt, /northern-corridor.kml, robots.txt live
-9. Re-run all three SEO audits after major routing/content changes:
-   - nextjs_seo_aeo_audit.py
-   - nextjs_runtime_seo_aeo_audit.py
-   - internal_link_graph_audit.py
+1. Canonical URLs must remain on https://www.endpointmedia.co.za.
+2. Use buildMetadata() for new indexable pages.
+3. Use secureJsonLD() for all JSON-LD injection.
+4. Add new money pages to sitemap, llms compiler, and relevant hub navigation.
+5. Add new service pages to /services and update this project summary.
+6. Re-run:
+   npm run b2a:compile
+   ./node_modules/.bin/tsc --noEmit
+   npm run lint
+   npm run build
+7. For major SEO changes, rerun:
+   npm run seo:validate
+   npm run seo:graph
+   npm run seo:check
+8. For production canonical confidence, run:
+   npm run seo:gsc:canonical
+9. Verify /llms.txt, /llms-full.txt, /robots.txt, and /sitemap.xml after deploy.
+10. Never commit secrets or API keys.
 
 ================================================================================
-DOCUMENT VERSION: 5.0
-LAST UPDATED: May 30, 2026
-STATUS: Production deployed | Contact stabilized | SEO static/runtime/link audits clean
+DOCUMENT VERSION: 6.0
+LAST UPDATED: June 14, 2026
+STATUS: Production deployed | Phase 4 PR open | Enterprise SEO/AEO edge complete
 ================================================================================
                             END OF DOCUMENT
 ================================================================================
