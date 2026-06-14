@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import InternalLinks from '@/components/seo/InternalLinks';
 import {
   PageBulletGrid,
@@ -183,6 +184,34 @@ const GoogleAdsPage = () => {
           title="All the pieces required for profitable Google Ads."
         />
         <PageBulletGrid items={deliverables} />
+      </PageSection>
+
+      <PageSection tone="zinc">
+        <section data-chunk-boundary="true" className="rounded-sm border border-zinc-800 bg-black/50 p-6 md:p-8">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-8">
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
+                Elite Quantitative Trading Layer
+              </p>
+              <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
+                For large ad budgets, human-only media buying is too slow.
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-zinc-400">
+                Our Algorithmic Google Ads Trading layer treats spend like capital allocation:
+                Python bots monitor velocity, PMax waste, dead URLs, and query leakage around the
+                clock while validated agents prepare remediation payloads for safe deployment.
+              </p>
+            </div>
+            <div className="lg:col-span-4">
+              <Link
+                href="/services/algorithmic-google-ads-trading"
+                className="inline-flex w-full items-center justify-center rounded-sm bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-zinc-200"
+              >
+                View Algorithmic Trading System
+              </Link>
+            </div>
+          </div>
+        </section>
       </PageSection>
 
       <PageSection tone="zinc">

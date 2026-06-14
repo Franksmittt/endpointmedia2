@@ -36,6 +36,7 @@ const corePaths = ['/services', '/case-studies', '/blog'];
 
 const googleAdsServicePaths = [
   '/services/google-ads',
+  '/services/algorithmic-google-ads-trading',
   '/services/b2b-google-ads-management',
   '/services/performance-max-google-ads',
   '/services/google-ads-landing-pages',

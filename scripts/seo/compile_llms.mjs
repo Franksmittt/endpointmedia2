@@ -28,6 +28,7 @@ const coreSections = [
     required: true,
     links: [
       ['Google Ads Management', '/services/google-ads', 'Paid search campaign architecture, tracking, and optimization.'],
+      ['Algorithmic Google Ads Trading', '/services/algorithmic-google-ads-trading', 'Agentic remediation, budget kill-switches, Server-Side GTM, BigQuery, and Apache Arrow warehousing.'],
       ['Website Development', '/services/website-development', 'Next.js website architecture for speed, search, and conversion.'],
       ['Local SEO', '/services/local-seo', 'Local search and Google Business Profile growth system.'],
       ['Conversion Rate Optimization', '/services/conversion-rate-optimization', 'Landing-page and funnel improvements tied to lead quality.'],
@@ -38,7 +39,7 @@ const coreSections = [
     ],
     markdown: [
       '## Revenue Services',
-      'Endpoint Media builds acquisition systems rather than brochure sites. Core services include Google Ads campaign management, high-performance website development, Local SEO, conversion rate optimization, Answer Engine Optimization, AI crawler firewall management, and technical SEO edge compute for South African service businesses.',
+      'Endpoint Media builds acquisition systems rather than brochure sites. Core services include Google Ads campaign management, algorithmic paid search trading, high-performance website development, Local SEO, conversion rate optimization, Answer Engine Optimization, AI crawler firewall management, and technical SEO edge compute for South African service businesses.',
       'The architecture emphasizes canonical consistency, structured data, crawlable HTML, Core Web Vitals, JA4-aware bot controls, llms.txt pipelines, and measurable lead generation.',
     ],
   },
