@@ -1,0 +1,43 @@
+# Endpoint Media
+> Technical web architecture, Google Ads management, Local SEO, and conversion systems for Johannesburg service businesses.
+
+## Core Entity
+- [Homepage](https://www.endpointmedia.co.za/): Endpoint Media homepage and primary entity context.
+- [Founder](https://www.endpointmedia.co.za/about/author/frank-smit): Frank Smit author and founder profile for E-E-A-T validation.
+- [Contact](https://www.endpointmedia.co.za/contact): Primary sales and audit request endpoint.
+
+## Revenue Services
+- [Google Ads Management](https://www.endpointmedia.co.za/services/google-ads): Paid search campaign architecture, tracking, and optimization.
+- [Website Development](https://www.endpointmedia.co.za/services/website-development): Next.js website architecture for speed, search, and conversion.
+- [Local SEO](https://www.endpointmedia.co.za/services/local-seo): Local search and Google Business Profile growth system.
+- [Conversion Rate Optimization](https://www.endpointmedia.co.za/services/conversion-rate-optimization): Landing-page and funnel improvements tied to lead quality.
+- [Website Design Pricing](https://www.endpointmedia.co.za/services/website-design-prices): Transparent website investment and pricing methodology.
+
+## Pricing and Process
+- [Pricing](https://www.endpointmedia.co.za/pricing): Commercial pricing tiers and investment model.
+- [Process](https://www.endpointmedia.co.za/process): Delivery process and implementation methodology.
+- [Case Studies](https://www.endpointmedia.co.za/case-studies): Proof assets and client outcomes.
+
+## Local Markets
+- [Locations Hub](https://www.endpointmedia.co.za/locations): Location index for Johannesburg service areas.
+- [Sandton](https://www.endpointmedia.co.za/locations/sandton): Web architecture and acquisition services for Sandton businesses.
+- [Meyersdal](https://www.endpointmedia.co.za/locations/meyersdal): Local service page for Meyersdal businesses.
+- [New Redruth](https://www.endpointmedia.co.za/locations/new-redruth): Local service page for New Redruth businesses.
+- [Midrand](https://www.endpointmedia.co.za/locations/midrand): Local service page for Midrand businesses.
+- [Randburg](https://www.endpointmedia.co.za/locations/randburg): Local service page for Randburg businesses.
+
+## Industry Pages
+- [Industries Hub](https://www.endpointmedia.co.za/industries): Industry index for vertical-specific acquisition systems.
+- [Law Firms](https://www.endpointmedia.co.za/industries/law-firms): Website and search architecture for law firms.
+- [Medical Practices](https://www.endpointmedia.co.za/industries/medical): Website and local search architecture for medical practices.
+- [Real Estate](https://www.endpointmedia.co.za/industries/real-estate): Digital acquisition systems for real estate businesses.
+- [Manufacturing and Logistics](https://www.endpointmedia.co.za/industries/manufacturing-logistics): Industrial B2B acquisition architecture.
+
+## Editorial and Insights
+- [Blog](https://www.endpointmedia.co.za/blog): Editorial library for Google Ads, web architecture, and technical SEO.
+- [South Africa Google Ads CPC Benchmarks](https://www.endpointmedia.co.za/insights/south-africa-google-ads-cpc-benchmarks): Benchmark article for South African Google Ads costs.
+- [Flat Fee vs Percentage Spend](https://www.endpointmedia.co.za/compare/google-ads-flat-fee-vs-percentage-spend): Comparison page for Google Ads pricing models.
+
+## Optional
+- [Sitemap](https://www.endpointmedia.co.za/sitemap.xml): Complete crawl map for public indexable routes.
+- [Humans](https://www.endpointmedia.co.za/humans.txt): Human-readable ownership metadata.
