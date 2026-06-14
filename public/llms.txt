@@ -18,6 +18,7 @@
 - [Technical SEO Edge Compute](https://www.endpointmedia.co.za/services/technical-seo-edge-compute): Edge crawl traps, URL normalization, and Googlebot-safe rendering branches.
 
 ## Pricing and Process
+- [Store](https://www.endpointmedia.co.za/store): Direct checkout catalog for audits, AEO diagnostics, schema fixes, and crawl trap micro-services.
 - [Pricing](https://www.endpointmedia.co.za/pricing): Commercial pricing tiers and investment model.
 - [Process](https://www.endpointmedia.co.za/process): Delivery process and implementation methodology.
 - [Case Studies](https://www.endpointmedia.co.za/case-studies): Proof assets and client outcomes.

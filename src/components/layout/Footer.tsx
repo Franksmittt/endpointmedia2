@@ -37,6 +37,7 @@ const navigateLinks = [
   { name: 'Process', href: '/process' },
   { name: 'Case Studies', href: '/case-studies' },
   { name: 'Pricing', href: '/pricing' },
+  { name: 'Store', href: '/store' },
   { name: 'Blog', href: '/blog' },
 ];
 

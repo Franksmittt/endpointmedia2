@@ -128,6 +128,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     createEntry('/', 'weekly', 1.0),
     createEntry('/services/google-ads', 'weekly', 0.92),
     createEntry('/pricing', 'weekly', 0.9),
+    createEntry('/store', 'weekly', 0.88),
     createEntry('/services/b2b-google-ads-management', 'weekly', 0.88),
     createEntry('/blog', 'weekly', 0.85),
     createEntry('/industries/manufacturing-logistics', 'weekly', 0.86),
