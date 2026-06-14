@@ -3,7 +3,11 @@ import Link from 'next/link';
 
 /** Full-width article body wrapper — matches main site `container` sections */
 export function BlogArticleBody({ children }: { children: React.ReactNode }) {
-  return <div className="blog-article w-full max-w-none space-y-1">{children}</div>;
+  return (
+    <article className="blog-article w-full max-w-none space-y-1" data-chunk-boundary="true">
+      {children}
+    </article>
+  );
 }
 
 export function H2({ children }: { children: React.ReactNode }) {
@@ -53,10 +57,13 @@ export function Callout({
     red: 'border-l-red-500/60 border-red-800/50 bg-red-950/20',
   };
   return (
-    <div className={`mb-6 rounded-sm border border-l-4 p-6 ${styles[variant]}`}>
+    <section
+      className={`mb-6 rounded-sm border border-l-4 p-6 ${styles[variant]}`}
+      data-chunk-boundary="true"
+    >
       <h3 className="mb-3 text-lg font-semibold text-white">{title}</h3>
       <div className="text-zinc-400">{children}</div>
-    </div>
+    </section>
   );
 }
 
@@ -70,12 +77,12 @@ export function InternalLink({ href, children }: { href: string; children: React
 
 export function CodeBlock({ code, title }: { code: string; title?: string }) {
   return (
-    <div className="mb-6 overflow-hidden rounded-sm border border-zinc-800">
+    <figure className="mb-6 overflow-hidden rounded-sm border border-zinc-800">
       {title && <div className="bg-zinc-900 px-4 py-2 font-mono text-sm text-zinc-400">{title}</div>}
       <pre className="overflow-x-auto bg-black p-4 text-sm leading-relaxed text-emerald-400">
         <code>{code}</code>
       </pre>
-    </div>
+    </figure>
   );
 }
 

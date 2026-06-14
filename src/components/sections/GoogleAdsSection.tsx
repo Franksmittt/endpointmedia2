@@ -71,25 +71,33 @@ export default function GoogleAdsSection() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            {metrics.map((metric) => (
-              <div
-                key={metric.label}
-                className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-5 md:p-6"
-              >
-                <p className="text-3xl font-bold tracking-tight text-white md:text-4xl">
-                  {metric.stat}
-                </p>
-                <p className="mt-2 text-sm leading-snug text-zinc-500">{metric.label}</p>
-              </div>
-            ))}
-          </div>
+          <table className="grid grid-cols-2 gap-3" aria-label="Google Ads performance metrics">
+            <tbody className="contents">
+              {metrics.map((metric) => (
+                <tr key={metric.label} className="contents">
+                  <th scope="row" className="sr-only">
+                    {metric.label}
+                  </th>
+                  <td
+                    data-chunk-boundary="true"
+                    className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-5 md:p-6"
+                  >
+                    <p className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+                      {metric.stat}
+                    </p>
+                    <p className="mt-2 text-sm leading-snug text-zinc-500">{metric.label}</p>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
         <div className="mt-16 grid gap-4 md:grid-cols-2">
           {capabilities.map((item, index) => (
             <article
               key={item.title}
+              data-chunk-boundary="true"
               className="rounded-sm border border-zinc-800 bg-zinc-950/50 p-6"
             >
               <p className="font-mono text-xs tracking-[0.18em] text-zinc-600">

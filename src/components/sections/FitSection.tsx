@@ -81,7 +81,10 @@ export default function FitSection() {
         </div>
 
         <div className="mt-12 overflow-hidden rounded-sm border border-zinc-800 bg-zinc-900/40 lg:grid lg:grid-cols-2">
-          <article className="border-b border-zinc-800 p-8 md:p-10 lg:border-b-0 lg:border-r">
+          <article
+            data-chunk-boundary="true"
+            className="border-b border-zinc-800 p-8 md:p-10 lg:border-b-0 lg:border-r"
+          >
             <div className="mb-8 flex items-center gap-3">
               <span className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-zinc-700 bg-black">
                 <CheckIcon />
@@ -109,7 +112,7 @@ export default function FitSection() {
             </ul>
           </article>
 
-          <article className="bg-black/40 p-8 md:p-10">
+          <article data-chunk-boundary="true" className="bg-black/40 p-8 md:p-10">
             <div className="mb-8 flex items-center gap-3">
               <span className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-zinc-800 bg-zinc-950">
                 <XIcon />

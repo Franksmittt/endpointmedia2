@@ -25,7 +25,11 @@ export default function SymptomSection() {
         </p>
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {symptoms.map((symptom) => (
-            <article key={symptom.title} className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6">
+            <article
+              key={symptom.title}
+              data-chunk-boundary="true"
+              className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-6"
+            >
               <h3 className="text-xl font-semibold text-white">{symptom.title}</h3>
               <p className="mt-3 text-zinc-400">{symptom.body}</p>
             </article>
