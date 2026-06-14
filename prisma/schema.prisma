@@ -106,3 +106,23 @@ model AuditReport {
   stripeSessionId String?
   createdAt       DateTime @default(now())
 }
+
+/// Idempotent Paystack fulfillment records for store purchases.
+model StorePayment {
+  id            String   @id @default(cuid())
+  reference     String   @unique
+  event         String
+  status        String?
+  amount        Int?
+  currency      String?
+  productSlug   String?
+  productName   String?
+  customerEmail String?
+  rawPayload    Json
+  processedAt   DateTime @default(now())
+  createdAt     DateTime @default(now())
+
+  @@index([event])
+  @@index([productSlug])
+  @@index([customerEmail])
+}
