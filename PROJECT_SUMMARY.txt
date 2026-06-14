@@ -243,6 +243,9 @@ DIRECT STORE / AUDIT PRODUCTS:
   R4,500 JSON-LD @graph rewrite with absolute fragment IDs.
 - Edge-Level Crawl Trap Fix:
   R6,000 Edge/CDN regex remediation for infinite URL loops.
+- Store checkout:
+  Store products use Paystack South Africa inline checkout for ZAR payments,
+  preserving SPA state and avoiding Stripe cross-border/DCC flows.
 
 PUBLIC PRICING MODEL:
 - Website architecture:
@@ -282,7 +285,8 @@ Styling and UI:
 Data, APIs, and automation:
 - Prisma / @prisma/client.
 - Resend for email delivery.
-- Stripe.
+- Paystack South Africa for store checkout.
+- Stripe legacy report-unlock flow retained in code, not used by store products.
 - BullMQ and ioredis.
 - Cheerio.
 - Playwright Core.
@@ -603,9 +607,12 @@ PRIVATE / API ROUTES:
 - /api/indexnow:
   Authenticated IndexNow submission endpoint.
 - /api/checkout:
-  Stripe checkout endpoint.
+  Report-unlock POST checkout endpoint. Store products no longer use Stripe.
+- /api/webhook/paystack:
+  Paystack fulfillment webhook using raw-body HMAC SHA512 verification and
+  StorePayment reference idempotency.
 - /api/webhook/stripe:
-  Stripe webhook endpoint.
+  Legacy Stripe webhook endpoint retained only for existing non-store flows.
 - /api/factory/generate:
   Google Ads factory CSV generation bridge.
 - /api/vicious-audit/run:
@@ -660,6 +667,8 @@ Core:
 - RESEND_API_KEY
 - RESEND_FROM_EMAIL
 - CONTACT_TO_EMAIL
+- NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY
+- PAYSTACK_SECRET_KEY
 
 Analytics / Ads:
 - NEXT_PUBLIC_GA_ID
@@ -687,8 +696,6 @@ Factory / ads automation:
 - FASTAPI_SERVICE_URL
 - INTERNAL_API_KEY
 - FACTORY_ADMIN_SECRET
-- STRIPE_SECRET_KEY
-- STRIPE_WEBHOOK_SECRET
 
 ================================================================================
                          KEY FILE REFERENCE
