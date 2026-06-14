@@ -47,7 +47,7 @@ export const ORGANIZATION_SCHEMA = {
   url: BASE_URL,
   logo: LOGO_IMAGE,
   description: "Endpoint Media builds high-performance, lead-generating websites for Johannesburg service businesses.",
-  founder: { "@type": "Person", "@id": FRANK_SMIT_ID },
+  founder: { "@id": FRANK_SMIT_ID },
   address: {
     "@type": "PostalAddress",
     addressLocality: "Johannesburg",
