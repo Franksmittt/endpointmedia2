@@ -140,6 +140,21 @@ const caseStudies: CaseStudy[] = [
       'Passive browsers become qualified prospects through calculator-led diagnostics. Every enquiry arrives with intent context, compliance trust is established before the first consultation, and the pipeline is measurable from first click to CRM handoff.',
     services: ['Calculator Funnels', 'CRM Integration', 'Compliance UX'],
   },
+  {
+    name: 'VNR Professional Accountants',
+    slug: 'vnr-professional-accountants',
+    websiteUrl: 'https://vnr.co.za/',
+    industry: 'Professional Accountants',
+    market: 'South Africa',
+    headline: 'Turning accounting expertise into a clear advisory growth platform.',
+    problem:
+      'VNR needed a public website that communicated more than accounting compliance. Their positioning had to reflect sustainable wealth, relevant knowledge, technology, business growth, profit, cash flow, tax, asset protection, and legacy planning without overwhelming prospects.',
+    solution:
+      'We structured the site around outcome-led advisory themes, clean trust-building messaging, and a direct path to the live VNR website. The architecture frames VNR as a business growth and wealth partner, not a commodity accounting provider.',
+    outcome:
+      'Readers can now understand the firm value quickly and navigate directly to https://vnr.co.za/ from the case study. The live site gives VNR a stronger digital presence for prospects evaluating professional accounting and advisory support.',
+    services: ['Professional Services UX', 'Advisory Positioning', 'Conversion Path'],
+  },
 ];
 
 const engagementPattern = [
@@ -166,7 +181,7 @@ const engagementPattern = [
 ];
 
 const proofMetrics = [
-  { stat: '7', label: 'Industries transformed: automotive, B2B, luxury, finance' },
+  { stat: '8', label: 'Industries transformed: automotive, B2B, luxury, finance' },
   { stat: '100/100', label: 'Core Web Vitals targets on Next.js builds' },
   { stat: 'Map Pack', label: 'Local SEO wins across Gauteng service territories' },
   { stat: 'Daily', label: 'Lead flow reported post-launch by service clients' },

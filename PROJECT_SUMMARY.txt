@@ -497,6 +497,10 @@ CASE STUDY PAGES:
   Case study for Alberton Tyre Clinic and local automotive search visibility.
 - /case-studies/as-brokers:
   Case study for AS Brokers and financial/professional services positioning.
+- /case-studies/vnr-professional-accountants:
+  Case study for VNR Professional Accountants, focused on accounting advisory
+  positioning, sustainable wealth, business growth, cash flow, tax, asset
+  protection, legacy planning, and direct navigation to https://vnr.co.za/.
 - /case-studies/maverick-painting-contractors:
   Case study for a painting contractor and service-area lead generation.
 - /case-studies/qj-paint-world:

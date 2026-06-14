@@ -8,6 +8,7 @@ const caseStudies = [
   { name: 'QJ Paint World', href: '/case-studies/qj-paint-world' },
   { name: 'Sakana no Ichi', href: '/case-studies/sakana-no-ichi' },
   { name: 'AS Brokers', href: '/case-studies/as-brokers' },
+  { name: 'VNR Professional Accountants', href: '/case-studies/vnr-professional-accountants' },
 ];
 
 export default function ProofBar() {
