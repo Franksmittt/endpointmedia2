@@ -6,7 +6,7 @@ const CRAWLER_UA =
 const BLOCKING_RENDER_CRAWLER_UA =
   /Googlebot|Google-InspectionTool|AdsBot-Google|bingbot|BingPreview/i;
 const HIGH_VALUE_VERIFIED_BOT_UA = /Googlebot|Google-InspectionTool|bingbot|BingPreview/i;
-const LIVE_RETRIEVAL_AGENT_UA = /OAI-SearchBot|PerplexityBot|ChatGPT-User/i;
+const LIVE_RETRIEVAL_AGENT_UA = /OAI-SearchBot|PerplexityBot|ChatGPT-User|Claude-Web/i;
 const TRAINING_SCRAPER_UA = /GPTBot|CCBot|FacebookBot/i;
 const BOT_LIKE_UA = /bot|crawler|spider|scrape|slurp|preview|fetch|ai|gpt|perplexity|chatgpt/i;
 const TRAILING_ANOMALY_RE = /[&%$]+$/;
@@ -20,6 +20,20 @@ const SPELLCHECK_CONFIDENCE_THRESHOLD = 0.85;
 const RATE_LIMIT_CAPACITY = 20;
 const RATE_LIMIT_REFILL_PER_SECOND = 0.25;
 const DNS_CACHE_TTL_MS = 1000 * 60 * 60;
+const AEO_RENDER_CACHE_CONTROL = 'public, s-maxage=3600, stale-while-revalidate=86400';
+const BROWSER_RENDERING_ENDPOINT =
+  process.env.BROWSER_RENDERING_ENDPOINT ??
+  process.env.CLOUDFLARE_BROWSER_RENDERING_ENDPOINT ??
+  '';
+const BROWSER_RENDERING_TOKEN =
+  process.env.BROWSER_RENDERING_TOKEN ??
+  process.env.CLOUDFLARE_BROWSER_RENDERING_TOKEN ??
+  '';
+
+const HEADLESS_AUTOMATION_JA4_BLOCKLIST = new Set([
+  't13d1516h2_8daaf6152771_e5627efa2ab1',
+  't13d1516h2_8daaf6152771_b44b8a2a8848',
+]);
 
 type CrawlerFamily = 'google' | 'bing';
 type BotVerification =
@@ -33,6 +47,14 @@ type BotVerification =
 type TokenBucket = {
   tokens: number;
   updatedAt: number;
+};
+
+type CloudflareRequestContext = {
+  cf?: {
+    botManagement?: {
+      ja4?: string;
+    };
+  };
 };
 
 const tokenBuckets = new Map<string, TokenBucket>();
@@ -130,6 +152,79 @@ function getClientIp(request: NextRequest) {
     forwardedFor ??
     ''
   );
+}
+
+function getJa4Fingerprint(request: NextRequest) {
+  const cfJa4 = (request as NextRequest & CloudflareRequestContext).cf?.botManagement?.ja4;
+  return (
+    cfJa4 ??
+    request.headers.get('cf-ja4') ??
+    request.headers.get('x-ja4') ??
+    request.headers.get('x-tls-ja4') ??
+    ''
+  ).trim();
+}
+
+function isHeadlessAutomationJa4(request: NextRequest) {
+  const ja4 = getJa4Fingerprint(request);
+  return ja4.length > 0 && HEADLESS_AUTOMATION_JA4_BLOCKLIST.has(ja4);
+}
+
+function shouldRenderForLiveAgent(request: NextRequest, verification: BotVerification) {
+  const userAgent = request.headers.get('user-agent') ?? '';
+  const accept = request.headers.get('accept') ?? '';
+
+  return (
+    BROWSER_RENDERING_ENDPOINT.length > 0 &&
+    verification.kind === 'allowed-live-agent' &&
+    LIVE_RETRIEVAL_AGENT_UA.test(userAgent) &&
+    request.method === 'GET' &&
+    !STATIC_ASSET_RE.test(request.nextUrl.pathname) &&
+    !request.headers.has('x-aeo-render-bypass') &&
+    (accept.includes('text/html') || accept.includes('*/*') || accept.length === 0)
+  );
+}
+
+async function renderStaticHtmlForAgent(request: NextRequest) {
+  const headers = new Headers({
+    'Content-Type': 'application/json',
+  });
+
+  if (BROWSER_RENDERING_TOKEN) {
+    headers.set('Authorization', `Bearer ${BROWSER_RENDERING_TOKEN}`);
+  }
+
+  const response = await fetch(BROWSER_RENDERING_ENDPOINT, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      url: request.nextUrl.toString(),
+      gotoOptions: {
+        waitUntil: 'networkidle',
+        timeout: 10000,
+      },
+      viewport: {
+        width: 1365,
+        height: 768,
+      },
+      headers: {
+        'user-agent': 'EndpointMedia-AEO-Renderer/1.0',
+        'x-aeo-render-bypass': '1',
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Browser rendering failed (${response.status})`);
+  }
+
+  const contentType = response.headers.get('content-type') ?? '';
+  if (contentType.includes('application/json')) {
+    const payload = (await response.json()) as { html?: string; content?: string };
+    return payload.html ?? payload.content ?? '';
+  }
+
+  return response.text();
 }
 
 function ipV4ToInt(ip: string) {
@@ -446,6 +541,29 @@ function findSpellcheckRedirect(pathname: string) {
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const userAgent = request.headers.get('user-agent') ?? '';
+  const ja4 = getJa4Fingerprint(request);
+
+  if (isHeadlessAutomationJa4(request)) {
+    console.warn(
+      JSON.stringify({
+        event: 'ja4_headless_automation_blocked',
+        ja4,
+        pathname,
+        userAgent,
+        ip: getClientIp(request) || 'unknown',
+      }),
+    );
+
+    return new NextResponse('Forbidden', {
+      status: 403,
+      headers: {
+        'Cache-Control': 'no-store',
+        'x-ai-crawler-firewall': 'ja4-headless-automation',
+        'x-ja4-verdict': 'blocked',
+      },
+    });
+  }
+
   const verification = await verifyBot(request);
   const clientIp = getClientIp(request) || 'unknown';
 
@@ -529,6 +647,32 @@ export async function proxy(request: NextRequest) {
     response.headers.set('x-seo-recovery', 'spellcheck-redirect');
     response.headers.set('x-seo-recovery-confidence', spellcheckRedirect.confidence.toFixed(3));
     return response;
+  }
+
+  if (shouldRenderForLiveAgent(request, verification)) {
+    try {
+      const staticHtml = await renderStaticHtmlForAgent(request);
+      if (staticHtml.length > 0) {
+        return new NextResponse(staticHtml, {
+          status: 200,
+          headers: {
+            'Content-Type': 'text/html; charset=utf-8',
+            'Cache-Control': AEO_RENDER_CACHE_CONTROL,
+            'x-aeo-renderer': 'serverless-browser',
+            'x-bot-verification': verification.kind,
+          },
+        });
+      }
+    } catch (error) {
+      console.warn(
+        JSON.stringify({
+          event: 'aeo_browser_rendering_failed',
+          pathname,
+          userAgent,
+          message: error instanceof Error ? error.message : 'unknown error',
+        }),
+      );
+    }
   }
 
   const requestHeaders = new Headers(request.headers);
