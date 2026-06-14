@@ -6,9 +6,9 @@ Primary service area: Johannesburg, Gauteng, South Africa, with local landing-pa
 
 ## Revenue Services
 
-Endpoint Media builds acquisition systems rather than brochure sites. Core services include Google Ads campaign management, high-performance website development, Local SEO, conversion rate optimization, and website pricing advisory for South African service businesses.
+Endpoint Media builds acquisition systems rather than brochure sites. Core services include Google Ads campaign management, high-performance website development, Local SEO, conversion rate optimization, Answer Engine Optimization, AI crawler firewall management, and technical SEO edge compute for South African service businesses.
 
-The architecture emphasizes canonical consistency, structured data, crawlable HTML, Core Web Vitals, and measurable lead generation.
+The architecture emphasizes canonical consistency, structured data, crawlable HTML, Core Web Vitals, JA4-aware bot controls, llms.txt pipelines, and measurable lead generation.
 
 ## Pricing and Process
 
@@ -38,6 +38,9 @@ The blog and insight pages provide explanatory context for paid media strategy, 
 - Local SEO: https://www.endpointmedia.co.za/services/local-seo - Local search and Google Business Profile growth system.
 - Conversion Rate Optimization: https://www.endpointmedia.co.za/services/conversion-rate-optimization - Landing-page and funnel improvements tied to lead quality.
 - Website Design Pricing: https://www.endpointmedia.co.za/services/website-design-prices - Transparent website investment and pricing methodology.
+- Answer Engine Optimization: https://www.endpointmedia.co.za/services/answer-engine-optimization-aeo - Vector-ready DOMs and Business-to-Agent llms.txt architecture.
+- AI Crawler Firewall: https://www.endpointmedia.co.za/services/ai-crawler-firewall - JA4 fingerprinting, scraper blocking, and live-retrieval allowlisting.
+- Technical SEO Edge Compute: https://www.endpointmedia.co.za/services/technical-seo-edge-compute - Edge crawl traps, URL normalization, and Googlebot-safe rendering branches.
 - Pricing: https://www.endpointmedia.co.za/pricing - Commercial pricing tiers and investment model.
 - Process: https://www.endpointmedia.co.za/process - Delivery process and implementation methodology.
 - Case Studies: https://www.endpointmedia.co.za/case-studies - Proof assets and client outcomes.

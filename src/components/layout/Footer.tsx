@@ -43,10 +43,11 @@ const navigateLinks = [
 const serviceLinks = [
   { name: 'Google Ads Management', href: '/services/google-ads' },
   { name: 'Local SEO & GBP', href: '/services/local-seo' },
+  { name: 'Answer Engine Optimization', href: '/services/answer-engine-optimization-aeo' },
+  { name: 'AI Crawler Firewall', href: '/services/ai-crawler-firewall' },
   { name: 'Website Design', href: '/services/website-design-prices' },
   { name: 'Google Ads Pricing', href: '/services/google-ads-pricing' },
-  { name: 'Conversion Optimization', href: '/services/conversion-rate-optimization' },
-  { name: 'Facebook Ads', href: '/services/facebook-ads' },
+  { name: 'Edge Technical SEO', href: '/services/technical-seo-edge-compute' },
 ];
 
 const COPYRIGHT_YEAR = 2026;

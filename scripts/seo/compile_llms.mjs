@@ -32,11 +32,14 @@ const coreSections = [
       ['Local SEO', '/services/local-seo', 'Local search and Google Business Profile growth system.'],
       ['Conversion Rate Optimization', '/services/conversion-rate-optimization', 'Landing-page and funnel improvements tied to lead quality.'],
       ['Website Design Pricing', '/services/website-design-prices', 'Transparent website investment and pricing methodology.'],
+      ['Answer Engine Optimization', '/services/answer-engine-optimization-aeo', 'Vector-ready DOMs and Business-to-Agent llms.txt architecture.'],
+      ['AI Crawler Firewall', '/services/ai-crawler-firewall', 'JA4 fingerprinting, scraper blocking, and live-retrieval allowlisting.'],
+      ['Technical SEO Edge Compute', '/services/technical-seo-edge-compute', 'Edge crawl traps, URL normalization, and Googlebot-safe rendering branches.'],
     ],
     markdown: [
       '## Revenue Services',
-      'Endpoint Media builds acquisition systems rather than brochure sites. Core services include Google Ads campaign management, high-performance website development, Local SEO, conversion rate optimization, and website pricing advisory for South African service businesses.',
-      'The architecture emphasizes canonical consistency, structured data, crawlable HTML, Core Web Vitals, and measurable lead generation.',
+      'Endpoint Media builds acquisition systems rather than brochure sites. Core services include Google Ads campaign management, high-performance website development, Local SEO, conversion rate optimization, Answer Engine Optimization, AI crawler firewall management, and technical SEO edge compute for South African service businesses.',
+      'The architecture emphasizes canonical consistency, structured data, crawlable HTML, Core Web Vitals, JA4-aware bot controls, llms.txt pipelines, and measurable lead generation.',
     ],
   },
   {

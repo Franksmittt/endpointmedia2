@@ -252,6 +252,76 @@ export default function GrowthRescuePage() {
         </div>
       </section>
 
+      {/* Enterprise Rendering & AEO Audit */}
+      <section data-chunk-boundary="true" className="py-20 md:py-28 bg-black border-t border-zinc-800">
+        <div className="container mx-auto px-6">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-5">
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
+                Enterprise Rendering & AEO Audit
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
+                Invisible rendering failures can erase organic traffic before rankings move.
+              </h2>
+            </div>
+            <div className="lg:col-span-7">
+              <p className="text-lg leading-relaxed text-zinc-400">
+                Growth stalls are not always media problems. We use CI/CD QA architecture to expose
+                hidden technical failures: server/client hydration mismatches, WRS payload limit
+                breaches, delayed primary text, broken JSON-LD graph relationships, and pages that
+                answer engines cannot chunk or cite reliably.
+              </p>
+              <div className="mt-8 overflow-hidden rounded-sm border border-zinc-800">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-zinc-950">
+                    <tr>
+                      <th className="px-4 py-3 font-semibold text-white">Failure Mode</th>
+                      <th className="px-4 py-3 font-semibold text-white">Revenue Impact</th>
+                      <th className="px-4 py-3 font-semibold text-white">Rescue Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-t border-zinc-800">
+                      <th scope="row" className="px-4 py-4 align-top font-semibold text-zinc-100">
+                        Hydration mismatch
+                      </th>
+                      <td className="px-4 py-4 align-top text-zinc-500">
+                        Googlebot sees unstable DOM and drops critical text or schema context.
+                      </td>
+                      <td className="px-4 py-4 align-top text-zinc-500">
+                        Deterministic server output, client-boundary isolation, and static skeletons.
+                      </td>
+                    </tr>
+                    <tr className="border-t border-zinc-800">
+                      <th scope="row" className="px-4 py-4 align-top font-semibold text-zinc-100">
+                        WRS payload breach
+                      </th>
+                      <td className="px-4 py-4 align-top text-zinc-500">
+                        Crawlers time out before primary content, canonicals, or structured data settle.
+                      </td>
+                      <td className="px-4 py-4 align-top text-zinc-500">
+                        HTML payload audits, script deferral, and bot-specific blocking render paths.
+                      </td>
+                    </tr>
+                    <tr className="border-t border-zinc-800">
+                      <th scope="row" className="px-4 py-4 align-top font-semibold text-zinc-100">
+                        AEO extraction drift
+                      </th>
+                      <td className="px-4 py-4 align-top text-zinc-500">
+                        ChatGPT, Claude, or Perplexity misread services, pricing, and proof.
+                      </td>
+                      <td className="px-4 py-4 align-top text-zinc-500">
+                        HtmlRAG chunk boundaries, llms.txt pipeline, and flattened schema graph repair.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-zinc-950 text-white border-t border-zinc-800">
         <div className="container mx-auto px-6 text-center">

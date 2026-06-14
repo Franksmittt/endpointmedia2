@@ -74,6 +74,9 @@ const webPackages = [
       'Custom integrations and automation systems',
       'Multi-location and suburb expansion architecture',
       'Advanced analytics and conversion optimization',
+      'Business-to-Agent (llms.txt) Pipeline',
+      'HtmlRAG Semantic Chunking',
+      'Edge-Level Crawl Traps',
       '120-day comprehensive strategy, build, and scale',
       'Ongoing strategic partnership and optimization',
     ],
@@ -149,7 +152,8 @@ const maintenancePricing = [
   {
     name: 'Enterprise',
     price: 'R2,500 / month',
-    detail: 'Unlimited minor updates · SEO monitoring · dedicated support',
+    detail:
+      'Unlimited minor updates · SEO monitoring · Active AI Firewall Management & GSC Edge Telemetry · dedicated support',
   },
 ];
 
