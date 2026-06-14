@@ -22,6 +22,7 @@ import {
   WEBSITE_ID,
   HOMEPAGE_ID,
   HOMEPAGE_FAQ_ID,
+  ROOT_SCHEMA_NODES,
   buildMetadata,
 } from '@/lib/seo';
 
@@ -115,6 +116,7 @@ const homepageFaqSchema = {
 const homepageGraphSchema = {
   "@context": "https://schema.org",
   "@graph": [
+    ...ROOT_SCHEMA_NODES,
     homepageSchema,
     homepageFaqSchema,
   ],
