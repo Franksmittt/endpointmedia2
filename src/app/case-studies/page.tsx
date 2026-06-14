@@ -155,6 +155,21 @@ const caseStudies: CaseStudy[] = [
       'Readers can now understand the firm value quickly and navigate directly to https://vnr.co.za/ from the case study. The live site gives VNR a stronger digital presence for prospects evaluating professional accounting and advisory support.',
     services: ['Professional Services UX', 'Advisory Positioning', 'Conversion Path'],
   },
+  {
+    name: 'Vaalpenskraal Game Reserve',
+    slug: 'vaalpenskraal-game-reserve',
+    websiteUrl: 'https://www.vaalpenskraalhunts.co.za/',
+    industry: 'Hunting Estate',
+    market: 'Waterberg, Limpopo',
+    headline: 'Turning a premium fair-chase hunting estate into a practical enquiry platform.',
+    problem:
+      'Vaalpenskraal needed a site that respected the seriousness of PH-led fair-chase hunting while giving hunters practical information about the quarry roster, camp accommodation, Vark Kraal hospitality, and enquiry process.',
+    solution:
+      'We structured a Next.js App Router marketing site around editorial positioning, generated species detail routes, lodge and camp education, gallery storytelling, and mailto-based reserve/contact enquiry flows that keep date submissions framed as requests rather than confirmed bookings.',
+    outcome:
+      'The live site gives hunters a fast route into the estate story, species roster, lodge details, and planning conversation while preserving factual discipline around hunting, hospitality, and enquiry expectations.',
+    services: ['Next.js Static Export', 'Species Architecture', 'Enquiry UX'],
+  },
 ];
 
 const engagementPattern = [
@@ -181,7 +196,7 @@ const engagementPattern = [
 ];
 
 const proofMetrics = [
-  { stat: '8', label: 'Industries transformed: automotive, B2B, luxury, finance' },
+  { stat: '9', label: 'Industries transformed: automotive, B2B, luxury, finance, tourism' },
   { stat: '100/100', label: 'Core Web Vitals targets on Next.js builds' },
   { stat: 'Map Pack', label: 'Local SEO wins across Gauteng service territories' },
   { stat: 'Daily', label: 'Lead flow reported post-launch by service clients' },

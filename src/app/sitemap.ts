@@ -111,6 +111,7 @@ const caseStudySlugs = [
   'rhino-panel-beaters',
   'sakana-no-ichi',
   'vnr-professional-accountants',
+  'vaalpenskraal-game-reserve',
 ];
 
 function dedupeSitemap(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {

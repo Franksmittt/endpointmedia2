@@ -241,6 +241,21 @@ export function getCaseStudyHubLinks(slug: string): HubLink[] {
     });
   }
 
+  if (slug === 'vaalpenskraal-game-reserve') {
+    links.unshift(
+      {
+        href: '/services/website-development',
+        title: 'Tourism Website Development',
+        description: 'Editorial static sites for premium destinations and estates.',
+      },
+      {
+        href: '/services/local-seo',
+        title: 'Local SEO & Discovery',
+        description: 'Search architecture for regional destination businesses.',
+      },
+    );
+  }
+
   links.push(...CORE_HUB_LINKS.slice(0, 2));
 
   return links;
@@ -297,6 +312,12 @@ export const CASE_STUDY_SEO: Record<
     headline: 'VNR Professional Accountants: Advisory Positioning & Conversion Path',
     description:
       'How Endpoint Media positioned VNR Professional Accountants around sustainable wealth, business growth, cash flow, tax, asset protection, and legacy planning.',
+    datePublished: '2026-06-14',
+  },
+  'vaalpenskraal-game-reserve': {
+    headline: 'Vaalpenskraal Game Reserve: Premium Waterberg Hunting Website',
+    description:
+      'How Endpoint Media built a static Next.js marketing and enquiry site for a PH-led fair-chase hunting estate in the Waterberg, Limpopo.',
     datePublished: '2026-06-14',
   },
 };
