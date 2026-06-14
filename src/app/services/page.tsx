@@ -269,6 +269,14 @@ const serviceCategories: ServiceCategory[] = [
         badge: 'Pricing',
       },
       {
+        title: 'Algorithmic Paid Search & Autonomous Google Ads Trading',
+        description:
+          'AI and Python-driven Google Ads trading infrastructure with 24/7 defense shields, Server-Side GTM data sovereignty, BigQuery/Apache Arrow warehousing, and agentic remediation.',
+        href: '/services/algorithmic-google-ads-trading',
+        price: 'R35,000+ / mo',
+        badge: 'Algorithmic',
+      },
+      {
         title: 'Manufacturing Google Ads',
         description:
           'Industrial B2B lead generation for Gauteng manufacturers and logistics operators. High-CPC verticals managed with Quality Score engineering.',

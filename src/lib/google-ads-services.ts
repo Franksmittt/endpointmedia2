@@ -31,6 +31,7 @@ const defaultRelated = [
 
 export const googleAdsHubPaths = [
   '/services/google-ads',
+  '/services/algorithmic-google-ads-trading',
   '/services/b2b-google-ads-management',
   '/services/performance-max-google-ads',
   '/services/google-ads-landing-pages',
@@ -273,6 +274,17 @@ export const googleAdsPages: Record<string, GoogleAdsPageConfig> = {
         price: 'R22,000+ / month',
         spend: 'R50,001+ ad spend',
         features: ['Full stack', 'Weekly calls', 'Continuous CRO'],
+      },
+      {
+        name: 'Algorithmic Enterprise',
+        price: 'R35,000+ / month',
+        spend: 'R100,000+ ad spend',
+        features: [
+          '24/7 Algorithmic Defense Shields',
+          'Server-Side GTM Data Sovereignty',
+          'BigQuery & Apache Arrow Data Warehousing',
+          'Agentic Remediation Engine',
+        ],
       },
     ],
     pillars: [

@@ -42,6 +42,7 @@ const navigateLinks = [
 
 const serviceLinks = [
   { name: 'Google Ads Management', href: '/services/google-ads' },
+  { name: 'Algorithmic Google Ads', href: '/services/algorithmic-google-ads-trading' },
   { name: 'Local SEO & GBP', href: '/services/local-seo' },
   { name: 'Answer Engine Optimization', href: '/services/answer-engine-optimization-aeo' },
   { name: 'AI Crawler Firewall', href: '/services/ai-crawler-firewall' },

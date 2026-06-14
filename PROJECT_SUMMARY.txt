@@ -169,6 +169,10 @@ GOOGLE ADS AND PAID SEARCH:
 - Google Ads Management Hub:
   Search, Performance Max, Local, conversion tracking, landing-page alignment,
   and optimization.
+- Algorithmic Paid Search and Autonomous Google Ads Trading:
+  AI/Python trading infrastructure with Agentic Remediation Engine, Pydantic
+  Firewall, 24/7 defense shields, Server-Side GTM data sovereignty, BigQuery,
+  Apache Arrow warehousing, and trading-desk reporting.
 - B2B Google Ads Management:
   Flat-fee paid search for B2B operators with pipeline, CPA, and ROAS reporting.
 - Performance Max and Local Ads:
@@ -391,6 +395,10 @@ SERVICE PAGES:
 GOOGLE ADS SERVICE PAGES:
 - /services/google-ads:
   Main Google Ads management hub.
+- /services/algorithmic-google-ads-trading:
+  Autonomous Google Ads trading page for agentic remediation, Pydantic
+  validation, 24/7 defense shields, server-side attribution, BigQuery/Apache
+  Arrow warehousing, and fintech reporting interfaces.
 - /services/b2b-google-ads-management:
   B2B paid search service with flat-fee management and pipeline reporting.
 - /services/performance-max-google-ads:

@@ -8,6 +8,7 @@
 
 ## Revenue Services
 - [Google Ads Management](https://www.endpointmedia.co.za/services/google-ads): Paid search campaign architecture, tracking, and optimization.
+- [Algorithmic Google Ads Trading](https://www.endpointmedia.co.za/services/algorithmic-google-ads-trading): Agentic remediation, budget kill-switches, Server-Side GTM, BigQuery, and Apache Arrow warehousing.
 - [Website Development](https://www.endpointmedia.co.za/services/website-development): Next.js website architecture for speed, search, and conversion.
 - [Local SEO](https://www.endpointmedia.co.za/services/local-seo): Local search and Google Business Profile growth system.
 - [Conversion Rate Optimization](https://www.endpointmedia.co.za/services/conversion-rate-optimization): Landing-page and funnel improvements tied to lead quality.

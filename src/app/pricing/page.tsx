@@ -136,6 +136,12 @@ const googleAdsPricing = [
     price: 'R22,000+ / month',
     detail: 'R50,001+ ad spend · full stack · weekly strategy · dedicated lead',
   },
+  {
+    name: 'Algorithmic Enterprise',
+    price: 'R35,000+ / month',
+    detail:
+      'R100,000+ ad spend · 24/7 Algorithmic Defense Shields · Server-Side GTM Data Sovereignty · BigQuery & Apache Arrow Data Warehousing · Agentic Remediation Engine',
+  },
 ];
 
 const maintenancePricing = [
