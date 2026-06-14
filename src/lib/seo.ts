@@ -19,24 +19,17 @@ export function secureJsonLD(data: object): string {
 }
 
 /**
- * Canonical organization ID for knowledge graph linking
- * CRITICAL: Must match BASE_URL (use www for consistency)
- */
-export const ORG_ID = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za'}/#organization`;
-
-/**
- * Canonical person ID for Frank Smit (E-E-A-T)
- * CRITICAL: Must match BASE_URL (use www for consistency)
- */
-export const FRANK_SMIT_ID = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za'}/about/author/frank-smit#person`;
-
-/**
- * Base URL for the site
- * Uses environment variable if available, falls back to hardcoded value
- * IMPORTANT: Set NEXT_PUBLIC_BASE_URL in production for canonical consistency
- * CRITICAL: Always use www version (www.endpointmedia.co.za) as canonical
+ * Base URL and canonical schema IDs for knowledge graph linking.
+ * CRITICAL: Always use the www version (www.endpointmedia.co.za) as canonical.
  */
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.endpointmedia.co.za';
+
+export const ORG_ID = `${BASE_URL}/#organization`;
+export const WEBSITE_ID = `${BASE_URL}/#website`;
+export const LOCAL_BUSINESS_ID = `${BASE_URL}/#localbusiness`;
+export const HOMEPAGE_ID = `${BASE_URL}/#webpage`;
+export const HOMEPAGE_FAQ_ID = `${BASE_URL}/#faq`;
+export const FRANK_SMIT_ID = `${BASE_URL}/about/author/frank-smit#person`;
 
 /** Crawlable brand assets used by metadata and schema. */
 export const DEFAULT_OG_IMAGE = `${BASE_URL}/opengraph-image`;

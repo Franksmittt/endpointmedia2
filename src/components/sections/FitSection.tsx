@@ -64,7 +64,7 @@ function XIcon() {
 
 export default function FitSection() {
   return (
-    <section className="bg-zinc-950 py-20 md:py-28">
+    <section data-chunk-boundary="true" className="bg-zinc-950 py-20 md:py-28">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">

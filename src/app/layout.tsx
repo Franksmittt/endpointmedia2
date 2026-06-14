@@ -9,6 +9,8 @@ import { WebVitals } from "@/components/analytics/web-vitals";
 import {
   secureJsonLD,
   ORG_ID,
+  WEBSITE_ID,
+  LOCAL_BUSINESS_ID,
   FRANK_SMIT_ID,
   BASE_URL,
   GBP_MAPS_URL,
@@ -129,9 +131,7 @@ export default async function RootLayout({
   );
   const primaryTagId = GA_ID || GOOGLE_ADS_ID;
   const gtagConfig = trackingIds.map((id) => `gtag('config', '${id}');`).join("\n");
-  // JSON-LD Structured Data for Organization & LocalBusiness
   const organizationSchema = {
-    "@context": "https://schema.org",
     "@type": "Organization",
     "@id": ORG_ID,
     name: "Endpoint Media",
@@ -204,9 +204,8 @@ export default async function RootLayout({
   };
 
   const localBusinessSchema = {
-    "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${BASE_URL}/#localbusiness`,
+    "@id": LOCAL_BUSINESS_ID,
     name: "Endpoint Media",
     image: LOGO_IMAGE,
     description: "Professional web design and local SEO services for Johannesburg businesses",
@@ -258,9 +257,8 @@ export default async function RootLayout({
   };
 
   const websiteSchema = {
-    "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${BASE_URL}/#website`,
+    "@id": WEBSITE_ID,
     url: BASE_URL,
     name: "Endpoint Media",
     description: "Web Design Johannesburg | High-Performance Websites That Generate Revenue",
@@ -270,7 +268,6 @@ export default async function RootLayout({
   };
 
   const frankSmitSchema = {
-    "@context": "https://schema.org",
     "@type": "Person",
     "@id": FRANK_SMIT_ID,
     name: "Frank Smit",
@@ -312,6 +309,16 @@ export default async function RootLayout({
     ],
   };
 
+  const rootSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      organizationSchema,
+      localBusinessSchema,
+      websiteSchema,
+      frankSmitSchema,
+    ],
+  };
+
   return (
     <html
       lang="en-ZA"
@@ -324,19 +331,7 @@ export default async function RootLayout({
         {/* JSON-LD Structured Data - Secured with XSS protection */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: secureJsonLD(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: secureJsonLD(localBusinessSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: secureJsonLD(websiteSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: secureJsonLD(frankSmitSchema) }}
+          dangerouslySetInnerHTML={{ __html: secureJsonLD(rootSchema) }}
         />
       </head>
       <body className="bg-black font-sans text-zinc-300 antialiased">

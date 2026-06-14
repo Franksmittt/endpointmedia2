@@ -49,9 +49,9 @@ const serviceLinks = [
   { name: 'Facebook Ads', href: '/services/facebook-ads' },
 ];
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+const COPYRIGHT_YEAR = 2026;
 
+const Footer = () => {
   return (
     <footer className="border-t border-zinc-800 bg-black text-zinc-400">
       <div className="container mx-auto px-6 py-16 md:py-20">
@@ -144,7 +144,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-zinc-800 pt-8 text-xs text-zinc-600 md:flex-row md:items-center md:justify-between">
-          <p>&copy; {currentYear} Endpoint Media. All rights reserved.</p>
+          <p>&copy; {COPYRIGHT_YEAR} Endpoint Media. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link href="/privacy-policy" className="transition-colors hover:text-zinc-400">
               Privacy Policy

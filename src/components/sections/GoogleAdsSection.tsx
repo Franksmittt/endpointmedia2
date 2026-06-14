@@ -35,7 +35,7 @@ const serviceLinks = [
 
 export default function GoogleAdsSection() {
   return (
-    <section id="google-ads" className="bg-black py-20 md:py-28">
+    <section id="google-ads" data-chunk-boundary="true" className="bg-black py-20 md:py-28">
       <div className="container mx-auto px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>

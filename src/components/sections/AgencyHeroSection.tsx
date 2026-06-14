@@ -90,7 +90,7 @@ export default function AgencyHeroSection() {
 
   return (
     <>
-      <section className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-black px-[5%] pb-12 pt-24 text-[#F5F5F7] md:pb-14 md:pt-28">
+      <section data-chunk-boundary="true" className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-black px-[5%] pb-12 pt-24 text-[#F5F5F7] md:pb-14 md:pt-28">
         <div className="pointer-events-none absolute top-0 h-[420px] w-[420px] rounded-full bg-blue-900/10 blur-[120px]" />
 
         <div className="z-10 mx-auto flex w-full max-w-5xl flex-col items-center text-center">

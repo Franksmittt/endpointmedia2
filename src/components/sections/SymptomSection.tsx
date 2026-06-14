@@ -15,7 +15,7 @@ const symptoms = [
 
 export default function SymptomSection() {
   return (
-    <section className="bg-black py-20 md:py-28">
+    <section data-chunk-boundary="true" className="bg-black py-20 md:py-28">
       <div className="container mx-auto px-6">
         <h2 className="max-w-3xl text-4xl font-bold leading-tight text-white md:text-5xl">
           Why Serious Businesses Keep Losing Visibility And Revenue

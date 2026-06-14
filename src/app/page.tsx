@@ -15,7 +15,15 @@ import Pricing from '@/components/sections/Pricing';
 import FitSection from '@/components/sections/FitSection';
 import FounderLetterSection from '@/components/sections/FounderLetterSection';
 import FinalCtaSection from '@/components/sections/FinalCtaSection';
-import { secureJsonLD, BASE_URL, buildMetadata, buildSpeakableWebPageSchema } from '@/lib/seo';
+import {
+  secureJsonLD,
+  BASE_URL,
+  ORG_ID,
+  WEBSITE_ID,
+  HOMEPAGE_ID,
+  HOMEPAGE_FAQ_ID,
+  buildMetadata,
+} from '@/lib/seo';
 
 const Audit = dynamic(() => import('@/components/sections/Audit'), {
   loading: () => <div className="min-h-[480px] animate-pulse bg-zinc-950/40" />,
@@ -39,14 +47,23 @@ export async function generateMetadata(): Promise<Metadata> {
 
 // Homepage Schema for enhanced SEO
 const homepageSchema = {
-  "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": `${BASE_URL}#webpage`,
+  "@id": HOMEPAGE_ID,
   name: "Web Design Johannesburg",
   description: "High-performance, lead-generating websites for Johannesburg service businesses",
   url: BASE_URL,
+  isPartOf: {
+    "@id": WEBSITE_ID,
+  },
+  about: {
+    "@id": ORG_ID,
+  },
   mainEntity: {
-    "@id": `${BASE_URL}#organization`,
+    "@id": HOMEPAGE_FAQ_ID,
+  },
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["#hero-headline", "#hero-summary"],
   },
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -62,9 +79,11 @@ const homepageSchema = {
 };
 
 const homepageFaqSchema = {
-  "@context": "https://schema.org",
   "@type": "FAQPage",
-  "@id": `${BASE_URL}#faq`,
+  "@id": HOMEPAGE_FAQ_ID,
+  isPartOf: {
+    "@id": HOMEPAGE_ID,
+  },
   mainEntity: [
     {
       "@type": "Question",
@@ -93,28 +112,20 @@ const homepageFaqSchema = {
   ],
 };
 
-const homepageSpeakableSchema = buildSpeakableWebPageSchema({
-  url: BASE_URL,
-  name: "Endpoint Media , Web Design Johannesburg",
-  description:
-    "Premium web architecture and local SEO for Johannesburg service businesses that need measurable lead generation.",
-  cssSelectors: ["#hero-headline", "#hero-summary"],
-});
+const homepageGraphSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    homepageSchema,
+    homepageFaqSchema,
+  ],
+};
 
 export default function HomePage() {
   return (
-    <div className="bg-black text-zinc-300">
+    <article className="bg-black text-zinc-300" data-chunk-boundary="true" aria-labelledby="hero-headline">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: secureJsonLD(homepageSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: secureJsonLD(homepageFaqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: secureJsonLD(homepageSpeakableSchema) }}
+        dangerouslySetInnerHTML={{ __html: secureJsonLD(homepageGraphSchema) }}
       />
       <AgencyHeroSection />
       <ProofBar />
@@ -126,6 +137,6 @@ export default function HomePage() {
       <Pricing />
       <FinalCtaSection />
       <Audit />
-    </div>
+    </article>
   );
 }

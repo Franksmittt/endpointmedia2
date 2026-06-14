@@ -68,7 +68,7 @@ const includedItems = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="bg-zinc-950 py-20 md:py-28">
+    <section id="pricing" data-chunk-boundary="true" className="bg-zinc-950 py-20 md:py-28">
       <div className="container mx-auto px-6">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">

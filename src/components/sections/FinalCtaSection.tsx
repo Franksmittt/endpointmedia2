@@ -1,6 +1,6 @@
 export default function FinalCtaSection() {
   return (
-    <section className="bg-black py-20 md:py-28">
+    <section data-chunk-boundary="true" className="bg-black py-20 md:py-28">
       <div className="container mx-auto px-6">
         <div className="rounded-sm border border-zinc-800 bg-zinc-950/70 p-8 text-center md:p-12">
           <h2 className="text-4xl font-bold leading-tight text-white md:text-5xl">

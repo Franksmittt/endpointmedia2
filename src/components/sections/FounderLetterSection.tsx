@@ -2,7 +2,7 @@
 
 export default function FounderLetterSection() {
   return (
-    <section className="bg-black py-20 md:py-28">
+    <section data-chunk-boundary="true" className="bg-black py-20 md:py-28">
       <div className="container mx-auto px-6">
         <div className="mb-14 flex flex-col gap-3 border-b border-zinc-800 pb-8 sm:flex-row sm:items-end sm:justify-between">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
