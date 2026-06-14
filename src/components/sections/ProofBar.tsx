@@ -14,7 +14,7 @@ export default function ProofBar() {
   const marqueeItems = [...caseStudies, ...caseStudies];
 
   return (
-    <section className="bg-zinc-950/85 py-8 md:py-10">
+    <section data-chunk-boundary="true" className="bg-zinc-950/85 py-8 md:py-10">
       <div className="container mx-auto px-6">
         <p className="mb-4 text-center text-xs font-mono uppercase tracking-[0.18em] text-zinc-500">
           Engineering Revenue Systems For

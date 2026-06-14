@@ -9,7 +9,7 @@ const deliverables = [
 
 const Audit = () => {
   return (
-    <section id="audit" className="bg-zinc-950 py-20 md:py-28">
+    <section id="audit" data-chunk-boundary="true" className="bg-zinc-950 py-20 md:py-28">
       <div className="container mx-auto px-6">
         <div className="grid items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
           <div className="flex h-full flex-col rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 sm:p-8">
