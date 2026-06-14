@@ -228,6 +228,22 @@ MAINTENANCE AND SUPPORT:
   Security updates, uptime monitoring, content updates, performance checks, SEO
   maintenance, backups, and technical support.
 
+DIRECT STORE / AUDIT PRODUCTS:
+- Small Business Visibility Check:
+  R1,500 diagnostic for Core Web Vitals, 404 links, and local map visibility.
+- Answer Engine Readiness Audit:
+  R4,500 audit for token envelopes, llms.txt compliance, and Vector-Ready DOMs.
+- 1000-Point Algorithmic QA Scorecard:
+  R7,500 headless WRS, payload, timeout, schema, and DOM drift scorecard.
+- Enterprise Edge Diagnostic:
+  R15,000+ server-log crawl trap, JA4 firewall, 410 regex, and consulting offer.
+- B2A Pipeline Setup:
+  R3,500 llms.txt and llms-full.txt setup under 128k BPE tokens.
+- Schema Graph Flattening:
+  R4,500 JSON-LD @graph rewrite with absolute fragment IDs.
+- Edge-Level Crawl Trap Fix:
+  R6,000 Edge/CDN regex remediation for infinite URL loops.
+
 PUBLIC PRICING MODEL:
 - Website architecture:
   Strategic Foundation: R25,000.
@@ -323,6 +339,9 @@ CORE PAGES:
 - /pricing:
   Public pricing page for premium website architecture packages and investment
   framing.
+- /store:
+  Direct checkout hub for technical diagnostics, audits, AEO readiness products,
+  schema fixes, B2A pipelines, and edge crawl-trap micro-services.
 - /contact:
   Contact and lead-capture page with NAP details, audit/contact form, and
   conversion routing.
