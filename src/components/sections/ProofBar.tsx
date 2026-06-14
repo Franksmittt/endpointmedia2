@@ -9,6 +9,7 @@ const caseStudies = [
   { name: 'Sakana no Ichi', href: '/case-studies/sakana-no-ichi' },
   { name: 'AS Brokers', href: '/case-studies/as-brokers' },
   { name: 'VNR Professional Accountants', href: '/case-studies/vnr-professional-accountants' },
+  { name: 'Vaalpenskraal Game Reserve', href: '/case-studies/vaalpenskraal-game-reserve' },
 ];
 
 export default function ProofBar() {

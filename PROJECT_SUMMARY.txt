@@ -501,6 +501,11 @@ CASE STUDY PAGES:
   Case study for VNR Professional Accountants, focused on accounting advisory
   positioning, sustainable wealth, business growth, cash flow, tax, asset
   protection, legacy planning, and direct navigation to https://vnr.co.za/.
+- /case-studies/vaalpenskraal-game-reserve:
+  Case study for Vaalpenskraal Game Reserve, a premium fair-chase hunting estate
+  in the Waterberg, Limpopo. Covers PH-led hunting, 22 species routes, four camp
+  chalets, Vark Kraal hospitality, mailto enquiry flows, and direct navigation
+  to https://www.vaalpenskraalhunts.co.za/.
 - /case-studies/maverick-painting-contractors:
   Case study for a painting contractor and service-area lead generation.
 - /case-studies/qj-paint-world:
