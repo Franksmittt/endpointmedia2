@@ -54,9 +54,20 @@ export default function AgencyHeroSection() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url, competitorUrl, tier: 'free' }),
       });
-      const payload = (await response.json()) as AuditApiResponse & { error?: string };
+      const raw = await response.text();
+      let payload: (AuditApiResponse & { error?: string }) | null = null;
+      if (raw) {
+        try {
+          payload = JSON.parse(raw) as AuditApiResponse & { error?: string };
+        } catch {
+          throw new Error('The server returned an invalid response. Please try again.');
+        }
+      }
       if (!response.ok) {
-        throw new Error(payload.error ?? `Audit failed (${response.status})`);
+        throw new Error(payload?.error ?? `Audit failed (${response.status})`);
+      }
+      if (!payload) {
+        throw new Error('The server returned an empty response. Please try again.');
       }
       setResult(payload);
     } catch (err) {

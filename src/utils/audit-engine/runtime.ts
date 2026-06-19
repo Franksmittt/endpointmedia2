@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+import { fetchWithTimeout } from '@/utils/audit-engine/fetch-with-timeout';
 import type { BotCheck, RuntimeChecks } from '@/utils/audit-engine/types';
 
 const BOTS = [
@@ -11,7 +12,7 @@ const BOTS = [
 
 async function getStatus(url: string): Promise<number> {
   try {
-    const res = await fetch(url, { cache: 'no-store', redirect: 'follow' });
+    const res = await fetchWithTimeout(url, { cache: 'no-store', redirect: 'follow' }, 5_000);
     return res.status;
   } catch {
     return 0;
@@ -22,7 +23,7 @@ export async function getRedirectHops(inputUrl: string): Promise<number> {
   let hops = 0;
   let current = inputUrl;
   for (let i = 0; i < 8; i += 1) {
-    const res = await fetch(current, { cache: 'no-store', redirect: 'manual' });
+    const res = await fetchWithTimeout(current, { cache: 'no-store', redirect: 'manual' }, 5_000);
     if (res.status >= 300 && res.status < 400) {
       const next = res.headers.get('location');
       if (!next) break;
@@ -39,11 +40,15 @@ async function runBotChecks(url: string): Promise<BotCheck[]> {
   const checks = await Promise.all(
     BOTS.map(async (bot): Promise<BotCheck> => {
       try {
-        const response = await fetch(url, {
-          cache: 'no-store',
-          headers: { 'User-Agent': bot.ua },
-          redirect: 'follow',
-        });
+        const response = await fetchWithTimeout(
+          url,
+          {
+            cache: 'no-store',
+            headers: { 'User-Agent': bot.ua },
+            redirect: 'follow',
+          },
+          5_000
+        );
         const blocked = response.status === 401 || response.status === 403 || response.status === 429;
         return { bot: bot.name, status: response.status, blocked };
       } catch {
@@ -63,7 +68,7 @@ export async function runRuntimeChecks(url: string): Promise<RuntimeChecks> {
     getRedirectHops(url),
   ]);
 
-  const htmlRes = await fetch(url, { cache: 'no-store', redirect: 'follow' });
+  const htmlRes = await fetchWithTimeout(url, { cache: 'no-store', redirect: 'follow' }, 10_000);
   const html = await htmlRes.text();
   const $ = cheerio.load(html);
 
