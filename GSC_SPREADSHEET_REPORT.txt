@@ -1,0 +1,728 @@
+================================================================================
+ENDPOINT MEDIA — GOOGLE SEARCH CONSOLE EXPORT REPORT
+================================================================================
+Source spreadsheet: https://docs.google.com/spreadsheets/d/1lAlUZOwoeY03R8QknfqD_3PAapZDFQV_96IMQEh3DL4/edit?usp=sharing
+Generated: 2026-06-26 17:11:12
+Total tabs exported: 7
+Tab names: Chart, Queries, Pages, Countries, Devices, Search appearance, Filters
+
+================================================================================
+TAB: FILTERS (Report Parameters)
+================================================================================
+  Filter: Value
+  Search type: Web
+  Date: Jan 1, 2026-Jun 24, 2026
+
+================================================================================
+TAB: CHART
+================================================================================
+Rows: 176 | Columns: 5
+
+Date       | Clicks | Impressions | CTR   | Position
+----------------------------------------------------
+2026-01-01 | 0      | 11          | 0.00% | 53.30   
+2026-01-02 | 0      | 5           | 0.00% | 46.80   
+2026-01-03 | 0      | 12          | 0.00% | 24.10   
+2026-01-04 | 0      | 11          | 0.00% | 71.20   
+2026-01-05 | 0      | 30          | 0.00% | 15.70   
+2026-01-06 | 0      | 16          | 0.00% | 37.20   
+2026-01-07 | 0      | 13          | 0.00% | 65.80   
+2026-01-08 | 0      | 8           | 0.00% | 62.60   
+2026-01-09 | 0      | 3           | 0.00% | 14      
+2026-01-10 | 0      | 24          | 0.00% | 49.20   
+2026-01-11 | 0      | 41          | 0.00% | 46.20   
+2026-01-12 | 0      | 18          | 0.00% | 39.10   
+2026-01-13 | 0      | 35          | 0.00% | 36.80   
+2026-01-14 | 1      | 29          | 3.45% | 42.60   
+2026-01-15 | 0      | 63          | 0.00% | 29      
+2026-01-16 | 0      | 62          | 0.00% | 41.90   
+2026-01-17 | 0      | 31          | 0.00% | 56      
+2026-01-18 | 0      | 69          | 0.00% | 46.20   
+2026-01-19 | 0      | 75          | 0.00% | 50.90   
+2026-01-20 | 0      | 59          | 0.00% | 45.50   
+2026-01-21 | 0      | 32          | 0.00% | 36.80   
+2026-01-22 | 0      | 56          | 0.00% | 50.10   
+2026-01-23 | 0      | 42          | 0.00% | 38.10   
+2026-01-24 | 0      | 42          | 0.00% | 52.30   
+2026-01-25 | 0      | 44          | 0.00% | 47.40   
+2026-01-26 | 1      | 86          | 1.16% | 33.70   
+2026-01-27 | 0      | 66          | 0.00% | 35.30   
+2026-01-28 | 0      | 72          | 0.00% | 27.40   
+2026-01-29 | 0      | 82          | 0.00% | 42.60   
+2026-01-30 | 0      | 79          | 0.00% | 40.20   
+2026-01-31 | 0      | 52          | 0.00% | 35.80   
+2026-02-01 | 0      | 41          | 0.00% | 49      
+2026-02-02 | 0      | 54          | 0.00% | 34      
+2026-02-03 | 0      | 101         | 0.00% | 43.30   
+2026-02-04 | 0      | 80          | 0.00% | 44.20   
+2026-02-05 | 0      | 53          | 0.00% | 35.20   
+2026-02-06 | 0      | 54          | 0.00% | 22.40   
+2026-02-07 | 0      | 34          | 0.00% | 23.20   
+2026-02-08 | 0      | 47          | 0.00% | 30.40   
+2026-02-09 | 0      | 51          | 0.00% | 42      
+2026-02-10 | 3      | 80          | 3.75% | 31.20   
+2026-02-11 | 1      | 60          | 1.67% | 25.40   
+2026-02-12 | 0      | 55          | 0.00% | 35.70   
+2026-02-13 | 1      | 38          | 2.63% | 35.20   
+2026-02-14 | 0      | 38          | 0.00% | 43.30   
+2026-02-15 | 0      | 61          | 0.00% | 36.10   
+2026-02-16 | 2      | 72          | 2.78% | 31.80   
+2026-02-17 | 0      | 67          | 0.00% | 32.60   
+2026-02-18 | 0      | 56          | 0.00% | 37.90   
+2026-02-19 | 0      | 56          | 0.00% | 40.40   
+2026-02-20 | 0      | 47          | 0.00% | 33.60   
+2026-02-21 | 0      | 76          | 0.00% | 27.90   
+2026-02-22 | 0      | 81          | 0.00% | 38      
+2026-02-23 | 0      | 64          | 0.00% | 36.20   
+2026-02-24 | 0      | 64          | 0.00% | 36.20   
+2026-02-25 | 1      | 57          | 1.75% | 36.20   
+2026-02-26 | 0      | 53          | 0.00% | 39.70   
+2026-02-27 | 0      | 60          | 0.00% | 29.60   
+2026-02-28 | 0      | 33          | 0.00% | 33.40   
+2026-03-01 | 0      | 50          | 0.00% | 27.60   
+2026-03-02 | 0      | 41          | 0.00% | 18.70   
+2026-03-03 | 0      | 62          | 0.00% | 35      
+2026-03-04 | 0      | 115         | 0.00% | 45.40   
+2026-03-05 | 0      | 186         | 0.00% | 39.20   
+2026-03-06 | 1      | 120         | 0.83% | 46.20   
+2026-03-07 | 1      | 121         | 0.83% | 52.60   
+2026-03-08 | 0      | 120         | 0.00% | 59.10   
+2026-03-09 | 0      | 118         | 0.00% | 54      
+2026-03-10 | 0      | 140         | 0.00% | 61.90   
+2026-03-11 | 0      | 112         | 0.00% | 52.20   
+2026-03-12 | 1      | 125         | 0.80% | 55.50   
+2026-03-13 | 1      | 123         | 0.81% | 48.70   
+2026-03-14 | 0      | 144         | 0.00% | 55.40   
+2026-03-15 | 0      | 98          | 0.00% | 59.30   
+2026-03-16 | 0      | 125         | 0.00% | 50.60   
+2026-03-17 | 0      | 139         | 0.00% | 53.70   
+2026-03-18 | 0      | 101         | 0.00% | 58      
+2026-03-19 | 0      | 97          | 0.00% | 56.80   
+2026-03-20 | 0      | 80          | 0.00% | 52.10   
+2026-03-21 | 0      | 76          | 0.00% | 49.20   
+2026-03-22 | 0      | 80          | 0.00% | 53.10   
+2026-03-23 | 0      | 75          | 0.00% | 46.30   
+2026-03-24 | 0      | 78          | 0.00% | 50.30   
+2026-03-25 | 0      | 74          | 0.00% | 50.10   
+2026-03-26 | 0      | 67          | 0.00% | 39.80   
+2026-03-27 | 0      | 61          | 0.00% | 24.70   
+2026-03-28 | 0      | 50          | 0.00% | 27.20   
+2026-03-29 | 0      | 64          | 0.00% | 30.30   
+2026-03-30 | 0      | 59          | 0.00% | 33.40   
+2026-03-31 | 0      | 66          | 0.00% | 25      
+2026-04-01 | 0      | 60          | 0.00% | 30.60   
+2026-04-02 | 0      | 60          | 0.00% | 28.10   
+2026-04-03 | 0      | 49          | 0.00% | 29.30   
+2026-04-04 | 0      | 54          | 0.00% | 29      
+2026-04-05 | 0      | 58          | 0.00% | 25.50   
+2026-04-06 | 1      | 72          | 1.39% | 17.60   
+2026-04-07 | 0      | 50          | 0.00% | 22.60   
+2026-04-08 | 0      | 54          | 0.00% | 20.40   
+2026-04-09 | 1      | 68          | 1.47% | 22.70   
+2026-04-10 | 0      | 48          | 0.00% | 26      
+2026-04-11 | 0      | 44          | 0.00% | 32.20   
+2026-04-12 | 2      | 69          | 2.90% | 27.10   
+2026-04-13 | 0      | 30          | 0.00% | 21.80   
+2026-04-14 | 2      | 55          | 3.64% | 15.10   
+2026-04-15 | 0      | 28          | 0.00% | 16.60   
+2026-04-16 | 0      | 47          | 0.00% | 19.90   
+2026-04-17 | 0      | 30          | 0.00% | 17.70   
+2026-04-18 | 2      | 30          | 6.67% | 25.10   
+2026-04-19 | 0      | 64          | 0.00% | 32.40   
+2026-04-20 | 0      | 53          | 0.00% | 36.10   
+2026-04-21 | 0      | 58          | 0.00% | 35.20   
+2026-04-22 | 1      | 68          | 1.47% | 30.60   
+2026-04-23 | 0      | 61          | 0.00% | 48.10   
+2026-04-24 | 0      | 55          | 0.00% | 62.90   
+2026-04-25 | 0      | 48          | 0.00% | 52.10   
+2026-04-26 | 0      | 60          | 0.00% | 46.30   
+2026-04-27 | 0      | 41          | 0.00% | 57.10   
+2026-04-28 | 0      | 53          | 0.00% | 35.70   
+2026-04-29 | 0      | 23          | 0.00% | 34.50   
+2026-04-30 | 1      | 65          | 1.54% | 48.20   
+2026-05-01 | 0      | 37          | 0.00% | 38.90   
+2026-05-02 | 0      | 20          | 0.00% | 59      
+2026-05-03 | 0      | 39          | 0.00% | 46.80   
+2026-05-04 | 0      | 20          | 0.00% | 36.10   
+2026-05-05 | 0      | 27          | 0.00% | 43.90   
+2026-05-06 | 0      | 23          | 0.00% | 30.90   
+2026-05-07 | 0      | 32          | 0.00% | 47.90   
+2026-05-08 | 0      | 23          | 0.00% | 42.50   
+2026-05-09 | 0      | 22          | 0.00% | 25      
+2026-05-10 | 0      | 47          | 0.00% | 41.70   
+2026-05-11 | 0      | 26          | 0.00% | 34.70   
+2026-05-12 | 0      | 47          | 0.00% | 57.40   
+2026-05-13 | 0      | 31          | 0.00% | 37.50   
+2026-05-14 | 0      | 70          | 0.00% | 34.90   
+2026-05-15 | 0      | 70          | 0.00% | 61.20   
+2026-05-16 | 1      | 77          | 1.30% | 29.60   
+2026-05-17 | 0      | 118         | 0.00% | 32.90   
+2026-05-18 | 0      | 69          | 0.00% | 33.10   
+2026-05-19 | 0      | 55          | 0.00% | 39.20   
+2026-05-20 | 0      | 59          | 0.00% | 37.20   
+2026-05-21 | 0      | 44          | 0.00% | 47.50   
+2026-05-22 | 0      | 32          | 0.00% | 41.10   
+2026-05-23 | 0      | 30          | 0.00% | 45.10   
+2026-05-24 | 0      | 37          | 0.00% | 38.40   
+2026-05-25 | 0      | 37          | 0.00% | 43.30   
+2026-05-26 | 0      | 51          | 0.00% | 34.10   
+2026-05-27 | 0      | 31          | 0.00% | 39.60   
+2026-05-28 | 1      | 43          | 2.33% | 37.10   
+2026-05-29 | 1      | 36          | 2.78% | 29.30   
+2026-05-30 | 0      | 74          | 0.00% | 23.40   
+2026-05-31 | 0      | 51          | 0.00% | 26.70   
+2026-06-01 | 1      | 58          | 1.72% | 47.60   
+2026-06-02 | 1      | 51          | 1.96% | 38.10   
+2026-06-03 | 1      | 62          | 1.61% | 40.70   
+2026-06-04 | 0      | 44          | 0.00% | 39.20   
+2026-06-05 | 0      | 49          | 0.00% | 37.10   
+2026-06-06 | 0      | 66          | 0.00% | 40.20   
+2026-06-07 | 1      | 76          | 1.32% | 39      
+2026-06-08 | 0      | 108         | 0.00% | 31.80   
+2026-06-09 | 0      | 98          | 0.00% | 34.10   
+2026-06-10 | 0      | 65          | 0.00% | 40.50   
+2026-06-11 | 0      | 67          | 0.00% | 38.70   
+2026-06-12 | 0      | 114         | 0.00% | 35.10   
+2026-06-13 | 0      | 71          | 0.00% | 40      
+2026-06-14 | 2      | 141         | 1.42% | 42.20   
+2026-06-15 | 2      | 133         | 1.50% | 44.60   
+2026-06-16 | 0      | 158         | 0.00% | 43      
+2026-06-17 | 1      | 138         | 0.72% | 38.70   
+2026-06-18 | 0      | 127         | 0.00% | 38.60   
+2026-06-19 | 0      | 98          | 0.00% | 40.80   
+2026-06-20 | 1      | 94          | 1.06% | 42      
+2026-06-21 | 0      | 134         | 0.00% | 43.30   
+2026-06-22 | 0      | 139         | 0.00% | 44.20   
+2026-06-23 | 0      | 143         | 0.00% | 37.10   
+2026-06-24 | 1      | 283         | 0.35% | 46.20   
+
+SUMMARY (Chart / Daily):
+  Total days: 175
+  Total clicks: 38
+  Total impressions: 11318
+  Overall CTR: 0.34%
+  Average position: 39.05
+
+================================================================================
+TAB: QUERIES
+================================================================================
+Rows: 294 | Columns: 5
+
+Top queries                                                                                                                          | Clicks | Impressions | CTR   | Position
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+review management south africa                                                                                                       | 1      | 74          | 1.35% | 5.61    
+seo services johannesburg                                                                                                            | 0      | 621         | 0.00% | 66.68   
+google adwords agency johannesburg                                                                                                   | 0      | 604         | 0.00% | 36.52   
+seo johannesburg                                                                                                                     | 0      | 525         | 0.00% | 42.58   
+google ads johannesburg                                                                                                              | 0      | 440         | 0.00% | 35.40   
+google ads management company in johannesburg                                                                                        | 0      | 377         | 0.00% | 31.18   
+local seo south africa                                                                                                               | 0      | 367         | 0.00% | 62.69   
+google advertising johannesburg                                                                                                      | 0      | 355         | 0.00% | 36.99   
+ads management johannesburg                                                                                                          | 0      | 346         | 0.00% | 29.34   
+adwords agency in johannesburg                                                                                                       | 0      | 296         | 0.00% | 62.31   
+seo services company roodepoort                                                                                                      | 0      | 230         | 0.00% | 43.93   
+facebook ads management south africa                                                                                                 | 0      | 222         | 0.00% | 58.25   
+local seo services south africa                                                                                                      | 0      | 199         | 0.00% | 79.52   
+seo packages johannesburg                                                                                                            | 0      | 160         | 0.00% | 70.19   
+johannesburg seo services                                                                                                            | 0      | 158         | 0.00% | 65.60   
+website maintenance services                                                                                                         | 0      | 152         | 0.00% | 71.16   
+johannesburg seo                                                                                                                     | 0      | 136         | 0.00% | 64.38   
+seo services in johannesburg                                                                                                         | 0      | 122         | 0.00% | 63.33   
+seo company johannesburg                                                                                                             | 0      | 119         | 0.00% | 65.43   
+seo services in randburg                                                                                                             | 0      | 114         | 0.00% | 74.10   
+meta campaign management cape town                                                                                                   | 0      | 113         | 0.00% | 66.65   
+local seo company south africa                                                                                                       | 0      | 108         | 0.00% | 76.37   
+qj paint world                                                                                                                       | 0      | 107         | 0.00% | 5.14    
+google ads management johannesburg                                                                                                   | 0      | 94          | 0.00% | 16.84   
+meta ads optimization cape town                                                                                                      | 0      | 91          | 0.00% | 64.71   
+web design sandton                                                                                                                   | 0      | 90          | 0.00% | 48.84   
+facebook advertising company in johannesburg                                                                                         | 0      | 75          | 0.00% | 13.08   
+alberton battery mart                                                                                                                | 0      | 72          | 0.00% | 10.24   
+seo agency johannesburg                                                                                                              | 0      | 66          | 0.00% | 80.02   
+seo company in johannesburg                                                                                                          | 0      | 65          | 0.00% | 71.62   
+website maintenance agency                                                                                                           | 0      | 58          | 0.00% | 57.22   
+onsite seo services                                                                                                                  | 0      | 56          | 0.00% | 24.21   
+seo in johannesburg                                                                                                                  | 0      | 52          | 0.00% | 49.60   
+facebook ads agency south africa                                                                                                     | 0      | 49          | 0.00% | 68.92   
+website maintenance service                                                                                                          | 0      | 42          | 0.00% | 73.10   
+meta ads agency south africa                                                                                                         | 0      | 41          | 0.00% | 69.68   
+local seo service                                                                                                                    | 0      | 37          | 0.00% | 42.32   
+seo companies johannesburg                                                                                                           | 0      | 35          | 0.00% | 45.43   
+best seo services johannesburg                                                                                                       | 0      | 34          | 0.00% | 72.88   
+web design services in fourways                                                                                                      | 0      | 33          | 0.00% | 12.55   
+google ads management sandton                                                                                                        | 0      | 32          | 0.00% | 14.91   
+google ads agency johannesburg                                                                                                       | 0      | 32          | 0.00% | 51.59   
+website design for dentists in johannesburg                                                                                          | 0      | 31          | 0.00% | 8.84    
+seo prices johannesburg                                                                                                              | 0      | 28          | 0.00% | 57.36   
+endpoint protection for companies johannesburg                                                                                       | 0      | 28          | 0.00% | 83.36   
+facebook ads agency that generates real leads south africa                                                                           | 0      | 26          | 0.00% | 51.19   
+local seo services                                                                                                                   | 0      | 25          | 0.00% | 44.28   
+top ranked seo services johannesburg                                                                                                 | 0      | 25          | 0.00% | 84.32   
+local seo johannesburg                                                                                                               | 0      | 24          | 0.00% | 15.54   
+website design sandton                                                                                                               | 0      | 24          | 0.00% | 30.29   
+meta ads agency near me                                                                                                              | 0      | 24          | 0.00% | 47.50   
+facebook ad management services                                                                                                      | 0      | 23          | 0.00% | 34.17   
+johannesburg seo agency                                                                                                              | 0      | 23          | 0.00% | 89.39   
+seo company in alberton                                                                                                              | 0      | 22          | 0.00% | 49.95   
+google business profile optimisation south africa                                                                                    | 0      | 21          | 0.00% | 56.81   
+best seo company in johannesburg                                                                                                     | 0      | 21          | 0.00% | 83.43   
+award-winning seo marketing johannesburg                                                                                             | 0      | 21          | 0.00% | 88.14   
+seo sandton                                                                                                                          | 0      | 20          | 0.00% | 33      
+perplexity visibility optimisation providers in johannesburg                                                                         | 0      | 20          | 0.00% | 53.85   
+ai search ranking optimisation provider in johannesburg                                                                              | 0      | 20          | 0.00% | 55.05   
+top seo agency in johannesburg                                                                                                       | 0      | 20          | 0.00% | 60.60   
+local seo agency                                                                                                                     | 0      | 19          | 0.00% | 45.68   
+local seo strategies for gauteng businesses                                                                                          | 0      | 19          | 0.00% | 47.42   
+hyper local seo services                                                                                                             | 0      | 18          | 0.00% | 20.11   
+top seo services johannesburg                                                                                                        | 0      | 18          | 0.00% | 86.11   
+local seo expert johannesburg                                                                                                        | 0      | 17          | 0.00% | 9.76    
+seo services gauteng                                                                                                                 | 0      | 17          | 0.00% | 49.65   
+back-end development services in johannesburg                                                                                        | 0      | 16          | 0.00% | 24.88   
+best seo company johannesburg                                                                                                        | 0      | 16          | 0.00% | 53.69   
+top ranked seo agency johannesburg                                                                                                   | 0      | 16          | 0.00% | 72.19   
+johannesburg seo company                                                                                                             | 0      | 16          | 0.00% | 80.06   
+local seo company near me                                                                                                            | 0      | 15          | 0.00% | 10      
+local seo companies                                                                                                                  | 0      | 15          | 0.00% | 42.27   
+top ranked seo packages johannesburg                                                                                                 | 0      | 15          | 0.00% | 67.53   
+seo companies in johannesburg                                                                                                        | 0      | 15          | 0.00% | 72.73   
+history of alberton                                                                                                                  | 0      | 14          | 0.00% | 12.64   
+shopify seo services south africa                                                                                                    | 0      | 14          | 0.00% | 14.64   
+google ads experts johannesburg                                                                                                      | 0      | 14          | 0.00% | 24.50   
+local seo company                                                                                                                    | 0      | 14          | 0.00% | 34.21   
+leading seo agency johannesburg                                                                                                      | 0      | 14          | 0.00% | 63      
+grok search optimisation company johannesburg                                                                                        | 0      | 14          | 0.00% | 80.07   
+what is local seo south africa                                                                                                       | 0      | 13          | 0.00% | 55.15   
+top seo agency johannesburg                                                                                                          | 0      | 13          | 0.00% | 66.38   
+alberton tyre clinic                                                                                                                 | 0      | 12          | 0.00% | 13.08   
+seo specialist johannesburg                                                                                                          | 0      | 12          | 0.00% | 44.58   
+best seo packages johannesburg                                                                                                       | 0      | 12          | 0.00% | 70.33   
+local seo near me                                                                                                                    | 0      | 11          | 0.00% | 16.27   
+website prices johannesburg                                                                                                          | 0      | 11          | 0.00% | 21      
+onsite+seo+services                                                                                                                  | 0      | 11          | 0.00% | 21.64   
+johannesburg search engine optimisation agency                                                                                       | 0      | 11          | 0.00% | 72      
+endpoint                                                                                                                             | 0      | 10          | 0.00% | 3.50    
+local seo provider near me                                                                                                           | 0      | 10          | 0.00% | 12      
+seo audit johannesburg                                                                                                               | 0      | 10          | 0.00% | 12      
+google search agency johannesburg                                                                                                    | 0      | 10          | 0.00% | 40.10   
+web design in sandton                                                                                                                | 0      | 10          | 0.00% | 48.90   
+seo services in germiston                                                                                                            | 0      | 10          | 0.00% | 51.60   
+facebook marketing agency                                                                                                            | 0      | 10          | 0.00% | 74      
+entity seo south africa                                                                                                              | 0      | 9           | 0.00% | 51      
+website maintenance south africa                                                                                                     | 0      | 9           | 0.00% | 79.33   
+reputation management sandton                                                                                                        | 0      | 8           | 0.00% | 31.38   
+seo services in sandton                                                                                                              | 0      | 8           | 0.00% | 37.50   
+website support service                                                                                                              | 0      | 8           | 0.00% | 44      
+leading seo packages johannesburg                                                                                                    | 0      | 8           | 0.00% | 72.50   
+reputation management randburg                                                                                                       | 0      | 8           | 0.00% | 74.12   
+dentalderm                                                                                                                           | 0      | 7           | 0.00% | 7.86    
+seo expert johannesburg                                                                                                              | 0      | 7           | 0.00% | 25.14   
+seo gauteng                                                                                                                          | 0      | 7           | 0.00% | 40.43   
+website design in sandton                                                                                                            | 0      | 7           | 0.00% | 44.14   
+tyre clinic                                                                                                                          | 0      | 6           | 0.00% | 10      
+reputation management randparkridge                                                                                                  | 0      | 6           | 0.00% | 15.67   
+reputation management johannesburg                                                                                                   | 0      | 6           | 0.00% | 15.83   
+affordable google ads management johannesburg                                                                                        | 0      | 6           | 0.00% | 19.50   
+best review management platform south africa                                                                                         | 0      | 6           | 0.00% | 28.17   
+seo jhb                                                                                                                              | 0      | 6           | 0.00% | 30.50   
+professional seo analysis in gauteng                                                                                                 | 0      | 6           | 0.00% | 41.17   
+seo for law firms johannesburg                                                                                                       | 0      | 6           | 0.00% | 47.67   
+local seo management                                                                                                                 | 0      | 6           | 0.00% | 67.67   
+seo company randburg                                                                                                                 | 0      | 6           | 0.00% | 77.67   
+web designer near me                                                                                                                 | 0      | 5           | 0.00% | 1       
+alberton history                                                                                                                     | 0      | 5           | 0.00% | 3.40    
+battery mart near me                                                                                                                 | 0      | 5           | 0.00% | 9       
+local seo companies near me                                                                                                          | 0      | 5           | 0.00% | 11.40   
+tyre clinic alberton                                                                                                                 | 0      | 5           | 0.00% | 16.80   
+website maintenance packages south africa                                                                                            | 0      | 5           | 0.00% | 28.60   
+website updates and backups                                                                                                          | 0      | 5           | 0.00% | 28.60   
+seo services that get your business found on google                                                                                  | 0      | 5           | 0.00% | 59.60   
+llm optimization service provider south africa                                                                                       | 0      | 5           | 0.00% | 65.80   
+facebook ads agency                                                                                                                  | 0      | 5           | 0.00% | 80.80   
+leading seo services johannesburg                                                                                                    | 0      | 5           | 0.00% | 81.40   
+search engine optimization johannesburg                                                                                              | 0      | 5           | 0.00% | 91.80   
+can you recommend a service that offers regular updates and backups for my 
+website?. my location is south africa.                   | 0      | 4           | 0.00% | 2.50    
+review management services near me                                                                                                   | 0      | 4           | 0.00% | 4.25    
+website security &amp; updates south africa                                                                                          | 0      | 4           | 0.00% | 17      
+shopify seo experts south africa                                                                                                     | 0      | 4           | 0.00% | 18.75   
+local seo specialist in gauteng                                                                                                      | 0      | 4           | 0.00% | 22.75   
+seo services near me                                                                                                                 | 0      | 4           | 0.00% | 29.75   
+backbone js seo success stories                                                                                                      | 0      | 4           | 0.00% | 32.75   
+website design midrand                                                                                                               | 0      | 4           | 0.00% | 35.50   
+web design midrand                                                                                                                   | 0      | 4           | 0.00% | 36      
+seo company sandton                                                                                                                  | 0      | 4           | 0.00% | 36.50   
+seo agencies in johannesburg                                                                                                         | 0      | 4           | 0.00% | 40.50   
+affordable web design sandton                                                                                                        | 0      | 4           | 0.00% | 54.50   
+seo services randburg                                                                                                                | 0      | 4           | 0.00% | 55.25   
+reputation management randpark ridge                                                                                                 | 0      | 4           | 0.00% | 57.25   
+top ranked seo consultancy johannesburg                                                                                              | 0      | 4           | 0.00% | 64      
+local search engine optimisation services                                                                                            | 0      | 4           | 0.00% | 70.25   
+top ranked seo company johannesburg                                                                                                  | 0      | 4           | 0.00% | 73.25   
+award-winning seo agency johannesburg                                                                                                | 0      | 4           | 0.00% | 74.25   
+business centre fourways                                                                                                             | 0      | 4           | 0.00% | 88      
+best google ads audit service for south african small businesses                                                                     | 0      | 3           | 0.00% | 4.67    
+switch.monster ad group call tracking                                                                                                | 0      | 3           | 0.00% | 11      
+history of alberton south africa                                                                                                     | 0      | 3           | 0.00% | 12      
+web design in randburg                                                                                                               | 0      | 3           | 0.00% | 22.33   
+seo joburg                                                                                                                           | 0      | 3           | 0.00% | 25      
+webink sandton                                                                                                                       | 0      | 3           | 0.00% | 31      
+seo service johannesburg                                                                                                             | 0      | 3           | 0.00% | 33.33   
+paid ads johannesburg                                                                                                                | 0      | 3           | 0.00% | 34      
+rate and review this site show all reviews average rating number of ratings                                                          | 0      | 3           | 0.00% | 34.33   
+seo services sandton                                                                                                                 | 0      | 3           | 0.00% | 35.67   
+seo reviews south africa                                                                                                             | 0      | 3           | 0.00% | 37.33   
+review management software south africa                                                                                              | 0      | 3           | 0.00% | 40.33   
+web designer sandton                                                                                                                 | 0      | 3           | 0.00% | 41      
+freelance seo specialist johannesburg                                                                                                | 0      | 3           | 0.00% | 46.67   
+best seo marketing johannesburg                                                                                                      | 0      | 3           | 0.00% | 62.33   
+award-winning seo packages johannesburg                                                                                              | 0      | 3           | 0.00% | 63      
+best seo agency johannesburg                                                                                                         | 0      | 3           | 0.00% | 69      
+johannesburg seo search marketing johannesburg                                                                                       | 0      | 3           | 0.00% | 73      
+local seo gauteng                                                                                                                    | 0      | 3           | 0.00% | 83.33   
+seo randpark ridge                                                                                                                   | 0      | 3           | 0.00% | 92.33   
+facebook ads specialist near me                                                                                                      | 0      | 2           | 0.00% | 1       
+facebook specialist near me                                                                                                          | 0      | 2           | 0.00% | 1       
+local seo ranking services near me                                                                                                   | 0      | 2           | 0.00% | 1       
+local seo strategy services near me                                                                                                  | 0      | 2           | 0.00% | 1       
+outsource reviews                                                                                                                    | 0      | 2           | 0.00% | 1       
+professional services local seo                                                                                                      | 0      | 2           | 0.00% | 1       
+local seo management services                                                                                                        | 0      | 2           | 0.00% | 4       
+which company provides the fastest turnaround for website maintenance 
+requests?. my location is south africa.                       | 0      | 2           | 0.00% | 6.50    
+best local seo agency for gbp optimization                                                                                           | 0      | 2           | 0.00% | 7       
+ongoing website support                                                                                                              | 0      | 2           | 0.00% | 7       
+seo audit service near me                                                                                                            | 0      | 2           | 0.00% | 8.50    
+"rate and review this site" "show all reviews" "average rating" "number of 
+ratings"                                                 | 0      | 2           | 0.00% | 10      
+facebook ad management                                                                                                               | 0      | 2           | 0.00% | 19.50   
+review services for business                                                                                                         | 0      | 2           | 0.00% | 21      
+seo agency randburg                                                                                                                  | 0      | 2           | 0.00% | 24      
+seo randparkridge                                                                                                                    | 0      | 2           | 0.00% | 28      
+most trusted seo agency in randburg                                                                                                  | 0      | 2           | 0.00% | 29      
+seo expert in johannesburg                                                                                                           | 0      | 2           | 0.00% | 31      
+seo freelancer south africa                                                                                                          | 0      | 2           | 0.00% | 32.50   
+seo consultant johannesburg                                                                                                          | 0      | 2           | 0.00% | 34.50   
+seo experts johannesburg                                                                                                             | 0      | 2           | 0.00% | 38.50   
+local seo centurion                                                                                                                  | 0      | 2           | 0.00% | 40.50   
+seo company jhb                                                                                                                      | 0      | 2           | 0.00% | 50      
+facebook and instagram ads agency                                                                                                    | 0      | 2           | 0.00% | 60.50   
+google seo                                                                                                                           | 0      | 2           | 0.00% | 61      
+internet search engine optimization gauteng                                                                                          | 0      | 2           | 0.00% | 62.50   
+best local seo near me                                                                                                               | 0      | 2           | 0.00% | 63      
+web maintenance services                                                                                                             | 0      | 2           | 0.00% | 67      
+seo alberton                                                                                                                         | 0      | 2           | 0.00% | 69.50   
+local seo for dentists                                                                                                               | 0      | 2           | 0.00% | 71.50   
+internet marketing service in sandton                                                                                                | 0      | 2           | 0.00% | 74.50   
+seo company johannesbourg                                                                                                            | 0      | 2           | 0.00% | 77      
+seo specialist marketing company randburg                                                                                            | 0      | 2           | 0.00% | 81      
+healthcare website design agencies                                                                                                   | 0      | 2           | 0.00% | 82.50   
+google ads specialist in johannesburg, gauteng                                                                                       | 0      | 2           | 0.00% | 84.50   
+healthcare web design agencies                                                                                                       | 0      | 2           | 0.00% | 85.50   
+local seo packages south africa                                                                                                      | 0      | 2           | 0.00% | 92      
+ads management south africa                                                                                                          | 0      | 2           | 0.00% | 93      
+corporate ap review services                                                                                                         | 0      | 2           | 0.00% | 95      
+seo company johannessburg                                                                                                            | 0      | 2           | 0.00% | 96      
+best seo company in sandton                                                                                                          | 0      | 2           | 0.00% | 97      
+cheap business domain                                                                                                                | 0      | 1           | 0.00% | 1       
+gbp optimization near me                                                                                                             | 0      | 1           | 0.00% | 1       
+home services review management agency                                                                                               | 0      | 1           | 0.00% | 1       
+local seo optimization near me                                                                                                       | 0      | 1           | 0.00% | 1       
+local seo solutions near me                                                                                                          | 0      | 1           | 0.00% | 1       
+local seo western suburbs                                                                                                            | 0      | 1           | 0.00% | 1       
+rolling green local business seo service                                                                                             | 0      | 1           | 0.00% | 1       
+seo ampére                                                                                                                           | 0      | 1           | 0.00% | 1       
+seo rangewood                                                                                                                        | 0      | 1           | 0.00% | 1       
+sure                                                                                                                                 | 0      | 1           | 0.00% | 1       
+the meyer family                                                                                                                     | 0      | 1           | 0.00% | 1       
+web development near me                                                                                                              | 0      | 1           | 0.00% | 1       
+webapp designer                                                                                                                      | 0      | 1           | 0.00% | 1       
+plumber johannesburg                                                                                                                 | 0      | 1           | 0.00% | 2       
+website design services                                                                                                              | 0      | 1           | 0.00% | 2       
+seo audit near me                                                                                                                    | 0      | 1           | 0.00% | 3       
+who was the original owner                                                                                                           | 0      | 1           | 0.00% | 4       
+local seo consultant near me                                                                                                         | 0      | 1           | 0.00% | 5       
+seo specialists for enterprise software                                                                                              | 0      | 1           | 0.00% | 5       
+ad group call tracking switch.monster                                                                                                | 0      | 1           | 0.00% | 6       
+e-commerce startup costs south africa 2025                                                                                           | 0      | 1           | 0.00% | 6       
+get it joburg west, local business, roodepoort                                                                                       | 0      | 1           | 0.00% | 6       
+27736: seo & analytics                                                                                                               | 0      | 1           | 0.00% | 7       
+frank smit                                                                                                                           | 0      | 1           | 0.00% | 7       
+i need help fixing some issues on my website. can you suggest a reliable 
+website maintenance service?. my location is south africa. | 0      | 1           | 0.00% | 7       
+qj paints                                                                                                                            | 0      | 1           | 0.00% | 7       
+review services                                                                                                                      | 0      | 1           | 0.00% | 7       
+search engine optimization company rosebank                                                                                          | 0      | 1           | 0.00% | 7       
+seo management services near me                                                                                                      | 0      | 1           | 0.00% | 7       
+companies in rivonia                                                                                                                 | 0      | 1           | 0.00% | 8       
+seo agency eastern suburbs                                                                                                           | 0      | 1           | 0.00% | 8       
+review service                                                                                                                       | 0      | 1           | 0.00% | 9       
+business automation near me                                                                                                          | 0      | 1           | 0.00% | 10      
+local seo company reviews near me                                                                                                    | 0      | 1           | 0.00% | 10      
+roots alberton                                                                                                                       | 0      | 1           | 0.00% | 10      
+web design in fourways, south africa                                                                                                 | 0      | 1           | 0.00% | 10      
+alberton then and now                                                                                                                | 0      | 1           | 0.00% | 11      
+seo company midtown west                                                                                                             | 0      | 1           | 0.00% | 11      
+contact web designer in fourways                                                                                                     | 0      | 1           | 0.00% | 15      
+custom online store design fourways                                                                                                  | 0      | 1           | 0.00% | 16      
+seo service provider near me                                                                                                         | 0      | 1           | 0.00% | 17      
+local seo agencies                                                                                                                   | 0      | 1           | 0.00% | 19      
+switch.monster call tracking for paid search                                                                                         | 0      | 1           | 0.00% | 21      
+facebook ad services                                                                                                                 | 0      | 1           | 0.00% | 22      
+blou meul alberton                                                                                                                   | 0      | 1           | 0.00% | 25      
+get a quote for voice search optimization in san antonio                                                                             | 0      | 1           | 0.00% | 27      
+small businesses in roodepoort that need websites                                                                                    | 0      | 1           | 0.00% | 27      
+seo agency near me                                                                                                                   | 0      | 1           | 0.00% | 28      
+schema markup services south africa                                                                                                  | 0      | 1           | 0.00% | 31      
+website design in midrand                                                                                                            | 0      | 1           | 0.00% | 32      
+local seo wien                                                                                                                       | 0      | 1           | 0.00% | 45      
+website design randburg                                                                                                              | 0      | 1           | 0.00% | 45      
+seo agency in johanessburg                                                                                                           | 0      | 1           | 0.00% | 46      
+local seo in south africa                                                                                                            | 0      | 1           | 0.00% | 52      
+80 peter place                                                                                                                       | 0      | 1           | 0.00% | 54      
+leading seo company johannesburg                                                                                                     | 0      | 1           | 0.00% | 54      
+social seo randburg                                                                                                                  | 0      | 1           | 0.00% | 54      
+seo company edenvale                                                                                                                 | 0      | 1           | 0.00% | 55      
+seo service near me                                                                                                                  | 0      | 1           | 0.00% | 55      
+top seo consultancy johannesburg                                                                                                     | 0      | 1           | 0.00% | 55      
+seo services in alberton                                                                                                             | 0      | 1           | 0.00% | 58      
+facebook marketing services                                                                                                          | 0      | 1           | 0.00% | 64      
+top seo marketing johannesburg                                                                                                       | 0      | 1           | 0.00% | 64      
+landing page optimisation south africa                                                                                               | 0      | 1           | 0.00% | 65      
+reputation management south africa                                                                                                   | 0      | 1           | 0.00% | 65      
+reputation management agency johannesburg                                                                                            | 0      | 1           | 0.00% | 67      
+local seo pretoria                                                                                                                   | 0      | 1           | 0.00% | 68      
+facebook ads management services                                                                                                     | 0      | 1           | 0.00% | 69      
+backbone.js seo success stories                                                                                                      | 0      | 1           | 0.00% | 71      
+reputation management company                                                                                                        | 0      | 1           | 0.00% | 81      
+wordpress websites edenvale                                                                                                          | 0      | 1           | 0.00% | 82      
+seo company gauteng                                                                                                                  | 0      | 1           | 0.00% | 90      
+internet marketing johannesburg                                                                                                      | 0      | 1           | 0.00% | 96      
+website optimization south africa                                                                                                    | 0      | 1           | 0.00% | 96      
+link building agency johannesburg                                                                                                    | 0      | 1           | 0.00% | 98      
+hire seo specialist in south africa                                                                                                  | 0      | 1           | 0.00% | 99      
+home service seo                                                                                                                     | 0      | 1           | 0.00% | 99      
+seo sprint review                                                                                                                    | 0      | 1           | 0.00% | 99      
+website prices gauteng                                                                                                               | 0      | 1           | 0.00% | 99      
+local seo reseller                                                                                                                   | 0      | 1           | 0.00% | 100     
+google ads specialist in johannesburg, south africa                                                                                  | 0      | 1           | 0.00% | 107     
+local search engine in south africa                                                                                                  | 0      | 1           | 0.00% | 205     
+smit contact                                                                                                                         | 0      | 1           | 0.00% | 226     
+
+SUMMARY (Queries):
+  Total queries listed: 293
+  Total clicks (all queries): 1
+  Total impressions (all queries): 8444
+  Queries with at least 1 click: 1
+
+================================================================================
+TAB: PAGES
+================================================================================
+Rows: 63 | Columns: 5
+
+Top pages                                                                                      | Clicks | Impressions | CTR   | Position
+----------------------------------------------------------------------------------------------------------------------------------------
+https://www.endpointmedia.co.za/                                                               | 10     | 174         | 5.75% | 11.82   
+https://www.endpointmedia.co.za/alberton-business-heritage                                     | 5      | 269         | 1.86% | 7.73    
+https://www.endpointmedia.co.za/services/review-management                                     | 5      | 218         | 2.29% | 14.52   
+https://www.endpointmedia.co.za/services/google-ads                                            | 3      | 2721        | 0.11% | 37.74   
+https://www.endpointmedia.co.za/services                                                       | 3      | 1168        | 0.26% | 58.47   
+https://www.endpointmedia.co.za/services/medical-websites                                      | 3      | 179         | 1.68% | 8.99    
+https://www.endpointmedia.co.za/contact                                                        | 3      | 71          | 4.23% | 24.79   
+https://www.endpointmedia.co.za/services/facebook-ads                                          | 2      | 1275        | 0.16% | 40.37   
+https://endpointmedia.co.za/alberton-business-heritage                                         | 2      | 41          | 4.88% | 4.51    
+https://www.endpointmedia.co.za/services/local-seo                                             | 1      | 3453        | 0.03% | 54.93   
+https://www.endpointmedia.co.za/blog                                                           | 1      | 402         | 0.25% | 41.37   
+https://www.endpointmedia.co.za/locations/sandton                                              | 1      | 185         | 0.54% | 42.64   
+https://www.endpointmedia.co.za/services/website-maintenance                                   | 0      | 392         | 0.00% | 56.16   
+https://www.endpointmedia.co.za/case-studies/qj-paint-world                                    | 0      | 247         | 0.00% | 6.43    
+https://www.endpointmedia.co.za/blog/how-much-does-website-cost-south-africa-2025              | 0      | 190         | 0.00% | 7.35    
+https://www.endpointmedia.co.za/case-studies/alberton-battery-mart                             | 0      | 148         | 0.00% | 9.92    
+https://www.endpointmedia.co.za/case-studies                                                   | 0      | 129         | 0.00% | 32.86   
+https://www.endpointmedia.co.za/services/law-firm-websites                                     | 0      | 117         | 0.00% | 11.15   
+https://www.endpointmedia.co.za/pricing                                                        | 0      | 96          | 0.00% | 10.95   
+https://www.endpointmedia.co.za/locations/fourways                                             | 0      | 73          | 0.00% | 19.95   
+https://www.endpointmedia.co.za/case-studies/alberton-tyre-clinic                              | 0      | 70          | 0.00% | 9.50    
+https://endpointmedia.co.za/blog/how-much-does-website-cost-south-africa-2025                  | 0      | 65          | 0.00% | 5.88    
+https://www.endpointmedia.co.za/process                                                        | 0      | 54          | 0.00% | 17.44   
+https://www.endpointmedia.co.za/locations/rivonia                                              | 0      | 49          | 0.00% | 8.43    
+https://www.endpointmedia.co.za/blog/freelancer-vs-agency-the-low-risk-choice-for-johannesburg | 0      | 31          | 0.00% | 4.13    
+https://endpointmedia.co.za/locations/rosebank                                                 | 0      | 25          | 0.00% | 14.96   
+https://www.endpointmedia.co.za/services/custom-development                                    | 0      | 23          | 0.00% | 19.65   
+https://www.endpointmedia.co.za/case-studies/sakana-no-ichi                                    | 0      | 22          | 0.00% | 5.73    
+https://endpointmedia.co.za/case-studies/qj-paint-world                                        | 0      | 21          | 0.00% | 4.76    
+https://www.endpointmedia.co.za/locations/benoni                                               | 0      | 21          | 0.00% | 15.86   
+https://www.endpointmedia.co.za/locations                                                      | 0      | 19          | 0.00% | 33.16   
+https://www.endpointmedia.co.za/locations/midrand                                              | 0      | 17          | 0.00% | 35.35   
+https://www.endpointmedia.co.za/locations/randburg                                             | 0      | 13          | 0.00% | 16      
+https://endpointmedia.co.za/services/review-management                                         | 0      | 11          | 0.00% | 12.82   
+https://www.endpointmedia.co.za/services/web-design-firms                                      | 0      | 11          | 0.00% | 59.55   
+https://endpointmedia.co.za/industries/medical                                                 | 0      | 9           | 0.00% | 6.56    
+https://endpointmedia.co.za/locations/rivonia                                                  | 0      | 8           | 0.00% | 10      
+https://www.endpointmedia.co.za/locations/bryanston                                            | 0      | 8           | 0.00% | 11.38   
+https://www.endpointmedia.co.za/locations/roodepoort                                           | 0      | 8           | 0.00% | 14.25   
+https://www.endpointmedia.co.za/services/growth-rescue                                         | 0      | 7           | 0.00% | 4.71    
+https://endpointmedia.co.za/blog/the-schema-vacuum-technical-seo-advantage                     | 0      | 5           | 0.00% | 5       
+https://endpointmedia.co.za/blog/freelancer-vs-agency-the-low-risk-choice-for-johannesburg     | 0      | 5           | 0.00% | 7.40    
+https://endpointmedia.co.za/case-studies/rhino-panel-beaters                                   | 0      | 5           | 0.00% | 8       
+https://www.endpointmedia.co.za/locations/rosebank                                             | 0      | 5           | 0.00% | 33.40   
+https://www.endpointmedia.co.za/industries/manufacturing-logistics                             | 0      | 4           | 0.00% | 6.50    
+https://endpointmedia.co.za/case-studies/alberton-tyre-clinic                                  | 0      | 4           | 0.00% | 7.75    
+https://www.endpointmedia.co.za/locations/new-redruth                                          | 0      | 4           | 0.00% | 10.50   
+https://endpointmedia.co.za/locations/bryanston                                                | 0      | 4           | 0.00% | 13.75   
+https://endpointmedia.co.za/locations/roodepoort                                               | 0      | 3           | 0.00% | 7.33    
+https://www.endpointmedia.co.za/services/website-development                                   | 0      | 3           | 0.00% | 17.67   
+https://www.endpointmedia.co.za/locations/waterfall                                            | 0      | 2           | 0.00% | 5.50    
+https://www.endpointmedia.co.za/case-studies/maverick-painting-contractors                     | 0      | 2           | 0.00% | 8       
+https://www.endpointmedia.co.za/insights/south-africa-google-ads-cpc-benchmarks                | 0      | 2           | 0.00% | 9.50    
+https://endpointmedia.co.za/case-studies/alberton-battery-mart                                 | 0      | 2           | 0.00% | 10      
+https://endpointmedia.co.za/services/growth-rescue                                             | 0      | 1           | 0.00% | 1       
+https://endpointmedia.co.za/services/website-redesign                                          | 0      | 1           | 0.00% | 3       
+https://endpointmedia.co.za/industries                                                         | 0      | 1           | 0.00% | 7       
+https://endpointmedia.co.za/case-studies/sakana-no-ichi                                        | 0      | 1           | 0.00% | 8       
+https://endpointmedia.co.za/locations/waterfall                                                | 0      | 1           | 0.00% | 13      
+https://endpointmedia.co.za/locations/fourways                                                 | 0      | 1           | 0.00% | 15      
+https://www.endpointmedia.co.za/locations/meyersdal                                            | 0      | 1           | 0.00% | 16      
+https://endpointmedia.co.za/services/website-maintenance                                       | 0      | 1           | 0.00% | 54      
+
+SUMMARY (Pages):
+  Total pages listed: 62
+  Total clicks (all pages): 39
+  Total impressions (all pages): 12098
+
+================================================================================
+TAB: COUNTRIES
+================================================================================
+Rows: 112 | Columns: 5
+
+Country                | Clicks | Impressions | CTR    | Position
+-----------------------------------------------------------------
+South Africa           | 33     | 9121        | 0.36%  | 45.10   
+Netherlands            | 2      | 15          | 13.33% | 7.73    
+Algeria                | 2      | 6           | 33.33% | 34.83   
+India                  | 1      | 49          | 2.04%  | 28.41   
+United States          | 0      | 1212        | 0.00%  | 21.89   
+United Kingdom         | 0      | 191         | 0.00%  | 14.16   
+Brazil                 | 0      | 62          | 0.00%  | 16.60   
+Canada                 | 0      | 54          | 0.00%  | 7.46    
+Spain                  | 0      | 29          | 0.00%  | 22.45   
+Germany                | 0      | 23          | 0.00%  | 16.26   
+Australia              | 0      | 23          | 0.00%  | 22.30   
+France                 | 0      | 22          | 0.00%  | 17.18   
+Italy                  | 0      | 22          | 0.00%  | 17.86   
+Mexico                 | 0      | 21          | 0.00%  | 21.29   
+Singapore              | 0      | 18          | 0.00%  | 6.39    
+Colombia               | 0      | 17          | 0.00%  | 19.65   
+Turkey                 | 0      | 16          | 0.00%  | 10.50   
+United Arab Emirates   | 0      | 16          | 0.00%  | 21.75   
+Vietnam                | 0      | 16          | 0.00%  | 27.75   
+Indonesia              | 0      | 16          | 0.00%  | 28.44   
+Russia                 | 0      | 15          | 0.00%  | 26.73   
+Philippines            | 0      | 15          | 0.00%  | 34.53   
+Pakistan               | 0      | 14          | 0.00%  | 26.57   
+Thailand               | 0      | 14          | 0.00%  | 28.86   
+Argentina              | 0      | 14          | 0.00%  | 31.86   
+Ecuador                | 0      | 13          | 0.00%  | 23.77   
+Ukraine                | 0      | 10          | 0.00%  | 20.90   
+Malaysia               | 0      | 10          | 0.00%  | 21.40   
+Japan                  | 0      | 9           | 0.00%  | 15.78   
+Greece                 | 0      | 9           | 0.00%  | 19.11   
+Romania                | 0      | 9           | 0.00%  | 25.22   
+Bangladesh             | 0      | 9           | 0.00%  | 39.22   
+Hong Kong              | 0      | 8           | 0.00%  | 6.38    
+Chile                  | 0      | 8           | 0.00%  | 16.75   
+South Korea            | 0      | 8           | 0.00%  | 20.38   
+Saudi Arabia           | 0      | 8           | 0.00%  | 26.75   
+Peru                   | 0      | 8           | 0.00%  | 27.88   
+Hungary                | 0      | 8           | 0.00%  | 47.75   
+Belgium                | 0      | 7           | 0.00%  | 12.43   
+Austria                | 0      | 6           | 0.00%  | 19.50   
+Nigeria                | 0      | 6           | 0.00%  | 19.50   
+Poland                 | 0      | 6           | 0.00%  | 19.50   
+Sweden                 | 0      | 6           | 0.00%  | 23.50   
+Czechia                | 0      | 6           | 0.00%  | 25.50   
+Portugal               | 0      | 6           | 0.00%  | 26.83   
+China                  | 0      | 5           | 0.00%  | 7.60    
+Morocco                | 0      | 5           | 0.00%  | 12      
+Ireland                | 0      | 5           | 0.00%  | 35.80   
+Serbia                 | 0      | 5           | 0.00%  | 52.40   
+Dominican Republic     | 0      | 4           | 0.00%  | 7.25    
+Iraq                   | 0      | 4           | 0.00%  | 12      
+Tunisia                | 0      | 4           | 0.00%  | 27      
+Egypt                  | 0      | 4           | 0.00%  | 38.25   
+Kazakhstan             | 0      | 4           | 0.00%  | 54.75   
+Mozambique             | 0      | 4           | 0.00%  | 57.25   
+Bulgaria               | 0      | 4           | 0.00%  | 64      
+Zambia                 | 0      | 3           | 0.00%  | 3       
+Congo - Kinshasa       | 0      | 3           | 0.00%  | 4.67    
+Jamaica                | 0      | 3           | 0.00%  | 8       
+Israel                 | 0      | 3           | 0.00%  | 8.67    
+Nepal                  | 0      | 3           | 0.00%  | 9       
+New Zealand            | 0      | 3           | 0.00%  | 18.33   
+Panama                 | 0      | 3           | 0.00%  | 26.33   
+Uganda                 | 0      | 3           | 0.00%  | 45.67   
+Jordan                 | 0      | 2           | 0.00%  | 3.50    
+Cambodia               | 0      | 2           | 0.00%  | 5       
+Zimbabwe               | 0      | 2           | 0.00%  | 6       
+Switzerland            | 0      | 2           | 0.00%  | 7.50    
+Moldova                | 0      | 2           | 0.00%  | 11.50   
+Bolivia                | 0      | 2           | 0.00%  | 15.50   
+Kenya                  | 0      | 2           | 0.00%  | 18.50   
+Lithuania              | 0      | 2           | 0.00%  | 24.50   
+Sri Lanka              | 0      | 2           | 0.00%  | 31.50   
+Luxembourg             | 0      | 2           | 0.00%  | 32      
+Latvia                 | 0      | 2           | 0.00%  | 32.50   
+Bosnia & Herzegovina   | 0      | 2           | 0.00%  | 33      
+Belarus                | 0      | 2           | 0.00%  | 38      
+Namibia                | 0      | 2           | 0.00%  | 39      
+Ethiopia               | 0      | 2           | 0.00%  | 40.50   
+Senegal                | 0      | 2           | 0.00%  | 55      
+Guatemala              | 0      | 2           | 0.00%  | 62.50   
+Taiwan                 | 0      | 2           | 0.00%  | 65.50   
+Palestine              | 0      | 1           | 0.00%  | 1       
+Swaziland              | 0      | 1           | 0.00%  | 1       
+British Virgin Islands | 0      | 1           | 0.00%  | 1       
+Oman                   | 0      | 1           | 0.00%  | 3       
+Guyana                 | 0      | 1           | 0.00%  | 4       
+Cuba                   | 0      | 1           | 0.00%  | 7       
+Jersey                 | 0      | 1           | 0.00%  | 7       
+Nicaragua              | 0      | 1           | 0.00%  | 7       
+Norway                 | 0      | 1           | 0.00%  | 7       
+Barbados               | 0      | 1           | 0.00%  | 8       
+Ghana                  | 0      | 1           | 0.00%  | 8       
+Iceland                | 0      | 1           | 0.00%  | 9       
+Qatar                  | 0      | 1           | 0.00%  | 9       
+Unknown Region         | 0      | 1           | 0.00%  | 9       
+Honduras               | 0      | 1           | 0.00%  | 10      
+Lesotho                | 0      | 1           | 0.00%  | 11      
+Syria                  | 0      | 1           | 0.00%  | 11      
+Azerbaijan             | 0      | 1           | 0.00%  | 14      
+Cameroon               | 0      | 1           | 0.00%  | 16      
+Paraguay               | 0      | 1           | 0.00%  | 16      
+Uzbekistan             | 0      | 1           | 0.00%  | 20      
+Estonia                | 0      | 1           | 0.00%  | 22      
+Denmark                | 0      | 1           | 0.00%  | 24      
+Georgia                | 0      | 1           | 0.00%  | 27      
+Myanmar (Burma)        | 0      | 1           | 0.00%  | 33      
+Angola                 | 0      | 1           | 0.00%  | 40      
+Maldives               | 0      | 1           | 0.00%  | 58      
+Tanzania               | 0      | 1           | 0.00%  | 82      
+Slovenia               | 0      | 1           | 0.00%  | 94      
+
+================================================================================
+TAB: DEVICES
+================================================================================
+Rows: 4 | Columns: 5
+
+Device  | Clicks | Impressions | CTR   | Position
+-------------------------------------------------
+Mobile  | 23     | 3147        | 0.73% | 32.13   
+Desktop | 13     | 8091        | 0.16% | 43.72   
+Tablet  | 2      | 80          | 2.50% | 35.76   
+
+================================================================================
+TAB: SEARCH APPEARANCE
+================================================================================
+Rows: 1 | Columns: 5
+
+Search Appearance | Clicks | Impressions | CTR | Position
+---------------------------------------------------------
