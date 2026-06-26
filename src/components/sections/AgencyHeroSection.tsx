@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { ParticleNetworkCanvas } from '@/components/ui/ParticleNetworkCanvas';
 
 type AuditApiResponse = {
   tier: 'free' | 'unlock' | 'repository';
@@ -91,7 +92,8 @@ export default function AgencyHeroSection() {
   return (
     <>
       <section data-chunk-boundary="true" className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-black px-[5%] pb-12 pt-24 text-[#F5F5F7] md:pb-14 md:pt-28">
-        <div className="pointer-events-none absolute top-0 h-[420px] w-[420px] rounded-full bg-blue-900/10 blur-[120px]" />
+        <ParticleNetworkCanvas className="pointer-events-none absolute inset-0 z-0" />
+        <div className="pointer-events-none absolute top-0 z-[1] h-[420px] w-[420px] rounded-full bg-blue-900/10 blur-[120px]" />
 
         <div className="z-10 mx-auto flex w-full max-w-5xl flex-col items-center text-center">
         <p className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-zinc-400">
