@@ -1,11 +1,14 @@
 import 'server-only';
 
+import { randomUUID } from 'node:crypto';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { enqueueAuditJob, runViciousAudit } from '@/utils/audit-engine';
-import type { AuditTier } from '@/utils/audit-engine/types';
+import type { AuditResult, AuditTier } from '@/utils/audit-engine/types';
 
 export const runtime = 'nodejs';
+export const maxDuration = 60;
 
 type AuditRequestBody = {
   url: string;
@@ -24,6 +27,27 @@ function isUnlockVerified(tier: AuditTier, unlockToken: string | undefined): boo
   const expected = process.env.AUDITOR_UNLOCK_TOKEN;
   if (!expected) return false;
   return unlockToken === expected;
+}
+
+async function persistAuditReport(
+  targetUrl: string,
+  audit: AuditResult,
+  unlocked: boolean
+): Promise<{ reportId: string; persisted: boolean }> {
+  try {
+    const persistedReport = await prisma.auditReport.create({
+      data: {
+        targetUrl,
+        rawAuditData: audit,
+        blurState: !unlocked,
+      },
+      select: { id: true },
+    });
+    return { reportId: persistedReport.id, persisted: true };
+  } catch (error) {
+    console.error('[vicious-audit] Failed to persist audit report:', error);
+    return { reportId: randomUUID(), persisted: false };
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -68,30 +92,34 @@ export async function POST(request: NextRequest) {
   const tier = normalizeTier(body.tier);
   const unlocked = isUnlockVerified(tier, body.unlockToken);
 
-  // BullMQ is optional. When REDIS_URL is configured we expose a queue job id
-  // while still returning inline results for immediate UX.
-  const queuedJobId = await enqueueAuditJob(url.toString(), tier);
-  const audit = await runViciousAudit(url.toString(), tier, unlocked, competitorUrl);
-  const persistedReport = await prisma.auditReport.create({
-    data: {
-      targetUrl: url.toString(),
-      rawAuditData: audit,
-      blurState: !unlocked,
-    },
-    select: {
-      id: true,
-    },
-  });
+  try {
+    let queuedJobId: string | null = null;
+    try {
+      queuedJobId = await enqueueAuditJob(url.toString(), tier);
+    } catch (error) {
+      console.error('[vicious-audit] Queue enqueue failed:', error);
+    }
 
-  return NextResponse.json(
-    {
-      tier,
-      unlocked,
-      queuedJobId,
-      reportId: persistedReport.id,
-      report: audit,
-    },
-    { status: 200 }
-  );
+    const audit = await runViciousAudit(url.toString(), tier, unlocked, competitorUrl);
+    const { reportId, persisted } = await persistAuditReport(url.toString(), audit, unlocked);
+
+    return NextResponse.json(
+      {
+        tier,
+        unlocked,
+        queuedJobId,
+        reportId,
+        persisted,
+        report: audit,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error('[vicious-audit] Audit run failed:', error);
+    const message =
+      error instanceof Error && error.message
+        ? error.message
+        : 'The audit could not complete. Please try again in a moment.';
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 }
-
