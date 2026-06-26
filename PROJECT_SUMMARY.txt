@@ -2,829 +2,528 @@
                     ENDPOINT MEDIA - PROJECT SUMMARY
 ================================================================================
 
-LAST UPDATED: June 14, 2026
-PROJECT STATUS: Production deployed | Enterprise SEO/AEO edge architecture active
+LAST UPDATED: June 19, 2026
+PROJECT STATUS: Production deployed on main | Enigma UI live | Enterprise SEO/AEO active
 DOMAIN: https://www.endpointmedia.co.za
 REPOSITORY: https://github.com/Franksmittt/endpointmedia2
-CURRENT WORK BRANCH: cursor/seo-graph-wrs-refactor-9f34
-OPEN PR: https://github.com/Franksmittt/endpointmedia2/pull/3
-LATEST COMMIT: 108bf14 - Add JA4 fingerprinting and AEO browser rendering
-VERCEL STATUS FOR LATEST COMMIT: success
+PRODUCTION BRANCH: main
+LATEST COMMIT: 335cc73 - Add particle network animation behind homepage hero
+OPEN PR (not yet on main): https://github.com/Franksmittt/endpointmedia2/pull/11
+  Hero audit API JSON error fix (cursor/fix-hero-audit-json-error-9f34)
 
 ================================================================================
                             EXECUTIVE SNAPSHOT
 ================================================================================
 
 Endpoint Media is a Johannesburg-based technical web architecture, paid media,
-local SEO, and conversion systems agency. The site is built with Next.js 16 App
-Router, React 19, TypeScript, Tailwind CSS, structured JSON-LD, static/ISR
-delivery, edge proxy controls, and build-time Answer Engine Optimization assets.
+local SEO, Answer Engine Optimization (AEO), and conversion systems agency.
+The public marketing site is built with Next.js 16 App Router, React 19,
+TypeScript, Tailwind CSS, Prisma/PostgreSQL, structured JSON-LD, static/ISR
+delivery, edge proxy controls, and build-time Answer Engine assets.
 
-The codebase now operates as a machine-first acquisition platform:
+The codebase operates as a machine-first acquisition platform:
 
-- Human users receive fast, conversion-focused pages and forms.
+- Human users receive fast, conversion-focused pages, hero audit tooling, and
+  contact/store checkout flows.
 - Googlebot/Bingbot receive deterministic full HTML and bot-specific headers.
-- Answer engines receive llms.txt, llms-full.txt, clean JSON-LD graph nodes, and
-  layout-aware HtmlRAG chunk boundaries.
+- Answer engines receive llms.txt, llms-full.txt, clean JSON-LD @graph nodes,
+  and layout-aware HtmlRAG chunk boundaries (data-chunk-boundary="true").
 - Training scrapers, spoofed bots, recursive crawl loops, tracking-parameter
-  variants, and known headless automation signatures are blocked or normalized
-  at the edge before origin compute is wasted.
+  variants, and known headless automation JA4 signatures are blocked or
+  normalized at the edge before origin compute is wasted.
+
+Recent product additions (June 2026):
+- Enigma: Google Ads trading platform sign-in shell at /enigma (UI only;
+  backend authentication pending).
+- Homepage hero particle network animation (shared ParticleNetworkCanvas).
+- Paystack-powered /store for technical audits and micro-services.
+- Nine published case studies across automotive, finance, hospitality, retail,
+  and professional services.
 
 ================================================================================
                          WHAT HAS BEEN COMPLETED TO DATE
 ================================================================================
 
 Foundational Next.js / SEO hardening:
-- Replaced non-deterministic footer year logic with COPYRIGHT_YEAR = 2026.
-- Standardized global schema IDs in src/lib/seo.ts:
-  ORG_ID, WEBSITE_ID, LOCAL_BUSINESS_ID, HOMEPAGE_ID, HOMEPAGE_FAQ_ID,
-  FRANK_SMIT_ID.
-- Removed disconnected layout/page schema scripts.
-- Consolidated homepage schema into one JSON-LD script containing one flattened
-  @graph with six top-level nodes:
-  Organization, LocalBusiness, WebSite, Person, WebPage, FAQPage.
-- Verified rendered homepage:
-  json_ld_script_count=1, graph_lengths=[6], duplicate_defined_ids=[],
-  orphan_refs=[].
-- Added semantic data-chunk-boundary="true" markers across homepage and core
-  content sections for HtmlRAG extraction.
-- Converted key relational homepage data to semantic table markup where needed.
+- Static COPYRIGHT_YEAR = 2026 in Footer (no hydration drift).
+- Unified schema @id factory in src/lib/seo.ts (ORG_ID, WEBSITE_ID, etc.).
+- Homepage emits ONE JSON-LD script with flattened @graph (6 nodes).
+- HtmlRAG semantic chunking on homepage sections and blog prose.
+- Semantic <table> markup for relational pricing/metrics where required.
 
 Enterprise SEO / AEO automation:
-- Added scripts/seo/gsc_canonical_diff.mjs.
-  This calls Google Search Console URL Inspection API and fails CI when
-  userCanonical does not match googleCanonical.
-- Added scripts/seo/compile_llms.mjs.
-  This compiles public/llms.txt and public/llms-full.txt at build time.
-- Added BPE token-budget control through gpt-tokenizer.
-  Current llms-full.txt output is under the 128k token ceiling.
-- Removed route-based llms.txt generation in favor of generated public assets.
-- Added npm scripts:
-  b2a:compile
-  seo:gsc:canonical
-  prebuild -> npm run b2a:compile
+- scripts/seo/gsc_canonical_diff.mjs (GSC canonical parity CI checker).
+- scripts/seo/compile_llms.mjs (build-time llms.txt + llms-full.txt).
+- gpt-tokenizer BPE ceiling (128k) for llms-full.txt.
+- prebuild -> npm run b2a:compile.
 
-Edge / crawler control:
-- Expanded src/proxy.ts into an enterprise crawler control layer.
-- Added crawler verification:
-  static CIDR manifests for Google/Bing first, DNS-over-HTTPS rDNS plus forward
-  DNS confirmation as fallback.
-- Added allowlist for live-retrieval agents:
-  OAI-SearchBot, PerplexityBot, ChatGPT-User, Claude-Web.
-- Added training scraper blocklist:
-  GPTBot, CCBot, FacebookBot.
-- Added spoofed search bot blocking.
-- Added token-bucket rate limiting for unverified bot-like static asset bursts.
-- Added immutable asset caching for verified search bots.
-- Added deterministic URL normalization:
-  strips utm_*, fbclid, and gclid by clean 301 redirect.
-- Added crawl-budget traps:
-  trailing anomalies, recursive path loops, encoded recursive queries,
-  excessive query parameters, repeated query parameters.
-- Added JA4 TLS fingerprint blocking for known Playwright and
-  undetected-chromedriver signatures:
-  t13d1516h2_8daaf6152771_e5627efa2ab1
-  t13d1516h2_8daaf6152771_b44b8a2a8848
-- Added optional serverless browser-rendering offload for live-retrieval agents
-  through BROWSER_RENDERING_ENDPOINT or CLOUDFLARE_BROWSER_RENDERING_ENDPOINT.
-- Browser-rendered AEO HTML shells return:
-  Cache-Control: public, s-maxage=3600, stale-while-revalidate=86400.
+Edge / crawler control (src/proxy.ts):
+- Cryptographic bot verification (CIDR manifests + rDNS/forward DNS).
+- Live-retrieval agent allowlist (OAI-SearchBot, PerplexityBot, etc.).
+- Training scraper blocklist (GPTBot, CCBot, FacebookBot).
+- JA4 TLS fingerprint blocking for headless automation signatures.
+- Crawl traps (410 Gone), tracking param stripping (301), spell-check 404 recovery.
+- Verified-bot immutable asset caching; unverified bot rate limiting.
+- Optional serverless browser rendering for live-retrieval agents.
+- PPR bot branching (blocking HTML shell for verified crawlers).
 
-Validation completed:
-- npm run b2a:compile
-- ./node_modules/.bin/tsc --noEmit
-- npm run lint
-- npm run build
-- Local HTTP probes for:
-  JA4 blocking, GPTBot blocking, spoofed Googlebot blocking, verified Googlebot
-  branch, live retrieval allow, 410 traps, tracking-param normalization,
-  immutable verified-bot asset caching, unverified asset rate limiting, and
-  serverless browser-rendered AEO HTML shell behavior.
+E-commerce / audits:
+- /store hub with Paystack inline checkout (react-paystack, ZAR).
+- Secure /api/webhook/paystack (HMAC SHA512 + Prisma StorePayment idempotency).
+- Homepage hero "Run Deep Audit" -> /api/vicious-audit/run (Cheerio runtime checks;
+  Playwright fingerprinting opt-in via AUDIT_ENABLE_PLAYWRIGHT=true).
+
+Enigma platform (UI phase):
+- /enigma sign-in page with cipher title animation + particle canvas.
+- Header navigation tab "Enigma".
+- SiteChrome layout wrapper hides main Header/Footer on /enigma routes.
+
+UI / UX:
+- ParticleNetworkCanvas shared component (Enigma login + homepage hero background).
 
 ================================================================================
                             COMPANY OVERVIEW
 ================================================================================
 
 COMPANY POSITIONING:
-Endpoint Media is a premium technical web architecture and performance marketing
-firm for Johannesburg, Gauteng, and South African service businesses. The
-business competes on measurable pipeline generation, not cheap brochure sites.
+Premium technical web architecture and performance marketing for Johannesburg,
+Gauteng, and South African service businesses. Competes on measurable pipeline
+generation, not cheap brochure sites.
 
 CORE VALUE PROPOSITION:
 "We don't sell cheap websites. We engineer market domination."
 
 OPERATING PRINCIPLES:
-- Senior-led execution.
-- Selective partnership model.
+- Senior-led execution; selective partnership model.
 - Websites as revenue infrastructure, not visual brochureware.
-- Entity SEO, Answer Engine Optimization, local SEO, paid acquisition, and CRO
-  treated as one accountable system.
-- Flat-fee Google Ads management instead of percentage-of-spend incentives.
+- Entity SEO, AEO, local SEO, paid acquisition, and CRO as one system.
+- Flat-fee Google Ads management (no percentage-of-spend traps).
 
 FOUNDER:
-- Frank Smit.
-- Public author/E-E-A-T page: /about/author/frank-smit.
-- LinkedIn: https://www.linkedin.com/in/frank-smittt.
+- Frank Smit
+- /about/author/frank-smit
+- LinkedIn: https://www.linkedin.com/in/frank-smittt
 
 TARGET MARKET:
-- Johannesburg and Gauteng service businesses.
-- B2B and high-ticket local operators.
-- Legal, medical, financial, real estate, manufacturing, logistics, automotive,
-  industrial, home improvement, and professional services.
-- Companies that need high-quality leads, not vanity traffic.
+Johannesburg/Gauteng service businesses, B2B operators, and high-ticket local
+verticals: legal, medical, financial, real estate, manufacturing, logistics,
+automotive, industrial, home improvement, hospitality, and professional services.
 
 ================================================================================
-                         SERVICES ENDPOINT MEDIA OFFERS
+              COMPLETE SERVICE CATALOG — ENDPOINT MEDIA OFFERS
 ================================================================================
 
-WEB ARCHITECTURE AND DEVELOPMENT:
-- Website Development:
-  Custom Next.js architecture with entity SEO, semantic content clusters,
-  conversion-focused page structure, Core Web Vitals hardening, and full code
-  ownership.
-- Web Design Firm Services:
-  Enterprise-grade digital architecture for firms needing scalable, senior-led,
-  performance-first websites.
-- Website Redesign:
-  Transformation of outdated or underperforming sites into fast, modern,
-  search-visible, lead-generation assets.
-- Custom Development and Integrations:
-  Bespoke applications, CRM/ERP integrations, dashboards, automations, and
-  advanced web functionality.
-- Shopify Expert Builds:
-  Shopify and e-commerce builds with conversion, SEO, and performance concerns
-  accounted for.
-- Website Design Prices and ROI Calculator:
-  Transparent pricing education and calculator-led TCO/ROI comparison.
+All public service pages live under https://www.endpointmedia.co.za/services
+unless noted. Hub page groups offerings into eight categories.
 
-SEO, LOCAL SEO, AND REPUTATION:
-- Hyper-Local SEO Sprints:
-  Suburb and service-area targeting, entity optimization, local schema, and
-  Google Business Profile support.
-- Review Management and Reputation:
-  Review request flows, response systems, multi-platform monitoring, and
-  review-driven conversion trust.
+--------------------------------------------------------------------------------
+1. WEB ARCHITECTURE & DEVELOPMENT (Next.js)
+--------------------------------------------------------------------------------
 
-GOOGLE ADS AND PAID SEARCH:
-- Google Ads Management Hub:
-  Search, Performance Max, Local, conversion tracking, landing-page alignment,
-  and optimization.
-- Algorithmic Paid Search and Autonomous Google Ads Trading:
-  AI/Python trading infrastructure with Agentic Remediation Engine, Pydantic
-  Firewall, 24/7 defense shields, Server-Side GTM data sovereignty, BigQuery,
-  Apache Arrow warehousing, and trading-desk reporting.
-- B2B Google Ads Management:
-  Flat-fee paid search for B2B operators with pipeline, CPA, and ROAS reporting.
-- Performance Max and Local Ads:
-  PMax/local campaign structures tied to real conversion infrastructure.
-- Google Ads Landing Pages:
-  Fast post-click pages engineered for Quality Score, relevance, and conversion.
-- Google Ads Pricing:
-  Transparent ZAR pricing, setup fees, management tiers, and flat-fee model.
-- Manufacturing Google Ads:
-  Paid search for industrial and specification-led B2B buyers.
-- Financial Services Google Ads:
-  Paid search for advisors, accountants, brokers, and finance firms.
-- Automotive Google Ads:
-  Paid search for automotive service, repair, parts, and related operators.
-- Google Ads location spokes:
-  Sandton, Midrand, Alberton, Alrode, Wadeville, and Bedfordview.
+| Service | Route | Typical Investment |
+|---------|-------|-------------------|
+| Website Development | /services/website-development | From R15,000 (focused) to R150,000+ (enterprise) |
+| Web Design Firm Services | /services/web-design-firms | From R25,000 |
+| Website Redesign | /services/website-redesign | R10,000 – R60,000 |
+| Custom Development & Integrations | /services/custom-development | R40,000 – R500,000+ |
+| Shopify Expert Builds | /services/shopify-expert | R13,000 – R35,000+ |
+| Website Design Prices & ROI Calculator | /services/website-design-prices | Calculator / education |
 
-META / SOCIAL PAID MEDIA:
-- Facebook and Instagram Ads:
-  Meta campaign architecture, creative testing, audience strategy, and
-  conversion tracking for service businesses.
+PACKAGE TIERS (once-off web architecture):
+- Strategic Foundation: R25,000 (5–7 pages, 60-day build)
+- Market Dominance: R45,000 (10–15 pages, 90-day build)
+- Category Authority: R75,000+ (multi-location, llms.txt, HtmlRAG, crawl traps)
 
-CRO AND GROWTH RESCUE:
-- Conversion Rate Optimization:
-  30-day sprint model for landing pages, messaging, forms, funnels, and
-  measurable conversion lift.
-- Growth Rescue:
-  Intervention for underperforming websites/campaigns with technical,
-  conversion, and tracking fixes.
-- Enterprise Rendering and AEO Audit:
-  CI/CD rendering QA for hydration mismatches, WRS payload limits, schema graph
-  drift, and answer-engine extraction failures.
+DELIVERABLES ACROSS WEB BUILDS:
+Custom Next.js architecture, entity-based SEO, suburb targeting, schema markup,
+Core Web Vitals hardening, analytics instrumentation, conversion-focused page
+structure, and full code ownership.
 
-ENTERPRISE TECHNICAL SEO / AEO INFRASTRUCTURE:
-- Answer Engine Optimization (AEO) and B2A Architecture:
-  Vector-Ready DOMs, HtmlRAG chunking, flattened schema graphs, and generated
-  llms.txt / llms-full.txt pipelines.
-- Enterprise AI Crawler Firewalls and Bot Management:
-  JA4 TLS fingerprinting, search bot verification, training-scraper blocking,
-  live-retrieval allowlists, and edge rate limiting.
-- Edge-Level Crawl Budget Optimization:
-  Regex crawl traps, tracking parameter normalization, 410 Gone responses,
-  verified-bot cache policy, and PPR bot branching.
+--------------------------------------------------------------------------------
+2. LOCAL SEO & REPUTATION
+--------------------------------------------------------------------------------
 
-INDUSTRY-SPECIFIC SERVICE PAGES:
-- Law Firm Websites.
-- Medical and Aesthetic Websites.
-- Related industry hubs for finance, manufacturing/logistics, legal, medical,
-  and real estate.
+| Service | Route | Typical Investment |
+|---------|-------|-------------------|
+| Hyper-Local SEO Sprints | /services/local-seo | Maintenance SEO R2,000–R5,000/mo; Market Domination R8,500–R15,000/mo |
+| Review Management & Reputation | /services/review-management | Monthly retainer |
 
-MAINTENANCE AND SUPPORT:
-- Website Maintenance and Support:
-  Security updates, uptime monitoring, content updates, performance checks, SEO
-  maintenance, backups, and technical support.
+INCLUDES:
+Suburb silos, Google Business Profile optimization, citation building, review
+accelerators, LocalBusiness schema, AggregateRating rich snippets, automated
+review workflows, and multi-platform monitoring across greater Johannesburg.
 
-DIRECT STORE / AUDIT PRODUCTS:
-- Small Business Visibility Check:
-  R1,500 diagnostic for Core Web Vitals, 404 links, and local map visibility.
-- Answer Engine Readiness Audit:
-  R4,500 audit for token envelopes, llms.txt compliance, and Vector-Ready DOMs.
-- 1000-Point Algorithmic QA Scorecard:
-  R7,500 headless WRS, payload, timeout, schema, and DOM drift scorecard.
-- Enterprise Edge Diagnostic:
-  R15,000+ server-log crawl trap, JA4 firewall, 410 regex, and consulting offer.
-- B2A Pipeline Setup:
-  R3,500 llms.txt and llms-full.txt setup under 128k BPE tokens.
-- Schema Graph Flattening:
-  R4,500 JSON-LD @graph rewrite with absolute fragment IDs.
-- Edge-Level Crawl Trap Fix:
-  R6,000 Edge/CDN regex remediation for infinite URL loops.
-- Store checkout:
-  Store products use Paystack South Africa inline checkout for ZAR payments,
-  preserving SPA state and avoiding Stripe cross-border/DCC flows.
+RELATED:
+- Location hub: /locations (12 suburb pages)
+- Blog: /blog/local-seo-blueprint
 
-PUBLIC PRICING MODEL:
-- Website architecture:
-  Strategic Foundation: R25,000.
-  Market Dominance: R45,000.
-  Category Authority: R75,000+.
-- Google Ads:
-  Infrastructure setup: R14,500 - R20,000.
-  Growth management: R6,500/month.
-  Premium management: R12,500/month.
-  Elite management: R22,000+/month.
-- Website maintenance:
-  Essential: R500/month.
-  Professional: R1,200/month.
-  Enterprise: R2,500/month.
+--------------------------------------------------------------------------------
+3. TECHNICAL SEO, AEO & EDGE INFRASTRUCTURE (Enterprise)
+--------------------------------------------------------------------------------
+
+| Service | Route | Positioning |
+|---------|-------|-------------|
+| Answer Engine Optimization (AEO) & B2A Architecture | /services/answer-engine-optimization-aeo | Vector-Ready DOMs, llms.txt, HtmlRAG, @graph schema |
+| Enterprise AI Crawler Firewalls & Bot Management | /services/ai-crawler-firewall | JA4 fingerprinting, bot verification, scraper blocking |
+| Edge-Level Crawl Budget Optimization | /services/technical-seo-edge-compute | 410 traps, URL normalization, PPR bot branching |
+
+RELATED:
+- Growth Rescue (includes Enterprise Rendering & AEO Audit section): /services/growth-rescue
+- Blog: /blog/answer-engine-optimization-aeo
+- Blog: /blog/ai-bot-edge-middleware-cloudflare-blocking
+
+--------------------------------------------------------------------------------
+4. GOOGLE ADS & PAID SEARCH
+--------------------------------------------------------------------------------
+
+| Service | Route | Typical Investment |
+|---------|-------|-------------------|
+| Google Ads Management Hub | /services/google-ads | From R6,500/mo management |
+| Algorithmic Paid Search & Autonomous Trading | /services/algorithmic-google-ads-trading | R35,000+/mo (Algorithmic Enterprise) |
+| B2B Google Ads Management | /services/b2b-google-ads-management | From R6,500/mo |
+| Performance Max & Local Ads | /services/performance-max-google-ads | Scoped per account |
+| Google Ads Landing Pages | /services/google-ads-landing-pages | Per engagement |
+| Google Ads Pricing (full breakdown) | /services/google-ads-pricing | Transparent ZAR |
+| Manufacturing Google Ads | /services/google-ads-manufacturing | Industry vertical |
+| Financial Services Google Ads | /services/google-ads-financial-services | Industry vertical |
+| Automotive Google Ads | /services/google-ads-automotive | Industry vertical |
+
+GEO-TARGETED GOOGLE ADS SPOKES:
+- /services/google-ads-sandton
+- /services/google-ads-midrand
+- /services/google-ads-alberton
+- /services/google-ads-alrode
+- /services/google-ads-wadeville
+- /services/google-ads-bedfordview
+
+GOOGLE ADS PRICING MODEL:
+- Infrastructure setup: R14,500 – R20,000 (once-off)
+- Growth management: R6,500/mo (up to R20k ad spend)
+- Premium management: R12,500/mo (R20,001–R50,000 ad spend)
+- Elite management: R22,000+/mo (R50,001+ ad spend)
+- Algorithmic Enterprise: R35,000+/mo (R100,000+ ad spend; defense shields, sGTM, BigQuery)
+
+Ad spend billed directly to Google. Management is flat-fee, not % of spend.
+
+RELATED:
+- /compare/google-ads-flat-fee-vs-percentage-spend
+- /insights/south-africa-google-ads-cpc-benchmarks
+
+--------------------------------------------------------------------------------
+5. META (FACEBOOK & INSTAGRAM) ADS
+--------------------------------------------------------------------------------
+
+| Service | Route | Typical Investment |
+|---------|-------|-------------------|
+| Facebook & Instagram Ads | /services/facebook-ads | R8,000 – R25,000/mo recommended ad budget |
+
+META MANAGEMENT TIERS (/pricing):
+- Account & CAPI setup: R12,500 – R18,000 (once-off)
+- Growth management: R7,500/mo (up to R15k spend)
+- Premium management: R14,500/mo (R15,001–R25k spend)
+- Elite management: R22,000+/mo (R25,001+ spend)
+
+INCLUDES:
+Offer engineering, hook-first creative systems, audience layering, Meta CAPI +
+GA4 attribution, remarketing, and weekly optimization sprints.
+
+--------------------------------------------------------------------------------
+6. CONVERSION & GROWTH RESCUE
+--------------------------------------------------------------------------------
+
+| Service | Route | Typical Investment |
+|---------|-------|-------------------|
+| Conversion Rate Optimization | /services/conversion-rate-optimization | 30-day sprints |
+| Growth Rescue | /services/growth-rescue | From R20,000 |
+
+INCLUDES:
+Funnel forensics, UX fixes, A/B testing, tracking triage, landing page rebuilds,
+campaign restructure, and enterprise WRS/AEO audit interventions.
+
+--------------------------------------------------------------------------------
+7. INDUSTRY-SPECIFIC WEBSITES
+--------------------------------------------------------------------------------
+
+| Service | Route | Vertical |
+|---------|-------|----------|
+| Law Firm Websites | /services/law-firm-websites | Legal / LPC-POPIA intake |
+| Medical & Aesthetic Websites | /services/medical-websites | Medical / HPCSA-ready |
+
+INDUSTRY HUB PAGES:
+- /industries/law-firms
+- /industries/medical
+- /industries/finance
+- /industries/real-estate
+- /industries/manufacturing-logistics
+
+--------------------------------------------------------------------------------
+8. MAINTENANCE & ONGOING SUPPORT
+--------------------------------------------------------------------------------
+
+| Service | Route | Typical Investment |
+|---------|-------|-------------------|
+| Website Maintenance & Support | /services/website-maintenance | From R500/mo |
+
+MAINTENANCE TIERS:
+- Essential: R500/mo (security, uptime, basic support)
+- Professional: R1,200/mo (5 content pages, performance checks)
+- Enterprise: R2,500/mo (unlimited minor updates, SEO monitoring, AI firewall + GSC telemetry)
+
+All plans month-to-month. No lock-in contracts.
+
+--------------------------------------------------------------------------------
+9. DIRECT STORE — TECHNICAL AUDITS & MICRO-SERVICES (/store)
+--------------------------------------------------------------------------------
+
+AUDIT LADDER (Paystack checkout, ZAR):
+| Product | Slug | Price |
+|---------|------|-------|
+| Small Business Visibility Check | small-business-visibility-check | R1,500 |
+| Answer Engine Readiness Audit | answer-engine-readiness-audit | R4,500 |
+| 1000-Point Algorithmic QA Scorecard | 1000-point-algorithmic-qa-scorecard | R7,500 |
+| Enterprise Edge Diagnostic | enterprise-edge-diagnostic | R15,000+ |
+
+MICRO-SERVICES:
+| Product | Slug | Price |
+|---------|------|-------|
+| B2A Pipeline Setup (llms.txt) | b2a-pipeline-setup | R3,500 |
+| Schema Graph Flattening | schema-graph-flattening | R4,500 |
+| Edge-Level Crawl Trap Fix | edge-level-crawl-trap-fix | R6,000 |
+
+--------------------------------------------------------------------------------
+10. ENIGMA — GOOGLE ADS TRADING PLATFORM (in development)
+--------------------------------------------------------------------------------
+
+| Route | Status |
+|-------|--------|
+| /enigma | Sign-in UI live (cipher animation, particle background, Enigma ID + password form) |
+
+Backend authentication, node provisioning, and trading dashboard: not yet wired.
+Positioned as "Google Ads autonomous trading" product by Endpoint Media.
 
 ================================================================================
                          CURRENT TECHNOLOGY STACK
 ================================================================================
 
 Runtime:
-- Next.js 16.1.1 App Router.
-- React 19.
-- TypeScript 5.
-- Node.js.
-- Turbopack production build.
+- Next.js 16.1.1 (App Router, Turbopack)
+- React 19
+- TypeScript 5
+- Node.js
 
-Styling and UI:
-- Tailwind CSS 3.4.1.
-- tailwindcss-animate.
-- Radix Slot.
-- class-variance-authority.
-- clsx.
-- tailwind-merge.
-- lucide-react.
+Styling:
+- Tailwind CSS 3.4.1, tailwindcss-animate
+- Radix Slot, CVA, clsx, tailwind-merge, lucide-react
 
-Data, APIs, and automation:
-- Prisma / @prisma/client.
-- Resend for email delivery.
-- Paystack South Africa for store checkout.
-- Stripe legacy report-unlock flow retained in code, not used by store products.
-- BullMQ and ioredis.
-- Cheerio.
-- Playwright Core.
-- @sparticuz/chromium-min.
-- google-auth-library for GSC API telemetry.
-- gpt-tokenizer for BPE token counting.
+Data & integrations:
+- Prisma 6 / PostgreSQL (Vercel + PgBouncer)
+- Resend (contact/audit email)
+- Paystack South Africa (store checkout + webhook)
+- Stripe (legacy audit report unlock via /api/checkout POST)
+- BullMQ + ioredis (optional audit queue)
+- Cheerio (audit engine HTML parsing)
+- Playwright Core + @sparticuz/chromium-min (opt-in audit fingerprinting)
+- google-auth-library (GSC canonical CI)
+- gpt-tokenizer (llms-full.txt BPE budget)
+- react-paystack (store modal checkout)
 
 Deployment:
-- GitHub repository: Franksmittt/endpointmedia2.
-- Vercel deployments.
-- Current Vercel deployment for latest Phase 4 commit:
-  https://vercel.com/endpointmedia/endpointmedia2/EhmzHLezG1P25UREDfF56Q6nZ7G4
+- GitHub: Franksmittt/endpointmedia2
+- Vercel (auto-deploy from main)
+- Edge proxy: src/proxy.ts
 
 ================================================================================
-                         CURRENT BUILD AND ROUTE STATUS
+                         BUILD & ROUTE STATUS (June 2026)
 ================================================================================
 
-Latest successful production build:
-- Next.js 16.1.1.
-- 110 generated/static routes shown in build output.
-- Edge proxy enabled.
-- Major hubs use ISR with revalidate = 86400.
-- Legal/static pages are prerendered.
-- Dynamic/private routes remain server-rendered as needed.
+Latest production build: ~94 App Router routes + edge proxy middleware.
+Major hubs use ISR (revalidate = 86400). Blog uses generateStaticParams.
 
 NPM scripts:
-- npm run dev
-- npm run build
-- npm run start
-- npm run lint
-- npm run b2a:compile
+- npm run dev | build | start | lint
+- npm run b2a:compile (prebuild)
 - npm run seo:gsc:canonical
-- npm run seo:validate
-- npm run seo:validate:prod
-- npm run seo:graph
-- npm run seo:graph:prod
-- npm run seo:check
-- npm run seo:index
-- npm run seo:index:dry
+- npm run seo:validate | seo:validate:prod
+- npm run seo:graph | seo:graph:prod | seo:check
+- npm run seo:index | seo:index:dry
 - npm run indexnow:ping
 
 ================================================================================
-                         FULL PAGE AND ROUTE INVENTORY
+                         PAGE & ROUTE INVENTORY (SUMMARY)
 ================================================================================
 
-CORE PAGES:
-- /:
-  Homepage for Endpoint Media. Positions the business as a premium web
-  architecture and revenue systems firm. Includes audit CTA, proof, methodology,
-  Google Ads section, pricing, founder note, and final conversion CTA.
-- /services:
-  Services hub covering web architecture, local SEO, Google Ads, Meta ads, CRO,
-  industry websites, and maintenance.
-- /pricing:
-  Public pricing page for premium website architecture packages and investment
-  framing.
-- /store:
-  Direct checkout hub for technical diagnostics, audits, AEO readiness products,
-  schema fixes, B2A pipelines, and edge crawl-trap micro-services.
-- /contact:
-  Contact and lead-capture page with NAP details, audit/contact form, and
-  conversion routing.
-- /process:
-  Methodology page explaining discovery, architecture, implementation, and
-  growth process.
-- /case-studies:
-  Case study index and proof hub for client outcomes.
-- /blog:
-  Editorial index for web architecture, Google Ads, local SEO, Meta Ads, and
-  technical SEO content.
-- /locations:
-  Location hub for Johannesburg and Gauteng service areas.
-- /industries:
-  Industry hub for vertical-specific website and acquisition systems.
-- /about/author/frank-smit:
-  Founder profile and E-E-A-T entity page for Frank Smit.
-- /alberton-business-heritage:
-  Local linkable asset documenting Alberton commercial history and relevance.
-- /compare/google-ads-flat-fee-vs-percentage-spend:
-  Comparison page explaining flat-fee Google Ads management versus
-  percentage-of-spend agency pricing.
-- /insights/south-africa-google-ads-cpc-benchmarks:
-  Insight article with South African Google Ads CPC benchmarks.
-- /privacy-policy:
-  Legal privacy page.
-- /terms-of-service:
-  Legal terms page.
+CORE MARKETING:
+/  /services  /pricing  /store  /contact  /process  /case-studies  /blog
+/locations  /industries  /about/author/frank-smit  /alberton-business-heritage
+/compare/google-ads-flat-fee-vs-percentage-spend
+/insights/south-africa-google-ads-cpc-benchmarks
+/privacy-policy  /terms-of-service
 
-SERVICE PAGES:
-- /services/website-development:
-  Next.js development and semantic entity engineering service page.
-- /services/web-design-firms:
-  Enterprise web design firm services for companies needing senior-led,
-  scalable architecture.
-- /services/website-design-prices:
-  Website pricing guide and ROI calculator.
-- /services/website-redesign:
-  Redesign service for outdated, low-converting, or technically weak websites.
-- /services/shopify-expert:
-  Shopify build and e-commerce implementation service.
-- /services/custom-development:
-  Custom development, integrations, CRM/ERP, dashboards, and advanced web apps.
-- /services/law-firm-websites:
-  Legal website design service page for law firms and legal intake systems.
-- /services/medical-websites:
-  Medical and aesthetic practice website design service page.
-- /services/growth-rescue:
-  Rescue service for businesses with underperforming sites, funnels, or ads.
-- /services/local-seo:
-  Hyper-local SEO, GBP, suburb targeting, schema, and local visibility service.
-- /services/review-management:
-  Review generation, reputation management, response systems, and trust signals.
-- /services/website-maintenance:
-  Ongoing maintenance, updates, support, backups, performance, and SEO support.
-- /services/facebook-ads:
-  Facebook and Instagram advertising service page.
-- /services/conversion-rate-optimization:
-  CRO service page for lead-flow and funnel improvements.
-- /services/answer-engine-optimization-aeo:
-  AEO and Business-to-Agent architecture page for Vector-Ready DOMs, HtmlRAG
-  chunking, schema graphs, and llms.txt pipelines.
-- /services/ai-crawler-firewall:
-  Enterprise bot management page for JA4 fingerprinting, training-scraper
-  blocking, search bot verification, and live-retrieval allowlisting.
-- /services/technical-seo-edge-compute:
-  Edge-level crawl budget optimization page for 410 traps, URL normalization,
-  verified-bot cache controls, and PPR bot branching.
+ENIGMA:
+/enigma (noindex sign-in shell)
 
-GOOGLE ADS SERVICE PAGES:
-- /services/google-ads:
-  Main Google Ads management hub.
-- /services/algorithmic-google-ads-trading:
-  Autonomous Google Ads trading page for agentic remediation, Pydantic
-  validation, 24/7 defense shields, server-side attribution, BigQuery/Apache
-  Arrow warehousing, and fintech reporting interfaces.
-- /services/b2b-google-ads-management:
-  B2B paid search service with flat-fee management and pipeline reporting.
-- /services/performance-max-google-ads:
-  Performance Max and Google AI campaign service.
-- /services/google-ads-landing-pages:
-  Landing pages built for Google Ads Quality Score and conversion.
-- /services/google-ads-pricing:
-  Google Ads pricing model, setup, retainers, and fee transparency.
-- /services/google-ads-manufacturing:
-  Paid search for manufacturing and industrial suppliers.
-- /services/google-ads-financial-services:
-  Paid search for financial services firms.
-- /services/google-ads-automotive:
-  Paid search for automotive businesses.
-- /services/google-ads-sandton:
-  Google Ads service page for Sandton businesses.
-- /services/google-ads-alberton:
-  Google Ads service page for Alberton businesses.
-- /services/google-ads-midrand:
-  Google Ads service page for Midrand businesses.
-- /services/google-ads-alrode:
-  Google Ads service page for Alrode industrial operators.
-- /services/google-ads-wadeville:
-  Google Ads service page for Wadeville industrial operators.
-- /services/google-ads-bedfordview:
-  Google Ads service page for Bedfordview businesses.
+SERVICE PAGES (28 routes):
+All routes listed in sections 1–8 above under /services/*
 
-LOCATION PAGES:
-- /locations/sandton:
-  Web design and local SEO for Sandton companies.
-- /locations/meyersdal:
-  Web architecture and local acquisition for Meyersdal executive/service firms.
-- /locations/new-redruth:
-  Local SEO and web design for New Redruth professional services.
-- /locations/roodepoort:
-  Web design and local visibility for Roodepoort businesses.
-- /locations/bryanston:
-  Web architecture for Bryanston professional and high-value service firms.
-- /locations/rivonia:
-  Web design and local search for Rivonia office-park and service businesses.
-- /locations/midrand:
-  Web architecture for Midrand growth corridor businesses.
-- /locations/rosebank:
-  Web design and SEO for Rosebank commercial/professional operators.
-- /locations/randburg:
-  Web design and acquisition support for Randburg businesses.
-- /locations/fourways:
-  Web design and local SEO for Fourways businesses.
-- /locations/waterfall:
-  Web design and digital acquisition for Waterfall businesses.
-- /locations/benoni:
-  Web design and local SEO for Benoni and East Rand businesses.
+LOCATION PAGES (13):
+/locations + sandton, meyersdal, new-redruth, roodepoort, bryanston, rivonia,
+midrand, rosebank, randburg, fourways, waterfall, benoni
 
-INDUSTRY PAGES:
-- /industries/law-firms:
-  Websites for legal practices, attorney profiles, intake, legal SEO, and trust.
-- /industries/real-estate:
-  Websites for real estate agencies, listings, lead capture, and local search.
-- /industries/finance:
-  Websites for financial advisors, accountants, brokers, and trust-led finance
-  firms.
-- /industries/medical:
-  Websites for medical practices, clinics, aesthetic practices, and patient
-  acquisition.
-- /industries/manufacturing-logistics:
-  Industrial/B2B websites for manufacturers, logistics firms, RFQ flows, and
-  procurement buyers.
+INDUSTRY PAGES (6):
+/industries + law-firms, real-estate, finance, medical, manufacturing-logistics
 
-CASE STUDY PAGES:
-- /case-studies/alberton-battery-mart:
-  Case study for Alberton Battery Mart and local service/search architecture.
-- /case-studies/alberton-tyre-clinic:
-  Case study for Alberton Tyre Clinic and local automotive search visibility.
-- /case-studies/as-brokers:
-  Case study for AS Brokers and financial/professional services positioning.
-- /case-studies/vnr-professional-accountants:
-  Case study for VNR Professional Accountants, focused on accounting advisory
-  positioning, sustainable wealth, business growth, cash flow, tax, asset
-  protection, legacy planning, and direct navigation to https://vnr.co.za/.
-- /case-studies/vaalpenskraal-game-reserve:
-  Case study for Vaalpenskraal Game Reserve, a premium fair-chase hunting estate
-  in the Waterberg, Limpopo. Covers PH-led hunting, 22 species routes, four camp
-  chalets, Vark Kraal hospitality, mailto enquiry flows, and direct navigation
-  to https://www.vaalpenskraalhunts.co.za/.
-- /case-studies/maverick-painting-contractors:
-  Case study for a painting contractor and service-area lead generation.
-- /case-studies/qj-paint-world:
-  Case study for QJ Paint World and retail/local search growth.
-- /case-studies/rhino-panel-beaters:
-  Case study for Rhino Panel Beaters and automotive repair visibility.
-- /case-studies/sakana-no-ichi:
-  Case study for Sakana no Ichi and local hospitality/restaurant visibility.
+CASE STUDIES (9):
+- /case-studies/as-brokers
+- /case-studies/alberton-battery-mart
+- /case-studies/alberton-tyre-clinic
+- /case-studies/maverick-painting-contractors
+- /case-studies/qj-paint-world
+- /case-studies/rhino-panel-beaters
+- /case-studies/sakana-no-ichi
+- /case-studies/vnr-professional-accountants (live: https://vnr.co.za/)
+- /case-studies/vaalpenskraal-game-reserve (live: https://www.vaalpenskraalhunts.co.za/)
 
-BLOG PAGES:
-- /blog/meta-andromeda-manual-media-buying-dead:
-  Meta Andromeda article explaining Entity IDs and why manual media buying is
-  obsolete.
-- /blog/programmatic-design-factory-meta-creative-disparity:
-  Programmatic creative production article for Meta ad variation at scale.
-- /blog/abo-testing-sandbox-meta-algorithmic-liquidity:
-  Meta ABO testing and budget-liquidity framework.
-- /blog/server-side-capi-middleware-closed-loop-roi:
-  Server-side CAPI, event deduplication, EMQ, and CRM feedback loop article.
-- /blog/systemic-divergence-industry-vs-retail-south-africa:
-  Meta performance differences between heavy industry and local retail.
-- /blog/aeo-shift-chatgpt-gemini-optimization:
-  Article on the shift from traditional SEO to AEO for ChatGPT/Gemini.
-- /blog/nextjs-hydration-seo-rendering-traps:
-  Next.js hydration and client-rendering SEO failure modes.
-- /blog/shopify-canonical-loop-duplicate-paths:
-  Shopify duplicate-path and canonical loop analysis.
-- /blog/wordpress-rest-api-user-leak-security:
-  WordPress bloat and REST API/security exposure analysis.
-- /blog/ai-bot-edge-middleware-cloudflare-blocking:
-  Article about edge middleware blocking AI bots and retrieval systems.
-- /blog/the-brutal-truth-about-wordpress:
-  WordPress architecture critique for B2B conversion and performance.
-- /blog/core-web-vitals-financial-metric:
-  Core Web Vitals as a revenue and financial performance metric.
-- /blog/answer-engine-optimization-aeo:
-  AEO structure for ChatGPT, Perplexity, and citation extraction.
-- /blog/anatomy-elite-landing-page:
-  Anatomy of a high-performance landing page with minimal runtime bloat.
-- /blog/website-migration-blueprint:
-  Migration blueprint for moving to Next.js without search loss.
-- /blog/google-ads-tracking-errors-budget:
-  Google Ads tracking errors and server-side attribution fixes.
-- /blog/landing-page-speed-quality-score:
-  Relationship between landing-page speed and Google Ads Quality Score/CPC.
-- /blog/smart-bidding-vs-manual-waste:
-  Smart bidding versus manual bidding waste and clean conversion signals.
-- /blog/performance-engine-high-ticket-lead-gen:
-  High-ticket lead generation for long B2B sales cycles.
-- /blog/performance-over-vanity-metrics:
-  CPA, LTV, direct response, and performance measurement over vanity metrics.
-- /blog/local-seo-blueprint:
-  Hub-and-spoke local SEO architecture for industrial/local markets.
-- /blog/b2b-digital-marketing-specialized-industries:
-  B2B digital marketing for specialized industries and independent research
-  buyers.
-- /blog/minimalist-design-b2b-value:
-  Minimalist B2B design, cognitive load, typography, and trust.
-- /blog/structured-data-local-schema:
-  LocalBusiness JSON-LD, geo coordinates, and local schema implementation.
-- /blog/maximizing-regional-map-visibility:
-  KML overlays, citations, sitemap integration, and regional map visibility.
-- /blog/the-true-cost-of-a-website-in-johannesburg:
-  Johannesburg website pricing guide.
-- /blog/freelancer-vs-agency-the-low-risk-choice-for-johannesburg:
-  Freelancer versus agency comparison for Johannesburg web design buyers.
-- /blog/the-schema-vacuum-technical-seo-advantage:
-  Technical SEO and schema opportunity analysis for Johannesburg competitors.
-- /blog/wix-vs-wordpress-guide-johannesburg-small-businesses:
-  Wix versus WordPress guide for Johannesburg small businesses.
-- /blog/how-much-does-website-cost-south-africa-2025:
-  South African website cost guide.
+BLOG (31 posts):
+Meta/Andromeda cluster (5), AEO/technical SEO cluster (8), Google Ads cluster (5),
+local SEO cluster (4), B2B/design cluster (5), pricing/comparison cluster (4).
+Index at /blog; slugs registered in src/lib/blog/posts.ts.
 
-DISCOVERY, MACHINE, AND STATIC ASSET ROUTES:
-- /robots.txt:
-  Robots policy with AI/search crawler rules and sitemap references.
-- /sitemap.xml:
-  Dynamic sitemap generated from public routes and blog slugs.
-- /llms.txt:
-  Build-generated concise Answer Engine discovery file.
-- /llms-full.txt:
-  Build-generated full machine-readable context file under 128k BPE tokens.
-- /humans.txt:
-  Human-readable ownership metadata.
-- /alberton-service-area.kml:
-  Alberton service-area geo polygon.
-- /northern-corridor.kml:
-  Northern corridor geo polygon for Sandton/Bryanston/Rivonia area context.
-- /manifest.webmanifest:
-  Web app manifest.
-- /opengraph-image:
-  Dynamic root Open Graph image route.
-- /pricing/opengraph-image:
-  Pricing Open Graph image route.
-- /services/website-design-prices/opengraph-image:
-  Website pricing Open Graph image route.
-- /blog/[slug]/opengraph-image:
-  Per-blog-post Open Graph image route.
-- /apple-icon:
-  Apple icon route.
-- /[key].txt:
-  Env-gated IndexNow verification file route.
+MACHINE / STATIC ASSETS:
+/robots.txt  /sitemap.xml  /llms.txt  /llms-full.txt  /humans.txt
+/manifest.webmanifest  /alberton-service-area.kml  /northern-corridor.kml
+/opengraph-image routes  /[key].txt (IndexNow verification)
 
-PRIVATE / API ROUTES:
-- /api/contact:
-  Hardened form/audit request endpoint with rate limiting, content-type checks,
-  honeypot handling, payload caps, and Resend delivery.
-- /api/indexnow:
-  Authenticated IndexNow submission endpoint.
-- /api/checkout:
-  Report-unlock POST checkout endpoint. Store products no longer use Stripe.
-- /api/webhook/paystack:
-  Paystack fulfillment webhook using raw-body HMAC SHA512 verification and
-  StorePayment reference idempotency.
-- /api/webhook/stripe:
-  Legacy Stripe webhook endpoint retained only for existing non-store flows.
-- /api/factory/generate:
-  Google Ads factory CSV generation bridge.
-- /api/vicious-audit/run:
-  Audit engine run endpoint.
-- /api/vicious-audit/export-pdf:
-  Audit report PDF export endpoint.
-- /report/[id]:
-  Private noindex audit report view.
+API / PRIVATE:
+/api/contact  /api/indexnow  /api/checkout  /api/webhook/paystack
+/api/webhook/stripe (legacy)  /api/factory/generate
+/api/vicious-audit/run  /api/vicious-audit/export-pdf
+/report/[id] (private noindex audit reports)
 
 ================================================================================
-                         SEO, AEO, EDGE, AND BOT ARCHITECTURE
+                         SEO, AEO & EDGE ARCHITECTURE
 ================================================================================
 
 Schema:
-- secureJsonLD() sanitizes JSON-LD payloads.
-- Homepage emits one @graph script only.
-- Root graph nodes are centralized in src/lib/seo.ts.
-- Homepage graph includes Organization, LocalBusiness, WebSite, Person, WebPage,
-  and FAQPage nodes.
-- All core IDs use absolute canonical www endpointmedia.co.za fragments.
+- secureJsonLD() for all JSON-LD injection
+- Homepage: single @graph (Organization, LocalBusiness, WebSite, Person, WebPage, FAQPage)
+- Root nodes centralized in src/lib/seo.ts with absolute www canonical @id fragments
 
 Metadata:
-- buildMetadata() creates canonical, Open Graph, Twitter, and language alternate
-  values for pages.
-- Canonical strategy: always https://www.endpointmedia.co.za, trailingSlash false.
+- buildMetadata() per page (canonical, OG, Twitter, hreflang)
+- Canonical base: https://www.endpointmedia.co.za (trailingSlash: false)
 
-Answer Engine Optimization:
-- Generated public/llms.txt and public/llms-full.txt.
-- HtmlRAG chunk boundaries on homepage and blog prose components.
-- Semantic tables for relational metric/pricing data.
-- Optional serverless browser-rendering offload for live-retrieval agents.
+AEO:
+- Build-generated public/llms.txt and public/llms-full.txt
+- data-chunk-boundary="true" on semantic sections
+- Semantic tables for relational data
+- Optional browser rendering for live-retrieval agents
 
-Edge proxy:
-- File: src/proxy.ts.
-- Adds crawler verification, scraper blocking, JA4 fingerprint filtering,
-  tracking-parameter normalization, crawl traps, spell-check redirects, verified
-  bot cache policy, and live-retrieval browser-rendering offload.
-
-Security / anti-abuse:
-- Blocks known training scrapers.
-- Blocks spoofed Google/Bing bots that fail manifest/rDNS verification.
-- Blocks known headless JA4 fingerprints.
-- Rate-limits unverified bot-like static asset traffic.
-- Returns 410 for recursive trap patterns.
+Edge (src/proxy.ts):
+Bot verification, scraper blocking, JA4 filtering, crawl traps, tracking param
+normalization, spell-check redirects, verified-bot caching, rate limiting, PPR
+bot branching, live-agent HTML rendering offload.
 
 ================================================================================
-                         IMPORTANT ENVIRONMENT VARIABLES
+                         KEY ENVIRONMENT VARIABLES
 ================================================================================
 
 Core:
-- NEXT_PUBLIC_BASE_URL=https://www.endpointmedia.co.za
-- RESEND_API_KEY
-- RESEND_FROM_EMAIL
-- CONTACT_TO_EMAIL
-- NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY
-- PAYSTACK_SECRET_KEY
+NEXT_PUBLIC_BASE_URL=https://www.endpointmedia.co.za
+DATABASE_URL / DIRECT_URL (PostgreSQL)
+RESEND_API_KEY / RESEND_FROM_EMAIL / CONTACT_TO_EMAIL
+NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY / PAYSTACK_SECRET_KEY
 
-Analytics / Ads:
-- NEXT_PUBLIC_GA_ID
-- NEXT_PUBLIC_GOOGLE_ADS_ID
-- NEXT_PUBLIC_CONVERSION_LABEL_FORM
-- NEXT_PUBLIC_CONVERSION_LABEL_AUDIT
-- NEXT_PUBLIC_CONVERSION_LABEL_PHONE
-- NEXT_PUBLIC_CONVERSION_LABEL_WHATSAPP
+Analytics:
+NEXT_PUBLIC_GA_ID / NEXT_PUBLIC_GOOGLE_ADS_ID
+NEXT_PUBLIC_CONVERSION_LABEL_FORM|AUDIT|PHONE|WHATSAPP
 
-Search / indexing:
-- GOOGLE_SITE_VERIFICATION
-- INDEXNOW_KEY
-- INDEXNOW_SECRET or CRON_SECRET
+Search:
+GOOGLE_SITE_VERIFICATION
+INDEXNOW_KEY / INDEXNOW_SECRET or CRON_SECRET
 
-GSC canonical diff CI:
-- GOOGLE_APPLICATION_CREDENTIALS or GSC_SERVICE_ACCOUNT_JSON
-- GSC_SITE_URL
-- GSC_INSPECTION_URLS optional comma-separated sample list
+GSC CI:
+GOOGLE_APPLICATION_CREDENTIALS or GSC_SERVICE_ACCOUNT_JSON
+GSC_SITE_URL / GSC_INSPECTION_URLS
 
-Serverless browser rendering:
-- BROWSER_RENDERING_ENDPOINT or CLOUDFLARE_BROWSER_RENDERING_ENDPOINT
-- BROWSER_RENDERING_TOKEN or CLOUDFLARE_BROWSER_RENDERING_TOKEN optional
+Edge rendering:
+BROWSER_RENDERING_ENDPOINT / BROWSER_RENDERING_TOKEN
 
-Factory / ads automation:
-- FASTAPI_SERVICE_URL
-- INTERNAL_API_KEY
-- FACTORY_ADMIN_SECRET
+Audit engine:
+AUDIT_ENABLE_PLAYWRIGHT=true (optional)
+AUDITOR_UNLOCK_TOKEN / REDIS_URL (optional)
+
+Factory:
+FASTAPI_SERVICE_URL / INTERNAL_API_KEY / FACTORY_ADMIN_SECRET
 
 ================================================================================
                          KEY FILE REFERENCE
 ================================================================================
 
-Root:
-- PROJECT_SUMMARY.txt:
-  This file.
-- README.md:
-  Repository readme.
-- package.json:
-  Scripts and dependencies.
-- next.config.mjs:
-  Next.js configuration, headers, redirects, image config, cache policy.
-- tailwind.config.ts:
-  Tailwind configuration.
+Root docs:
+- PROJECT_SUMMARY.txt (this file)
+- project_context.txt (legacy local IDE context dump — not maintained)
+- PROJECT_OVERVIEW_AS Brokers.txt (separate client project reference)
+- README.md
 
-SEO and AEO:
-- src/lib/seo.ts:
-  Metadata builders, schema IDs, schema nodes, city helpers, WIKIDATA mapping.
-- src/proxy.ts:
-  Edge crawler firewall, normalization, rendering, cache, and trap logic.
-- src/app/robots.ts:
-  Robots and AI crawler policy.
-- src/app/sitemap.ts:
-  Dynamic sitemap.
-- scripts/seo/gsc_canonical_diff.mjs:
-  GSC URL Inspection canonical parity CI checker.
-- scripts/seo/compile_llms.mjs:
-  llms.txt and llms-full.txt compiler.
-- public/llms.txt:
-  Concise Answer Engine file.
-- public/llms-full.txt:
-  Expanded Answer Engine file.
+Architecture:
+- src/app/layout.tsx + src/components/layout/SiteChrome.tsx
+- src/lib/seo.ts
+- src/proxy.ts
+- scripts/seo/compile_llms.mjs
+- scripts/seo/gsc_canonical_diff.mjs
 
-Forms / APIs:
-- src/app/api/contact/route.ts:
-  Contact/audit form backend.
-- src/app/contact/ContactForm.tsx:
-  Contact form component.
-- src/components/sections/AuditForm.tsx:
-  Audit request form component.
-- src/lib/rate-limit.ts:
-  In-memory request limiter.
+Enigma:
+- src/app/enigma/page.tsx
+- src/components/enigma/*
+- src/components/ui/ParticleNetworkCanvas.tsx
 
-Content:
-- src/app/page.tsx:
-  Homepage.
-- src/components/sections/:
-  Homepage sections.
-- src/components/blog/blog-prose.tsx:
-  Blog prose components and HtmlRAG semantics.
-- src/lib/blog/posts.ts:
-  Blog metadata registry.
-- src/lib/blog/content/:
-  Blog content silo components.
-- src/lib/google-ads-services.ts:
-  Programmatic Google Ads service page configuration.
+Store:
+- src/app/store/page.tsx
+- src/lib/store-products.ts
+- src/components/store/PaystackCheckout.tsx
+- src/app/api/webhook/paystack/route.ts
 
-Automation / factory:
-- src/app/api/factory/generate/route.ts:
-  Google Ads factory bridge.
-- src/lib/prisma.ts:
-  Prisma singleton.
-- prisma/schema.prisma:
-  Database schema.
-- scripts/google_ads_overlord.js:
-  Google Ads automation script.
+Audit:
+- src/components/sections/AgencyHeroSection.tsx
+- src/app/api/vicious-audit/run/route.ts
+- src/utils/audit-engine/*
 
 ================================================================================
                          CURRENT OPERATIONAL NOTES
 ================================================================================
 
-1. There is an open draft PR for the latest Phase 4 change:
-   https://github.com/Franksmittt/endpointmedia2/pull/3
+1. Production deploys from main. Latest: Enigma UI + homepage hero particles.
 
-2. PR #2 was merged earlier. If GitHub does not show it under open PRs, that is
-   expected because it is merged.
+2. PR #11 (hero audit JSON fix) is open and NOT merged to main yet. Known issue
+   on production: homepage "Run Deep Audit" can return empty 500 body when audit
+   times out or DB persistence fails. Fix branch: cursor/fix-hero-audit-json-error-9f34.
 
-3. Latest Phase 4 branch is pushed:
-   cursor/seo-graph-wrs-refactor-9f34
+3. Enigma /enigma is UI-only. No auth API, session, or dashboard yet.
 
-4. Latest Vercel status for commit 108bf14 is success.
+4. Store uses Paystack (ZAR). Stripe retained only for legacy report unlock flow.
 
-5. Before merging Phase 4, confirm production edge platform exposes JA4 through
-   request.cf.botManagement.ja4 or one of the configured header fallbacks.
+5. Playwright in audit engine is OFF by default. Set AUDIT_ENABLE_PLAYWRIGHT=true
+   to opt in (adds latency; not recommended on serverless without tuning).
 
-6. Browser rendering is opt-in. Without BROWSER_RENDERING_ENDPOINT configured,
-   live-retrieval agents are still allowed but receive the standard Next.js HTML.
+6. Keep Google/Bing CIDR manifests in src/proxy.ts current.
 
-7. Keep Google/Bing crawler CIDR manifests current. Static manifests are a fast
-   first-pass verifier; rDNS/forward DNS is the fallback.
+7. Run npm run b2a:compile before build (wired via prebuild).
 
 ================================================================================
                          MAINTENANCE REMINDERS
 ================================================================================
 
-1. Canonical URLs must remain on https://www.endpointmedia.co.za.
-2. Use buildMetadata() for new indexable pages.
-3. Use secureJsonLD() for all JSON-LD injection.
-4. Add new money pages to sitemap, llms compiler, and relevant hub navigation.
-5. Add new service pages to /services and update this project summary.
-6. Re-run:
-   npm run b2a:compile
-   ./node_modules/.bin/tsc --noEmit
-   npm run lint
-   npm run build
-7. For major SEO changes, rerun:
-   npm run seo:validate
-   npm run seo:graph
-   npm run seo:check
-8. For production canonical confidence, run:
-   npm run seo:gsc:canonical
-9. Verify /llms.txt, /llms-full.txt, /robots.txt, and /sitemap.xml after deploy.
-10. Never commit secrets or API keys.
+1. Canonical URLs: always https://www.endpointmedia.co.za
+2. New indexable pages: buildMetadata(), sitemap.ts, compile_llms.mjs, hub links
+3. New services: add to /services/page.tsx categories AND this summary
+4. Pre-deploy checks: b2a:compile, tsc --noEmit, lint, build
+5. Post-deploy: verify /llms.txt, /robots.txt, /sitemap.xml
+6. Never commit secrets or .env files
 
 ================================================================================
-DOCUMENT VERSION: 6.0
-LAST UPDATED: June 14, 2026
-STATUS: Production deployed | Phase 4 PR open | Enterprise SEO/AEO edge complete
+DOCUMENT VERSION: 7.0
+LAST UPDATED: June 19, 2026
+STATUS: Production on main | 9 case studies | 31 blog posts | Enigma UI live
 ================================================================================
                             END OF DOCUMENT
 ================================================================================
