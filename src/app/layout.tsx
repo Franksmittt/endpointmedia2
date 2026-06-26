@@ -3,8 +3,7 @@ import type { Metadata } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import { WebVitals } from "@/components/analytics/web-vitals";
 import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { GOOGLE_ADS_ID } from "@/lib/conversion-config";
@@ -133,10 +132,7 @@ export default async function RootLayout({
       </head>
       <body className="bg-black font-sans text-zinc-300 antialiased">
         <a href="#main-content" className="skip-link">Skip to main content</a>
-    
-        <Header />
-        <main id="main-content">{children}</main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
         <WebVitals />
         {primaryTagId && (
           <>

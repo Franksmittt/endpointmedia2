@@ -30,6 +30,19 @@
   --ring: 24 100% 50%;
 }
 
+@layer utilities {
+  .enigma-transition {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .enigma-text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #86868b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
 /* 2. Add Base Layer Customizations */
 @layer base {
   /* Apply base font via layout.tsx body className */
