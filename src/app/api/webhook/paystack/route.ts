@@ -2,6 +2,7 @@ import 'server-only';
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { NextRequest, NextResponse } from 'next/server';
+import { markOnboardingPaid } from '@/lib/onboarding/payment';
 import { prisma } from '@/lib/prisma';
 import { getStoreProduct } from '@/lib/store-products';
 
@@ -20,6 +21,8 @@ type PaystackWebhookPayload = {
     metadata?: {
       productSlug?: string;
       productName?: string;
+      type?: string;
+      submissionId?: string;
       [key: string]: unknown;
     };
   };
@@ -63,6 +66,42 @@ export async function POST(request: NextRequest) {
   const reference = payload.data?.reference;
   if (!reference) {
     return NextResponse.json({ received: true, ignored: 'missing_reference' }, { status: 200 });
+  }
+
+  // Onboarding first-invoice payments (Phase 4 optional Paystack path)
+  const metaType = payload.data?.metadata?.type;
+  const submissionId =
+    typeof payload.data?.metadata?.submissionId === 'string'
+      ? payload.data.metadata.submissionId
+      : undefined;
+
+  if (metaType === 'onboarding' && submissionId) {
+    if (payload.event && payload.event !== 'charge.success') {
+      return NextResponse.json({ received: true, ignored: 'non_success_event' }, { status: 200 });
+    }
+    if (payload.data?.status && payload.data.status !== 'success') {
+      return NextResponse.json({ received: true, ignored: 'not_success' }, { status: 200 });
+    }
+
+    const amountZar =
+      typeof payload.data?.amount === 'number'
+        ? Math.round(payload.data.amount / 100)
+        : undefined;
+
+    const result = await markOnboardingPaid(submissionId, {
+      method: 'paystack',
+      paystackReference: reference,
+      amountZar,
+      note: 'Paystack charge.success webhook',
+    });
+
+    return NextResponse.json({
+      received: true,
+      onboarding: true,
+      ok: result.ok,
+      alreadyActive: result.ok ? result.alreadyActive : false,
+      error: result.ok ? undefined : result.error,
+    });
   }
 
   const existing = await prisma.storePayment.findUnique({

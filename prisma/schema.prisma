@@ -128,6 +128,87 @@ model ContactLead {
   @@index([emailStatus])
 }
 
+/// Onboarding / contract package lifecycle (invite-only /onboarding flow).
+enum ContractStatus {
+  draft
+  awaiting_signature
+  signed
+  awaiting_payment
+  active
+  suspended
+}
+
+model OnboardingSubmission {
+  id             String         @id @default(cuid())
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  status         ContractStatus @default(draft)
+  /// Full OnboardingFormData payload
+  form           Json
+  entityName     String
+  signatoryEmail String
+  /// unknown/below_r2m → true (CPA-protected treatment)
+  cpaProtected   Boolean        @default(true)
+  serviceSelection String       @default("")
+  /// Opaque token for HTML preview / sign / PDF without admin secret
+  previewToken   String         @unique @default(cuid())
+  /// Rendered HTML snapshot used for hash + PDF (Phase 3A+)
+  packageHtmlSnapshot String?   @db.Text
+  emailStatus    String         @default("pending")
+  emailError     String?
+  /// clickwrap_fallback | pandadoc | docusign | signiflow
+  signatureMode  String?
+  signedAt       DateTime?
+  /// Public or signed blob URL when using Vercel Blob
+  pdfUrl         String?
+  /// Local path or blob pathname key
+  pdfStorageKey  String?
+
+  /// Phase 4 — first invoice / payment gate
+  invoiceAmountZar   Int?
+  paymentReference   String?
+  invoiceEmailedAt   DateTime?
+  paidAt             DateTime?
+  paymentMethod      String?   // eft | paystack
+  paymentAmountZar   Int?
+  paymentNote        String?   @db.Text
+  paystackReference  String?
+  suspendedAt        DateTime?
+  suspendReason      String?   @db.Text
+  /// Phase 5 — last payment reminder sent (idempotent throttle)
+  lastReminderAt     DateTime?
+
+  signatureAudits SignatureAuditEvent[]
+
+  @@index([createdAt])
+  @@index([status])
+  @@index([signatoryEmail])
+  @@index([entityName])
+  @@index([paymentReference])
+  @@index([paystackReference])
+  @@index([lastReminderAt])
+}
+
+/// Clickwrap / e-sign audit trail (Phase 3 Option A).
+model SignatureAuditEvent {
+  id             String   @id @default(cuid())
+  submissionId   String
+  submission     OnboardingSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  signedAt       DateTime @default(now())
+  ipAddress      String?
+  userAgent      String?  @db.Text
+  typedName      String
+  documentSha256 String
+  checkboxFlags  Json
+  tokenUsed      String
+  event          String   @default("signed") // viewed | accepted | signed | declined
+  provider       String   @default("clickwrap_fallback")
+
+  @@index([submissionId])
+  @@index([signedAt])
+  @@index([documentSha256])
+}
+
 /// Idempotent Paystack fulfillment records for store purchases.
 model StorePayment {
   id            String   @id @default(cuid())

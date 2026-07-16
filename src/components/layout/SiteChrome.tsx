@@ -6,9 +6,10 @@ import Header from '@/components/layout/Header';
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isEnigmaRoute = pathname?.startsWith('/enigma');
+  const hideMarketingChrome =
+    pathname?.startsWith('/enigma') || pathname?.startsWith('/onboarding');
 
-  if (isEnigmaRoute) {
+  if (hideMarketingChrome) {
     return <>{children}</>;
   }
 
