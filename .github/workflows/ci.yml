@@ -1,5 +1,5 @@
 # Perfect-10 Task 1 — CI gate (foundation)
-# Node 22 matches local audit env / @types/node ^22 (no engines field in package.json).
+# Node 22 matches package.json engines.node "22.x" / @types/node ^22.
 name: CI
 
 on:

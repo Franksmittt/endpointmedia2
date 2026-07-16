@@ -18,7 +18,7 @@ Single job: **`lint · typecheck · seo:validate`**
 
 | Step | Command | Notes |
 |------|---------|-------|
-| Node | `22` via `actions/setup-node` | Matches `@types/node` ^22 / local audit env. No `engines` field in `package.json` yet. |
+| Node | `22` via `actions/setup-node` | Matches `package.json` `"engines": { "node": "22.x" }`, `@types/node` ^22, and local CI (v22.x). |
 | Install | `npm ci` | `postinstall` → `prisma generate` (dummy `DATABASE_URL` only) |
 | Lint | `npm run lint` | ESLint (Next core-web-vitals) |
 | Typecheck | `npm run typecheck` | `tsc --noEmit` |
@@ -37,9 +37,17 @@ Single job: **`lint · typecheck · seo:validate`**
 
 Checks still enforced per URL: HTTP 200 (no redirect traps), no `noindex` meta/header, canonical present + path-aligned.
 
+## Node engine
+
+- **Pinned:** `"engines": { "node": "22.x" }` in `package.json`
+- **GitHub Actions:** `node-version: "22"`
+- **Local verify:** run on Node 22.x (`node -v` should report `v22.*`)
+- Align the Vercel project Node version to **22.x** so deploy runtime matches CI (Project Settings → General → Node.js Version).
+
 ## Local commands (reproduce)
 
 ```bash
+node -v   # expect v22.x
 npm ci
 npm run lint
 npm run typecheck
