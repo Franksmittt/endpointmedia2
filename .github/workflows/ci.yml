@@ -1,0 +1,58 @@
+# Perfect-10 Task 1 — CI gate (foundation)
+# Node 22 matches package.json engines.node "22.x" / @types/node ^22.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    name: lint · typecheck · seo:validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      # Safe public defaults only — no secrets
+      NEXT_PUBLIC_BASE_URL: https://www.endpointmedia.co.za
+      SEO_BASE_URL: https://www.endpointmedia.co.za
+      # Prisma generate on postinstall does not need a live DB
+      DATABASE_URL: postgresql://ci:ci@127.0.0.1:5432/ci?schema=public
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install JS dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install SEO validator deps
+        run: pip install "requests>=2.31.0" "beautifulsoup4>=4.12.0"
+
+      - name: SEO validate (prod smoke)
+        # Hits live production sitemap/canonicals — no local Next server required.
+        # LHCI / axe / visual / seo:graph deferred to later Perfect-10 tasks.
+        run: npm run seo:validate:ci

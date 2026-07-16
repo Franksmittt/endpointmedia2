@@ -87,18 +87,28 @@ const nextConfig = {
             value: 'same-origin-allow-popups'
           },
           {
+            // Perfect-10 Task 2: Paystack commerce CSP allowlist (Path A).
+            // Store: react-paystack → @paystack/inline-js (popup/iframe).
+            // Onboarding: server initialize + top-level redirect (mostly unaffected by script-src).
+            // Hosts evidenced from node_modules/@paystack/inline-js + Paystack Inline docs.
+            // Do NOT use https: wildcards. Do NOT add unsafe-eval. Staging/beta/legacy hosts omitted.
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
+              // gtag + Paystack Inline/popup scripts (js.paystack.co classic; checkout* for vendor chunks e.g. pusher)
+              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://js.paystack.co https://checkout.paystack.com https://checkout-studio.paystack.com",
               "style-src 'self' 'unsafe-inline'",
+              // img-src already allows https: (Paystack card brand assets covered)
               "img-src 'self' data: https: blob:",
               "font-src 'self' data:",
-              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://vitals.vercel-insights.com",
-              "frame-src 'self' https://www.google.com",
+              // Analytics + Paystack API / checkout XHR (studio-api for newer checkout studio)
+              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://vitals.vercel-insights.com https://api.paystack.co https://checkout.paystack.com https://standard.paystack.co https://checkout-studio.paystack.com https://studio-api.paystack.co",
+              // Google embeds + Paystack payment iframes/popups
+              "frame-src 'self' https://www.google.com https://checkout.paystack.com https://standard.paystack.co https://checkout-studio.paystack.com https://js.paystack.co",
               "frame-ancestors 'self'",
               "base-uri 'self'",
-              "form-action 'self'",
+              // Keep self; allow Paystack checkout form posts / 3DS handoffs from Inline
+              "form-action 'self' https://checkout.paystack.com https://standard.paystack.co",
               "object-src 'none'",
               "upgrade-insecure-requests",
             ].join('; '),

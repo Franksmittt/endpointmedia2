@@ -32,6 +32,16 @@ from seo_config import (
     SITEMAP_NS,
 )
 
+# Spoofing Googlebot from CI/dev IPs is blocked by src/proxy.ts bot verification (403).
+# GitHub Actions sets CI=true — use an honest CI UA so prod smoke can run.
+CI_UA = "EndpointMedia-SEO-CI/1.0 (+https://www.endpointmedia.co.za)"
+
+
+def resolve_user_agent(*, force_ci: bool = False) -> str:
+    if force_ci or os.environ.get("CI", "").lower() in {"1", "true", "yes"}:
+        return CI_UA
+    return GOOGLEBOT_UA
+
 
 def normalize_path(url: str, path_only: bool = False) -> str:
     """Compare paths ignoring scheme, www, and trailing slashes."""
@@ -53,9 +63,10 @@ def remap_to_base(url: str, base_url: str) -> str:
     return f"{base.scheme}://{base.netloc}{path}"
 
 
-def fetch_sitemap_urls(sitemap_url: str) -> list[str]:
+def fetch_sitemap_urls(sitemap_url: str, user_agent: str) -> list[str]:
     print(f"[*] Fetching sitemap: {sitemap_url}")
-    request = urllib.request.Request(sitemap_url, headers={"User-Agent": GOOGLEBOT_UA})
+    print(f"[*] User-Agent: {user_agent}")
+    request = urllib.request.Request(sitemap_url, headers={"User-Agent": user_agent})
     with urllib.request.urlopen(request, timeout=30) as response:
         xml_data = response.read()
 
@@ -144,18 +155,24 @@ def main() -> int:
         default=0,
         help="Max URLs to validate (0 = all)",
     )
+    parser.add_argument(
+        "--ci-ua",
+        action="store_true",
+        help="Use EndpointMedia-SEO-CI UA (also auto when CI=true). Avoids Googlebot spoof 403.",
+    )
     args = parser.parse_args()
 
     base = args.base_url.rstrip("/")
     sitemap_url = f"{base}{args.sitemap_path}"
-    headers = {"User-Agent": GOOGLEBOT_UA}
+    user_agent = resolve_user_agent(force_ci=args.ci_ua)
+    headers = {"User-Agent": user_agent}
 
     print("=" * 55)
     print(" Next.js SEO Pre-Deployment Validation")
     print("=" * 55)
 
     try:
-        urls = fetch_sitemap_urls(sitemap_url)
+        urls = fetch_sitemap_urls(sitemap_url, user_agent)
     except Exception as exc:
         print(f"[!] Cannot fetch sitemap. Is the server running at {base}?")
         print(f"    {exc}")
