@@ -13,6 +13,8 @@ const eslintConfig = [
       'coverage/**',
       'next-env.d.ts',
       'public/**',
+      // CJS stub for tsx CLI (server-only mock) — not app code
+      'scripts/mock-server-only.cjs',
     ],
   },
 ];
