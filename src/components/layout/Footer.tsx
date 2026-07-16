@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import TrackedTelLink from '@/components/analytics/TrackedTelLink';
 
 const socialLinks = [
   {
@@ -122,9 +123,13 @@ const Footer = () => {
             <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600">Contact</p>
             <address className="mt-4 space-y-3 text-sm not-italic">
               <p>
-                <a href="tel:+27769724559" className="transition-colors hover:text-white">
+                <TrackedTelLink
+                  href="tel:+27769724559"
+                  phoneNumber="+27769724559"
+                  className="transition-colors hover:text-white"
+                >
                   076 972 4559
-                </a>
+                </TrackedTelLink>
               </p>
               <p>
                 <a
