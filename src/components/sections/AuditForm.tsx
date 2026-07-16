@@ -86,7 +86,7 @@ export function AuditForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex h-full flex-col rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 text-left sm:p-8"
+      className="relative flex h-full flex-col rounded-sm border border-zinc-800 bg-zinc-950/70 p-6 text-left sm:p-8"
     >
       <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-500">
         Request Audit

@@ -2,6 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import ContactWhatsAppLink from '@/app/contact/ContactWhatsAppLink';
+import TrackedTelLink from '@/components/analytics/TrackedTelLink';
 import { secureJsonLD, BASE_URL } from '@/lib/seo';
 
 export const revalidate = 86400;
@@ -97,12 +98,13 @@ export default function ContactPage() {
             >
               Send a Message
             </Link>
-            <Link
+            <TrackedTelLink
               href="tel:+27769724559"
+              phoneNumber="+27769724559"
               className="inline-flex items-center justify-center rounded-sm border border-zinc-700 px-8 py-4 text-base font-semibold text-zinc-100 transition-colors hover:bg-zinc-900"
             >
               Call 076 972 4559
-            </Link>
+            </TrackedTelLink>
           </div>
         </div>
       </section>
@@ -195,9 +197,13 @@ export default function ContactPage() {
                     </a>
                   </p>
                   <p>
-                    <a href="tel:+27769724559" className="transition-colors hover:text-white">
+                    <TrackedTelLink
+                      href="tel:+27769724559"
+                      phoneNumber="+27769724559"
+                      className="transition-colors hover:text-white"
+                    >
                       076 972 4559
-                    </a>
+                    </TrackedTelLink>
                   </p>
                   <p>
                     <ContactWhatsAppLink
